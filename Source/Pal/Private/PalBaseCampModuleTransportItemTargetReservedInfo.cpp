@@ -1,0 +1,5 @@
+#include "PalBaseCampModuleTransportItemTargetReservedInfo.h"
+
+FPalBaseCampModuleTransportItemTargetReservedInfo::FPalBaseCampModuleTransportItemTargetReservedInfo() {
+}
+

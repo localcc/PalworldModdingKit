@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "SpreadSheetToCsv",
+	"Description": "Fetch SpreadSheet Data to Csv",
+	"Category": "Other",
+	"CreatedBy": "Pocketpair",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "SpreadSheetToCsv",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}

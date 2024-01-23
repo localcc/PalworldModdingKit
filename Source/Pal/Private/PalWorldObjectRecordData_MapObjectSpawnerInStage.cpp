@@ -1,0 +1,5 @@
+#include "PalWorldObjectRecordData_MapObjectSpawnerInStage.h"
+
+FPalWorldObjectRecordData_MapObjectSpawnerInStage::FPalWorldObjectRecordData_MapObjectSpawnerInStage() {
+}
+

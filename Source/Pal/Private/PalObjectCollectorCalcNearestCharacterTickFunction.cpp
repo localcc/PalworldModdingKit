@@ -1,0 +1,5 @@
+#include "PalObjectCollectorCalcNearestCharacterTickFunction.h"
+
+FPalObjectCollectorCalcNearestCharacterTickFunction::FPalObjectCollectorCalcNearestCharacterTickFunction() {
+}
+

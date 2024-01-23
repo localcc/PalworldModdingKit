@@ -1,0 +1,5 @@
+#include "PalGameSystemInitSequence_WaitForLocalPlayerStateSetup.h"
+
+UPalGameSystemInitSequence_WaitForLocalPlayerStateSetup::UPalGameSystemInitSequence_WaitForLocalPlayerStateSetup() {
+}
+

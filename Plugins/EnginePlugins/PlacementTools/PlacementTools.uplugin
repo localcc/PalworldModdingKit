@@ -1,0 +1,28 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0.2",
+	"FriendlyName": "ProcedualObjectPlacementTools",
+	"Description": "Tools to procedurally place objects with certain rules and distributions",
+	"Category": "Editor",
+	"CreatedBy": "Kheldex",
+	"CreatedByURL": "",
+	"DocsURL": "https://docs.google.com/document/d/12Qo3vxINl0AftUF62MuIngzdy_GpEVtsgZShwiTJROY/edit?usp=sharing",
+	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/56d3aa341b9f43d2867118b46a80eb5a",
+	"SupportURL": "https://discord.com/invite/CKYQ8vD6Yz",
+	"EngineVersion": "5.1.0",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "PlacementTools",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64"
+			]
+		}
+	]
+}

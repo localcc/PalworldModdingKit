@@ -1,0 +1,5 @@
+#include "PalMapObjectBaseCampPassiveEffectWorkHardParameterComponent.h"
+
+UPalMapObjectBaseCampPassiveEffectWorkHardParameterComponent::UPalMapObjectBaseCampPassiveEffectWorkHardParameterComponent() {
+}
+

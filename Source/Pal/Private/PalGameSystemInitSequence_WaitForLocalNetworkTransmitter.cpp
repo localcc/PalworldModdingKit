@@ -1,0 +1,5 @@
+#include "PalGameSystemInitSequence_WaitForLocalNetworkTransmitter.h"
+
+UPalGameSystemInitSequence_WaitForLocalNetworkTransmitter::UPalGameSystemInitSequence_WaitForLocalNetworkTransmitter() {
+}
+

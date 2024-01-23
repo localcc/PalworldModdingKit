@@ -1,0 +1,28 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "2.2",
+	"FriendlyName": "FSR 2.2",
+	"Description": "FidelityFX Super Resolution 2.2",
+	"Category": "Rendering",
+	"CreatedBy": "AMD",
+	"CreatedByURL": "https://gpuopen.com/unreal-engine/",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"EngineVersion": "5.1.0",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": true,
+	"SupportedTargetPlatforms": [
+		"Win64"
+	],
+	"Modules": [
+		{
+			"Name": "FSR2TemporalUpscaling",
+			"Type": "Runtime",
+			"LoadingPhase": "PostConfigInit"
+		}
+	]
+}

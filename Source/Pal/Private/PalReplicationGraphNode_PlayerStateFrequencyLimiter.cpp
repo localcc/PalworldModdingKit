@@ -1,0 +1,5 @@
+#include "PalReplicationGraphNode_PlayerStateFrequencyLimiter.h"
+
+UPalReplicationGraphNode_PlayerStateFrequencyLimiter::UPalReplicationGraphNode_PlayerStateFrequencyLimiter() {
+}
+

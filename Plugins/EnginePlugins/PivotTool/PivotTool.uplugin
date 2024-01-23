@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 21,
+	"VersionName": "1.3.6",
+	"FriendlyName": "Pivot Tool",
+	"Description": "Pivot Tool is an editor plugin that allows you to modify actors pivot easily, and bake changes to static meshes inside Unreal Editor.",
+	"Category": "Editor",
+	"CreatedBy": "marynate",
+	"CreatedByURL": "https://github.com/marynate",
+	"DocsURL": "https://docs.google.com/document/d/1COorZfnzP8Pf19rYmmqAo3UmmxOAk7ihpKxvosURhq8/pub",
+	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/a220ab040cb844beb355b0f159eabefa",
+	"SupportURL": "",
+	"EngineVersion": "5.1.0",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": true,
+	"Plugins": [
+		{
+			"Name": "GeometryProcessing",
+			"Enabled": true
+		}
+	]
+}

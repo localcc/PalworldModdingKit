@@ -1,0 +1,18 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "WorldCreatorBridge",
+	"Description": "Quickly sync your World Creator terrain to Unreal Engine 5",
+	"Category": "Other",
+	"CreatedBy": "world creator",
+	"CreatedByURL": "https://www.world-creator.com/",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "https://www.world-creator.com/",
+	"EngineVersion": "5.1.0",
+	"CanContainContent": false,
+	"IsBetaVersion": true,
+	"IsExperimentalVersion": false,
+	"Installed": true
+}

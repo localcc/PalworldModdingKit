@@ -1,0 +1,48 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "EPalMapObjectOperationResult.generated.h"
+
+UENUM(BlueprintType)
+enum class EPalMapObjectOperationResult : uint8 {
+    None,
+    Canceled,
+    FailedInLimitVolume,
+    FailedInDungeon,
+    FailedOverflowBaseCampNumInGuild,
+    FailedOverflowBaseCampNumInWorld,
+    FailedTooNearOtherBaseCampArea,
+    FailedOtherGuildBaseCampArea,
+    FailedExceedMaxZ,
+    FailedCannotInstallNotInDoor,
+    FailedCannotInstallNotOnBase,
+    FailNotFoundBaseCampWorkerDirectorBelongTo,
+    FailedNotEnoughMaterials,
+    FailedInValidWeakSelf,
+    FailedInValidRequestHandler,
+    FailedNotReady,
+    FailNotFoundClass,
+    FailLackSupportedLevel,
+    FailNotConnectToOther,
+    FailedNotInstallOnBackground,
+    FailOverlap,
+    FailedIntersectOtherObject,
+    FailNotAttachToWall,
+    FailNotAttachToCeil,
+    FailNotFoundBuildObjectData,
+    FailNotFoundBaseCampBelongTo,
+    FailSpawnNotFoundBaseCampBelongTo,
+    FailedNotFoundModel,
+    FailedNotBuildObject,
+    FailedNotFoundBuildProcess,
+    FailedNotBuildingState,
+    FailNotFoundRequestPlayerPalStorage,
+    FailNotEnoughPalBoxEmptySlot,
+    FailedNotInstallBySurface,
+    FailedTooSteepSlopeAngle,
+    FailedAccessPointCannotGrounded,
+    FailedChestCannotGrounded,
+    FailedNotCanDismantleState,
+    FailedNotExistRequestPlayer,
+    Success,
+};
+

@@ -1,0 +1,8 @@
+#include "PalBaseCampModuleObjectMaintenance_ExtinguishFire.h"
+
+void UPalBaseCampModuleObjectMaintenance_ExtinguishFire::OnTriggerByReachAccumulateTriggerValue(UPalMapObjectModelEffect_AccumulateTrigger* Effect_AccumulateTrigger, UPalMapObjectModel* OwnerModel) {
+}
+
+UPalBaseCampModuleObjectMaintenance_ExtinguishFire::UPalBaseCampModuleObjectMaintenance_ExtinguishFire() {
+}
+

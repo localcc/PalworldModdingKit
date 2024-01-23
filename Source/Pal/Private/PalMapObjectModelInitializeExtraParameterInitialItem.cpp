@@ -1,0 +1,5 @@
+#include "PalMapObjectModelInitializeExtraParameterInitialItem.h"
+
+UPalMapObjectModelInitializeExtraParameterInitialItem::UPalMapObjectModelInitializeExtraParameterInitialItem() {
+}
+
