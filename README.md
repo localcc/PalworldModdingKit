@@ -116,6 +116,10 @@ Inside of this folder, select:
 
 And copy over those folders to the `ThirdParty` folder.
 
+After copying over those folders, make sure to duplicate the `vc170` folders as `vc160` also, so the structure will look as follows:
+
+![VC160 Copies](assets/Vc160Incident.png)
+
 Yay! Now we are done with integrating wwise!
 
 ## Launching

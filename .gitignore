@@ -97,6 +97,7 @@
 !Makefile
 !Makefile.*
 !Settings.settings
+!assets/**
 
 # Specific names
 !README
