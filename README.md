@@ -182,6 +182,10 @@ After doing all of those steps, we are ready! Double click the `Pal.uproject` fi
 - [UE4SS Offical Docs](https://docs.ue4ss.com/index.html)
 - [Creating A Bluepring Mod Youtube Video](https://www.youtube.com/watch?v=fB3yT85XhVA)  
 
+> [!NOTE]
+> Following the above youtube video; when you get to packaging your project, the button is located here:
+![Package button](assets/UEPackageButton.png)
+
 ## Help
 
 If you encounter any issues using the SDK, feel free to open an issue, or shoot a message on discord.
