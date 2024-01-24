@@ -122,6 +122,36 @@ After copying over those folders, make sure to duplicate the `vc170` folders as 
 
 Yay! Now we are done with integrating wwise!
 
+### Changing build tools from VS 2019 to VS 2022
+In Unreal Engine 5.1, by default, Visual Studio 2019 build tools will be used if they are installed. 
+
+> [!IMPORTANT]
+> The below changes should only be made if Visual Studio 2019 is installed alongside Visual Studio 2022.
+
+To change this, navigate to `%APPDATA%\Unreal Engine\UnrealBuildTool` and open `BuildConfiguration.xml` with your favorite XML editor.
+
+Your initial configuration will look like below:
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<Configuration xmlns="https://www.unrealengine.com/BuildConfiguration">
+</Configuration>
+```
+
+Update the configuration to look like this:
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<Configuration xmlns="https://www.unrealengine.com/BuildConfiguration">
+    <VCProjectFileGenerator>
+        <Version>VisualStudio2022</Version>
+    </VCProjectFileGenerator>
+    <WindowsPlatform>
+        <Compiler>VisualStudio2022</Compiler>
+    </WindowsPlatform>
+</Configuration>
+```
+
+Congratulations on making it through the configuration!
+
 ## Launching
 
 After doing all of those steps, we are ready! Double click the `Pal.uproject` file and it should open in Unreal Engine!
@@ -135,6 +165,9 @@ After doing all of those steps, we are ready! Double click the `Pal.uproject` fi
 
 > [!IMPORTANT]
 > If the file doesn't open in unreal engine and instead asks you for associations, open Unreal Engine, and open the file from there instead
+
+> [!NOTE]
+> You may see a popup on launch about Wwise project path issues, ignore it and press the X in the corner to close the popup.
 
 
 ## Help
