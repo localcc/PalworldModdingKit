@@ -1,3 +1,3 @@
 #include "Modules/ModuleManager.h"
 
-IMPLEMENT_MODULE(FDefaultGameModuleImpl, Pal);
+// IMPLEMENT_MODULE(FDefaultGameModuleImpl, Pal);
