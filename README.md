@@ -169,6 +169,8 @@ After doing all of those steps, we are ready! Double click the `Pal.uproject` fi
 > [!NOTE]
 > You may see a popup on launch about Wwise project path issues, ignore it and press the X in the corner to close the popup.
 
+> [!IMPORTANT]
+> The next step in the process will be to create a Compatible Blueprint Mod, More information listed here [ue4ss Blueprint Docs](https://docs.ue4ss.com/feature-overview/blueprint-modloader.html)  
 
 ## Help
 
