@@ -169,6 +169,9 @@ After doing all of those steps, we are ready! Double click the `Pal.uproject` fi
 > [!NOTE]
 > You may see a popup on launch about Wwise project path issues, ignore it and press the X in the corner to close the popup.
 
+> [!NOTE]
+> You may think nothing is happening, unreal engine has to compile a lot of things in the background before the editor opens. This may take a LONG while.
+
 
 ## What do I do now?
 
