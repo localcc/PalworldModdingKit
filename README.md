@@ -11,13 +11,21 @@ Simple example usage could look like this:
 
 ## Prerequisites
 
+### .NET 6
+
+For unreal build tools to function correctly, you will need to have .NET 6 installed on your system, head over to [this link](https://dotnet.microsoft.com/en-us/download/dotnet/6.0/runtime?cid=getdotnetcore&os=windows&arch=x64). Here, click on the `Download x64` button to download the runtime:
+
+![Dotnet download](assets/Dotnet.png)
+
+Afterwards, open the installer, and install the runtime.
+
 ### Visual Studio 2022
 
 To compile the sdk you will need Visual Studio 2022 installed, you can grab it from [this](https://visualstudio.microsoft.com/vs/) link. A community edition version will suffice. While installing it, make sure to check the following components in the installer:
 
 
 ![Visual Studio Installer Options](assets/VisualStudioInstaller.png)
-
+![Visual Studio Installer Options 2](assets/VisualStudioInstaller2.png)
 
 Then press continue, and wait for visual studio to install.
 
