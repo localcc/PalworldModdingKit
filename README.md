@@ -170,6 +170,15 @@ After doing all of those steps, we are ready! Double click the `Pal.uproject` fi
 > You may see a popup on launch about Wwise project path issues, ignore it and press the X in the corner to close the popup.
 
 
+## What do I do now?
+
+> [!IMPORTANT]
+> The next step in the process will be to create a Compatible Blueprint Mod
+
+- [UE4SS Github](github.com/UE4SS-RE/RE-UE4SS)
+- [UE4SS Offical Docs](https://docs.ue4ss.com/index.html)
+- [Creating A Bluepring Mod Youtube Video](https://www.youtube.com/watch?v=fB3yT85XhVA)  
+
 ## Help
 
 If you encounter any issues using the SDK, feel free to open an issue, or shoot a message on discord.
