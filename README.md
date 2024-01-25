@@ -188,20 +188,15 @@ After doing all of those steps, we are ready! Double click the `Pal.uproject` fi
 
 - [UE4SS Github](github.com/UE4SS-RE/RE-UE4SS)
 - [UE4SS Offical Docs](https://docs.ue4ss.com/index.html)
-- [Creating A Bluepring Mod Youtube Video](https://www.youtube.com/watch?v=fB3yT85XhVA)  
+- [Creating A Bluepring Mod Youtube Video](https://www.youtube.com/watch?v=fB3yT85XhVA)
 
-> [!NOTE]
-> Following the above youtube video; when you get to packaging your project, the button is located here:
-![Package button](assets/UEPackageButton.png)
+## Packaging
 
-## What do I do now?
-
-> [!IMPORTANT]
-> The next step in the process will be to create a Compatible Blueprint Mod
-
-- [UE4SS Github](github.com/UE4SS-RE/RE-UE4SS)
-- [UE4SS Offical Docs](https://docs.ue4ss.com/index.html)
-- [Creating A Bluepring Mod Youtube Video](https://www.youtube.com/watch?v=fB3yT85XhVA)  
+1) Create a Data Asset ( Primary Asset Label ) named after your mod name in your Contents folder. Set the priority to 1, and the Chunk ID to a memorable ID. 
+2) Set your Mods  (ModActor and any other Assets you are going to include in your mod) Chunk ID to the same you used above.
+3) Go into **Project Settings -> Assets Manager** and verify your settings are similar below ( Make sure the rules match the primary asset label you made ) ![AssetsManagerSettings](assets/AssetsManagerSettings.png)
+4) Once all Chunk ID's match on each mod file you are including, you can package your project ![Package button](assets/UEPackageButton.png)
+5) You should have `pakchunk{Your Chunk ID}-Windows.pak` in the Paks output folder. Rename that to the mod name. There's your packaged mod!
 
 ## Help
 
