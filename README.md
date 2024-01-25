@@ -188,7 +188,7 @@ After doing all of those steps, we are ready! Double click the `Pal.uproject` fi
 
 - [UE4SS Github](github.com/UE4SS-RE/RE-UE4SS)
 - [UE4SS Offical Docs](https://docs.ue4ss.com/index.html)
-- [Creating A Bluepring Mod Youtube Video](https://www.youtube.com/watch?v=fB3yT85XhVA)  
+- [Creating A Blueprint Mod Youtube Video](https://www.youtube.com/watch?v=fB3yT85XhVA)  
 
 > [!NOTE]
 > Following the above youtube video; when you get to packaging your project, the button is located here:
