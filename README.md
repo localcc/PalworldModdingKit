@@ -128,6 +128,11 @@ After copying over those folders, make sure to duplicate the `vc170` folders as 
 
 ![VC160 Copies](assets/Vc160Incident.png)
 
+> [!NOTE]
+> If you continue without the following change, you will have to click OK on a dialog box that says Wwise is not compatible with the current Unreal Engine version every time you load up the editor.
+
+To fix this, navigate to `Plugins\Wwise` and open `Wwise.uplugin` with any text editor. Then change the entry `"EngineVersion" : "5.0.0",` to `"EngineVersion" : "5.1",`.
+
 Yay! Now we are done with integrating wwise!
 
 ### Changing build tools from VS 2019 to VS 2022
