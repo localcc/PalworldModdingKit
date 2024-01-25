@@ -186,7 +186,7 @@ After doing all of those steps, we are ready! Double click the `Pal.uproject` fi
 > [!IMPORTANT]
 > The next step in the process will be to create a Compatible Blueprint Mod
 
-- [UE4SS Github](github.com/UE4SS-RE/RE-UE4SS)
+- [UE4SS Github](https://github.com/UE4SS-RE/RE-UE4SS)
 - [UE4SS Offical Docs](https://docs.ue4ss.com/index.html)
 - [Creating A Bluepring Mod Youtube Video](https://www.youtube.com/watch?v=fB3yT85XhVA)
 
