@@ -19,6 +19,10 @@ float UPalTimeManager::GetDayTimePassRate() {
     return 0.0f;
 }
 
+int32 UPalTimeManager::GetCurrentPalWorldTime_TotalDay() const {
+    return 0;
+}
+
 int32 UPalTimeManager::GetCurrentPalWorldTime_Second() const {
     return 0;
 }

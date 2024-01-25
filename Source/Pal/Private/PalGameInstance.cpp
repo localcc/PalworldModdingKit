@@ -160,7 +160,7 @@ UPalGameInstance::UPalGameInstance() {
     this->ObjectCollectorClass = UPalObjectCollector::StaticClass();
     this->ActionDummyTargetManager = UPalActionDummyTargetManager::StaticClass();
     this->LogManagerClass = UPalLogManager::StaticClass();
-    this->revisionNum = 46861;
+    this->revisionNum = 47084;
     this->TitleBGMPlayerClass = UPalPersistentSoundPlayer::StaticClass();
     this->TitleBGMPlayer = NULL;
     this->bIsNewGame = false;

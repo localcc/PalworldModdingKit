@@ -323,6 +323,7 @@ APalPlayerState::APalPlayerState() {
     this->NetworkComp = CreateDefaultSubobject<UPalNetworkPlayerStateComponent>(TEXT("NetworkComp"));
     this->SyncTeleportComp = CreateDefaultSubobject<UPalSyncTeleportComponent>(TEXT("SyncTeleportComp"));
     this->bIsNewCharacter = false;
+    this->TryCreateIndividualHandleTemporarily = NULL;
     this->bIsCompleteSyncPlayerFromServer_InClient = false;
     this->RequestJoinGuildDialogParameter = NULL;
     this->ChatCounter = 0;

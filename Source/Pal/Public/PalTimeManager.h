@@ -69,6 +69,9 @@ public:
     float GetDayTimePassRate();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetCurrentPalWorldTime_TotalDay() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetCurrentPalWorldTime_Second() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
