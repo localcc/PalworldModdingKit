@@ -198,6 +198,9 @@ After doing all of those steps, we are ready! Double click the `Pal.uproject` fi
 
 ## Packaging
 
+> [!NOTE]
+> Make Sure These Two Settings Have Been Enabled ![EditorPrefExp](assets/EditorPrefrencesExperimental.png) ![ProjectSettingsPackaging](assets/ProjectSettingsPackaging.png)
+
 1) Create a Data Asset ( Primary Asset Label ) named after your mod name in your Contents folder. Set the priority to 1, and the Chunk ID to a memorable ID. 
 2) Set your Mods  (ModActor and any other Assets you are going to include in your mod) Chunk ID to the same you used above.
 3) Go into **Project Settings -> Assets Manager** and verify your settings are similar below ( Make sure the rules match the primary asset label you made ) ![AssetsManagerSettings](assets/AssetsManagerSettings.png)
