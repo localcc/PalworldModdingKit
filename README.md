@@ -141,6 +141,9 @@ In Unreal Engine 5.1, by default, Visual Studio 2019 build tools will be used if
 > [!IMPORTANT]
 > The below changes should only be made if Visual Studio 2019 is installed alongside Visual Studio 2022.
 
+> [!NOTE]
+> If you don't see "Unreal Engine" in %APPDATA% that means you haven't launched Unreal Engine before. Go to Epic Games Launcher -> Unreal Engine -> Library 0> Click "Launch" on the Unreal Engine version that you've downloaded (5.1.*). Let it load until you see the create a new project screen then close it and continue with the guide.
+
 To change this, navigate to `%APPDATA%\Unreal Engine\UnrealBuildTool` and open `BuildConfiguration.xml` with your favorite XML editor.
 
 Your initial configuration will look like below:
