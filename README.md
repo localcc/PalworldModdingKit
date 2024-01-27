@@ -215,6 +215,7 @@ After doing all of those steps, we are ready! Double click the `Pal.uproject` fi
 > [!NOTE]
 > If you only get 'pakchunk0-Windows.pak' instead of your memorable ID. Go into **Project Settings -> Packaging**
 > Then tick "Cook everything in the project content directory(ignore list of maps below)"![image (5)](https://github.com/localcc/PalworldModdingKit/assets/10259891/c06cb6c6-8e2c-4560-bb1d-22f10f7563ad)
+> And Also Make Sure These Two Settings Have Been Enabled ![EditorPrefExp](assets/EditorPrefrencesExperimental.png) ![ProjectSettingsPackaging](assets/ProjectSettingsPackaging.png)
 **
 
 ## Help
