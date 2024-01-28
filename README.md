@@ -6,7 +6,6 @@ Simple example usage could look like this:
 
 ![Set inventory weight](assets/SetInventoryWeight.png)
 
-
 # Installing the sdk
 
 ## Prerequisites
@@ -23,12 +22,10 @@ Afterwards, open the installer, and install the runtime.
 
 To compile the sdk you will need Visual Studio 2022 installed, you can grab it from [this](https://visualstudio.microsoft.com/vs/) link. A community edition version will suffice. While installing it, make sure to check the following components in the installer:
 
-
 ![Visual Studio Installer Options](assets/VisualStudioInstaller.png)
 ![Visual Studio Installer Options 2](assets/VisualStudioInstaller2.png)
 
 Then press continue, and wait for visual studio to install.
-
 
 ### Unreal Engine 5.1
 
@@ -42,7 +39,6 @@ After this, you should see a new card appear with the ability to select an engin
 
 > [!NOTE]
 > Any 5.1 version will work, it doesn't matter if it's 5.1 or 5.1.1
-
 
 ### Wwise
 
@@ -103,7 +99,7 @@ Copy over the unpacked `Wwise` folder into the `Plugins` folder of the SDK.
 
 Almost done with wwise integration, now we just need to copy over the needed dlls.
 
-Open the `Wwise` folder inside of the SDK, and create a `ThirdParty` folder there. 
+Open the `Wwise` folder inside of the SDK, and create a `ThirdParty` folder there.
 
 Now go to the folder where you installed the Wwise SDK
 
@@ -136,7 +132,8 @@ To fix this, navigate to `Plugins\Wwise` and open `Wwise.uplugin` with any text 
 Yay! Now we are done with integrating wwise!
 
 ### Changing build tools from VS 2019 to VS 2022
-In Unreal Engine 5.1, by default, Visual Studio 2019 build tools will be used if they are installed. 
+
+In Unreal Engine 5.1, by default, Visual Studio 2019 build tools will be used if they are installed.
 
 > [!IMPORTANT]
 > The below changes should only be made if Visual Studio 2019 is installed alongside Visual Studio 2022.
@@ -147,6 +144,7 @@ In Unreal Engine 5.1, by default, Visual Studio 2019 build tools will be used if
 To change this, navigate to `%APPDATA%\Unreal Engine\UnrealBuildTool` and open `BuildConfiguration.xml` with your favorite XML editor.
 
 Your initial configuration will look like below:
+
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <Configuration xmlns="https://www.unrealengine.com/BuildConfiguration">
@@ -154,6 +152,7 @@ Your initial configuration will look like below:
 ```
 
 Update the configuration to look like this:
+
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <Configuration xmlns="https://www.unrealengine.com/BuildConfiguration">
@@ -178,7 +177,6 @@ After doing all of those steps, we are ready! Double click the `Pal.uproject` fi
 > [!NOTE]
 > Wwise will complain about not being compatible with the current Unreal Engine version, just ignore that.
 
-
 > [!IMPORTANT]
 > If the file doesn't open in unreal engine and instead asks you for associations, open Unreal Engine, and open the file from there instead
 
@@ -188,31 +186,36 @@ After doing all of those steps, we are ready! Double click the `Pal.uproject` fi
 > [!NOTE]
 > You may think nothing is happening, unreal engine has to compile a lot of things in the background before the editor opens. This may take a LONG while.
 
-
 ## What do I do now?
 
 > [!IMPORTANT]
 > The next step in the process will be to create a Compatible Blueprint Mod
 
-- [UE4SS Github](https://github.com/UE4SS-RE/RE-UE4SS)
-- [UE4SS Offical Docs](https://docs.ue4ss.com/index.html)
-- [Creating A Blueprint Mod Youtube Video](https://www.youtube.com/watch?v=fB3yT85XhVA)  
-
+* [UE4SS Github](https://github.com/UE4SS-RE/RE-UE4SS)
+* [UE4SS Offical Docs](https://docs.ue4ss.com/index.html)
+* [Creating A Blueprint Mod Youtube Video](https://www.youtube.com/watch?v=fB3yT85XhVA)  
 
 ## Packaging
 
 > [!NOTE]
-> Make Sure These Two Settings Have Been Enabled ![EditorPrefExp](assets/EditorPrefrencesExperimental.png) ![ProjectSettingsPackaging](assets/ProjectSettingsPackaging.png)
+> Make Sure This Setting Has Been Enabled ![EditorPrefExp](assets/PrefEdit.png)
 
-1) Create a Data Asset ( Primary Asset Label ) named after your mod name in your Contents folder. Set the priority to 1, and the Chunk ID to a memorable ID. 
-2) Set your Mods  (ModActor and any other Assets you are going to include in your mod) Chunk ID to the same you used above.
-3) Go into **Project Settings -> Assets Manager** and verify your settings are similar below ( Make sure the rules match the primary asset label you made ) ![AssetsManagerSettings](assets/AssetsManagerSettings.png)
-4) Once all Chunk ID's match on each mod file you are including, you can package your project ![Package button](assets/UEPackageButton.png)
-5) You should have `pakchunk{Your Chunk ID}-Windows.pak` in the Paks output folder. Rename that to the mod name. There's your packaged mod!
+1) Create your first mod:
+   1) Make the following map structure: `All/Content/Mods/MODNAME` (remember what your modname)
+   2) In this folder add a mod actor `(Add>Blueprint Class>Actor)`, name it `ModActor`
+   3) And add a widget `(Add>User Interface>Widget Blueprint>User Widget)`, give it a name and remember it
+        > Make Sure It Looks Like this ![ExampleStructure](assets/examplestructure.png)
+   4) Open the widget and make some noticable mod ![TestWidgetExample](assets/TestWidgetExample.png)
+   5) Open the ModActor and add some logic like this ![UnrealCodeBlocksExample](assets/UnrealCodeBlocks.png)
+   6) Select the ModActor and the Widget assign them to a chunk ![AssignToChunk](assets/AssignToChunk.png)
+
+2) Once all Chunk ID's match on each mod file you are including, you can package your project ![Package button](assets/UEPackageButton.png)
+3) You should have `pakchunk{Your Chunk ID}-Windows.pak` in the Paks output folder. Rename that to the mod name. There's your packaged mod!
 
 > [!NOTE]
 > If you only get 'pakchunk0-Windows.pak' instead of your memorable ID. Go into **Project Settings -> Packaging**
 > Then tick "Cook everything in the project content directory(ignore list of maps below)"![image (5)](https://github.com/localcc/PalworldModdingKit/assets/10259891/c06cb6c6-8e2c-4560-bb1d-22f10f7563ad)
+> And Also Make Sure These Two Settings Have Been Enabled ![EditorPrefExp](assets/EditorPrefrencesExperimental.png) ![ProjectSettingsPackaging](assets/ProjectSettingsPackaging.png)
 **
 
 ## Help
