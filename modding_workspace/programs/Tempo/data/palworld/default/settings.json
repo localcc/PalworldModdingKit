@@ -1,0 +1,61 @@
+{
+  "paths": {
+    "output_dir": "C:/Users/Mythical/Downloads/Output",
+    "fmodel_exe": "C:/modding/unreal_engine/fmodel/FModel.exe",
+    "ide_exe": "C:/Program Files/Notepad++/notepad++.exe",
+    "game_exe": "D:/games/gamepass_games/Palworld/Content/Pal/Binaries/WinGDK/Palworld-WinGDK-Shipping.exe",
+    "blender_exe": "C:/Program Files/Blender Foundation/Blender 3.5/blender-launcher.exe",
+    "unreal_engine_dir": "D:/unreal_engine_installs/UE_5.1",
+    "unreal_project_file": "C:/Users/Mythical/Documents/Github/Interpose/Pal.uproject",
+    "repak_exe": "C:/modding/unreal_engine/repak/repak.exe"
+  },
+  "is_gamepass_game": true,
+  "auto_move_windows": {
+    "wait_to_move_delay": 5,
+    "windows": [
+      {
+        "window_name": "UE4SS Debugging Tools (OpenGL 3)",
+        "monitor": 1,
+        "resolution": {
+            "x": 1525,
+            "y": 850
+        }
+      }
+    ]
+  },
+  "alt_uproject_name_in_game_dir": {
+    "use_alt_method": "False",
+    "name": "Game"
+  },
+  "alt_pak_creation_method": {
+	"use_alt_method": "False",
+    "alt_exe_path": "",
+	"variable_args": []
+  },
+  "use_engine_unrealpak_over_repak": "False",
+  "iostore": "False",
+  "unreal_engine_version": "5.1",
+  "repak_pak_ver": "V11",
+  "steam_game_app_id": "",
+  "window_title": "Tempo Automation Script",
+  "extra_launch_params": [
+    "-fileopenlog",
+    "-NOSPLASH"
+  ],
+  "process_kill_list": [
+    "Fmodel.exe",
+    "Palworld-WinGDK-Shipping.exe"
+  ],
+  "launch_method": "win64_exe",
+  "mod_pak_list": [
+    {
+      "pak_type": "LogicMods",
+      "name": "Z_Chaos_P",
+      "pak_chunk_num": 1,
+      "status": "on",
+      "self_made_pak": "True",
+      "manually_specified_files": []
+    }
+  ]
+}
+
