@@ -144,4 +144,4 @@ Saved/
 .DS_Store
 
 # Exception for Tempo
-!/Tempo.exe
+!Tempo.exe
