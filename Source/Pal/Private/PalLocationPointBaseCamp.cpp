@@ -1,6 +1,10 @@
 #include "PalLocationPointBaseCamp.h"
 #include "Net/UnrealNetwork.h"
 
+UPalLocationPointBaseCamp::UPalLocationPointBaseCamp() {
+    this->bIsAvailable = false;
+}
+
 void UPalLocationPointBaseCamp::SetAvailable() {
 }
 
@@ -22,7 +26,4 @@ void UPalLocationPointBaseCamp::GetLifetimeReplicatedProps(TArray<FLifetimePrope
     DOREPLIFETIME(UPalLocationPointBaseCamp, bIsAvailable);
 }
 
-UPalLocationPointBaseCamp::UPalLocationPointBaseCamp() {
-    this->bIsAvailable = false;
-}
 

@@ -9,11 +9,12 @@ class PAL_API UPalAIActionBaseCampInUsingAmusement : public UPalAIActionBaseCamp
     GENERATED_BODY()
 public:
     UPalAIActionBaseCampInUsingAmusement();
+
 protected:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
     float GetUsingTime() const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

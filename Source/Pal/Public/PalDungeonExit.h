@@ -15,7 +15,8 @@ protected:
     bool bStartPoint;
     
 public:
-    APalDungeonExit();
+    APalDungeonExit(const FObjectInitializer& ObjectInitializer);
+
 protected:
     UFUNCTION(BlueprintCallable)
     void OnTriggerInteract(AActor* Other, EPalInteractiveObjectIndicatorType IndicatorType);
@@ -31,7 +32,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     FTransform GetWarpPoint() const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

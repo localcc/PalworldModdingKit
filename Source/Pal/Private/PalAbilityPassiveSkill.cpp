@@ -1,5 +1,13 @@
 #include "PalAbilityPassiveSkill.h"
 
+UPalAbilityPassiveSkill::UPalAbilityPassiveSkill() {
+    this->isReserving = true;
+    this->bIsRestricted = false;
+    this->bRequireWorkerWorkingPassiveSkill = false;
+    this->bIsWorking = false;
+    this->CurrentRank = 0;
+}
+
 void UPalAbilityPassiveSkill::OnWorkerAssignChanged(UPalCharacterParameterComponent* Parameter) {
 }
 
@@ -76,11 +84,4 @@ int32 UPalAbilityPassiveSkill::GetOtomoRank() const {
     return 0;
 }
 
-UPalAbilityPassiveSkill::UPalAbilityPassiveSkill() {
-    this->isReserving = true;
-    this->bIsRestricted = false;
-    this->bRequireWorkerWorkingPassiveSkill = false;
-    this->bIsWorking = false;
-    this->CurrentRank = 0;
-}
 

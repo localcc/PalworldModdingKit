@@ -1,5 +1,6 @@
 #include "PalMapObjectDropItem.h"
 
-APalMapObjectDropItem::APalMapObjectDropItem() {
+APalMapObjectDropItem::APalMapObjectDropItem(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

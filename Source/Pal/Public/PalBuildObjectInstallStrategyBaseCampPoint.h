@@ -12,8 +12,8 @@ public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     APalBuildObjectBaseCampPoint* TargetBuildObjectCache;
-    
 public:
     UPalBuildObjectInstallStrategyBaseCampPoint();
+
 };
 

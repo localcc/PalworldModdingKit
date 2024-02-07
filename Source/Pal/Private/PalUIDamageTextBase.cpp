@@ -1,5 +1,11 @@
 #include "PalUIDamageTextBase.h"
 
+UPalUIDamageTextBase::UPalUIDamageTextBase() {
+    this->DisplayTime = 1.00f;
+    this->displayTimer = 0.00f;
+    this->nowSeq = EPalDamageTextSeq::WaitStart;
+}
+
 
 void UPalUIDamageTextBase::StartDisplay(float inDisplayTime) {
 }
@@ -16,9 +22,4 @@ void UPalUIDamageTextBase::RequestClose() {
 }
 
 
-UPalUIDamageTextBase::UPalUIDamageTextBase() {
-    this->DisplayTime = 1.00f;
-    this->displayTimer = 0.00f;
-    this->nowSeq = EPalDamageTextSeq::WaitStart;
-}
 

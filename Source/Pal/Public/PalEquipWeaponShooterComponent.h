@@ -17,7 +17,8 @@ private:
     TMap<EPalMonsterEquipWeaponSocketType, FPalEquipWeaponInfo> SpawnedWeaponInfoMap;
     
 public:
-    UPalEquipWeaponShooterComponent();
+    UPalEquipWeaponShooterComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetWeapon_ForDebug_DirectBP(EPalMonsterEquipWeaponSocketType SocketType, TSubclassOf<APalMonsterEquipWeaponBase> WeaponActorClass);
     

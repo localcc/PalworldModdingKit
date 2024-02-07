@@ -1,5 +1,8 @@
 #include "PalUIJoinGameInputCodeBase.h"
 
+UPalUIJoinGameInputCodeBase::UPalUIJoinGameInputCodeBase() {
+}
+
 void UPalUIJoinGameInputCodeBase::VerifyPassword(const FString& InputPassword) {
 }
 
@@ -14,6 +17,4 @@ void UPalUIJoinGameInputCodeBase::OnCompletedJoinSession(bool IsSuccess, JoinSes
 void UPalUIJoinGameInputCodeBase::OnCompletedFindSessions(bool IsSuccess, const TArray<FBlueprintSessionResult>& Results, const FString& ErrorStr) {
 }
 
-UPalUIJoinGameInputCodeBase::UPalUIJoinGameInputCodeBase() {
-}
 

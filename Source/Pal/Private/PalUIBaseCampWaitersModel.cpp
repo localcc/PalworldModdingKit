@@ -1,5 +1,8 @@
 #include "PalUIBaseCampWaitersModel.h"
 
+UPalUIBaseCampWaitersModel::UPalUIBaseCampWaitersModel() {
+}
+
 void UPalUIBaseCampWaitersModel::SelectHandleSlot(const int32 DisplayIndex, const EPalItemSlotPressType PressType) {
 }
 
@@ -11,6 +14,4 @@ TArray<UPalIndividualCharacterSlot*> UPalUIBaseCampWaitersModel::GetCurrentPageS
     return TArray<UPalIndividualCharacterSlot*>();
 }
 
-UPalUIBaseCampWaitersModel::UPalUIBaseCampWaitersModel() {
-}
 

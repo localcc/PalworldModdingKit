@@ -1,5 +1,10 @@
 #include "PalAIActionCompositeBase.h"
 
+UPalAIActionCompositeBase::UPalAIActionCompositeBase() {
+    this->Child = NULL;
+    this->OwnerComponent = NULL;
+}
+
 void UPalAIActionCompositeBase::SetChildActionComposite(UPalAIActionCompositeBase* Composite) {
 }
 
@@ -34,8 +39,4 @@ UPalActionComponent* UPalAIActionCompositeBase::GetActionComponent() const {
     return NULL;
 }
 
-UPalAIActionCompositeBase::UPalAIActionCompositeBase() {
-    this->Child = NULL;
-    this->OwnerComponent = NULL;
-}
 

@@ -1,5 +1,9 @@
 #include "PalPassiveSkillManager.h"
 
+UPalPassiveSkillManager::UPalPassiveSkillManager() {
+    this->PassiveSkillDataTable = NULL;
+}
+
 void UPalPassiveSkillManager::OnCreatedDynamicItemDataInServer(UPalDynamicItemDataBase* CreatedItemData, const FPalItemCreateParameter& CreateParameter) {
 }
 
@@ -27,7 +31,4 @@ FName UPalPassiveSkillManager::GetNameTextId(FName SkillName) {
     return NAME_None;
 }
 
-UPalPassiveSkillManager::UPalPassiveSkillManager() {
-    this->PassiveSkillDataTable = NULL;
-}
 

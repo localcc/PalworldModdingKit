@@ -13,7 +13,8 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalNetworkCharacterComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPalNetworkCharacterComponent();
+    UPalNetworkCharacterComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestReflectAction_ToServer(APalCharacter* Character);
     

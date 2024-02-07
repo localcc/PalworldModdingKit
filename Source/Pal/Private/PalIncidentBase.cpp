@@ -1,5 +1,14 @@
 #include "PalIncidentBase.h"
 
+UPalIncidentBase::UPalIncidentBase() {
+    this->ParentIncident = NULL;
+    this->DynamicParameter = NULL;
+    this->bForceStop = false;
+    this->OccuredObject = NULL;
+    this->OwnerObject = NULL;
+    this->ExecState = EPalIncidentState::None;
+}
+
 void UPalIncidentBase::Tick_Implementation(float DeltaTime) {
 }
 
@@ -88,12 +97,4 @@ void UPalIncidentBase::Finish() {
 void UPalIncidentBase::DropItem(FName ItemId, int32 DropNum, FVector SpawnLocation, FVector ReleaseDirection) {
 }
 
-UPalIncidentBase::UPalIncidentBase() {
-    this->ParentIncident = NULL;
-    this->DynamicParameter = NULL;
-    this->bForceStop = false;
-    this->OccuredObject = NULL;
-    this->OwnerObject = NULL;
-    this->ExecState = EPalIncidentState::None;
-}
 

@@ -23,7 +23,8 @@ private:
     UPalSoundSlot* PalSoundSlotCache;
     
 public:
-    UPalSoundPlayerComponent();
+    UPalSoundPlayerComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void BeginPlay();
     

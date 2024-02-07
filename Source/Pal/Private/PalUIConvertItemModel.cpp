@@ -1,5 +1,9 @@
 #include "PalUIConvertItemModel.h"
 
+UPalUIConvertItemModel::UPalUIConvertItemModel() {
+    this->ProductSettingModel = NULL;
+}
+
 void UPalUIConvertItemModel::UpdateProductSetting_TransportToStorage(const bool bOn) {
 }
 
@@ -27,7 +31,4 @@ EPalUIConvertItemRequestStartResponse UPalUIConvertItemModel::CanStartProduction
 void UPalUIConvertItemModel::CancelProduct() {
 }
 
-UPalUIConvertItemModel::UPalUIConvertItemModel() {
-    this->ProductSettingModel = NULL;
-}
 

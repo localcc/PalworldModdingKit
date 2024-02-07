@@ -1,5 +1,8 @@
 #include "PalLocationPoint_Custom.h"
 
+UPalLocationPoint_Custom::UPalLocationPoint_Custom() {
+}
+
 void UPalLocationPoint_Custom::SetIconType(int32 Index) {
 }
 
@@ -11,6 +14,4 @@ int32 UPalLocationPoint_Custom::GetIconType() const {
     return 0;
 }
 
-UPalLocationPoint_Custom::UPalLocationPoint_Custom() {
-}
 

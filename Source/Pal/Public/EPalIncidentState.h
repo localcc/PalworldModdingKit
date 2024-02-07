@@ -9,6 +9,6 @@ enum class EPalIncidentState : uint8 {
     Executing,
     Completed,
     Canceled,
-    InstanceCreateFailed = 0xFF,
+    InstanceCreateFailed = 255,
 };
 

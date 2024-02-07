@@ -1,5 +1,8 @@
 #include "PalEventNotify_Character.h"
 
+UPalEventNotify_Character::UPalEventNotify_Character() {
+}
+
 void UPalEventNotify_Character::OnCharacterSpawned_ServerInternal(UPalIndividualCharacterHandle* CharacterHandle) {
 }
 
@@ -13,6 +16,4 @@ UPalEventNotify_Character* UPalEventNotify_Character::GetEventNotify_Character(c
     return NULL;
 }
 
-UPalEventNotify_Character::UPalEventNotify_Character() {
-}
 

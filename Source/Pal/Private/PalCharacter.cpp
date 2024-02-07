@@ -4,6 +4,7 @@
 #include "PalAnimNotifyParameterComponent.h"
 #include "PalCharacterAroundInfoCollectorComponent.h"
 #include "PalCharacterCameraComponent.h"
+#include "PalCharacterMovementComponent.h"
 #include "PalCharacterParameterComponent.h"
 #include "PalDamageReactionComponent.h"
 #include "PalFootIKComponent.h"
@@ -12,9 +13,41 @@
 #include "PalNetworkMulticastGateComponent.h"
 #include "PalPassiveSkillComponent.h"
 #include "PalShooterSpringArmComponent.h"
+#include "PalSkeletalMeshComponent.h"
 #include "PalStaticCharacterParameterComponent.h"
 #include "PalStatusComponent.h"
 #include "PalVisualEffectComponent.h"
+
+APalCharacter::APalCharacter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<UPalSkeletalMeshComponent>(TEXT("CharacterMesh0")).SetDefaultSubobjectClass<UPalCharacterMovementComponent>(TEXT("CharMoveComp"))) {
+    this->UpdateGroundInterval = 1.00f;
+    this->ActionComponent = CreateDefaultSubobject<UPalActionComponent>(TEXT("ActionComponent"));
+    this->CharacterParameterComponent = CreateDefaultSubobject<UPalCharacterParameterComponent>(TEXT("CharacterParameterComponent"));
+    this->StaticCharacterParameterComponent = CreateDefaultSubobject<UPalStaticCharacterParameterComponent>(TEXT("StaticCharacterParameterComponent"));
+    this->DamageReactionComponent = CreateDefaultSubobject<UPalDamageReactionComponent>(TEXT("DamageReactionComponent"));
+    this->StatusComponent = CreateDefaultSubobject<UPalStatusComponent>(TEXT("StatusComponent"));
+    this->CameraBoom = CreateDefaultSubobject<UPalShooterSpringArmComponent>(TEXT("CameraBoom"));
+    this->FollowCamera = CreateDefaultSubobject<UPalCharacterCameraComponent>(TEXT("FollowCamera"));
+    this->MulticastGateComponent = CreateDefaultSubobject<UPalNetworkMulticastGateComponent>(TEXT("NetworkMulticastGateComponent"));
+    this->LookAtComponent = CreateDefaultSubobject<UPalLookAtComponent>(TEXT("LookAtComponent"));
+    this->NavInvokerComponent = NULL;
+    this->FootIKComponent = CreateDefaultSubobject<UPalFootIKComponent>(TEXT("FootIKComponent"));
+    this->VisualEffectComponent = CreateDefaultSubobject<UPalVisualEffectComponent>(TEXT("VisualEffectComponent"));
+    this->PassiveSkillComponent = CreateDefaultSubobject<UPalPassiveSkillComponent>(TEXT("PassiveSkillComponent"));
+    this->HUDComponent = CreateDefaultSubobject<UPalHeadUpDisplayComponent>(TEXT("HUDComponent"));
+    this->AnimNotifyComponent = CreateDefaultSubobject<UPalAnimNotifyParameterComponent>(TEXT("AnimNotifyComponent"));
+    this->AroundInfoCollectorComponent = CreateDefaultSubobject<UPalCharacterAroundInfoCollectorComponent>(TEXT("AroundInfoCollectorComponent"));
+    this->bIsBattleMode = false;
+    this->bIsTalkMode = false;
+    this->bIsPalActiveActor = true;
+    this->bIsLocalInitialized = false;
+    this->bIsDisable_ChangeTickInterval_ByImportance = false;
+    this->ImportanceType = EPalCharacterImportanceType::Near;
+    const FProperty* p_Mesh = GetClass()->FindPropertyByName("Mesh");
+    (*p_Mesh->ContainerPtrToValuePtr<USkeletalMeshComponent*>(this))->SetupAttachment(RootComponent);
+    this->CameraBoom->SetupAttachment(RootComponent);
+    this->FollowCamera->SetupAttachment(CameraBoom);
+    this->AroundInfoCollectorComponent->SetupAttachment(RootComponent);
+}
 
 void APalCharacter::UpdateGroundRayCast() {
 }
@@ -145,29 +178,4 @@ void APalCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
     DOREPLIFETIME(APalCharacter, RootCollisionProfileName);
 }
 
-APalCharacter::APalCharacter() {
-    this->UpdateGroundInterval = 1.00f;
-    this->ActionComponent = CreateDefaultSubobject<UPalActionComponent>(TEXT("ActionComponent"));
-    this->CharacterParameterComponent = CreateDefaultSubobject<UPalCharacterParameterComponent>(TEXT("CharacterParameterComponent"));
-    this->StaticCharacterParameterComponent = CreateDefaultSubobject<UPalStaticCharacterParameterComponent>(TEXT("StaticCharacterParameterComponent"));
-    this->DamageReactionComponent = CreateDefaultSubobject<UPalDamageReactionComponent>(TEXT("DamageReactionComponent"));
-    this->StatusComponent = CreateDefaultSubobject<UPalStatusComponent>(TEXT("StatusComponent"));
-    this->CameraBoom = CreateDefaultSubobject<UPalShooterSpringArmComponent>(TEXT("CameraBoom"));
-    this->FollowCamera = CreateDefaultSubobject<UPalCharacterCameraComponent>(TEXT("FollowCamera"));
-    this->MulticastGateComponent = CreateDefaultSubobject<UPalNetworkMulticastGateComponent>(TEXT("NetworkMulticastGateComponent"));
-    this->LookAtComponent = CreateDefaultSubobject<UPalLookAtComponent>(TEXT("LookAtComponent"));
-    this->NavInvokerComponent = NULL;
-    this->FootIKComponent = CreateDefaultSubobject<UPalFootIKComponent>(TEXT("FootIKComponent"));
-    this->VisualEffectComponent = CreateDefaultSubobject<UPalVisualEffectComponent>(TEXT("VisualEffectComponent"));
-    this->PassiveSkillComponent = CreateDefaultSubobject<UPalPassiveSkillComponent>(TEXT("PassiveSkillComponent"));
-    this->HUDComponent = CreateDefaultSubobject<UPalHeadUpDisplayComponent>(TEXT("HUDComponent"));
-    this->AnimNotifyComponent = CreateDefaultSubobject<UPalAnimNotifyParameterComponent>(TEXT("AnimNotifyComponent"));
-    this->AroundInfoCollectorComponent = CreateDefaultSubobject<UPalCharacterAroundInfoCollectorComponent>(TEXT("AroundInfoCollectorComponent"));
-    this->bIsBattleMode = false;
-    this->bIsTalkMode = false;
-    this->bIsPalActiveActor = true;
-    this->bIsLocalInitialized = false;
-    this->bIsDisable_ChangeTickInterval_ByImportance = false;
-    this->ImportanceType = EPalCharacterImportanceType::Near;
-}
 

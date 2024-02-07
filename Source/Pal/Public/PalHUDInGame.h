@@ -82,7 +82,8 @@ private:
     TMap<FGameplayTag, FFlagContainer> LayerHideFlagMap;
     
 public:
-    APalHUDInGame();
+    APalHUDInGame(const FObjectInitializer& ObjectInitializer);
+
 protected:
     UFUNCTION(BlueprintCallable)
     void TickWorldHUDs();
@@ -145,7 +146,7 @@ public:
     UFUNCTION(BlueprintCallable)
     FGuid AddHUD(TSubclassOf<UPalUserWidget> WidgetClass, const EPalHUDWidgetPriority Priority, UPalHUDDispatchParameterBase* Parameter);
     
-    
+
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintCallable)
     void PlayAkSound(UAkAudioEvent* AkEvent) override PURE_VIRTUAL(PlayAkSound,);

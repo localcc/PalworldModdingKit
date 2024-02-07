@@ -1,5 +1,9 @@
 #include "PalRandomIncidentLotteryBase.h"
 
+UPalRandomIncidentLotteryBase::UPalRandomIncidentLotteryBase() {
+    this->LotteryRate = 0.00f;
+}
+
 bool UPalRandomIncidentLotteryBase::LotteryIncident_Implementation(FPalRandomIncidentSpawnIncidentParameter& OutResult) {
     return false;
 }
@@ -12,7 +16,4 @@ int32 UPalRandomIncidentLotteryBase::GetLotteryParameters_Implementation(TArray<
     return 0;
 }
 
-UPalRandomIncidentLotteryBase::UPalRandomIncidentLotteryBase() {
-    this->LotteryRate = 0.00f;
-}
 

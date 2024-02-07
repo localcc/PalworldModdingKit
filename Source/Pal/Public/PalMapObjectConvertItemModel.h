@@ -74,8 +74,9 @@ private:
     
 public:
     UPalMapObjectConvertItemModel();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable)
     void RequestUpdateRecipe(const FName RecipeID, const int32 ProductNum);
     
@@ -158,7 +159,7 @@ private:
     UFUNCTION(BlueprintCallable)
     void AddConvertItemResultLog(const FPalNetArchive& Archive);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

@@ -14,7 +14,8 @@ private:
     
 public:
     UPalWorkAssign_LevelObject();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 };
 

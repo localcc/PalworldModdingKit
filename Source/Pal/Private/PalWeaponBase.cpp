@@ -1,5 +1,36 @@
 #include "PalWeaponBase.h"
 
+APalWeaponBase::APalWeaponBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->BulletDeleteTime = 0.50f;
+    this->BulletDecayStartRate = 1.00f;
+    this->RecoilCurve = NULL;
+    this->RecoilYawRange = 0.10f;
+    this->RecoilPitchTotalMax = 2.00f;
+    this->RecoilDecaySpeed = 1.00f;
+    this->ShotCameraShake = NULL;
+    this->WeaponCoopType = EWeaponCoopType::None;
+    this->WeaponType = EPalWeaponType::None;
+    this->IsRequiredBullet = true;
+    this->ShootBlurMaterial = NULL;
+    this->ShootBlurAlphaCurve = NULL;
+    this->weaponBulletDamageReactionType = EPalDamageAnimationReactionType::Big;
+    this->IsEmptyOtomoPal = false;
+    this->CoolDownTime = 0.00f;
+    this->ShootBlurMaterialDynamic = NULL;
+    this->ownWeaponStaticData = NULL;
+    this->ownWeaponDynamicData = NULL;
+    this->PalSoundSlotCache = NULL;
+    this->RecoilPowerRate = 1.00f;
+    this->IsScopeMode = false;
+    this->IsOneBulletReloadWeapon = false;
+    this->DelayDestorySecond = 0.00f;
+    this->IsUnnecessaryDynamicData = false;
+    this->ShooterFlagPriority = EPalShooterFlagContainerPriority::Weapon;
+    this->BackWeaponClass = NULL;
+    this->BackWeaponModel = NULL;
+    this->LoadoutSelectorIndex = 0;
+}
+
 void APalWeaponBase::UnbindGetWeaponDamageDelegate() {
 }
 
@@ -208,34 +239,4 @@ float APalWeaponBase::CalcAccuracy_Implementation() {
     return 0.0f;
 }
 
-APalWeaponBase::APalWeaponBase() {
-    this->BulletDeleteTime = 0.50f;
-    this->BulletDecayStartRate = 1.00f;
-    this->RecoilCurve = NULL;
-    this->RecoilYawRange = 0.10f;
-    this->RecoilPitchTotalMax = 2.00f;
-    this->RecoilDecaySpeed = 1.00f;
-    this->ShotCameraShake = NULL;
-    this->WeaponCoopType = EWeaponCoopType::None;
-    this->WeaponType = EPalWeaponType::None;
-    this->IsRequiredBullet = true;
-    this->ShootBlurMaterial = NULL;
-    this->ShootBlurAlphaCurve = NULL;
-    this->weaponBulletDamageReactionType = EPalDamageAnimationReactionType::Big;
-    this->IsEmptyOtomoPal = false;
-    this->CoolDownTime = 0.00f;
-    this->ShootBlurMaterialDynamic = NULL;
-    this->ownWeaponStaticData = NULL;
-    this->ownWeaponDynamicData = NULL;
-    this->PalSoundSlotCache = NULL;
-    this->RecoilPowerRate = 1.00f;
-    this->IsScopeMode = false;
-    this->IsOneBulletReloadWeapon = false;
-    this->DelayDestorySecond = 0.00f;
-    this->IsUnnecessaryDynamicData = false;
-    this->ShooterFlagPriority = EPalShooterFlagContainerPriority::Weapon;
-    this->BackWeaponClass = NULL;
-    this->BackWeaponModel = NULL;
-    this->LoadoutSelectorIndex = 0;
-}
 

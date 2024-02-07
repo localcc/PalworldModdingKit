@@ -1,5 +1,33 @@
 #include "PalShooterSpringArmComponent.h"
 
+UPalShooterSpringArmComponent::UPalShooterSpringArmComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->CameraInterpTime = 0.10f;
+    this->AimingCameraLagSpeed = 100.00f;
+    this->LengthInterpCurve = NULL;
+    this->OffsetInterpCurve = NULL;
+    this->WalkCameraArmLength = 400.00f;
+    this->HipShootCameraArmLength = 300.00f;
+    this->AimCameraArmLength = 100.00f;
+    this->AirCameraArmLength = 400.00f;
+    this->AirHipShootCameraArmLength = 300.00f;
+    this->AirAimCameraArmLength = 100.00f;
+    this->FlyCameraArmLength = 400.00f;
+    this->FlyHipShootCameraArmLength = 300.00f;
+    this->FlyAimCameraArmLength = 100.00f;
+    this->CrouchCameraArmLength = 330.00f;
+    this->CrouchHipShootCameraArmLength = 300.00f;
+    this->CrouchAimCameraArmLength = 100.00f;
+    this->SlidingCameraArmLength = 400.00f;
+    this->SlidingHipShootCameraArmLength = 300.00f;
+    this->SlidingAimCameraArmLength = 100.00f;
+    this->DeadCameraArmLength = 0.00f;
+    this->DefaultCameraLagSpeed = 0.00f;
+    this->ShooterComponent = NULL;
+    this->MoveComponent = NULL;
+    this->ParameterComponent = NULL;
+    this->DamageReactionComponent = NULL;
+}
+
 void UPalShooterSpringArmComponent::UpdateCameraInterp(float DeltaTime) {
 }
 
@@ -77,31 +105,4 @@ float UPalShooterSpringArmComponent::GetCurrentCameraArmLength() const {
 void UPalShooterSpringArmComponent::ChangeArmParameter_forBP() {
 }
 
-UPalShooterSpringArmComponent::UPalShooterSpringArmComponent() {
-    this->CameraInterpTime = 0.10f;
-    this->AimingCameraLagSpeed = 100.00f;
-    this->LengthInterpCurve = NULL;
-    this->OffsetInterpCurve = NULL;
-    this->WalkCameraArmLength = 400.00f;
-    this->HipShootCameraArmLength = 300.00f;
-    this->AimCameraArmLength = 100.00f;
-    this->AirCameraArmLength = 400.00f;
-    this->AirHipShootCameraArmLength = 300.00f;
-    this->AirAimCameraArmLength = 100.00f;
-    this->FlyCameraArmLength = 400.00f;
-    this->FlyHipShootCameraArmLength = 300.00f;
-    this->FlyAimCameraArmLength = 100.00f;
-    this->CrouchCameraArmLength = 330.00f;
-    this->CrouchHipShootCameraArmLength = 300.00f;
-    this->CrouchAimCameraArmLength = 100.00f;
-    this->SlidingCameraArmLength = 400.00f;
-    this->SlidingHipShootCameraArmLength = 300.00f;
-    this->SlidingAimCameraArmLength = 100.00f;
-    this->DeadCameraArmLength = 0.00f;
-    this->DefaultCameraLagSpeed = 0.00f;
-    this->ShooterComponent = NULL;
-    this->MoveComponent = NULL;
-    this->ParameterComponent = NULL;
-    this->DamageReactionComponent = NULL;
-}
 

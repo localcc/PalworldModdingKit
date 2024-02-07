@@ -1,5 +1,8 @@
 #include "PalNetworkMapObjectComponent.h"
 
+UPalNetworkMapObjectComponent::UPalNetworkMapObjectComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void UPalNetworkMapObjectComponent::RequestSpawnMapObject_ToServer_Implementation(const FGuid& RequestID, const FName MapObjectId, const FVector& Location, const FQuat& Rotation, const TArray<FPalNetArchive>& ExtraParameterArchives) {
 }
 
@@ -174,6 +177,4 @@ void UPalNetworkMapObjectComponent::NotifyConcreteModel_Multicast_FPalNetArchive
 void UPalNetworkMapObjectComponent::NotifyConcreteModel_Multicast_bool_Implementation(const FGuid& ConcreteModelInstanceId, const FName FunctionName, bool Value) {
 }
 
-UPalNetworkMapObjectComponent::UPalNetworkMapObjectComponent() {
-}
 

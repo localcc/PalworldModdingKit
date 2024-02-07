@@ -9,7 +9,8 @@ class PAL_API UPalAIActionBaseCampReturnBack : public UPalAIActionBase, public I
     GENERATED_BODY()
 public:
     UPalAIActionBaseCampReturnBack();
-    
+
+
     // Fix for true pure virtual functions not being implemented
 };
 

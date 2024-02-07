@@ -9,7 +9,8 @@ UCLASS(Blueprintable)
 class APalSoundDebugModel : public AActor {
     GENERATED_BODY()
 public:
-    APalSoundDebugModel();
+    APalSoundDebugModel(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void Initialize(UAkAudioEvent* AudioEvent);
     

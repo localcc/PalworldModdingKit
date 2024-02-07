@@ -16,6 +16,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalAIActionBase> AIActionClass;
     
-    UPalMapObjectAmusementParameterComponent();
+    UPalMapObjectAmusementParameterComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

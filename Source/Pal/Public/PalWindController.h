@@ -31,7 +31,8 @@ private:
     float LastChangedSpeedTime;
     
 public:
-    APalWindController();
+    APalWindController(const FObjectInitializer& ObjectInitializer);
+
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void UpdateNiagaraParameterCollection(const FPalWindInfo& WindInfo);

@@ -9,7 +9,8 @@ UCLASS(Blueprintable, NonTransient)
 class PAL_API APalGameModeLogin : public APalGameModeBase {
     GENERATED_BODY()
 public:
-    APalGameModeLogin();
+    APalGameModeLogin(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void OnSwitchUserUICompleted(const UPocketpairUserInfo* UserInfo, bool bSuccess, const FString& ErrorStr);
     

@@ -1,6 +1,10 @@
 #include "PalMapObjectWorkeeModule.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectWorkeeModule::UPalMapObjectWorkeeModule() {
+    this->TargetWork = NULL;
+}
+
 void UPalMapObjectWorkeeModule::OnRep_TargetWork() {
 }
 
@@ -18,7 +22,4 @@ void UPalMapObjectWorkeeModule::GetLifetimeReplicatedProps(TArray<FLifetimePrope
     DOREPLIFETIME(UPalMapObjectWorkeeModule, TargetWork);
 }
 
-UPalMapObjectWorkeeModule::UPalMapObjectWorkeeModule() {
-    this->TargetWork = NULL;
-}
 

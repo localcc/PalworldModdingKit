@@ -1,5 +1,8 @@
 #include "PalMasterDataTableAccess_BuildObjectData.h"
 
+UPalMasterDataTableAccess_BuildObjectData::UPalMasterDataTableAccess_BuildObjectData() {
+}
+
 void UPalMasterDataTableAccess_BuildObjectData::BPExec_FindRowByMapObjectId(FName MapObjectId, EPalMasterDataExecPinType& ExecType, FPalBuildObjectData& OutData) {
 }
 
@@ -14,6 +17,4 @@ FPalBuildObjectData UPalMasterDataTableAccess_BuildObjectData::BP_FindRow(FName 
     return FPalBuildObjectData{};
 }
 
-UPalMasterDataTableAccess_BuildObjectData::UPalMasterDataTableAccess_BuildObjectData() {
-}
 

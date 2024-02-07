@@ -1,5 +1,7 @@
 #include "PalStageAreaBounds.h"
 
-APalStageAreaBounds::APalStageAreaBounds() {
+APalStageAreaBounds::APalStageAreaBounds(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bNetLoadOnClient = false;
 }
+
 

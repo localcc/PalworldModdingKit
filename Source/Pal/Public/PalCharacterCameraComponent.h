@@ -111,7 +111,8 @@ private:
     UMaterialInstanceDynamic* DynamicAimBlurMaterialDynamic;
     
 public:
-    UPalCharacterCameraComponent();
+    UPalCharacterCameraComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnStartAim();

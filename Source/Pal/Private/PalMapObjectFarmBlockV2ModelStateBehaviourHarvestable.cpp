@@ -1,5 +1,8 @@
 #include "PalMapObjectFarmBlockV2ModelStateBehaviourHarvestable.h"
 
+UPalMapObjectFarmBlockV2ModelStateBehaviourHarvestable::UPalMapObjectFarmBlockV2ModelStateBehaviourHarvestable() {
+}
+
 void UPalMapObjectFarmBlockV2ModelStateBehaviourHarvestable::OnWorkStarted(UPalWorkBase* Work, const FPalInstanceID& IndividualId) {
 }
 
@@ -9,6 +12,4 @@ void UPalMapObjectFarmBlockV2ModelStateBehaviourHarvestable::OnProgressWork(UPal
 void UPalMapObjectFarmBlockV2ModelStateBehaviourHarvestable::OnFinishWorkInServer(UPalWorkBase* Work) {
 }
 
-UPalMapObjectFarmBlockV2ModelStateBehaviourHarvestable::UPalMapObjectFarmBlockV2ModelStateBehaviourHarvestable() {
-}
 

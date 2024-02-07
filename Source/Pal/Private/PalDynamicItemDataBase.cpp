@@ -1,6 +1,9 @@
 #include "PalDynamicItemDataBase.h"
 #include "Net/UnrealNetwork.h"
 
+UPalDynamicItemDataBase::UPalDynamicItemDataBase() {
+}
+
 FName UPalDynamicItemDataBase::GetStaticId() const {
     return NAME_None;
 }
@@ -16,6 +19,4 @@ void UPalDynamicItemDataBase::GetLifetimeReplicatedProps(TArray<FLifetimePropert
     DOREPLIFETIME(UPalDynamicItemDataBase, StaticId);
 }
 
-UPalDynamicItemDataBase::UPalDynamicItemDataBase() {
-}
 

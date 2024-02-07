@@ -30,7 +30,8 @@ protected:
     TMap<EPalFootType, FHitResult> FootGroundResult;
     
 public:
-    UPalFootIKComponent();
+    UPalFootIKComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetFootIKDisable(FName flagName, bool bIsDisable);
     

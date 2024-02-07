@@ -1,6 +1,12 @@
 #include "PalMapObjectPlayerBedModel.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectPlayerBedModel::UPalMapObjectPlayerBedModel() {
+    this->bHasAuthority = false;
+    this->SleepingCharacter = NULL;
+    this->SleepPlayerBedAction = NULL;
+}
+
 void UPalMapObjectPlayerBedModel::RequestTriggerSleepPlayerBed_ToServer(const int32 RequestPlayerId) {
 }
 
@@ -36,9 +42,4 @@ void UPalMapObjectPlayerBedModel::GetLifetimeReplicatedProps(TArray<FLifetimePro
     DOREPLIFETIME(UPalMapObjectPlayerBedModel, SleepingCharacter);
 }
 
-UPalMapObjectPlayerBedModel::UPalMapObjectPlayerBedModel() {
-    this->bHasAuthority = false;
-    this->SleepingCharacter = NULL;
-    this->SleepPlayerBedAction = NULL;
-}
 

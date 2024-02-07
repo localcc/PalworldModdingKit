@@ -10,6 +10,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float CorruptionMultiplier;
     
-    UPalMapObjectFoodBoxParameterComponent();
+    UPalMapObjectFoodBoxParameterComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

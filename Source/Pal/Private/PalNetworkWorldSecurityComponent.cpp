@@ -1,5 +1,6 @@
 #include "PalNetworkWorldSecurityComponent.h"
 
-UPalNetworkWorldSecurityComponent::UPalNetworkWorldSecurityComponent() {
+UPalNetworkWorldSecurityComponent::UPalNetworkWorldSecurityComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

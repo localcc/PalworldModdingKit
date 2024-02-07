@@ -1,5 +1,8 @@
 #include "PalLocationManager.h"
 
+UPalLocationManager::UPalLocationManager() {
+}
+
 void UPalLocationManager::RemoveLocalCustomLocation(const FGuid& LocationId) {
 }
 
@@ -23,6 +26,4 @@ FGuid UPalLocationManager::AddLocalCustomLocation(FVector IconLocation, int32 Ic
     return FGuid{};
 }
 
-UPalLocationManager::UPalLocationManager() {
-}
 

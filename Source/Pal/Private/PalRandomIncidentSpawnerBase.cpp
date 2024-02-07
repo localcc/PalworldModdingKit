@@ -1,5 +1,16 @@
 #include "PalRandomIncidentSpawnerBase.h"
 
+APalRandomIncidentSpawnerBase::APalRandomIncidentSpawnerBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->LotteryClass = NULL;
+    this->CoolDownTimeMinute = 0.00f;
+    this->CoolDownTimeSecRemain = 0.00f;
+    this->PlayerId = 0;
+    this->ExecIncident = NULL;
+    this->Status = EPalRandomIncidentSpawnerStatus::Unknown;
+    this->Parameter = NULL;
+    this->Lottery = NULL;
+}
+
 void APalRandomIncidentSpawnerBase::UpdateStatusWaitPlayerOutside(float DeltaTime) {
 }
 
@@ -56,14 +67,4 @@ void APalRandomIncidentSpawnerBase::CollectChildActors(TArray<AActor*>& OutList)
 void APalRandomIncidentSpawnerBase::AddWalkPath_Implementation(const FName& PathName, const TArray<AActor*>& PointList) {
 }
 
-APalRandomIncidentSpawnerBase::APalRandomIncidentSpawnerBase() {
-    this->LotteryClass = NULL;
-    this->CoolDownTimeMinute = 0.00f;
-    this->CoolDownTimeSecRemain = 0.00f;
-    this->PlayerId = 0;
-    this->ExecIncident = NULL;
-    this->Status = EPalRandomIncidentSpawnerStatus::Unknown;
-    this->Parameter = NULL;
-    this->Lottery = NULL;
-}
 

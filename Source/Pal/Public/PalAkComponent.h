@@ -12,6 +12,7 @@ private:
     bool PersistAcrossLevelTransition;
     
 public:
-    UPalAkComponent();
+    UPalAkComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

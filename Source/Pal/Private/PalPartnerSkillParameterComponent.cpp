@@ -1,6 +1,24 @@
 #include "PalPartnerSkillParameterComponent.h"
 #include "Templates/SubclassOf.h"
 
+UPalPartnerSkillParameterComponent::UPalPartnerSkillParameterComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->SkillName = TEXT("Unknown");
+    this->WazaID = EPalWazaID::None;
+    this->bCanThrowPal = true;
+    this->bCanChangeWeapon = true;
+    this->bIsToggleKey = false;
+    this->bIdlelCostDecreaseEveryFrame = false;
+    this->bIsExecSkillContinuation = false;
+    this->bIsRunning = false;
+    this->bIsOverheat = false;
+    this->bIsExecuting = false;
+    this->SkillModule = NULL;
+    this->FunnelCharacterClass = NULL;
+    this->FunnelControllerClass = NULL;
+    this->FunnelAttackWazaID = EPalWazaID::None;
+    this->PassiveSkill = NULL;
+}
+
 void UPalPartnerSkillParameterComponent::Stop() {
 }
 
@@ -175,21 +193,4 @@ void UPalPartnerSkillParameterComponent::CallOnCoolDownTimeChanged_ToAll_Impleme
 void UPalPartnerSkillParameterComponent::CallOnCoolDownCompleted_ToAll_Implementation() {
 }
 
-UPalPartnerSkillParameterComponent::UPalPartnerSkillParameterComponent() {
-    this->SkillName = TEXT("Unknown");
-    this->WazaID = EPalWazaID::None;
-    this->bCanThrowPal = true;
-    this->bCanChangeWeapon = true;
-    this->bIsToggleKey = false;
-    this->bIdlelCostDecreaseEveryFrame = false;
-    this->bIsExecSkillContinuation = false;
-    this->bIsRunning = false;
-    this->bIsOverheat = false;
-    this->bIsExecuting = false;
-    this->SkillModule = NULL;
-    this->FunnelCharacterClass = NULL;
-    this->FunnelControllerClass = NULL;
-    this->FunnelAttackWazaID = EPalWazaID::None;
-    this->PassiveSkill = NULL;
-}
 

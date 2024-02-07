@@ -1,6 +1,9 @@
 #include "PalMapObjectGateModel.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectGateModel::UPalMapObjectGateModel() {
+}
+
 void UPalMapObjectGateModel::RequestTrigger_ServerInternal(const int32 RequestPlayerId, const int32 ToStateInt) {
 }
 
@@ -16,6 +19,4 @@ void UPalMapObjectGateModel::GetLifetimeReplicatedProps(TArray<FLifetimeProperty
     DOREPLIFETIME(UPalMapObjectGateModel, UnlockDateTime);
 }
 
-UPalMapObjectGateModel::UPalMapObjectGateModel() {
-}
 

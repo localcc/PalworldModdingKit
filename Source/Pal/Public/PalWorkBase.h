@@ -115,7 +115,7 @@ private:
 public:
     UPalWorkBase();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
     UFUNCTION(BlueprintCallable)
     void OnRep_CurrentState();
@@ -157,7 +157,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     EPalWorkAssignableFixedType GetAssignableFixedType() const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

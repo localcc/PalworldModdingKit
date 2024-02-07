@@ -64,6 +64,7 @@ private:
     
 public:
     UPalCharacterManager();
+
     UFUNCTION(BlueprintCallable)
     void SpawnPhantomByHandle(UPalIndividualCharacterHandle* Handle, FNetworkActorSpawnParameters SpawnParameter, UPalCharacterManager::FIndividualPhantomIDCallback spawnCallback);
     
@@ -111,7 +112,7 @@ public:
     UFUNCTION(BlueprintCallable)
     UPalIndividualCharacterHandle* CreateIndividual(FPalIndividualCharacterSaveParameter initParameter, UPalCharacterManager::FIndividualIDCallback spawnCallback);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

@@ -9,12 +9,13 @@ UCLASS(Blueprintable)
 class PAL_API APalSimpleInteractableObject : public AActor, public IPalInteractiveObjectIndicatorInterface {
     GENERATED_BODY()
 public:
-    APalSimpleInteractableObject();
+    APalSimpleInteractableObject(const FObjectInitializer& ObjectInitializer);
+
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     EPalInteractiveObjectIndicatorType GetIndicatorType() const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

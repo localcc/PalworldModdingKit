@@ -1,6 +1,12 @@
 #include "PalMapObjectBreedFarmModel.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectBreedFarmModel::UPalMapObjectBreedFarmModel() {
+    this->ExistPalEggMaxNum = 0;
+    this->BreedRequiredRealTime = 0.00f;
+    this->BreedProgressTime = 0.00f;
+}
+
 void UPalMapObjectBreedFarmModel::OnUpdateAssignedCharacter(UPalWorkBase* Work) {
 }
 
@@ -26,9 +32,4 @@ void UPalMapObjectBreedFarmModel::GetLifetimeReplicatedProps(TArray<FLifetimePro
     DOREPLIFETIME(UPalMapObjectBreedFarmModel, TargetBreedItemIds);
 }
 
-UPalMapObjectBreedFarmModel::UPalMapObjectBreedFarmModel() {
-    this->ExistPalEggMaxNum = 0;
-    this->BreedRequiredRealTime = 0.00f;
-    this->BreedProgressTime = 0.00f;
-}
 

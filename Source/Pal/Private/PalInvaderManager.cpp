@@ -1,5 +1,8 @@
 #include "PalInvaderManager.h"
 
+UPalInvaderManager::UPalInvaderManager() {
+}
+
 void UPalInvaderManager::VisitorTravelTest() {
 }
 
@@ -29,6 +32,4 @@ bool UPalInvaderManager::RequestIncidentInvaderEnemy(const FGuid& Guid, UPalInva
 void UPalInvaderManager::RemoveInvaderIncident(UPalIncidentBase* Incident) {
 }
 
-UPalInvaderManager::UPalInvaderManager() {
-}
 

@@ -3,6 +3,32 @@
 #include "PalMapObjectDamageReactionComponent.h"
 #include "PalMapObjectVisualEffectComponent.h"
 
+APalMapObject::APalMapObject(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bReplicates = true;
+    const FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
+    (*p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this)) = ROLE_SimulatedProxy;
+    this->ConcreteModelClass = NULL;
+    this->DamageReaction = CreateDefaultSubobject<UPalMapObjectDamageReactionComponent>(TEXT("DamageReaction"));
+    this->VisualEffect = CreateDefaultSubobject<UPalMapObjectVisualEffectComponent>(TEXT("VisualEffect"));
+    this->bSpawnableIfOverlapped = false;
+    this->bLevelSpawnObject = false;
+    this->bSpawnSlipAboveIfAnyOverlap = false;
+    this->bShakeOnDamaged = false;
+    this->DestroyFXType = EPalMapObjectDestroyFXType::Normal;
+    this->bShowOutlineInTargettingReticle = false;
+    this->bShowOutlineNearPlayer = false;
+    this->bAutoDestroyByOverlapSpawning = false;
+    this->bInDoorObject = false;
+    this->bBaseObject = false;
+    this->DamagableType = EPalMapObjectDamagableType::OtherGroup;
+    this->MapObjectModel = NULL;
+    this->bUnmanagedInLocal = false;
+    this->IndicatorWidgetClass = NULL;
+    this->ChangeMeshFXType = EPalMapObjectChangeMeshFXType::None;
+    this->bWorkLocationGroupRaycastStartOffsetOrigin = false;
+    this->bShouldPlayDestroyFX = false;
+}
+
 void APalMapObject::TryGetConcreteModel(EPalMapObjectGetModelOutPinType& OutputPin, UPalMapObjectConcreteModelBase*& ConcreteModel) {
 }
 
@@ -57,26 +83,4 @@ void APalMapObject::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
     DOREPLIFETIME(APalMapObject, MapObjectModel);
 }
 
-APalMapObject::APalMapObject() {
-    this->ConcreteModelClass = NULL;
-    this->DamageReaction = CreateDefaultSubobject<UPalMapObjectDamageReactionComponent>(TEXT("DamageReaction"));
-    this->VisualEffect = CreateDefaultSubobject<UPalMapObjectVisualEffectComponent>(TEXT("VisualEffect"));
-    this->bSpawnableIfOverlapped = false;
-    this->bLevelSpawnObject = false;
-    this->bSpawnSlipAboveIfAnyOverlap = false;
-    this->bShakeOnDamaged = false;
-    this->DestroyFXType = EPalMapObjectDestroyFXType::Normal;
-    this->bShowOutlineInTargettingReticle = false;
-    this->bShowOutlineNearPlayer = false;
-    this->bAutoDestroyByOverlapSpawning = false;
-    this->bInDoorObject = false;
-    this->bBaseObject = false;
-    this->DamagableType = EPalMapObjectDamagableType::OtherGroup;
-    this->MapObjectModel = NULL;
-    this->bUnmanagedInLocal = false;
-    this->IndicatorWidgetClass = NULL;
-    this->ChangeMeshFXType = EPalMapObjectChangeMeshFXType::None;
-    this->bWorkLocationGroupRaycastStartOffsetOrigin = false;
-    this->bShouldPlayDestroyFX = false;
-}
 

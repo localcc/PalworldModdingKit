@@ -7,6 +7,7 @@ UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnable
 class PAL_API UPalFoliageISMComponent : public UFoliageInstancedStaticMeshComponent {
     GENERATED_BODY()
 public:
-    UPalFoliageISMComponent();
+    UPalFoliageISMComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

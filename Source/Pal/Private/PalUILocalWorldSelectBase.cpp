@@ -1,5 +1,8 @@
 #include "PalUILocalWorldSelectBase.h"
 
+UPalUILocalWorldSelectBase::UPalUILocalWorldSelectBase() {
+}
+
 bool UPalUILocalWorldSelectBase::SelectWorld(const FString& WorldSaveDirectoryName, const FString& WorldName, FPalOptionWorldSaveData& OptionWorldData) {
     return false;
 }
@@ -15,6 +18,4 @@ bool UPalUILocalWorldSelectBase::DeleteWorld(const FString& WorldSaveDirectoryNa
     return false;
 }
 
-UPalUILocalWorldSelectBase::UPalUILocalWorldSelectBase() {
-}
 

@@ -1,5 +1,13 @@
 #include "PalCheatManager.h"
-#include "PalDebug_SpawnInfoReporter.h"
+
+UPalCheatManager::UPalCheatManager() {
+    this->DebugWindowSetting = NULL;
+    this->DebugProgressPresetDataTable = NULL;
+    this->SpawnerInfoReporterClass = NULL;
+    this->PalImGui = NULL;
+    this->PalCountSystem = NULL;
+    this->SpawnInfoReporter = NULL;
+}
 
 void UPalCheatManager::WorkerEventLog() {
 }
@@ -898,12 +906,4 @@ void UPalCheatManager::AddBossTechnologyPoints(int32 AddPoints) {
 void UPalCheatManager::AddBaseCampEnergyAmount(const EPalEnergyType EnergyType, const float Amount) {
 }
 
-UPalCheatManager::UPalCheatManager() {
-    this->DebugWindowSetting = NULL;
-    this->DebugProgressPresetDataTable = NULL;
-    this->SpawnerInfoReporterClass = APalDebug_SpawnInfoReporter::StaticClass();
-    this->PalImGui = NULL;
-    this->PalCountSystem = NULL;
-    this->SpawnInfoReporter = NULL;
-}
 

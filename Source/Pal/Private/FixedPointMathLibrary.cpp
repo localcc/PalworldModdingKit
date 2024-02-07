@@ -1,5 +1,8 @@
 #include "FixedPointMathLibrary.h"
 
+UFixedPointMathLibrary::UFixedPointMathLibrary() {
+}
+
 FFixedPoint UFixedPointMathLibrary::Subtract_FixedPointInteger(FFixedPoint A, int32 B) {
     return FFixedPoint{};
 }
@@ -136,6 +139,4 @@ FFixedPoint UFixedPointMathLibrary::Add_FixedPointFixedPoint(FFixedPoint A, FFix
     return FFixedPoint{};
 }
 
-UFixedPointMathLibrary::UFixedPointMathLibrary() {
-}
 

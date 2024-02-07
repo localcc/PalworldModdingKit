@@ -1,5 +1,8 @@
 #include "PalWorldSecurityUtility.h"
 
+UPalWorldSecurityUtility::UPalWorldSecurityUtility() {
+}
+
 bool UPalWorldSecurityUtility::IsWantedCharacter(APalCharacter* Target) {
     return false;
 }
@@ -12,6 +15,4 @@ bool UPalWorldSecurityUtility::FindCriminalsInSight(APalCharacter* Target, TArra
     return false;
 }
 
-UPalWorldSecurityUtility::UPalWorldSecurityUtility() {
-}
 

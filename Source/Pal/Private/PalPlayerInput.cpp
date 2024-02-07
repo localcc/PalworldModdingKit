@@ -1,5 +1,9 @@
 #include "PalPlayerInput.h"
 
+UPalPlayerInput::UPalPlayerInput() {
+    this->DebugExecBindings.AddDefaulted(18);
+}
+
 bool UPalPlayerInput::UpdateActionMapping(const FName InActionName, const FPalKeyConfigKeys& NewKey, EPalKeyConfigCategory Category) {
     return false;
 }
@@ -37,6 +41,4 @@ void UPalPlayerInput::FiltterCategoryAxisMappings(EPalKeyConfigCategory Category
 void UPalPlayerInput::FiltterCategoryActionMappings(EPalKeyConfigCategory Category, TArray<FInputActionKeyMapping>& Mappings) const {
 }
 
-UPalPlayerInput::UPalPlayerInput() {
-}
 

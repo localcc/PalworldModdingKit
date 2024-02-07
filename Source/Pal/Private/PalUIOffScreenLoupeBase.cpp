@@ -1,5 +1,13 @@
 #include "PalUIOffScreenLoupeBase.h"
 
+UPalUIOffScreenLoupeBase::UPalUIOffScreenLoupeBase() {
+    this->displayDotBorder = 0.80f;
+    this->isWaitedClose = false;
+    this->isOverrideVisibility = false;
+    this->isRequestedDisplay = false;
+    this->overrideVisibility = ESlateVisibility::Visible;
+}
+
 void UPalUIOffScreenLoupeBase::SetOverrideVisibility(ESlateVisibility NewVisibility) {
 }
 
@@ -23,11 +31,4 @@ void UPalUIOffScreenLoupeBase::CloseSelf() {
 }
 
 
-UPalUIOffScreenLoupeBase::UPalUIOffScreenLoupeBase() {
-    this->displayDotBorder = 0.80f;
-    this->isWaitedClose = false;
-    this->isOverrideVisibility = false;
-    this->isRequestedDisplay = false;
-    this->overrideVisibility = ESlateVisibility::Visible;
-}
 

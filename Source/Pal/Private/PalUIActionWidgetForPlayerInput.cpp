@@ -1,5 +1,9 @@
 #include "PalUIActionWidgetForPlayerInput.h"
 
+UPalUIActionWidgetForPlayerInput::UPalUIActionWidgetForPlayerInput() {
+    this->OverrideInputType = 0;
+}
+
 
 void UPalUIActionWidgetForPlayerInput::UnbindInputMethodChangeEvent() {
 }
@@ -22,7 +26,4 @@ void UPalUIActionWidgetForPlayerInput::ChangeBindActionName(const FName& NewActi
 void UPalUIActionWidgetForPlayerInput::BindInputMethodChangeEvent() {
 }
 
-UPalUIActionWidgetForPlayerInput::UPalUIActionWidgetForPlayerInput() {
-    this->OverrideInputType = 0;
-}
 

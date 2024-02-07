@@ -24,6 +24,7 @@ private:
     UNiagaraComponent* DamageNiagaraComp;
     
 public:
-    UPalBuildObjectVisualControlComponent();
+    UPalBuildObjectVisualControlComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

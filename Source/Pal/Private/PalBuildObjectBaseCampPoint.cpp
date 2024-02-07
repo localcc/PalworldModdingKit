@@ -1,7 +1,8 @@
 #include "PalBuildObjectBaseCampPoint.h"
 
-
-
-APalBuildObjectBaseCampPoint::APalBuildObjectBaseCampPoint() {
+APalBuildObjectBaseCampPoint::APalBuildObjectBaseCampPoint(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
+
+
 

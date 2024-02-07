@@ -24,8 +24,9 @@ private:
     
 public:
     UPalMapObjectModelEffect_Burn();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
     UFUNCTION(BlueprintCallable)
     void OnRep_Burning(bool bLastValue);

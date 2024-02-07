@@ -1,5 +1,9 @@
 #include "PalUIJoinGameBase.h"
 
+UPalUIJoinGameBase::UPalUIJoinGameBase() {
+    this->bIsShowIgnoreVersionServer = false;
+}
+
 void UPalUIJoinGameBase::RequestOfficialServerIPRange() {
 }
 
@@ -22,7 +26,4 @@ void UPalUIJoinGameBase::ConnectServer(const FPalUIServerDisplayData& ServerDisp
 void UPalUIJoinGameBase::CollectServerDisplayInfo(const FPalUIServerDataCollectInfo& CollectInfo, TArray<FPalUIServerDisplayData>& OutServerInfo) {
 }
 
-UPalUIJoinGameBase::UPalUIJoinGameBase() {
-    this->bIsShowIgnoreVersionServer = false;
-}
 

@@ -77,7 +77,8 @@ private:
     TArray<float> RateList;
     
 public:
-    UPalDamageReactionComponent();
+    UPalDamageReactionComponent(const FObjectInitializer& ObjectInitializer);
+    
     UFUNCTION(BlueprintCallable)
     void SlipDamageAndBlowWhenDead(int32 Damage, FVector Velocity);
     

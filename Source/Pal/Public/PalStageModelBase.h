@@ -20,8 +20,9 @@ protected:
     
 public:
     UPalStageModelBase();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
     UFUNCTION(BlueprintCallable)
     void OnCompleteLoadStage_ServerInternal(UPalStageModelBase* TargetStageModel);

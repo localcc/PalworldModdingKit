@@ -1,5 +1,8 @@
 #include "PalEventNotify_Area.h"
 
+UPalEventNotify_Area::UPalEventNotify_Area() {
+}
+
 void UPalEventNotify_Area::OnRegiterdArea_ServerInternal(APalTriggerAreaBase* TriggerBase) {
 }
 
@@ -13,6 +16,4 @@ UPalEventNotify_Area* UPalEventNotify_Area::GetEventNotify_Area(const UObject* W
     return NULL;
 }
 
-UPalEventNotify_Area::UPalEventNotify_Area() {
-}
 

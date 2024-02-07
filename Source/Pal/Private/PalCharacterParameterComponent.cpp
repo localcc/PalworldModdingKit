@@ -1,6 +1,50 @@
 #include "PalCharacterParameterComponent.h"
 #include "Net/UnrealNetwork.h"
 
+UPalCharacterParameterComponent::UPalCharacterParameterComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bIsCooping = false;
+    this->bIsEnableSendReticleTarget = false;
+    this->bIsEnableMuteki = false;
+    this->IsSPOverheat = false;
+    this->bIsHyperArmor = false;
+    this->bIsDebugMuteki = false;
+    this->ElementType1 = EPalElementType::None;
+    this->ElementType2 = EPalElementType::None;
+    this->IsOverrideTarget = false;
+    this->Trainer = NULL;
+    this->OtomoPal = NULL;
+    this->IndividualHandle = NULL;
+    this->IndividualParameter = NULL;
+    this->IsStun = false;
+    this->IsEnableSpeedCollision = true;
+    this->IsCanSneakAttacked = false;
+    this->IsFriendBulletIgnore = false;
+    this->BiologicalGrade = 0;
+    this->IsPredator = false;
+    this->IsEdible = true;
+    this->HiddenCollisionOverlapCount = 0;
+    this->BurnCollisionOverlapCount = 0;
+    this->LavaCollisionOverlapCount = 0;
+    this->DamageUpElement_ByElementStatus = EPalElementType::None;
+    this->DamageDownElement_ByElementStatus = EPalElementType::None;
+    this->IsDarknessRandomAttack = false;
+    this->AttackUp = 0;
+    this->DefenseUp = 0;
+    this->IsSleepAction = false;
+    this->IsDisableOtomoReturnEffect = false;
+    this->bIsUseGroundRayCast = true;
+    this->BaseCampWorkerOrderType = EPalMapBaseCampWorkerOrderType::Work;
+    this->bBaseCampWorkerAttackableFriend = false;
+    this->WorkType = EPalWorkType::None;
+    this->bBeingRescued = false;
+    this->DyingHP = 0.00f;
+    this->DyingMaxHP = 100.00f;
+    this->ItemContainer = NULL;
+    this->IsCapturedProcessing = false;
+    this->CanDropItem = false;
+    this->OtomoAttackStopJudge = NULL;
+}
+
 void UPalCharacterParameterComponent::ZeroDyingHP_ToServer_Implementation() {
 }
 
@@ -322,47 +366,4 @@ void UPalCharacterParameterComponent::GetLifetimeReplicatedProps(TArray<FLifetim
     DOREPLIFETIME(UPalCharacterParameterComponent, UnreachableMapObjectRepInfoArray);
 }
 
-UPalCharacterParameterComponent::UPalCharacterParameterComponent() {
-    this->bIsCooping = false;
-    this->bIsEnableSendReticleTarget = false;
-    this->bIsEnableMuteki = false;
-    this->IsSPOverheat = false;
-    this->bIsHyperArmor = false;
-    this->bIsDebugMuteki = false;
-    this->ElementType1 = EPalElementType::None;
-    this->ElementType2 = EPalElementType::None;
-    this->IsOverrideTarget = false;
-    this->Trainer = NULL;
-    this->OtomoPal = NULL;
-    this->IndividualHandle = NULL;
-    this->IndividualParameter = NULL;
-    this->IsStun = false;
-    this->IsEnableSpeedCollision = true;
-    this->IsCanSneakAttacked = false;
-    this->IsFriendBulletIgnore = false;
-    this->BiologicalGrade = 0;
-    this->IsPredator = false;
-    this->IsEdible = true;
-    this->HiddenCollisionOverlapCount = 0;
-    this->BurnCollisionOverlapCount = 0;
-    this->LavaCollisionOverlapCount = 0;
-    this->DamageUpElement_ByElementStatus = EPalElementType::None;
-    this->DamageDownElement_ByElementStatus = EPalElementType::None;
-    this->IsDarknessRandomAttack = false;
-    this->AttackUp = 0;
-    this->DefenseUp = 0;
-    this->IsSleepAction = false;
-    this->IsDisableOtomoReturnEffect = false;
-    this->bIsUseGroundRayCast = true;
-    this->BaseCampWorkerOrderType = EPalMapBaseCampWorkerOrderType::Work;
-    this->bBaseCampWorkerAttackableFriend = false;
-    this->WorkType = EPalWorkType::None;
-    this->bBeingRescued = false;
-    this->DyingHP = 0.00f;
-    this->DyingMaxHP = 100.00f;
-    this->ItemContainer = NULL;
-    this->IsCapturedProcessing = false;
-    this->CanDropItem = false;
-    this->OtomoAttackStopJudge = NULL;
-}
 

@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class PAL_API APalLevelObjectRelic : public APalLevelObjectObtainable {
     GENERATED_BODY()
 public:
-    APalLevelObjectRelic();
+    APalLevelObjectRelic(const FObjectInitializer& ObjectInitializer);
+
 };
 

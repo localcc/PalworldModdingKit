@@ -18,7 +18,8 @@ private:
     int32 CurrentSequenceIndex;
     
 public:
-    UPalGameSystemInitManagerComponent();
+    UPalGameSystemInitManagerComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnChangeProcessState(UPalGameSystemInitProcessHandle* ChangedProcessHandle);

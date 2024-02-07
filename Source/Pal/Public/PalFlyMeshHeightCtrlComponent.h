@@ -32,9 +32,10 @@ private:
     USkeletalMeshComponent* SK;
     
 public:
-    UPalFlyMeshHeightCtrlComponent();
+    UPalFlyMeshHeightCtrlComponent(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable)
     void ToLand(float Duration);
     

@@ -1,5 +1,8 @@
 #include "PalUIPalBoxBase.h"
 
+UPalUIPalBoxBase::UPalUIPalBoxBase() {
+}
+
 void UPalUIPalBoxBase::TryMoveToOtomo(UPalIndividualCharacterSlot* MoveSlot) {
 }
 
@@ -42,6 +45,4 @@ void UPalUIPalBoxBase::ChangeNextPagePalBoxList() {
 void UPalUIPalBoxBase::CancelLift() {
 }
 
-UPalUIPalBoxBase::UPalUIPalBoxBase() {
-}
 

@@ -1,6 +1,9 @@
 #include "PalMapObjectDeathPenaltyStorageModel.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectDeathPenaltyStorageModel::UPalMapObjectDeathPenaltyStorageModel() {
+}
+
 void UPalMapObjectDeathPenaltyStorageModel::OnChangedPlayerInfoInLocalPlayerGuild_ClientInternal(APalPlayerState* LocalPlayerState) {
 }
 
@@ -15,6 +18,4 @@ void UPalMapObjectDeathPenaltyStorageModel::GetLifetimeReplicatedProps(TArray<FL
     DOREPLIFETIME(UPalMapObjectDeathPenaltyStorageModel, LocationId);
 }
 
-UPalMapObjectDeathPenaltyStorageModel::UPalMapObjectDeathPenaltyStorageModel() {
-}
 

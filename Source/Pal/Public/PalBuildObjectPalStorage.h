@@ -61,7 +61,8 @@ protected:
     int32 ChestSlotNum;
     
 public:
-    APalBuildObjectPalStorage();
+    APalBuildObjectPalStorage(const FObjectInitializer& ObjectInitializer);
+
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void PlaySpawnCharacterFX(APalCharacter* TargetActor) const;

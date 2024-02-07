@@ -54,7 +54,8 @@ private:
     FOnCreateInteractDelegatesMultiCast OnCreateInteractDelegatesDelegate;
     
 public:
-    UPalInteractiveObjectCapsuleComponent();
+    UPalInteractiveObjectCapsuleComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetIndicatorInterface(TScriptInterface<IPalInteractiveObjectIndicatorInterface> InIndicatorInterface);
     
@@ -80,7 +81,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void CallOrRegisterOnCreateInteractDelegates(UPalInteractiveObjectCapsuleComponent::FOnCreateInteractsDelegates Delegate);
     
-    
+
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintCallable)
     UObject* Self() const override PURE_VIRTUAL(Self, return NULL;);

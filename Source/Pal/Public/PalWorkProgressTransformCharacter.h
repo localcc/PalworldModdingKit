@@ -18,7 +18,8 @@ protected:
     
 public:
     UPalWorkProgressTransformCharacter();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 };
 

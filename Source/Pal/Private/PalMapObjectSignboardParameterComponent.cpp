@@ -1,6 +1,7 @@
 #include "PalMapObjectSignboardParameterComponent.h"
 
-UPalMapObjectSignboardParameterComponent::UPalMapObjectSignboardParameterComponent() {
+UPalMapObjectSignboardParameterComponent::UPalMapObjectSignboardParameterComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->MenuUIWidgetClass = NULL;
 }
+
 

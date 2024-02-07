@@ -14,6 +14,7 @@ private:
     TArray<UObject*> ReplicateObject;
     
 public:
-    UPalObjectReplicatorComponent();
+    UPalObjectReplicatorComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

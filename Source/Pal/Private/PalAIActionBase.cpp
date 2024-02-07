@@ -1,6 +1,12 @@
 #include "PalAIActionBase.h"
 #include "Templates/SubclassOf.h"
 
+UPalAIActionBase::UPalAIActionBase() {
+    this->bIsAutoStopBehaviorTree = true;
+    this->AiActionCategory = EPalAIActionCategory::Undefined;
+    this->DefaultPriority = EAIRequestPriority::SoftScript;
+}
+
 void UPalAIActionBase::SetWalkSpeed_ForAIAction(EPalMovementSpeedType MoveSpeedType) {
 }
 
@@ -62,9 +68,4 @@ UPawnAction* UPalAIActionBase::CreateActionInstanceFixName(UObject* WorldContext
 }
 
 
-UPalAIActionBase::UPalAIActionBase() {
-    this->bIsAutoStopBehaviorTree = true;
-    this->AiActionCategory = EPalAIActionCategory::Undefined;
-    this->DefaultPriority = EAIRequestPriority::SoftScript;
-}
 

@@ -14,6 +14,7 @@ class PAL_API UPalAIActionBaseCampRecoverHungryChildBase : public UPalAIActionBa
     GENERATED_BODY()
 public:
     UPalAIActionBaseCampRecoverHungryChildBase();
+
 protected:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool TryGetTargetMapObjectConcreteModel(UPalMapObjectConcreteModelBase*& OutTargetModel);
@@ -38,7 +39,7 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetHungryParameter(FPalMonsterControllerBaseCampHungryParameter& HungeryParameter);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

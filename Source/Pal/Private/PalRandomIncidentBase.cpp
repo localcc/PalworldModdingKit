@@ -1,5 +1,10 @@
 #include "PalRandomIncidentBase.h"
 
+UPalRandomIncidentBase::UPalRandomIncidentBase() {
+    this->bIsFinishWithIncidentSpawner = true;
+    this->PrevEnterArea = EPalRandomIncidentSpawnerAreaType::Unknown;
+}
+
 void UPalRandomIncidentBase::SetDisableFlagForNPCSpawner(const FVector& Center, float Radius, const FName& Name, bool isDisable) {
 }
 
@@ -22,8 +27,4 @@ void UPalRandomIncidentBase::CreateSpawnMonsterDataListFromOutbreakRow(const UDa
 void UPalRandomIncidentBase::BroadcastOnEnterAreaAndOnExitArea(int32 PlayerId) {
 }
 
-UPalRandomIncidentBase::UPalRandomIncidentBase() {
-    this->bIsFinishWithIncidentSpawner = true;
-    this->PrevEnterArea = EPalRandomIncidentSpawnerAreaType::Unknown;
-}
 

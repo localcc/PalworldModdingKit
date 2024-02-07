@@ -11,7 +11,8 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalBiomeType BindBiomeType;
     
-    APalBiomeAreaTriggerBase();
+    APalBiomeAreaTriggerBase(const FObjectInitializer& ObjectInitializer);
+
 protected:
     UFUNCTION(BlueprintCallable)
     void OnOverlap(AActor* OtherActor, EPalBiomeType BiomeType);

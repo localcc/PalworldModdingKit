@@ -1,5 +1,8 @@
 #include "PalNetworkIndividualComponent.h"
 
+UPalNetworkIndividualComponent::UPalNetworkIndividualComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void UPalNetworkIndividualComponent::UpdateCharacterParameter_ToServer_Implementation(const FPalInstanceID& ID, const FPalNetArchive& parameterArchive, FGuid Guid) {
 }
 
@@ -102,6 +105,4 @@ void UPalNetworkIndividualComponent::AddHighPriorityList_ToServer_Implementation
 void UPalNetworkIndividualComponent::AddEquipWaza_ToServer_Implementation(const FPalInstanceID& ID, const EPalWazaID NewWaza) {
 }
 
-UPalNetworkIndividualComponent::UPalNetworkIndividualComponent() {
-}
 

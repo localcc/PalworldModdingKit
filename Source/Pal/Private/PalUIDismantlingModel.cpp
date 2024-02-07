@@ -1,5 +1,8 @@
 #include "PalUIDismantlingModel.h"
 
+UPalUIDismantlingModel::UPalUIDismantlingModel() {
+}
+
 void UPalUIDismantlingModel::Setup() {
 }
 
@@ -13,6 +16,4 @@ void UPalUIDismantlingModel::Dispose() {
 void UPalUIDismantlingModel::DismantleObject(const bool bContinuously) {
 }
 
-UPalUIDismantlingModel::UPalUIDismantlingModel() {
-}
 

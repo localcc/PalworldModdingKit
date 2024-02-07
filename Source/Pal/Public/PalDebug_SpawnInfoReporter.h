@@ -14,7 +14,8 @@ private:
     TArray<APalNPCSpawnerBase*> CacheSpawner;
     
 public:
-    APalDebug_SpawnInfoReporter();
+    APalDebug_SpawnInfoReporter(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     FString GetDebugInfoString(APalNPCSpawnerBase* spawner);
     

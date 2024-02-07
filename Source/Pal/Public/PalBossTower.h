@@ -49,9 +49,10 @@ private:
     FTimerHandle TimerHandle;
     
 public:
-    APalBossTower();
+    APalBossTower(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable)
     bool WriteBossDefeatRecord_ServerInternal(APalPlayerCharacter* TargetPlayer);
     
@@ -119,7 +120,7 @@ protected:
     UFUNCTION(BlueprintCallable)
     void AddInDoorPlayer(APalPlayerCharacter* Player);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

@@ -11,3 +11,4 @@ UPalAIResponsePreset::UPalAIResponsePreset() {
     this->Damaged_Smaller = EPalAIResponseType::Ignore;
 }
 
+

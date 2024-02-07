@@ -13,8 +13,9 @@ protected:
     FPalDataTableRowName_NoteData NoteRowName;
     
 public:
-    APalLevelObjectNote();
+    APalLevelObjectNote(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 };
 

@@ -14,6 +14,7 @@ private:
     TWeakObjectPtr<APalCharacter> WeakCharacterForParameterDisplay;
     
 public:
-    APalImGui();
+    APalImGui(const FObjectInitializer& ObjectInitializer);
+
 };
 

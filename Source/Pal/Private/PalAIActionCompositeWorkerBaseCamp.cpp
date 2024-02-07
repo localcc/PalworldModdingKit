@@ -6,3 +6,4 @@ UPalAIActionCompositeWorkerBaseCamp::UPalAIActionCompositeWorkerBaseCamp() {
     this->DefenseActionClass = NULL;
 }
 
+

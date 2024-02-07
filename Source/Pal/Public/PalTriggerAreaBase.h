@@ -20,7 +20,8 @@ private:
     FGuid InstanceId;
     
 public:
-    APalTriggerAreaBase();
+    APalTriggerAreaBase(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FGuid GetInstanceId();
     

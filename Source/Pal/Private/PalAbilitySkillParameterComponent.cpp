@@ -1,5 +1,10 @@
 #include "PalAbilitySkillParameterComponent.h"
 
+UPalAbilitySkillParameterComponent::UPalAbilitySkillParameterComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->AbilitySkills.AddDefaulted(1);
+    this->PassiveSkill = NULL;
+}
+
 void UPalAbilitySkillParameterComponent::OnRideInactivated() {
 }
 
@@ -30,8 +35,4 @@ void UPalAbilitySkillParameterComponent::OnActivatedAsPartner() {
 void UPalAbilitySkillParameterComponent::OnActivatedAsOtomoHolder() {
 }
 
-UPalAbilitySkillParameterComponent::UPalAbilitySkillParameterComponent() {
-    this->AbilitySkills.AddDefaulted(1);
-    this->PassiveSkill = NULL;
-}
 

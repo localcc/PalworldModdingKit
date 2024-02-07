@@ -41,8 +41,9 @@ private:
     
 public:
     UPalActiveSkill();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable)
     void OnRep_UpdateCoolTime();
     

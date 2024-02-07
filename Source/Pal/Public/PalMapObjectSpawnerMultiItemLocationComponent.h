@@ -7,6 +7,7 @@ UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnable
 class PAL_API UPalMapObjectSpawnerMultiItemLocationComponent : public UStaticMeshComponent {
     GENERATED_BODY()
 public:
-    UPalMapObjectSpawnerMultiItemLocationComponent();
+    UPalMapObjectSpawnerMultiItemLocationComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

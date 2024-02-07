@@ -1,5 +1,9 @@
 #include "PalFunnelSkillModule.h"
 
+UPalFunnelSkillModule::UPalFunnelSkillModule() {
+    this->FunnelCharacter = NULL;
+}
+
 bool UPalFunnelSkillModule::ShouldSetSkillAction_Implementation() const {
     return false;
 }
@@ -17,7 +21,4 @@ APalCharacter* UPalFunnelSkillModule::GetCharacter() const {
     return NULL;
 }
 
-UPalFunnelSkillModule::UPalFunnelSkillModule() {
-    this->FunnelCharacter = NULL;
-}
 

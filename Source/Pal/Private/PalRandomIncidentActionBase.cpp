@@ -1,5 +1,9 @@
 #include "PalRandomIncidentActionBase.h"
 
+UPalRandomIncidentActionBase::UPalRandomIncidentActionBase() {
+    this->bIsTickable = false;
+}
+
 void UPalRandomIncidentActionBase::Terminate() {
 }
 
@@ -20,7 +24,4 @@ void UPalRandomIncidentActionBase::SendNotify(EPalRandomIncidentActionNotifyType
 void UPalRandomIncidentActionBase::Initialize() {
 }
 
-UPalRandomIncidentActionBase::UPalRandomIncidentActionBase() {
-    this->bIsTickable = false;
-}
 

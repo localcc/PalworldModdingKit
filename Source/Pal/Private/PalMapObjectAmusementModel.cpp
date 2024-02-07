@@ -1,5 +1,11 @@
 #include "PalMapObjectAmusementModel.h"
 
+UPalMapObjectAmusementModel::UPalMapObjectAmusementModel() {
+    this->HealingCharacterHandle = NULL;
+    this->AffectSanityRate = 1.00f;
+    this->AIActionClass = NULL;
+}
+
 void UPalMapObjectAmusementModel::OnInteractBegin(AActor* Other, TScriptInterface<IPalInteractiveObjectComponentInterface> Component) {
 }
 
@@ -13,9 +19,4 @@ UPalIndividualCharacterHandle* UPalMapObjectAmusementModel::GetHealingHandle() c
 void UPalMapObjectAmusementModel::ClearCharacterHandle() {
 }
 
-UPalMapObjectAmusementModel::UPalMapObjectAmusementModel() {
-    this->HealingCharacterHandle = NULL;
-    this->AffectSanityRate = 1.00f;
-    this->AIActionClass = NULL;
-}
 

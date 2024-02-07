@@ -1,5 +1,10 @@
 #include "PalIncidentList.h"
 
+UPalIncidentList::UPalIncidentList() {
+    this->CurrentIncident = NULL;
+    this->ProgressCount = 0;
+}
+
 
 void UPalIncidentList::OnAllIncidentsCompleted_Implementation() {
 }
@@ -16,8 +21,4 @@ void UPalIncidentList::AddIncidents(const TArray<FName>& IDs) {
 void UPalIncidentList::AddIncident(const FName& ID) {
 }
 
-UPalIncidentList::UPalIncidentList() {
-    this->CurrentIncident = NULL;
-    this->ProgressCount = 0;
-}
 

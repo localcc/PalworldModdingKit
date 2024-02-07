@@ -104,8 +104,9 @@ protected:
     
 public:
     UPalPlayerInventoryData();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable)
     bool TryRemoveEquipment(UPalItemSlot* EquipSlot);
     

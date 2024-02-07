@@ -7,6 +7,7 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class PAL_API UPalMapObjectBaseCampPassiveEffectWorkHardParameterComponent : public UPalMapObjectBaseCampPassiveEffectParameterComponentBase {
     GENERATED_BODY()
 public:
-    UPalMapObjectBaseCampPassiveEffectWorkHardParameterComponent();
+    UPalMapObjectBaseCampPassiveEffectWorkHardParameterComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

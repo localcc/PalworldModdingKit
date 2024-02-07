@@ -1,6 +1,10 @@
 #include "PalMapObjectCharacterContainerModule.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectCharacterContainerModule::UPalMapObjectCharacterContainerModule() {
+    this->TargetContainer = NULL;
+}
+
 bool UPalMapObjectCharacterContainerModule::TryGetContainer(UPalIndividualCharacterContainer*& OutContainer) const {
     return false;
 }
@@ -26,7 +30,4 @@ void UPalMapObjectCharacterContainerModule::GetLifetimeReplicatedProps(TArray<FL
     DOREPLIFETIME(UPalMapObjectCharacterContainerModule, TargetContainer);
 }
 
-UPalMapObjectCharacterContainerModule::UPalMapObjectCharacterContainerModule() {
-    this->TargetContainer = NULL;
-}
 

@@ -72,8 +72,9 @@ private:
     
 public:
     UPalBaseCampWorkerDirector();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable)
     void OrderCommand(const EPalMapBaseCampWorkerOrderType OrderType);
     

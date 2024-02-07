@@ -7,7 +7,6 @@ enum class EPalBaseCampWorkerDirectionBattleType : uint8 {
     AttackToEnemyInBaseCamp,
     NoBattle,
     Num,
-    FirstValue = 0x0,
-    EPalBaseCampWorkerDirectionBattleType_MAX = 0x3,
+    FirstValue = AttackToEnemyInBaseCamp,
 };
 

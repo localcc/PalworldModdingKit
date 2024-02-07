@@ -19,7 +19,8 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalCharacterStatusOperationResultDelegate OnReceiveRequestResultDelegate;
     
-    UPalNetworkCharacterStatusOperationComponent();
+    UPalNetworkCharacterStatusOperationComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestReviveCharacterFromDying_ToServer(APalCharacter* Character);
@@ -30,7 +31,7 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void RequestPlayerStatusUp_ToServer(const int32 ToRank);
+    void RequestPlayerStatusUp_ToServer(int32 ToRank);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestPlayerStatusClear_ToServer();

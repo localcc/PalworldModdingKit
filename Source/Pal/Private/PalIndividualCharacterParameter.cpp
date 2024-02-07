@@ -1,6 +1,11 @@
 #include "PalIndividualCharacterParameter.h"
 #include "Net/UnrealNetwork.h"
 
+UPalIndividualCharacterParameter::UPalIndividualCharacterParameter() {
+    this->IndividualActor = NULL;
+    this->EquipItemContainer = NULL;
+}
+
 void UPalIndividualCharacterParameter::UseItemInSlot(const FPalItemSlotIdAndNum SlotIdAndNum) {
 }
 
@@ -395,8 +400,4 @@ void UPalIndividualCharacterParameter::GetLifetimeReplicatedProps(TArray<FLifeti
     DOREPLIFETIME(UPalIndividualCharacterParameter, Debug_CurrentAIActionName);
 }
 
-UPalIndividualCharacterParameter::UPalIndividualCharacterParameter() {
-    this->IndividualActor = NULL;
-    this->EquipItemContainer = NULL;
-}
 

@@ -66,8 +66,9 @@ private:
     
 public:
     UPalItemSlot();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool TryGetStaticItemData(UPalStaticItemDataBase*& OutStaticItemData);
     

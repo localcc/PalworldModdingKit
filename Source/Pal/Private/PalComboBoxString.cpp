@@ -1,5 +1,12 @@
 #include "PalComboBoxString.h"
 
+UPalComboBoxString::UPalComboBoxString() {
+    this->MaxListHeight = 450.00f;
+    this->HasDownArrow = true;
+    this->EnableGamepadNavigationMode = true;
+    this->bIsFocusable = true;
+}
+
 void UPalComboBoxString::SetSelectedOption(const FString& Option) {
 }
 
@@ -46,10 +53,4 @@ void UPalComboBoxString::ClearOptions() {
 void UPalComboBoxString::AddOption(const FString& Option) {
 }
 
-UPalComboBoxString::UPalComboBoxString() {
-    this->MaxListHeight = 450.00f;
-    this->HasDownArrow = true;
-    this->EnableGamepadNavigationMode = true;
-    this->bIsFocusable = true;
-}
 

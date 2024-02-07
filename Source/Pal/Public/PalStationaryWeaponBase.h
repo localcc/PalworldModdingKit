@@ -7,7 +7,8 @@ UCLASS(Blueprintable)
 class PAL_API APalStationaryWeaponBase : public APalWeaponBase {
     GENERATED_BODY()
 public:
-    APalStationaryWeaponBase();
+    APalStationaryWeaponBase(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure)
     float GetAttackableDistance();
     

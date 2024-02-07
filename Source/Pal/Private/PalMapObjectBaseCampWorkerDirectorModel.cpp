@@ -1,6 +1,10 @@
 #include "PalMapObjectBaseCampWorkerDirectorModel.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectBaseCampWorkerDirectorModel::UPalMapObjectBaseCampWorkerDirectorModel() {
+    this->BaseCampBattleTypeForClientRead = EPalBaseCampWorkerDirectionBattleType::FirstValue;
+}
+
 void UPalMapObjectBaseCampWorkerDirectorModel::RequestUpdateBaseCampBattleType_ServerInternal(const int32 RequestPlayerId, const int32 BattleTypeInt) {
 }
 
@@ -16,7 +20,4 @@ void UPalMapObjectBaseCampWorkerDirectorModel::GetLifetimeReplicatedProps(TArray
     DOREPLIFETIME(UPalMapObjectBaseCampWorkerDirectorModel, BaseCampBattleTypeForClientRead);
 }
 
-UPalMapObjectBaseCampWorkerDirectorModel::UPalMapObjectBaseCampWorkerDirectorModel() {
-    this->BaseCampBattleTypeForClientRead = EPalBaseCampWorkerDirectionBattleType::FirstValue;
-}
 

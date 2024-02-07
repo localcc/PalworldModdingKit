@@ -1,5 +1,8 @@
 #include "PalPlayerDataStorage.h"
 
+UPalPlayerDataStorage::UPalPlayerDataStorage() {
+}
+
 UPalPlayerDataPalStorage* UPalPlayerDataStorage::GetPalStorage() const {
     return NULL;
 }
@@ -11,6 +14,4 @@ UPalItemContainerMultiHelper* UPalPlayerDataStorage::GetInventoryContainers() {
     return NULL;
 }
 
-UPalPlayerDataStorage::UPalPlayerDataStorage() {
-}
 

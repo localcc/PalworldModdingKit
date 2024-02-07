@@ -1,5 +1,8 @@
 #include "PalGroupUtility.h"
 
+UPalGroupUtility::UPalGroupUtility() {
+}
+
 EPalOrganizationType UPalGroupUtility::GetOrganizationTypeByIndividualId(const UObject* WorldContextObject, const FPalInstanceID& IndividualId) {
     return EPalOrganizationType::None;
 }
@@ -16,6 +19,4 @@ FGuid UPalGroupUtility::GetGroupIdByIndividualId(const UObject* WorldContextObje
     return FGuid{};
 }
 
-UPalGroupUtility::UPalGroupUtility() {
-}
 

@@ -12,11 +12,11 @@ enum class EPalLandingType : uint8 {
     RollStep_L,
     RollStep_R,
     RollStep_Bwd,
-    FootStep_Index_Begin = 0x1,
-    FootStep_Index_End,
-    JumpLanding_Index_Begin,
-    JumpLanding_Index_End = 0x3,
-    RollStep_Index_Begin,
-    RollStep_Index_End = 0x7,
+    FootStep_Index_Begin = FootStep,
+    FootStep_Index_End = FootStep_S,
+    JumpLanding_Index_Begin = JumpLanding,
+    JumpLanding_Index_End = JumpLanding,
+    RollStep_Index_Begin = RollStep_Fwd,
+    RollStep_Index_End = RollStep_Bwd,
 };
 

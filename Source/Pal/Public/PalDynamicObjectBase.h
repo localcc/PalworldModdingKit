@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class APalDynamicObjectBase : public AActor {
     GENERATED_BODY()
 public:
-    APalDynamicObjectBase();
+    APalDynamicObjectBase(const FObjectInitializer& ObjectInitializer);
+
 };
 

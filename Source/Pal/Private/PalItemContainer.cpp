@@ -1,6 +1,10 @@
 #include "PalItemContainer.h"
 #include "Net/UnrealNetwork.h"
 
+UPalItemContainer::UPalItemContainer() {
+    this->CorruptionMultiplier = 1.00f;
+}
+
 void UPalItemContainer::OnUpdateSlotContent(UPalItemSlot* Slot) {
 }
 
@@ -34,7 +38,4 @@ void UPalItemContainer::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Ou
     DOREPLIFETIME(UPalItemContainer, CorruptionMultiplier);
 }
 
-UPalItemContainer::UPalItemContainer() {
-    this->CorruptionMultiplier = 1.00f;
-}
 

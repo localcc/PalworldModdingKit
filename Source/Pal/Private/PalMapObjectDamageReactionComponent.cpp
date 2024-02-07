@@ -1,6 +1,7 @@
 #include "PalMapObjectDamageReactionComponent.h"
 
-UPalMapObjectDamageReactionComponent::UPalMapObjectDamageReactionComponent() {
+UPalMapObjectDamageReactionComponent::UPalMapObjectDamageReactionComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->EffectSlot = NULL;
 }
+
 

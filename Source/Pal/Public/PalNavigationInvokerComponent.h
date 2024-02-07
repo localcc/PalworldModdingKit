@@ -23,7 +23,8 @@ protected:
     FFlagContainer IsDisableInvorkerFlag;
     
 public:
-    UPalNavigationInvokerComponent();
+    UPalNavigationInvokerComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetDisableInvorkerFlag(FName flagName, bool isDisable);
     

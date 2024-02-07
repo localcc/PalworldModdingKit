@@ -1,5 +1,9 @@
 #include "PalIncidentSystem.h"
 
+UPalIncidentSystem::UPalIncidentSystem() {
+    this->IncidentParameterDataTable = NULL;
+}
+
 UPalIncidentList* UPalIncidentSystem::RequestIncidents(const TArray<FName>& Incidents, UObject* OccuredObject, UObject* OwnerObject, UPalIncidentDynamicParameter* Parameter) {
     return NULL;
 }
@@ -31,7 +35,4 @@ void UPalIncidentSystem::ForceStopByIncidentType(FName IncidentType) {
 void UPalIncidentSystem::ForceStopByIncidentId(FName IncidentId) {
 }
 
-UPalIncidentSystem::UPalIncidentSystem() {
-    this->IncidentParameterDataTable = NULL;
-}
 

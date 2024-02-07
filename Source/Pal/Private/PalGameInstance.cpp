@@ -34,69 +34,6 @@
 #include "PalWorkProgressManager.h"
 #include "PalWorldSecuritySystem.h"
 
-void UPalGameInstance::ShowUIMultiplayRestriction(bool bOverrideChecking) {
-}
-
-
-
-void UPalGameInstance::SetNewWorldName(const FString& WorldName) {
-}
-
-void UPalGameInstance::SetIsNewGame() {
-}
-
-bool UPalGameInstance::SelectWorldSaveDirectoryName(const FString& WorldSaveDirectoryName) {
-    return false;
-}
-
-bool UPalGameInstance::SelectWorld(const FString& WorldName) {
-    return false;
-}
-
-void UPalGameInstance::OnInitializeCompleteSystem() {
-}
-
-void UPalGameInstance::OnCompletedJoinSession(bool IsSuccess, JoinSessionResultType Type) {
-}
-
-void UPalGameInstance::OnCompletedFindSessions(bool bIsSuccess, const TArray<FBlueprintSessionResult>& Results, const FString& ErrorStr) {
-}
-
-
-bool UPalGameInstance::IsPlayFromTitle() {
-    return false;
-}
-
-bool UPalGameInstance::IsNewGame() const {
-    return false;
-}
-
-void UPalGameInstance::GoToDefaultMap() {
-}
-
-FString UPalGameInstance::GetSelectedWorldSaveDirectoryName() const {
-    return TEXT("");
-}
-
-FString UPalGameInstance::GetSelectedWorldName() const {
-    return TEXT("");
-}
-
-void UPalGameInstance::CompleteInitCharacterMakeData() {
-}
-
-void UPalGameInstance::ClearNetworkError() {
-}
-
-void UPalGameInstance::CheckInvite() {
-}
-
-void UPalGameInstance::ApplicationHasReactivated() {
-}
-
-void UPalGameInstance::ApplicationHasEnteredForeground() {
-}
-
 UPalGameInstance::UPalGameInstance() {
     this->bNetworkError = false;
     this->GameSettingClass = UPalGameSetting::StaticClass();
@@ -160,9 +97,73 @@ UPalGameInstance::UPalGameInstance() {
     this->ObjectCollectorClass = UPalObjectCollector::StaticClass();
     this->ActionDummyTargetManager = UPalActionDummyTargetManager::StaticClass();
     this->LogManagerClass = UPalLogManager::StaticClass();
-    this->revisionNum = 47084;
+    this->revisionNum = 47558;
     this->TitleBGMPlayerClass = UPalPersistentSoundPlayer::StaticClass();
     this->TitleBGMPlayer = NULL;
     this->bIsNewGame = false;
 }
+
+void UPalGameInstance::ShowUIMultiplayRestriction(bool bOverrideChecking) {
+}
+
+
+
+void UPalGameInstance::SetNewWorldName(const FString& WorldName) {
+}
+
+void UPalGameInstance::SetIsNewGame() {
+}
+
+bool UPalGameInstance::SelectWorldSaveDirectoryName(const FString& WorldSaveDirectoryName) {
+    return false;
+}
+
+bool UPalGameInstance::SelectWorld(const FString& WorldName) {
+    return false;
+}
+
+void UPalGameInstance::OnInitializeCompleteSystem() {
+}
+
+void UPalGameInstance::OnCompletedJoinSession(bool IsSuccess, JoinSessionResultType Type) {
+}
+
+void UPalGameInstance::OnCompletedFindSessions(bool bIsSuccess, const TArray<FBlueprintSessionResult>& Results, const FString& ErrorStr) {
+}
+
+
+bool UPalGameInstance::IsPlayFromTitle() {
+    return false;
+}
+
+bool UPalGameInstance::IsNewGame() const {
+    return false;
+}
+
+void UPalGameInstance::GoToDefaultMap() {
+}
+
+FString UPalGameInstance::GetSelectedWorldSaveDirectoryName() const {
+    return TEXT("");
+}
+
+FString UPalGameInstance::GetSelectedWorldName() const {
+    return TEXT("");
+}
+
+void UPalGameInstance::CompleteInitCharacterMakeData() {
+}
+
+void UPalGameInstance::ClearNetworkError() {
+}
+
+void UPalGameInstance::CheckInvite() {
+}
+
+void UPalGameInstance::ApplicationHasReactivated() {
+}
+
+void UPalGameInstance::ApplicationHasEnteredForeground() {
+}
+
 

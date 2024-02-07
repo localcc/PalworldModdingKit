@@ -12,6 +12,7 @@ protected:
     FName RespawnPointID;
     
 public:
-    APalLevelObjectRespawnPoint();
+    APalLevelObjectRespawnPoint(const FObjectInitializer& ObjectInitializer);
+
 };
 

@@ -1,5 +1,9 @@
 #include "PalBossBattleSequenceBase.h"
 
+UPalBossBattleSequenceBase::UPalBossBattleSequenceBase() {
+    this->NextSequenceType = EPalBossBattleSequenceType::None;
+}
+
 void UPalBossBattleSequenceBase::TickSequence_Implementation(float DeltaTime) {
 }
 
@@ -38,7 +42,4 @@ FPalBossBattleStaticInfo UPalBossBattleSequenceBase::GetBossBattleStaticInfo() {
 void UPalBossBattleSequenceBase::FinishSequence_Implementation(bool IsSuccess) {
 }
 
-UPalBossBattleSequenceBase::UPalBossBattleSequenceBase() {
-    this->NextSequenceType = EPalBossBattleSequenceType::None;
-}
 

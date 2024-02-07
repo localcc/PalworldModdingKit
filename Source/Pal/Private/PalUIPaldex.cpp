@@ -1,8 +1,9 @@
 #include "PalUIPaldex.h"
 
+UPalUIPaldex::UPalUIPaldex() {
+}
+
 void UPalUIPaldex::CreateDisplayInfo() {
 }
 
-UPalUIPaldex::UPalUIPaldex() {
-}
 

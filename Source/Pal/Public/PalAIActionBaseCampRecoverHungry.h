@@ -29,13 +29,14 @@ protected:
     
 public:
     UPalAIActionBaseCampRecoverHungry();
+
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ChangeActionEat();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ChangeActionApproach();
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

@@ -14,11 +14,12 @@ private:
     FGuid LevelObjectInstanceId;
     
 public:
-    APalMapLevelObject();
+    APalMapLevelObject(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FGuid GetLevelObjectInstanceId() const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

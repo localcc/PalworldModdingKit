@@ -24,7 +24,8 @@ private:
     FGuid NowInsideBaseCampID;
     
 public:
-    UPalInsideBaseCampCheckComponent();
+    UPalInsideBaseCampCheckComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInsideBaseCamp();
     

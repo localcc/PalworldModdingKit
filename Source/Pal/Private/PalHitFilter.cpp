@@ -1,5 +1,13 @@
 #include "PalHitFilter.h"
 
+UPalHitFilter::UPalHitFilter() {
+    this->MaxHitNum = 1;
+    this->HitInterval = 0.00f;
+    this->HitLocationCalculator = NULL;
+    this->bIsIntersectionCollision = false;
+    this->IntersectionNum = 0;
+}
+
 void UPalHitFilter::UnbindPrimitiveComponent(UPrimitiveComponent* Component) {
 }
 
@@ -21,11 +29,4 @@ void UPalHitFilter::OnBeginOverlap(UPrimitiveComponent* HitComp, AActor* OtherAc
 void UPalHitFilter::BindPrimitiveComponent(UPrimitiveComponent* Component) {
 }
 
-UPalHitFilter::UPalHitFilter() {
-    this->MaxHitNum = 1;
-    this->HitInterval = 0.00f;
-    this->HitLocationCalculator = NULL;
-    this->bIsIntersectionCollision = false;
-    this->IntersectionNum = 0;
-}
 

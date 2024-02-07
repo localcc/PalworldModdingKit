@@ -1,6 +1,10 @@
 #include "PalLocationPointStatic.h"
 #include "Net/UnrealNetwork.h"
 
+UPalLocationPointStatic::UPalLocationPointStatic() {
+    this->RotationZ = 0.00f;
+}
+
 void UPalLocationPointStatic::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
@@ -8,7 +12,4 @@ void UPalLocationPointStatic::GetLifetimeReplicatedProps(TArray<FLifetimePropert
     DOREPLIFETIME(UPalLocationPointStatic, RotationZ);
 }
 
-UPalLocationPointStatic::UPalLocationPointStatic() {
-    this->RotationZ = 0.00f;
-}
 

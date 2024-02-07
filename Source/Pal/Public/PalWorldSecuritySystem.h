@@ -58,6 +58,7 @@ private:
     
 public:
     UPalWorldSecuritySystem();
+
     UFUNCTION(BlueprintCallable)
     void ReportCriminal(UPalIndividualCharacterHandle* CriminalHandle, UPalIndividualCharacterHandle* ReporterHandle);
     
@@ -73,7 +74,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FName GetCrimeIdByCrimeInstanceId(const FGuid& CrimeInstanceId);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

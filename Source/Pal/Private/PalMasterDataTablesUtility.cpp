@@ -1,5 +1,8 @@
 #include "PalMasterDataTablesUtility.h"
 
+UPalMasterDataTablesUtility::UPalMasterDataTablesUtility() {
+}
+
 UPalMasterDataTableAccess_WildSpawnerData* UPalMasterDataTablesUtility::GetWildSpawnerDataTableAccess(const UObject* WorldContextObject) {
     return NULL;
 }
@@ -164,6 +167,4 @@ UDataTable* UPalMasterDataTablesUtility::GetBaseCampLevelDataTable(const UObject
     return NULL;
 }
 
-UPalMasterDataTablesUtility::UPalMasterDataTablesUtility() {
-}
 

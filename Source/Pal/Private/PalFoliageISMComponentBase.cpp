@@ -1,5 +1,8 @@
 #include "PalFoliageISMComponentBase.h"
 
+UPalFoliageISMComponentBase::UPalFoliageISMComponentBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void UPalFoliageISMComponentBase::SpawnInstance(UPalFoliageInstance* Instance) {
 }
 
@@ -18,6 +21,4 @@ void UPalFoliageISMComponentBase::OnDisposeModel(UPalMapObjectFoliageModel* Mode
 void UPalFoliageISMComponentBase::DespawnInstance(UPalFoliageInstance* Instance) {
 }
 
-UPalFoliageISMComponentBase::UPalFoliageISMComponentBase() {
-}
 

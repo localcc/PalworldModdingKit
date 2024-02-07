@@ -15,6 +15,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalEnemySpawnDefaultAction DefaultAction;
     
-    APalEnemySpawner();
+    APalEnemySpawner(const FObjectInitializer& ObjectInitializer);
+
 };
 

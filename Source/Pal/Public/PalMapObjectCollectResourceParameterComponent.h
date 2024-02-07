@@ -17,6 +17,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float AdditionalRangeOutOfBaseCamp;
     
-    UPalMapObjectCollectResourceParameterComponent();
+    UPalMapObjectCollectResourceParameterComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

@@ -14,7 +14,8 @@ private:
     
 public:
     UPalStageReplicator();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 };
 

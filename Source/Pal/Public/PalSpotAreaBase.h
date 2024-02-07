@@ -20,7 +20,8 @@ private:
     bool bIsOverlappedLocalPlayer;
     
 public:
-    APalSpotAreaBase();
+    APalSpotAreaBase(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnEndOverlap(UPrimitiveComponent* OverlappedComponent, APalPlayerCharacter* PlayerCharacter);

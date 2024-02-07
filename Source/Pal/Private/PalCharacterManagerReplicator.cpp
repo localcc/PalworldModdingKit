@@ -1,6 +1,9 @@
 #include "PalCharacterManagerReplicator.h"
 #include "Net/UnrealNetwork.h"
 
+UPalCharacterManagerReplicator::UPalCharacterManagerReplicator() {
+}
+
 void UPalCharacterManagerReplicator::OnPreReplicatedRemoveItem(const FCharacterParameterRepInfo& Item) {
 }
 
@@ -19,6 +22,4 @@ void UPalCharacterManagerReplicator::GetLifetimeReplicatedProps(TArray<FLifetime
     DOREPLIFETIME(UPalCharacterManagerReplicator, CharacterParameterInfosFast);
 }
 
-UPalCharacterManagerReplicator::UPalCharacterManagerReplicator() {
-}
 

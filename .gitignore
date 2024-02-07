@@ -133,5 +133,8 @@ Saved/
 /Engine/Programs/UnrealBuildTool/**
 /LocalBuilds/
 
+# Ignore wwise
+Plugins/Wwise
+
 # Explcitly ignore Mac DS_Store files, regardless of where they are
 .DS_Store

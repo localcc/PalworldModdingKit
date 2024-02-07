@@ -92,8 +92,9 @@ private:
     
 public:
     UPalBaseCampModel();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void UpdateLevel_ServerInternal(int32 PlayerId, int32 NewLevel);

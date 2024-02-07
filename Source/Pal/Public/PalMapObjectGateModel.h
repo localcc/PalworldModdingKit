@@ -23,8 +23,9 @@ protected:
     
 public:
     UPalMapObjectGateModel();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void RequestTrigger_ServerInternal(const int32 RequestPlayerId, const int32 ToStateInt);

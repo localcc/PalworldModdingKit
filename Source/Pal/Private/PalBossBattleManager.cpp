@@ -1,5 +1,13 @@
 #include "PalBossBattleManager.h"
 
+UPalBossBattleManager::UPalBossBattleManager() {
+    this->MAX_TIME_LIMIT = 600;
+    this->PlayerRespawnTimeLimit = 60.00f;
+    this->BGMFadeDuration = 1.00f;
+    this->BossBattleSequencerClass = NULL;
+    this->DisableSkyBossType_LocalPlayer = EPalBossType::None;
+}
+
 void UPalBossBattleManager::UnlockAchievement(EPalBossType BossType) {
 }
 
@@ -64,11 +72,4 @@ void UPalBossBattleManager::BossBattleEntry(EPalBossType BossType, APalPlayerCha
 void UPalBossBattleManager::AddGroupCharacter(UPalIndividualCharacterHandle* AddIndividualHandle) {
 }
 
-UPalBossBattleManager::UPalBossBattleManager() {
-    this->MAX_TIME_LIMIT = 600;
-    this->PlayerRespawnTimeLimit = 60.00f;
-    this->BGMFadeDuration = 1.00f;
-    this->BossBattleSequencerClass = NULL;
-    this->DisableSkyBossType_LocalPlayer = EPalBossType::None;
-}
 

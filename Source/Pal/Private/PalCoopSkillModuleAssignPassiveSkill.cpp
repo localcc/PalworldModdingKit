@@ -1,5 +1,9 @@
 #include "PalCoopSkillModuleAssignPassiveSkill.h"
 
+UPalCoopSkillModuleAssignPassiveSkill::UPalCoopSkillModuleAssignPassiveSkill() {
+    this->PassiveSkillAssignFlagName = TEXT("CoopAssignPassiveSkill");
+}
+
 void UPalCoopSkillModuleAssignPassiveSkill::RemovePassiveSkills() {
 }
 
@@ -9,7 +13,4 @@ void UPalCoopSkillModuleAssignPassiveSkill::AssignPassiveSkills(const TArray<FPa
 void UPalCoopSkillModuleAssignPassiveSkill::AssignPassiveSkill(const FName& SkillName) {
 }
 
-UPalCoopSkillModuleAssignPassiveSkill::UPalCoopSkillModuleAssignPassiveSkill() {
-    this->PassiveSkillAssignFlagName = TEXT("CoopAssignPassiveSkill");
-}
 

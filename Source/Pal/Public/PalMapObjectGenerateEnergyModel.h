@@ -35,8 +35,9 @@ protected:
     
 public:
     UPalMapObjectGenerateEnergyModel();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnUpdateAssignedCharacter_ServerInternal(UPalWorkBase* Work);
@@ -55,7 +56,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     EPalEnergyType GetEnergyType() const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

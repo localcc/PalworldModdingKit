@@ -1,4 +1,24 @@
 #include "PalScrollBox.h"
+#include "Layout/Clipping.h"
+
+UPalScrollBox::UPalScrollBox() {
+    this->bIsVariable = false;
+    this->Clipping = EWidgetClipping::ClipToBounds;
+    this->Style = NULL;
+    this->BarStyle = NULL;
+    this->Orientation = Orient_Vertical;
+    this->ScrollBarVisibility = ESlateVisibility::Visible;
+    this->ConsumeMouseWheel = EConsumeMouseWheel::WhenScrollingPossible;
+    this->AlwaysShowScrollbar = false;
+    this->AlwaysShowScrollbarTrack = false;
+    this->AllowOverscroll = true;
+    this->bAnimateWheelScrolling = false;
+    this->NavigationDestination = EPalDescendantScrollDestination::IntoView;
+    this->NavigationScrollPadding = 0.00f;
+    this->ScrollWhenFocusChanges = EPalScrollWhenFocusChanges::NoScroll;
+    this->bAllowRightClickDragScrolling = true;
+    this->WheelScrollMultiplier = 1.00f;
+}
 
 void UPalScrollBox::SetWheelScrollMultiplier(float NewWheelScrollMultiplier) {
 }
@@ -57,20 +77,4 @@ float UPalScrollBox::GetScrollOffset() const {
 void UPalScrollBox::EndInertialScrolling() {
 }
 
-UPalScrollBox::UPalScrollBox() {
-    this->Style = NULL;
-    this->BarStyle = NULL;
-    this->Orientation = Orient_Vertical;
-    this->ScrollBarVisibility = ESlateVisibility::Visible;
-    this->ConsumeMouseWheel = EConsumeMouseWheel::WhenScrollingPossible;
-    this->AlwaysShowScrollbar = false;
-    this->AlwaysShowScrollbarTrack = false;
-    this->AllowOverscroll = true;
-    this->bAnimateWheelScrolling = false;
-    this->NavigationDestination = EPalDescendantScrollDestination::IntoView;
-    this->NavigationScrollPadding = 0.00f;
-    this->ScrollWhenFocusChanges = EPalScrollWhenFocusChanges::NoScroll;
-    this->bAllowRightClickDragScrolling = true;
-    this->WheelScrollMultiplier = 1.00f;
-}
 

@@ -1,4 +1,5 @@
 #include "PalNetworkTransmitter.h"
+#include "Components/SceneComponent.h"
 #include "PalNetworkBaseCampComponent.h"
 #include "PalNetworkBossBattleComponent.h"
 #include "PalNetworkCharacterComponent.h"
@@ -14,6 +15,30 @@
 #include "PalNetworkTimeComponent.h"
 #include "PalNetworkWorkProgressComponent.h"
 #include "PalNetworkWorldSecurityComponent.h"
+
+APalNetworkTransmitter::APalNetworkTransmitter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bAlwaysRelevant = true;
+    this->bReplicates = true;
+    const FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
+    (*p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this)) = ROLE_SimulatedProxy;
+    this->NetDormancy = DORM_Never;
+    this->RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("DummyRootComponent"));
+    this->MapObject = CreateDefaultSubobject<UPalNetworkMapObjectComponent>(TEXT("MapObject"));
+    this->Item = CreateDefaultSubobject<UPalNetworkItemComponent>(TEXT("Item"));
+    this->BaseCamp = CreateDefaultSubobject<UPalNetworkBaseCampComponent>(TEXT("BaseCamp"));
+    this->CharacterContainer = CreateDefaultSubobject<UPalNetworkCharacterContainerComponent>(TEXT("CharacterContainer"));
+    this->Group = CreateDefaultSubobject<UPalNetworkGroupComponent>(TEXT("Group"));
+    this->Player = CreateDefaultSubobject<UPalNetworkPlayerComponent>(TEXT("Player"));
+    this->Character = CreateDefaultSubobject<UPalNetworkCharacterComponent>(TEXT("Character"));
+    this->WorkProgress = CreateDefaultSubobject<UPalNetworkWorkProgressComponent>(TEXT("WorkProgress"));
+    this->WorldSecurity = CreateDefaultSubobject<UPalNetworkWorldSecurityComponent>(TEXT("WorldSecurity"));
+    this->BossBattle = CreateDefaultSubobject<UPalNetworkBossBattleComponent>(TEXT("BossBattle"));
+    this->Time = CreateDefaultSubobject<UPalNetworkTimeComponent>(TEXT("Time"));
+    this->Shop = CreateDefaultSubobject<UPalNetworkShopComponent>(TEXT("Shop"));
+    this->Invader = CreateDefaultSubobject<UPalNetworkInvaderComponent>(TEXT("Invader"));
+    this->CharacterStatusOperation = CreateDefaultSubobject<UPalNetworkCharacterStatusOperationComponent>(TEXT("CharacterStatusOperation"));
+    this->NetworkIndividualComponent = CreateDefaultSubobject<UPalNetworkIndividualComponent>(TEXT("NetworkIndividualComponent"));
+}
 
 FGuid APalNetworkTransmitter::SpawnReliableActorBroadcast(UClass* actorClass, FNetworkActorSpawnParameters SpawnParameter, FNetworkSpawnActorDelegate SpawnDelegate) {
     return FGuid{};
@@ -107,21 +132,4 @@ void APalNetworkTransmitter::Debug_RequestLogTreasureBoxLocalPlayerAround_ToServ
 void APalNetworkTransmitter::Debug_ReceiveLogTreasureBoxLocalPlayerAround_ToRequestPlayer_Implementation(const FString& Message) {
 }
 
-APalNetworkTransmitter::APalNetworkTransmitter() {
-    this->MapObject = CreateDefaultSubobject<UPalNetworkMapObjectComponent>(TEXT("MapObject"));
-    this->Item = CreateDefaultSubobject<UPalNetworkItemComponent>(TEXT("Item"));
-    this->BaseCamp = CreateDefaultSubobject<UPalNetworkBaseCampComponent>(TEXT("BaseCamp"));
-    this->CharacterContainer = CreateDefaultSubobject<UPalNetworkCharacterContainerComponent>(TEXT("CharacterContainer"));
-    this->Group = CreateDefaultSubobject<UPalNetworkGroupComponent>(TEXT("Group"));
-    this->Player = CreateDefaultSubobject<UPalNetworkPlayerComponent>(TEXT("Player"));
-    this->Character = CreateDefaultSubobject<UPalNetworkCharacterComponent>(TEXT("Character"));
-    this->WorkProgress = CreateDefaultSubobject<UPalNetworkWorkProgressComponent>(TEXT("WorkProgress"));
-    this->WorldSecurity = CreateDefaultSubobject<UPalNetworkWorldSecurityComponent>(TEXT("WorldSecurity"));
-    this->BossBattle = CreateDefaultSubobject<UPalNetworkBossBattleComponent>(TEXT("BossBattle"));
-    this->Time = CreateDefaultSubobject<UPalNetworkTimeComponent>(TEXT("Time"));
-    this->Shop = CreateDefaultSubobject<UPalNetworkShopComponent>(TEXT("Shop"));
-    this->Invader = CreateDefaultSubobject<UPalNetworkInvaderComponent>(TEXT("Invader"));
-    this->CharacterStatusOperation = CreateDefaultSubobject<UPalNetworkCharacterStatusOperationComponent>(TEXT("CharacterStatusOperation"));
-    this->NetworkIndividualComponent = CreateDefaultSubobject<UPalNetworkIndividualComponent>(TEXT("NetworkIndividualComponent"));
-}
 

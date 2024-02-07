@@ -34,7 +34,8 @@ private:
     TSubclassOf<APalNPCSpawnerBase> EnemySpawnerClass;
     
 public:
-    APalDungeonFixedEntrance();
+    APalDungeonFixedEntrance(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FGuid GetLevelObjectInstanceId() const;
     
@@ -47,7 +48,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UDataLayerAsset* GetDataLayerAsset() const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

@@ -7,6 +7,7 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalCryComponentBase : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPalCryComponentBase();
+    UPalCryComponentBase(const FObjectInitializer& ObjectInitializer);
+
 };
 

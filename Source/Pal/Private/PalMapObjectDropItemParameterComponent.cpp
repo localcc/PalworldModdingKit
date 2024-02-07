@@ -1,5 +1,6 @@
 #include "PalMapObjectDropItemParameterComponent.h"
 
-UPalMapObjectDropItemParameterComponent::UPalMapObjectDropItemParameterComponent() {
+UPalMapObjectDropItemParameterComponent::UPalMapObjectDropItemParameterComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

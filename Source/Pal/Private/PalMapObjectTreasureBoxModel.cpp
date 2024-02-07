@@ -1,6 +1,11 @@
 #include "PalMapObjectTreasureBoxModel.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectTreasureBoxModel::UPalMapObjectTreasureBoxModel() {
+    this->TreasureGradeType = EPalMapObjectTreasureGradeType::Grade1;
+    this->bOpened = false;
+}
+
 void UPalMapObjectTreasureBoxModel::RequestOpen_ServerInternal(const int32 RequestPlayerId) {
 }
 
@@ -27,8 +32,4 @@ void UPalMapObjectTreasureBoxModel::GetLifetimeReplicatedProps(TArray<FLifetimeP
     DOREPLIFETIME(UPalMapObjectTreasureBoxModel, TreasureGradeType);
 }
 
-UPalMapObjectTreasureBoxModel::UPalMapObjectTreasureBoxModel() {
-    this->TreasureGradeType = EPalMapObjectTreasureGradeType::Grade1;
-    this->bOpened = false;
-}
 

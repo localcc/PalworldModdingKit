@@ -1,5 +1,10 @@
 #include "PalFacialComponent.h"
 
+UPalFacialComponent::UPalFacialComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bIsEnableEyeBlink = true;
+    this->MainModule = NULL;
+}
+
 void UPalFacialComponent::SetUpTestMesh(USkeletalMeshComponent* SkeletalMeshComponent) {
 }
 
@@ -32,8 +37,4 @@ void UPalFacialComponent::ChangeDefaultFacial() {
 void UPalFacialComponent::Blink() {
 }
 
-UPalFacialComponent::UPalFacialComponent() {
-    this->bIsEnableEyeBlink = true;
-    this->MainModule = NULL;
-}
 

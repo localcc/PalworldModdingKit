@@ -19,7 +19,8 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalNetworkPlayerComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPalNetworkPlayerComponent();
+    UPalNetworkPlayerComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void ShowBossDefeatRewardUI_ToClient(int32 TechPoint, bool AfterTeleport, int32 DelayTime);
     

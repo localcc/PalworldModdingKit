@@ -9,7 +9,8 @@ class UPalMapObjectPalFoodBoxModel : public UPalMapObjectConcreteModelBase, publ
     GENERATED_BODY()
 public:
     UPalMapObjectPalFoodBoxModel();
-    
+
+
     // Fix for true pure virtual functions not being implemented
 };
 

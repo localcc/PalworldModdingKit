@@ -1,6 +1,9 @@
 #include "PalIndividualCharacterContainer.h"
 #include "Net/UnrealNetwork.h"
 
+UPalIndividualCharacterContainer::UPalIndividualCharacterContainer() {
+}
+
 void UPalIndividualCharacterContainer::OnRep_Slots() {
 }
 
@@ -30,6 +33,4 @@ void UPalIndividualCharacterContainer::GetLifetimeReplicatedProps(TArray<FLifeti
     DOREPLIFETIME(UPalIndividualCharacterContainer, SlotArray);
 }
 
-UPalIndividualCharacterContainer::UPalIndividualCharacterContainer() {
-}
 

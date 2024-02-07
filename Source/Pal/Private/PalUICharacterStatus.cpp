@@ -1,5 +1,8 @@
 #include "PalUICharacterStatus.h"
 
+UPalUICharacterStatus::UPalUICharacterStatus() {
+}
+
 void UPalUICharacterStatus::RemoveActiveSkill(UPalIndividualCharacterHandle* targetHandle, EPalWazaID targetWazaID) {
 }
 
@@ -15,6 +18,4 @@ void UPalUICharacterStatus::ChangeActiveSkill(UPalIndividualCharacterHandle* tar
 void UPalUICharacterStatus::AddActiveSkill(UPalIndividualCharacterHandle* targetHandle, EPalWazaID newWazaID) {
 }
 
-UPalUICharacterStatus::UPalUICharacterStatus() {
-}
 

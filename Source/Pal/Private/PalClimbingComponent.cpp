@@ -1,7 +1,8 @@
 #include "PalClimbingComponent.h"
 
-
-
-UPalClimbingComponent::UPalClimbingComponent() {
+UPalClimbingComponent::UPalClimbingComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
+
+
 

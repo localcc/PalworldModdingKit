@@ -13,6 +13,7 @@ protected:
     EPalGameModeType GameModeType;
     
 public:
-    APalGameModeBase();
+    APalGameModeBase(const FObjectInitializer& ObjectInitializer);
+
 };
 

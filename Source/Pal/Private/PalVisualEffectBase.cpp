@@ -1,5 +1,11 @@
 #include "PalVisualEffectBase.h"
 
+UPalVisualEffectBase::UPalVisualEffectBase() {
+    this->bIsEndVisualEffect = false;
+    this->bCanDeleteInstance = true;
+    this->VisualEffectID = EPalVisualEffectID::None;
+}
+
 void UPalVisualEffectBase::TickVisualEffect_Implementation(float DeltaTime) {
 }
 
@@ -53,9 +59,4 @@ bool UPalVisualEffectBase::CanDeleteInstance_Implementation() {
     return false;
 }
 
-UPalVisualEffectBase::UPalVisualEffectBase() {
-    this->bIsEndVisualEffect = false;
-    this->bCanDeleteInstance = true;
-    this->VisualEffectID = EPalVisualEffectID::None;
-}
 

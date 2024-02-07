@@ -1,5 +1,24 @@
 #include "PalDatabaseCharacterParameter.h"
 
+UPalDatabaseCharacterParameter::UPalDatabaseCharacterParameter() {
+    this->PettingPressetClass = NULL;
+    this->PlayerParameterDataTable = NULL;
+    this->MonsterParameterDataTable = NULL;
+    this->HumanParameterDataTable = NULL;
+    this->DropItemDataTable = NULL;
+    this->MonsterNameDataTable = NULL;
+    this->HumanNameDataTable = NULL;
+    this->CharacterIconDataTable = NULL;
+    this->BPClassDataTable = NULL;
+    this->PartnerSkillDataTable = NULL;
+    this->PalSizeParameterDataTable = NULL;
+    this->PalCapturedCageDataTable = NULL;
+    this->PalStatusEffectFoodDataTable = NULL;
+    this->PalCombiUniqueDataTable = NULL;
+    this->PettingPressetInstance = NULL;
+    this->CombiMonsterParameter = NULL;
+}
+
 void UPalDatabaseCharacterParameter::UpdateApplyDatabaseToIndividualParameter(UPalIndividualCharacterParameter* IndividualParameter) {
 }
 
@@ -199,22 +218,4 @@ int32 UPalDatabaseCharacterParameter::CalcCorrectedLevel(const int32 TrainerLeve
     return 0;
 }
 
-UPalDatabaseCharacterParameter::UPalDatabaseCharacterParameter() {
-    this->PettingPressetClass = NULL;
-    this->PlayerParameterDataTable = NULL;
-    this->MonsterParameterDataTable = NULL;
-    this->HumanParameterDataTable = NULL;
-    this->DropItemDataTable = NULL;
-    this->MonsterNameDataTable = NULL;
-    this->HumanNameDataTable = NULL;
-    this->CharacterIconDataTable = NULL;
-    this->BPClassDataTable = NULL;
-    this->PartnerSkillDataTable = NULL;
-    this->PalSizeParameterDataTable = NULL;
-    this->PalCapturedCageDataTable = NULL;
-    this->PalStatusEffectFoodDataTable = NULL;
-    this->PalCombiUniqueDataTable = NULL;
-    this->PettingPressetInstance = NULL;
-    this->CombiMonsterParameter = NULL;
-}
 

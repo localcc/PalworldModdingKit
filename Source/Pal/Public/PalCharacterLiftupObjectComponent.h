@@ -23,9 +23,10 @@ private:
     bool bEnableLiftup;
     
 public:
-    UPalCharacterLiftupObjectComponent();
+    UPalCharacterLiftupObjectComponent(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable)
     void SetEnable(const bool bInEnable);
     
@@ -47,7 +48,7 @@ private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void BroadcastSetBeingThrown(const bool bInBeingThrown);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

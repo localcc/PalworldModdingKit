@@ -1,7 +1,8 @@
 #include "PalHiddenAreaBase.h"
 #include "PalProceduralFoliageComponent.h"
 
-APalHiddenAreaBase::APalHiddenAreaBase() {
+APalHiddenAreaBase::APalHiddenAreaBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->ProceduralComponent = CreateDefaultSubobject<UPalProceduralFoliageComponent>(TEXT("PalProceduralFoliageComponent"));
 }
+
 

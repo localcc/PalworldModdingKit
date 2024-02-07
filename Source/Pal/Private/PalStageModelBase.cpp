@@ -1,6 +1,9 @@
 #include "PalStageModelBase.h"
 #include "Net/UnrealNetwork.h"
 
+UPalStageModelBase::UPalStageModelBase() {
+}
+
 void UPalStageModelBase::OnCompleteLoadStage_ServerInternal(UPalStageModelBase* TargetStageModel) {
 }
 
@@ -11,6 +14,4 @@ void UPalStageModelBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& O
     DOREPLIFETIME(UPalStageModelBase, PlayerInfos);
 }
 
-UPalStageModelBase::UPalStageModelBase() {
-}
 

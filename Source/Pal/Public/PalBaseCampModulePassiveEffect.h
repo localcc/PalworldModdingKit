@@ -16,8 +16,9 @@ private:
     
 public:
     UPalBaseCampModulePassiveEffect();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnNotAvailableMapObjectInServer(UPalMapObjectConcreteModelBase* Model);

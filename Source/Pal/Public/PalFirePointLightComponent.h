@@ -7,6 +7,7 @@ UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnable
 class PAL_API UPalFirePointLightComponent : public UPointLightComponent {
     GENERATED_BODY()
 public:
-    UPalFirePointLightComponent();
+    UPalFirePointLightComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

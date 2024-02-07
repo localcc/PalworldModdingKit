@@ -1,5 +1,8 @@
 #include "PalBuildObjectDataUtility.h"
 
+UPalBuildObjectDataUtility::UPalBuildObjectDataUtility() {
+}
+
 int32 UPalBuildObjectDataUtility::ToSortPriorityTypeB(const EPalBuildObjectTypeB TypeB) {
     return 0;
 }
@@ -19,6 +22,4 @@ EPalBuildObjectTypeA UPalBuildObjectDataUtility::ToBuildObjectTypeA(const int32 
 void UPalBuildObjectDataUtility::MaterialInfos(const FPalBuildObjectData& BuildObjectData, TArray<FPalItemRecipeMaterialInfo>& NewMaterialInfos) {
 }
 
-UPalBuildObjectDataUtility::UPalBuildObjectDataUtility() {
-}
 

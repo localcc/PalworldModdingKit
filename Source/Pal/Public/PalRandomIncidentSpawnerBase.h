@@ -50,7 +50,8 @@ private:
     UPalRandomIncidentLotteryBase* Lottery;
     
 public:
-    APalRandomIncidentSpawnerBase();
+    APalRandomIncidentSpawnerBase(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable)
     void UpdateStatusWaitPlayerOutside(float DeltaTime);

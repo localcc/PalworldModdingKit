@@ -1,5 +1,6 @@
 #include "PalEnemyVirtualCommander.h"
 
-APalEnemyVirtualCommander::APalEnemyVirtualCommander() {
+APalEnemyVirtualCommander::APalEnemyVirtualCommander(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

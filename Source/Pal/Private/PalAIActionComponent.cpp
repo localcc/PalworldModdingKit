@@ -1,6 +1,11 @@
 #include "PalAIActionComponent.h"
 #include "Templates/SubclassOf.h"
 
+UPalAIActionComponent::UPalAIActionComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->ActionStacks.AddDefaulted(14);
+    this->ActionCompositeRoots.AddDefaulted(14);
+}
+
 void UPalAIActionComponent::TerminateCurrentActionByClass(TSubclassOf<UPalAIActionBase> actionClass) {
 }
 
@@ -53,7 +58,4 @@ void UPalAIActionComponent::AllCancelActionPriorThanSoftScript(const UObject* In
 void UPalAIActionComponent::AllCancelAction_Logic_HardScript_Reaction(const UObject* Instigator) {
 }
 
-UPalAIActionComponent::UPalAIActionComponent() {
-    this->ActionCompositeRoots.AddDefaulted(14);
-}
 

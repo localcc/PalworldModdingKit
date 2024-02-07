@@ -11,7 +11,8 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName CampSpawnerName;
     
-    APalNPCCampSpawnerBase();
+    APalNPCCampSpawnerBase(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float CalcRemainRespawnTime(const FPalEnemyCampStatus& CampStatus) const;
     

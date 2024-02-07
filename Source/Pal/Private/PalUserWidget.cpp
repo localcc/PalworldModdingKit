@@ -1,5 +1,13 @@
 #include "PalUserWidget.h"
+#include "EPalWidgetInputMode.h"
 #include "Templates/SubclassOf.h"
+
+UPalUserWidget::UPalUserWidget() {
+    this->DeactivatedVisibility = ESlateVisibility::HitTestInvisible;
+    this->InputConfig = EPalWidgetInputMode::GameAndMenu;
+    this->bSyncPlayerInventory = false;
+    this->Param = NULL;
+}
 
 void UPalUserWidget::VisibilityOverride(ESlateVisibility changedVisibility) {
 }
@@ -40,8 +48,4 @@ UUserWidget* UPalUserWidget::FindParentWidget(TSubclassOf<UUserWidget> Class) {
     return NULL;
 }
 
-UPalUserWidget::UPalUserWidget() {
-    this->bSyncPlayerInventory = false;
-    this->Param = NULL;
-}
 

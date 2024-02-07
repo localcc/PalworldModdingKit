@@ -229,7 +229,8 @@ private:
     EPalSpawnedCharacterType SpawnedCharacterType;
     
 public:
-    UPalStaticCharacterParameterComponent();
+    UPalStaticCharacterParameterComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetSpawnedCharacterType(EPalSpawnedCharacterType SpawnedType);
     

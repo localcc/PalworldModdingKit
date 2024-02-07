@@ -1,6 +1,13 @@
 #include "PalDynamicWeaponItemDataBase.h"
 #include "Net/UnrealNetwork.h"
 
+UPalDynamicWeaponItemDataBase::UPalDynamicWeaponItemDataBase() {
+    this->Durability = 0.00f;
+    this->MaxDurability = 0.00f;
+    this->OldDurability = -1.00f;
+    this->RemainingBullets = 0;
+}
+
 int32 UPalDynamicWeaponItemDataBase::UseBullets(int32 useNum) {
     return 0;
 }
@@ -58,10 +65,4 @@ void UPalDynamicWeaponItemDataBase::GetLifetimeReplicatedProps(TArray<FLifetimeP
     DOREPLIFETIME(UPalDynamicWeaponItemDataBase, PassiveSkillList);
 }
 
-UPalDynamicWeaponItemDataBase::UPalDynamicWeaponItemDataBase() {
-    this->Durability = 0.00f;
-    this->MaxDurability = 0.00f;
-    this->OldDurability = -1.00f;
-    this->RemainingBullets = 0;
-}
 

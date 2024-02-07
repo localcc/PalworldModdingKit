@@ -1,5 +1,9 @@
 #include "PalUIProductSettingModel.h"
 
+UPalUIProductSettingModel::UPalUIProductSettingModel() {
+    this->ProductNum = 1;
+}
+
 bool UPalUIProductSettingModel::TryGetEnergyModule(UPalMapObjectEnergyModule*& Module) {
     return false;
 }
@@ -65,7 +69,4 @@ int32 UPalUIProductSettingModel::CalcConsumeEnergy() const {
     return 0;
 }
 
-UPalUIProductSettingModel::UPalUIProductSettingModel() {
-    this->ProductNum = 1;
-}
 

@@ -1,5 +1,17 @@
 #include "PalBossBattleSequencer.h"
 
+UPalBossBattleSequencer::UPalBossBattleSequencer() {
+    this->RemainBattleTimer = -1.00f;
+    this->IsBattleTimerCountDown = false;
+    this->CombatResult = EPalBossBattleCombatResult::None;
+    this->CurrentSequence = NULL;
+    this->BossBattleInstanceModel = NULL;
+    this->SelfBossType = EPalBossType::None;
+    this->BossCharacter = NULL;
+    this->PlayingBGMId = 0;
+    this->bIsClientOnly = false;
+}
+
 
 void UPalBossBattleSequencer::StopBGM() {
 }
@@ -109,15 +121,4 @@ APalPlayerCharacter* UPalBossBattleSequencer::FindFirstCombatTargetForBossAI() {
     return NULL;
 }
 
-UPalBossBattleSequencer::UPalBossBattleSequencer() {
-    this->RemainBattleTimer = -1.00f;
-    this->IsBattleTimerCountDown = false;
-    this->CombatResult = EPalBossBattleCombatResult::None;
-    this->CurrentSequence = NULL;
-    this->BossBattleInstanceModel = NULL;
-    this->SelfBossType = EPalBossType::None;
-    this->BossCharacter = NULL;
-    this->PlayingBGMId = 0;
-    this->bIsClientOnly = false;
-}
 

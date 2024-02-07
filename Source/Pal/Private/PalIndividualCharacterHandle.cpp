@@ -1,5 +1,8 @@
 #include "PalIndividualCharacterHandle.h"
 
+UPalIndividualCharacterHandle::UPalIndividualCharacterHandle() {
+}
+
 APalCharacter* UPalIndividualCharacterHandle::TryGetPhantomActor(int32 PhantomId) const {
     return NULL;
 }
@@ -20,6 +23,4 @@ FPalInstanceID UPalIndividualCharacterHandle::GetIndividualID() const {
     return FPalInstanceID{};
 }
 
-UPalIndividualCharacterHandle::UPalIndividualCharacterHandle() {
-}
 

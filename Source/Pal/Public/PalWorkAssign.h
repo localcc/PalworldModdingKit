@@ -38,8 +38,9 @@ private:
     
 public:
     UPalWorkAssign();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsWorking() const;
     

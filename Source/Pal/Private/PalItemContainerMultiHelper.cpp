@@ -1,6 +1,9 @@
 #include "PalItemContainerMultiHelper.h"
 #include "Net/UnrealNetwork.h"
 
+UPalItemContainerMultiHelper::UPalItemContainerMultiHelper() {
+}
+
 void UPalItemContainerMultiHelper::OnUpdateContainerContent(UPalItemContainer* Container) {
 }
 
@@ -23,6 +26,4 @@ void UPalItemContainerMultiHelper::GetLifetimeReplicatedProps(TArray<FLifetimePr
     DOREPLIFETIME(UPalItemContainerMultiHelper, Containers);
 }
 
-UPalItemContainerMultiHelper::UPalItemContainerMultiHelper() {
-}
 

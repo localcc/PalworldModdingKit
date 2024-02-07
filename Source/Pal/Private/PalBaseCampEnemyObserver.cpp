@@ -1,5 +1,9 @@
 #include "PalBaseCampEnemyObserver.h"
 
+UPalBaseCampEnemyObserver::UPalBaseCampEnemyObserver() {
+    this->CampAreaRange = 0.00f;
+}
+
 void UPalBaseCampEnemyObserver::OnEndPlayEnemy(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason) {
 }
 
@@ -10,7 +14,4 @@ bool UPalBaseCampEnemyObserver::IsBattleMode() const {
     return false;
 }
 
-UPalBaseCampEnemyObserver::UPalBaseCampEnemyObserver() {
-    this->CampAreaRange = 0.00f;
-}
 

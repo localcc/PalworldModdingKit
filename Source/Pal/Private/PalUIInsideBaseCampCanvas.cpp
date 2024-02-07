@@ -1,5 +1,11 @@
 #include "PalUIInsideBaseCampCanvas.h"
 
+UPalUIInsideBaseCampCanvas::UPalUIInsideBaseCampCanvas() {
+    this->taskChecker = NULL;
+    this->palboxAreaRange = 1500.00f;
+    this->allTaskCompletedLogClass = NULL;
+}
+
 void UPalUIInsideBaseCampCanvas::UnregisterTaskProgressEvent(const UPalBaseCampModel* Model) {
 }
 
@@ -43,9 +49,4 @@ void UPalUIInsideBaseCampCanvas::CheckItemNum(TMap<FName, int64>& outItemNumMap,
 void UPalUIInsideBaseCampCanvas::CheckInsidePalBox() {
 }
 
-UPalUIInsideBaseCampCanvas::UPalUIInsideBaseCampCanvas() {
-    this->taskChecker = NULL;
-    this->palboxAreaRange = 1500.00f;
-    this->allTaskCompletedLogClass = NULL;
-}
 

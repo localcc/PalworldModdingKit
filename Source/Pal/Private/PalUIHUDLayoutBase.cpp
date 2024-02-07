@@ -1,5 +1,8 @@
 #include "PalUIHUDLayoutBase.h"
 
+UPalUIHUDLayoutBase::UPalUIHUDLayoutBase() {
+}
+
 void UPalUIHUDLayoutBase::VisibilityOverride(ESlateVisibility changedVisibility) {
 }
 
@@ -7,6 +10,4 @@ void UPalUIHUDLayoutBase::VisibilityOverride(ESlateVisibility changedVisibility)
 
 
 
-UPalUIHUDLayoutBase::UPalUIHUDLayoutBase() {
-}
 

@@ -19,9 +19,10 @@ private:
     int32 InstanceNum;
     
 public:
-    APalFoliageModelChunk();
+    APalFoliageModelChunk(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
     UFUNCTION(BlueprintCallable)
     void OnRep_ChunkGridSize();

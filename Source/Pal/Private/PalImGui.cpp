@@ -1,5 +1,6 @@
 #include "PalImGui.h"
 
-APalImGui::APalImGui() {
+APalImGui::APalImGui(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

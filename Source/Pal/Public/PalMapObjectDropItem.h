@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class PAL_API APalMapObjectDropItem : public APalMapObject {
     GENERATED_BODY()
 public:
-    APalMapObjectDropItem();
+    APalMapObjectDropItem(const FObjectInitializer& ObjectInitializer);
+
 };
 

@@ -1,53 +1,5 @@
 #include "PalGameSetting.h"
 
-bool UPalGameSetting::TryGetWorkSuitabilityDefineData(const EPalWorkSuitability WorkSuitability, FPalWorkSuitabilityDefineData& outDefineData) {
-    return false;
-}
-
-bool UPalGameSetting::IsSoundMuteable(FName RowName) {
-    return false;
-}
-
-float UPalGameSetting::GetWeakScale_Implementation(int32 weakCount) {
-    return 0.0f;
-}
-
-int32 UPalGameSetting::GetSoundRadius_cm(FName RowName) {
-    return 0;
-}
-
-UPalOptionSubsystem* UPalGameSetting::GetOptionSubsystem(const UObject* WorldContextObject) const {
-    return NULL;
-}
-
-void UPalGameSetting::GetMiningRankDefineData(int32 MiningRank, FPalMiningRankDefineData& outDefineData) {
-}
-
-float UPalGameSetting::GetMiningDamageRate(int32 MiningRank) {
-    return 0.0f;
-}
-
-
-void UPalGameSetting::GetDeforestRankDefineData(int32 DeforestRank, FPalDeforestRankDefineData& outDefineData) {
-}
-
-float UPalGameSetting::GetDeforestDamageRate(int32 DeforestRank) {
-    return 0.0f;
-}
-
-float UPalGameSetting::GetCollectionDropNumRate(int32 CollectionRank) {
-    return 0.0f;
-}
-
-float UPalGameSetting::GetCaptureRateByStatus_ForGameSettingBP(const AActor* TargetPal) {
-    return 0.0f;
-}
-
-int32 UPalGameSetting::GetCaptureLevelBySphereType(EPalCaptureSphereLevelType SphereType) const {
-    return 0;
-}
-
-
 UPalGameSetting::UPalGameSetting() {
     this->CharacterMaxLevel = 50;
     this->GuildCharacterMaxLevel = 50;
@@ -436,4 +388,53 @@ UPalGameSetting::UPalGameSetting() {
     this->MinHPGaugeDisplayTime = 3.00f;
     this->SoundSourceDataTable = NULL;
 }
+
+bool UPalGameSetting::TryGetWorkSuitabilityDefineData(const EPalWorkSuitability WorkSuitability, FPalWorkSuitabilityDefineData& outDefineData) {
+    return false;
+}
+
+bool UPalGameSetting::IsSoundMuteable(FName RowName) {
+    return false;
+}
+
+float UPalGameSetting::GetWeakScale_Implementation(int32 weakCount) {
+    return 0.0f;
+}
+
+int32 UPalGameSetting::GetSoundRadius_cm(FName RowName) {
+    return 0;
+}
+
+UPalOptionSubsystem* UPalGameSetting::GetOptionSubsystem(const UObject* WorldContextObject) const {
+    return NULL;
+}
+
+void UPalGameSetting::GetMiningRankDefineData(int32 MiningRank, FPalMiningRankDefineData& outDefineData) {
+}
+
+float UPalGameSetting::GetMiningDamageRate(int32 MiningRank) {
+    return 0.0f;
+}
+
+
+void UPalGameSetting::GetDeforestRankDefineData(int32 DeforestRank, FPalDeforestRankDefineData& outDefineData) {
+}
+
+float UPalGameSetting::GetDeforestDamageRate(int32 DeforestRank) {
+    return 0.0f;
+}
+
+float UPalGameSetting::GetCollectionDropNumRate(int32 CollectionRank) {
+    return 0.0f;
+}
+
+float UPalGameSetting::GetCaptureRateByStatus_ForGameSettingBP(const AActor* TargetPal) {
+    return 0.0f;
+}
+
+int32 UPalGameSetting::GetCaptureLevelBySphereType(EPalCaptureSphereLevelType SphereType) const {
+    return 0;
+}
+
+
 

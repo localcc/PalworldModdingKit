@@ -7,6 +7,7 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalCaptureReactionComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPalCaptureReactionComponent();
+    UPalCaptureReactionComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

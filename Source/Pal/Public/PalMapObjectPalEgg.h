@@ -14,7 +14,8 @@ protected:
     UPalMapObjectPickupItemPalEggParameterComponent* ParameterComponent;
     
 public:
-    APalMapObjectPalEgg();
+    APalMapObjectPalEgg(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FName GetCharacterID();
     

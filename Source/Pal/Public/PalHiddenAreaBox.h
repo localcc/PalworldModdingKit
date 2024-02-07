@@ -12,6 +12,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPalHiddenBoxComponent* HiddenBoxComponent;
     
-    APalHiddenAreaBox();
+    APalHiddenAreaBox(const FObjectInitializer& ObjectInitializer);
+
 };
 

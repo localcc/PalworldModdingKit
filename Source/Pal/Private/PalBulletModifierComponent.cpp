@@ -1,6 +1,7 @@
 #include "PalBulletModifierComponent.h"
 
-
-UPalBulletModifierComponent::UPalBulletModifierComponent() {
+UPalBulletModifierComponent::UPalBulletModifierComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
+
 

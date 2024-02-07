@@ -22,7 +22,8 @@ protected:
     TMap<EPalPlayerInventoryType, FPalPlayerInventorySelectData> itemSelectDataMap;
     
 public:
-    UPalItemSelectorComponent();
+    UPalItemSelectorComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SelectPrevItem(EPalPlayerInventoryType targetInventory);
     

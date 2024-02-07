@@ -1,6 +1,9 @@
 #include "PalLocationPoint_DroppedCharacter.h"
 #include "Net/UnrealNetwork.h"
 
+UPalLocationPoint_DroppedCharacter::UPalLocationPoint_DroppedCharacter() {
+}
+
 FGuid UPalLocationPoint_DroppedCharacter::GetOwnerPlayerUId() const {
     return FGuid{};
 }
@@ -16,6 +19,4 @@ void UPalLocationPoint_DroppedCharacter::GetLifetimeReplicatedProps(TArray<FLife
     DOREPLIFETIME(UPalLocationPoint_DroppedCharacter, OwnerPlayerUId);
 }
 
-UPalLocationPoint_DroppedCharacter::UPalLocationPoint_DroppedCharacter() {
-}
 

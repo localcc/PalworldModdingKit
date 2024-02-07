@@ -1,5 +1,6 @@
 #include "PalMapObjectPickupItemParameterComponentBase.h"
 
-UPalMapObjectPickupItemParameterComponentBase::UPalMapObjectPickupItemParameterComponentBase() {
+UPalMapObjectPickupItemParameterComponentBase::UPalMapObjectPickupItemParameterComponentBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

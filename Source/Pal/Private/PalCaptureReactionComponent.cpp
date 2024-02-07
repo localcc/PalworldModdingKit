@@ -1,5 +1,6 @@
 #include "PalCaptureReactionComponent.h"
 
-UPalCaptureReactionComponent::UPalCaptureReactionComponent() {
+UPalCaptureReactionComponent::UPalCaptureReactionComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

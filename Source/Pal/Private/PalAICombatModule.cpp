@@ -1,5 +1,8 @@
 #include "PalAICombatModule.h"
 
+UPalAICombatModule::UPalAICombatModule() {
+}
+
 void UPalAICombatModule::UpdateBattleState() {
 }
 
@@ -29,6 +32,4 @@ bool UPalAICombatModule::AIMoveToTargetActor(AActor* Target) {
     return false;
 }
 
-UPalAICombatModule::UPalAICombatModule() {
-}
 

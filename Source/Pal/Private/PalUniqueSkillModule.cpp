@@ -1,5 +1,10 @@
 #include "PalUniqueSkillModule.h"
 
+UPalUniqueSkillModule::UPalUniqueSkillModule() {
+    this->ActionCharacter = NULL;
+    this->ActionTarget = NULL;
+}
+
 void UPalUniqueSkillModule::TickModule_Implementation(float DeltaTime) {
 }
 
@@ -23,8 +28,4 @@ APalCharacter* UPalUniqueSkillModule::GetActionCharacter() const {
     return NULL;
 }
 
-UPalUniqueSkillModule::UPalUniqueSkillModule() {
-    this->ActionCharacter = NULL;
-    this->ActionTarget = NULL;
-}
 

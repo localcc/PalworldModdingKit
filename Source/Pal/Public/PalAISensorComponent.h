@@ -58,7 +58,8 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FReceiveSoundDelegate OnFReceiveSoundDelegate;
     
-    UPalAISensorComponent();
+    UPalAISensorComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SightCheckAllPlayer(TArray<APalCharacter*>& InSightPlayers, float RangeRate);
     

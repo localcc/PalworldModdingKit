@@ -18,7 +18,8 @@ private:
     FVector BattleAimTargetLocation;
     
 public:
-    APalMonsterEquipWeaponBase();
+    APalMonsterEquipWeaponBase(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     APalBullet* ShootOneBulletDefault();
     

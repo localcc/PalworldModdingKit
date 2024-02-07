@@ -1,5 +1,8 @@
 #include "PalInteractComponent.h"
 
+UPalInteractComponent::UPalInteractComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void UPalInteractComponent::TerminateInteract() {
 }
 
@@ -26,6 +29,4 @@ bool UPalInteractComponent::IsEnableInteract() const {
 void UPalInteractComponent::EndTriggerInteract(EPalInteractiveObjectActionType ActionType) {
 }
 
-UPalInteractComponent::UPalInteractComponent() {
-}
 

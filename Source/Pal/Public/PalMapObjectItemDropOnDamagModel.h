@@ -21,11 +21,12 @@ protected:
     
 public:
     UPalMapObjectItemDropOnDamagModel();
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnDamage_ServerInternal(UPalMapObjectModel* Model, const FPalDamageInfo& DamageInfo, const int32 LastHp);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 public:
     UFUNCTION(BlueprintCallable)

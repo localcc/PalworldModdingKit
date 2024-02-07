@@ -106,9 +106,10 @@ protected:
     TMap<UPrimitiveComponent*, FPalBuildObjectMeshDefaultSetting> DefaultMeshSettingMap;
     
 public:
-    APalBuildObject();
+    APalBuildObject(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void PlayBuildCompleteFX_ToALL();
     

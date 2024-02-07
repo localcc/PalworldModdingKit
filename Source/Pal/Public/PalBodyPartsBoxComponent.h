@@ -19,9 +19,10 @@ private:
     FName BroadcastCollisionProfileName;
     
 public:
-    UPalBodyPartsBoxComponent();
+    UPalBodyPartsBoxComponent(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnRep_BroadcastCollisionProfileName();

@@ -1,5 +1,8 @@
 #include "PalStatusCollectItem.h"
 
+UPalStatusCollectItem::UPalStatusCollectItem() {
+}
+
 void UPalStatusCollectItem::TickStatus_Implementation(float DeltaTime) {
 }
 
@@ -61,6 +64,4 @@ bool UPalStatusCollectItem::CanSpawnItem() const {
     return false;
 }
 
-UPalStatusCollectItem::UPalStatusCollectItem() {
-}
 

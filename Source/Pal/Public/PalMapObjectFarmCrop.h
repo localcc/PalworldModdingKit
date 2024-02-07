@@ -13,6 +13,7 @@ protected:
     TArray<FPalFarmCropGrowupProcessSet> GrowupProcessSets;
     
 public:
-    APalMapObjectFarmCrop();
+    APalMapObjectFarmCrop(const FObjectInitializer& ObjectInitializer);
+
 };
 

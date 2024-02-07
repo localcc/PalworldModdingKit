@@ -7,7 +7,8 @@ UCLASS(Blueprintable, NonTransient)
 class PAL_API APalGameModeServerEntry : public APalGameModeBase {
     GENERATED_BODY()
 public:
-    APalGameModeServerEntry();
+    APalGameModeServerEntry(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void LoadLevel();
     

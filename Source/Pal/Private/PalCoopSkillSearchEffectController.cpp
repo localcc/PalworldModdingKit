@@ -1,5 +1,8 @@
 #include "PalCoopSkillSearchEffectController.h"
 
+UPalCoopSkillSearchEffectController::UPalCoopSkillSearchEffectController() {
+}
+
 
 
 bool UPalCoopSkillSearchEffectController::IsRunning_Implementation() const {
@@ -11,6 +14,4 @@ bool UPalCoopSkillSearchEffectController::IsFinished_Implementation() const {
 }
 
 
-UPalCoopSkillSearchEffectController::UPalCoopSkillSearchEffectController() {
-}
 

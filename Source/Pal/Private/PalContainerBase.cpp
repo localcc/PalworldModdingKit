@@ -1,6 +1,10 @@
 #include "PalContainerBase.h"
 #include "Net/UnrealNetwork.h"
 
+UPalContainerBase::UPalContainerBase() {
+    this->OperationRestrictType = EPalContainerOperationRestrictType::None;
+}
+
 bool UPalContainerBase::IsEmpty() const {
     return false;
 }
@@ -16,7 +20,4 @@ void UPalContainerBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Ou
     DOREPLIFETIME(UPalContainerBase, OperationRestrictType);
 }
 
-UPalContainerBase::UPalContainerBase() {
-    this->OperationRestrictType = EPalContainerOperationRestrictType::None;
-}
 

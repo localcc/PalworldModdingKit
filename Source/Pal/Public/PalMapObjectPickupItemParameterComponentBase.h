@@ -7,6 +7,7 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalMapObjectPickupItemParameterComponentBase : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPalMapObjectPickupItemParameterComponentBase();
+    UPalMapObjectPickupItemParameterComponentBase(const FObjectInitializer& ObjectInitializer);
+
 };
 

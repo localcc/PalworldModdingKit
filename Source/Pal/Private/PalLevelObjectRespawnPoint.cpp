@@ -1,5 +1,6 @@
 #include "PalLevelObjectRespawnPoint.h"
 
-APalLevelObjectRespawnPoint::APalLevelObjectRespawnPoint() {
+APalLevelObjectRespawnPoint::APalLevelObjectRespawnPoint(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

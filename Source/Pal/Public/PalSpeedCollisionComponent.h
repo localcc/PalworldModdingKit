@@ -22,7 +22,8 @@ private:
     TArray<FPalInstanceID> HitPalList;
     
 public:
-    UPalSpeedCollisionComponent();
+    UPalSpeedCollisionComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnAllActionEnd(const UPalActionComponent* ActionComponent);

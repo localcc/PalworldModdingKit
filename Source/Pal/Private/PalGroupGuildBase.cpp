@@ -1,6 +1,12 @@
 #include "PalGroupGuildBase.h"
 #include "Net/UnrealNetwork.h"
 
+UPalGroupGuildBase::UPalGroupGuildBase() {
+    this->PalStorage = NULL;
+    this->BaseCampLevel = 1;
+    this->bAllPlayerNotOnlineAndAlreadyReset = false;
+}
+
 EPalGroupOperationResult UPalGroupGuildBase::RequestDismantleBaseCamp(const FGuid& BaseCampId) {
     return EPalGroupOperationResult::Success;
 }
@@ -34,9 +40,4 @@ void UPalGroupGuildBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& O
     DOREPLIFETIME(UPalGroupGuildBase, GuildName);
 }
 
-UPalGroupGuildBase::UPalGroupGuildBase() {
-    this->PalStorage = NULL;
-    this->BaseCampLevel = 1;
-    this->bAllPlayerNotOnlineAndAlreadyReset = false;
-}
 

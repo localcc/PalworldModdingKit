@@ -16,7 +16,8 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalUserWidgetOverlayUI> MenuUIWidgetClass;
     
-    UPalMapObjectHatchingEggParameterComponent();
+    UPalMapObjectHatchingEggParameterComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetDefaultAutoWorkAmountBySec();
     

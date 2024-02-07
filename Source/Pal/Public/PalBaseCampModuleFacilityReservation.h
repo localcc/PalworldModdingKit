@@ -22,8 +22,9 @@ private:
     
 public:
     UPalBaseCampModuleFacilityReservation();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnStartUseFacility_ServerInternal(UPalMapObjectConcreteModelBase* Model, UPalIndividualCharacterHandle* IndividualHandle);

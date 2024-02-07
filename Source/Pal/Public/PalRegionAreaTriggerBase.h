@@ -10,7 +10,8 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName BindRegionNameMsgID;
     
-    APalRegionAreaTriggerBase();
+    APalRegionAreaTriggerBase(const FObjectInitializer& ObjectInitializer);
+
 protected:
     UFUNCTION(BlueprintCallable)
     void OnOverlap(AActor* OtherActor);

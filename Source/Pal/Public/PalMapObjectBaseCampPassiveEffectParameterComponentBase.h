@@ -7,6 +7,7 @@ UCLASS(Abstract, Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableCompo
 class PAL_API UPalMapObjectBaseCampPassiveEffectParameterComponentBase : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPalMapObjectBaseCampPassiveEffectParameterComponentBase();
+    UPalMapObjectBaseCampPassiveEffectParameterComponentBase(const FObjectInitializer& ObjectInitializer);
+
 };
 

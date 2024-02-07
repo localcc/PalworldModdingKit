@@ -51,6 +51,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bRequestCharacterMake;
     
-    APalWorldSettings();
+    APalWorldSettings(const FObjectInitializer& ObjectInitializer);
+
 };
 

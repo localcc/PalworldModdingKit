@@ -11,7 +11,8 @@ public:
     FName RespawnPointID;
     
     UPalLocationPoint_Respawn();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 };
 

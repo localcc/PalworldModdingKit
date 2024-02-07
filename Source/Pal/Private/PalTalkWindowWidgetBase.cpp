@@ -1,5 +1,9 @@
 #include "PalTalkWindowWidgetBase.h"
 
+UPalTalkWindowWidgetBase::UPalTalkWindowWidgetBase() {
+    this->talkSystem = NULL;
+}
+
 
 
 
@@ -18,7 +22,4 @@ void UPalTalkWindowWidgetBase::CreateTextAppliedArgments(const FText& OrgText, F
 void UPalTalkWindowWidgetBase::AddArgument(const FString& Key, const FText& Text) {
 }
 
-UPalTalkWindowWidgetBase::UPalTalkWindowWidgetBase() {
-    this->talkSystem = NULL;
-}
 

@@ -1,6 +1,9 @@
 #include "PalLocationPoint_MapObject.h"
 #include "Net/UnrealNetwork.h"
 
+UPalLocationPoint_MapObject::UPalLocationPoint_MapObject() {
+}
+
 void UPalLocationPoint_MapObject::OnDisposeTarget(UPalMapObjectModel* Model, const FPalMapObjectDisposeOptions& Options) {
 }
 
@@ -15,6 +18,4 @@ void UPalLocationPoint_MapObject::GetLifetimeReplicatedProps(TArray<FLifetimePro
     DOREPLIFETIME(UPalLocationPoint_MapObject, InitialLocationCache);
 }
 
-UPalLocationPoint_MapObject::UPalLocationPoint_MapObject() {
-}
 

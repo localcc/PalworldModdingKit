@@ -48,9 +48,10 @@ private:
     bool bIsGliding;
     
 public:
-    UPalGliderComponent();
+    UPalGliderComponent(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalIndividualCharacterHandle* TryGetGliderIndividualHandleFromOtomoHolder() const;
     

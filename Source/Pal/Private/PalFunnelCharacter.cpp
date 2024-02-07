@@ -1,6 +1,11 @@
 #include "PalFunnelCharacter.h"
 #include "Net/UnrealNetwork.h"
 
+APalFunnelCharacter::APalFunnelCharacter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->FunnelSkillAIActionClass = NULL;
+    this->FunnelSkillModuleClass = NULL;
+}
+
 void APalFunnelCharacter::SetOwnerCharacterId(const FPalInstanceID NewOwnerCharacterId) {
 }
 
@@ -54,8 +59,4 @@ void APalFunnelCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
     DOREPLIFETIME(APalFunnelCharacter, OwnerCharacterId);
 }
 
-APalFunnelCharacter::APalFunnelCharacter() {
-    this->FunnelSkillAIActionClass = NULL;
-    this->FunnelSkillModuleClass = NULL;
-}
 

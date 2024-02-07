@@ -1,5 +1,6 @@
 #include "PalObjectReplicatorComponent.h"
 
-UPalObjectReplicatorComponent::UPalObjectReplicatorComponent() {
+UPalObjectReplicatorComponent::UPalObjectReplicatorComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

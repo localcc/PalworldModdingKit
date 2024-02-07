@@ -8,7 +8,8 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class PAL_API UPalNetworkInvaderComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPalNetworkInvaderComponent();
+    UPalNetworkInvaderComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void OnInvaderStart(const FPalIncidentBroadcastParameter& Parameter);
     

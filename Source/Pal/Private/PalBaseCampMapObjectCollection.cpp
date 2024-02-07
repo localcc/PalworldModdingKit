@@ -1,6 +1,9 @@
 #include "PalBaseCampMapObjectCollection.h"
 #include "Net/UnrealNetwork.h"
 
+UPalBaseCampMapObjectCollection::UPalBaseCampMapObjectCollection() {
+}
+
 void UPalBaseCampMapObjectCollection::OnNotAvailableConcreteModel(UPalMapObjectConcreteModelBase* Model) {
 }
 
@@ -16,6 +19,4 @@ void UPalBaseCampMapObjectCollection::GetLifetimeReplicatedProps(TArray<FLifetim
     DOREPLIFETIME(UPalBaseCampMapObjectCollection, MapObjectInstanceIds);
 }
 
-UPalBaseCampMapObjectCollection::UPalBaseCampMapObjectCollection() {
-}
 

@@ -1,6 +1,12 @@
 #include "PalRiderComponent.h"
 #include "Net/UnrealNetwork.h"
 
+UPalRiderComponent::UPalRiderComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->FullRidePalController = NULL;
+    this->RideShakingMontage = NULL;
+    this->DefaultJumpZVelocity = 0.00f;
+}
+
 void UPalRiderComponent::StopShakingMontage() {
 }
 
@@ -138,9 +144,4 @@ void UPalRiderComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& O
     DOREPLIFETIME(UPalRiderComponent, RidingMarker);
 }
 
-UPalRiderComponent::UPalRiderComponent() {
-    this->FullRidePalController = NULL;
-    this->RideShakingMontage = NULL;
-    this->DefaultJumpZVelocity = 0.00f;
-}
 

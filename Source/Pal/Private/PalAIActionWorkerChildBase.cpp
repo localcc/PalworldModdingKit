@@ -1,5 +1,8 @@
 #include "PalAIActionWorkerChildBase.h"
 
+UPalAIActionWorkerChildBase::UPalAIActionWorkerChildBase() {
+}
+
 void UPalAIActionWorkerChildBase::LookToTarget(const float TurnSpeed, const float DeltaTime) {
 }
 
@@ -23,6 +26,4 @@ UPalAIActionCompositeWorker* UPalAIActionWorkerChildBase::GetParent() const {
     return NULL;
 }
 
-UPalAIActionWorkerChildBase::UPalAIActionWorkerChildBase() {
-}
 

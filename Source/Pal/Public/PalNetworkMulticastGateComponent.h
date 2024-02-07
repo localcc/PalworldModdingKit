@@ -13,7 +13,8 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalNetworkMulticastGateComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPalNetworkMulticastGateComponent();
+    UPalNetworkMulticastGateComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void SendToServer_void(int32 ID, UObject* Instance, FName FunctionName);

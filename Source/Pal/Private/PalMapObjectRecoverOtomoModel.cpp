@@ -1,5 +1,10 @@
 #include "PalMapObjectRecoverOtomoModel.h"
 
+UPalMapObjectRecoverOtomoModel::UPalMapObjectRecoverOtomoModel() {
+    this->RecoverAmountBySec = 0.00f;
+    this->MenuUIWidgetClass = NULL;
+}
+
 void UPalMapObjectRecoverOtomoModel::StoreAllOtomo_ServerInternal(const int32 RequestPlayerId) {
 }
 
@@ -12,8 +17,4 @@ void UPalMapObjectRecoverOtomoModel::OnUpdateCharacterContainer(UPalIndividualCh
 void UPalMapObjectRecoverOtomoModel::ObtainAll_ServerInternal(const int32 RequestPlayerId) {
 }
 
-UPalMapObjectRecoverOtomoModel::UPalMapObjectRecoverOtomoModel() {
-    this->RecoverAmountBySec = 0.00f;
-    this->MenuUIWidgetClass = NULL;
-}
 

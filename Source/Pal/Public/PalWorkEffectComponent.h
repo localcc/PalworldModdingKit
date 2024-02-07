@@ -18,9 +18,10 @@ private:
     bool bActiveFX;
     
 public:
-    UPalWorkEffectComponent();
+    UPalWorkEffectComponent(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnWorkStarted(UPalWorkBase* Work, const FPalInstanceID& IndividualId);

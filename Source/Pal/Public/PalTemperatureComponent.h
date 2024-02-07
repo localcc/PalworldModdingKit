@@ -21,7 +21,8 @@ private:
     FName SelfKeyName;
     
 public:
-    UPalTemperatureComponent();
+    UPalTemperatureComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void RemoveHeatSource(FName UniqueName);
     

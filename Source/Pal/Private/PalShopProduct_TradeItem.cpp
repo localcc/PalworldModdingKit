@@ -1,6 +1,10 @@
 #include "PalShopProduct_TradeItem.h"
 #include "Net/UnrealNetwork.h"
 
+UPalShopProduct_TradeItem::UPalShopProduct_TradeItem() {
+    this->BuyRate = 0.00f;
+}
+
 int32 UPalShopProduct_TradeItem::GetRequireMoney() const {
     return 0;
 }
@@ -15,7 +19,4 @@ void UPalShopProduct_TradeItem::GetLifetimeReplicatedProps(TArray<FLifetimePrope
     DOREPLIFETIME(UPalShopProduct_TradeItem, BuyRate);
 }
 
-UPalShopProduct_TradeItem::UPalShopProduct_TradeItem() {
-    this->BuyRate = 0.00f;
-}
 

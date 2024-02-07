@@ -1,5 +1,8 @@
 #include "PalUIWorkerSimpleDetailCanvas.h"
 
+UPalUIWorkerSimpleDetailCanvas::UPalUIWorkerSimpleDetailCanvas() {
+}
+
 void UPalUIWorkerSimpleDetailCanvas::UnbindWorkerEvent(UPalIndividualCharacterHandle* workerHandle) {
 }
 
@@ -27,6 +30,4 @@ void UPalUIWorkerSimpleDetailCanvas::BindWorkerEvent(UPalIndividualCharacterHand
 void UPalUIWorkerSimpleDetailCanvas::BindBaseCampEvent(UPalBaseCampModel* targetCampModel) {
 }
 
-UPalUIWorkerSimpleDetailCanvas::UPalUIWorkerSimpleDetailCanvas() {
-}
 

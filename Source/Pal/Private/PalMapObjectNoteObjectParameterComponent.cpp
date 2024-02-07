@@ -1,5 +1,6 @@
 #include "PalMapObjectNoteObjectParameterComponent.h"
 
-UPalMapObjectNoteObjectParameterComponent::UPalMapObjectNoteObjectParameterComponent() {
+UPalMapObjectNoteObjectParameterComponent::UPalMapObjectNoteObjectParameterComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

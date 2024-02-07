@@ -21,7 +21,8 @@ private:
     UPalFacial_MainModule* MainModule;
     
 public:
-    UPalFacialComponent();
+    UPalFacialComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetUpTestMesh(USkeletalMeshComponent* SkeletalMeshComponent);
     

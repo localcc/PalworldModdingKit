@@ -1,6 +1,10 @@
 #include "PalMapObjectPickableItemModelBase.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectPickableItemModelBase::UPalMapObjectPickableItemModelBase() {
+    this->bAutoPickedUp = false;
+}
+
 void UPalMapObjectPickableItemModelBase::RequestPickup_ServerInternal(const int32 RequestPlayerId) {
 }
 
@@ -20,7 +24,4 @@ void UPalMapObjectPickableItemModelBase::GetLifetimeReplicatedProps(TArray<FLife
     DOREPLIFETIME(UPalMapObjectPickableItemModelBase, bAutoPickedUp);
 }
 
-UPalMapObjectPickableItemModelBase::UPalMapObjectPickableItemModelBase() {
-    this->bAutoPickedUp = false;
-}
 

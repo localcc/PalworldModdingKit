@@ -1,6 +1,13 @@
 #include "PalMapObjectDisplayCharacterModel.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectDisplayCharacterModel::UPalMapObjectDisplayCharacterModel() {
+    this->RecoverAmountBySec = 0.00f;
+    this->ControllerClass = NULL;
+    this->MenuUIWidgetClass = NULL;
+    this->CharacterSlotsObserver = NULL;
+}
+
 void UPalMapObjectDisplayCharacterModel::TryMoveToDisplayCage(UPalIndividualCharacterSlot* fromSlot) {
 }
 
@@ -20,10 +27,4 @@ void UPalMapObjectDisplayCharacterModel::GetLifetimeReplicatedProps(TArray<FLife
     DOREPLIFETIME(UPalMapObjectDisplayCharacterModel, MenuUIWidgetClass);
 }
 
-UPalMapObjectDisplayCharacterModel::UPalMapObjectDisplayCharacterModel() {
-    this->RecoverAmountBySec = 0.00f;
-    this->ControllerClass = NULL;
-    this->MenuUIWidgetClass = NULL;
-    this->CharacterSlotsObserver = NULL;
-}
 

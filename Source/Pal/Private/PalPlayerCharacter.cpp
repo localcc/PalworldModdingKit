@@ -1,4 +1,5 @@
 #include "PalPlayerCharacter.h"
+#include "Engine/EngineTypes.h"
 #include "Net/UnrealNetwork.h"
 #include "PalBuilderComponent.h"
 #include "PalInsideBaseCampCheckComponent.h"
@@ -6,6 +7,27 @@
 #include "PalLoadoutSelectorComponent.h"
 #include "PalObjectReplicatorComponent.h"
 #include "PalShooterComponent.h"
+
+APalPlayerCharacter::APalPlayerCharacter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->SpawnCollisionHandlingMethod = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
+    this->bUseControllerRotationYaw = false;
+    this->ShooterComponent = CreateDefaultSubobject<UPalShooterComponent>(TEXT("ShooterComponent"));
+    this->InteractComponent = CreateDefaultSubobject<UPalInteractComponent>(TEXT("InteractComponent"));
+    this->BuilderComponent = CreateDefaultSubobject<UPalBuilderComponent>(TEXT("BuilderComponent"));
+    this->LoadoutSelectorComponent = CreateDefaultSubobject<UPalLoadoutSelectorComponent>(TEXT("LoadoutSelectorComponent"));
+    this->InsideBaseCampCheckComponent = CreateDefaultSubobject<UPalInsideBaseCampCheckComponent>(TEXT("InsideBaseCampCheckComponent"));
+    this->HighPriorityObjectReplicatorComponent = CreateDefaultSubobject<UPalObjectReplicatorComponent>(TEXT("HighPriorityObjectReplicatorComponent"));
+    this->PlayerCameraYaw = 0.00f;
+    this->PlayerCameraPitch = 0.00f;
+    this->IsAdjustedLocationByLoad = false;
+    this->IdleAnimMontage = NULL;
+    this->PlayerBattleSituation = NULL;
+    this->IsNearCommonEnemyFlag = false;
+    this->bIsSetRespawnTelemetry = false;
+    this->GenderChangerClass = NULL;
+    this->GenderChanger = NULL;
+    this->bSpectatorMode = false;
+}
 
 void APalPlayerCharacter::StopIdleAnimation() {
 }
@@ -137,22 +159,4 @@ void APalPlayerCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
     DOREPLIFETIME(APalPlayerCharacter, CharacterMakeInfo);
 }
 
-APalPlayerCharacter::APalPlayerCharacter() {
-    this->ShooterComponent = CreateDefaultSubobject<UPalShooterComponent>(TEXT("ShooterComponent"));
-    this->InteractComponent = CreateDefaultSubobject<UPalInteractComponent>(TEXT("InteractComponent"));
-    this->BuilderComponent = CreateDefaultSubobject<UPalBuilderComponent>(TEXT("BuilderComponent"));
-    this->LoadoutSelectorComponent = CreateDefaultSubobject<UPalLoadoutSelectorComponent>(TEXT("LoadoutSelectorComponent"));
-    this->InsideBaseCampCheckComponent = CreateDefaultSubobject<UPalInsideBaseCampCheckComponent>(TEXT("InsideBaseCampCheckComponent"));
-    this->HighPriorityObjectReplicatorComponent = CreateDefaultSubobject<UPalObjectReplicatorComponent>(TEXT("HighPriorityObjectReplicatorComponent"));
-    this->PlayerCameraYaw = 0.00f;
-    this->PlayerCameraPitch = 0.00f;
-    this->IsAdjustedLocationByLoad = false;
-    this->IdleAnimMontage = NULL;
-    this->PlayerBattleSituation = NULL;
-    this->IsNearCommonEnemyFlag = false;
-    this->bIsSetRespawnTelemetry = false;
-    this->GenderChangerClass = NULL;
-    this->GenderChanger = NULL;
-    this->bSpectatorMode = false;
-}
 

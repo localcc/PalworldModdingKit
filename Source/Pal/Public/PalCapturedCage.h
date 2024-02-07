@@ -49,7 +49,8 @@ private:
     UPalIndividualCharacterHandle* SpawnedPalHandle;
     
 public:
-    APalCapturedCage();
+    APalCapturedCage(const FObjectInitializer& ObjectInitializer);
+
 protected:
     UFUNCTION(BlueprintCallable)
     void SpawnPal(FName InPalID, int32 InPalLevel);
@@ -80,7 +81,7 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     FName GetCampSpawnerName() const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

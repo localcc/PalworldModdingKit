@@ -1,5 +1,8 @@
 #include "PalAIActionBaseCampRecoverHungryChildBase.h"
 
+UPalAIActionBaseCampRecoverHungryChildBase::UPalAIActionBaseCampRecoverHungryChildBase() {
+}
+
 bool UPalAIActionBaseCampRecoverHungryChildBase::TryGetTargetMapObjectConcreteModel(UPalMapObjectConcreteModelBase*& OutTargetModel) {
     return false;
 }
@@ -26,6 +29,4 @@ UPalAIActionBaseCampRecoverHungry* UPalAIActionBaseCampRecoverHungryChildBase::G
 void UPalAIActionBaseCampRecoverHungryChildBase::GetHungryParameter(FPalMonsterControllerBaseCampHungryParameter& HungeryParameter) {
 }
 
-UPalAIActionBaseCampRecoverHungryChildBase::UPalAIActionBaseCampRecoverHungryChildBase() {
-}
 

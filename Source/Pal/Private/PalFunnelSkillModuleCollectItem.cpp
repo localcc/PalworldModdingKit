@@ -1,5 +1,9 @@
 #include "PalFunnelSkillModuleCollectItem.h"
 
+UPalFunnelSkillModuleCollectItem::UPalFunnelSkillModuleCollectItem() {
+    this->bShouldSetSkillAction = false;
+}
+
 void UPalFunnelSkillModuleCollectItem::SearchCollectableItem(float DeltaTime) {
 }
 
@@ -29,7 +33,4 @@ FGuid UPalFunnelSkillModuleCollectItem::GetTargetId() const {
     return FGuid{};
 }
 
-UPalFunnelSkillModuleCollectItem::UPalFunnelSkillModuleCollectItem() {
-    this->bShouldSetSkillAction = false;
-}
 

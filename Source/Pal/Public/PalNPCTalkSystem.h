@@ -49,6 +49,7 @@ private:
     
 public:
     UPalNPCTalkSystem();
+
     UFUNCTION(BlueprintCallable)
     void SetCustomFunctionResult_Implementation(EPalNPCTalkCustomFunctionResult Result);
     
@@ -70,7 +71,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void AddArgument_Implementation(const FString& Key, const FText& Text);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

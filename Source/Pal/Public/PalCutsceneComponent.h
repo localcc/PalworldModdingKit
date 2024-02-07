@@ -31,7 +31,8 @@ private:
     UPalHUDDispatchParameter_FadeWidget* FadeParam;
     
 public:
-    UPalCutsceneComponent();
+    UPalCutsceneComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void StopCutsceneToServer();
     

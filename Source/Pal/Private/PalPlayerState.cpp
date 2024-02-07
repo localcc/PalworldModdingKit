@@ -3,6 +3,28 @@
 #include "PalNetworkPlayerStateComponent.h"
 #include "PalSyncTeleportComponent.h"
 
+APalPlayerState::APalPlayerState(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->OtomoData = NULL;
+    this->CharacterMakeData = NULL;
+    this->InventoryData = NULL;
+    this->PalStorage = NULL;
+    this->TechnologyData = NULL;
+    this->RecordData = NULL;
+    this->bIsSelectedInitMapPoint = false;
+    this->bDetectedInValidPlayer = false;
+    this->LocalRecordData = NULL;
+    this->WorldMapData = NULL;
+    this->QuestManager = NULL;
+    this->GuildBelongTo = NULL;
+    this->NetworkComp = CreateDefaultSubobject<UPalNetworkPlayerStateComponent>(TEXT("NetworkComp"));
+    this->SyncTeleportComp = CreateDefaultSubobject<UPalSyncTeleportComponent>(TEXT("SyncTeleportComp"));
+    this->bIsNewCharacter = false;
+    this->TryCreateIndividualHandleTemporarily = NULL;
+    this->bIsCompleteSyncPlayerFromServer_InClient = false;
+    this->RequestJoinGuildDialogParameter = NULL;
+    this->ChatCounter = 0;
+}
+
 void APalPlayerState::WaitWorldPartitionDelegate(FTimerHandle& OutTimerHandle, APalPlayerState::FOnCompleteLoadWorldPartitionDelegate Delegate) {
 }
 
@@ -307,25 +329,4 @@ void APalPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     DOREPLIFETIME(APalPlayerState, ChatCounter);
 }
 
-APalPlayerState::APalPlayerState() {
-    this->OtomoData = NULL;
-    this->CharacterMakeData = NULL;
-    this->InventoryData = NULL;
-    this->PalStorage = NULL;
-    this->TechnologyData = NULL;
-    this->RecordData = NULL;
-    this->bIsSelectedInitMapPoint = false;
-    this->bDetectedInValidPlayer = false;
-    this->LocalRecordData = NULL;
-    this->WorldMapData = NULL;
-    this->QuestManager = NULL;
-    this->GuildBelongTo = NULL;
-    this->NetworkComp = CreateDefaultSubobject<UPalNetworkPlayerStateComponent>(TEXT("NetworkComp"));
-    this->SyncTeleportComp = CreateDefaultSubobject<UPalSyncTeleportComponent>(TEXT("SyncTeleportComp"));
-    this->bIsNewCharacter = false;
-    this->TryCreateIndividualHandleTemporarily = NULL;
-    this->bIsCompleteSyncPlayerFromServer_InClient = false;
-    this->RequestJoinGuildDialogParameter = NULL;
-    this->ChatCounter = 0;
-}
 

@@ -1,6 +1,9 @@
 #include "PalMapObjectModelConnectorFoundation.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectModelConnectorFoundation::UPalMapObjectModelConnectorFoundation() {
+}
+
 void UPalMapObjectModelConnectorFoundation::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
@@ -10,6 +13,4 @@ void UPalMapObjectModelConnectorFoundation::GetLifetimeReplicatedProps(TArray<FL
     DOREPLIFETIME(UPalMapObjectModelConnectorFoundation, RightConnectInfo);
 }
 
-UPalMapObjectModelConnectorFoundation::UPalMapObjectModelConnectorFoundation() {
-}
 

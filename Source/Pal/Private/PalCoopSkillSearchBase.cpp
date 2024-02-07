@@ -1,5 +1,13 @@
 #include "PalCoopSkillSearchBase.h"
 
+UPalCoopSkillSearchBase::UPalCoopSkillSearchBase() {
+    this->SearchRangeMax = 0.00f;
+    this->ExtendRangePerSec = 0.00f;
+    this->ElapsedTime = 0.00f;
+    this->SkillRank = 0;
+    this->bIsRunning = false;
+}
+
 void UPalCoopSkillSearchBase::Tick_Implementation(float DeltaTime, UPalCoopSkillSearchLocationRegister* LocationRegister) {
 }
 
@@ -62,11 +70,4 @@ void UPalCoopSkillSearchBase::ClearSearchResultParameters() {
 void UPalCoopSkillSearchBase::AddSearchResultParameter(const FPalCoopSkillSearchResultParameter& ResultParameter) {
 }
 
-UPalCoopSkillSearchBase::UPalCoopSkillSearchBase() {
-    this->SearchRangeMax = 0.00f;
-    this->ExtendRangePerSec = 0.00f;
-    this->ElapsedTime = 0.00f;
-    this->SkillRank = 0;
-    this->bIsRunning = false;
-}
 

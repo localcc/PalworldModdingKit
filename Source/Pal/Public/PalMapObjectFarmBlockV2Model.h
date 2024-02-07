@@ -44,8 +44,9 @@ private:
     
 public:
     UPalMapObjectFarmBlockV2Model();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnUpdateWaterStackRate(const float UpdatedRate);
@@ -70,7 +71,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FName GetCurrentCropDataId() const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintCallable)
     EPalMapObjectItemCollectableType GetItemCollectableType() const override PURE_VIRTUAL(GetItemCollectableType, return EPalMapObjectItemCollectableType::Pickup;);

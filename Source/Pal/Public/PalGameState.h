@@ -7,6 +7,7 @@ UCLASS(Blueprintable, MinimalAPI)
 class APalGameState : public AGameStateBase {
     GENERATED_BODY()
 public:
-    APalGameState();
+    APalGameState(const FObjectInitializer& ObjectInitializer);
+
 };
 

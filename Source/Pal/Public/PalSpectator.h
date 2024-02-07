@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class PAL_API APalSpectator : public APalCharacter {
     GENERATED_BODY()
 public:
-    APalSpectator();
+    APalSpectator(const FObjectInitializer& ObjectInitializer);
+
 };
 

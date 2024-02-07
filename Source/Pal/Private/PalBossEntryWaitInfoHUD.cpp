@@ -1,5 +1,10 @@
 #include "PalBossEntryWaitInfoHUD.h"
 
+UPalBossEntryWaitInfoHUD::UPalBossEntryWaitInfoHUD() {
+    this->EnableCountDown = false;
+    this->BossTower = NULL;
+}
+
 void UPalBossEntryWaitInfoHUD::UpdateWaitInfo(bool bIsCountDown, FDateTime TimeLimit) {
 }
 
@@ -7,8 +12,4 @@ void UPalBossEntryWaitInfoHUD::UpdateWaitInfo(bool bIsCountDown, FDateTime TimeL
 void UPalBossEntryWaitInfoHUD::OnCloseHUD() {
 }
 
-UPalBossEntryWaitInfoHUD::UPalBossEntryWaitInfoHUD() {
-    this->EnableCountDown = false;
-    this->BossTower = NULL;
-}
 

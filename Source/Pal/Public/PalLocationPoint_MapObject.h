@@ -21,8 +21,9 @@ private:
     
 public:
     UPalLocationPoint_MapObject();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnDisposeTarget(UPalMapObjectModel* Model, const FPalMapObjectDisposeOptions& Options);

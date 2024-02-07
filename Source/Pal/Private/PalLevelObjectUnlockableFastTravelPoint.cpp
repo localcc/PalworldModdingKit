@@ -1,5 +1,10 @@
 #include "PalLevelObjectUnlockableFastTravelPoint.h"
 
+APalLevelObjectUnlockableFastTravelPoint::APalLevelObjectUnlockableFastTravelPoint(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bUnlocked = false;
+    this->EnableRequestUnlock = true;
+}
+
 void APalLevelObjectUnlockableFastTravelPoint::OnUpdateFlagMapRecord(const FName Key, const bool bFlag) {
 }
 
@@ -14,8 +19,4 @@ bool APalLevelObjectUnlockableFastTravelPoint::IsUnlocked() const {
 }
 
 
-APalLevelObjectUnlockableFastTravelPoint::APalLevelObjectUnlockableFastTravelPoint() {
-    this->bUnlocked = false;
-    this->EnableRequestUnlock = true;
-}
 

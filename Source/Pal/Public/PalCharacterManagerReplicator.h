@@ -15,8 +15,9 @@ private:
     
 public:
     UPalCharacterManagerReplicator();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
     UFUNCTION(BlueprintCallable)
     void OnPreReplicatedRemoveItem(const FCharacterParameterRepInfo& Item);

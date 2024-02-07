@@ -1,9 +1,5 @@
 #include "PalGameLocalSettings.h"
 
-bool UPalGameLocalSettings::RequireBenchMarkScalaBility() {
-    return false;
-}
-
 UPalGameLocalSettings::UPalGameLocalSettings() {
     this->GraphicsLevel = EPalOptionGraphicsLevel::VeryHigh;
     this->DefaultGraphicsLevel = EPalOptionGraphicsLevel::High;
@@ -13,4 +9,9 @@ UPalGameLocalSettings::UPalGameLocalSettings() {
     this->DLSSMode = UDLSSMode::Off;
     this->GraphicsCommonQuality = 3;
 }
+
+bool UPalGameLocalSettings::RequireBenchMarkScalaBility() {
+    return false;
+}
+
 

@@ -16,7 +16,8 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalNetworkShopComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPalNetworkShopComponent();
+    UPalNetworkShopComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void SetupShopDataForActor_ToServer(AActor* VenderActor);
     

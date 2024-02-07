@@ -1,5 +1,8 @@
 #include "PalNetworkBossBattleComponent.h"
 
+UPalNetworkBossBattleComponent::UPalNetworkBossBattleComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void UPalNetworkBossBattleComponent::UnlockAchievement_ToClient_Implementation(EPalBossType BossType) {
 }
 
@@ -24,6 +27,4 @@ void UPalNetworkBossBattleComponent::CombatResult_ToClient_Implementation(EPalBo
 void UPalNetworkBossBattleComponent::ChangeSequence_ToClient_Implementation(EPalBossType BossType, EPalBossBattleSequenceType NextSequence) {
 }
 
-UPalNetworkBossBattleComponent::UPalNetworkBossBattleComponent() {
-}
 

@@ -1,6 +1,7 @@
 #include "PalSoundDebugModel.h"
 
-
-APalSoundDebugModel::APalSoundDebugModel() {
+APalSoundDebugModel::APalSoundDebugModel(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
+
 

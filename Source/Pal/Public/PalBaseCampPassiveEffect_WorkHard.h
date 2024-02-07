@@ -22,8 +22,9 @@ protected:
     
 public:
     UPalBaseCampPassiveEffect_WorkHard();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
     UFUNCTION(BlueprintCallable)
     void OnRep_WorkHardType();
@@ -32,7 +33,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     EPalBaseCampPassiveEffectWorkHardType GetWorkHardType() const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

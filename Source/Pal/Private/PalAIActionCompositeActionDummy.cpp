@@ -1,5 +1,8 @@
 #include "PalAIActionCompositeActionDummy.h"
 
+UPalAIActionCompositeActionDummy::UPalAIActionCompositeActionDummy() {
+}
+
 void UPalAIActionCompositeActionDummy::OnResumeAction(UPalAIActionBase* action) {
 }
 
@@ -9,6 +12,4 @@ void UPalAIActionCompositeActionDummy::OnPauseAction(UPalAIActionBase* action, c
 void UPalAIActionCompositeActionDummy::OnFinishAction(UPalAIActionBase* action) {
 }
 
-UPalAIActionCompositeActionDummy::UPalAIActionCompositeActionDummy() {
-}
 

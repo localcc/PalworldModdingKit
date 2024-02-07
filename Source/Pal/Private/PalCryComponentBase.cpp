@@ -1,5 +1,6 @@
 #include "PalCryComponentBase.h"
 
-UPalCryComponentBase::UPalCryComponentBase() {
+UPalCryComponentBase::UPalCryComponentBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

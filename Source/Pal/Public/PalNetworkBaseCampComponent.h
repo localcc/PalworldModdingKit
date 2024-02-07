@@ -14,7 +14,8 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalNetworkBaseCampComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPalNetworkBaseCampComponent();
+    UPalNetworkBaseCampComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestModule_Server_void(const FGuid& BaseCampId, const EPalBaseCampModuleType ModuleType, const FName FunctionName);
     

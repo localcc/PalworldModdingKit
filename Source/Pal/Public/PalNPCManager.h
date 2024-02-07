@@ -61,6 +61,7 @@ protected:
     
 public:
     UPalNPCManager();
+
 private:
     UFUNCTION(BlueprintCallable)
     void SpawNPCCallback(FPalInstanceID ID);
@@ -114,7 +115,7 @@ private:
     UFUNCTION(BlueprintCallable)
     void AllResetBossRespawnFlag();
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

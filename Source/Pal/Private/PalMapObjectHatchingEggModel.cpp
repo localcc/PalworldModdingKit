@@ -1,6 +1,12 @@
 #include "PalMapObjectHatchingEggModel.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectHatchingEggModel::UPalMapObjectHatchingEggModel() {
+    this->bWorkable = false;
+    this->MenuUIWidgetClass = NULL;
+    this->CurrentPalEggTemperatureDiff = 0;
+}
+
 void UPalMapObjectHatchingEggModel::UpdateWorkAmountBySec(const float NewWorkAmountBySec) {
 }
 
@@ -39,9 +45,4 @@ void UPalMapObjectHatchingEggModel::GetLifetimeReplicatedProps(TArray<FLifetimeP
     DOREPLIFETIME(UPalMapObjectHatchingEggModel, CurrentPalEggTemperatureDiff);
 }
 
-UPalMapObjectHatchingEggModel::UPalMapObjectHatchingEggModel() {
-    this->bWorkable = false;
-    this->MenuUIWidgetClass = NULL;
-    this->CurrentPalEggTemperatureDiff = 0;
-}
 

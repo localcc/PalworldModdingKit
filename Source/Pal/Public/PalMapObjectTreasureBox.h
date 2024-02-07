@@ -15,7 +15,8 @@ protected:
     FVector DropItemLocalLocation;
     
 public:
-    APalMapObjectTreasureBox();
+    APalMapObjectTreasureBox(const FObjectInitializer& ObjectInitializer);
+
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void TriggerOpen();

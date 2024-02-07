@@ -1,5 +1,6 @@
 #include "PalDungeonGimmickUnlockableDoor.h"
 
-APalDungeonGimmickUnlockableDoor::APalDungeonGimmickUnlockableDoor() {
+APalDungeonGimmickUnlockableDoor::APalDungeonGimmickUnlockableDoor(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

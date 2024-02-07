@@ -35,7 +35,8 @@ protected:
     FName FastTravelPointID;
     
 public:
-    APalLevelObjectUnlockableFastTravelPoint();
+    APalLevelObjectUnlockableFastTravelPoint(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnUpdateFlagMapRecord(const FName Key, const bool bFlag);
@@ -54,7 +55,7 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     UAkAudioEvent* GetUnlockAkAudioEvent();
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

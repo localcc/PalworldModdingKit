@@ -1,5 +1,8 @@
 #include "PalGameModeLogin.h"
 
+APalGameModeLogin::APalGameModeLogin(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void APalGameModeLogin::OnSwitchUserUICompleted(const UPocketpairUserInfo* UserInfo, bool bSuccess, const FString& ErrorStr) {
 }
 
@@ -19,6 +22,4 @@ void APalGameModeLogin::OnCloseEalryAccess(bool _) {
 }
 
 
-APalGameModeLogin::APalGameModeLogin() {
-}
 

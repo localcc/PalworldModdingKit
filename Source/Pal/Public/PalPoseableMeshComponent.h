@@ -11,7 +11,8 @@ UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnable
 class UPalPoseableMeshComponent : public USkeletalMeshComponent {
     GENERATED_BODY()
 public:
-    UPalPoseableMeshComponent();
+    UPalPoseableMeshComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetBoneTransformByName(FName BoneName, const FTransform& InTransform, TEnumAsByte<EBoneSpaces::Type> BoneSpace);
     

@@ -5,6 +5,6 @@
 UENUM(BlueprintType)
 enum class EPalActiveSkillSlotId : uint8 {
     Default,
-    PartnerSkill = 0x64,
+    PartnerSkill = 100,
 };
 

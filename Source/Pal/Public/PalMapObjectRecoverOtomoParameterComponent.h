@@ -19,6 +19,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalUserWidgetOverlayUI> MenuUIWidgetClass;
     
-    UPalMapObjectRecoverOtomoParameterComponent();
+    UPalMapObjectRecoverOtomoParameterComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

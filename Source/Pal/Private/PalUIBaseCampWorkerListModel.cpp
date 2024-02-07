@@ -1,5 +1,8 @@
 #include "PalUIBaseCampWorkerListModel.h"
 
+UPalUIBaseCampWorkerListModel::UPalUIBaseCampWorkerListModel() {
+}
+
 void UPalUIBaseCampWorkerListModel::SelectHandleSlot(const int32 DisplayIndex, const EPalItemSlotPressType PressType) {
 }
 
@@ -25,6 +28,4 @@ FGuid UPalUIBaseCampWorkerListModel::GetBaseCampId() const {
     return FGuid{};
 }
 
-UPalUIBaseCampWorkerListModel::UPalUIBaseCampWorkerListModel() {
-}
 

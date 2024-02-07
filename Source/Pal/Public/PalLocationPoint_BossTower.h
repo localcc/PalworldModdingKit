@@ -15,8 +15,9 @@ protected:
     
 public:
     UPalLocationPoint_BossTower();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     APalBossTower* GetBossTower() const;
     

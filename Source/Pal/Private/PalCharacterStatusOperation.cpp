@@ -1,5 +1,8 @@
 #include "PalCharacterStatusOperation.h"
 
+UPalCharacterStatusOperation::UPalCharacterStatusOperation() {
+}
+
 TMap<FName, int32> UPalCharacterStatusOperation::GetReturnItemsForResetCharacterStatusAll(const UObject* WorldContextObject, const UPalIndividualCharacterParameter* TargetIndividualParameter) {
     return TMap<FName, int32>();
 }
@@ -31,6 +34,4 @@ int32 UPalCharacterStatusOperation::GetCurrentLocalPlayerStatusPoint(const UObje
     return 0;
 }
 
-UPalCharacterStatusOperation::UPalCharacterStatusOperation() {
-}
 

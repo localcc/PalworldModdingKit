@@ -16,6 +16,7 @@ protected:
     FComponentReference WalkAroundVolumeRef;
     
 public:
-    APalBuildObjectBreedFarm();
+    APalBuildObjectBreedFarm(const FObjectInitializer& ObjectInitializer);
+
 };
 

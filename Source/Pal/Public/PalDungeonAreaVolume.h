@@ -9,7 +9,8 @@ UCLASS(Blueprintable)
 class PAL_API APalDungeonAreaVolume : public APalStageAreaVolume {
     GENERATED_BODY()
 public:
-    APalDungeonAreaVolume();
+    APalDungeonAreaVolume(const FObjectInitializer& ObjectInitializer);
+
 protected:
     UFUNCTION(BlueprintCallable)
     void OnOverlapActor(AActor* Other);

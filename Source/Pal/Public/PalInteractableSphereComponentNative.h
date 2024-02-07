@@ -7,6 +7,7 @@ UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnable
 class UPalInteractableSphereComponentNative : public UPalInteractiveObjectSphereComponent {
     GENERATED_BODY()
 public:
-    UPalInteractableSphereComponentNative();
+    UPalInteractableSphereComponentNative(const FObjectInitializer& ObjectInitializer);
+
 };
 

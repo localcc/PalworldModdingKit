@@ -29,7 +29,8 @@ private:
     TMap<FGuid, UPalMapObjectSpawnRequestHandler*> SpawnRequestHandlerMap;
     
 public:
-    UPalNetworkMapObjectComponent();
+    UPalNetworkMapObjectComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestSpawnMapObject_ToServer(const FGuid& RequestID, const FName MapObjectId, const FVector& Location, const FQuat& Rotation, const TArray<FPalNetArchive>& ExtraParameterArchives);

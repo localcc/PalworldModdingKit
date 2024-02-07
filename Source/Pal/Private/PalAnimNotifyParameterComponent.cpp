@@ -1,5 +1,6 @@
 #include "PalAnimNotifyParameterComponent.h"
 
-UPalAnimNotifyParameterComponent::UPalAnimNotifyParameterComponent() {
+UPalAnimNotifyParameterComponent::UPalAnimNotifyParameterComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

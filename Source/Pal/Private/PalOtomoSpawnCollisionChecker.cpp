@@ -1,5 +1,8 @@
 #include "PalOtomoSpawnCollisionChecker.h"
 
+UPalOtomoSpawnCollisionChecker::UPalOtomoSpawnCollisionChecker() {
+}
+
 FTransform UPalOtomoSpawnCollisionChecker::GetTransform_WhenSpawnPalNearTrainer(AActor* Trainer) {
     return FTransform{};
 }
@@ -8,6 +11,4 @@ FVector UPalOtomoSpawnCollisionChecker::GetLocation_WhenSpawnPalSphgereThrow(FHi
     return FVector{};
 }
 
-UPalOtomoSpawnCollisionChecker::UPalOtomoSpawnCollisionChecker() {
-}
 

@@ -1,6 +1,9 @@
 #include "PalMapObjectUtility.h"
 #include "Templates/SubclassOf.h"
 
+UPalMapObjectUtility::UPalMapObjectUtility() {
+}
+
 bool UPalMapObjectUtility::TryGetItemVisualModelStaticMesh(TSubclassOf<AActor> actorClass, UStaticMesh*& OutStaticMesh, FTransform& OutComponentTransform, FVector& OutCenterOfMass, UMaterialInterface*& OutMaterialInterface) {
     return false;
 }
@@ -21,6 +24,4 @@ bool UPalMapObjectUtility::IsContainsCollisionProfiles(const UPrimitiveComponent
     return false;
 }
 
-UPalMapObjectUtility::UPalMapObjectUtility() {
-}
 

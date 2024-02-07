@@ -18,6 +18,7 @@ protected:
     UBoxComponent* BoxComp;
     
 public:
-    APalBoxSpawnerPlacementTool();
+    APalBoxSpawnerPlacementTool(const FObjectInitializer& ObjectInitializer);
+
 };
 

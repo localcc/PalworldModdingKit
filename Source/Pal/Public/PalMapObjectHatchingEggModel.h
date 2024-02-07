@@ -41,8 +41,9 @@ private:
     
 public:
     UPalMapObjectHatchingEggModel();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable)
     void UpdateWorkAmountBySec(const float NewWorkAmountBySec);
     
@@ -74,7 +75,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool GetPalEggRankInfo(FPalEggRankInfo& OutPalEggRankInfo);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

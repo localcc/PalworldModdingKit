@@ -18,7 +18,8 @@ protected:
     
 public:
     UPalGroupIndependentGuild();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 };
 

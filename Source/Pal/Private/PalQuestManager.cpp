@@ -1,5 +1,10 @@
 #include "PalQuestManager.h"
 
+UPalQuestManager::UPalQuestManager() {
+    this->QuestDataSet = NULL;
+    this->CommonRewardGiver = NULL;
+}
+
 void UPalQuestManager::OnUpdatedQuest(UPalQuestData* UpdatedQuest) {
 }
 
@@ -10,8 +15,4 @@ bool UPalQuestManager::IsAllQuestComplete() {
     return false;
 }
 
-UPalQuestManager::UPalQuestManager() {
-    this->QuestDataSet = NULL;
-    this->CommonRewardGiver = NULL;
-}
 

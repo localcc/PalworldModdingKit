@@ -1,5 +1,6 @@
 #include "PalDynamicObjectBase.h"
 
-APalDynamicObjectBase::APalDynamicObjectBase() {
+APalDynamicObjectBase::APalDynamicObjectBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

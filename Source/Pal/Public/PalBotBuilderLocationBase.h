@@ -15,6 +15,7 @@ private:
     bool bIsBuilded;
     
 public:
-    APalBotBuilderLocationBase();
+    APalBotBuilderLocationBase(const FObjectInitializer& ObjectInitializer);
+
 };
 

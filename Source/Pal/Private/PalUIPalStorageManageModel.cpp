@@ -2,6 +2,13 @@
 #include "PalUIPalStorageManageRightModel.h"
 #include "PalUIPalStorageModel.h"
 
+UPalUIPalStorageManageModel::UPalUIPalStorageManageModel() {
+    this->PalStorageClass = UPalUIPalStorageModel::StaticClass();
+    this->PalStorage = NULL;
+    this->PalStorageManageRightClass = UPalUIPalStorageManageRightModel::StaticClass();
+    this->PalStorageManageRight = NULL;
+}
+
 void UPalUIPalStorageManageModel::MoveSlotToWorker(UPalIndividualCharacterSlot* Slot) {
 }
 
@@ -17,10 +24,4 @@ void UPalUIPalStorageManageModel::MoveSlotToLost(UPalIndividualCharacterSlot* Sl
 void UPalUIPalStorageManageModel::Initialize(const FGuid& InOwnerBaseCampId) {
 }
 
-UPalUIPalStorageManageModel::UPalUIPalStorageManageModel() {
-    this->PalStorageClass = UPalUIPalStorageModel::StaticClass();
-    this->PalStorage = NULL;
-    this->PalStorageManageRightClass = UPalUIPalStorageManageRightModel::StaticClass();
-    this->PalStorageManageRight = NULL;
-}
 

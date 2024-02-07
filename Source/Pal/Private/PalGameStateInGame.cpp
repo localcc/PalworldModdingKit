@@ -2,6 +2,34 @@
 #include "Net/UnrealNetwork.h"
 #include "PalGameSystemInitManagerComponent.h"
 
+APalGameStateInGame::APalGameStateInGame(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->CharacterManagerReplicator = NULL;
+    this->BaseCampReplicator = NULL;
+    this->OptionReplicator = NULL;
+    this->StageReplicator = NULL;
+    this->LocationReplicator = NULL;
+    this->DedicatedServerTransmitter = NULL;
+    this->GameSystemInitManager = CreateDefaultSubobject<UPalGameSystemInitManagerComponent>(TEXT("GameSystemInitManager"));
+    this->bIsDedicatedServer = false;
+    this->MaxPlayerNum = 0;
+    this->ServerFrameTime = -1.00f;
+    this->ServerWildMonsterCount = -1;
+    this->ServerOtomoMonsterCount = -1;
+    this->ServerBaseCampMonsterCount = -1;
+    this->ServerNPCCount = -1;
+    this->ServerOtherCharacterCount = -1;
+    this->ImportanceCharacterCount_AllUpdate = -1;
+    this->ImportanceCharacterCount_Nearest = -1;
+    this->ImportanceCharacterCount_Near = -1;
+    this->ImportanceCharacterCount_MidInSight = -1;
+    this->ImportanceCharacterCount_FarInSight = -1;
+    this->ImportanceCharacterCount_MidOutSight = -1;
+    this->ImportanceCharacterCount_FarOutSight = -1;
+    this->ImportanceCharacterCount_Farthest = -1;
+    this->BaseCampCount = -1;
+    this->NavMeshInvokerCount = -1;
+}
+
 void APalGameStateInGame::OnRep_WorldSaveDirectoryName() {
 }
 
@@ -68,31 +96,4 @@ void APalGameStateInGame::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
     DOREPLIFETIME(APalGameStateInGame, NavMeshInvokerCount);
 }
 
-APalGameStateInGame::APalGameStateInGame() {
-    this->CharacterManagerReplicator = NULL;
-    this->BaseCampReplicator = NULL;
-    this->OptionReplicator = NULL;
-    this->StageReplicator = NULL;
-    this->LocationReplicator = NULL;
-    this->DedicatedServerTransmitter = NULL;
-    this->GameSystemInitManager = CreateDefaultSubobject<UPalGameSystemInitManagerComponent>(TEXT("GameSystemInitManager"));
-    this->bIsDedicatedServer = false;
-    this->MaxPlayerNum = 0;
-    this->ServerFrameTime = -1.00f;
-    this->ServerWildMonsterCount = -1;
-    this->ServerOtomoMonsterCount = -1;
-    this->ServerBaseCampMonsterCount = -1;
-    this->ServerNPCCount = -1;
-    this->ServerOtherCharacterCount = -1;
-    this->ImportanceCharacterCount_AllUpdate = -1;
-    this->ImportanceCharacterCount_Nearest = -1;
-    this->ImportanceCharacterCount_Near = -1;
-    this->ImportanceCharacterCount_MidInSight = -1;
-    this->ImportanceCharacterCount_FarInSight = -1;
-    this->ImportanceCharacterCount_MidOutSight = -1;
-    this->ImportanceCharacterCount_FarOutSight = -1;
-    this->ImportanceCharacterCount_Farthest = -1;
-    this->BaseCampCount = -1;
-    this->NavMeshInvokerCount = -1;
-}
 

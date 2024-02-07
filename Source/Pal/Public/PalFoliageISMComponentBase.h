@@ -17,7 +17,8 @@ private:
     TMap<FVector, int32> InstanceIndexMapByLocation;
     
 public:
-    UPalFoliageISMComponentBase();
+    UPalFoliageISMComponentBase(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable)
     void SpawnInstance(UPalFoliageInstance* Instance);

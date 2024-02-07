@@ -1,6 +1,11 @@
 #include "PalCutsceneComponent.h"
 #include "Templates/SubclassOf.h"
 
+UPalCutsceneComponent::UPalCutsceneComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->CutsceneActor = NULL;
+    this->FadeParam = NULL;
+}
+
 void UPalCutsceneComponent::StopCutsceneToServer_Implementation() {
 }
 
@@ -30,8 +35,4 @@ bool UPalCutsceneComponent::IsPlayingCutscene() const {
     return false;
 }
 
-UPalCutsceneComponent::UPalCutsceneComponent() {
-    this->CutsceneActor = NULL;
-    this->FadeParam = NULL;
-}
 

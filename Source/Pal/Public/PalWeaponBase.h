@@ -192,7 +192,8 @@ private:
     int32 LoadoutSelectorIndex;
     
 public:
-    APalWeaponBase();
+    APalWeaponBase(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void UnbindGetWeaponDamageDelegate();
     

@@ -1,5 +1,9 @@
 #include "PalBattleManager.h"
 
+UPalBattleManager::UPalBattleManager() {
+    this->DebugSpawnerClass = NULL;
+}
+
 bool UPalBattleManager::TargetIsPlayerOrPlayersOtomoPal(AActor* TargetCharacter) {
     return false;
 }
@@ -50,7 +54,4 @@ void UPalBattleManager::AddEnemyActor_PlayerOrOtomo(AActor* PlayerOrOtomo, AActo
 void UPalBattleManager::ActionMenaceStart(APalCharacter* SelfCharacter) {
 }
 
-UPalBattleManager::UPalBattleManager() {
-    this->DebugSpawnerClass = NULL;
-}
 

@@ -18,7 +18,8 @@ protected:
     EPalDungeonEnemySpawnerRankType RankType;
     
 public:
-    APalDungeonEnemySpawnerPoint();
+    APalDungeonEnemySpawnerPoint(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnEnterCharacterToGroup(UPalIndividualCharacterHandle* IndividualHandle);

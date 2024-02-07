@@ -10,11 +10,12 @@ class PAL_API UPalMapObjectItemChestModel : public UPalMapObjectItemStorageModel
     GENERATED_BODY()
 public:
     UPalMapObjectItemChestModel();
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnUpdateLocalPlayerPasswordLockInfo(const FPalMapObjectPasswordLockPlayerInfo& OldLocalPlayerInfo, const FPalMapObjectPasswordLockPlayerInfo& NewLocalPlayerInfo);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

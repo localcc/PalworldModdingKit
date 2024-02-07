@@ -1,5 +1,8 @@
 #include "PalHate.h"
 
+UPalHate::UPalHate() {
+}
+
 void UPalHate::SelfDeathEvent(FPalDeadInfo DeadInfo) {
 }
 
@@ -19,6 +22,4 @@ void UPalHate::ChangeHate(const AActor* Attacker, float PlusHateValue) {
 void UPalHate::AttackSuccessEvent(FPalDamageResult DamageResult) {
 }
 
-UPalHate::UPalHate() {
-}
 

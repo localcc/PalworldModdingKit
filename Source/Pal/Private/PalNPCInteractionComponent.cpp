@@ -1,5 +1,12 @@
 #include "PalNPCInteractionComponent.h"
 
+UPalNPCInteractionComponent::UPalNPCInteractionComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->NPCInteractionDataTable = NULL;
+    this->NPCInteractConditionConstValDataTable = NULL;
+    this->ConditionFunctionClass = NULL;
+    this->ConditionFunctions = NULL;
+}
+
 void UPalNPCInteractionComponent::OnTriggerInteract(AActor* Other, EPalInteractiveObjectIndicatorType IndicatorType) {
 }
 
@@ -15,10 +22,4 @@ void UPalNPCInteractionComponent::DebugInteractConditionString(const FString& te
 void UPalNPCInteractionComponent::BeginPlay() {
 }
 
-UPalNPCInteractionComponent::UPalNPCInteractionComponent() {
-    this->NPCInteractionDataTable = NULL;
-    this->NPCInteractConditionConstValDataTable = NULL;
-    this->ConditionFunctionClass = NULL;
-    this->ConditionFunctions = NULL;
-}
 

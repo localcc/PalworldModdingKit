@@ -1,5 +1,8 @@
 #include "PalNetworkCharacterContainerComponent.h"
 
+UPalNetworkCharacterContainerComponent::UPalNetworkCharacterContainerComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void UPalNetworkCharacterContainerComponent::RequestUnlockSlot_ToServer_Implementation(const FGuid& RequestID, const FPalCharacterSlotId& SlotID) {
 }
 
@@ -21,6 +24,4 @@ void UPalNetworkCharacterContainerComponent::RecieveUnlockSlot_ToRequestClient_I
 void UPalNetworkCharacterContainerComponent::RecieveUnlockSlot_ToClient_Implementation(const FPalCharacterSlotId& SlotID) {
 }
 
-UPalNetworkCharacterContainerComponent::UPalNetworkCharacterContainerComponent() {
-}
 

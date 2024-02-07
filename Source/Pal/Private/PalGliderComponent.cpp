@@ -1,6 +1,12 @@
 #include "PalGliderComponent.h"
 #include "Net/UnrealNetwork.h"
 
+UPalGliderComponent::UPalGliderComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->CurrentGlider = NULL;
+    this->CurrentGliderClass = NULL;
+    this->bIsGliding = false;
+}
+
 UPalIndividualCharacterHandle* UPalGliderComponent::TryGetGliderIndividualHandleFromOtomoHolder() const {
     return NULL;
 }
@@ -94,9 +100,4 @@ void UPalGliderComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
     DOREPLIFETIME(UPalGliderComponent, bIsGliding);
 }
 
-UPalGliderComponent::UPalGliderComponent() {
-    this->CurrentGlider = NULL;
-    this->CurrentGliderClass = NULL;
-    this->bIsGliding = false;
-}
 

@@ -1,6 +1,12 @@
 #include "PalOtomoHolderComponentBase.h"
 #include "Net/UnrealNetwork.h"
 
+UPalOtomoHolderComponentBase::UPalOtomoHolderComponentBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->CollisionChecker = NULL;
+    this->OtomoOrder = EPalOtomoPalOrderType::Default;
+    this->CharacterContainer = NULL;
+}
+
 UPalIndividualCharacterHandle* UPalOtomoHolderComponentBase::TryGetSpawnedOtomoHandle() const {
     return NULL;
 }
@@ -188,9 +194,4 @@ void UPalOtomoHolderComponentBase::GetLifetimeReplicatedProps(TArray<FLifetimePr
     DOREPLIFETIME(UPalOtomoHolderComponentBase, CharacterContainer);
 }
 
-UPalOtomoHolderComponentBase::UPalOtomoHolderComponentBase() {
-    this->CollisionChecker = NULL;
-    this->OtomoOrder = EPalOtomoPalOrderType::Default;
-    this->CharacterContainer = NULL;
-}
 

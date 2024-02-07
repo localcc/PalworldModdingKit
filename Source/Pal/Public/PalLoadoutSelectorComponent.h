@@ -59,9 +59,10 @@ private:
     int32 replicatedCurrentItemSlotIndex;
     
 public:
-    UPalLoadoutSelectorComponent();
+    UPalLoadoutSelectorComponent(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void TryEquipNowSelectedWeapon_ToAll();
     

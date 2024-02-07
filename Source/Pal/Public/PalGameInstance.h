@@ -53,7 +53,7 @@ class UPalWazaDatabase;
 class UPalWorkProgressManager;
 class UPalWorldSecuritySystem;
 
-UCLASS(Blueprintable, NonTransient)
+UCLASS(Blueprintable, NonTransient, Config=Engine)
 class PAL_API UPalGameInstance : public UGameInstance {
     GENERATED_BODY()
 public:
@@ -301,6 +301,7 @@ private:
     
 public:
     UPalGameInstance();
+
     UFUNCTION(BlueprintCallable)
     void ShowUIMultiplayRestriction(bool bOverrideChecking);
     

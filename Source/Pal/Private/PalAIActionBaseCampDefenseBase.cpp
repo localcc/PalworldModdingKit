@@ -1,10 +1,7 @@
 #include "PalAIActionBaseCampDefenseBase.h"
 
-APalAIController* UPalAIActionBaseCampDefenseBase::GetControllerRef() {
-    return NULL;
-}
-
 UPalAIActionBaseCampDefenseBase::UPalAIActionBaseCampDefenseBase() {
+    this->DefaultPriority = EAIRequestPriority::Logic;
     this->TargetActor = NULL;
     this->SelfActor = NULL;
     this->CombatModule = NULL;
@@ -13,4 +10,9 @@ UPalAIActionBaseCampDefenseBase::UPalAIActionBaseCampDefenseBase() {
     this->DefenseActionClass = NULL;
     this->DefenseWaitActionClass = NULL;
 }
+
+APalAIController* UPalAIActionBaseCampDefenseBase::GetControllerRef() {
+    return NULL;
+}
+
 

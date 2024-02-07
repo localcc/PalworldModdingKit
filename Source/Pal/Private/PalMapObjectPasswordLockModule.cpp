@@ -1,6 +1,11 @@
 #include "PalMapObjectPasswordLockModule.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectPasswordLockModule::UPalMapObjectPasswordLockModule() {
+    this->LockState = EPalMapObjectPasswordLockState::Unlock;
+    this->TryAuthenticateMaxNum = -1;
+}
+
 void UPalMapObjectPasswordLockModule::RequestUpdateUnlock_ServerInternal(const int32 RequestPlayerId) {
 }
 
@@ -48,8 +53,4 @@ void UPalMapObjectPasswordLockModule::GetLifetimeReplicatedProps(TArray<FLifetim
     DOREPLIFETIME(UPalMapObjectPasswordLockModule, TryAuthenticateMaxNum);
 }
 
-UPalMapObjectPasswordLockModule::UPalMapObjectPasswordLockModule() {
-    this->LockState = EPalMapObjectPasswordLockState::Unlock;
-    this->TryAuthenticateMaxNum = -1;
-}
 

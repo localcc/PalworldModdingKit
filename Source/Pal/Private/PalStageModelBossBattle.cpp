@@ -1,6 +1,10 @@
 #include "PalStageModelBossBattle.h"
 #include "Net/UnrealNetwork.h"
 
+UPalStageModelBossBattle::UPalStageModelBossBattle() {
+    this->InstanceModel = NULL;
+}
+
 void UPalStageModelBossBattle::OnRep_InstanceModel() {
 }
 
@@ -14,7 +18,4 @@ void UPalStageModelBossBattle::GetLifetimeReplicatedProps(TArray<FLifetimeProper
     DOREPLIFETIME(UPalStageModelBossBattle, InstanceModel);
 }
 
-UPalStageModelBossBattle::UPalStageModelBossBattle() {
-    this->InstanceModel = NULL;
-}
 

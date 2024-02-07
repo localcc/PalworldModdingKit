@@ -26,7 +26,8 @@ private:
     
 public:
     UPalCharacterParameterStorageSubsystem();
-    
+
+
     // Fix for true pure virtual functions not being implemented
 };
 

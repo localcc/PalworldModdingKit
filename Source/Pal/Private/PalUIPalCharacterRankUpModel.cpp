@@ -1,5 +1,11 @@
 #include "PalUIPalCharacterRankUpModel.h"
 
+UPalUIPalCharacterRankUpModel::UPalUIPalCharacterRankUpModel() {
+    this->PalStorageModelClass = NULL;
+    this->PalStorageModel = NULL;
+    this->SelectMode = EPalUIPalCharacterRankUpSelectMode::SelectReferenceSlot;
+}
+
 bool UPalUIPalCharacterRankUpModel::ToggleResourceCharacter(UPalIndividualCharacterHandle* Handle) {
     return false;
 }
@@ -67,9 +73,4 @@ EPalUIPalCharacterRankUpRequestResult UPalUIPalCharacterRankUpModel::CanInvokeRa
     return EPalUIPalCharacterRankUpRequestResult::Success;
 }
 
-UPalUIPalCharacterRankUpModel::UPalUIPalCharacterRankUpModel() {
-    this->PalStorageModelClass = NULL;
-    this->PalStorageModel = NULL;
-    this->SelectMode = EPalUIPalCharacterRankUpSelectMode::SelectReferenceSlot;
-}
 

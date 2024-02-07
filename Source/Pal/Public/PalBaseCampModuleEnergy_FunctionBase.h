@@ -32,8 +32,9 @@ protected:
     
 public:
     UPalBaseCampModuleEnergy_FunctionBase();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void InvokeOnUpdateEnergyAmount(UPalMapObjectGenerateEnergyModel* Model);

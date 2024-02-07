@@ -10,7 +10,8 @@ UCLASS(Blueprintable)
 class APalCaptureJudgeObject : public AActor {
     GENERATED_BODY()
 public:
-    APalCaptureJudgeObject();
+    APalCaptureJudgeObject(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnSuccessFinish();
     

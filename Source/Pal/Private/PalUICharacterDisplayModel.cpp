@@ -1,5 +1,8 @@
 #include "PalUICharacterDisplayModel.h"
 
+UPalUICharacterDisplayModel::UPalUICharacterDisplayModel() {
+}
+
 bool UPalUICharacterDisplayModel::IsSelectable(const int32 DisplayIndex) {
     return false;
 }
@@ -11,6 +14,4 @@ int32 UPalUICharacterDisplayModel::GetSlotCount() const {
 void UPalUICharacterDisplayModel::GetDisplaySlots(TArray<UPalIndividualCharacterSlot*>& OutSlots) const {
 }
 
-UPalUICharacterDisplayModel::UPalUICharacterDisplayModel() {
-}
 

@@ -1,5 +1,9 @@
 #include "PalSquad.h"
 
+UPalSquad::UPalSquad() {
+    this->LeaderBB = NULL;
+}
+
 void UPalSquad::RemoveWhenDestoryActor(AActor* DestoryActor) {
 }
 
@@ -18,7 +22,4 @@ void UPalSquad::CombatStart(AActor* StartActor) {
 void UPalSquad::AddCharacter(FPalInstanceID PalInstanceID) {
 }
 
-UPalSquad::UPalSquad() {
-    this->LeaderBB = NULL;
-}
 

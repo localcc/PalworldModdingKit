@@ -1,6 +1,13 @@
 #include "PalBodyPartsCapsuleComponent.h"
 #include "Net/UnrealNetwork.h"
 
+UPalBodyPartsCapsuleComponent::UPalBodyPartsCapsuleComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bCanEverAffectNavigation = false;
+    this->CanCharacterStepUpOn = ECB_No;
+    this->bDynamicObstacle = true;
+    this->BodyPartsType = EPalBodyPartsType::Normal;
+}
+
 void UPalBodyPartsCapsuleComponent::OnRep_BroadcastCollisionProfileName() {
 }
 
@@ -10,7 +17,4 @@ void UPalBodyPartsCapsuleComponent::GetLifetimeReplicatedProps(TArray<FLifetimeP
     DOREPLIFETIME(UPalBodyPartsCapsuleComponent, BroadcastCollisionProfileName);
 }
 
-UPalBodyPartsCapsuleComponent::UPalBodyPartsCapsuleComponent() {
-    this->BodyPartsType = EPalBodyPartsType::Normal;
-}
 

@@ -13,8 +13,9 @@ private:
     int32 LimitFlags;
     
 public:
-    UPalLimitVolumeBoxComponent();
-    
+    UPalLimitVolumeBoxComponent(const FObjectInitializer& ObjectInitializer);
+
+
     // Fix for true pure virtual functions not being implemented
 };
 

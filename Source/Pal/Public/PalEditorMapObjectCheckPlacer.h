@@ -28,7 +28,8 @@ protected:
     TArray<FPalDataTableRowName_MapObjectData> IgnoreRowNames;
     
 public:
-    APalEditorMapObjectCheckPlacer();
+    APalEditorMapObjectCheckPlacer(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void PlaceMapObjects();
     

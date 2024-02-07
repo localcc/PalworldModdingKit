@@ -17,7 +17,8 @@ private:
     
 public:
     UPalLocationPointStatic();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 };
 

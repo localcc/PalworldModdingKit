@@ -38,9 +38,10 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<EPalPassiveSkillEffectType, EPalStatusID> SkillStatusMap;
     
-    UPalPassiveSkillComponent();
+    UPalPassiveSkillComponent(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable)
     void SetupSkillFromSelf(UObject* OwnerObject, const TArray<FName>& skillList);
     

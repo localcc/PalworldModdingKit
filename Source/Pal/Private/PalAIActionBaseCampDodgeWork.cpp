@@ -5,3 +5,4 @@ UPalAIActionBaseCampDodgeWork::UPalAIActionBaseCampDodgeWork() {
     this->WalkAroundNextDistance = 1000.00f;
 }
 
+

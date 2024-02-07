@@ -12,6 +12,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPalProceduralFoliageComponent* ProceduralComponent;
     
-    APalHiddenAreaBase();
+    APalHiddenAreaBase(const FObjectInitializer& ObjectInitializer);
+
 };
 

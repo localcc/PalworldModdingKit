@@ -162,7 +162,8 @@ private:
     FFloatContainer ArmLengthScaleContainer;
     
 public:
-    UPalShooterSpringArmComponent();
+    UPalShooterSpringArmComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable)
     void UpdateCameraInterp(float DeltaTime);

@@ -1,6 +1,13 @@
 #include "PalIndividualCharacterSlot.h"
 #include "Net/UnrealNetwork.h"
 
+UPalIndividualCharacterSlot::UPalIndividualCharacterSlot() {
+    this->Handle = NULL;
+    this->SlotIndex = -1;
+    this->PermissionTribeID = EPalTribeID::None;
+    this->bIsReplicateCharacterParameter = true;
+}
+
 void UPalIndividualCharacterSlot::Setup(const int32 InSlotIndex, const FPalContainerId& InContainerId) {
 }
 
@@ -48,10 +55,4 @@ void UPalIndividualCharacterSlot::GetLifetimeReplicatedProps(TArray<FLifetimePro
     DOREPLIFETIME(UPalIndividualCharacterSlot, PermissionTribeID);
 }
 
-UPalIndividualCharacterSlot::UPalIndividualCharacterSlot() {
-    this->Handle = NULL;
-    this->SlotIndex = -1;
-    this->PermissionTribeID = EPalTribeID::None;
-    this->bIsReplicateCharacterParameter = true;
-}
 

@@ -1,5 +1,14 @@
 #include "PalOptionSubsystem.h"
 
+UPalOptionSubsystem::UPalOptionSubsystem() {
+    this->BaseFov = 75.00f;
+    this->Namespace = TEXT("production");
+    this->OptionWorldPresetTable = NULL;
+    this->OptionWorldModePresetTable = NULL;
+    this->OptionGraphicsPresetTable = NULL;
+    this->PalPlayerCharacterClass = NULL;
+}
+
 void UPalOptionSubsystem::SetPadSettings(const FPalOptionPadSettings& InPadSettings) {
 }
 
@@ -88,12 +97,4 @@ void UPalOptionSubsystem::ApplyGraphicsPresetByBenchMark(FPalOptionGraphicsSetti
 void UPalOptionSubsystem::ApplyGraphicsPreset(FPalOptionGraphicsSettings& OutSettings, EPalOptionGraphicsLevel GraphicsLevel) {
 }
 
-UPalOptionSubsystem::UPalOptionSubsystem() {
-    this->BaseFov = 75.00f;
-    this->Namespace = TEXT("production");
-    this->OptionWorldPresetTable = NULL;
-    this->OptionWorldModePresetTable = NULL;
-    this->OptionGraphicsPresetTable = NULL;
-    this->PalPlayerCharacterClass = NULL;
-}
 

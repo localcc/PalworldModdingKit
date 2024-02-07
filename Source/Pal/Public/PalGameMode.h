@@ -9,7 +9,8 @@ UCLASS(Blueprintable, NonTransient)
 class PAL_API APalGameMode : public APalGameModeBase {
     GENERATED_BODY()
 public:
-    APalGameMode();
+    APalGameMode(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void RestartGame();
     

@@ -1,5 +1,8 @@
 #include "PalGameMode.h"
 
+APalGameMode::APalGameMode(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void APalGameMode::RestartGame() {
 }
 
@@ -18,6 +21,4 @@ void APalGameMode::OnCompleteCreateSession(bool IsSuccess, const FString& ErrorS
 void APalGameMode::CreateSession(const FString& Address) {
 }
 
-APalGameMode::APalGameMode() {
-}
 

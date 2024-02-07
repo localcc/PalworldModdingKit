@@ -1,5 +1,8 @@
 #include "PalMapObjectVisualEffectComponent.h"
 
+UPalMapObjectVisualEffectComponent::UPalMapObjectVisualEffectComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void UPalMapObjectVisualEffectComponent::UpdateVisualByEffect(UPalMapObjectModelEffectBase* Effect) {
 }
 
@@ -9,6 +12,4 @@ void UPalMapObjectVisualEffectComponent::OnRemoveEffect(UPalMapObjectModel* Mode
 void UPalMapObjectVisualEffectComponent::OnGrantedEffect(UPalMapObjectModel* Model, UPalMapObjectModelEffectBase* Effect) {
 }
 
-UPalMapObjectVisualEffectComponent::UPalMapObjectVisualEffectComponent() {
-}
 

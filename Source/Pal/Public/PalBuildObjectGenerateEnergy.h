@@ -21,7 +21,8 @@ protected:
     float MaxEnergyStorage;
     
 public:
-    APalBuildObjectGenerateEnergy();
+    APalBuildObjectGenerateEnergy(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnUpdateWorkAssigned_ServerInternal(UPalWorkBase* Work);

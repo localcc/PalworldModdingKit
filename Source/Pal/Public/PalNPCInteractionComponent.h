@@ -37,7 +37,8 @@ private:
     UPalNPCInteractConditionFunctions* ConditionFunctions;
     
 public:
-    UPalNPCInteractionComponent();
+    UPalNPCInteractionComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void OnTriggerInteract(AActor* Other, EPalInteractiveObjectIndicatorType IndicatorType);
     
@@ -53,7 +54,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void BeginPlay();
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

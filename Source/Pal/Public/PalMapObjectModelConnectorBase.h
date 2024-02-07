@@ -18,7 +18,8 @@ private:
     
 public:
     UPalMapObjectModelConnectorBase();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 };
 

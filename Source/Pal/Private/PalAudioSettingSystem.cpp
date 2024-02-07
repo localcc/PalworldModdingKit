@@ -1,5 +1,8 @@
 #include "PalAudioSettingSystem.h"
 
+UPalAudioSettingSystem::UPalAudioSettingSystem() {
+}
+
 
 void UPalAudioSettingSystem::StartAudioFade(EPalAudioBus AudioBus, EPalAudioFadeType FadeType, bool bImmediately) {
 }
@@ -20,6 +23,4 @@ float UPalAudioSettingSystem::GetAudioBusVolume(EPalAudioBus AudioBus) const {
     return 0.0f;
 }
 
-UPalAudioSettingSystem::UPalAudioSettingSystem() {
-}
 

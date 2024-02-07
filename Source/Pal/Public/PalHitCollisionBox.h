@@ -14,7 +14,8 @@ private:
     UBoxComponent* BoxComponent;
     
 public:
-    APalHitCollisionBox();
+    APalHitCollisionBox(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable)
     void DrawHitCollision();

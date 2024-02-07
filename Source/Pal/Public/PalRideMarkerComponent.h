@@ -58,9 +58,10 @@ private:
     APalUniqueRideWeaponBase* WeaponActor;
     
 public:
-    UPalRideMarkerComponent();
+    UPalRideMarkerComponent(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void SyncActiveSkill(UPalIndividualCharacterParameter* IndividualParameter);

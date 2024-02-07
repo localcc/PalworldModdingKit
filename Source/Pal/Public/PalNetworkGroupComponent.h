@@ -9,7 +9,8 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalNetworkGroupComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPalNetworkGroupComponent();
+    UPalNetworkGroupComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestJoinGuildRequestForPlayer_ToServer(const FGuid& RequestPlayerUId, const FGuid& TargetPlayerUId);
     

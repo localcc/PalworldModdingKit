@@ -145,8 +145,9 @@ private:
     
 public:
     UPalMapObjectModel();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable)
     void RequestRepairByPlayer_ToServer_ServerInternal(const FGuid& RequestPlayerUId);
     
@@ -188,7 +189,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FPalMapObjectStatusValue GetHP() const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintCallable)
     FGuid GetModelId() const override PURE_VIRTUAL(GetModelId, return FGuid{};);

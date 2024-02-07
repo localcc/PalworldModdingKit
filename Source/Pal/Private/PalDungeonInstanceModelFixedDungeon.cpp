@@ -1,6 +1,9 @@
 #include "PalDungeonInstanceModelFixedDungeon.h"
 #include "Net/UnrealNetwork.h"
 
+UPalDungeonInstanceModelFixedDungeon::UPalDungeonInstanceModelFixedDungeon() {
+}
+
 FGameDateTime UPalDungeonInstanceModelFixedDungeon::GetRespawnBossTimeAt() const {
     return FGameDateTime{};
 }
@@ -11,6 +14,4 @@ void UPalDungeonInstanceModelFixedDungeon::GetLifetimeReplicatedProps(TArray<FLi
     DOREPLIFETIME(UPalDungeonInstanceModelFixedDungeon, RespawnBossTimeAt);
 }
 
-UPalDungeonInstanceModelFixedDungeon::UPalDungeonInstanceModelFixedDungeon() {
-}
 

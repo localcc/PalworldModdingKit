@@ -2,6 +2,13 @@
 #include "Components/CapsuleComponent.h"
 #include "PalPoseableMeshComponent.h"
 
+APalCopyMeshVisualEffect::APalCopyMeshVisualEffect(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->RootComponent = CreateDefaultSubobject<UCapsuleComponent>(TEXT("RootCapsule"));
+    this->RootCapsule = (UCapsuleComponent*)RootComponent;
+    this->PoseableSkeletalMeshComponent = CreateDefaultSubobject<UPalPoseableMeshComponent>(TEXT("PoseableMeshComponent"));
+    this->PoseableSkeletalMeshComponent->SetupAttachment(RootComponent);
+}
+
 void APalCopyMeshVisualEffect::Setup(USkeletalMeshComponent* MeshComponent) {
 }
 
@@ -16,8 +23,4 @@ USkinnedMeshComponent* APalCopyMeshVisualEffect::GetMainMesh() const {
 void APalCopyMeshVisualEffect::GetAllMesh(TArray<USceneComponent*>& OutComponent) const {
 }
 
-APalCopyMeshVisualEffect::APalCopyMeshVisualEffect() {
-    this->RootCapsule = CreateDefaultSubobject<UCapsuleComponent>(TEXT("RootCapsule"));
-    this->PoseableSkeletalMeshComponent = CreateDefaultSubobject<UPalPoseableMeshComponent>(TEXT("PoseableMeshComponent"));
-}
 

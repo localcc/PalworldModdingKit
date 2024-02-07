@@ -1,6 +1,9 @@
 #include "PalMapObjectDeathDroppedCharacterModel.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectDeathDroppedCharacterModel::UPalMapObjectDeathDroppedCharacterModel() {
+}
+
 void UPalMapObjectDeathDroppedCharacterModel::OnChangedPlayerInfoInLocalPlayerGuild_ClientInternal(APalPlayerState* LocalPlayerState) {
 }
 
@@ -14,6 +17,4 @@ void UPalMapObjectDeathDroppedCharacterModel::GetLifetimeReplicatedProps(TArray<
     DOREPLIFETIME(UPalMapObjectDeathDroppedCharacterModel, OwnerPlayerUId);
 }
 
-UPalMapObjectDeathDroppedCharacterModel::UPalMapObjectDeathDroppedCharacterModel() {
-}
 

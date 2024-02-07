@@ -1,5 +1,6 @@
 #include "PalFollowingComponent.h"
 
-UPalFollowingComponent::UPalFollowingComponent() {
+UPalFollowingComponent::UPalFollowingComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

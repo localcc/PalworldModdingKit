@@ -4,3 +4,4 @@ UPalAIActionBaseCampFighterCombatGunner::UPalAIActionBaseCampFighterCombatGunner
     this->FaceAngleRange = 0.00f;
 }
 
+

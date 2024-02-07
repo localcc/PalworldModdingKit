@@ -1,6 +1,11 @@
 #include "PalDamageReactionComponent.h"
 #include "PalHitEffectSlot.h"
 
+UPalDamageReactionComponent::UPalDamageReactionComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->DamageEffectSlotClass = UPalHitEffectSlot::StaticClass();
+    this->EffectSlot = NULL;
+}
+
 void UPalDamageReactionComponent::SlipDamageAndBlowWhenDead(int32 Damage, FVector Velocity) {
 }
 
@@ -58,8 +63,4 @@ void UPalDamageReactionComponent::ApplyDamageForDyingHP_Implementation(FPalDamag
 void UPalDamageReactionComponent::AddDeadImplus_Implementation(FPalDamageResult DamageResult) {
 }
 
-UPalDamageReactionComponent::UPalDamageReactionComponent() {
-    this->DamageEffectSlotClass = UPalHitEffectSlot::StaticClass();
-    this->EffectSlot = NULL;
-}
 

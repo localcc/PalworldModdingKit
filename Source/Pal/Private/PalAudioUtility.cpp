@@ -1,5 +1,8 @@
 #include "PalAudioUtility.h"
 
+UPalAudioUtility::UPalAudioUtility() {
+}
+
 void UPalAudioUtility::OnPlayerExitSpot(UObject* WorldContextObject, APalPlayerCharacter* Player, APalSpotAreaBase* SpotArea) {
 }
 
@@ -18,6 +21,4 @@ void UPalAudioUtility::OnPlayerEnterBaseCamp(UObject* WorldContextObject, APalPl
 void UPalAudioUtility::OnPlayerEnterAmbientArea(UObject* WorldContextObject, APalPlayerCharacter* Player, APalAmbientSoundAreaBase* SpotArea) {
 }
 
-UPalAudioUtility::UPalAudioUtility() {
-}
 

@@ -15,7 +15,8 @@ protected:
     UDataLayerAsset* RelatedDataLayerAsset;
     
 public:
-    APalStageAreaVolume();
+    APalStageAreaVolume(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetRelatedDataLayerAsset(UDataLayerAsset* DataLayerAsset);
     

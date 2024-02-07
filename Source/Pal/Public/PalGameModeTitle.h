@@ -7,6 +7,7 @@ UCLASS(Blueprintable, NonTransient)
 class PAL_API APalGameModeTitle : public APalGameModeBase {
     GENERATED_BODY()
 public:
-    APalGameModeTitle();
+    APalGameModeTitle(const FObjectInitializer& ObjectInitializer);
+
 };
 

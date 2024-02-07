@@ -14,6 +14,7 @@ private:
     UPalHitEffectSlot* EffectSlot;
     
 public:
-    UPalFoliageDamageReactionComponent();
+    UPalFoliageDamageReactionComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

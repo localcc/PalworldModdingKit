@@ -164,9 +164,10 @@ private:
     FRotator CacheActorRotator;
     
 public:
-    APalPlayerController();
+    APalPlayerController(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     bool TrySwitchOtomo();

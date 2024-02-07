@@ -6,3 +6,4 @@ UPalAIActionBaseCampTrantrum::UPalAIActionBaseCampTrantrum() {
     this->TurnSpeedToAttack = 0.00f;
 }
 
+

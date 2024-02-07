@@ -23,7 +23,8 @@ protected:
     APalMapObjectFarmCrop* CropActor;
     
 public:
-    APalBuildObjectFarmBlockV2();
+    APalBuildObjectFarmBlockV2(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnUpdateState_ServerInternal(EPalFarmCropState LastCropState, EPalFarmCropState NextCropState);

@@ -18,10 +18,11 @@ private:
     
 public:
     UPalWorldObjectRecordWorldSubsystem();
+
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalWorldObjectRecorderBase* BP_GetRecorder(const UObject* WorldContextObject, const TSubclassOf<UPalWorldObjectRecorderBase> TargetClass);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

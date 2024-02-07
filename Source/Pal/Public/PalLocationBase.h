@@ -30,8 +30,9 @@ private:
     
 public:
     UPalLocationBase();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool ShouldDisplay() const;
     

@@ -1,6 +1,9 @@
 #include "PalGroupIndependentGuild.h"
 #include "Net/UnrealNetwork.h"
 
+UPalGroupIndependentGuild::UPalGroupIndependentGuild() {
+}
+
 void UPalGroupIndependentGuild::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
@@ -8,6 +11,4 @@ void UPalGroupIndependentGuild::GetLifetimeReplicatedProps(TArray<FLifetimePrope
     DOREPLIFETIME(UPalGroupIndependentGuild, PlayerInfo);
 }
 
-UPalGroupIndependentGuild::UPalGroupIndependentGuild() {
-}
 

@@ -1,6 +1,7 @@
 #include "PalSkillDamageReactionComponent.h"
 
-UPalSkillDamageReactionComponent::UPalSkillDamageReactionComponent() {
+UPalSkillDamageReactionComponent::UPalSkillDamageReactionComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->EffectSlot = NULL;
 }
+
 

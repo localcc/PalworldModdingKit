@@ -1,5 +1,11 @@
 #include "PalMapObjectMedicalPalBedModel.h"
 
+UPalMapObjectMedicalPalBedModel::UPalMapObjectMedicalPalBedModel() {
+    this->SleepingCharacterHandle = NULL;
+    this->AdditionalHealingRate = 1.00f;
+    this->AffectSanityRate = 1.00f;
+}
+
 void UPalMapObjectMedicalPalBedModel::OnInteractBegin(AActor* Other, TScriptInterface<IPalInteractiveObjectComponentInterface> Component) {
 }
 
@@ -13,9 +19,4 @@ UPalIndividualCharacterHandle* UPalMapObjectMedicalPalBedModel::GetSleepingHandl
 void UPalMapObjectMedicalPalBedModel::ClearSleepingCharacterHandle() {
 }
 
-UPalMapObjectMedicalPalBedModel::UPalMapObjectMedicalPalBedModel() {
-    this->SleepingCharacterHandle = NULL;
-    this->AdditionalHealingRate = 1.00f;
-    this->AffectSanityRate = 1.00f;
-}
 

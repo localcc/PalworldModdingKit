@@ -1,5 +1,8 @@
 #include "PalInteractiveObjectActionInfoUtility.h"
 
+UPalInteractiveObjectActionInfoUtility::UPalInteractiveObjectActionInfoUtility() {
+}
+
 EPalInteractiveObjectIndicatorType UPalInteractiveObjectActionInfoUtility::GetIndicatorType(const FPalInteractiveObjectActionInfoSet& ActionInfo, const EPalInteractiveObjectActionType ActionType) {
     return EPalInteractiveObjectIndicatorType::None;
 }
@@ -8,6 +11,4 @@ FPalInteractiveObjectActionBy UPalInteractiveObjectActionInfoUtility::CreateSitu
     return FPalInteractiveObjectActionBy{};
 }
 
-UPalInteractiveObjectActionInfoUtility::UPalInteractiveObjectActionInfoUtility() {
-}
 

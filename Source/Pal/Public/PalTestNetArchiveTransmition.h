@@ -8,7 +8,8 @@ UCLASS(Blueprintable)
 class APalTestNetArchiveTransmition : public AActor {
     GENERATED_BODY()
 public:
-    APalTestNetArchiveTransmition();
+    APalTestNetArchiveTransmition(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SendTest();
     

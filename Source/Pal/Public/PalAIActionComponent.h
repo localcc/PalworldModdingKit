@@ -22,7 +22,8 @@ private:
     TArray<UPalAIActionCompositeBase*> ActionCompositeRoots;
     
 public:
-    UPalAIActionComponent();
+    UPalAIActionComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void TerminateCurrentActionByClass(TSubclassOf<UPalAIActionBase> actionClass);
     

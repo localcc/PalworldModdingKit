@@ -1,5 +1,11 @@
 #include "PalSoundPlayer.h"
 
+UPalSoundPlayer::UPalSoundPlayer() {
+    this->StopWhenOwnerDestroyed = false;
+    this->OwnerComponent = NULL;
+    this->AkComponent = NULL;
+}
+
 void UPalSoundPlayer::UpdateOutputBusBolume() {
 }
 
@@ -65,9 +71,4 @@ void UPalSoundPlayer::FadeOutByPlayingId(int32 PlayingID, int32 FadeOutDuration)
 void UPalSoundPlayer::ClearOutputBusVolume(FName Name) {
 }
 
-UPalSoundPlayer::UPalSoundPlayer() {
-    this->StopWhenOwnerDestroyed = false;
-    this->OwnerComponent = NULL;
-    this->AkComponent = NULL;
-}
 

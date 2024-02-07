@@ -18,6 +18,7 @@ private:
     UPalHitEffectSlot* EffectSlot;
     
 public:
-    UPalMapObjectSpawnerDamageReactionComponent();
+    UPalMapObjectSpawnerDamageReactionComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

@@ -33,8 +33,9 @@ protected:
     
 public:
     UPalPlayerDataPalStorage();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnUpdateCharacterContainer_InServer();

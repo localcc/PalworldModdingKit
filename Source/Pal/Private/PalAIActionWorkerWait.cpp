@@ -1,5 +1,8 @@
 #include "PalAIActionWorkerWait.h"
 
+UPalAIActionWorkerWait::UPalAIActionWorkerWait() {
+}
+
 
 void UPalAIActionWorkerWait::OnTickForWait_Implementation(float DeltaTime) {
 }
@@ -12,6 +15,4 @@ bool UPalAIActionWorkerWait::CalcWalkAroundDestination(const float Radius, FVect
     return false;
 }
 
-UPalAIActionWorkerWait::UPalAIActionWorkerWait() {
-}
 

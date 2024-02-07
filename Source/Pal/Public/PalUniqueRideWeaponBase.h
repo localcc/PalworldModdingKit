@@ -18,7 +18,8 @@ UCLASS(Blueprintable)
 class PAL_API APalUniqueRideWeaponBase : public APalWeaponBase {
     GENERATED_BODY()
 public:
-    APalUniqueRideWeaponBase();
+    APalUniqueRideWeaponBase(const FObjectInitializer& ObjectInitializer);
+
 protected:
     UFUNCTION(BlueprintCallable)
     void ShootOneBulletByDefault();

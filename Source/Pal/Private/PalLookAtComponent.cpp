@@ -1,6 +1,15 @@
 #include "PalLookAtComponent.h"
 #include "Net/UnrealNetwork.h"
 
+UPalLookAtComponent::UPalLookAtComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->LookAtTargetActor = NULL;
+    this->LookAtInInterpTime = 0.25f;
+    this->LookAtOutInterpTime = 0.25f;
+    this->bIsEnableLookAt = false;
+    this->InterpolatedSpeed = 20.00f;
+    this->bIsShowDebugImage = false;
+}
+
 void UPalLookAtComponent::StopLookAt(float interpTime) {
 }
 
@@ -40,12 +49,4 @@ void UPalLookAtComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
     DOREPLIFETIME(UPalLookAtComponent, bIsEnableLookAt);
 }
 
-UPalLookAtComponent::UPalLookAtComponent() {
-    this->LookAtTargetActor = NULL;
-    this->LookAtInInterpTime = 0.25f;
-    this->LookAtOutInterpTime = 0.25f;
-    this->bIsEnableLookAt = false;
-    this->InterpolatedSpeed = 20.00f;
-    this->bIsShowDebugImage = false;
-}
 

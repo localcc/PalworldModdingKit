@@ -93,7 +93,8 @@ private:
     FTimerHandle SelfDeleteTimerHandle;
     
 public:
-    APalAIController();
+    APalAIController(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void WaitForSeconds(float Time);
     

@@ -1,5 +1,15 @@
 #include "PalActionBase.h"
 
+UPalActionBase::UPalActionBase() {
+    this->bIsEndAction = false;
+    this->bCanDeleteInstance = true;
+    this->bCanInterruptWaza = true;
+    this->bIsChangeWorkAnimPlayRate = true;
+    this->bIsChangeWalkableFloorAngle = true;
+    this->ActionWalkableFloorAngle = 45.00f;
+    this->bIsReflectForClient = false;
+}
+
 void UPalActionBase::TickAction_Implementation(float DeltaTime) {
 }
 
@@ -100,13 +110,4 @@ void UPalActionBase::AnimEventOther_Implementation() {
 void UPalActionBase::AnimEventAttack_Implementation() {
 }
 
-UPalActionBase::UPalActionBase() {
-    this->bIsEndAction = false;
-    this->bCanDeleteInstance = true;
-    this->bCanInterruptWaza = true;
-    this->bIsChangeWorkAnimPlayRate = true;
-    this->bIsChangeWalkableFloorAngle = true;
-    this->ActionWalkableFloorAngle = 45.00f;
-    this->bIsReflectForClient = false;
-}
 

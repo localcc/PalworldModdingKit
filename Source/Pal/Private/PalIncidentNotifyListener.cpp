@@ -1,5 +1,10 @@
 #include "PalIncidentNotifyListener.h"
 
+UPalIncidentNotifyListener::UPalIncidentNotifyListener() {
+    this->FilterOccuredObject = NULL;
+    this->FilterOwnerObject = NULL;
+}
+
 void UPalIncidentNotifyListener::UnregisterFromIncidentSystem() {
 }
 
@@ -40,8 +45,4 @@ void UPalIncidentNotifyListener::RegisterToIncidentSystem() {
 }
 
 
-UPalIncidentNotifyListener::UPalIncidentNotifyListener() {
-    this->FilterOccuredObject = NULL;
-    this->FilterOwnerObject = NULL;
-}
 

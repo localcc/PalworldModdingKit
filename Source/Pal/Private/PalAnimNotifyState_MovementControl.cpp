@@ -11,3 +11,4 @@ UPalAnimNotifyState_MovementControl::UPalAnimNotifyState_MovementControl() {
     this->bIsDisableJump = false;
 }
 
+

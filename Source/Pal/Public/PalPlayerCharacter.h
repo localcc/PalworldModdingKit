@@ -139,9 +139,10 @@ private:
     FPalPlayerDataCharacterMakeInfo CharacterMakeInfo;
     
 public:
-    APalPlayerCharacter();
+    APalPlayerCharacter(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable)
     void StopIdleAnimation();
     
@@ -274,7 +275,7 @@ private:
     UFUNCTION(BlueprintCallable)
     void AdjustLocationByLoad(APalCharacter* InCharacter);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

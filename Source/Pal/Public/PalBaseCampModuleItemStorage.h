@@ -30,8 +30,9 @@ private:
     
 public:
     UPalBaseCampModuleItemStorage();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnUpdateItemContainer(UPalMapObjectItemContainerModule* ItemContainerModule);

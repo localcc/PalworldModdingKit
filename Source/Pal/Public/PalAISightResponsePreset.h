@@ -24,6 +24,7 @@ public:
     TMap<EPalAISightJudgementType, FFindDelegate> DelegateMap;
     
     UPalAISightResponsePreset();
+
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BlueprintDelegateSetup();

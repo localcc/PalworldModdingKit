@@ -1,4 +1,10 @@
 #include "PalUserWidgetOverlayUI.h"
+#include "EPalWidgetInputMode.h"
+
+UPalUserWidgetOverlayUI::UPalUserWidgetOverlayUI() {
+    this->InputConfig = EPalWidgetInputMode::Menu;
+    this->IsEnableCancelAction = true;
+}
 
 void UPalUserWidgetOverlayUI::ResetCancelAction() {
 }
@@ -9,7 +15,4 @@ void UPalUserWidgetOverlayUI::OverrideCancelAction(bool IsDisplayActionBar, TEnu
 void UPalUserWidgetOverlayUI::ClearCancelAction() {
 }
 
-UPalUserWidgetOverlayUI::UPalUserWidgetOverlayUI() {
-    this->IsEnableCancelAction = true;
-}
 

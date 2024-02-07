@@ -1,5 +1,8 @@
 #include "PalSoundUtility.h"
 
+UPalSoundUtility::UPalSoundUtility() {
+}
+
 void UPalSoundUtility::StopSoundByActorWithSoundId(AActor* Actor, const FPalDataTableRowName_SoundID& ID) {
 }
 
@@ -35,6 +38,4 @@ bool UPalSoundUtility::PlayAkEventSoundByActor(AActor* Actor, UAkAudioEvent* AkE
 void UPalSoundUtility::IsSoundPlayingByActor(AActor* Actor, const FPalDataTableRowName_SoundID& ID, UPalSoundUtility::FPalSoundUtilityBoolCallbackFunction cb) {
 }
 
-UPalSoundUtility::UPalSoundUtility() {
-}
 

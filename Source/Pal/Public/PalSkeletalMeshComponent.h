@@ -96,7 +96,8 @@ private:
     FPalPlayerDataCharacterMakeInfo CharacterMakeInfo;
     
 public:
-    UPalSkeletalMeshComponent();
+    UPalSkeletalMeshComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetTiltDisable(FName flagName, bool bIsDisable);
     

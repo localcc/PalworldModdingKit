@@ -1,6 +1,13 @@
 #include "PalMapObjectFarmBlockV2Model.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectFarmBlockV2Model::UPalMapObjectFarmBlockV2Model() {
+    this->StateBehaviourMachine = NULL;
+    this->CurrentState = EPalFarmCropState::None;
+    this->CropProgressRateValue = 0.00f;
+    this->WaterStackRateValue = 0.00f;
+}
+
 void UPalMapObjectFarmBlockV2Model::OnUpdateWaterStackRate(const float UpdatedRate) {
 }
 
@@ -33,10 +40,4 @@ void UPalMapObjectFarmBlockV2Model::GetLifetimeReplicatedProps(TArray<FLifetimeP
     DOREPLIFETIME(UPalMapObjectFarmBlockV2Model, WaterStackRateValue);
 }
 
-UPalMapObjectFarmBlockV2Model::UPalMapObjectFarmBlockV2Model() {
-    this->StateBehaviourMachine = NULL;
-    this->CurrentState = EPalFarmCropState::None;
-    this->CropProgressRateValue = 0.00f;
-    this->WaterStackRateValue = 0.00f;
-}
 

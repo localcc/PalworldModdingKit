@@ -1,5 +1,6 @@
 #include "PalMapObjectMonsterFarmParameterComponent.h"
 
-UPalMapObjectMonsterFarmParameterComponent::UPalMapObjectMonsterFarmParameterComponent() {
+UPalMapObjectMonsterFarmParameterComponent::UPalMapObjectMonsterFarmParameterComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

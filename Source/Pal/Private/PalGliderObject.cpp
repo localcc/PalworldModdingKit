@@ -1,15 +1,7 @@
 #include "PalGliderObject.h"
 #include "PalSoundPlayerComponent.h"
 
-UPalSkeletalMeshComponent* APalGliderObject::GetMainMesh_Implementation() const {
-    return NULL;
-}
-
-USceneComponent* APalGliderObject::GetAkOwnerComponent() {
-    return NULL;
-}
-
-APalGliderObject::APalGliderObject() {
+APalGliderObject::APalGliderObject(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->GliderMaxSpeed = 0.00f;
     this->GliderSP = 10.00f;
     this->GliderAirControl = 0.00f;
@@ -22,4 +14,13 @@ APalGliderObject::APalGliderObject() {
     this->GliderLoopPlayerAnimation = NULL;
     this->SoundPlayerComponent = CreateDefaultSubobject<UPalSoundPlayerComponent>(TEXT("SoundPlayerComponent"));
 }
+
+UPalSkeletalMeshComponent* APalGliderObject::GetMainMesh_Implementation() const {
+    return NULL;
+}
+
+USceneComponent* APalGliderObject::GetAkOwnerComponent() {
+    return NULL;
+}
+
 

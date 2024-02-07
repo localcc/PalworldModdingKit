@@ -1,6 +1,10 @@
 #include "PalLocationPoint_Character.h"
 #include "Net/UnrealNetwork.h"
 
+UPalLocationPoint_Character::UPalLocationPoint_Character() {
+    this->CharacterLocationType = EPalCharacterLocationType::None;
+}
+
 void UPalLocationPoint_Character::OnDestroyedTarget(AActor* Target) {
 }
 
@@ -24,7 +28,4 @@ void UPalLocationPoint_Character::GetLifetimeReplicatedProps(TArray<FLifetimePro
     DOREPLIFETIME(UPalLocationPoint_Character, CharacterID);
 }
 
-UPalLocationPoint_Character::UPalLocationPoint_Character() {
-    this->CharacterLocationType = EPalCharacterLocationType::None;
-}
 

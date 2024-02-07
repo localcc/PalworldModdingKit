@@ -1,5 +1,8 @@
 #include "PalMapObjectTestGlobalContainerModel.h"
 
+UPalMapObjectTestGlobalContainerModel::UPalMapObjectTestGlobalContainerModel() {
+}
+
 void UPalMapObjectTestGlobalContainerModel::WatchContainer() const {
 }
 
@@ -27,6 +30,4 @@ void UPalMapObjectTestGlobalContainerModel::Dispose(const int32 SlotIndex, const
 void UPalMapObjectTestGlobalContainerModel::CloseContainerUI() {
 }
 
-UPalMapObjectTestGlobalContainerModel::UPalMapObjectTestGlobalContainerModel() {
-}
 

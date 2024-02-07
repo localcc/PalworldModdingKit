@@ -1,5 +1,10 @@
 #include "PalTemperatureComponent.h"
 
+UPalTemperatureComponent::UPalTemperatureComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->CurrentTemperature = 0;
+    this->SelfKeyName = TEXT("TemperatureComponent");
+}
+
 void UPalTemperatureComponent::RemoveHeatSource(FName UniqueName) {
 }
 
@@ -22,8 +27,4 @@ void UPalTemperatureComponent::AddHeatSourceInfo(FName UniqueName, FPalHeatSourc
 void UPalTemperatureComponent::AddHeatSource(FName UniqueName, int32 HeatLevel) {
 }
 
-UPalTemperatureComponent::UPalTemperatureComponent() {
-    this->CurrentTemperature = 0;
-    this->SelfKeyName = TEXT("TemperatureComponent");
-}
 

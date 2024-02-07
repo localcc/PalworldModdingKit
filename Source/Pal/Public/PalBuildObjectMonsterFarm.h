@@ -13,6 +13,7 @@ protected:
     FComponentReference WalkAroundVolumeRef;
     
 public:
-    APalBuildObjectMonsterFarm();
+    APalBuildObjectMonsterFarm(const FObjectInitializer& ObjectInitializer);
+
 };
 

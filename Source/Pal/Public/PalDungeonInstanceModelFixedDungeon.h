@@ -14,8 +14,9 @@ private:
     
 public:
     UPalDungeonInstanceModelFixedDungeon();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FGameDateTime GetRespawnBossTimeAt() const;
     

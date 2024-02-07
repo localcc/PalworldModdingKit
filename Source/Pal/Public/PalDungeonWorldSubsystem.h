@@ -41,13 +41,14 @@ protected:
     
 public:
     UPalDungeonWorldSubsystem();
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool TryGetDungeonInfo(const FPalStageInstanceId& StageInstanceId, FPalDungeonInfoParameter& OutInfo) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FGuid Debug_GetDungeonInstanceIdByIndex(const int32 Index) const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

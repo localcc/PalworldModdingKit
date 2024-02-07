@@ -7,9 +7,9 @@ enum class EPalPassiveTriggerType : int32 {
     None,
     ActiveOtomo,
     Worker,
-    Ride = 0x4,
-    Reserve = 0x8,
-    InOtomo = 0x10,
-    Always = 0x20,
+    Ride = 4,
+    Reserve = 8,
+    InOtomo = 16,
+    Always = 32,
 };
 

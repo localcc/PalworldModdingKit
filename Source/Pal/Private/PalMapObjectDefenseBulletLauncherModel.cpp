@@ -1,5 +1,10 @@
 #include "PalMapObjectDefenseBulletLauncherModel.h"
 
+UPalMapObjectDefenseBulletLauncherModel::UPalMapObjectDefenseBulletLauncherModel() {
+    this->remainingBulletsNum = 0;
+    this->MagazineSize = 0;
+}
+
 void UPalMapObjectDefenseBulletLauncherModel::UseBullet() {
 }
 
@@ -46,8 +51,4 @@ bool UPalMapObjectDefenseBulletLauncherModel::CanAvailable() const {
     return false;
 }
 
-UPalMapObjectDefenseBulletLauncherModel::UPalMapObjectDefenseBulletLauncherModel() {
-    this->remainingBulletsNum = 0;
-    this->MagazineSize = 0;
-}
 

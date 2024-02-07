@@ -1,6 +1,9 @@
 #include "PalBaseCampModulePassiveEffect.h"
 #include "Net/UnrealNetwork.h"
 
+UPalBaseCampModulePassiveEffect::UPalBaseCampModulePassiveEffect() {
+}
+
 void UPalBaseCampModulePassiveEffect::OnNotAvailableMapObjectInServer(UPalMapObjectConcreteModelBase* Model) {
 }
 
@@ -13,6 +16,4 @@ void UPalBaseCampModulePassiveEffect::GetLifetimeReplicatedProps(TArray<FLifetim
     DOREPLIFETIME(UPalBaseCampModulePassiveEffect, RepInfoArray);
 }
 
-UPalBaseCampModulePassiveEffect::UPalBaseCampModulePassiveEffect() {
-}
 

@@ -1,6 +1,9 @@
 #include "PalBaseCampModuleItemStorage.h"
 #include "Net/UnrealNetwork.h"
 
+UPalBaseCampModuleItemStorage::UPalBaseCampModuleItemStorage() {
+}
+
 void UPalBaseCampModuleItemStorage::OnUpdateItemContainer(UPalMapObjectItemContainerModule* ItemContainerModule) {
 }
 
@@ -19,6 +22,4 @@ void UPalBaseCampModuleItemStorage::GetLifetimeReplicatedProps(TArray<FLifetimeP
     DOREPLIFETIME(UPalBaseCampModuleItemStorage, ContainerInfos);
 }
 
-UPalBaseCampModuleItemStorage::UPalBaseCampModuleItemStorage() {
-}
 

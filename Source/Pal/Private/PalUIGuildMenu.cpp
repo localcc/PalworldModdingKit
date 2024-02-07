@@ -1,5 +1,8 @@
 #include "PalUIGuildMenu.h"
 
+UPalUIGuildMenu::UPalUIGuildMenu() {
+}
+
 void UPalUIGuildMenu::RequestExitGuild() {
 }
 
@@ -46,6 +49,4 @@ bool UPalUIGuildMenu::CanExitGuild() {
     return false;
 }
 
-UPalUIGuildMenu::UPalUIGuildMenu() {
-}
 

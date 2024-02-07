@@ -16,8 +16,9 @@ private:
     
 public:
     UPalShopProduct_TradeItem();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetRequireMoney() const;
     

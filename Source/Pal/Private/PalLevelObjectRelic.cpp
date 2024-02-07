@@ -1,5 +1,6 @@
 #include "PalLevelObjectRelic.h"
 
-APalLevelObjectRelic::APalLevelObjectRelic() {
+APalLevelObjectRelic::APalLevelObjectRelic(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

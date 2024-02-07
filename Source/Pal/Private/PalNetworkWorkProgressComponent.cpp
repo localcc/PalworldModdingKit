@@ -1,5 +1,8 @@
 #include "PalNetworkWorkProgressComponent.h"
 
+UPalNetworkWorkProgressComponent::UPalNetworkWorkProgressComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void UPalNetworkWorkProgressComponent::RequestStartPlayerWork_ToServer_Implementation(const FGuid& RequestID, const FGuid& WorkProgressId) {
 }
 
@@ -12,6 +15,4 @@ void UPalNetworkWorkProgressComponent::ReceiveStartPlayerWork_ToRequestClient_Im
 void UPalNetworkWorkProgressComponent::AddCompleteBuildWorkLog_Implementation(const FPalNetArchive& Archive) {
 }
 
-UPalNetworkWorkProgressComponent::UPalNetworkWorkProgressComponent() {
-}
 

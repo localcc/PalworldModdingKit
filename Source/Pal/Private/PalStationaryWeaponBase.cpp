@@ -1,7 +1,8 @@
 #include "PalStationaryWeaponBase.h"
 
-
-
-APalStationaryWeaponBase::APalStationaryWeaponBase() {
+APalStationaryWeaponBase::APalStationaryWeaponBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
+
+
 

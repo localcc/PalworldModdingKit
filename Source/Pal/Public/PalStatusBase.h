@@ -29,8 +29,9 @@ protected:
     
 public:
     UPalStatusBase();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void TickStatus(float DeltaTime);
     

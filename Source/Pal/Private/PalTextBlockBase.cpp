@@ -1,5 +1,11 @@
 #include "PalTextBlockBase.h"
 
+UPalTextBlockBase::UPalTextBlockBase() {
+    this->IsAutoTextSetWhenWidgetRebuilt = false;
+    this->IsAutoAdjustScale = false;
+    this->MaxWidth = 100;
+}
+
 void UPalTextBlockBase::UpdateRowName(const FName RowName) {
 }
 
@@ -11,9 +17,4 @@ FText UPalTextBlockBase::GetBindedOriginalText() const {
 }
 
 
-UPalTextBlockBase::UPalTextBlockBase() {
-    this->IsAutoTextSetWhenWidgetRebuilt = false;
-    this->IsAutoAdjustScale = false;
-    this->MaxWidth = 100;
-}
 

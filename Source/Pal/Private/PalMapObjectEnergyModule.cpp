@@ -1,6 +1,14 @@
 #include "PalMapObjectEnergyModule.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectEnergyModule::UPalMapObjectEnergyModule() {
+    this->EnergyType = EPalEnergyType::None;
+    this->ConsumeEnergySpeed = 0.00f;
+    this->CurrentConsumeEnergySpeed = 0.00f;
+    this->CurrentState = EPalMapObjectEnergyModuleStatusType::Waiting;
+    this->bRequiredConsumeEnergy = false;
+}
+
 void UPalMapObjectEnergyModule::RemoveHUD() {
 }
 
@@ -40,11 +48,4 @@ void UPalMapObjectEnergyModule::GetLifetimeReplicatedProps(TArray<FLifetimePrope
     DOREPLIFETIME(UPalMapObjectEnergyModule, CurrentState);
 }
 
-UPalMapObjectEnergyModule::UPalMapObjectEnergyModule() {
-    this->EnergyType = EPalEnergyType::None;
-    this->ConsumeEnergySpeed = 0.00f;
-    this->CurrentConsumeEnergySpeed = 0.00f;
-    this->CurrentState = EPalMapObjectEnergyModuleStatusType::Waiting;
-    this->bRequiredConsumeEnergy = false;
-}
 

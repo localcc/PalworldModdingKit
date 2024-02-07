@@ -18,12 +18,13 @@ protected:
     TScriptInterface<IPalInteractiveObjectComponentInterface> InteractComp;
     
 public:
-    APalLevelObjectCharacterStatusOperator();
+    APalLevelObjectCharacterStatusOperator(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnTriggerInteract(AActor* Other, EPalInteractiveObjectIndicatorType IndicatorType);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

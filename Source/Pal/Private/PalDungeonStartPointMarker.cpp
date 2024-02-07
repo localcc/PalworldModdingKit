@@ -1,5 +1,6 @@
 #include "PalDungeonStartPointMarker.h"
 
-APalDungeonStartPointMarker::APalDungeonStartPointMarker() {
+APalDungeonStartPointMarker::APalDungeonStartPointMarker(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

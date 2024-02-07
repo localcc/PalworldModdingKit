@@ -1,5 +1,11 @@
 #include "PalWorldMapUIData.h"
 
+UPalWorldMapUIData::UPalWorldMapUIData() {
+    this->MaskRenderTarget = NULL;
+    this->MaskTexture = NULL;
+    this->worldMapDataTable = NULL;
+}
+
 bool UPalWorldMapUIData::UnlockMap(const FName& regionId, const int32 PlayerId) {
     return false;
 }
@@ -19,9 +25,4 @@ FName UPalWorldMapUIData::GetCurrentPlayMapName() {
     return NAME_None;
 }
 
-UPalWorldMapUIData::UPalWorldMapUIData() {
-    this->MaskRenderTarget = NULL;
-    this->MaskTexture = NULL;
-    this->worldMapDataTable = NULL;
-}
 

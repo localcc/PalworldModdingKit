@@ -10,6 +10,7 @@ class UActionDynamicParameterUtility : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UActionDynamicParameterUtility();
+
     UFUNCTION(BlueprintCallable)
     static void SetBlackboard(UPARAM(Ref) FActionDynamicParameter& DynamicParameterRef, UPARAM(Ref) FPalNetArchive& Blackboard);
     

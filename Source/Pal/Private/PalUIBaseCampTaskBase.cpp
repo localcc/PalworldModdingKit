@@ -1,5 +1,11 @@
 #include "PalUIBaseCampTaskBase.h"
 
+UPalUIBaseCampTaskBase::UPalUIBaseCampTaskBase() {
+    this->baseCampTaskCheckerClass = NULL;
+    this->lastCheckedBaseCampLevel = -1;
+    this->taskChecker = NULL;
+}
+
 bool UPalUIBaseCampTaskBase::TryBaseCampLevelUp() {
     return false;
 }
@@ -27,9 +33,4 @@ bool UPalUIBaseCampTaskBase::CheckTask(FPalBaseCampTaskCheckedData& outChedckedD
     return false;
 }
 
-UPalUIBaseCampTaskBase::UPalUIBaseCampTaskBase() {
-    this->baseCampTaskCheckerClass = NULL;
-    this->lastCheckedBaseCampLevel = -1;
-    this->taskChecker = NULL;
-}
 

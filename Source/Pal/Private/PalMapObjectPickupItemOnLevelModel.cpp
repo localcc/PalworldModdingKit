@@ -1,6 +1,9 @@
 #include "PalMapObjectPickupItemOnLevelModel.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectPickupItemOnLevelModel::UPalMapObjectPickupItemOnLevelModel() {
+}
+
 void UPalMapObjectPickupItemOnLevelModel::OnUpdateItemContainerContents(UPalItemContainer* Container) {
 }
 
@@ -14,6 +17,4 @@ void UPalMapObjectPickupItemOnLevelModel::GetLifetimeReplicatedProps(TArray<FLif
     DOREPLIFETIME(UPalMapObjectPickupItemOnLevelModel, VisualStaticItemId);
 }
 
-UPalMapObjectPickupItemOnLevelModel::UPalMapObjectPickupItemOnLevelModel() {
-}
 

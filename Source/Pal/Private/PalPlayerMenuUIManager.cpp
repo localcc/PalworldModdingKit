@@ -1,5 +1,9 @@
 #include "PalPlayerMenuUIManager.h"
 
+UPalPlayerMenuUIManager::UPalPlayerMenuUIManager() {
+    this->PlayerMenuUI = NULL;
+}
+
 void UPalPlayerMenuUIManager::ToggleInventoryWindow() {
 }
 
@@ -13,7 +17,4 @@ FPalContainerId UPalPlayerMenuUIManager::Test_GetPlayerContainerID() const {
 void UPalPlayerMenuUIManager::SelectItem(FPalItemSlotId SelectSlot) {
 }
 
-UPalPlayerMenuUIManager::UPalPlayerMenuUIManager() {
-    this->PlayerMenuUI = NULL;
-}
 

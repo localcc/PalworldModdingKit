@@ -1,5 +1,10 @@
 #include "PalAnimInstance.h"
 
+UPalAnimInstance::UPalAnimInstance() {
+    this->IsRotateYawInterpolation = false;
+    this->RotateYawInterpolation_Acceleration = 0.00f;
+}
+
 void UPalAnimInstance::SetUpperOverrideDisableFlag(FName flagName, bool isDisable) {
 }
 
@@ -62,8 +67,4 @@ void UPalAnimInstance::AddSpinesListFromBoneList(FName BoneName) {
 void UPalAnimInstance::AddList(FName BoneName) {
 }
 
-UPalAnimInstance::UPalAnimInstance() {
-    this->IsRotateYawInterpolation = false;
-    this->RotateYawInterpolation_Acceleration = 0.00f;
-}
 

@@ -15,8 +15,9 @@ protected:
     
 public:
     UPalStageModelDungeon();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalDungeonInstanceModel* GetInstanceModel() const;
     

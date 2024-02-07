@@ -11,6 +11,7 @@ public:
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     FFloatInterval ActionIntervalSeconds;
     
-    UPalMapObjectMonsterFarmParameterComponent();
+    UPalMapObjectMonsterFarmParameterComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

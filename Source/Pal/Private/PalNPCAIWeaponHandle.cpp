@@ -1,6 +1,10 @@
 #include "PalNPCAIWeaponHandle.h"
 #include "Templates/SubclassOf.h"
 
+UPalNPCAIWeaponHandle::UPalNPCAIWeaponHandle() {
+    this->ShooterHuman = NULL;
+}
+
 void UPalNPCAIWeaponHandle::UnequipWeapon() {
 }
 
@@ -87,7 +91,4 @@ void UPalNPCAIWeaponHandle::DecreaseBullet() {
 void UPalNPCAIWeaponHandle::AimToTarget(AActor* TargetActor, bool Aim, float DeltaTime) {
 }
 
-UPalNPCAIWeaponHandle::UPalNPCAIWeaponHandle() {
-    this->ShooterHuman = NULL;
-}
 

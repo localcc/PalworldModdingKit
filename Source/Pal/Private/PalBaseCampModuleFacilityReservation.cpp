@@ -1,6 +1,9 @@
 #include "PalBaseCampModuleFacilityReservation.h"
 #include "Net/UnrealNetwork.h"
 
+UPalBaseCampModuleFacilityReservation::UPalBaseCampModuleFacilityReservation() {
+}
+
 void UPalBaseCampModuleFacilityReservation::OnStartUseFacility_ServerInternal(UPalMapObjectConcreteModelBase* Model, UPalIndividualCharacterHandle* IndividualHandle) {
 }
 
@@ -19,6 +22,4 @@ void UPalBaseCampModuleFacilityReservation::GetLifetimeReplicatedProps(TArray<FL
     DOREPLIFETIME(UPalBaseCampModuleFacilityReservation, FacilityCounts);
 }
 
-UPalBaseCampModuleFacilityReservation::UPalBaseCampModuleFacilityReservation() {
-}
 

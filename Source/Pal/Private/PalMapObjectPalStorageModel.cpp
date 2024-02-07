@@ -1,5 +1,8 @@
 #include "PalMapObjectPalStorageModel.h"
 
+UPalMapObjectPalStorageModel::UPalMapObjectPalStorageModel() {
+}
+
 void UPalMapObjectPalStorageModel::OnUpdateGuildPalStorage_ServerInternal(UPalBaseCampModel* BaseCampModel, UPalGuildPalStorage* GuildPalStorage) {
 }
 
@@ -19,6 +22,4 @@ void UPalMapObjectPalStorageModel::OnDroppedCharacterToPhantom(FPalInstanceID In
 void UPalMapObjectPalStorageModel::OnAddGuildPalStorage_ServerInternal(UPalIndividualCharacterHandle* NewCharacter) {
 }
 
-UPalMapObjectPalStorageModel::UPalMapObjectPalStorageModel() {
-}
 

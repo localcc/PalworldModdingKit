@@ -13,6 +13,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalUserWidgetOverlayUI> MenuUIWidgetClass;
     
-    UPalMapObjectSignboardParameterComponent();
+    UPalMapObjectSignboardParameterComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

@@ -1,5 +1,9 @@
 #include "PalWorldSecuritySystem.h"
 
+UPalWorldSecuritySystem::UPalWorldSecuritySystem() {
+    this->LawClassDirectoryPath = TEXT("/Game/Pal/Blueprint/WorldSecurity/Law");
+}
+
 void UPalWorldSecuritySystem::ReportCriminal(UPalIndividualCharacterHandle* CriminalHandle, UPalIndividualCharacterHandle* ReporterHandle) {
 }
 
@@ -17,7 +21,4 @@ FName UPalWorldSecuritySystem::GetCrimeIdByCrimeInstanceId(const FGuid& CrimeIns
     return NAME_None;
 }
 
-UPalWorldSecuritySystem::UPalWorldSecuritySystem() {
-    this->LawClassDirectoryPath = TEXT("/Game/Pal/Blueprint/WorldSecurity/Law");
-}
 

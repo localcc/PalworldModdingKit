@@ -58,9 +58,10 @@ private:
     UPalShopBase* MyPalShop;
     
 public:
-    UPalVenderDataComponent();
+    UPalVenderDataComponent(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool TryGetPalShop(UPalShopBase*& OutShop) const;
     

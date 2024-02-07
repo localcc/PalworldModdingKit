@@ -1,12 +1,6 @@
 #include "PalCharacterCameraComponent.h"
 
-void UPalCharacterCameraComponent::OnStartAim() {
-}
-
-void UPalCharacterCameraComponent::OnEndAim() {
-}
-
-UPalCharacterCameraComponent::UPalCharacterCameraComponent() {
+UPalCharacterCameraComponent::UPalCharacterCameraComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->WalkFOV = 90.00f;
     this->SprintFOV = 100.00f;
     this->SprintFOVInterpSpeed = 1.00f;
@@ -38,4 +32,11 @@ UPalCharacterCameraComponent::UPalCharacterCameraComponent() {
     this->DynamicSpeedBlurMaterialDynamic = NULL;
     this->DynamicAimBlurMaterialDynamic = NULL;
 }
+
+void UPalCharacterCameraComponent::OnStartAim() {
+}
+
+void UPalCharacterCameraComponent::OnEndAim() {
+}
+
 

@@ -4,9 +4,9 @@
 
 UENUM()
 enum class EPalLimitVolumeFlag : int32 {
-    Build = 0x1,
+    Build = 1,
     EnemySpawn,
-    MapObjectSpawn = 0x4,
-    BaseCampArea = 0x8,
+    MapObjectSpawn = 4,
+    BaseCampArea = 8,
 };
 

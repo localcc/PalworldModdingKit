@@ -195,7 +195,7 @@ public:
     
     UPalIndividualCharacterParameter();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable)
     void UseItemInSlot(const FPalItemSlotIdAndNum SlotIdAndNum);
     

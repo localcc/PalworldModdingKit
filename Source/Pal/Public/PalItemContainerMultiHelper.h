@@ -22,8 +22,9 @@ private:
     
 public:
     UPalItemContainerMultiHelper();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnUpdateContainerContent(UPalItemContainer* Container);

@@ -31,13 +31,14 @@ protected:
     
 public:
     UPalTutorialManager();
+
     UFUNCTION(BlueprintCallable)
     void TutorialTrigger_Common(EPalTutorialTriggerConditionType TriggerType);
     
     UFUNCTION(BlueprintCallable)
     void TutorialTrigger_Capture(FPalUIPalCaptureInfo CaptureInfo, bool CaptureSuccess);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

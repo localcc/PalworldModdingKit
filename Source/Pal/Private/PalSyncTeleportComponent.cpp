@@ -1,5 +1,10 @@
 #include "PalSyncTeleportComponent.h"
 
+UPalSyncTeleportComponent::UPalSyncTeleportComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->DefaultStartSE = NULL;
+    this->FadeParameter = NULL;
+}
+
 void UPalSyncTeleportComponent::SyncTeleport_ToClient_Implementation(const FPalSyncTeleportRequestParameter& Parameter) {
 }
 
@@ -42,8 +47,4 @@ FVector UPalSyncTeleportComponent::GetTeleportLocation() const {
     return FVector{};
 }
 
-UPalSyncTeleportComponent::UPalSyncTeleportComponent() {
-    this->DefaultStartSE = NULL;
-    this->FadeParameter = NULL;
-}
 

@@ -1,6 +1,8 @@
 #include "PalLimitVolumeSphereComponent.h"
 
-UPalLimitVolumeSphereComponent::UPalLimitVolumeSphereComponent() {
+UPalLimitVolumeSphereComponent::UPalLimitVolumeSphereComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->ShapeBodySetup = NULL;
     this->LimitFlags = 0;
 }
+
 

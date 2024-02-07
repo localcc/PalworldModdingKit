@@ -37,6 +37,7 @@ protected:
     
 public:
     UPalMapObjectAmusementModel();
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnInteractBegin(AActor* Other, TScriptInterface<IPalInteractiveObjectComponentInterface> Component);
@@ -51,7 +52,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void ClearCharacterHandle();
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

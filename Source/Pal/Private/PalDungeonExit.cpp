@@ -1,5 +1,9 @@
 #include "PalDungeonExit.h"
 
+APalDungeonExit::APalDungeonExit(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bStartPoint = false;
+}
+
 void APalDungeonExit::OnTriggerInteract(AActor* Other, EPalInteractiveObjectIndicatorType IndicatorType) {
 }
 
@@ -14,7 +18,4 @@ FTransform APalDungeonExit::GetWarpPoint_Implementation() const {
     return FTransform{};
 }
 
-APalDungeonExit::APalDungeonExit() {
-    this->bStartPoint = false;
-}
 

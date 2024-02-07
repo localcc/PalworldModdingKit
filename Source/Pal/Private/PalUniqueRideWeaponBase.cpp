@@ -1,6 +1,9 @@
 #include "PalUniqueRideWeaponBase.h"
 #include "Templates/SubclassOf.h"
 
+APalUniqueRideWeaponBase::APalUniqueRideWeaponBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void APalUniqueRideWeaponBase::ShootOneBulletByDefault() {
 }
 
@@ -33,6 +36,4 @@ bool APalUniqueRideWeaponBase::CanUse() {
     return false;
 }
 
-APalUniqueRideWeaponBase::APalUniqueRideWeaponBase() {
-}
 

@@ -1,5 +1,9 @@
 #include "PalLevelObjectObtainable.h"
 
+APalLevelObjectObtainable::APalLevelObjectObtainable(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bPickedInClient = false;
+}
+
 void APalLevelObjectObtainable::OnUpdateFlagMapRecord(const FName Key, const bool bFlag) {
 }
 
@@ -10,7 +14,4 @@ void APalLevelObjectObtainable::OnCompleteSyncPlayer(APalPlayerState* PlayerStat
 }
 
 
-APalLevelObjectObtainable::APalLevelObjectObtainable() {
-    this->bPickedInClient = false;
-}
 

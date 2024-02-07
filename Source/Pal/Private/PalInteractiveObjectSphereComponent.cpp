@@ -1,5 +1,15 @@
 #include "PalInteractiveObjectSphereComponent.h"
 
+UPalInteractiveObjectSphereComponent::UPalInteractiveObjectSphereComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bCanEverAffectNavigation = false;
+    this->ShapeBodySetup = NULL;
+    this->InteractDelegates = NULL;
+    this->bIsEnableTriggerInteract = false;
+    this->bIsImplementedTriggerInteract = false;
+    this->bIsEnableInteractingTick = false;
+    this->bIsEnableInteractingTickInClientOnly = false;
+}
+
 void UPalInteractiveObjectSphereComponent::SetIndicatorInterface(TScriptInterface<IPalInteractiveObjectIndicatorInterface> InIndicatorInterface) {
 }
 
@@ -23,11 +33,4 @@ UPalInteractDelegates* UPalInteractiveObjectSphereComponent::Delegates() const {
 void UPalInteractiveObjectSphereComponent::CallOrRegisterOnCreateInteractDelegates(UPalInteractiveObjectSphereComponent::FOnCreateInteractsDelegates Delegate) {
 }
 
-UPalInteractiveObjectSphereComponent::UPalInteractiveObjectSphereComponent() {
-    this->InteractDelegates = NULL;
-    this->bIsEnableTriggerInteract = false;
-    this->bIsImplementedTriggerInteract = false;
-    this->bIsEnableInteractingTick = false;
-    this->bIsEnableInteractingTickInClientOnly = false;
-}
 

@@ -28,7 +28,8 @@ private:
     FFlagContainer EnableWhenDayTimeFlag;
     
 public:
-    UPalTimerPointLightComponent();
+    UPalTimerPointLightComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetEnableWhenDayTime(FName Key, bool Enable);
     

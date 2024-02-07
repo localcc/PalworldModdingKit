@@ -5,3 +5,4 @@ UPalActivatableWidget::UPalActivatableWidget() {
     this->GameMouseCaptureMode = EMouseCaptureMode::CapturePermanently;
 }
 
+

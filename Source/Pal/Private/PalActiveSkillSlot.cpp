@@ -1,5 +1,10 @@
 #include "PalActiveSkillSlot.h"
 
+UPalActiveSkillSlot::UPalActiveSkillSlot() {
+    this->SelfActor = NULL;
+    this->IsEndInit = false;
+}
+
 void UPalActiveSkillSlot::UpdateCoolTime(float DeltaTime) {
 }
 
@@ -79,8 +84,4 @@ bool UPalActiveSkillSlot::CanUse(int32 SlotID, AActor* TargetActor) const {
     return false;
 }
 
-UPalActiveSkillSlot::UPalActiveSkillSlot() {
-    this->SelfActor = NULL;
-    this->IsEndInit = false;
-}
 

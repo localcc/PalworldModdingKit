@@ -21,6 +21,7 @@ private:
     
 public:
     UPalCharacterContainerManager();
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool TryGetContainer(const FPalContainerId& ContainerId, UPalIndividualCharacterContainer*& Container) const;
     
@@ -33,7 +34,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalIndividualCharacterContainer* GetContainer(const FPalContainerId& ContainerId) const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

@@ -1,6 +1,13 @@
 #include "PalDungeonInstanceModel.h"
 #include "Net/UnrealNetwork.h"
 
+UPalDungeonInstanceModel::UPalDungeonInstanceModel() {
+    this->BossState = EPalDungeonInstanceBossState::Spawned;
+    this->Level = 0;
+    this->ReservedDataLayerAssetIndex = -1;
+    this->ReservedDataLayerAsset = NULL;
+}
+
 void UPalDungeonInstanceModel::OnUpdateBossState() {
 }
 
@@ -62,10 +69,4 @@ void UPalDungeonInstanceModel::GetLifetimeReplicatedProps(TArray<FLifetimeProper
     DOREPLIFETIME(UPalDungeonInstanceModel, Level);
 }
 
-UPalDungeonInstanceModel::UPalDungeonInstanceModel() {
-    this->BossState = EPalDungeonInstanceBossState::Spawned;
-    this->Level = 0;
-    this->ReservedDataLayerAssetIndex = -1;
-    this->ReservedDataLayerAsset = NULL;
-}
 

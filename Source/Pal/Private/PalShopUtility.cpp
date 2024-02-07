@@ -1,5 +1,8 @@
 #include "PalShopUtility.h"
 
+UPalShopUtility::UPalShopUtility() {
+}
+
 void UPalShopUtility::LotteryItemShop(const UObject* WorldContextObject, const FName& ItemShopLotteryName, FName& OutShopName) {
 }
 
@@ -35,6 +38,4 @@ int32 UPalShopUtility::CalcItemSellPrice(const UObject* WorldContextObject, cons
     return 0;
 }
 
-UPalShopUtility::UPalShopUtility() {
-}
 

@@ -1,6 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "ECommonInputType.h"
+#include "CommonInputBaseTypes.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "GameplayTagContainer.h"
 #include "Templates/SubclassOf.h"

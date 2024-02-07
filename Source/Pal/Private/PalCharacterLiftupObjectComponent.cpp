@@ -1,6 +1,11 @@
 #include "PalCharacterLiftupObjectComponent.h"
 #include "Net/UnrealNetwork.h"
 
+UPalCharacterLiftupObjectComponent::UPalCharacterLiftupObjectComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bIsLifting = false;
+    this->bEnableLiftup = false;
+}
+
 void UPalCharacterLiftupObjectComponent::SetEnable(const bool bInEnable) {
 }
 
@@ -27,8 +32,4 @@ void UPalCharacterLiftupObjectComponent::GetLifetimeReplicatedProps(TArray<FLife
     DOREPLIFETIME(UPalCharacterLiftupObjectComponent, bEnableLiftup);
 }
 
-UPalCharacterLiftupObjectComponent::UPalCharacterLiftupObjectComponent() {
-    this->bIsLifting = false;
-    this->bEnableLiftup = false;
-}
 

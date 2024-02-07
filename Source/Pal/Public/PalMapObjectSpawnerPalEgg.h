@@ -21,7 +21,8 @@ protected:
     bool bRespawnableMulti;
     
 public:
-    APalMapObjectSpawnerPalEgg();
+    APalMapObjectSpawnerPalEgg(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnFinishedSpawningMapObjectModel(FGuid InstanceId, const EPalMapObjectOperationResult Result);

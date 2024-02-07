@@ -1,5 +1,10 @@
 #include "PalWidgetAnimationArray.h"
 
+UPalWidgetAnimationArray::UPalWidgetAnimationArray() {
+    this->TargetWidget = NULL;
+    this->multiplyTimeScale = 1.00f;
+}
+
 void UPalWidgetAnimationArray::StopAnimation(const FName& animationName) {
 }
 
@@ -36,8 +41,4 @@ void UPalWidgetAnimationArray::Initialize(UUserWidget* inTargetWidget) {
 void UPalWidgetAnimationArray::GetAnimationNameArray(TArray<FName>& OutArray) {
 }
 
-UPalWidgetAnimationArray::UPalWidgetAnimationArray() {
-    this->TargetWidget = NULL;
-    this->multiplyTimeScale = 1.00f;
-}
 

@@ -1,7 +1,9 @@
 #include "PalHiddenAreaCapsule.h"
 #include "PalHiddenCapsuleComponent.h"
 
-APalHiddenAreaCapsule::APalHiddenAreaCapsule() {
-    this->HiddenCapsuleComponent = CreateDefaultSubobject<UPalHiddenCapsuleComponent>(TEXT("HiddenCapsuleComponent"));
+APalHiddenAreaCapsule::APalHiddenAreaCapsule(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->RootComponent = CreateDefaultSubobject<UPalHiddenCapsuleComponent>(TEXT("HiddenCapsuleComponent"));
+    this->HiddenCapsuleComponent = (UPalHiddenCapsuleComponent*)RootComponent;
 }
+
 

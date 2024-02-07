@@ -1,6 +1,10 @@
 #include "PalAIActionBaseCampBase.h"
 #include "Templates/SubclassOf.h"
 
+UPalAIActionBaseCampBase::UPalAIActionBaseCampBase() {
+    this->WalkSpeedDefault = 0.00f;
+}
+
 void UPalAIActionBaseCampBase::StartCombatAction(TSubclassOf<UPalAIActionCombatBase> CombatActionClass) {
 }
 
@@ -37,7 +41,4 @@ void UPalAIActionBaseCampBase::ChangeActionToWorker() {
 void UPalAIActionBaseCampBase::ChangeActionToFighter() {
 }
 
-UPalAIActionBaseCampBase::UPalAIActionBaseCampBase() {
-    this->WalkSpeedDefault = 0.00f;
-}
 

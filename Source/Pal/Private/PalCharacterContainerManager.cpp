@@ -1,5 +1,8 @@
 #include "PalCharacterContainerManager.h"
 
+UPalCharacterContainerManager::UPalCharacterContainerManager() {
+}
+
 bool UPalCharacterContainerManager::TryGetContainer(const FPalContainerId& ContainerId, UPalIndividualCharacterContainer*& Container) const {
     return false;
 }
@@ -16,6 +19,4 @@ UPalIndividualCharacterContainer* UPalCharacterContainerManager::GetContainer(co
     return NULL;
 }
 
-UPalCharacterContainerManager::UPalCharacterContainerManager() {
-}
 

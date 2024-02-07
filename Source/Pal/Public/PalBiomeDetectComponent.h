@@ -15,7 +15,8 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnChangedBiomeDelegate OnChangedBiome;
     
-    UPalBiomeDetectComponent();
+    UPalBiomeDetectComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void ChangeBiome(APalBiomeAreaTriggerBase* BiomeTriggerActor);
     

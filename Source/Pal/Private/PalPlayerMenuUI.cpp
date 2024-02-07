@@ -1,5 +1,9 @@
 #include "PalPlayerMenuUI.h"
 
+UPalPlayerMenuUI::UPalPlayerMenuUI() : UUserWidget(FObjectInitializer::Get()) {
+    this->IsDraging = false;
+}
+
 void UPalPlayerMenuUI::SetSelectedItemSlot(FPalItemSlotId SelectSlot) {
 }
 
@@ -26,7 +30,4 @@ bool UPalPlayerMenuUI::GetIsDragingt() {
 
 
 
-UPalPlayerMenuUI::UPalPlayerMenuUI() : UUserWidget(FObjectInitializer::Get()) {
-    this->IsDraging = false;
-}
 

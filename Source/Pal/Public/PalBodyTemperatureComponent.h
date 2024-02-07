@@ -51,7 +51,8 @@ private:
     EPalBodyTemperatureState CurrentBodyState;
     
 public:
-    UPalBodyTemperatureComponent();
+    UPalBodyTemperatureComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestReSend_ToServer();

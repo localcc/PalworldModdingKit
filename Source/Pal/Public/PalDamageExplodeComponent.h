@@ -25,7 +25,8 @@ private:
     bool IsExploded;
     
 public:
-    UPalDamageExplodeComponent();
+    UPalDamageExplodeComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SpawnExplosionActor_Delay(AActor* Attacker, float DelayTime);
     

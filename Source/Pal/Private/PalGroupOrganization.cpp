@@ -1,6 +1,10 @@
 #include "PalGroupOrganization.h"
 #include "Net/UnrealNetwork.h"
 
+UPalGroupOrganization::UPalGroupOrganization() {
+    this->OrganizationType = EPalOrganizationType::None;
+}
+
 void UPalGroupOrganization::OnDead(FPalDeadInfo DeadInfo) {
 }
 
@@ -14,7 +18,4 @@ void UPalGroupOrganization::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>
     DOREPLIFETIME(UPalGroupOrganization, BaseCampIds);
 }
 
-UPalGroupOrganization::UPalGroupOrganization() {
-    this->OrganizationType = EPalOrganizationType::None;
-}
 

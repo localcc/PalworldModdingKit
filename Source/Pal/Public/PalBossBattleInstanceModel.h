@@ -90,8 +90,9 @@ private:
     
 public:
     UPalBossBattleInstanceModel();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
     UFUNCTION(BlueprintCallable)
     void OnUpdateCombatTimeLimit();

@@ -15,7 +15,8 @@ protected:
     FPalDataTableRowName_MapObjectData MapObjectId;
     
 public:
-    APalMapObjectSpawnerSimple();
+    APalMapObjectSpawnerSimple(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnFinishedSpawningMapObjectModel(FGuid InstanceId, const EPalMapObjectOperationResult Result);

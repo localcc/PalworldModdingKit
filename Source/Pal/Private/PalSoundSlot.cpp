@@ -1,5 +1,9 @@
 #include "PalSoundSlot.h"
 
+UPalSoundSlot::UPalSoundSlot() {
+    this->SoundPlayer = NULL;
+}
+
 void UPalSoundSlot::Terminate_Implementation() {
 }
 
@@ -47,7 +51,4 @@ UAkAudioEvent* UPalSoundSlot::GetAkEvent(const FPalDataTableRowName_SoundID& ID)
     return NULL;
 }
 
-UPalSoundSlot::UPalSoundSlot() {
-    this->SoundPlayer = NULL;
-}
 

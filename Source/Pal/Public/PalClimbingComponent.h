@@ -8,7 +8,8 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class PAL_API UPalClimbingComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPalClimbingComponent();
+    UPalClimbingComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void StartClimb(const FHitResult& Result);
     

@@ -1,5 +1,9 @@
 #include "PalHeadUpDisplayComponent.h"
 
+UPalHeadUpDisplayComponent::UPalHeadUpDisplayComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->HeadUpOffset = 0.00f;
+}
+
 void UPalHeadUpDisplayComponent::UpdateInvaderHUD() {
 }
 
@@ -15,7 +19,4 @@ void UPalHeadUpDisplayComponent::OnUpdateOwnerCharacterGroupId(const FGuid& Grou
 void UPalHeadUpDisplayComponent::OnInitializedCharacter(APalCharacter* OwnerCharacter) {
 }
 
-UPalHeadUpDisplayComponent::UPalHeadUpDisplayComponent() {
-    this->HeadUpOffset = 0.00f;
-}
 

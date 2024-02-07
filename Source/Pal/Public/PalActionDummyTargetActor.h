@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class APalActionDummyTargetActor : public AActor {
     GENERATED_BODY()
 public:
-    APalActionDummyTargetActor();
+    APalActionDummyTargetActor(const FObjectInitializer& ObjectInitializer);
+
 };
 

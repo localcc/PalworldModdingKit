@@ -1,5 +1,15 @@
 #include "PalAIActionCoopAssaultrifleMode.h"
 
+UPalAIActionCoopAssaultrifleMode::UPalAIActionCoopAssaultrifleMode() {
+    this->SearchEnemyRadius = 25000.00f;
+    this->SearchLocationRadiusMax = 3000.00f;
+    this->SearchLocationRadiusStep = 500.00f;
+    this->SearchLocationDegStep = 30.00f;
+    this->SearchingLocationRadius = 0.00f;
+    this->TargetCharacter = NULL;
+    this->ReticleTarget = NULL;
+}
+
 void UPalAIActionCoopAssaultrifleMode::Update(float DeltaTime) {
 }
 
@@ -57,13 +67,4 @@ bool UPalAIActionCoopAssaultrifleMode::FindLocationToShootEnemy(APalCharacter* T
 void UPalAIActionCoopAssaultrifleMode::ClearTargetCharacter() {
 }
 
-UPalAIActionCoopAssaultrifleMode::UPalAIActionCoopAssaultrifleMode() {
-    this->SearchEnemyRadius = 25000.00f;
-    this->SearchLocationRadiusMax = 3000.00f;
-    this->SearchLocationRadiusStep = 500.00f;
-    this->SearchLocationDegStep = 30.00f;
-    this->SearchingLocationRadius = 0.00f;
-    this->TargetCharacter = NULL;
-    this->ReticleTarget = NULL;
-}
 

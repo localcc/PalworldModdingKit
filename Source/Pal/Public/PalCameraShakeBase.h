@@ -36,6 +36,6 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float OscillatorTimeRemaining;
     
-    UPalCameraShakeBase();
+    UPalCameraShakeBase(const FObjectInitializer& ObjectInitializer);
 };
 

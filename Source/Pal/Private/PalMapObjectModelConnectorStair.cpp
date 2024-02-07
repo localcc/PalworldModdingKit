@@ -1,6 +1,9 @@
 #include "PalMapObjectModelConnectorStair.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectModelConnectorStair::UPalMapObjectModelConnectorStair() {
+}
+
 void UPalMapObjectModelConnectorStair::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
@@ -8,6 +11,4 @@ void UPalMapObjectModelConnectorStair::GetLifetimeReplicatedProps(TArray<FLifeti
     DOREPLIFETIME(UPalMapObjectModelConnectorStair, DownConnectInfo);
 }
 
-UPalMapObjectModelConnectorStair::UPalMapObjectModelConnectorStair() {
-}
 

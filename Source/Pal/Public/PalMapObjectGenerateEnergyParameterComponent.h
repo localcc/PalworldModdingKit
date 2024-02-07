@@ -17,6 +17,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MaxEnergyStorage;
     
-    UPalMapObjectGenerateEnergyParameterComponent();
+    UPalMapObjectGenerateEnergyParameterComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

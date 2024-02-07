@@ -16,8 +16,9 @@ private:
     
 public:
     UPalMapObjectCharacterContainerModule();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool TryGetContainer(UPalIndividualCharacterContainer*& OutContainer) const;
     

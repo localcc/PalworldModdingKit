@@ -18,7 +18,8 @@ private:
     UPalSoundSlot* PalSoundSlotCache;
     
 public:
-    UPalSoundPlayerInEditorComponent();
+    UPalSoundPlayerInEditorComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetPhysicalMaterial(TEnumAsByte<EPhysicalSurface> PhysicalSurface);
     

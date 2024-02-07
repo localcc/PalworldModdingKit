@@ -14,6 +14,7 @@ protected:
     UPalHitFilter* HitFilter;
     
 public:
-    APalHitCollision();
+    APalHitCollision(const FObjectInitializer& ObjectInitializer);
+
 };
 

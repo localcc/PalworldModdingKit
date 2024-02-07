@@ -1,5 +1,6 @@
 #include "PalFoliageISMComponent.h"
 
-UPalFoliageISMComponent::UPalFoliageISMComponent() {
+UPalFoliageISMComponent::UPalFoliageISMComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

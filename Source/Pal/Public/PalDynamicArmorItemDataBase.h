@@ -24,8 +24,9 @@ private:
     
 public:
     UPalDynamicArmorItemDataBase();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable)
     void SetDurability(float NewDurability);
     
@@ -52,7 +53,7 @@ public:
     UFUNCTION(BlueprintCallable)
     bool AddPassiveSkill(FName SkillName);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

@@ -1,6 +1,11 @@
 #include "PalMapObjectProductItemModel.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectProductItemModel::UPalMapObjectProductItemModel() {
+    this->bIsWorkable = false;
+    this->WorkSpeedAdditionalRate = 1.00f;
+}
+
 void UPalMapObjectProductItemModel::OnUpdateContainerContent(UPalItemContainer* Container) {
 }
 
@@ -26,8 +31,4 @@ void UPalMapObjectProductItemModel::GetLifetimeReplicatedProps(TArray<FLifetimeP
     DOREPLIFETIME(UPalMapObjectProductItemModel, ProductItemId);
 }
 
-UPalMapObjectProductItemModel::UPalMapObjectProductItemModel() {
-    this->bIsWorkable = false;
-    this->WorkSpeedAdditionalRate = 1.00f;
-}
 

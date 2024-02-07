@@ -1,6 +1,10 @@
 #include "PalMapObjectSwitchModule.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectSwitchModule::UPalMapObjectSwitchModule() {
+    this->SwitchState = EPalMapObjectSwitchState::Off;
+}
+
 void UPalMapObjectSwitchModule::OnRep_SwitchState() {
 }
 
@@ -14,7 +18,4 @@ void UPalMapObjectSwitchModule::GetLifetimeReplicatedProps(TArray<FLifetimePrope
     DOREPLIFETIME(UPalMapObjectSwitchModule, SwitchState);
 }
 
-UPalMapObjectSwitchModule::UPalMapObjectSwitchModule() {
-    this->SwitchState = EPalMapObjectSwitchState::Off;
-}
 

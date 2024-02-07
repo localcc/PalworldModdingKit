@@ -59,8 +59,9 @@ private:
     
 public:
     UPalTechnologyData();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable)
     void RequestUnlockRecipeTechnology(const FName& UnlockTechnologyName);
     

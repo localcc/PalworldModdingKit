@@ -1,5 +1,8 @@
 #include "PalUIItemShopBase.h"
 
+UPalUIItemShopBase::UPalUIItemShopBase() {
+}
+
 bool UPalUIItemShopBase::TrySteal(const FGuid& buyProductID, const int32 stealNum) {
     return false;
 }
@@ -16,6 +19,4 @@ bool UPalUIItemShopBase::GetMyShop(UPalShopBase*& OutShop) const {
     return false;
 }
 
-UPalUIItemShopBase::UPalUIItemShopBase() {
-}
 

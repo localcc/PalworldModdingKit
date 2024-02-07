@@ -1,5 +1,9 @@
 #include "PalHeatSourceModule.h"
 
+UPalHeatSourceModule::UPalHeatSourceModule() {
+    this->IsActive = true;
+}
+
 void UPalHeatSourceModule::SetActivate(bool Active) {
 }
 
@@ -18,7 +22,4 @@ void UPalHeatSourceModule::AddPlayer(AActor* Player) {
 void UPalHeatSourceModule::AddActor(AActor* Actor) {
 }
 
-UPalHeatSourceModule::UPalHeatSourceModule() {
-    this->IsActive = true;
-}
 

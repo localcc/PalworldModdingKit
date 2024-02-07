@@ -1,6 +1,16 @@
 #include "PalWorkProgress.h"
 #include "Net/UnrealNetwork.h"
 
+UPalWorkProgress::UPalWorkProgress() {
+    this->RequiredWorkAmount = 0.00f;
+    this->CurrentWorkAmount = 0.00f;
+    this->CurrentWorkAmountByLocalPlayer = 0.00f;
+    this->WorkExp = 0;
+    this->AutoWorkSelfAmountBySec = 0.00f;
+    this->bNotAllowReactionOnWorkComplete = false;
+    this->ProgressTimeSinceLastTick = 0.00f;
+}
+
 void UPalWorkProgress::OnRep_CurrentWorkAmount() {
 }
 
@@ -37,13 +47,4 @@ void UPalWorkProgress::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out
     DOREPLIFETIME(UPalWorkProgress, AutoWorkSelfAmountBySec);
 }
 
-UPalWorkProgress::UPalWorkProgress() {
-    this->RequiredWorkAmount = 0.00f;
-    this->CurrentWorkAmount = 0.00f;
-    this->CurrentWorkAmountByLocalPlayer = 0.00f;
-    this->WorkExp = 0;
-    this->AutoWorkSelfAmountBySec = 0.00f;
-    this->bNotAllowReactionOnWorkComplete = false;
-    this->ProgressTimeSinceLastTick = 0.00f;
-}
 

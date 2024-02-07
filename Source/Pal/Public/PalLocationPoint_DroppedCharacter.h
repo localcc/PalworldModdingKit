@@ -19,8 +19,9 @@ protected:
     
 public:
     UPalLocationPoint_DroppedCharacter();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FGuid GetOwnerPlayerUId() const;
     

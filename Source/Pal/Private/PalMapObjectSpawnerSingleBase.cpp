@@ -1,5 +1,6 @@
 #include "PalMapObjectSpawnerSingleBase.h"
 
-APalMapObjectSpawnerSingleBase::APalMapObjectSpawnerSingleBase() {
+APalMapObjectSpawnerSingleBase::APalMapObjectSpawnerSingleBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

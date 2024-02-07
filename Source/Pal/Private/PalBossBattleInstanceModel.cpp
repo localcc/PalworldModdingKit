@@ -1,6 +1,17 @@
 #include "PalBossBattleInstanceModel.h"
 #include "Net/UnrealNetwork.h"
 
+UPalBossBattleInstanceModel::UPalBossBattleInstanceModel() {
+    this->BossType = EPalBossType::None;
+    this->Level = 0;
+    this->CombatTimeMax = 0;
+    this->BossBattleLevelInstance = NULL;
+    this->BossTower = NULL;
+    this->BossBattleState = EPalBossBattleState::Open;
+    this->LocalBattleSequencer = NULL;
+    this->ReservedDataLayerAsset = NULL;
+}
+
 void UPalBossBattleInstanceModel::OnUpdateCombatTimeLimit() {
 }
 
@@ -50,14 +61,4 @@ void UPalBossBattleInstanceModel::GetLifetimeReplicatedProps(TArray<FLifetimePro
     DOREPLIFETIME(UPalBossBattleInstanceModel, CombatTimeLimit);
 }
 
-UPalBossBattleInstanceModel::UPalBossBattleInstanceModel() {
-    this->BossType = EPalBossType::None;
-    this->Level = 0;
-    this->CombatTimeMax = 0;
-    this->BossBattleLevelInstance = NULL;
-    this->BossTower = NULL;
-    this->BossBattleState = EPalBossBattleState::Open;
-    this->LocalBattleSequencer = NULL;
-    this->ReservedDataLayerAsset = NULL;
-}
 

@@ -1,5 +1,8 @@
 #include "PalVisualEffectComponent.h"
 
+UPalVisualEffectComponent::UPalVisualEffectComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void UPalVisualEffectComponent::RemoveVisualEffectForActor_Local(AActor* Actor, EPalVisualEffectID VisualEffectID) {
 }
 
@@ -52,6 +55,4 @@ UPalVisualEffectBase* UPalVisualEffectComponent::AddVisualEffect(EPalVisualEffec
     return NULL;
 }
 
-UPalVisualEffectComponent::UPalVisualEffectComponent() {
-}
 

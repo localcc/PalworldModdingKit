@@ -1,6 +1,7 @@
 #include "PalGameModeServerEntry.h"
 
-
-APalGameModeServerEntry::APalGameModeServerEntry() {
+APalGameModeServerEntry::APalGameModeServerEntry(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
+
 

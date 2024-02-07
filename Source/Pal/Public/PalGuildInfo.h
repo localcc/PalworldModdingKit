@@ -18,9 +18,10 @@ protected:
     UPalGroupGuildBase* Guild;
     
 public:
-    APalGuildInfo();
+    APalGuildInfo(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
     UFUNCTION(BlueprintCallable)
     void OnRep_Guild(const UPalGroupGuildBase* OldValue);

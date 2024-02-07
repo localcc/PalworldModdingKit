@@ -25,7 +25,8 @@ private:
     USphereComponent* LocateSphere;
     
 public:
-    APalMapObjectSpawnerBase();
+    APalMapObjectSpawnerBase(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnWorldMapObjectSpawnableInServer();

@@ -1,5 +1,8 @@
 #include "PalIndividualCharacterSlotsObserver.h"
 
+UPalIndividualCharacterSlotsObserver::UPalIndividualCharacterSlotsObserver() {
+}
+
 void UPalIndividualCharacterSlotsObserver::OnUpdateSlot(UPalIndividualCharacterSlot* Slot, UPalIndividualCharacterHandle* LastHandle) {
 }
 
@@ -12,6 +15,4 @@ void UPalIndividualCharacterSlotsObserver::OnUpdateContainerSize(UPalIndividualC
 void UPalIndividualCharacterSlotsObserver::OnUpdateContainer(UPalIndividualCharacterContainer* Container) {
 }
 
-UPalIndividualCharacterSlotsObserver::UPalIndividualCharacterSlotsObserver() {
-}
 

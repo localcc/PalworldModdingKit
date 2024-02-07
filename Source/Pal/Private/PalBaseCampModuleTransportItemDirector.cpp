@@ -1,5 +1,8 @@
 #include "PalBaseCampModuleTransportItemDirector.h"
 
+UPalBaseCampModuleTransportItemDirector::UPalBaseCampModuleTransportItemDirector() {
+}
+
 void UPalBaseCampModuleTransportItemDirector::OnUpdateMapObjectContainer(UPalMapObjectItemContainerModule* ContainerModule) {
 }
 
@@ -21,6 +24,4 @@ void UPalBaseCampModuleTransportItemDirector::OnAssignWorkTransportItemTarget(UP
 void UPalBaseCampModuleTransportItemDirector::OnAssignWorkRequirement(UPalWorkBase* Work, const FPalInstanceID& IndividualId) {
 }
 
-UPalBaseCampModuleTransportItemDirector::UPalBaseCampModuleTransportItemDirector() {
-}
 

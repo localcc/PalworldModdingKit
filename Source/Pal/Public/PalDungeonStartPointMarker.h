@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class PAL_API APalDungeonStartPointMarker : public AActor {
     GENERATED_BODY()
 public:
-    APalDungeonStartPointMarker();
+    APalDungeonStartPointMarker(const FObjectInitializer& ObjectInitializer);
+
 };
 

@@ -1,5 +1,8 @@
 #include "PalNetworkBaseCampComponent.h"
 
+UPalNetworkBaseCampComponent::UPalNetworkBaseCampComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void UPalNetworkBaseCampComponent::RequestModule_Server_void_Implementation(const FGuid& BaseCampId, const EPalBaseCampModuleType ModuleType, const FName FunctionName) {
 }
 
@@ -102,6 +105,4 @@ void UPalNetworkBaseCampComponent::AddBaseCampWorkerLog_Client_Implementation(EP
 void UPalNetworkBaseCampComponent::AddBaseCampLog_Client_Implementation(const FPalMonsterControllerBaseCampLogContent& LogContent) {
 }
 
-UPalNetworkBaseCampComponent::UPalNetworkBaseCampComponent() {
-}
 

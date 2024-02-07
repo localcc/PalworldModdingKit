@@ -1,5 +1,8 @@
 #include "PalPoseableMeshComponent.h"
 
+UPalPoseableMeshComponent::UPalPoseableMeshComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void UPalPoseableMeshComponent::SetBoneTransformByName(FName BoneName, const FTransform& InTransform, TEnumAsByte<EBoneSpaces::Type> BoneSpace) {
 }
 
@@ -34,6 +37,4 @@ FVector UPalPoseableMeshComponent::GetBoneLocationByName(FName BoneName, TEnumAs
 void UPalPoseableMeshComponent::CopyPoseFromSkeletalComponent(USkeletalMeshComponent* InComponentToCopy) {
 }
 
-UPalPoseableMeshComponent::UPalPoseableMeshComponent() {
-}
 

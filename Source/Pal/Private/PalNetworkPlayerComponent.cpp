@@ -1,5 +1,8 @@
 #include "PalNetworkPlayerComponent.h"
 
+UPalNetworkPlayerComponent::UPalNetworkPlayerComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void UPalNetworkPlayerComponent::ShowBossDefeatRewardUI_ToClient_Implementation(int32 TechPoint, bool AfterTeleport, int32 DelayTime) {
 }
 
@@ -87,6 +90,4 @@ void UPalNetworkPlayerComponent::Dev_RequestTeleportToCurrentDungeonGoal_ToServe
 void UPalNetworkPlayerComponent::Dev_RequestTeleportToBossTower_ToServer_Implementation(EPalBossType BossType) {
 }
 
-UPalNetworkPlayerComponent::UPalNetworkPlayerComponent() {
-}
 

@@ -33,9 +33,10 @@ private:
     TArray<UPalStatusBase*> ExecutionStatusListCache;
     
 public:
-    UPalStatusComponent();
+    UPalStatusComponent(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void SomeStatus_ToAll(EPalStatusID StatusId, FStatusDynamicParameter Param);

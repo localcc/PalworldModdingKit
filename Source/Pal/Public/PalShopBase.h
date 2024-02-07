@@ -34,8 +34,9 @@ private:
     
 public:
     UPalShopBase();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
     UFUNCTION(BlueprintCallable)
     void OnUpdateAnyProductStock(int32 NowStock);

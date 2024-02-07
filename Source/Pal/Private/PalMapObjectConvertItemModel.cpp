@@ -1,6 +1,16 @@
 #include "PalMapObjectConvertItemModel.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectConvertItemModel::UPalMapObjectConvertItemModel() {
+    this->RequestedProductNum = 0;
+    this->RemainProductNum = 0;
+    this->bIsWorkable = false;
+    this->WorkSpeedAdditionalRate = 1.00f;
+    this->CurrentRecipeRequestPlayerId = 0;
+    this->TargetRankMax = 0;
+    this->IsPickUpInteractable = true;
+}
+
 void UPalMapObjectConvertItemModel::RequestUpdateRecipe(const FName RecipeID, const int32 ProductNum) {
 }
 
@@ -99,13 +109,4 @@ void UPalMapObjectConvertItemModel::GetLifetimeReplicatedProps(TArray<FLifetimeP
     DOREPLIFETIME(UPalMapObjectConvertItemModel, TargetRankMax);
 }
 
-UPalMapObjectConvertItemModel::UPalMapObjectConvertItemModel() {
-    this->RequestedProductNum = 0;
-    this->RemainProductNum = 0;
-    this->bIsWorkable = false;
-    this->WorkSpeedAdditionalRate = 1.00f;
-    this->CurrentRecipeRequestPlayerId = 0;
-    this->TargetRankMax = 0;
-    this->IsPickUpInteractable = true;
-}
 

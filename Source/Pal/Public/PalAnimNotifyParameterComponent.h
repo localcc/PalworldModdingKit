@@ -14,6 +14,7 @@ private:
     TMap<FString, UPalAnimNotifyDynamicParameterBase*> DynamicParameterMap;
     
 public:
-    UPalAnimNotifyParameterComponent();
+    UPalAnimNotifyParameterComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

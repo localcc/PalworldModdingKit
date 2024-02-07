@@ -1,6 +1,7 @@
 #include "PalInvaderStartPoint.h"
 
-APalInvaderStartPoint::APalInvaderStartPoint() {
+APalInvaderStartPoint::APalInvaderStartPoint(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->BiomeType = EPalBiomeType::Undefined;
 }
+
 

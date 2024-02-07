@@ -16,7 +16,8 @@ protected:
     float HeadUpOffset;
     
 public:
-    UPalHeadUpDisplayComponent();
+    UPalHeadUpDisplayComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable)
     void UpdateInvaderHUD();

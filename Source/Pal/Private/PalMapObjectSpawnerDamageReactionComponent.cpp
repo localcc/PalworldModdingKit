@@ -1,7 +1,8 @@
 #include "PalMapObjectSpawnerDamageReactionComponent.h"
 
-UPalMapObjectSpawnerDamageReactionComponent::UPalMapObjectSpawnerDamageReactionComponent() {
+UPalMapObjectSpawnerDamageReactionComponent::UPalMapObjectSpawnerDamageReactionComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->bDropItemOnDamaged = false;
     this->EffectSlot = NULL;
 }
+
 

@@ -39,6 +39,7 @@ protected:
     
 public:
     UPalMapObjectMedicalPalBedModel();
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnInteractBegin(AActor* Other, TScriptInterface<IPalInteractiveObjectComponentInterface> Component);
@@ -53,7 +54,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void ClearSleepingCharacterHandle();
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

@@ -30,8 +30,9 @@ private:
     
 public:
     UPalBaseCampMapObjectCollection();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnNotAvailableConcreteModel(UPalMapObjectConcreteModelBase* Model);

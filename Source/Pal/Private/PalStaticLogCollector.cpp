@@ -1,5 +1,9 @@
 #include "PalStaticLogCollector.h"
 
+UPalStaticLogCollector::UPalStaticLogCollector() {
+    this->targetLogManager = NULL;
+}
+
 
 void UPalStaticLogCollector::OnReadyPlayerInventoryData(UPalPlayerDataStorage* PlayerDataStorage) {
 }
@@ -13,7 +17,4 @@ void UPalStaticLogCollector::OnFixedWeightInventory(float nowWeight) {
 void UPalStaticLogCollector::OnEndedWorldAutoSave(bool IsSuccess) {
 }
 
-UPalStaticLogCollector::UPalStaticLogCollector() {
-    this->targetLogManager = NULL;
-}
 

@@ -20,6 +20,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsGainExp;
     
-    UPalMapObjectItemSimpleProductParameterComponent();
+    UPalMapObjectItemSimpleProductParameterComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

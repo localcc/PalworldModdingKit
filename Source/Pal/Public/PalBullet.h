@@ -77,7 +77,8 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FBulletHoleDecalInfo DefaultBulletHoleDecals;
     
-    APalBullet();
+    APalBullet(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetWeaponDamage(int32 Damage);
     

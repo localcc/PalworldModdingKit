@@ -1,6 +1,13 @@
 #include "PalDungeonEntrance.h"
 #include "Net/UnrealNetwork.h"
 
+APalDungeonEntrance::APalDungeonEntrance(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bReplicates = true;
+    const FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
+    (*p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this)) = ROLE_SimulatedProxy;
+    this->StageModel = NULL;
+}
+
 bool APalDungeonEntrance::TryGetDungeonInstanceModel(UPalDungeonInstanceModel*& OutModel) const {
     return false;
 }
@@ -37,7 +44,4 @@ void APalDungeonEntrance::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
     DOREPLIFETIME(APalDungeonEntrance, StageModel);
 }
 
-APalDungeonEntrance::APalDungeonEntrance() {
-    this->StageModel = NULL;
-}
 

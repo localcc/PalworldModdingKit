@@ -1,5 +1,13 @@
 #include "PalBodyTemperatureComponent.h"
 
+UPalBodyTemperatureComponent::UPalBodyTemperatureComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->CurrentTemperature = 0;
+    this->SelfKeyName = TEXT("BodyTemperatureComponent");
+    this->CurrentResistRank_Heat = 0;
+    this->CurrentResistRank_Cold = 0;
+    this->CurrentBodyState = EPalBodyTemperatureState::Default;
+}
+
 void UPalBodyTemperatureComponent::RequestReSend_ToServer_Implementation() {
 }
 
@@ -42,11 +50,4 @@ void UPalBodyTemperatureComponent::AddHeatSourceInfo(FName UniqueName, FPalHeatS
 void UPalBodyTemperatureComponent::AddHeatSource(FName UniqueName, int32 HeatLevel) {
 }
 
-UPalBodyTemperatureComponent::UPalBodyTemperatureComponent() {
-    this->CurrentTemperature = 0;
-    this->SelfKeyName = TEXT("BodyTemperatureComponent");
-    this->CurrentResistRank_Heat = 0;
-    this->CurrentResistRank_Cold = 0;
-    this->CurrentBodyState = EPalBodyTemperatureState::Default;
-}
 

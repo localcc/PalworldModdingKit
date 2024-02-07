@@ -1,5 +1,9 @@
 #include "PalDungeonEnemySpawnerPoint.h"
 
+APalDungeonEnemySpawnerPoint::APalDungeonEnemySpawnerPoint(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->RankType = EPalDungeonEnemySpawnerRankType::Normal;
+}
+
 void APalDungeonEnemySpawnerPoint::OnEnterCharacterToGroup(UPalIndividualCharacterHandle* IndividualHandle) {
 }
 
@@ -12,7 +16,4 @@ void APalDungeonEnemySpawnerPoint::OnChangeBossState_ServerInternal(UPalDungeonI
 void APalDungeonEnemySpawnerPoint::CheckLevelStreamingCompleted() {
 }
 
-APalDungeonEnemySpawnerPoint::APalDungeonEnemySpawnerPoint() {
-    this->RankType = EPalDungeonEnemySpawnerRankType::Normal;
-}
 

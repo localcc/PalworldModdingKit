@@ -11,7 +11,6 @@ public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool InFirstOrSecondSlot;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool IsEquipHand;
     
@@ -19,6 +18,6 @@ private:
     FFlagContainer HiddenBackWeapon;
     
 public:
-    APalBackWeaponBase();
+    APalBackWeaponBase(const FObjectInitializer& ObjectInitializer);
 };
 

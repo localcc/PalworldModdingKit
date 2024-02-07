@@ -14,6 +14,7 @@ private:
     TMap<FGuid, FPalNetworkPlayerObtainClientParameter> ObtainClientParamMap;
     
 public:
-    UPalNetworkPlayerStateComponent();
+    UPalNetworkPlayerStateComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

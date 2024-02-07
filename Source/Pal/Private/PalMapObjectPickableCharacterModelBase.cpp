@@ -1,6 +1,9 @@
 #include "PalMapObjectPickableCharacterModelBase.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectPickableCharacterModelBase::UPalMapObjectPickableCharacterModelBase() {
+}
+
 void UPalMapObjectPickableCharacterModelBase::RequestPickup_ServerInternal(const int32 RequestPlayerId) {
 }
 
@@ -24,6 +27,4 @@ void UPalMapObjectPickableCharacterModelBase::GetLifetimeReplicatedProps(TArray<
     DOREPLIFETIME(UPalMapObjectPickableCharacterModelBase, LocationId);
 }
 
-UPalMapObjectPickableCharacterModelBase::UPalMapObjectPickableCharacterModelBase() {
-}
 

@@ -9,7 +9,8 @@ class PAL_API UPalAIActionBaseCampSleep : public UPalAIActionBaseCampBase, publi
     GENERATED_BODY()
 public:
     UPalAIActionBaseCampSleep();
-    
+
+
     // Fix for true pure virtual functions not being implemented
 };
 

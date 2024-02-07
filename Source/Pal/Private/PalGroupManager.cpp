@@ -1,5 +1,8 @@
 #include "PalGroupManager.h"
 
+UPalGroupManager::UPalGroupManager() {
+}
+
 bool UPalGroupManager::TryGetGuildName(const FGuid& GroupID, FString& OutGuildName) const {
     return false;
 }
@@ -32,6 +35,4 @@ UPalGroupBase* UPalGroupManager::Debug_GetFirstGroupByType(const EPalGroupType T
     return NULL;
 }
 
-UPalGroupManager::UPalGroupManager() {
-}
 

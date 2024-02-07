@@ -1,6 +1,10 @@
 #include "PalActionComponent.h"
 #include "Templates/SubclassOf.h"
 
+UPalActionComponent::UPalActionComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->CurrentAction = NULL;
+}
+
 UPalActionBase* UPalActionComponent::PlayActionParameter(FActionDynamicParameter Param, TSubclassOf<UPalActionBase> actionClass) {
     return NULL;
 }
@@ -75,7 +79,4 @@ bool UPalActionComponent::ActionIsEmpty() {
     return false;
 }
 
-UPalActionComponent::UPalActionComponent() {
-    this->CurrentAction = NULL;
-}
 

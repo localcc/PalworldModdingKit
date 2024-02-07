@@ -141,7 +141,8 @@ private:
     TArray<float> ActiveSkill_MainValueByRank;
     
 public:
-    UPalPartnerSkillParameterComponent();
+    UPalPartnerSkillParameterComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void Stop();
     

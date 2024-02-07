@@ -1,5 +1,6 @@
 #include "PalLevelInstance.h"
 
-APalLevelInstance::APalLevelInstance() {
+APalLevelInstance::APalLevelInstance(const FObjectInitializer& ObjectInitializer) {
 }
+
 

@@ -7,6 +7,7 @@ UCLASS(Abstract, Blueprintable)
 class PAL_API APalMapObjectSpawnerSingleBase : public APalMapObjectSpawnerBase {
     GENERATED_BODY()
 public:
-    APalMapObjectSpawnerSingleBase();
+    APalMapObjectSpawnerSingleBase(const FObjectInitializer& ObjectInitializer);
+
 };
 

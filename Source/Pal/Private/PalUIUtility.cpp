@@ -1,5 +1,8 @@
 #include "PalUIUtility.h"
 
+UPalUIUtility::UPalUIUtility() {
+}
+
 void UPalUIUtility::SetVisibilityHUD(const UObject* WorldContextObject, bool IsVisible) {
 }
 
@@ -191,6 +194,4 @@ float UPalUIUtility::ConvertReviveTimerToUIDisplayRemainReviveTime(const UObject
     return 0.0f;
 }
 
-UPalUIUtility::UPalUIUtility() {
-}
 

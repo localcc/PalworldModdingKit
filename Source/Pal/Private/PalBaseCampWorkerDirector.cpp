@@ -1,6 +1,15 @@
 #include "PalBaseCampWorkerDirector.h"
 #include "Net/UnrealNetwork.h"
 
+UPalBaseCampWorkerDirector::UPalBaseCampWorkerDirector() {
+    this->CharacterContainer = NULL;
+    this->CurrentOrderType = EPalMapBaseCampWorkerOrderType::Work;
+    this->CurrentBattleType = EPalBaseCampWorkerDirectionBattleType::FirstValue;
+    this->SlotObserverForServer = NULL;
+    this->WorkerEventTickCount = 0;
+    this->State = EPalBaseCampWorkerDirectorState::Init;
+}
+
 void UPalBaseCampWorkerDirector::OrderCommand(const EPalMapBaseCampWorkerOrderType OrderType) {
 }
 
@@ -54,12 +63,4 @@ void UPalBaseCampWorkerDirector::GetLifetimeReplicatedProps(TArray<FLifetimeProp
     DOREPLIFETIME(UPalBaseCampWorkerDirector, CurrentBattleType);
 }
 
-UPalBaseCampWorkerDirector::UPalBaseCampWorkerDirector() {
-    this->CharacterContainer = NULL;
-    this->CurrentOrderType = EPalMapBaseCampWorkerOrderType::Work;
-    this->CurrentBattleType = EPalBaseCampWorkerDirectionBattleType::FirstValue;
-    this->SlotObserverForServer = NULL;
-    this->WorkerEventTickCount = 0;
-    this->State = EPalBaseCampWorkerDirectorState::Init;
-}
 

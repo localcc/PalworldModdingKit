@@ -1,5 +1,21 @@
 #include "PalNPCSpawnerBase.h"
 
+APalNPCSpawnerBase::APalNPCSpawnerBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bNetLoadOnClient = false;
+    this->bIsRunOnAnyThread = true;
+    this->Ignore_DebugSettingDisable = false;
+    this->Ignore_DistanceLocationReset = false;
+    this->Ignore_FarCheck = false;
+    this->bDoSpawnedTick = true;
+    this->SpawnRadiusType = EPalSpawnRadiusType::S;
+    this->IsSquadBehaviour = true;
+    this->LocationResetDistance_SpawnerToCharacterTooFar = 500000.00f;
+    this->LocationResetHeight_SpawnerToCharacterTooLow = 50000.00f;
+    this->NavInvokerComponent = NULL;
+    this->Squad = NULL;
+    this->ImportanceType = EPalSpwnerImportanceType::Undefined;
+}
+
 void APalNPCSpawnerBase::Tick_Spawning(float DeltaTime) {
 }
 
@@ -120,18 +136,4 @@ void APalNPCSpawnerBase::AddGroupCharacterByGroupId(UPalIndividualCharacterHandl
 void APalNPCSpawnerBase::AddGroupCharacter(UPalIndividualCharacterHandle* AddIndividualHandle) {
 }
 
-APalNPCSpawnerBase::APalNPCSpawnerBase() {
-    this->bIsRunOnAnyThread = true;
-    this->Ignore_DebugSettingDisable = false;
-    this->Ignore_DistanceLocationReset = false;
-    this->Ignore_FarCheck = false;
-    this->bDoSpawnedTick = true;
-    this->SpawnRadiusType = EPalSpawnRadiusType::S;
-    this->IsSquadBehaviour = true;
-    this->LocationResetDistance_SpawnerToCharacterTooFar = 500000.00f;
-    this->LocationResetHeight_SpawnerToCharacterTooLow = 50000.00f;
-    this->NavInvokerComponent = NULL;
-    this->Squad = NULL;
-    this->ImportanceType = EPalSpwnerImportanceType::Undefined;
-}
 

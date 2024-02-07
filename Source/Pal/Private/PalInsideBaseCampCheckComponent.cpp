@@ -1,5 +1,8 @@
 #include "PalInsideBaseCampCheckComponent.h"
 
+UPalInsideBaseCampCheckComponent::UPalInsideBaseCampCheckComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 bool UPalInsideBaseCampCheckComponent::IsInsideBaseCamp() {
     return false;
 }
@@ -12,6 +15,4 @@ FGuid UPalInsideBaseCampCheckComponent::GetInsideBaseCampID() {
     return FGuid{};
 }
 
-UPalInsideBaseCampCheckComponent::UPalInsideBaseCampCheckComponent() {
-}
 

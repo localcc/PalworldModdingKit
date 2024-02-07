@@ -13,6 +13,7 @@ private:
     EPalBiomeType BiomeType;
     
 public:
-    APalInvaderStartPoint();
+    APalInvaderStartPoint(const FObjectInitializer& ObjectInitializer);
+
 };
 

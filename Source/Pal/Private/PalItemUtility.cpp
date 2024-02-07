@@ -1,5 +1,8 @@
 #include "PalItemUtility.h"
 
+UPalItemUtility::UPalItemUtility() {
+}
+
 bool UPalItemUtility::TryGetItemVisualBlueprintClass(const UObject* WorldContextObject, const FName StaticItemId, TSoftClassPtr<AActor>& VisualBlueprintClass) {
     return false;
 }
@@ -41,6 +44,4 @@ bool UPalItemUtility::CanUseHealItem(const UObject* WorldContextObject, FName st
     return false;
 }
 
-UPalItemUtility::UPalItemUtility() {
-}
 

@@ -58,9 +58,10 @@ protected:
     TArray<UPalIndividualCharacterHandle*> CreatingHandleCache;
     
 public:
-    UPalOtomoHolderComponentBase();
+    UPalOtomoHolderComponentBase(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalIndividualCharacterHandle* TryGetSpawnedOtomoHandle() const;
     

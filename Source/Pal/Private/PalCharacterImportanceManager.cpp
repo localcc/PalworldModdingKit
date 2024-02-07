@@ -1,5 +1,8 @@
 #include "PalCharacterImportanceManager.h"
 
+UPalCharacterImportanceManager::UPalCharacterImportanceManager() {
+}
+
 void UPalCharacterImportanceManager::GetImportantNPC(TArray<APalCharacter*>& OutArray) {
 }
 
@@ -12,6 +15,4 @@ void UPalCharacterImportanceManager::GetAllPalCharacter(TArray<APalCharacter*>& 
 void UPalCharacterImportanceManager::GetAllNPC(TArray<APalCharacter*>& OutArray) {
 }
 
-UPalCharacterImportanceManager::UPalCharacterImportanceManager() {
-}
 

@@ -198,9 +198,10 @@ private:
     FRandomStream RandomStream;
     
 public:
-    UPalShooterComponent();
+    UPalShooterComponent(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void StopWeaponChangeAnimation();

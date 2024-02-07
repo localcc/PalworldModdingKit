@@ -4,3 +4,4 @@ UPalAnimNotify_SpawnActor::UPalAnimNotify_SpawnActor() {
     this->SpawnActorClass = NULL;
 }
 
+

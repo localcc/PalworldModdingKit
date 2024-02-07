@@ -1,5 +1,8 @@
 #include "PalAIActionCompositeWorkerModuleBaseCamp.h"
 
+UPalAIActionCompositeWorkerModuleBaseCamp::UPalAIActionCompositeWorkerModuleBaseCamp() {
+}
+
 FGuid UPalAIActionCompositeWorkerModuleBaseCamp::GetBaseCampIdBelongTo() const {
     return FGuid{};
 }
@@ -8,6 +11,4 @@ UPalBaseCampModel* UPalAIActionCompositeWorkerModuleBaseCamp::GetBaseCampBelongT
     return NULL;
 }
 
-UPalAIActionCompositeWorkerModuleBaseCamp::UPalAIActionCompositeWorkerModuleBaseCamp() {
-}
 

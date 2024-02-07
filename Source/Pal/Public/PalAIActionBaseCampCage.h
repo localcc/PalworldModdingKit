@@ -9,7 +9,8 @@ class PAL_API UPalAIActionBaseCampCage : public UPalAIActionBase, public IPalInt
     GENERATED_BODY()
 public:
     UPalAIActionBaseCampCage();
-    
+
+
     // Fix for true pure virtual functions not being implemented
 };
 

@@ -1,5 +1,6 @@
 #include "PalGameInstanceViewActor.h"
 
-APalGameInstanceViewActor::APalGameInstanceViewActor() {
+APalGameInstanceViewActor::APalGameInstanceViewActor(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

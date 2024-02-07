@@ -1,5 +1,8 @@
 #include "PalNetworkMulticastGateComponent.h"
 
+UPalNetworkMulticastGateComponent::UPalNetworkMulticastGateComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void UPalNetworkMulticastGateComponent::SendToServer_void_Implementation(int32 ID, UObject* Instance, FName FunctionName) {
 }
 
@@ -108,6 +111,4 @@ void UPalNetworkMulticastGateComponent::Send_FGuid(UObject* Instance, FName Func
 void UPalNetworkMulticastGateComponent::Send_bool(UObject* Instance, FName FunctionName, bool Value) {
 }
 
-UPalNetworkMulticastGateComponent::UPalNetworkMulticastGateComponent() {
-}
 

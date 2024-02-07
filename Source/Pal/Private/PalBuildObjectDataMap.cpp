@@ -1,5 +1,8 @@
 #include "PalBuildObjectDataMap.h"
 
+UPalBuildObjectDataMap::UPalBuildObjectDataMap() {
+}
+
 FPalBuildObjectData UPalBuildObjectDataMap::GetByMapObjectId(const FName MapObjectId) const {
     return FPalBuildObjectData{};
 }
@@ -14,6 +17,4 @@ void UPalBuildObjectDataMap::GetBuildObjectDataMapForType(const EPalBuildObjectT
 void UPalBuildObjectDataMap::GetBuildObjectDataArrayForTypeAByTypeB(const EPalBuildObjectTypeA TypeA, TArray<FPalBuildObjectDataSetTypeB>& OutArray) const {
 }
 
-UPalBuildObjectDataMap::UPalBuildObjectDataMap() {
-}
 

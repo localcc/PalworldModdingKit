@@ -128,9 +128,10 @@ private:
     bool bShouldPlayDestroyFX;
     
 public:
-    APalMapObject();
+    APalMapObject(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable)
     void TryGetConcreteModel(EPalMapObjectGetModelOutPinType& OutputPin, UPalMapObjectConcreteModelBase*& ConcreteModel);
     
@@ -182,7 +183,7 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void BP_OnSetConcreteModel(UPalMapObjectConcreteModelBase* ConcreteModel);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

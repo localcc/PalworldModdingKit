@@ -20,7 +20,8 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalNetworkIndividualComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPalNetworkIndividualComponent();
+    UPalNetworkIndividualComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void UpdateCharacterParameter_ToServer(const FPalInstanceID& ID, const FPalNetArchive& parameterArchive, FGuid Guid);

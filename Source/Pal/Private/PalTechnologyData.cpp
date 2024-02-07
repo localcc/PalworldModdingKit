@@ -1,6 +1,11 @@
 #include "PalTechnologyData.h"
 #include "Net/UnrealNetwork.h"
 
+UPalTechnologyData::UPalTechnologyData() {
+    this->TechnologyPoint = 0;
+    this->bossTechnologyPoint = 0;
+}
+
 void UPalTechnologyData::RequestUnlockRecipeTechnology(const FName& UnlockTechnologyName) {
 }
 
@@ -93,8 +98,4 @@ void UPalTechnologyData::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& O
     DOREPLIFETIME(UPalTechnologyData, bossTechnologyPoint);
 }
 
-UPalTechnologyData::UPalTechnologyData() {
-    this->TechnologyPoint = 0;
-    this->bossTechnologyPoint = 0;
-}
 

@@ -13,7 +13,8 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class PAL_API UPalNetworkBossBattleComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPalNetworkBossBattleComponent();
+    UPalNetworkBossBattleComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void UnlockAchievement_ToClient(EPalBossType BossType);
     

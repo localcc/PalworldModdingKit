@@ -2,6 +2,14 @@
 #include "PalUIBaseCampWorkerListModel.h"
 #include "PalUIOtomoListModel.h"
 
+UPalUIPalStorageManageRightModel::UPalUIPalStorageManageRightModel() {
+    this->CurrentPageType = EPalPalStorageManageRightType::BaseCamp;
+    this->BaseCampWorkerListClass = UPalUIBaseCampWorkerListModel::StaticClass();
+    this->BaseCampWorkerList = NULL;
+    this->OtomoListClass = UPalUIOtomoListModel::StaticClass();
+    this->OtomoList = NULL;
+}
+
 void UPalUIPalStorageManageRightModel::ToPrevPage() {
 }
 
@@ -16,11 +24,4 @@ bool UPalUIPalStorageManageRightModel::CanMoveToNext() const {
     return false;
 }
 
-UPalUIPalStorageManageRightModel::UPalUIPalStorageManageRightModel() {
-    this->CurrentPageType = EPalPalStorageManageRightType::BaseCamp;
-    this->BaseCampWorkerListClass = UPalUIBaseCampWorkerListModel::StaticClass();
-    this->BaseCampWorkerList = NULL;
-    this->OtomoListClass = UPalUIOtomoListModel::StaticClass();
-    this->OtomoList = NULL;
-}
 

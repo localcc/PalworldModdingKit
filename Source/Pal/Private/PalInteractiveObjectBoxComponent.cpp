@@ -1,5 +1,15 @@
 #include "PalInteractiveObjectBoxComponent.h"
 
+UPalInteractiveObjectBoxComponent::UPalInteractiveObjectBoxComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bCanEverAffectNavigation = false;
+    this->InteractDelegates = NULL;
+    this->bIsEnableTriggerInteract = false;
+    this->bIsImplementedTriggerInteract = false;
+    this->bIsEnableInteractingTick = false;
+    this->bIsEnableInteractingTickInClientOnly = false;
+    this->bIsAdjustIndicatorLocationZForPlayer = false;
+}
+
 void UPalInteractiveObjectBoxComponent::SetIndicatorInterface(TScriptInterface<IPalInteractiveObjectIndicatorInterface> InIndicatorInterface) {
 }
 
@@ -26,12 +36,4 @@ UPalInteractDelegates* UPalInteractiveObjectBoxComponent::Delegates() const {
 void UPalInteractiveObjectBoxComponent::CallOrRegisterOnCreateInteractDelegates(UPalInteractiveObjectBoxComponent::FOnCreateInteractsDelegates Delegate) {
 }
 
-UPalInteractiveObjectBoxComponent::UPalInteractiveObjectBoxComponent() {
-    this->InteractDelegates = NULL;
-    this->bIsEnableTriggerInteract = false;
-    this->bIsImplementedTriggerInteract = false;
-    this->bIsEnableInteractingTick = false;
-    this->bIsEnableInteractingTickInClientOnly = false;
-    this->bIsAdjustIndicatorLocationZForPlayer = false;
-}
 

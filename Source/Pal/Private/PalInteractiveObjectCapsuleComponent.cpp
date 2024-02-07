@@ -1,5 +1,15 @@
 #include "PalInteractiveObjectCapsuleComponent.h"
 
+UPalInteractiveObjectCapsuleComponent::UPalInteractiveObjectCapsuleComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bCanEverAffectNavigation = false;
+    this->InteractDelegates = NULL;
+    this->bIsEnableTriggerInteract = false;
+    this->bIsImplementedTriggerInteract = false;
+    this->bIsEnableInteractingTick = false;
+    this->bIsEnableInteractingTickInClientOnly = false;
+    this->bIsAdjustIndicatorLocationZForPlayer = false;
+}
+
 void UPalInteractiveObjectCapsuleComponent::SetIndicatorInterface(TScriptInterface<IPalInteractiveObjectIndicatorInterface> InIndicatorInterface) {
 }
 
@@ -23,12 +33,4 @@ UPalInteractDelegates* UPalInteractiveObjectCapsuleComponent::Delegates() const 
 void UPalInteractiveObjectCapsuleComponent::CallOrRegisterOnCreateInteractDelegates(UPalInteractiveObjectCapsuleComponent::FOnCreateInteractsDelegates Delegate) {
 }
 
-UPalInteractiveObjectCapsuleComponent::UPalInteractiveObjectCapsuleComponent() {
-    this->InteractDelegates = NULL;
-    this->bIsEnableTriggerInteract = false;
-    this->bIsImplementedTriggerInteract = false;
-    this->bIsEnableInteractingTick = false;
-    this->bIsEnableInteractingTickInClientOnly = false;
-    this->bIsAdjustIndicatorLocationZForPlayer = false;
-}
 

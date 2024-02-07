@@ -1,6 +1,14 @@
 #include "PalPlayerPartyPalHolder.h"
 #include "Templates/SubclassOf.h"
 
+UPalPlayerPartyPalHolder::UPalPlayerPartyPalHolder() {
+    this->FirstOtomoPal = NULL;
+    this->SecondOtomoPal = NULL;
+    this->FirstCoolTimer = 999.00f;
+    this->SecondCoolTimer = 999.00f;
+    this->CoolDownTime = 0.00f;
+}
+
 void UPalPlayerPartyPalHolder::UpdateCoolTimer(float DeltaTime) {
 }
 
@@ -35,11 +43,4 @@ float UPalPlayerPartyPalHolder::GetCoolTimeRate(bool SecondPal) {
 void UPalPlayerPartyPalHolder::ChangePalSlot(bool SecondPal) {
 }
 
-UPalPlayerPartyPalHolder::UPalPlayerPartyPalHolder() {
-    this->FirstOtomoPal = NULL;
-    this->SecondOtomoPal = NULL;
-    this->FirstCoolTimer = 999.00f;
-    this->SecondCoolTimer = 999.00f;
-    this->CoolDownTime = 0.00f;
-}
 

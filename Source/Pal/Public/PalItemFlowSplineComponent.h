@@ -29,7 +29,8 @@ private:
     TArray<FPalItemFlowInSplineInfo> FlowingItemInfos;
     
 public:
-    UPalItemFlowSplineComponent();
+    UPalItemFlowSplineComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void UpdateTargetItem(const FName InStaticItemId);
     

@@ -1,5 +1,8 @@
 #include "PalLogUtility.h"
 
+UPalLogUtility::UPalLogUtility() {
+}
+
 void UPalLogUtility::SetTextureToAdditionalDataFromStaticItemIDs(const UObject* WorldContextObject, FPalLogAdditionalData& targetData, const TArray<FName>& StaticItemIds) {
 }
 
@@ -55,6 +58,4 @@ void UPalLogUtility::AddItemGetLog(const UObject* WorldContextObject, const FPal
 void UPalLogUtility::AddDropPalLog(const UObject* WorldContextObject, const FPalLogInfo_DropPal& LogInfo) {
 }
 
-UPalLogUtility::UPalLogUtility() {
-}
 

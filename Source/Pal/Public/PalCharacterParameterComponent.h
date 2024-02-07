@@ -254,9 +254,10 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     TArray<FPalMapObjectAppearanceDataWithId> UnreachableMapObjectRepInfoArray;
     
-    UPalCharacterParameterComponent();
+    UPalCharacterParameterComponent(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void ZeroDyingHP_ToServer();

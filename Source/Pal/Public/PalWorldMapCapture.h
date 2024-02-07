@@ -25,7 +25,8 @@ protected:
     UTexture2D* worldMapHeightTexture;
     
 public:
-    APalWorldMapCapture();
+    APalWorldMapCapture(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UTexture2D* GetWorldMapHeightMap();
     

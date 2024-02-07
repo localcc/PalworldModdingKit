@@ -1,5 +1,8 @@
 #include "PalItemContainerManager.h"
 
+UPalItemContainerManager::UPalItemContainerManager() {
+}
+
 bool UPalItemContainerManager::TryGetSlot(const FPalItemSlotId& SlotID, UPalItemSlot*& Slot) const {
     return false;
 }
@@ -20,6 +23,4 @@ UPalItemContainer* UPalItemContainerManager::GetContainer(const FPalContainerId&
     return NULL;
 }
 
-UPalItemContainerManager::UPalItemContainerManager() {
-}
 

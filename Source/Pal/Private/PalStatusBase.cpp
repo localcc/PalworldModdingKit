@@ -1,6 +1,13 @@
 #include "PalStatusBase.h"
 #include "Net/UnrealNetwork.h"
 
+UPalStatusBase::UPalStatusBase() {
+    this->bIsEndStatus = false;
+    this->StatusId = EPalStatusID::None;
+    this->Duration = -1.00f;
+    this->bIsNerverEnd = false;
+}
+
 void UPalStatusBase::TickStatus_Implementation(float DeltaTime) {
 }
 
@@ -34,10 +41,4 @@ void UPalStatusBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLi
     DOREPLIFETIME(UPalStatusBase, StatusId);
 }
 
-UPalStatusBase::UPalStatusBase() {
-    this->bIsEndStatus = false;
-    this->StatusId = EPalStatusID::None;
-    this->Duration = -1.00f;
-    this->bIsNerverEnd = false;
-}
 

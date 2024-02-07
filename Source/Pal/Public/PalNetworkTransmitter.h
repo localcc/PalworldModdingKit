@@ -77,7 +77,8 @@ private:
     TArray<FPalNetworkTransmitterDelaySpawnInfo> DelayDelegateCallQueue;
     
 public:
-    APalNetworkTransmitter();
+    APalNetworkTransmitter(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     FGuid SpawnReliableActorBroadcast(UClass* actorClass, FNetworkActorSpawnParameters SpawnParameter, FNetworkSpawnActorDelegate SpawnDelegate);
     

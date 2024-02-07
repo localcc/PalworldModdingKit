@@ -35,8 +35,9 @@ private:
     
 public:
     UPalMapObjectItemContainerModule();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable)
     void UnbindUpdateContents(UPalMapObjectItemContainerModule::FUpdateContentsDelegate Delegate);
     

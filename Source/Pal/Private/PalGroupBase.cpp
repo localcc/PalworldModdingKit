@@ -1,6 +1,9 @@
 #include "PalGroupBase.h"
 #include "Net/UnrealNetwork.h"
 
+UPalGroupBase::UPalGroupBase() {
+}
+
 void UPalGroupBase::OnUpdateIndividualActor(UPalIndividualCharacterHandle* CharacterHandle) {
 }
 
@@ -23,6 +26,4 @@ void UPalGroupBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
     DOREPLIFETIME(UPalGroupBase, IndividualCharacterHandleIds);
 }
 
-UPalGroupBase::UPalGroupBase() {
-}
 

@@ -1,5 +1,8 @@
 #include "PalFunnelCharacterManager.h"
 
+UPalFunnelCharacterManager::UPalFunnelCharacterManager() {
+}
+
 void UPalFunnelCharacterManager::SpawnActorCallback(const FGuid& Guid, AActor* Actor) {
 }
 
@@ -14,6 +17,4 @@ int32 UPalFunnelCharacterManager::GetIndexOfFunnelsWithinSameTrainer(APalFunnelC
     return 0;
 }
 
-UPalFunnelCharacterManager::UPalFunnelCharacterManager() {
-}
 

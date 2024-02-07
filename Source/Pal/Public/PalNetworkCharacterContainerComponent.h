@@ -19,7 +19,8 @@ private:
     TMap<FGuid, FPalNetworkCharacterContainerParameter> ContainerParamMap;
     
 public:
-    UPalNetworkCharacterContainerComponent();
+    UPalNetworkCharacterContainerComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestUnlockSlot_ToServer(const FGuid& RequestID, const FPalCharacterSlotId& SlotID);

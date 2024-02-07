@@ -15,7 +15,8 @@ protected:
     UPalSkeletalMeshComponent* SkeletalMeshComponent;
     
 public:
-    APalTreasureBoxVisualBase();
+    APalTreasureBoxVisualBase(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetTickEnabled(bool bEnabled);
     

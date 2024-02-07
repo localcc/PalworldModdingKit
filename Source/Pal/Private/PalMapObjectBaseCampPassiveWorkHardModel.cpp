@@ -1,5 +1,8 @@
 #include "PalMapObjectBaseCampPassiveWorkHardModel.h"
 
+UPalMapObjectBaseCampPassiveWorkHardModel::UPalMapObjectBaseCampPassiveWorkHardModel() {
+}
+
 void UPalMapObjectBaseCampPassiveWorkHardModel::RequestUpdateWorkHardType_ServerInternal(const int32 RequestPlayerId, const int32 TypeInt) {
 }
 
@@ -10,6 +13,4 @@ UPalBaseCampPassiveEffect_WorkHard* UPalMapObjectBaseCampPassiveWorkHardModel::G
     return NULL;
 }
 
-UPalMapObjectBaseCampPassiveWorkHardModel::UPalMapObjectBaseCampPassiveWorkHardModel() {
-}
 

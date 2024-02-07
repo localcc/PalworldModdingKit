@@ -1,5 +1,10 @@
 #include "PalBuildObjectPalStorage.h"
 
+APalBuildObjectPalStorage::APalBuildObjectPalStorage(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->BaseCampAreaRange = 5000.00f;
+    this->ChestSlotNum = 100;
+}
+
 
 void APalBuildObjectPalStorage::OnSpawnCharacter(FPalInstanceID IndividualId, int32 PhantomId) {
 }
@@ -24,8 +29,4 @@ UBoxComponent* APalBuildObjectPalStorage::GetAccessPointMovableRange() {
     return NULL;
 }
 
-APalBuildObjectPalStorage::APalBuildObjectPalStorage() {
-    this->BaseCampAreaRange = 5000.00f;
-    this->ChestSlotNum = 100;
-}
 

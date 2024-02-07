@@ -1,6 +1,9 @@
 #include "PalUtility.h"
 #include "Templates/SubclassOf.h"
 
+UPalUtility::UPalUtility() {
+}
+
 void UPalUtility::UpdatePlayerCharacterParameter(const APalCharacter* Character) {
 }
 
@@ -1503,6 +1506,4 @@ void UPalUtility::AddForceWithMassScale(APalCharacter* TargetCharacter, FVector 
 void UPalUtility::AddDownForceAllRigidBody(APalCharacter* TargetCharacter, float Rate) {
 }
 
-UPalUtility::UPalUtility() {
-}
 

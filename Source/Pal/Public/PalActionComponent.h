@@ -45,7 +45,8 @@ private:
     TArray<UPalActionBase*> TerminateWaitActionList;
     
 public:
-    UPalActionComponent();
+    UPalActionComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     UPalActionBase* PlayActionParameter(FActionDynamicParameter Param, TSubclassOf<UPalActionBase> actionClass);
     

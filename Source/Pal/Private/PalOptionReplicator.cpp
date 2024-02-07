@@ -1,6 +1,9 @@
 #include "PalOptionReplicator.h"
 #include "Net/UnrealNetwork.h"
 
+UPalOptionReplicator::UPalOptionReplicator() {
+}
+
 void UPalOptionReplicator::OnRep_OptionWorldSettings() {
 }
 
@@ -10,6 +13,4 @@ void UPalOptionReplicator::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
     DOREPLIFETIME(UPalOptionReplicator, OptionWorldSettings);
 }
 
-UPalOptionReplicator::UPalOptionReplicator() {
-}
 

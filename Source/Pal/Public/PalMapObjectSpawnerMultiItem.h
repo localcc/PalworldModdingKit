@@ -16,6 +16,7 @@ protected:
     float RespawnTimeMinutesObtained;
     
 public:
-    APalMapObjectSpawnerMultiItem();
+    APalMapObjectSpawnerMultiItem(const FObjectInitializer& ObjectInitializer);
+
 };
 

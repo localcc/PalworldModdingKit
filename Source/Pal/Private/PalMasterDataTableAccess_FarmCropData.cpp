@@ -1,5 +1,8 @@
 #include "PalMasterDataTableAccess_FarmCropData.h"
 
+UPalMasterDataTableAccess_FarmCropData::UPalMasterDataTableAccess_FarmCropData() {
+}
+
 void UPalMasterDataTableAccess_FarmCropData::BPExec_FindRowByCropItemId(FName CropItemId, EPalMasterDataExecPinType& ExecType, FPalMapObjectFarmCropData& OutData) {
 }
 
@@ -14,6 +17,4 @@ FPalMapObjectFarmCropData UPalMasterDataTableAccess_FarmCropData::BP_FindRow(FNa
     return FPalMapObjectFarmCropData{};
 }
 
-UPalMasterDataTableAccess_FarmCropData::UPalMasterDataTableAccess_FarmCropData() {
-}
 

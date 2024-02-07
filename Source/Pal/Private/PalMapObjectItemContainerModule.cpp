@@ -1,6 +1,12 @@
 #include "PalMapObjectItemContainerModule.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectItemContainerModule::UPalMapObjectItemContainerModule() {
+    this->TargetContainer = NULL;
+    this->bDropItemAtDisposed = true;
+    this->UsageType = EPalContainerUsageType::None;
+}
+
 void UPalMapObjectItemContainerModule::UnbindUpdateContents(UPalMapObjectItemContainerModule::FUpdateContentsDelegate Delegate) {
 }
 
@@ -41,9 +47,4 @@ void UPalMapObjectItemContainerModule::GetLifetimeReplicatedProps(TArray<FLifeti
     DOREPLIFETIME(UPalMapObjectItemContainerModule, UsageType);
 }
 
-UPalMapObjectItemContainerModule::UPalMapObjectItemContainerModule() {
-    this->TargetContainer = NULL;
-    this->bDropItemAtDisposed = true;
-    this->UsageType = EPalContainerUsageType::None;
-}
 

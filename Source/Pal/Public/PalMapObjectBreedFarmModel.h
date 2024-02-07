@@ -39,8 +39,9 @@ private:
     
 public:
     UPalMapObjectBreedFarmModel();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnUpdateAssignedCharacter(UPalWorkBase* Work);

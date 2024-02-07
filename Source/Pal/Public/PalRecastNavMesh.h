@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class APalRecastNavMesh : public ARecastNavMesh {
     GENERATED_BODY()
 public:
-    APalRecastNavMesh();
+    APalRecastNavMesh(const FObjectInitializer& ObjectInitializer);
+
 };
 

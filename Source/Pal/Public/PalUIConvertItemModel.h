@@ -20,6 +20,7 @@ protected:
     
 public:
     UPalUIConvertItemModel();
+
     UFUNCTION(BlueprintCallable)
     void UpdateProductSetting_TransportToStorage(const bool bOn);
     

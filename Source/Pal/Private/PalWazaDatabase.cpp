@@ -1,5 +1,11 @@
 #include "PalWazaDatabase.h"
 
+UPalWazaDatabase::UPalWazaDatabase() {
+    this->WazaDataTable = NULL;
+    this->WazaMasterLevel_DataTable = NULL;
+    this->WazaMasterTamago_DataTable = NULL;
+}
+
 bool UPalWazaDatabase::IsExistMasterrableWaza_BetweenLevel(FName CharacterID, int32 StartLevel, int32 EndLevel) {
     return false;
 }
@@ -11,9 +17,4 @@ bool UPalWazaDatabase::FindWazaForBP(EPalWazaID Type, FPalWazaDatabaseRaw& OutDa
     return false;
 }
 
-UPalWazaDatabase::UPalWazaDatabase() {
-    this->WazaDataTable = NULL;
-    this->WazaMasterLevel_DataTable = NULL;
-    this->WazaMasterTamago_DataTable = NULL;
-}
 

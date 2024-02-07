@@ -1,5 +1,6 @@
 #include "PalBuildObjectBreedFarm.h"
 
-APalBuildObjectBreedFarm::APalBuildObjectBreedFarm() {
+APalBuildObjectBreedFarm::APalBuildObjectBreedFarm(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

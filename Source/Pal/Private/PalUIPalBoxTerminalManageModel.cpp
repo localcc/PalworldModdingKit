@@ -3,6 +3,15 @@
 #include "PalUIBaseCampWorkersModel.h"
 #include "PalUIPalBoxModel.h"
 
+UPalUIPalBoxTerminalManageModel::UPalUIPalBoxTerminalManageModel() {
+    this->PalBoxClass = UPalUIPalBoxModel::StaticClass();
+    this->PalBox = NULL;
+    this->BaseCampWorkersClass = UPalUIBaseCampWorkersModel::StaticClass();
+    this->BaseCampWorkers = NULL;
+    this->BaseCampPartyClass = UPalUIBaseCampPartyModel::StaticClass();
+    this->BaseCampParty = NULL;
+}
+
 void UPalUIPalBoxTerminalManageModel::MoveSlotToWorker(UPalIndividualCharacterSlot* Slot) {
 }
 
@@ -18,12 +27,4 @@ void UPalUIPalBoxTerminalManageModel::MoveSlotToLost(UPalIndividualCharacterSlot
 void UPalUIPalBoxTerminalManageModel::Initialize(const FGuid& BaseCampId) {
 }
 
-UPalUIPalBoxTerminalManageModel::UPalUIPalBoxTerminalManageModel() {
-    this->PalBoxClass = UPalUIPalBoxModel::StaticClass();
-    this->PalBox = NULL;
-    this->BaseCampWorkersClass = UPalUIBaseCampWorkersModel::StaticClass();
-    this->BaseCampWorkers = NULL;
-    this->BaseCampPartyClass = UPalUIBaseCampPartyModel::StaticClass();
-    this->BaseCampParty = NULL;
-}
 

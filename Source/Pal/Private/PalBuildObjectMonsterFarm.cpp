@@ -1,5 +1,6 @@
 #include "PalBuildObjectMonsterFarm.h"
 
-APalBuildObjectMonsterFarm::APalBuildObjectMonsterFarm() {
+APalBuildObjectMonsterFarm::APalBuildObjectMonsterFarm(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

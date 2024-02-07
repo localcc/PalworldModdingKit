@@ -7,7 +7,8 @@ UCLASS(Blueprintable)
 class APalSphereBodyBase : public AActor {
     GENERATED_BODY()
 public:
-    APalSphereBodyBase();
+    APalSphereBodyBase(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void RPCDummy();
     

@@ -53,6 +53,7 @@ private:
     
 public:
     UPalAIActionCombatBase();
+
 protected:
     UFUNCTION(BlueprintCallable)
     void StartNextAction_Event(const UPalActionComponent* ActionComponent);
@@ -103,7 +104,7 @@ protected:
     UFUNCTION(BlueprintCallable)
     void ChangeNextAction();
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

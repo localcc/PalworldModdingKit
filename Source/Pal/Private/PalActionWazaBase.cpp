@@ -1,5 +1,11 @@
 #include "PalActionWazaBase.h"
 
+UPalActionWazaBase::UPalActionWazaBase() {
+    this->WazaID = EPalWazaID::None;
+    this->SoundPlayer = NULL;
+    this->bApplyFullStomachCost = true;
+}
+
 void UPalActionWazaBase::StopAkSound() {
 }
 
@@ -14,9 +20,4 @@ APalPlayerCharacter* UPalActionWazaBase::GetRiderPlayer() {
     return NULL;
 }
 
-UPalActionWazaBase::UPalActionWazaBase() {
-    this->WazaID = EPalWazaID::None;
-    this->SoundPlayer = NULL;
-    this->bApplyFullStomachCost = true;
-}
 

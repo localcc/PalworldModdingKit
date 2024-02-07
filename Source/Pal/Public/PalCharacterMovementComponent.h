@@ -245,9 +245,10 @@ private:
     bool bIsDashSwim;
     
 public:
-    UPalCharacterMovementComponent();
+    UPalCharacterMovementComponent(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable)
     void SetYawRotatorMultiplier(FName flagName, float Rate);
     

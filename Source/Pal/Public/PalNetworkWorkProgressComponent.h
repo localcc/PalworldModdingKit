@@ -10,7 +10,8 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalNetworkWorkProgressComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPalNetworkWorkProgressComponent();
+    UPalNetworkWorkProgressComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestStartPlayerWork_ToServer(const FGuid& RequestID, const FGuid& WorkProgressId);

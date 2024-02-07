@@ -20,6 +20,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FPalDataTableRowName_ItemData> TargetItemIds;
     
-    UPalMapObjectBreedFarmParameterComponent();
+    UPalMapObjectBreedFarmParameterComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

@@ -40,7 +40,8 @@ private:
     FFlagContainer InteractDisableFlags;
     
 public:
-    UPalInteractComponent();
+    UPalInteractComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void TerminateInteract();
     

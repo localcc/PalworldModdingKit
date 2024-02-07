@@ -1,5 +1,8 @@
 #include "PalNetworkShopComponent.h"
 
+UPalNetworkShopComponent::UPalNetworkShopComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void UPalNetworkShopComponent::SetupShopDataForActor_ToServer_Implementation(AActor* VenderActor) {
 }
 
@@ -27,6 +30,4 @@ void UPalNetworkShopComponent::RecieveBuyResult_ToClient_Implementation(EPalShop
 void UPalNetworkShopComponent::ReceiveDroppedPalProductData_ToClient_Implementation(const TArray<FPalDroppedPalProductDataForShop>& CollectedData) {
 }
 
-UPalNetworkShopComponent::UPalNetworkShopComponent() {
-}
 

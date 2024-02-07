@@ -21,8 +21,9 @@ protected:
     
 public:
     UPalMapObjectBaseCampWorkerDirectorModel();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void RequestUpdateBaseCampBattleType_ServerInternal(const int32 RequestPlayerId, const int32 BattleTypeInt);

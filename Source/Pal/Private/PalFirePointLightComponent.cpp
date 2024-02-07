@@ -1,5 +1,6 @@
 #include "PalFirePointLightComponent.h"
 
-UPalFirePointLightComponent::UPalFirePointLightComponent() {
+UPalFirePointLightComponent::UPalFirePointLightComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

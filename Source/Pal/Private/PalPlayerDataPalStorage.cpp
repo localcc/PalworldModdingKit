@@ -1,6 +1,14 @@
 #include "PalPlayerDataPalStorage.h"
 #include "Net/UnrealNetwork.h"
 
+UPalPlayerDataPalStorage::UPalPlayerDataPalStorage() {
+    this->PageNum = 0;
+    this->SlotNumInPage = 0;
+    this->TargetContainer = NULL;
+    this->SlotObserver = NULL;
+    this->IsOpen = false;
+}
+
 void UPalPlayerDataPalStorage::OnUpdateCharacterContainer_InServer() {
 }
 
@@ -23,11 +31,4 @@ void UPalPlayerDataPalStorage::GetLifetimeReplicatedProps(TArray<FLifetimeProper
     DOREPLIFETIME(UPalPlayerDataPalStorage, OwnerPlayerUId);
 }
 
-UPalPlayerDataPalStorage::UPalPlayerDataPalStorage() {
-    this->PageNum = 0;
-    this->SlotNumInPage = 0;
-    this->TargetContainer = NULL;
-    this->SlotObserver = NULL;
-    this->IsOpen = false;
-}
 

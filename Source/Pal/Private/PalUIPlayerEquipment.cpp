@@ -1,5 +1,8 @@
 #include "PalUIPlayerEquipment.h"
 
+UPalUIPlayerEquipment::UPalUIPlayerEquipment() {
+}
+
 void UPalUIPlayerEquipment::SwapItemSlot(UPalItemSlot* SlotA, UPalItemSlot* SlotB) {
 }
 
@@ -15,6 +18,4 @@ void UPalUIPlayerEquipment::RemoveItemSlot(UPalItemSlot* targetSlot, UPalItemSlo
 void UPalUIPlayerEquipment::RemoveEquipment(EPalPlayerEquipItemSlotType slotType, UPalItemSlot* toSlot) {
 }
 
-UPalUIPlayerEquipment::UPalUIPlayerEquipment() {
-}
 

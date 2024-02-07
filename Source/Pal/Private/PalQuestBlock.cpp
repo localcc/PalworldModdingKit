@@ -1,5 +1,9 @@
 #include "PalQuestBlock.h"
 
+UPalQuestBlock::UPalQuestBlock() {
+    this->IsAutoComplete = false;
+}
+
 void UPalQuestBlock::Setup() {
 }
 
@@ -23,7 +27,4 @@ bool UPalQuestBlock::CanComplete() {
 void UPalQuestBlock::CallUpdateBlockDelegate_ForBP() {
 }
 
-UPalQuestBlock::UPalQuestBlock() {
-    this->IsAutoComplete = false;
-}
 

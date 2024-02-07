@@ -27,7 +27,8 @@ private:
     bool bIsOverlappedLocalPlayer;
     
 public:
-    APalAmbientSoundAreaBase();
+    APalAmbientSoundAreaBase(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnEndOverlap(UPrimitiveComponent* OverlappedComponent, APalPlayerCharacter* PlayerCharacter);

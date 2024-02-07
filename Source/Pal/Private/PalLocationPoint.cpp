@@ -1,5 +1,8 @@
 #include "PalLocationPoint.h"
 
+UPalLocationPoint::UPalLocationPoint() {
+}
+
 bool UPalLocationPoint::IsEnableFastTravel() const {
     return false;
 }
@@ -22,6 +25,4 @@ FVector UPalLocationPoint::GetLocation() const {
     return FVector{};
 }
 
-UPalLocationPoint::UPalLocationPoint() {
-}
 

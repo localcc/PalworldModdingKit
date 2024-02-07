@@ -29,8 +29,9 @@ private:
     
 public:
     UPalMapObjectProductItemModel();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnUpdateContainerContent(UPalItemContainer* Container);
@@ -49,7 +50,7 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float CalcRequiredAmount(const float BaseRequiredAmount) const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

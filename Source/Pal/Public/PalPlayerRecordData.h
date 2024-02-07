@@ -89,8 +89,9 @@ public:
     FString Debug_LastEnteredStageDataLayerName;
     
     UPalPlayerRecordData();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
     UFUNCTION(BlueprintCallable)
     void OnRep_RelicNum();

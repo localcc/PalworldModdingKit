@@ -1,5 +1,9 @@
 #include "PalUIInventoryModel.h"
 
+UPalUIInventoryModel::UPalUIInventoryModel() {
+    this->InventoryContainers = NULL;
+}
+
 void UPalUIInventoryModel::TryMoveSlotToInventory(UPalItemSlot* fromSlot, bool tryAutoEquip) {
 }
 
@@ -67,7 +71,4 @@ bool UPalUIInventoryModel::CheckLiftItemTypeA(EPalItemTypeA checkType) {
     return false;
 }
 
-UPalUIInventoryModel::UPalUIInventoryModel() {
-    this->InventoryContainers = NULL;
-}
 

@@ -1,6 +1,15 @@
 #include "PalVenderDataComponent.h"
 #include "Net/UnrealNetwork.h"
 
+UPalVenderDataComponent::UPalVenderDataComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->ItemShopRestockMinute = 10;
+    this->itemShopLotteryType = EPalShopLotteryType::None;
+    this->PalShopRestockMinute = 10;
+    this->palShopLotteryType = EPalShopLotteryType::None;
+    this->MyItemShop = NULL;
+    this->MyPalShop = NULL;
+}
+
 bool UPalVenderDataComponent::TryGetPalShop(UPalShopBase*& OutShop) const {
     return false;
 }
@@ -33,12 +42,4 @@ void UPalVenderDataComponent::GetLifetimeReplicatedProps(TArray<FLifetimePropert
     DOREPLIFETIME(UPalVenderDataComponent, MyPalShop);
 }
 
-UPalVenderDataComponent::UPalVenderDataComponent() {
-    this->ItemShopRestockMinute = 10;
-    this->itemShopLotteryType = EPalShopLotteryType::None;
-    this->PalShopRestockMinute = 10;
-    this->palShopLotteryType = EPalShopLotteryType::None;
-    this->MyItemShop = NULL;
-    this->MyPalShop = NULL;
-}
 

@@ -62,6 +62,7 @@ private:
     
 public:
     UPalWorkProgressManager();
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalWorkBase* GetWorkByAssignId(const FPalWorkAssignHandleId& WorkAssignId) const;
     
@@ -71,7 +72,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalWorkBase* GetWork(const FGuid& WorkId) const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

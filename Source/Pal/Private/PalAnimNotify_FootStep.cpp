@@ -1,5 +1,9 @@
 #include "PalAnimNotify_FootStep.h"
 
+UPalAnimNotify_FootStep::UPalAnimNotify_FootStep() {
+    this->EffectAssetCache = NULL;
+}
+
 void UPalAnimNotify_FootStep::SpawnFootStepEffect(UObject* WorldObject, EPalLandingType LandingType, TEnumAsByte<EPhysicalSurface> PhysicalSurface, const FVector& Location, const FRotator& Rotation, UPalStaticCharacterParameterComponent* StaticParam) const {
 }
 
@@ -10,7 +14,4 @@ bool UPalAnimNotify_FootStep::GetFloorPosition(AActor* Owner, FTransform FootTra
     return false;
 }
 
-UPalAnimNotify_FootStep::UPalAnimNotify_FootStep() {
-    this->EffectAssetCache = NULL;
-}
 

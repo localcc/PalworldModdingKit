@@ -2,6 +2,22 @@
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Components/SphereComponent.h"
 
+APalBullet::APalBullet(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->RootComponent = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComp"));
+    this->CollisionComp = (USphereComponent*)RootComponent;
+    this->ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileComp"));
+    this->PlayerDamageCameraShake = EPalPlayerDamageCameraShakeCategory::Gun_S;
+    this->bIsHitFriend = false;
+    this->WeaponDamage = 0;
+    this->isDamageable = true;
+    this->AISoundEmitable = true;
+    this->SneakAttackRate = 2.00f;
+    this->DeleteTime = -1.00f;
+    this->DamageDecayStartRate = -1.00f;
+    this->LifeTimer = 0.00f;
+    this->weaponBulletDamageReactionType = EPalDamageAnimationReactionType::Big;
+}
+
 void APalBullet::SetWeaponDamage(int32 Damage) {
 }
 
@@ -62,18 +78,4 @@ float APalBullet::GetDecayDamageRate() {
     return 0.0f;
 }
 
-APalBullet::APalBullet() {
-    this->CollisionComp = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComp"));
-    this->ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileComp"));
-    this->PlayerDamageCameraShake = EPalPlayerDamageCameraShakeCategory::Gun_S;
-    this->bIsHitFriend = false;
-    this->WeaponDamage = 0;
-    this->isDamageable = true;
-    this->AISoundEmitable = true;
-    this->SneakAttackRate = 2.00f;
-    this->DeleteTime = -1.00f;
-    this->DamageDecayStartRate = -1.00f;
-    this->LifeTimer = 0.00f;
-    this->weaponBulletDamageReactionType = EPalDamageAnimationReactionType::Big;
-}
 

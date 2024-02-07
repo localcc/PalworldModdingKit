@@ -15,7 +15,8 @@ protected:
     
 public:
     UPalBaseCampPassiveEffect_WorkSuitability();
-    
+
+
     // Fix for true pure virtual functions not being implemented
 };
 

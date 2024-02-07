@@ -1,5 +1,8 @@
 #include "PalPlayerRecordDataUtility.h"
 
+UPalPlayerRecordDataUtility::UPalPlayerRecordDataUtility() {
+}
+
 void UPalPlayerRecordDataUtility::SetRecordData_TribeIdFlag_ForServer(const UObject* WorldContextObject, FPalPlayerRecordDataRepInfoArray_BoolVal& RecordData, const EPalTribeID Key) {
 }
 
@@ -39,6 +42,4 @@ bool UPalPlayerRecordDataUtility::GetRecordData_Bool(const FPalPlayerRecordDataR
     return false;
 }
 
-UPalPlayerRecordDataUtility::UPalPlayerRecordDataUtility() {
-}
 

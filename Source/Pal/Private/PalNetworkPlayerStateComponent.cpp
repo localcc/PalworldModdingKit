@@ -1,5 +1,6 @@
 #include "PalNetworkPlayerStateComponent.h"
 
-UPalNetworkPlayerStateComponent::UPalNetworkPlayerStateComponent() {
+UPalNetworkPlayerStateComponent::UPalNetworkPlayerStateComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

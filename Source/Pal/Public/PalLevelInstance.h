@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class PAL_API APalLevelInstance : public ALevelInstance {
     GENERATED_BODY()
 public:
-    APalLevelInstance();
+    APalLevelInstance(const FObjectInitializer& ObjectInitializer);
+
 };
 

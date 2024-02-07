@@ -22,8 +22,9 @@ private:
     
 public:
     UPalMapObjectPickableCharacterModelBase();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void RequestPickup_ServerInternal(const int32 RequestPlayerId);

@@ -1,6 +1,12 @@
 #include "PalMapObjectModelEffect_Burn.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectModelEffect_Burn::UPalMapObjectModelEffect_Burn() {
+    this->bBurning = false;
+    this->PersistenceValue = 0.00f;
+    this->HitCollisionBox = NULL;
+}
+
 void UPalMapObjectModelEffect_Burn::OnRep_Burning(bool bLastValue) {
 }
 
@@ -13,9 +19,4 @@ void UPalMapObjectModelEffect_Burn::GetLifetimeReplicatedProps(TArray<FLifetimeP
     DOREPLIFETIME(UPalMapObjectModelEffect_Burn, bBurning);
 }
 
-UPalMapObjectModelEffect_Burn::UPalMapObjectModelEffect_Burn() {
-    this->bBurning = false;
-    this->PersistenceValue = 0.00f;
-    this->HitCollisionBox = NULL;
-}
 

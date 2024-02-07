@@ -11,7 +11,8 @@ UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnable
 class PAL_API UPalHiddenCapsuleComponent : public UCapsuleComponent {
     GENERATED_BODY()
 public:
-    UPalHiddenCapsuleComponent();
+    UPalHiddenCapsuleComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable)
     void EndOverlapEvent(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);

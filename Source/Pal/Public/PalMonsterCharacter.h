@@ -24,7 +24,8 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UPalCharacterLiftupObjectComponent* LiftupObjectComponent;
     
-    APalMonsterCharacter();
+    APalMonsterCharacter(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable)
     void SelectedFeedingItem(const FPalItemSlotId& itemSlotId, const int32 Num);
@@ -45,7 +46,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsLiftupObject() const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

@@ -23,8 +23,9 @@ private:
     
 public:
     UPalMapObjectTreasureBoxModel();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void RequestOpen_ServerInternal(const int32 RequestPlayerId);

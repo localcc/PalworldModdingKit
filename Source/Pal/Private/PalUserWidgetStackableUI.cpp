@@ -1,5 +1,10 @@
 #include "PalUserWidgetStackableUI.h"
 
+UPalUserWidgetStackableUI::UPalUserWidgetStackableUI() {
+    this->OpenAkEvent = NULL;
+    this->CloseAkEvent = NULL;
+}
+
 void UPalUserWidgetStackableUI::OnPreClose_Implementation() {
 }
 
@@ -20,8 +25,4 @@ UAkAudioEvent* UPalUserWidgetStackableUI::GetCloseAkEvent() const {
 void UPalUserWidgetStackableUI::Close() {
 }
 
-UPalUserWidgetStackableUI::UPalUserWidgetStackableUI() {
-    this->OpenAkEvent = NULL;
-    this->CloseAkEvent = NULL;
-}
 

@@ -1,6 +1,32 @@
 #include "PalShooterComponent.h"
 #include "Net/UnrealNetwork.h"
 
+UPalShooterComponent::UPalShooterComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->WalkSpeedMultiplierInAim = 0.20f;
+    this->WalkSpeedMultiplierInHipShoot = 0.70f;
+    this->ChangeWeaponInterpTime = 0.10f;
+    this->IsUseBlurUpdate = false;
+    this->bIsAiming = false;
+    this->bIsShooting = false;
+    this->bIsRequestAim = false;
+    this->bIsRequestPullTrigger = false;
+    this->bIsReloading = false;
+    this->HasWeapon = NULL;
+    this->CacheNextWeapon = NULL;
+    this->bIsDisableShootingTemporarily = false;
+    this->PullTriggerCountDown = 0.00f;
+    this->PullTriggerCountDownCount = 0;
+    this->ElapsedTimeSinceWeaponChange = 0.00f;
+    this->OverrideWeaponType = EPalWeaponType::MAX;
+    this->bUnstoppable = false;
+    this->bIsHoldTrigger = false;
+    this->bBufferedInput = false;
+    this->bIsShootingHold = false;
+    this->NPCWeapon = NULL;
+    this->CurrentBulletBlurRate = 0.00f;
+    this->RapidFireBlur = 0.00f;
+}
+
 void UPalShooterComponent::StopWeaponChangeAnimation() {
 }
 
@@ -258,29 +284,4 @@ void UPalShooterComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
     DOREPLIFETIME(UPalShooterComponent, RandomStream);
 }
 
-UPalShooterComponent::UPalShooterComponent() {
-    this->WalkSpeedMultiplierInAim = 0.20f;
-    this->WalkSpeedMultiplierInHipShoot = 0.70f;
-    this->ChangeWeaponInterpTime = 0.10f;
-    this->IsUseBlurUpdate = false;
-    this->bIsAiming = false;
-    this->bIsShooting = false;
-    this->bIsRequestAim = false;
-    this->bIsRequestPullTrigger = false;
-    this->bIsReloading = false;
-    this->HasWeapon = NULL;
-    this->CacheNextWeapon = NULL;
-    this->bIsDisableShootingTemporarily = false;
-    this->PullTriggerCountDown = 0.00f;
-    this->PullTriggerCountDownCount = 0;
-    this->ElapsedTimeSinceWeaponChange = 0.00f;
-    this->OverrideWeaponType = EPalWeaponType::MAX;
-    this->bUnstoppable = false;
-    this->bIsHoldTrigger = false;
-    this->bBufferedInput = false;
-    this->bIsShootingHold = false;
-    this->NPCWeapon = NULL;
-    this->CurrentBulletBlurRate = 0.00f;
-    this->RapidFireBlur = 0.00f;
-}
 

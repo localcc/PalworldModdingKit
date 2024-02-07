@@ -1,5 +1,14 @@
 #include "PalUIRadialMenuWidgetBase.h"
 
+UPalUIRadialMenuWidgetBase::UPalUIRadialMenuWidgetBase() {
+    this->IgnoreMouseLength = 100.00f;
+    this->menuNum = 1;
+    this->shiftDegree = 0;
+    this->detectPadAxisBorder = 0.60f;
+    this->nowArrowRadian = 0.00f;
+    this->nowSelectedIndex = -1;
+}
+
 void UPalUIRadialMenuWidgetBase::UpdateSelectedIndex_ForPad() {
 }
 
@@ -23,12 +32,4 @@ void UPalUIRadialMenuWidgetBase::CalculateRadialMenuArea(float parentDegreeAngle
 }
 
 
-UPalUIRadialMenuWidgetBase::UPalUIRadialMenuWidgetBase() {
-    this->IgnoreMouseLength = 100.00f;
-    this->menuNum = 1;
-    this->shiftDegree = 0;
-    this->detectPadAxisBorder = 0.60f;
-    this->nowArrowRadian = 0.00f;
-    this->nowSelectedIndex = -1;
-}
 

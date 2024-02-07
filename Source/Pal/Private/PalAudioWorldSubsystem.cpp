@@ -1,5 +1,10 @@
 #include "PalAudioWorldSubsystem.h"
 
+UPalAudioWorldSubsystem::UPalAudioWorldSubsystem() {
+    this->FadeDuration = 1000;
+    this->SoundPlayer = NULL;
+}
+
 
 void UPalAudioWorldSubsystem::StopSound() {
 }
@@ -62,8 +67,4 @@ void UPalAudioWorldSubsystem::FadeOutByPlayingId(int32 PlayingID) {
 }
 
 
-UPalAudioWorldSubsystem::UPalAudioWorldSubsystem() {
-    this->FadeDuration = 1000;
-    this->SoundPlayer = NULL;
-}
 

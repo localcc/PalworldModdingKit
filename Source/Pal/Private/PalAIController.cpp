@@ -1,6 +1,26 @@
 #include "PalAIController.h"
 #include "PalAIActionComponent.h"
+#include "PalFollowingComponent.h"
 #include "Templates/SubclassOf.h"
+
+APalAIController::APalAIController(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<UPalFollowingComponent>(TEXT("PathFollowingComponent")).SetDefaultSubobjectClass<UPalAIActionComponent>(TEXT("ActionsComp"))) {
+    this->CombatModuleClass = NULL;
+    this->SkillSlot = NULL;
+    this->R1AttackTarget = NULL;
+    this->MinAIActionComponentTickInterval = 0.00f;
+    this->bIsActive = false;
+    this->IsSquadBehaviour = false;
+    this->IsNotSleepWildLife = false;
+    this->MySquad = NULL;
+    this->HateSystem = NULL;
+    FProperty* p_ActionsComp_Prior = GetClass()->FindPropertyByName("ActionsComp");
+    this->AIActionComponent = (UPalAIActionComponent*)*p_ActionsComp_Prior->ContainerPtrToValuePtr<UPalAIActionComponent*>(this);
+    this->PalAIBlackboard = NULL;
+    this->bOverwriteBlockDetectionParams = false;
+    this->PalBlackboardClass = NULL;
+    this->IsDeadBodyTimeDelate = false;
+    this->IsSelfTimeDelate_FromSpawnTime = false;
+}
 
 void APalAIController::WaitForSeconds(float Time) {
 }
@@ -124,21 +144,4 @@ void APalAIController::AddTargetPlayer_ForEnemy(AActor* PlayerOrPal) {
 void APalAIController::AddTargetNPC(AActor* NPC) {
 }
 
-APalAIController::APalAIController() {
-    this->CombatModuleClass = NULL;
-    this->SkillSlot = NULL;
-    this->R1AttackTarget = NULL;
-    this->MinAIActionComponentTickInterval = 0.00f;
-    this->bIsActive = false;
-    this->IsSquadBehaviour = false;
-    this->IsNotSleepWildLife = false;
-    this->MySquad = NULL;
-    this->HateSystem = NULL;
-    //this->AIActionComponent = CreateDefaultSubobject<UPalAIActionComponent>(TEXT("ActionsComp"));
-    this->PalAIBlackboard = NULL;
-    this->bOverwriteBlockDetectionParams = false;
-    this->PalBlackboardClass = NULL;
-    this->IsDeadBodyTimeDelate = false;
-    this->IsSelfTimeDelate_FromSpawnTime = false;
-}
 

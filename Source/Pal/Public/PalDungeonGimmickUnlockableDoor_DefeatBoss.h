@@ -15,9 +15,10 @@ private:
     EPalDungeonInstanceBossState BossState;
     
 public:
-    APalDungeonGimmickUnlockableDoor_DefeatBoss();
+    APalDungeonGimmickUnlockableDoor_DefeatBoss(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnRep_BossState();

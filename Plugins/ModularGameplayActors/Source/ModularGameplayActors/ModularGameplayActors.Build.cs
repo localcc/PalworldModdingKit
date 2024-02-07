@@ -11,6 +11,7 @@ public class ModularGameplayActors : ModuleRules {
             "Core",
             "CoreUObject",
             "Engine",
+            "InputCore"
         });
     }
 }

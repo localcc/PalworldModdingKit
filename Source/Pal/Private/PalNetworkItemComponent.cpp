@@ -1,5 +1,8 @@
 #include "PalNetworkItemComponent.h"
 
+UPalNetworkItemComponent::UPalNetworkItemComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void UPalNetworkItemComponent::RequestSwap_ToServer_Implementation(const FGuid& RequestID, const FPalItemAndSlot& SlotA, const FPalItemPermission& APermission, const FPalItemAndSlot& SlotB, const FPalItemPermission& BPermission) {
 }
 
@@ -27,6 +30,4 @@ void UPalNetworkItemComponent::ReceiveProduceWithSlotResult_ToRequestClient_Impl
 void UPalNetworkItemComponent::ReceiveProduceResult_ToRequestClient_Implementation(const FGuid& RequestID, const EPalItemOperationResult Result) {
 }
 
-UPalNetworkItemComponent::UPalNetworkItemComponent() {
-}
 

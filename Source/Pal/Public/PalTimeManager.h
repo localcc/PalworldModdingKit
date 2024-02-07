@@ -48,6 +48,7 @@ private:
     
 public:
     UPalTimeManager();
+
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void Tick_BP(float DeltaTime);
@@ -98,7 +99,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void AddSleepPlayer(APalPlayerCharacter* Player);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

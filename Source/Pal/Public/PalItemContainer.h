@@ -28,8 +28,9 @@ protected:
     
 public:
     UPalItemContainer();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
     UFUNCTION(BlueprintCallable)
     void OnUpdateSlotContent(UPalItemSlot* Slot);

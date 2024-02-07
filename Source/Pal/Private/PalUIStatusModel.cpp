@@ -1,5 +1,8 @@
 #include "PalUIStatusModel.h"
 
+UPalUIStatusModel::UPalUIStatusModel() {
+}
+
 void UPalUIStatusModel::OnClickedPalIcon(int32 Index) {
 }
 
@@ -103,6 +106,4 @@ void UPalUIStatusModel::ChangeNickname(int32 Index, const FString& newNickName) 
 void UPalUIStatusModel::ChangeIndex(uint8 Index) {
 }
 
-UPalUIStatusModel::UPalUIStatusModel() {
-}
 

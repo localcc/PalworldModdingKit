@@ -32,11 +32,12 @@ protected:
     
 public:
     UPalPlayerManager();
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnCreatedIndividualHandleByAppliedSaveData_ServerInternal(FPalInstanceID IndividualId);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

@@ -1,5 +1,14 @@
 #include "PalInvaderIncidentBase.h"
 
+UPalInvaderIncidentBase::UPalInvaderIncidentBase() {
+    this->InvaderType = EPalInvaderType::None;
+    this->InvaderDataTable = NULL;
+    this->MonsterAIControllerClass = NULL;
+    this->EnemyAIControllerClass = NULL;
+    this->bCanExecute = false;
+    this->Squad = NULL;
+}
+
 void UPalInvaderIncidentBase::StartInvader() {
 }
 
@@ -55,12 +64,4 @@ int32 UPalInvaderIncidentBase::GetAliveInvaderNum() const {
 void UPalInvaderIncidentBase::AddGroupCharacter(UPalIndividualCharacterHandle* AddIndividualHandle, EPalCharacterLocationType LocationType) {
 }
 
-UPalInvaderIncidentBase::UPalInvaderIncidentBase() {
-    this->InvaderType = EPalInvaderType::None;
-    this->InvaderDataTable = NULL;
-    this->MonsterAIControllerClass = NULL;
-    this->EnemyAIControllerClass = NULL;
-    this->bCanExecute = false;
-    this->Squad = NULL;
-}
 

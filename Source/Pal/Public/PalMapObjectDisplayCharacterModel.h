@@ -33,8 +33,9 @@ private:
     
 public:
     UPalMapObjectDisplayCharacterModel();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable)
     void TryMoveToDisplayCage(UPalIndividualCharacterSlot* fromSlot);
     

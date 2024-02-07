@@ -20,10 +20,11 @@ private:
     
 public:
     UPalAIActionBaseCampSleepActively();
+
     UFUNCTION(BlueprintCallable)
     void SetParameter(const FPalAIActionBaseCampSleepActivelyParameter& Parameter);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

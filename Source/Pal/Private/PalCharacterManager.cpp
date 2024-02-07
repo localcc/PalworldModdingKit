@@ -1,5 +1,10 @@
 #include "PalCharacterManager.h"
 
+UPalCharacterManager::UPalCharacterManager() {
+    this->AttackNearBaseClass = NULL;
+    this->AttackFarBaseClass = NULL;
+}
+
 void UPalCharacterManager::SpawnPhantomByHandle(UPalIndividualCharacterHandle* Handle, FNetworkActorSpawnParameters SpawnParameter, UPalCharacterManager::FIndividualPhantomIDCallback spawnCallback) {
 }
 
@@ -53,8 +58,4 @@ UPalIndividualCharacterHandle* UPalCharacterManager::CreateIndividual(FPalIndivi
     return NULL;
 }
 
-UPalCharacterManager::UPalCharacterManager() {
-    this->AttackNearBaseClass = NULL;
-    this->AttackFarBaseClass = NULL;
-}
 

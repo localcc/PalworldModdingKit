@@ -7,6 +7,7 @@ UCLASS(Abstract, Blueprintable)
 class PAL_API APalEnemyVirtualCommander : public AActor {
     GENERATED_BODY()
 public:
-    APalEnemyVirtualCommander();
+    APalEnemyVirtualCommander(const FObjectInitializer& ObjectInitializer);
+
 };
 

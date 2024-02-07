@@ -22,6 +22,7 @@ protected:
     UPalAmbientSoundLineObject* AmbinetSoundLineObject;
     
 public:
-    APalAmbientSoundLineBase();
+    APalAmbientSoundLineBase(const FObjectInitializer& ObjectInitializer);
+
 };
 

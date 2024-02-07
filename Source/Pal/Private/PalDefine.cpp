@@ -1,5 +1,8 @@
 #include "PalDefine.h"
 
+UPalDefine::UPalDefine() {
+}
+
 FGameplayTag UPalDefine::UILayerTag_Modal() {
     return FGameplayTag{};
 }
@@ -280,6 +283,4 @@ FName UPalDefine::ActionBBKey_FeedItem() {
     return NAME_None;
 }
 
-UPalDefine::UPalDefine() {
-}
 

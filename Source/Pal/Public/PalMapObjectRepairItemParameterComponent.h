@@ -10,6 +10,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float RequiredRepairItemPercent;
     
-    UPalMapObjectRepairItemParameterComponent();
+    UPalMapObjectRepairItemParameterComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

@@ -1,5 +1,8 @@
 #include "PalItemSelectorComponent.h"
 
+UPalItemSelectorComponent::UPalItemSelectorComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void UPalItemSelectorComponent::SelectPrevItem(EPalPlayerInventoryType targetInventory) {
 }
 
@@ -29,6 +32,4 @@ bool UPalItemSelectorComponent::AddTargetInventoryType(EPalPlayerInventoryType t
     return false;
 }
 
-UPalItemSelectorComponent::UPalItemSelectorComponent() {
-}
 

@@ -10,6 +10,7 @@ class PAL_API UPalAIActionLiftup : public UPalAIActionBase, public IPalAIActionW
     GENERATED_BODY()
 public:
     UPalAIActionLiftup();
+
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnLanded();
@@ -18,7 +19,7 @@ private:
     UFUNCTION(BlueprintCallable)
     void CallOnLanded(const FHitResult& Hit);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

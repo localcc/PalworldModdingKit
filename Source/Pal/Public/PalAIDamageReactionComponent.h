@@ -7,7 +7,8 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalAIDamageReactionComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPalAIDamageReactionComponent();
+    UPalAIDamageReactionComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void FunctionTest();
     

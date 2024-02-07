@@ -1,5 +1,8 @@
 #include "PalWildPalDrinkWaterSpotProvider.h"
 
+UPalWildPalDrinkWaterSpotProvider::UPalWildPalDrinkWaterSpotProvider() {
+}
+
 bool UPalWildPalDrinkWaterSpotProvider::RequestReservation(AActor* LeaderPal, FVector WildPalSpawnerCenter, int32 MemberNum, FGuid& OutSpotID) {
     return false;
 }
@@ -14,6 +17,4 @@ void UPalWildPalDrinkWaterSpotProvider::CancelReservation(FGuid SpotID) {
 void UPalWildPalDrinkWaterSpotProvider::AddDrinkWaterSpot(FVector ActorLocation, TArray<FVector> GoalLocations) {
 }
 
-UPalWildPalDrinkWaterSpotProvider::UPalWildPalDrinkWaterSpotProvider() {
-}
 

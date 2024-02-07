@@ -1,6 +1,11 @@
 #include "PalMapObjectSignboardModel.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectSignboardModel::UPalMapObjectSignboardModel() {
+    this->MenuUIWidgetClass = NULL;
+    this->bIsEditing = false;
+}
+
 void UPalMapObjectSignboardModel::RequestUpdateText(const int32 RequestPlayerId, const FPalNetArchive& Archive) {
 }
 
@@ -28,8 +33,4 @@ void UPalMapObjectSignboardModel::GetLifetimeReplicatedProps(TArray<FLifetimePro
     DOREPLIFETIME(UPalMapObjectSignboardModel, bIsEditing);
 }
 
-UPalMapObjectSignboardModel::UPalMapObjectSignboardModel() {
-    this->MenuUIWidgetClass = NULL;
-    this->bIsEditing = false;
-}
 

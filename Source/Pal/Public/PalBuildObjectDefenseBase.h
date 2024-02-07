@@ -22,6 +22,7 @@ protected:
     int32 MagazineSize;
     
 public:
-    APalBuildObjectDefenseBase();
+    APalBuildObjectDefenseBase(const FObjectInitializer& ObjectInitializer);
+
 };
 

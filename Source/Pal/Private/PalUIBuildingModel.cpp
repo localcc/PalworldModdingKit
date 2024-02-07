@@ -1,5 +1,8 @@
 #include "PalUIBuildingModel.h"
 
+UPalUIBuildingModel::UPalUIBuildingModel() {
+}
+
 void UPalUIBuildingModel::Setup(const FName InBuildObjectId) {
 }
 
@@ -16,6 +19,4 @@ void UPalUIBuildingModel::Dispose() {
 void UPalUIBuildingModel::BuildObject(const bool bContinuously) {
 }
 
-UPalUIBuildingModel::UPalUIBuildingModel() {
-}
 

@@ -59,7 +59,8 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FRandomStream RandomStream;
     
-    APalSkillEffectBase();
+    APalSkillEffectBase(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void StopAllNiagaraSound();
     
@@ -107,7 +108,7 @@ public:
     UFUNCTION(BlueprintCallable)
     APalSkillEffectBase* CreateChildSkillEffect(TSubclassOf<APalSkillEffectBase> EffectClass, FTransform SpawnTransform, FRandomStream NewRandomStream, ESpawnActorCollisionHandlingMethod collisionMethod, AActor* ownerActor);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

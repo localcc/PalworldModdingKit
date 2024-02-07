@@ -1,5 +1,8 @@
 #include "PalUIPalShopBase.h"
 
+UPalUIPalShopBase::UPalUIPalShopBase() {
+}
+
 void UPalUIPalShopBase::UpdateLocalLostPalProduct() {
 }
 
@@ -22,6 +25,4 @@ bool UPalUIPalShopBase::GetMyShop(UPalShopBase*& OutShop) const {
     return false;
 }
 
-UPalUIPalShopBase::UPalUIPalShopBase() {
-}
 

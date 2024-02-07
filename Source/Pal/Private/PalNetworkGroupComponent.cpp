@@ -1,5 +1,8 @@
 #include "PalNetworkGroupComponent.h"
 
+UPalNetworkGroupComponent::UPalNetworkGroupComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void UPalNetworkGroupComponent::RequestJoinGuildRequestForPlayer_ToServer_Implementation(const FGuid& RequestPlayerUId, const FGuid& TargetPlayerUId) {
 }
 
@@ -18,6 +21,4 @@ void UPalNetworkGroupComponent::RequestChangeGuildAdmin_ToServer_Implementation(
 void UPalNetworkGroupComponent::NotifyJoinGuildRequestResult_ToServer_Implementation(const FGuid& RequestPlayerUId, const FGuid& NotifyTargetPlayerUId, EPalGuildJoinRequestResult ResultType) {
 }
 
-UPalNetworkGroupComponent::UPalNetworkGroupComponent() {
-}
 

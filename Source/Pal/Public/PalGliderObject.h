@@ -58,7 +58,8 @@ protected:
     UPalSoundPlayerComponent* SoundPlayerComponent;
     
 public:
-    APalGliderObject();
+    APalGliderObject(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     UPalSkeletalMeshComponent* GetMainMesh() const;
     

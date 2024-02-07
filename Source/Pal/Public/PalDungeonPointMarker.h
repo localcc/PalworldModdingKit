@@ -26,6 +26,7 @@ protected:
     TSubclassOf<APalDungeonEntrance> DungeonEntranceClass;
     
 public:
-    APalDungeonPointMarker();
+    APalDungeonPointMarker(const FObjectInitializer& ObjectInitializer);
+
 };
 

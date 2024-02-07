@@ -1,5 +1,6 @@
 #include "PalGameModeTitle.h"
 
-APalGameModeTitle::APalGameModeTitle() {
+APalGameModeTitle::APalGameModeTitle(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

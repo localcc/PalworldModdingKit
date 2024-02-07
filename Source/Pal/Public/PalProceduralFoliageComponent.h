@@ -14,6 +14,7 @@ private:
     UShapeComponent* SpawningShape;
     
 public:
-    UPalProceduralFoliageComponent();
+    UPalProceduralFoliageComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

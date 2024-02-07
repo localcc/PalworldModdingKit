@@ -34,8 +34,9 @@ private:
     
 public:
     UPalMapObjectPlayerBedModel();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void RequestTriggerSleepPlayerBed_ToServer(const int32 RequestPlayerId);

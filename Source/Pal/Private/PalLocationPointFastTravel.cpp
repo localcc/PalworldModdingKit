@@ -1,6 +1,10 @@
 #include "PalLocationPointFastTravel.h"
 #include "Net/UnrealNetwork.h"
 
+UPalLocationPointFastTravel::UPalLocationPointFastTravel() {
+    this->ShouldUnlockFlag = false;
+}
+
 void UPalLocationPointFastTravel::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
@@ -9,7 +13,4 @@ void UPalLocationPointFastTravel::GetLifetimeReplicatedProps(TArray<FLifetimePro
     DOREPLIFETIME(UPalLocationPointFastTravel, FastTravelPointID);
 }
 
-UPalLocationPointFastTravel::UPalLocationPointFastTravel() {
-    this->ShouldUnlockFlag = false;
-}
 

@@ -7,6 +7,7 @@ UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnable
 class UPalWorkFacingComponent : public UArrowComponent {
     GENERATED_BODY()
 public:
-    UPalWorkFacingComponent();
+    UPalWorkFacingComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

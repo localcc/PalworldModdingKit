@@ -27,5 +27,6 @@ protected:
     
 public:
     UPalBuildOperator();
+
 };
 

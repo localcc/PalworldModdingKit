@@ -22,5 +22,6 @@ private:
     
 public:
     UPalPersistentSoundPlayer();
+
 };
 

@@ -20,7 +20,8 @@ private:
     UPalAbilityPassiveSkill* PassiveSkill;
     
 public:
-    UPalAbilitySkillParameterComponent();
+    UPalAbilitySkillParameterComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void OnRideInactivated();
     

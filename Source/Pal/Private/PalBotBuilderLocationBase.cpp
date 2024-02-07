@@ -1,7 +1,8 @@
 #include "PalBotBuilderLocationBase.h"
 
-APalBotBuilderLocationBase::APalBotBuilderLocationBase() {
+APalBotBuilderLocationBase::APalBotBuilderLocationBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->BuilderIndex = -1;
     this->bIsBuilded = false;
 }
+
 

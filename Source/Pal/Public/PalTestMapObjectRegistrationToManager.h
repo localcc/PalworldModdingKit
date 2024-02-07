@@ -12,7 +12,8 @@ protected:
     bool bReadyVirtualBaseCamp;
     
 public:
-    APalTestMapObjectRegistrationToManager();
+    APalTestMapObjectRegistrationToManager(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void ForceBuildComplete();
     

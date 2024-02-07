@@ -25,6 +25,7 @@ private:
     UAkComponent* AkComponent;
     
 public:
-    UPalAmbientSoundLineComponent();
+    UPalAmbientSoundLineComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

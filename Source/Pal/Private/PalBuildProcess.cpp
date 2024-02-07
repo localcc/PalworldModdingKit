@@ -1,6 +1,11 @@
 #include "PalBuildProcess.h"
 #include "Net/UnrealNetwork.h"
 
+UPalBuildProcess::UPalBuildProcess() {
+    this->State = EPalBuildProcessState::Completed;
+    this->BuildWork = NULL;
+}
+
 void UPalBuildProcess::OnRep_StateChanged() {
 }
 
@@ -28,8 +33,4 @@ void UPalBuildProcess::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out
     DOREPLIFETIME(UPalBuildProcess, BuildWork);
 }
 
-UPalBuildProcess::UPalBuildProcess() {
-    this->State = EPalBuildProcessState::Completed;
-    this->BuildWork = NULL;
-}
 

@@ -21,7 +21,8 @@ protected:
     bool bIsLoaded;
     
 public:
-    APalBossBattleLevelInstance();
+    APalBossBattleLevelInstance(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SpawnBossSpawner(EPalBossType BossType, int32 JoinPlayerNum);
     

@@ -1,5 +1,6 @@
 #include "PalRecastNavMesh.h"
 
-APalRecastNavMesh::APalRecastNavMesh() {
+APalRecastNavMesh::APalRecastNavMesh(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

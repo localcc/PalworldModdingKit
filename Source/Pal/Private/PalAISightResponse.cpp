@@ -4,3 +4,4 @@ UPalAISightResponse::UPalAISightResponse() {
     this->SightResponsePreset = NULL;
 }
 
+

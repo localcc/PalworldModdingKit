@@ -18,6 +18,7 @@ protected:
     TSoftClassPtr<APalMapObjectSpawnerTreasureBox> TreasureBoxSpawnerSoftClass;
     
 public:
-    APalDungeonItemSpawnerPoint();
+    APalDungeonItemSpawnerPoint(const FObjectInitializer& ObjectInitializer);
+
 };
 

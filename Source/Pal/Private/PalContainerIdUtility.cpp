@@ -1,5 +1,8 @@
 #include "PalContainerIdUtility.h"
 
+UPalContainerIdUtility::UPalContainerIdUtility() {
+}
+
 FPalContainerId UPalContainerIdUtility::NoneContainerId() {
     return FPalContainerId{};
 }
@@ -16,6 +19,4 @@ bool UPalContainerIdUtility::BP_Equal(const FPalContainerId& A, const FPalContai
     return false;
 }
 
-UPalContainerIdUtility::UPalContainerIdUtility() {
-}
 

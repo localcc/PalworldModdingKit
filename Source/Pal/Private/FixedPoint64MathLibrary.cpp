@@ -1,5 +1,8 @@
 #include "FixedPoint64MathLibrary.h"
 
+UFixedPoint64MathLibrary::UFixedPoint64MathLibrary() {
+}
+
 FFixedPoint64 UFixedPoint64MathLibrary::Subtract_FixedPoint64Integer(FFixedPoint64 A, int64 B) {
     return FFixedPoint64{};
 }
@@ -144,6 +147,4 @@ FFixedPoint64 UFixedPoint64MathLibrary::Add_FixedPoint64FixedPoint64(FFixedPoint
     return FFixedPoint64{};
 }
 
-UFixedPoint64MathLibrary::UFixedPoint64MathLibrary() {
-}
 

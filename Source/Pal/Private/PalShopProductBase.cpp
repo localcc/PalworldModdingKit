@@ -1,6 +1,13 @@
 #include "PalShopProductBase.h"
 #include "Net/UnrealNetwork.h"
 
+UPalShopProductBase::UPalShopProductBase() {
+    this->IsInfinityStockFlag = false;
+    this->StockNum = 0;
+    this->MaxStockNum = 0;
+    this->IsValidProductFlag = true;
+}
+
 void UPalShopProductBase::OnRep_StockNum() {
 }
 
@@ -51,10 +58,4 @@ void UPalShopProductBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
     DOREPLIFETIME(UPalShopProductBase, IsValidProductFlag);
 }
 
-UPalShopProductBase::UPalShopProductBase() {
-    this->IsInfinityStockFlag = false;
-    this->StockNum = 0;
-    this->MaxStockNum = 0;
-    this->IsValidProductFlag = true;
-}
 

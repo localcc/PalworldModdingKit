@@ -1,6 +1,14 @@
 #include "PalBossTower.h"
 #include "Net/UnrealNetwork.h"
 
+APalBossTower::APalBossTower(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bReplicates = true;
+    const FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
+    (*p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this)) = ROLE_SimulatedProxy;
+    this->BossType = EPalBossType::None;
+    this->InstanceModel = NULL;
+}
+
 bool APalBossTower::WriteBossDefeatRecord_ServerInternal(APalPlayerCharacter* TargetPlayer) {
     return false;
 }
@@ -71,8 +79,4 @@ void APalBossTower::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
     DOREPLIFETIME(APalBossTower, CombatTimeLimit);
 }
 
-APalBossTower::APalBossTower() {
-    this->BossType = EPalBossType::None;
-    this->InstanceModel = NULL;
-}
 

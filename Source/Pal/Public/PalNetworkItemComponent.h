@@ -36,7 +36,8 @@ private:
     TMap<FGuid, FPalNetworkParameter> OperationParamMap;
     
 public:
-    UPalNetworkItemComponent();
+    UPalNetworkItemComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestSwap_ToServer(const FGuid& RequestID, const FPalItemAndSlot& SlotA, const FPalItemPermission& APermission, const FPalItemAndSlot& SlotB, const FPalItemPermission& BPermission);

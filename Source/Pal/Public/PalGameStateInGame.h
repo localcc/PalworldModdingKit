@@ -122,9 +122,10 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnRecievedChatMessageDelegate OnRecievedChatMessageDelegate;
     
-    APalGameStateInGame();
+    APalGameStateInGame(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnRep_WorldSaveDirectoryName();

@@ -80,7 +80,8 @@ private:
     EPalSpwnerImportanceType ImportanceType;
     
 public:
-    APalNPCSpawnerBase();
+    APalNPCSpawnerBase(const FObjectInitializer& ObjectInitializer);
+
 protected:
     UFUNCTION(BlueprintCallable)
     void Tick_Spawning(float DeltaTime);

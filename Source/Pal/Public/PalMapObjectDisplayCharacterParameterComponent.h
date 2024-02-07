@@ -27,6 +27,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalUserWidgetOverlayUI> MenuUIWidgetClass;
     
-    UPalMapObjectDisplayCharacterParameterComponent();
+    UPalMapObjectDisplayCharacterParameterComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

@@ -160,9 +160,10 @@ private:
     TMap<EPalCharacterCompleteDelegatePriority, UPalCharacterOnCompleteInitializeParameterWrapper*> OnCompleteInitializeParameterDelegateMap;
     
 public:
-    APalCharacter();
+    APalCharacter(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable)
     void UpdateGroundRayCast();
     

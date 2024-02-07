@@ -1,6 +1,9 @@
 #include "PalStatusComponent.h"
 #include "Net/UnrealNetwork.h"
 
+UPalStatusComponent::UPalStatusComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void UPalStatusComponent::SomeStatus_ToAll_Implementation(EPalStatusID StatusId, FStatusDynamicParameter Param) {
 }
 
@@ -39,6 +42,4 @@ void UPalStatusComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
     DOREPLIFETIME(UPalStatusComponent, ExecutionStatusList);
 }
 
-UPalStatusComponent::UPalStatusComponent() {
-}
 

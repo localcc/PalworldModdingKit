@@ -1,5 +1,10 @@
 #include "PalExpDatabase.h"
 
+UPalExpDatabase::UPalExpDatabase() {
+    this->ExpDataTable = NULL;
+    this->PaldexBonusExpDataTable = NULL;
+}
+
 int32 UPalExpDatabase::GetTotalExp(int32 Level, bool IsPlayer) {
     return 0;
 }
@@ -35,8 +40,4 @@ void UPalExpDatabase::AddExp_forBaseCamp(UPalIndividualCharacterHandle* DeadEnem
 void UPalExpDatabase::AddExp_EnemyDeath(FPalDeadInfo DeadInfo) {
 }
 
-UPalExpDatabase::UPalExpDatabase() {
-    this->ExpDataTable = NULL;
-    this->PaldexBonusExpDataTable = NULL;
-}
 

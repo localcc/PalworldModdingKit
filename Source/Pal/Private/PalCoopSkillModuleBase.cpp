@@ -1,5 +1,10 @@
 #include "PalCoopSkillModuleBase.h"
 
+UPalCoopSkillModuleBase::UPalCoopSkillModuleBase() {
+    this->ExecuteLog = EPalLogType::None;
+    this->OwnerCharacter = NULL;
+}
+
 void UPalCoopSkillModuleBase::Start() {
 }
 
@@ -35,8 +40,4 @@ void UPalCoopSkillModuleBase::AddSkillLog() {
 void UPalCoopSkillModuleBase::Abort() {
 }
 
-UPalCoopSkillModuleBase::UPalCoopSkillModuleBase() {
-    this->ExecuteLog = EPalLogType::None;
-    this->OwnerCharacter = NULL;
-}
 

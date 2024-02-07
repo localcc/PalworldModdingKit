@@ -13,6 +13,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<int32> ShippingHours;
     
-    UPalMapObjectShippingItemParameterComponent();
+    UPalMapObjectShippingItemParameterComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

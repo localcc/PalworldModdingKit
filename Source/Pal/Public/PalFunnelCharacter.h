@@ -26,9 +26,10 @@ private:
     FPalInstanceID OwnerCharacterId;
     
 public:
-    APalFunnelCharacter();
+    APalFunnelCharacter(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable)
     void SetOwnerCharacterId(const FPalInstanceID NewOwnerCharacterId);
     

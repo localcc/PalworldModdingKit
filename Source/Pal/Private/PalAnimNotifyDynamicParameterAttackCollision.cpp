@@ -7,3 +7,4 @@ UPalAnimNotifyDynamicParameterAttackCollision::UPalAnimNotifyDynamicParameterAtt
     this->MyActor = NULL;
 }
 
+

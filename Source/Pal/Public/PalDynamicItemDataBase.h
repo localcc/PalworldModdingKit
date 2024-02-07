@@ -17,8 +17,9 @@ protected:
     
 public:
     UPalDynamicItemDataBase();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FName GetStaticId() const;
     

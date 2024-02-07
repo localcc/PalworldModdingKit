@@ -1,5 +1,9 @@
 #include "PalBaseCampWorkerEventBase.h"
 
+UPalBaseCampWorkerEventBase::UPalBaseCampWorkerEventBase() {
+    this->logType = EPalLogType::None;
+}
+
 bool UPalBaseCampWorkerEventBase::IsTriggerEventBySanity_Implementation(const float SanityValue) const {
     return false;
 }
@@ -13,7 +17,4 @@ FString UPalBaseCampWorkerEventBase::Debug_CreateTextTriggerEventSanity_Implemen
 }
 
 
-UPalBaseCampWorkerEventBase::UPalBaseCampWorkerEventBase() {
-    this->logType = EPalLogType::None;
-}
 

@@ -9,9 +9,10 @@ UCLASS(Blueprintable)
 class APalGameInstanceViewActor : public AActor {
     GENERATED_BODY()
 public:
-    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TWeakObjectPtr<UObject> Target;
     
-    APalGameInstanceViewActor();
+    APalGameInstanceViewActor(const FObjectInitializer& ObjectInitializer);
+
 };
 

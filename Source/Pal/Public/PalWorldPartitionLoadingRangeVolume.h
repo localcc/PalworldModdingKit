@@ -10,7 +10,8 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<int32, float> LoadingRangeMap;
     
-    APalWorldPartitionLoadingRangeVolume();
+    APalWorldPartitionLoadingRangeVolume(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetOverrideLoadingRange(bool Enable);
     

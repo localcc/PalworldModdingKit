@@ -26,6 +26,7 @@ private:
     UPalBuildObjectInstallStrategyBase* InstallStrategy;
     
 public:
-    APalBuildObjectInstallChecker();
+    APalBuildObjectInstallChecker(const FObjectInitializer& ObjectInitializer);
+
 };
 

@@ -7,6 +7,7 @@ UCLASS(Blueprintable, NonTransient)
 class PAL_API APalHUD : public AHUD {
     GENERATED_BODY()
 public:
-    APalHUD();
+    APalHUD(const FObjectInitializer& ObjectInitializer);
+
 };
 

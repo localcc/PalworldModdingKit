@@ -14,8 +14,9 @@ private:
     
 public:
     UPalOptionReplicator();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnRep_OptionWorldSettings();

@@ -2,6 +2,16 @@
 #include "Net/UnrealNetwork.h"
 #include "PalMoneyData.h"
 
+UPalPlayerInventoryData::UPalPlayerInventoryData() {
+    this->NowItemWeight = 0.00f;
+    this->maxInventoryWeight = 500.00f;
+    this->maxInventoryWeight_Cached = 0.00f;
+    this->InventoryMultiHelper = NULL;
+    this->PassiveBuffedMaxWeight = 0.00f;
+    this->moneyData = CreateDefaultSubobject<UPalMoneyData>(TEXT("moneyData"));
+    this->EquipmentBreakAudioEvent = NULL;
+}
+
 bool UPalPlayerInventoryData::TryRemoveEquipment(UPalItemSlot* EquipSlot) {
     return false;
 }
@@ -165,13 +175,4 @@ void UPalPlayerInventoryData::GetLifetimeReplicatedProps(TArray<FLifetimePropert
     DOREPLIFETIME(UPalPlayerInventoryData, OwnerPlayerUId);
 }
 
-UPalPlayerInventoryData::UPalPlayerInventoryData() {
-    this->NowItemWeight = 0.00f;
-    this->maxInventoryWeight = 500.00f;
-    this->maxInventoryWeight_Cached = 0.00f;
-    this->InventoryMultiHelper = NULL;
-    this->PassiveBuffedMaxWeight = 0.00f;
-    this->moneyData = CreateDefaultSubobject<UPalMoneyData>(TEXT("moneyData"));
-    this->EquipmentBreakAudioEvent = NULL;
-}
 

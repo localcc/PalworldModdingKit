@@ -4,3 +4,4 @@ UPalAIActionWorkerReaction::UPalAIActionWorkerReaction() {
     this->LookTargetCharacter = NULL;
 }
 
+

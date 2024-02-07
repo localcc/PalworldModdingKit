@@ -8,7 +8,8 @@ UCLASS(Blueprintable)
 class PAL_API APalBuildObjectBaseCampPoint : public APalBuildObject {
     GENERATED_BODY()
 public:
-    APalBuildObjectBaseCampPoint();
+    APalBuildObjectBaseCampPoint(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     FTransform GetWorkerSpawnLocalTransform() const;
     

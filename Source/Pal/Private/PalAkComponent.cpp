@@ -1,6 +1,7 @@
 #include "PalAkComponent.h"
 
-UPalAkComponent::UPalAkComponent() {
+UPalAkComponent::UPalAkComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->PersistAcrossLevelTransition = false;
 }
+
 

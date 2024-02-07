@@ -9,3 +9,4 @@ UPalAnimNotifyState_WeaponControl::UPalAnimNotifyState_WeaponControl() {
     this->Priority = EPalShooterFlagContainerPriority::Weapon;
 }
 
+

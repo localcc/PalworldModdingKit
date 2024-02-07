@@ -1,5 +1,8 @@
 #include "PalCaptureJudgeObject.h"
 
+APalCaptureJudgeObject::APalCaptureJudgeObject(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void APalCaptureJudgeObject::OnSuccessFinish_Implementation() {
 }
 
@@ -24,6 +27,4 @@ void APalCaptureJudgeObject::ChallengeCapture(APalCharacter* Character, float ca
 void APalCaptureJudgeObject::CaptureResult_ToALL_Implementation(APalCharacter* Character, FCaptureResult Result) {
 }
 
-APalCaptureJudgeObject::APalCaptureJudgeObject() {
-}
 

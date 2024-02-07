@@ -1,5 +1,9 @@
 #include "PalUIBaseCampWorkersModel.h"
 
+UPalUIBaseCampWorkersModel::UPalUIBaseCampWorkersModel() {
+    this->CurrentPageIndex = 0;
+}
+
 void UPalUIBaseCampWorkersModel::ToPage(const int32 PageIndex) {
 }
 
@@ -29,7 +33,4 @@ FGuid UPalUIBaseCampWorkersModel::GetBaseCampId() const {
     return FGuid{};
 }
 
-UPalUIBaseCampWorkersModel::UPalUIBaseCampWorkersModel() {
-    this->CurrentPageIndex = 0;
-}
 

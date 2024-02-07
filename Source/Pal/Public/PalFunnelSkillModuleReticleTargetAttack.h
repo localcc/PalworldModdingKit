@@ -19,11 +19,12 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float CoolTime;
     
-    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TWeakObjectPtr<APalCharacter> ReticleTarget;
     
 public:
     UPalFunnelSkillModuleReticleTargetAttack();
+
 protected:
     UFUNCTION(BlueprintCallable)
     void Reset();

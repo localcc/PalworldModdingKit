@@ -1,6 +1,16 @@
 #include "PalPlayerRecordData.h"
 #include "Net/UnrealNetwork.h"
 
+UPalPlayerRecordData::UPalPlayerRecordData() {
+    this->BossDefeatCount = 0;
+    this->TribeCaptureCount = 0;
+    this->PalCaptureCountBonusCount_Tier1 = 0;
+    this->PalCaptureCountBonusCount_Tier2 = 0;
+    this->PalCaptureCountBonusCount_Tier3 = 0;
+    this->RelicPossessNum = 0;
+    this->RelicPossessNumMirror = 0;
+}
+
 void UPalPlayerRecordData::OnRep_RelicNum() {
 }
 
@@ -30,13 +40,4 @@ void UPalPlayerRecordData::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
     DOREPLIFETIME(UPalPlayerRecordData, Debug_LastEnteredStageDataLayerName);
 }
 
-UPalPlayerRecordData::UPalPlayerRecordData() {
-    this->BossDefeatCount = 0;
-    this->TribeCaptureCount = 0;
-    this->PalCaptureCountBonusCount_Tier1 = 0;
-    this->PalCaptureCountBonusCount_Tier2 = 0;
-    this->PalCaptureCountBonusCount_Tier3 = 0;
-    this->RelicPossessNum = 0;
-    this->RelicPossessNumMirror = 0;
-}
 

@@ -1,6 +1,9 @@
 #include "PalPassiveSkillComponent.h"
 #include "Net/UnrealNetwork.h"
 
+UPalPassiveSkillComponent::UPalPassiveSkillComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void UPalPassiveSkillComponent::SetupSkillFromSelf(UObject* OwnerObject, const TArray<FName>& skillList) {
 }
 
@@ -32,6 +35,4 @@ void UPalPassiveSkillComponent::GetLifetimeReplicatedProps(TArray<FLifetimePrope
     DOREPLIFETIME(UPalPassiveSkillComponent, SkillInfos);
 }
 
-UPalPassiveSkillComponent::UPalPassiveSkillComponent() {
-}
 

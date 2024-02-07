@@ -1,6 +1,23 @@
 #include "PalStaticItemDataBase.h"
 #include "Templates/SubclassOf.h"
 
+UPalStaticItemDataBase::UPalStaticItemDataBase() {
+    this->TypeA = EPalItemTypeA::None;
+    this->TypeB = EPalItemTypeB::None;
+    this->Rank = 0;
+    this->Rarity = 0;
+    this->Price = 0;
+    this->MaxStackCount = 0;
+    this->SortID = 0;
+    this->DynamicItemDataClass = NULL;
+    this->bNotConsumed = false;
+    this->DropItemType = EPalDropItemType::None;
+    this->Weight = 0.00f;
+    this->Durability = 0.00f;
+    this->CorruptionFactor = 0.00f;
+    this->FloatValue1 = 0.00f;
+}
+
 bool UPalStaticItemDataBase::UseItem(UPalDynamicItemDataBase* DynamicItemData, const UObject* WorldContextObject) {
     return false;
 }
@@ -47,20 +64,4 @@ TSoftClassPtr<AActor> UPalStaticItemDataBase::GetActorClass() const {
     return NULL;
 }
 
-UPalStaticItemDataBase::UPalStaticItemDataBase() {
-    this->TypeA = EPalItemTypeA::None;
-    this->TypeB = EPalItemTypeB::None;
-    this->Rank = 0;
-    this->Rarity = 0;
-    this->Price = 0;
-    this->MaxStackCount = 0;
-    this->SortID = 0;
-    this->DynamicItemDataClass = NULL;
-    this->bNotConsumed = false;
-    this->DropItemType = EPalDropItemType::None;
-    this->Weight = 0.00f;
-    this->Durability = 0.00f;
-    this->CorruptionFactor = 0.00f;
-    this->FloatValue1 = 0.00f;
-}
 

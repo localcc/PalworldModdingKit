@@ -50,7 +50,8 @@ private:
     APalDismantleObjectChecker* DismantleChecker;
     
 public:
-    UPalBuilderComponent();
+    UPalBuilderComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestBuild_ToServer(const FName BuildObjectId, const FVector& Location, const FQuat& Rotation, const TArray<FPalNetArchive>& ExtraParameterArchives, FPalBuildRequestDebugParameter DebugParameter);

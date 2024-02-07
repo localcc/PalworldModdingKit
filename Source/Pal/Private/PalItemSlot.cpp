@@ -1,6 +1,13 @@
 #include "PalItemSlot.h"
 #include "Net/UnrealNetwork.h"
 
+UPalItemSlot::UPalItemSlot() {
+    this->SlotIndex = -1;
+    this->StackCount = 0;
+    this->CorruptionProgressValue = 0.00f;
+    this->DynamicItemData = NULL;
+}
+
 bool UPalItemSlot::TryGetStaticItemData(UPalStaticItemDataBase*& OutStaticItemData) {
     return false;
 }
@@ -71,10 +78,4 @@ void UPalItemSlot::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLife
     DOREPLIFETIME(UPalItemSlot, DynamicItemData);
 }
 
-UPalItemSlot::UPalItemSlot() {
-    this->SlotIndex = -1;
-    this->StackCount = 0;
-    this->CorruptionProgressValue = 0.00f;
-    this->DynamicItemData = NULL;
-}
 

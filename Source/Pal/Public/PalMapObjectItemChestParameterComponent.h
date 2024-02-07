@@ -28,6 +28,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float CorruptionMultiplier;
     
-    UPalMapObjectItemChestParameterComponent();
+    UPalMapObjectItemChestParameterComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

@@ -1,6 +1,7 @@
 #include "PalProceduralFoliageComponent.h"
 
-UPalProceduralFoliageComponent::UPalProceduralFoliageComponent() {
+UPalProceduralFoliageComponent::UPalProceduralFoliageComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->SpawningShape = NULL;
 }
+
 

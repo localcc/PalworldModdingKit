@@ -25,7 +25,8 @@ private:
     TArray<FGuid> MapObjectModelIds;
     
 public:
-    UPalCharacterAroundInfoCollectorComponent();
+    UPalCharacterAroundInfoCollectorComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);

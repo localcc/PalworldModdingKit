@@ -1,6 +1,12 @@
 #include "PalDynamicArmorItemDataBase.h"
 #include "Net/UnrealNetwork.h"
 
+UPalDynamicArmorItemDataBase::UPalDynamicArmorItemDataBase() {
+    this->Durability = 0.00f;
+    this->MaxDurability = 0.00f;
+    this->OldDurability = -1.00f;
+}
+
 void UPalDynamicArmorItemDataBase::SetDurability(float NewDurability) {
 }
 
@@ -38,9 +44,4 @@ void UPalDynamicArmorItemDataBase::GetLifetimeReplicatedProps(TArray<FLifetimePr
     DOREPLIFETIME(UPalDynamicArmorItemDataBase, PassiveSkillList);
 }
 
-UPalDynamicArmorItemDataBase::UPalDynamicArmorItemDataBase() {
-    this->Durability = 0.00f;
-    this->MaxDurability = 0.00f;
-    this->OldDurability = -1.00f;
-}
 

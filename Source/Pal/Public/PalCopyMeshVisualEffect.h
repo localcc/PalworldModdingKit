@@ -20,7 +20,8 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPalPoseableMeshComponent* PoseableSkeletalMeshComponent;
     
-    APalCopyMeshVisualEffect();
+    APalCopyMeshVisualEffect(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void Setup(USkeletalMeshComponent* MeshComponent);
     

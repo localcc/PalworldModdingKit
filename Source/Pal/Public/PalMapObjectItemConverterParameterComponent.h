@@ -24,6 +24,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float WorkSpeedAdditionalRate;
     
-    UPalMapObjectItemConverterParameterComponent();
+    UPalMapObjectItemConverterParameterComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

@@ -28,8 +28,9 @@ private:
     
 public:
     UPalLocationPoint_Character();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnDestroyedTarget(AActor* Target);

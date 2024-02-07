@@ -7,6 +7,7 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalNetworkWorldSecurityComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPalNetworkWorldSecurityComponent();
+    UPalNetworkWorldSecurityComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

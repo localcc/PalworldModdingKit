@@ -2,6 +2,14 @@
 #include "Components/ExponentialHeightFogComponent.h"
 #include "Net/UnrealNetwork.h"
 
+APalExponentialHeightFogVolume::APalExponentialHeightFogVolume(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->RootComponent = CreateDefaultSubobject<UExponentialHeightFogComponent>(TEXT("HeightFogComponent0"));
+    this->Component = (UExponentialHeightFogComponent*)RootComponent;
+    this->bEnabled = false;
+    this->bEnableSwitchVisibility = true;
+    this->bDisableEnabledFlag = false;
+}
+
 void APalExponentialHeightFogVolume::OnRep_bEnabled() {
 }
 
@@ -11,10 +19,4 @@ void APalExponentialHeightFogVolume::GetLifetimeReplicatedProps(TArray<FLifetime
     DOREPLIFETIME(APalExponentialHeightFogVolume, bEnabled);
 }
 
-APalExponentialHeightFogVolume::APalExponentialHeightFogVolume() {
-    this->Component = CreateDefaultSubobject<UExponentialHeightFogComponent>(TEXT("HeightFogComponent0"));
-    this->bEnabled = false;
-    this->bEnableSwitchVisibility = true;
-    this->bDisableEnabledFlag = false;
-}
 

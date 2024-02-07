@@ -11,6 +11,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalDataTableRowName_NoteData NoteRowName;
     
-    UPalMapObjectNoteObjectParameterComponent();
+    UPalMapObjectNoteObjectParameterComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

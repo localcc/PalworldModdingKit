@@ -1,6 +1,7 @@
 #include "PalBuildObjectVisualControlComponent.h"
 
-UPalBuildObjectVisualControlComponent::UPalBuildObjectVisualControlComponent() {
+UPalBuildObjectVisualControlComponent::UPalBuildObjectVisualControlComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->DamageNiagaraComp = NULL;
 }
+
 

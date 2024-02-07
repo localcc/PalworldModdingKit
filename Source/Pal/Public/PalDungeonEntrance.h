@@ -20,9 +20,10 @@ private:
     UPalStageModelDungeon* StageModel;
     
 public:
-    APalDungeonEntrance();
+    APalDungeonEntrance(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool TryGetDungeonInstanceModel(UPalDungeonInstanceModel*& OutModel) const;
     
@@ -50,7 +51,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     FTransform GetDeadItemDropPoint() const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

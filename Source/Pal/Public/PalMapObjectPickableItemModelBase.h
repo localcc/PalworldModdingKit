@@ -19,8 +19,9 @@ private:
     
 public:
     UPalMapObjectPickableItemModelBase();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
     UFUNCTION(BlueprintCallable)
     void RequestPickup_ServerInternal(const int32 RequestPlayerId);

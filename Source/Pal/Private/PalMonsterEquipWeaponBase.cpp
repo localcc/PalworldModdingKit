@@ -1,6 +1,9 @@
 #include "PalMonsterEquipWeaponBase.h"
 #include "Templates/SubclassOf.h"
 
+APalMonsterEquipWeaponBase::APalMonsterEquipWeaponBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 APalBullet* APalMonsterEquipWeaponBase::ShootOneBulletDefault() {
     return NULL;
 }
@@ -18,6 +21,4 @@ FVector APalMonsterEquipWeaponBase::GetCommonTargetLocation() {
 
 
 
-APalMonsterEquipWeaponBase::APalMonsterEquipWeaponBase() {
-}
 

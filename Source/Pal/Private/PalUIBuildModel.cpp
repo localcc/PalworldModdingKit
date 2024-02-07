@@ -1,5 +1,8 @@
 #include "PalUIBuildModel.h"
 
+UPalUIBuildModel::UPalUIBuildModel() {
+}
+
 void UPalUIBuildModel::StartDismantleMode(const int32 LastSelectedIndex, bool bFromRadialMenu) const {
 }
 
@@ -18,6 +21,4 @@ void UPalUIBuildModel::GetBuildObjectDataArrayForTypeAByTypeB(const EPalBuildObj
 void UPalUIBuildModel::FinishDismantleMode() const {
 }
 
-UPalUIBuildModel::UPalUIBuildModel() {
-}
 

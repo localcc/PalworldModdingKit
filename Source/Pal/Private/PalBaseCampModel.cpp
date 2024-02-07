@@ -1,6 +1,17 @@
 #include "PalBaseCampModel.h"
 #include "Net/UnrealNetwork.h"
 
+UPalBaseCampModel::UPalBaseCampModel() {
+    this->CurrentState = EPalBaseCampState::NotAvailable;
+    this->AreaRange = 0.00f;
+    this->WorkerDirector = NULL;
+    this->MapObjectCollection = NULL;
+    this->WorkCollection = NULL;
+    this->EnemyObserver = NULL;
+    this->Level_InGuildProperty = 1;
+    this->ProgressTimeSinceLastTick = 0.00f;
+}
+
 void UPalBaseCampModel::UpdateLevel_ServerInternal(int32 PlayerId, int32 NewLevel) {
 }
 
@@ -92,14 +103,4 @@ void UPalBaseCampModel::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Ou
     DOREPLIFETIME(UPalBaseCampModel, Level_InGuildProperty);
 }
 
-UPalBaseCampModel::UPalBaseCampModel() {
-    this->CurrentState = EPalBaseCampState::NotAvailable;
-    this->AreaRange = 0.00f;
-    this->WorkerDirector = NULL;
-    this->MapObjectCollection = NULL;
-    this->WorkCollection = NULL;
-    this->EnemyObserver = NULL;
-    this->Level_InGuildProperty = 1;
-    this->ProgressTimeSinceLastTick = 0.00f;
-}
 

@@ -1,5 +1,13 @@
 #include "PalStaticConsumeItemData.h"
 
+UPalStaticConsumeItemData::UPalStaticConsumeItemData() {
+    this->RestoreHP = 0;
+    this->RestoreSP = 0;
+    this->RestoreSatiety = 0;
+    this->RestoreSanity = 0;
+    this->WazaID = EPalWazaID::None;
+}
+
 EPalWazaID UPalStaticConsumeItemData::GetWazaID() const {
     return EPalWazaID::None;
 }
@@ -20,11 +28,4 @@ int32 UPalStaticConsumeItemData::GetRestoreHP() const {
     return 0;
 }
 
-UPalStaticConsumeItemData::UPalStaticConsumeItemData() {
-    this->RestoreHP = 0;
-    this->RestoreSP = 0;
-    this->RestoreSatiety = 0;
-    this->RestoreSanity = 0;
-    this->WazaID = EPalWazaID::None;
-}
 

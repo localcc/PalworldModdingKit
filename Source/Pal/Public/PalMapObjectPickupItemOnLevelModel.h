@@ -17,8 +17,9 @@ private:
     
 public:
     UPalMapObjectPickupItemOnLevelModel();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnUpdateItemContainerContents(UPalItemContainer* Container);
@@ -27,7 +28,7 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FName GetVisualStaticItemId() const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 public:
     UFUNCTION(BlueprintCallable)

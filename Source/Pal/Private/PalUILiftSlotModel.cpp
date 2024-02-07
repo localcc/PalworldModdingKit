@@ -1,5 +1,9 @@
 #include "PalUILiftSlotModel.h"
 
+UPalUILiftSlotModel::UPalUILiftSlotModel() {
+    this->CharacterSlot = NULL;
+}
+
 void UPalUILiftSlotModel::SelectItemSlot(const FPalItemSlotId SlotID, const EPalItemSlotPressType Type) {
 }
 
@@ -19,7 +23,4 @@ bool UPalUILiftSlotModel::IsLift() const {
     return false;
 }
 
-UPalUILiftSlotModel::UPalUILiftSlotModel() {
-    this->CharacterSlot = NULL;
-}
 

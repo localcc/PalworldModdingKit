@@ -1,12 +1,15 @@
 #include "PalNetworkCharacterStatusOperationComponent.h"
 
+UPalNetworkCharacterStatusOperationComponent::UPalNetworkCharacterStatusOperationComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void UPalNetworkCharacterStatusOperationComponent::RequestReviveCharacterFromDying_ToServer_Implementation(APalCharacter* Character) {
 }
 
 void UPalNetworkCharacterStatusOperationComponent::RequestReviveCharacterFromDying(APalCharacter* Character) {
 }
 
-void UPalNetworkCharacterStatusOperationComponent::RequestPlayerStatusUp_ToServer_Implementation(const int32 ToRank) {
+void UPalNetworkCharacterStatusOperationComponent::RequestPlayerStatusUp_ToServer_Implementation(int32 ToRank) {
 }
 
 void UPalNetworkCharacterStatusOperationComponent::RequestPlayerStatusClear_ToServer_Implementation() {
@@ -43,6 +46,4 @@ UPalNetworkCharacterStatusOperationComponent* UPalNetworkCharacterStatusOperatio
     return NULL;
 }
 
-UPalNetworkCharacterStatusOperationComponent::UPalNetworkCharacterStatusOperationComponent() {
-}
 

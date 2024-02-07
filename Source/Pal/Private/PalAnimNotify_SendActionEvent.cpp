@@ -4,3 +4,4 @@ UPalAnimNotify_SendActionEvent::UPalAnimNotify_SendActionEvent() {
     this->NotifyType = EPalCurrentActionNotifyType::Attack;
 }
 
+

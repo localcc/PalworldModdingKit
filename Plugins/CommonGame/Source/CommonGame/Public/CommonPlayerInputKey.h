@@ -1,6 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "ECommonInputType.h"
+#include "CommonInputBaseTypes.h"
 #include "CommonUserWidget.h"
 #include "UObject/NoExportTypes.h"
 #include "InputCoreTypes.h"

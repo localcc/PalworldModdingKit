@@ -1,6 +1,9 @@
 #include "PalShopBase.h"
 #include "Net/UnrealNetwork.h"
 
+UPalShopBase::UPalShopBase() {
+}
+
 void UPalShopBase::OnUpdateAnyProductStock(int32 NowStock) {
 }
 
@@ -30,6 +33,4 @@ void UPalShopBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLife
     DOREPLIFETIME(UPalShopBase, ProductArray);
 }
 
-UPalShopBase::UPalShopBase() {
-}
 

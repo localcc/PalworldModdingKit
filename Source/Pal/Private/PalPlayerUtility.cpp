@@ -1,5 +1,8 @@
 #include "PalPlayerUtility.h"
 
+UPalPlayerUtility::UPalPlayerUtility() {
+}
+
 void UPalPlayerUtility::WritePlayerGrappling(FPalNetArchive& Blackboard, const FVector& HitLocatoin, const FVector& MoveEndLocation, const float& Speed) {
 }
 
@@ -12,6 +15,4 @@ void UPalPlayerUtility::ReadPlayerGrappling(const FPalNetArchive& Blackboard, FV
 void UPalPlayerUtility::ReadPlayerFeedItemTo(const FPalNetArchive& Blackboard, FPalItemSlotId& itemSlotId, int32& itemNum) {
 }
 
-UPalPlayerUtility::UPalPlayerUtility() {
-}
 

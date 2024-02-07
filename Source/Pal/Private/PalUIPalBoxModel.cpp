@@ -1,5 +1,9 @@
 #include "PalUIPalBoxModel.h"
 
+UPalUIPalBoxModel::UPalUIPalBoxModel() {
+    this->CurrentPageIndex = 0;
+}
+
 void UPalUIPalBoxModel::ToPrevPage() {
 }
 
@@ -21,7 +25,4 @@ TArray<UPalIndividualCharacterSlot*> UPalUIPalBoxModel::GetCurrentPageSlots() co
     return TArray<UPalIndividualCharacterSlot*>();
 }
 
-UPalUIPalBoxModel::UPalUIPalBoxModel() {
-    this->CurrentPageIndex = 0;
-}
 

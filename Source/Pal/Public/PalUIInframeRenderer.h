@@ -11,7 +11,8 @@ UCLASS(Blueprintable)
 class PAL_API APalUIInframeRenderer : public AActor {
     GENERATED_BODY()
 public:
-    APalUIInframeRenderer();
+    APalUIInframeRenderer(const FObjectInitializer& ObjectInitializer);
+
 protected:
     UFUNCTION(BlueprintCallable)
     UPalStaticCharacterParameterComponent* GetStaticParameteComponentFromActorClassr(const TSubclassOf<AActor>& TargetActorClass);

@@ -18,7 +18,8 @@ private:
     UPalHeatSourceModule* HeatSourceModule;
     
 public:
-    UPalHeatSourceSphereComponent();
+    UPalHeatSourceSphereComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetActiveHeatSource(bool NextIsActive);
     

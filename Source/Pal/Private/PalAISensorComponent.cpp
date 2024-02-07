@@ -1,6 +1,19 @@
 #include "PalAISensorComponent.h"
 #include "Templates/SubclassOf.h"
 
+UPalAISensorComponent::UPalAISensorComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->SelfPawn = NULL;
+    this->SightAngleThreshold = 0.00f;
+    this->SightDistance = -1.00f;
+    this->HearingRate = 0.00f;
+    this->HumanAndNoneWeapon = false;
+    this->IsIgnoreSoundReaction = false;
+    this->RecentMaxSoundLevel = 0.00f;
+    this->ResponsedMaxBiologicalGrade = -99999;
+    this->AIResponsePreset = NULL;
+    this->AISightResponse = NULL;
+}
+
 void UPalAISensorComponent::SightCheckAllPlayer(TArray<APalCharacter*>& InSightPlayers, float RangeRate) {
 }
 
@@ -49,16 +62,4 @@ void UPalAISensorComponent::DisableHearing() {
 void UPalAISensorComponent::DeadAutoRemoveDelegate(FPalDeadInfo DeadInfo) {
 }
 
-UPalAISensorComponent::UPalAISensorComponent() {
-    this->SelfPawn = NULL;
-    this->SightAngleThreshold = 0.00f;
-    this->SightDistance = -1.00f;
-    this->HearingRate = 0.00f;
-    this->HumanAndNoneWeapon = false;
-    this->IsIgnoreSoundReaction = false;
-    this->RecentMaxSoundLevel = 0.00f;
-    this->ResponsedMaxBiologicalGrade = -99999;
-    this->AIResponsePreset = NULL;
-    this->AISightResponse = NULL;
-}
 

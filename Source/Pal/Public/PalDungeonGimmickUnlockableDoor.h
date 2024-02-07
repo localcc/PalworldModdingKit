@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class PAL_API APalDungeonGimmickUnlockableDoor : public AActor {
     GENERATED_BODY()
 public:
-    APalDungeonGimmickUnlockableDoor();
+    APalDungeonGimmickUnlockableDoor(const FObjectInitializer& ObjectInitializer);
+
 };
 

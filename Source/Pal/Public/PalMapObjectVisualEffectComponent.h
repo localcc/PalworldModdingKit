@@ -17,7 +17,8 @@ private:
     TMap<EPalMapObjectVisualEffectType, FPalMapObjectVisualEffectInstanceSet> SpawnedEffectMap;
     
 public:
-    UPalMapObjectVisualEffectComponent();
+    UPalMapObjectVisualEffectComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintCallable)
     void UpdateVisualByEffect(UPalMapObjectModelEffectBase* Effect);

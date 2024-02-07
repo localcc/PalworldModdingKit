@@ -14,7 +14,8 @@ private:
     APalBuildObject* TargetBuildObject;
     
 public:
-    APalDismantleObjectChecker();
+    APalDismantleObjectChecker(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     APalBuildObject* GetTargetObject();
     

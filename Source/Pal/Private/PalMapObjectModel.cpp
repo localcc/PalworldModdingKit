@@ -1,6 +1,19 @@
 #include "PalMapObjectModel.h"
 #include "Net/UnrealNetwork.h"
 
+UPalMapObjectModel::UPalMapObjectModel() {
+    this->ConcreteModel = NULL;
+    this->BuildProcess = NULL;
+    this->DamagableType = EPalMapObjectDamagableType::AllRecieve;
+    this->Connector = NULL;
+    this->Effect = NULL;
+    this->bInDoor = false;
+    this->InteractRestrictType = EPalMapObjectInteractRestrictType::Anyone;
+    this->DeteriorationDamage = 0.00f;
+    this->DeteriorationTotalDamage = 0.00f;
+    this->bIgnoredSave = false;
+}
+
 void UPalMapObjectModel::RequestRepairByPlayer_ToServer_ServerInternal(const FGuid& RequestPlayerUId) {
 }
 
@@ -62,16 +75,4 @@ void UPalMapObjectModel::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& O
     DOREPLIFETIME(UPalMapObjectModel, InteractRestrictType);
 }
 
-UPalMapObjectModel::UPalMapObjectModel() {
-    this->ConcreteModel = NULL;
-    this->BuildProcess = NULL;
-    this->DamagableType = EPalMapObjectDamagableType::AllRecieve;
-    this->Connector = NULL;
-    this->Effect = NULL;
-    this->bInDoor = false;
-    this->InteractRestrictType = EPalMapObjectInteractRestrictType::Anyone;
-    this->DeteriorationDamage = 0.00f;
-    this->DeteriorationTotalDamage = 0.00f;
-    this->bIgnoredSave = false;
-}
 

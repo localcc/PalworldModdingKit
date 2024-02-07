@@ -1,5 +1,6 @@
 #include "PalSpectator.h"
 
-APalSpectator::APalSpectator() {
+APalSpectator::APalSpectator(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

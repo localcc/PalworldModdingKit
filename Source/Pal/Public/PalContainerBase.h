@@ -23,8 +23,9 @@ protected:
     
 public:
     UPalContainerBase();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsEmpty() const;
     
