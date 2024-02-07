@@ -6,3 +6,7 @@ APalNPC::APalNPC(const FObjectInitializer& ObjectInitializer) : Super(ObjectInit
     this->DefaultVoiceID = -1;
 }
 
+void APalNPC::OnCompletedInitParam(APalCharacter* InCharacter) {
+}
+
+

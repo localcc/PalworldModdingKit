@@ -4,6 +4,9 @@ UPalUIRepairItemBase::UPalUIRepairItemBase() {
     this->RepairItemModel = NULL;
 }
 
+void UPalUIRepairItemBase::SetMaxDurabilityForce(const TArray<UPalItemSlot*>& TargetItemSlotArray) {
+}
+
 void UPalUIRepairItemBase::RequestRepair(const TArray<UPalItemSlot*>& TargetItemSlotArray) {
 }
 

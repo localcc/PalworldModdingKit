@@ -17,6 +17,9 @@ void UPalGroupGuildBase::OnRep_Guildname() {
 void UPalGroupGuildBase::OnRep_BaseCampLevel(int32 OldValue) {
 }
 
+void UPalGroupGuildBase::OnReceivedWordFilteringResult(const FString& ResponseBody, bool bResponseOK, int32 ResponseCode) {
+}
+
 void UPalGroupGuildBase::OnDeletePlayerAccount_ServerInternal(UPalPlayerAccount* DeleteAccount) {
 }
 

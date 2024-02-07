@@ -82,6 +82,9 @@ void APalPlayerCharacter::OnDownBattleEnemyRank_Implementation(EPalPlayerBattleF
 void APalPlayerCharacter::OnDamagePlayer_Server(FPalDamageResult DamageResult) {
 }
 
+void APalPlayerCharacter::OnCompleteInitializeParameter(APalCharacter* InCharacter) {
+}
+
 void APalPlayerCharacter::OnChangeShooterState(bool IsAim, bool IsShoot) {
 }
 

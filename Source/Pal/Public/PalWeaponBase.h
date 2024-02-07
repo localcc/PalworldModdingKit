@@ -401,7 +401,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     float CalcAccuracy();
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

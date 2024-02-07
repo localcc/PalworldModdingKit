@@ -82,6 +82,9 @@ private:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     EPalMapObjectOperationResult IsEnableBuild() const;
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    void GetSelectedBuildObjectId(FName& OutSelectedBuildObjectId) const;
+    
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     APalBuildObject* GetDismantleTargetObject();

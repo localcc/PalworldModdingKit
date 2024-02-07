@@ -117,6 +117,9 @@ public:
     EPalPlayerInventoryType GetPrimaryInventoryType();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    TMap<FName, APalWeaponBase*> GetPalSphereActorMap();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetNowEquipedBallItemID(FName& OutBallItemID) const;
     
 private:

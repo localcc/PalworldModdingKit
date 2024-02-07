@@ -64,6 +64,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float DefaultJumpZVelocity;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    FVector InitialMeshLocation;
+    
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<EPalWeaponType, FVector2D> BackRideLimit;
@@ -99,9 +102,6 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetDisableAdjustRotation(FName flagName, bool bIsDisable);
-    
-    UFUNCTION(BlueprintCallable)
-    void SetDefaultMeshLocation(FVector Location);
     
     UFUNCTION(BlueprintCallable)
     void RideClientRep(UPalRideMarkerComponent* Marker);
@@ -181,9 +181,6 @@ public:
     
     UFUNCTION(BlueprintCallable)
     bool GetOff(bool bIsSkipAnimation, bool bNoAnimCancel);
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    FVector GetDefaultMeshLocation() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     EPalRidePositionType GetCurrentRidePositionType() const;

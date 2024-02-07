@@ -25,9 +25,6 @@ void UPalRiderComponent::SetDisableGetOff(FName flagName, bool bIsDisable) {
 void UPalRiderComponent::SetDisableAdjustRotation(FName flagName, bool bIsDisable) {
 }
 
-void UPalRiderComponent::SetDefaultMeshLocation(FVector Location) {
-}
-
 void UPalRiderComponent::RideClientRep(UPalRideMarkerComponent* Marker) {
 }
 
@@ -113,10 +110,6 @@ bool UPalRiderComponent::GetOff(bool bIsSkipAnimation, bool bNoAnimCancel) {
     return false;
 }
 
-FVector UPalRiderComponent::GetDefaultMeshLocation() const {
-    return FVector{};
-}
-
 EPalRidePositionType UPalRiderComponent::GetCurrentRidePositionType() const {
     return EPalRidePositionType::None;
 }
@@ -142,6 +135,7 @@ void UPalRiderComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& O
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(UPalRiderComponent, RidingMarker);
+    DOREPLIFETIME(UPalRiderComponent, InitialMeshLocation);
 }
 
 

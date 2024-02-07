@@ -157,6 +157,7 @@ public:
     DECLARE_DYNAMIC_DELEGATE_TwoParams(FLoadIconToImageDelegate, UImage*, ImageWidget, UTexture2D*, Texture);
     
     UPalUtility();
+
     UFUNCTION(BlueprintCallable)
     static void UpdatePlayerCharacterParameter(const APalCharacter* Character);
     
@@ -853,6 +854,9 @@ public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void GetPalCharacters(const UObject* WorldContextObject, TArray<APalCharacter*>& OutCharacters);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static void GetOverrideLoginPlayerUId(const UObject* WorldContextObject, FGuid& PlayerUId);
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static TArray<int32> GetOverlapFoliageIndexByComponent(UPrimitiveComponent* AttackComponent, UPrimitiveComponent* FolageComponent);
     
@@ -1293,6 +1297,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static void ClearCharacterRagdoll(APalCharacter* Character);
+    
+    UFUNCTION(BlueprintCallable)
+    static void ChangeDefaultLandMovementModeForWalking(APalCharacter* Character);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool CanUseTargetMedicine(const UObject* WorldContextObject, UPalIndividualCharacterParameter* IndividualParameter, const UPalStaticItemDataBase* Item);

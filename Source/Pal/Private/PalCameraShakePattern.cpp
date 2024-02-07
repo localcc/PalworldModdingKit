@@ -1,6 +1,6 @@
 #include "PalCameraShakePattern.h"
 
-UPalCameraShakePattern::UPalCameraShakePattern() : Super(FObjectInitializer()) {
+UPalCameraShakePattern::UPalCameraShakePattern(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
 
 

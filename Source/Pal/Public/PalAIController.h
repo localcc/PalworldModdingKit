@@ -92,6 +92,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FTimerHandle SelfDeleteTimerHandle;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bShouldCheckStuckByTick;
+    
 public:
     APalAIController(const FObjectInitializer& ObjectInitializer);
 

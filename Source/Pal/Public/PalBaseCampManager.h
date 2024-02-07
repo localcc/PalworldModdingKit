@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
 #include "Engine/DataTable.h"
 #include "EPalBaseCampWorkerEventType.h"
 #include "PalBaseCampSignificanceInfo.h"
@@ -65,11 +66,15 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float UpdateIntervalSquaredDistanceFromPlayer;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FTransform SpawnPointInBaseCampPointSubLocalTransform;
+    
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 BaseCampTickInvokeMaxNumInOneTick;
     
 public:
     UPalBaseCampManager();
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool TryGetModel(const FGuid& BaseCampId, UPalBaseCampModel*& OutModel) const;
     
@@ -99,7 +104,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetBaseCampIds(TArray<FGuid>& OutIds) const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

@@ -152,6 +152,9 @@ void APalPlayerController::OnChangeKeyboardOption(const FPalOptionKeyboardSettin
 }
 
 
+void APalPlayerController::NotifyLiftupCampPal_ToClient_Implementation(APalCharacter* TargetCharacter) {
+}
+
 void APalPlayerController::JumpCancelPalThrow(UPalCharacterMovementComponent* MovementComponent) {
 }
 

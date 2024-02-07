@@ -5,5 +5,6 @@ FPalDeadInfo::FPalDeadInfo() {
     this->LastAttacker = NULL;
     this->SelfActor = NULL;
     this->SelfDestructWaza = EPalWazaID::None;
+    this->DeadType = EPalDeadType::Undefined;
 }
 

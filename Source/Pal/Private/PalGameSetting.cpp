@@ -92,6 +92,7 @@ UPalGameSetting::UPalGameSetting() {
     this->Swimming_SP_DashSwim = 10.00f;
     this->FluidFriction = 1.80f;
     this->OverWeightSpeedZero_AddPercent = 50.00f;
+    this->OverWeightMinSpeed = 50.00f;
     this->WalkableFloorAngleForDefault = 89.00f;
     this->WalkableFloorAngleForRide = 45.00f;
     this->IsEnableSpeedCollision = false;
@@ -224,6 +225,7 @@ UPalGameSetting::UPalGameSetting() {
     this->BaseCampTimeFinishBattleModeAfterEmptyEnemy = 5.00f;
     this->BaseCampWorkerMoveModeChangeThreshold = EPalCharacterImportanceType::Farthest;
     this->BaseCampWorkerDirectorTickForAssignWorkByCount = 3;
+    this->BaseCampWorkerTimeDetectContinuousStuck = 10.00f;
     this->BaseCampWorkerLookToTargetWork = 10.00f;
     this->ReviveWorkAdditionalRange = 100.00f;
     this->WorkAroundRangeDefault = 1000.00f;

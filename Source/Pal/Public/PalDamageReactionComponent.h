@@ -78,14 +78,17 @@ private:
     
 public:
     UPalDamageReactionComponent(const FObjectInitializer& ObjectInitializer);
-    
+
     UFUNCTION(BlueprintCallable)
     void SlipDamageAndBlowWhenDead(int32 Damage, FVector Velocity);
     
     UFUNCTION(BlueprintCallable)
-    void SlipDamage(int32 Damage, bool ShieldIgnore);
+    void SlipDamage(int32 Damage, bool ShieldIgnore, EPalDeadType DeadType);
     
 private:
+    UFUNCTION(BlueprintCallable)
+    void ShowDeadDebugLog(FPalDeadInfo DeadInfo);
+    
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void ProcessDeath_ToServer();
     

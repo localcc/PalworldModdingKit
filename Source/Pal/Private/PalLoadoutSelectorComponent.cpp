@@ -59,6 +59,10 @@ EPalPlayerInventoryType UPalLoadoutSelectorComponent::GetPrimaryInventoryType() 
     return EPalPlayerInventoryType::Common;
 }
 
+TMap<FName, APalWeaponBase*> UPalLoadoutSelectorComponent::GetPalSphereActorMap() {
+    return TMap<FName, APalWeaponBase*>();
+}
+
 void UPalLoadoutSelectorComponent::GetNowEquipedBallItemID(FName& OutBallItemID) const {
 }
 

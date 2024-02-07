@@ -39,6 +39,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ActionWalkableFloorAngle;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsDisableNavWalk;
+    
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsReflectForClient;
@@ -49,6 +52,7 @@ private:
     
 public:
     UPalActionBase();
+
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void TickAction(float DeltaTime);
     

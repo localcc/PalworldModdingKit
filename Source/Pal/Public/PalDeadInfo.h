@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "EPalDeadType.h"
 #include "EPalWazaID.h"
 #include "PalDeadInfo.generated.h"
 
@@ -27,6 +28,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalWazaID SelfDestructWaza;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalDeadType DeadType;
     
     PAL_API FPalDeadInfo();
 };

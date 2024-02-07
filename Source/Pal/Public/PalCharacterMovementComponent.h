@@ -186,6 +186,9 @@ private:
     FFlagContainer StepDisableFlag;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FFlagContainer NavWalkDisableFlag;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<EPalWalkableFloorAnglePriority, float> WalkableFloorAngleOverridesMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -281,6 +284,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetPysicsAccelerationFlag(FName flagName, bool isEnable);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetNavWalkDisableFlag(FName flagName, bool isDisable);
     
     UFUNCTION(BlueprintCallable)
     void SetMoveDisableFlag(FName flagName, bool isDisable);
@@ -380,6 +386,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPysicsAcceleration() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsNavWalkDisabled() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsMoveDisabled() const;

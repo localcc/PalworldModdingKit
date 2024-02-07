@@ -7,6 +7,7 @@
 #include "PalLogAdditionalData.h"
 #include "PalLogInfo_DropPal.h"
 #include "PalLogInfo_Skill.h"
+#include "PalMealLogDisplayData.h"
 #include "PalStaticItemIdAndNum.h"
 #include "PalLogUtility.generated.h"
 
@@ -18,6 +19,7 @@ class PAL_API UPalLogUtility : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UPalLogUtility();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetTextureToAdditionalDataFromStaticItemIDs(const UObject* WorldContextObject, UPARAM(Ref) FPalLogAdditionalData& targetData, const TArray<FName>& StaticItemIds);
     
@@ -65,6 +67,9 @@ public:
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void AddSkillLog(const UObject* WorldContextObject, EPalLogType logType, const FPalLogInfo_Skill& Info);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void AddMealLog(const UObject* WorldContextObject, const FPalMealLogDisplayData& DisplayData);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void AddItemGetLog(const UObject* WorldContextObject, const FPalStaticItemIdAndNum& ItemIDAndNum);

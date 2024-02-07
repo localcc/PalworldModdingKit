@@ -3,3 +3,10 @@
 UPalUIBuilding::UPalUIBuilding() {
 }
 
+bool UPalUIBuilding::IsExistBaseCamp() {
+    return false;
+}
+
+
+
+

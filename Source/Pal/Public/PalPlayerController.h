@@ -91,6 +91,9 @@ public:
     FOnInteractDelegate OnInteractDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnInteractDelegate OnInteract2Delegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnPressedJumpDelegate OnPressedJumpDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -363,6 +366,9 @@ protected:
     void OnChangeInstructions();
     
 private:
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void NotifyLiftupCampPal_ToClient(APalCharacter* TargetCharacter);
+    
     UFUNCTION(BlueprintCallable)
     void JumpCancelPalThrow(UPalCharacterMovementComponent* MovementComponent);
     

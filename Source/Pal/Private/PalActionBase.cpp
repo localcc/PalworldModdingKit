@@ -7,6 +7,7 @@ UPalActionBase::UPalActionBase() {
     this->bIsChangeWorkAnimPlayRate = true;
     this->bIsChangeWalkableFloorAngle = true;
     this->ActionWalkableFloorAngle = 45.00f;
+    this->bIsDisableNavWalk = false;
     this->bIsReflectForClient = false;
 }
 

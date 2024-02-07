@@ -306,6 +306,9 @@ void APalPlayerState::CallOrRegisterOnCompleteSyncPlayerFromServer_InClient(APal
 void APalPlayerState::CallOrRegisterOnCompleteLoadInitWorldPartition_InClient(APalPlayerState::FOnCompleteLoadWorldPartitionDelegate Delegate) {
 }
 
+void APalPlayerState::AddMealLog_Implementation(const TArray<FPalMealLogDisplayData>& DisplayDataArray) {
+}
+
 void APalPlayerState::AddItemGetLog_ToClient_Implementation(const FPalStaticItemIdAndNum& ItemAndNum) const {
 }
 

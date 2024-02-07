@@ -5,6 +5,7 @@
 UENUM(BlueprintType)
 enum class EPalLiftupRequestResult : uint8 {
     Success,
+    FailedNotExistsTargetCharacter,
     FailedNotExistsLiftupComponent,
     FailedInvalidPlayerIdInController,
     FailedInvalidDefaultCharacterInController,

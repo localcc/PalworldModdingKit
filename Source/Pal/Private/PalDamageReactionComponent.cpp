@@ -9,7 +9,10 @@ UPalDamageReactionComponent::UPalDamageReactionComponent(const FObjectInitialize
 void UPalDamageReactionComponent::SlipDamageAndBlowWhenDead(int32 Damage, FVector Velocity) {
 }
 
-void UPalDamageReactionComponent::SlipDamage(int32 Damage, bool ShieldIgnore) {
+void UPalDamageReactionComponent::SlipDamage(int32 Damage, bool ShieldIgnore, EPalDeadType DeadType) {
+}
+
+void UPalDamageReactionComponent::ShowDeadDebugLog(FPalDeadInfo DeadInfo) {
 }
 
 void UPalDamageReactionComponent::ProcessDeath_ToServer_Implementation() {

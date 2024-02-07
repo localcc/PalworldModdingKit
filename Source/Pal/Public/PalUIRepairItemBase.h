@@ -17,7 +17,11 @@ private:
     
 public:
     UPalUIRepairItemBase();
+
 protected:
+    UFUNCTION(BlueprintCallable)
+    void SetMaxDurabilityForce(const TArray<UPalItemSlot*>& TargetItemSlotArray);
+    
     UFUNCTION(BlueprintCallable)
     void RequestRepair(const TArray<UPalItemSlot*>& TargetItemSlotArray);
     

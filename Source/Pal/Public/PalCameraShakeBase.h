@@ -37,5 +37,6 @@ public:
     float OscillatorTimeRemaining;
     
     UPalCameraShakeBase(const FObjectInitializer& ObjectInitializer);
+
 };
 

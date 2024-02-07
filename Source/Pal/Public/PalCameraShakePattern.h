@@ -7,6 +7,6 @@ UCLASS(Blueprintable, EditInlineNew)
 class PAL_API UPalCameraShakePattern : public UCameraShakePattern {
     GENERATED_BODY()
 public:
-    UPalCameraShakePattern();
+    UPalCameraShakePattern(const FObjectInitializer& ObjectInitializer);
 };
 

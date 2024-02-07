@@ -93,6 +93,9 @@ void UPalNetworkBaseCampComponent::Notify_Multicast_FPalNetArchive_Implementatio
 void UPalNetworkBaseCampComponent::Notify_Multicast_bool_Implementation(const FGuid& BaseCampId, const FName FunctionName, bool Value) {
 }
 
+void UPalNetworkBaseCampComponent::BroadcastBaseCampWorkerMealLog_Server_Implementation(const FPalMealLogDisplayData& DisplayData) {
+}
+
 void UPalNetworkBaseCampComponent::BroadcastBaseCampWorkerLog_Server_Implementation(EPalLogType DisplayLogType, const FPalInstanceID& WorkerCharacterInstanceId, const FName& EventDataID) {
 }
 

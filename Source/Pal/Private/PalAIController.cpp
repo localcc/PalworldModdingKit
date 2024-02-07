@@ -20,6 +20,7 @@ APalAIController::APalAIController(const FObjectInitializer& ObjectInitializer) 
     this->PalBlackboardClass = NULL;
     this->IsDeadBodyTimeDelate = false;
     this->IsSelfTimeDelate_FromSpawnTime = false;
+    this->bShouldCheckStuckByTick = false;
 }
 
 void APalAIController::WaitForSeconds(float Time) {

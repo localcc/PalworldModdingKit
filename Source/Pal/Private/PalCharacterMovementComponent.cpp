@@ -77,6 +77,9 @@ void UPalCharacterMovementComponent::SetSlideAlphaMultiplier(FName flagName, flo
 void UPalCharacterMovementComponent::SetPysicsAccelerationFlag(FName flagName, bool isEnable) {
 }
 
+void UPalCharacterMovementComponent::SetNavWalkDisableFlag(FName flagName, bool isDisable) {
+}
+
 void UPalCharacterMovementComponent::SetMoveDisableFlag(FName flagName, bool isDisable) {
 }
 
@@ -172,6 +175,10 @@ bool UPalCharacterMovementComponent::IsRequestSliding() const {
 }
 
 bool UPalCharacterMovementComponent::IsPysicsAcceleration() const {
+    return false;
+}
+
+bool UPalCharacterMovementComponent::IsNavWalkDisabled() const {
     return false;
 }
 

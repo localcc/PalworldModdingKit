@@ -22,5 +22,9 @@ protected:
 public:
     APalNPC(const FObjectInitializer& ObjectInitializer);
 
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnCompletedInitParam(APalCharacter* InCharacter);
+    
 };
 

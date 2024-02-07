@@ -194,6 +194,7 @@ public:
     FString Debug_CurrentAIActionName;
     
     UPalIndividualCharacterParameter();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
     UFUNCTION(BlueprintCallable)
@@ -256,6 +257,11 @@ public:
     UFUNCTION(BlueprintCallable)
     void OnRep_IndividualActor();
     
+protected:
+    UFUNCTION(BlueprintCallable)
+    void OnReceivedWordFilteringResult(const FString& ResponseBody, bool bResponseOK, int32 ResponseCode);
+    
+public:
     UFUNCTION(BlueprintCallable)
     void NaturalUpdateSaveParameter(const EPalCharacterNaturalUpdateType Type);
     
@@ -276,6 +282,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsHPFullRecovered();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsDead() const;
     
 private:
     UFUNCTION(BlueprintCallable, BlueprintPure)

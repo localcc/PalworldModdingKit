@@ -67,6 +67,9 @@ void UPalIndividualCharacterParameter::OnRep_PhantomActorReplicateArray() {
 void UPalIndividualCharacterParameter::OnRep_IndividualActor() {
 }
 
+void UPalIndividualCharacterParameter::OnReceivedWordFilteringResult(const FString& ResponseBody, bool bResponseOK, int32 ResponseCode) {
+}
+
 void UPalIndividualCharacterParameter::NaturalUpdateSaveParameter(const EPalCharacterNaturalUpdateType Type) {
 }
 
@@ -91,6 +94,10 @@ bool UPalIndividualCharacterParameter::IsLevelMax() const {
 }
 
 bool UPalIndividualCharacterParameter::IsHPFullRecovered() {
+    return false;
+}
+
+bool UPalIndividualCharacterParameter::IsDead() const {
     return false;
 }
 

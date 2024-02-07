@@ -18,6 +18,9 @@ void UPalMapObjectSignboardModel::OnUpdateText(const FString& Text) {
 void UPalMapObjectSignboardModel::OnRep_Text() {
 }
 
+void UPalMapObjectSignboardModel::OnReceivedWordFilteringResult(const FString& ResponseBody, bool bResponseOK, int32 ResponseCode) {
+}
+
 void UPalMapObjectSignboardModel::OnOpenEdit() {
 }
 

@@ -40,8 +40,9 @@ protected:
     
 public:
     UPalGroupGuildBase();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable)
     EPalGroupOperationResult RequestDismantleBaseCamp(const FGuid& BaseCampId);
     
@@ -52,6 +53,9 @@ public:
     void OnRep_BaseCampLevel(int32 OldValue);
     
 private:
+    UFUNCTION(BlueprintCallable)
+    void OnReceivedWordFilteringResult(const FString& ResponseBody, bool bResponseOK, int32 ResponseCode);
+    
     UFUNCTION(BlueprintCallable)
     void OnDeletePlayerAccount_ServerInternal(UPalPlayerAccount* DeleteAccount);
     

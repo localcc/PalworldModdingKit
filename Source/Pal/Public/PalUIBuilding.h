@@ -8,6 +8,12 @@ class UPalUIBuilding : public UPalUserWidgetStackableUI {
     GENERATED_BODY()
 public:
     UPalUIBuilding();
+
+protected:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsExistBaseCamp();
+    
+public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BuildObjectSuccessed();
     

@@ -40,6 +40,9 @@ EPalMapObjectOperationResult UPalBuilderComponent::IsEnableBuild() const {
     return EPalMapObjectOperationResult::None;
 }
 
+void UPalBuilderComponent::GetSelectedBuildObjectId(FName& OutSelectedBuildObjectId) const {
+}
+
 APalBuildObject* UPalBuilderComponent::GetDismantleTargetObject() {
     return NULL;
 }

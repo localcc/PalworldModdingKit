@@ -16,6 +16,7 @@
 #include "PalGuildPlayerInfo.h"
 #include "PalInstanceID.h"
 #include "PalLogInfo_DropPal.h"
+#include "PalMealLogDisplayData.h"
 #include "PalPlayerAccountInitData.h"
 #include "PalPlayerDataCharacterMakeInfo.h"
 #include "PalPlayerInfoForMap.h"
@@ -461,6 +462,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void CallOrRegisterOnCompleteLoadInitWorldPartition_InClient(APalPlayerState::FOnCompleteLoadWorldPartitionDelegate Delegate);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void AddMealLog(const TArray<FPalMealLogDisplayData>& DisplayDataArray);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void AddItemGetLog_ToClient(const FPalStaticItemIdAndNum& ItemAndNum) const;

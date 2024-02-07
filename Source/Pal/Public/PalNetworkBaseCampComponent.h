@@ -6,6 +6,7 @@
 #include "EPalBaseCampModuleType.h"
 #include "EPalLogType.h"
 #include "PalInstanceID.h"
+#include "PalMealLogDisplayData.h"
 #include "PalMonsterControllerBaseCampLogContent.h"
 #include "PalNetArchive.h"
 #include "PalNetworkBaseCampComponent.generated.h"
@@ -105,6 +106,9 @@ public:
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Notify_Multicast_bool(const FGuid& BaseCampId, const FName FunctionName, bool Value);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void BroadcastBaseCampWorkerMealLog_Server(const FPalMealLogDisplayData& DisplayData);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void BroadcastBaseCampWorkerLog_Server(EPalLogType DisplayLogType, const FPalInstanceID& WorkerCharacterInstanceId, const FName& EventDataID);

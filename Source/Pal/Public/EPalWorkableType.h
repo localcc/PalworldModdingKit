@@ -19,5 +19,6 @@ enum class EPalWorkableType : uint8 {
     OnlyJoinAndWalkAround,
     RemoveMapObjectEffect,
     MonsterFarm,
+    DeforestFoliage,
 };
 
