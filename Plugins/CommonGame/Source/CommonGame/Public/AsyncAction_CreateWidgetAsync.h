@@ -17,6 +17,7 @@ public:
     FCreateWidgetAsyncDelegate OnComplete;
     
     UAsyncAction_CreateWidgetAsync();
+
     UFUNCTION(BlueprintCallable, BlueprintCosmetic, meta=(WorldContext="WorldContextObject"))
     static UAsyncAction_CreateWidgetAsync* CreateWidgetAsync(UObject* WorldContextObject, TSoftClassPtr<UUserWidget> UserWidgetSoftClass, APlayerController* OwningPlayer, bool bSuspendInputUntilComplete);
     

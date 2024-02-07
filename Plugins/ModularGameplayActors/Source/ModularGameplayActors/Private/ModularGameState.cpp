@@ -1,5 +1,6 @@
 #include "ModularGameState.h"
 
-AModularGameState::AModularGameState() {
+AModularGameState::AModularGameState(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

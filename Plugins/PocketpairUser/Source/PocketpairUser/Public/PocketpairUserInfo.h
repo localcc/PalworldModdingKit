@@ -9,6 +9,7 @@ class POCKETPAIRUSER_API UPocketpairUserInfo : public UObject {
     GENERATED_BODY()
 public:
     UPocketpairUserInfo();
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FName GetOnlineSubsystemName() const;
     

@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class MODULARGAMEPLAYACTORS_API AModularCharacter : public ACharacter {
     GENERATED_BODY()
 public:
-    AModularCharacter();
+    AModularCharacter(const FObjectInitializer& ObjectInitializer);
+
 };
 

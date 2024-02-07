@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class MODULARGAMEPLAYACTORS_API AModularGameState : public AGameState {
     GENERATED_BODY()
 public:
-    AModularGameState();
+    AModularGameState(const FObjectInitializer& ObjectInitializer);
+
 };
 

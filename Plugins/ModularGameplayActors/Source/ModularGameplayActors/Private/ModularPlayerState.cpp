@@ -1,5 +1,6 @@
 #include "ModularPlayerState.h"
 
-AModularPlayerState::AModularPlayerState() {
+AModularPlayerState::AModularPlayerState(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

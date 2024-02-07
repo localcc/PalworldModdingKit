@@ -7,6 +7,7 @@ UCLASS(Blueprintable, NonTransient)
 class MODULARGAMEPLAYACTORS_API AModularGameMode : public AGameMode {
     GENERATED_BODY()
 public:
-    AModularGameMode();
+    AModularGameMode(const FObjectInitializer& ObjectInitializer);
+
 };
 

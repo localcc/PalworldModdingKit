@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class MODULARGAMEPLAYACTORS_API AModularPlayerController : public APlayerController {
     GENERATED_BODY()
 public:
-    AModularPlayerController();
+    AModularPlayerController(const FObjectInitializer& ObjectInitializer);
+
 };
 

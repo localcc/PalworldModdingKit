@@ -17,6 +17,7 @@ private:
     
 public:
     UPocketpairUserSubsystem();
+
     UFUNCTION(BlueprintCallable)
     void UnlockAchievement(const FString& ID, float Percent);
     

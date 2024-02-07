@@ -16,6 +16,7 @@ private:
     
 public:
     UPrimaryGameLayout();
+
 protected:
     UFUNCTION(BlueprintCallable)
     void RegisterLayer(FGameplayTag LayerTag, UCommonActivatableWidgetContainerBase* LayerWidget);

@@ -1,6 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "CommonInputBaseTypes.h"
+#include "ECommonInputType.h"
 #include "CommonUserWidget.h"
 #include "UObject/NoExportTypes.h"
 #include "InputCoreTypes.h"
@@ -90,6 +90,7 @@ private:
     
 public:
     UCommonPlayerInputKey();
+
     UFUNCTION(BlueprintCallable)
     void UpdateKeybindWidget();
     

@@ -1,5 +1,16 @@
 #include "CommonPlayerInputKey.h"
 
+UCommonPlayerInputKey::UCommonPlayerInputKey() {
+    this->AxisScale = 0.00f;
+    this->InputTypeOverride = ECommonInputType::Count;
+    this->ForcedHoldKeybindStatus = ECommonKeybindForcedHoldStatus::NoForcedHold;
+    this->bIsHoldKeybind = false;
+    this->bShowKeybindBorder = false;
+    this->bShowTimeCountDown = false;
+    this->bShowUnboundStatus = false;
+    this->ProgressPercentageMID = NULL;
+}
+
 void UCommonPlayerInputKey::UpdateKeybindWidget() {
 }
 
@@ -38,14 +49,4 @@ bool UCommonPlayerInputKey::IsBoundKeyValid() const {
     return false;
 }
 
-UCommonPlayerInputKey::UCommonPlayerInputKey() {
-    this->AxisScale = 0.00f;
-    this->InputTypeOverride = ECommonInputType::Count;
-    this->ForcedHoldKeybindStatus = ECommonKeybindForcedHoldStatus::NoForcedHold;
-    this->bIsHoldKeybind = false;
-    this->bShowKeybindBorder = false;
-    this->bShowTimeCountDown = false;
-    this->bShowUnboundStatus = false;
-    this->ProgressPercentageMID = NULL;
-}
 

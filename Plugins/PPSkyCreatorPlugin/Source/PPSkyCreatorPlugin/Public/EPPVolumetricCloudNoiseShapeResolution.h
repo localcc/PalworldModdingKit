@@ -7,6 +7,5 @@ enum EPPVolumetricCloudNoiseShapeResolution {
     VolumetricCloudNoiseShapeResolution_64,
     VolumetricCloudNoiseShapeResolution_128,
     VolumetricCloudNoiseShapeResolution_256,
-    VolumetricCloudNoiseShapeResolution_MAX UMETA(Hidden),
 };
 

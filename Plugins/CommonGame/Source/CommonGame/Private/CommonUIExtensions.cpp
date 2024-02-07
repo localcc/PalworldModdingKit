@@ -1,6 +1,9 @@
 #include "CommonUIExtensions.h"
 #include "Templates/SubclassOf.h"
 
+UCommonUIExtensions::UCommonUIExtensions() {
+}
+
 FName UCommonUIExtensions::SuspendInputForPlayer(APlayerController* PlayerController, FName SuspendReason) {
     return NAME_None;
 }
@@ -34,6 +37,4 @@ ULocalPlayer* UCommonUIExtensions::GetLocalPlayerFromController(APlayerControlle
     return NULL;
 }
 
-UCommonUIExtensions::UCommonUIExtensions() {
-}
 

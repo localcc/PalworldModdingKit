@@ -26,5 +26,6 @@ private:
     
 public:
     UCommonSession_SearchSessionRequest();
+
 };
 

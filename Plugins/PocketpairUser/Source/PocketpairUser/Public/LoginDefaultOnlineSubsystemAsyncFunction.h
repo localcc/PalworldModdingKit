@@ -15,6 +15,7 @@ public:
     FAsyncCompletedLoginFunction Completed;
     
     ULoginDefaultOnlineSubsystemAsyncFunction();
+
     UFUNCTION(BlueprintCallable)
     static ULoginDefaultOnlineSubsystemAsyncFunction* LoginDefaultAsyncFunction(UPocketpairUserSubsystem* Target);
     

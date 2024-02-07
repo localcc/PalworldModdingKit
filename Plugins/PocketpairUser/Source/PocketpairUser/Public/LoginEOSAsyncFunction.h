@@ -15,6 +15,7 @@ public:
     FAsyncCompletedLoginEOSFunction Completed;
     
     ULoginEOSAsyncFunction();
+
     UFUNCTION(BlueprintCallable)
     static ULoginEOSAsyncFunction* LoginEOSAsyncFunction(UPocketpairUserSubsystem* Target);
     

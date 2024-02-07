@@ -1,5 +1,8 @@
 #include "CommonSessionSubsystem.h"
 
+UCommonSessionSubsystem::UCommonSessionSubsystem() {
+}
+
 void UCommonSessionSubsystem::QuickPlaySession(APlayerController* JoiningOrHostingPlayer, UCommonSession_HostSessionRequest* Request) {
 }
 
@@ -23,6 +26,4 @@ UCommonSession_HostSessionRequest* UCommonSessionSubsystem::CreateOnlineHostSess
 void UCommonSessionSubsystem::CleanUpSessions() {
 }
 
-UCommonSessionSubsystem::UCommonSessionSubsystem() {
-}
 

@@ -19,6 +19,7 @@ private:
     
 public:
     UCommonGameInstance();
+
     UFUNCTION(BlueprintCallable)
     void HandleSystemMessage(FGameplayTag MessageType, FText Title, FText Message);
     

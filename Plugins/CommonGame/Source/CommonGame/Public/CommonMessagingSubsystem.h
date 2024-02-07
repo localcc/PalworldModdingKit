@@ -8,5 +8,6 @@ class COMMONGAME_API UCommonMessagingSubsystem : public ULocalPlayerSubsystem {
     GENERATED_BODY()
 public:
     UCommonMessagingSubsystem();
+
 };
 

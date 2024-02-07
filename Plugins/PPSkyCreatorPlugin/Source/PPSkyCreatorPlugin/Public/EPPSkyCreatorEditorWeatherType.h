@@ -6,6 +6,5 @@ UENUM(BlueprintType)
 enum EPPSkyCreatorEditorWeatherType {
     EditorWeather_WeatherPreset,
     EditorWeather_WeatherSettings,
-    EditorWeather_MAX UMETA(Hidden),
 };
 

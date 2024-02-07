@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class MODULARGAMEPLAYACTORS_API AModularAIController : public AAIController {
     GENERATED_BODY()
 public:
-    AModularAIController();
+    AModularAIController(const FObjectInitializer& ObjectInitializer);
+
 };
 

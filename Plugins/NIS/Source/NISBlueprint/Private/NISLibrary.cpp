@@ -1,5 +1,8 @@
 #include "NISLibrary.h"
 
+UNISLibrary::UNISLibrary() {
+}
+
 void UNISLibrary::SetNISSharpness(float Sharpness) {
 }
 
@@ -32,6 +35,4 @@ UNISMode UNISLibrary::GetDefaultNISMode() {
     return UNISMode::Off;
 }
 
-UNISLibrary::UNISLibrary() {
-}
 

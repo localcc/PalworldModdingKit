@@ -7,6 +7,5 @@ enum EPPSkyCreatorStarMapRotationType {
     StarMapRotationType_NoRotation,
     StarMapRotationType_FollowSun,
     StarMapRotationType_FollowMoon,
-    StarMapRotationType_MAX UMETA(Hidden),
 };
 

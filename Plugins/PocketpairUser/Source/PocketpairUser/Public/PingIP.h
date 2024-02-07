@@ -18,6 +18,7 @@ public:
     FOnPingFailure OnPingFailure;
     
     UPingIP();
+
     UFUNCTION(BlueprintCallable)
     void SendPing(const FString& ipAddress);
     

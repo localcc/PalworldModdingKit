@@ -8,6 +8,7 @@ class COMMONUSER_API UCommonSession_SearchResult : public UObject {
     GENERATED_BODY()
 public:
     UCommonSession_SearchResult();
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetStringSetting(FName Key, FString& Value, bool& bFoundValue) const;
     

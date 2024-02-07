@@ -1,5 +1,10 @@
 #include "SpreadSheetImpoter.h"
 
+USpreadSheetImpoter::USpreadSheetImpoter() {
+    this->TargetDataTable = NULL;
+    this->bNoticeMessageAtNewRecordImported = false;
+}
+
 FString USpreadSheetImpoter::ToCsvStringForLocalizedText(const FString& pickCultureName) {
     return TEXT("");
 }
@@ -31,8 +36,4 @@ USpreadSheetImpoter* USpreadSheetImpoter::Create() {
     return NULL;
 }
 
-USpreadSheetImpoter::USpreadSheetImpoter() {
-    this->TargetDataTable = NULL;
-    this->bNoticeMessageAtNewRecordImported = false;
-}
 

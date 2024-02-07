@@ -15,6 +15,7 @@ public:
     FAsyncCompletedFindSessionsFunction Completed;
     
     UFindSessionsAsyncFunction();
+
     UFUNCTION(BlueprintCallable)
     static UFindSessionsAsyncFunction* FindSessionsAsyncFunction(UPocketpairUserSubsystem* Target, bool IsDedicatedServer, const FString& InviteCode, const FString& ServerType, const FString& Region, const int32 LessThanTime, const FString& WorldGUID, const FString& Namespace);
     

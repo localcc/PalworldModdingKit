@@ -18,5 +18,6 @@ public:
     TArray<FConfirmationDialogAction> ButtonActions;
     
     UCommonGameDialogDescriptor();
+
 };
 

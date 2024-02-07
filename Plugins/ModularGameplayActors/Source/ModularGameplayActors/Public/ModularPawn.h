@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class MODULARGAMEPLAYACTORS_API AModularPawn : public APawn {
     GENERATED_BODY()
 public:
-    AModularPawn();
+    AModularPawn(const FObjectInitializer& ObjectInitializer);
+
 };
 

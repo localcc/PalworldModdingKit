@@ -4,7 +4,7 @@
 #include "EDLSSPreset.h"
 #include "DLSSSettings.generated.h"
 
-UCLASS(Blueprintable, Config=Engine, DefaultConfig)
+UCLASS(Blueprintable, DefaultConfig, Config=Engine)
 class DLSS_API UDLSSSettings : public UObject {
     GENERATED_BODY()
 public:
@@ -63,5 +63,6 @@ public:
     EDLSSPreset DLSSUltraPerformancePreset;
     
     UDLSSSettings();
+
 };
 

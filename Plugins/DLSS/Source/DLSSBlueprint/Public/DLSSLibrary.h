@@ -13,6 +13,7 @@ class UDLSSLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UDLSSLibrary();
+
     UFUNCTION(BlueprintCallable)
     static void SetDLSSSharpness(float Sharpness);
     

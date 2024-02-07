@@ -19,6 +19,7 @@ public:
     FCommonUserOnInitializeCompleteMulticast OnInitializationComplete;
     
     UAsyncAction_CommonUserInitialize();
+
     UFUNCTION(BlueprintCallable)
     static UAsyncAction_CommonUserInitialize* LoginForOnlinePlay(UCommonUserSubsystem* Target, int32 LocalPlayerIndex);
     

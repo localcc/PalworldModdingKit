@@ -1,5 +1,7 @@
 #include "CommonPlayerController.h"
 
-ACommonPlayerController::ACommonPlayerController() {
+ACommonPlayerController::ACommonPlayerController(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->ClickEventKeys.AddDefaulted(1);
 }
+
 

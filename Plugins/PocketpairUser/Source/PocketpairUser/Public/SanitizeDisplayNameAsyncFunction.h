@@ -15,6 +15,7 @@ public:
     FSanitizeDisplayNameAsyncFunction Completed;
     
     USanitizeDisplayNameAsyncFunction();
+
     UFUNCTION(BlueprintCallable)
     static USanitizeDisplayNameAsyncFunction* SanitizeDisplayNameAsyncFunction(UPocketpairUserSubsystem* Target, const FString& InString);
     

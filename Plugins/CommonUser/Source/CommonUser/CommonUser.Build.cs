@@ -9,11 +9,9 @@ public class CommonUser : ModuleRules {
         PublicDependencyModuleNames.AddRange(new string[] {
             "Core",
             "CoreUObject",
-            "DeveloperSettings",
             "Engine",
             "GameplayTags",
             "InputCore",
-            "IrisStub",
         });
     }
 }

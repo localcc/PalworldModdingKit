@@ -10,12 +10,7 @@ public class ModularGameplayActors : ModuleRules {
             "AIModule",
             "Core",
             "CoreUObject",
-            "DeveloperSettings",
             "Engine",
-            "GameplayTags",
-            "GameplayTasks",
-            "IrisStub",
-            "NavigationSystem",
         });
     }
 }

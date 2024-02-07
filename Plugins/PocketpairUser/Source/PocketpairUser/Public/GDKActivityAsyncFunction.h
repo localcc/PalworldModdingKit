@@ -15,6 +15,7 @@ public:
     FGDKActivityAsyncFunction Completed;
     
     UGDKActivityAsyncFunction();
+
     UFUNCTION(BlueprintCallable)
     static UGDKActivityAsyncFunction* GDKActivityAsyncFunction(UPocketpairUserSubsystem* Target, const FString& ConnectionString, int32 MaxPlayerNum, int32 CurrentPlayerNum);
     

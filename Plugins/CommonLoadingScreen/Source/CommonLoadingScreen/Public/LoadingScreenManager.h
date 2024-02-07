@@ -8,6 +8,7 @@ class COMMONLOADINGSCREEN_API ULoadingScreenManager : public UGameInstanceSubsys
     GENERATED_BODY()
 public:
     ULoadingScreenManager();
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetDebugReasonForShowingOrHidingLoadingScreen() const;
     

@@ -25,6 +25,7 @@ public:
     FCommonSessionOnCreateSessionComplete_Dynamic K2_OnCreateSessionCompleteEvent;
     
     UCommonSessionSubsystem();
+
     UFUNCTION(BlueprintCallable)
     void QuickPlaySession(APlayerController* JoiningOrHostingPlayer, UCommonSession_HostSessionRequest* Request);
     

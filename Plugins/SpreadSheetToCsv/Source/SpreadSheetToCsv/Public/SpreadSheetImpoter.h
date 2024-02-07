@@ -43,6 +43,7 @@ public:
     bool bNoticeMessageAtNewRecordImported;
     
     USpreadSheetImpoter();
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FString ToCsvStringForLocalizedText(const FString& pickCultureName);
     

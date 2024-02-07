@@ -1,5 +1,8 @@
 #include "CommonUserSubsystem.h"
 
+UCommonUserSubsystem::UCommonUserSubsystem() {
+}
+
 bool UCommonUserSubsystem::TryToLoginForOnlinePlay(int32 LocalPlayerIndex) {
     return false;
 }
@@ -72,6 +75,4 @@ bool UCommonUserSubsystem::CancelUserInitialization(int32 LocalPlayerIndex) {
     return false;
 }
 
-UCommonUserSubsystem::UCommonUserSubsystem() {
-}
 

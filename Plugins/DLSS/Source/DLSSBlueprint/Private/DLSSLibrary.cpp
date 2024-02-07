@@ -1,5 +1,8 @@
 #include "DLSSLibrary.h"
 
+UDLSSLibrary::UDLSSLibrary() {
+}
+
 void UDLSSLibrary::SetDLSSSharpness(float Sharpness) {
 }
 
@@ -75,6 +78,4 @@ void UDLSSLibrary::EnableDLSS(bool bEnabled) {
 void UDLSSLibrary::EnableDLAA(bool bEnabled) {
 }
 
-UDLSSLibrary::UDLSSLibrary() {
-}
 

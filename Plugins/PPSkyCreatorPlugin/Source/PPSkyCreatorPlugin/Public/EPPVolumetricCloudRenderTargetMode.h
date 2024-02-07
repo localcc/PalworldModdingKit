@@ -7,6 +7,5 @@ enum EPPVolumetricCloudRenderTargetMode {
     VolumetricCloudRenderTargetMode_Default,
     VolumetricCloudRenderTargetMode_Quality,
     VolumetricCloudRenderTargetMode_Performance,
-    VolumetricCloudRenderTargetMode_MAX UMETA(Hidden),
 };
 

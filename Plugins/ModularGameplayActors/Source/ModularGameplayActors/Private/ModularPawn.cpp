@@ -1,5 +1,6 @@
 #include "ModularPawn.h"
 
-AModularPawn::AModularPawn() {
+AModularPawn::AModularPawn(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

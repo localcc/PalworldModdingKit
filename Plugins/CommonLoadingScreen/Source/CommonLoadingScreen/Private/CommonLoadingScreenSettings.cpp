@@ -11,3 +11,4 @@ UCommonLoadingScreenSettings::UCommonLoadingScreenSettings() {
     this->ForceTickLoadingScreenEvenInEditor = true;
 }
 
+

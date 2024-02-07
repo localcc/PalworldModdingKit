@@ -1,5 +1,8 @@
 #include "CommonSession_SearchResult.h"
 
+UCommonSession_SearchResult::UCommonSession_SearchResult() {
+}
+
 void UCommonSession_SearchResult::GetStringSetting(FName Key, FString& Value, bool& bFoundValue) const {
 }
 
@@ -26,6 +29,4 @@ FString UCommonSession_SearchResult::GetDescription() const {
     return TEXT("");
 }
 
-UCommonSession_SearchResult::UCommonSession_SearchResult() {
-}
 

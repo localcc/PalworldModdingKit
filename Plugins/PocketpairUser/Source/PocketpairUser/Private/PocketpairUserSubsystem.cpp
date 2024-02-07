@@ -1,5 +1,9 @@
 #include "PocketpairUserSubsystem.h"
 
+UPocketpairUserSubsystem::UPocketpairUserSubsystem() {
+    this->LocalUserInfo = NULL;
+}
+
 void UPocketpairUserSubsystem::UnlockAchievement(const FString& ID, float Percent) {
 }
 
@@ -45,7 +49,4 @@ FName UPocketpairUserSubsystem::GetDefaultOnlineSubsystemName() const {
 void UPocketpairUserSubsystem::AddPingResultCache(const FString& Address, int32 Ping) {
 }
 
-UPocketpairUserSubsystem::UPocketpairUserSubsystem() {
-    this->LocalUserInfo = NULL;
-}
 

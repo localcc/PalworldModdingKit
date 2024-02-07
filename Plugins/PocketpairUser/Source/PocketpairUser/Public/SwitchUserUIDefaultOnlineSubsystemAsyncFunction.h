@@ -15,6 +15,7 @@ public:
     FAsyncCompletedSwitchUserUIFunction Completed;
     
     USwitchUserUIDefaultOnlineSubsystemAsyncFunction();
+
     UFUNCTION(BlueprintCallable)
     static USwitchUserUIDefaultOnlineSubsystemAsyncFunction* SwitchUserUIAsyncFunction(UPocketpairUserSubsystem* Target);
     

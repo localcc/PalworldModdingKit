@@ -8,7 +8,6 @@ public class KawaiiPhysics : ModuleRules {
         
         PublicDependencyModuleNames.AddRange(new string[] {
             "AnimGraphRuntime",
-            "AnimationCore",
             "Core",
             "CoreUObject",
             "Engine",

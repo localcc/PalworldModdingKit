@@ -7,6 +7,5 @@ enum EPPSkyCreatorMoonPositionType {
     MoonPositionType_Simple,
     MoonPositionType_SimpleFixedElevation,
     MoonPositionType_Real,
-    MoonPositionType_MAX UMETA(Hidden),
 };
 

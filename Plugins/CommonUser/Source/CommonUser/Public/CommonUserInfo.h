@@ -34,6 +34,7 @@ public:
     ECommonUserInitializationState InitializationState;
     
     UCommonUserInfo();
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     ECommonUserAvailability GetPrivilegeAvailability(ECommonUserPrivilege Privilege) const;
     

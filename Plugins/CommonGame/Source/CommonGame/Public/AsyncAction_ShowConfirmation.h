@@ -28,6 +28,7 @@ private:
     
 public:
     UAsyncAction_ShowConfirmation();
+
     UFUNCTION(BlueprintCallable, BlueprintCosmetic, meta=(WorldContext="InWorldContextObject"))
     static UAsyncAction_ShowConfirmation* ShowConfirmationYesNo(UObject* InWorldContextObject, FText Title, FText Message);
     

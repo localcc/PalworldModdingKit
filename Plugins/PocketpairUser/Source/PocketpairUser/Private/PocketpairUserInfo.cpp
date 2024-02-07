@@ -1,5 +1,8 @@
 #include "PocketpairUserInfo.h"
 
+UPocketpairUserInfo::UPocketpairUserInfo() {
+}
+
 FName UPocketpairUserInfo::GetOnlineSubsystemName() const {
     return NAME_None;
 }
@@ -16,6 +19,4 @@ FString UPocketpairUserInfo::GetDebugString() const {
     return TEXT("");
 }
 
-UPocketpairUserInfo::UPocketpairUserInfo() {
-}
 

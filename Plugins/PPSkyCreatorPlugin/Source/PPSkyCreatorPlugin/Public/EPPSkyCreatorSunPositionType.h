@@ -6,6 +6,5 @@ UENUM(BlueprintType)
 enum EPPSkyCreatorSunPositionType {
     SunPositionType_Simple,
     SunPositionType_Real,
-    SunPositionType_MAX UMETA(Hidden),
 };
 

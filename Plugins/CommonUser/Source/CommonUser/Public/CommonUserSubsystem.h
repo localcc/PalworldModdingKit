@@ -34,6 +34,7 @@ protected:
     
 public:
     UCommonUserSubsystem();
+
     UFUNCTION(BlueprintCallable)
     bool TryToLoginForOnlinePlay(int32 LocalPlayerIndex);
     

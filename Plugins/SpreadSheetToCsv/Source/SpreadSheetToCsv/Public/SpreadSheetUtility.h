@@ -8,5 +8,6 @@ class SPREADSHEETTOCSV_API USpreadSheetUtility : public UObject {
     GENERATED_BODY()
 public:
     USpreadSheetUtility();
+
 };
 

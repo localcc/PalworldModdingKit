@@ -12,5 +12,6 @@ public:
     EFSR2MoviePipelineQuality FSR2Quality;
     
     UFSR2MoviePipelineSettings();
+
 };
 

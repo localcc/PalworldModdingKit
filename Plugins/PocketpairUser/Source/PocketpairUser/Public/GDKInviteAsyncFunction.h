@@ -15,6 +15,7 @@ public:
     FGDKInviteAsyncFunction Completed;
     
     UGDKInviteAsyncFunction();
+
     UFUNCTION(BlueprintCallable)
     static UGDKInviteAsyncFunction* GDKInviteAsyncFunction(UPocketpairUserSubsystem* Target);
     

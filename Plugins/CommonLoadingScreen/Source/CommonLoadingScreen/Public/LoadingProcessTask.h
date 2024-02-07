@@ -11,6 +11,7 @@ class COMMONLOADINGSCREEN_API ULoadingProcessTask : public UObject, public ILoad
     GENERATED_BODY()
 public:
     ULoadingProcessTask();
+
     UFUNCTION(BlueprintCallable)
     void Unregister();
     
@@ -20,7 +21,7 @@ public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static ULoadingProcessTask* CreateLoadingScreenProcessTask(UObject* WorldContextObject, const FString& ShowLoadingScreenReason);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

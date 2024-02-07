@@ -32,3 +32,4 @@ UFSR2Settings::UFSR2Settings() {
     this->ReactiveHistoryTranslucencyLumaBias = 0.00f;
 }
 
+

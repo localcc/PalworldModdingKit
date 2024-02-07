@@ -9,6 +9,7 @@ class UNISLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UNISLibrary();
+
     UFUNCTION(BlueprintCallable)
     static void SetNISSharpness(float Sharpness);
     

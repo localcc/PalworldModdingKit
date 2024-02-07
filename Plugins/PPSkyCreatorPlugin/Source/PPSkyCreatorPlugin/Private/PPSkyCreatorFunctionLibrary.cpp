@@ -1,5 +1,8 @@
 #include "PPSkyCreatorFunctionLibrary.h"
 
+UPPSkyCreatorFunctionLibrary::UPPSkyCreatorFunctionLibrary() {
+}
+
 float UPPSkyCreatorFunctionLibrary::KilometersToCentimeters(const float Value) {
     return 0.0f;
 }
@@ -46,6 +49,4 @@ float UPPSkyCreatorFunctionLibrary::CentimetersToKilometers(const float Value) {
     return 0.0f;
 }
 
-UPPSkyCreatorFunctionLibrary::UPPSkyCreatorFunctionLibrary() {
-}
 

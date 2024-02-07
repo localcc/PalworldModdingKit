@@ -60,6 +60,7 @@ public:
     FPPSkyCreatorPostProcessSettings PostProcessSettings;
     
     UPPSkyCreatorWeatherPreset();
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FPPSkyCreatorWeatherSettings GetWeatherPresetSettings();
     

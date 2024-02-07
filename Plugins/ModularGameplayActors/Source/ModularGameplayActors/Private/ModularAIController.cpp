@@ -1,5 +1,6 @@
 #include "ModularAIController.h"
 
-AModularAIController::AModularAIController() {
+AModularAIController::AModularAIController(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

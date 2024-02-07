@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class MODULARGAMEPLAYACTORS_API AModularPlayerState : public APlayerState {
     GENERATED_BODY()
 public:
-    AModularPlayerState();
+    AModularPlayerState(const FObjectInitializer& ObjectInitializer);
+
 };
 

@@ -1,5 +1,8 @@
 #include "TraceUtils.h"
 
+UTraceUtils::UTraceUtils() {
+}
+
 bool UTraceUtils::CapsuleTraceSingleForObjects(UObject* WorldContextObject, const FVector Start, const FVector End, float Radius, float HalfHeight, const FRotator Orientation, const TArray<TEnumAsByte<EObjectTypeQuery>>& ObjectTypes, bool bTraceComplex, const TArray<AActor*>& ActorsToIgnore, TEnumAsByte<EDrawDebugTrace::Type> DrawDebugType, FHitResult& OutHit, bool bIgnoreSelf, FLinearColor TraceColor, FLinearColor TraceHitColor, float DrawTime) {
     return false;
 }
@@ -24,6 +27,4 @@ bool UTraceUtils::CapsuleTraceMulti(UObject* WorldContextObject, const FVector S
     return false;
 }
 
-UTraceUtils::UTraceUtils() {
-}
 

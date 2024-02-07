@@ -20,5 +20,6 @@ public:
     TArray<FPlanarLimit> PlanarLimits;
     
     UKawaiiPhysicsLimitsDataAsset();
+
 };
 

@@ -8,5 +8,6 @@ class COMMONGAME_API UCommonGameDialog : public UCommonActivatableWidget {
     GENERATED_BODY()
 public:
     UCommonGameDialog();
+
 };
 

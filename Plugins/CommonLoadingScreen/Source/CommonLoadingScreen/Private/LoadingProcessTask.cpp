@@ -1,5 +1,8 @@
 #include "LoadingProcessTask.h"
 
+ULoadingProcessTask::ULoadingProcessTask() {
+}
+
 void ULoadingProcessTask::Unregister() {
 }
 
@@ -10,6 +13,4 @@ ULoadingProcessTask* ULoadingProcessTask::CreateLoadingScreenProcessTask(UObject
     return NULL;
 }
 
-ULoadingProcessTask::ULoadingProcessTask() {
-}
 

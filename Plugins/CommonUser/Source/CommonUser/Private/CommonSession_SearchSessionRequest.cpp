@@ -5,3 +5,4 @@ UCommonSession_SearchSessionRequest::UCommonSession_SearchSessionRequest() {
     this->bUseLobbies = false;
 }
 
+

@@ -20,6 +20,7 @@ public:
     FPushContentToLayerForPlayerAsyncDelegate AfterPush;
     
     UAsyncAction_PushContentToLayerForPlayer();
+
     UFUNCTION(BlueprintCallable, BlueprintCosmetic)
     static UAsyncAction_PushContentToLayerForPlayer* PushContentToLayerForPlayer(APlayerController* OwningPlayer, TSoftClassPtr<UCommonActivatableWidget> WidgetClass, FGameplayTag LayerName, bool bSuspendInputUntilComplete);
     

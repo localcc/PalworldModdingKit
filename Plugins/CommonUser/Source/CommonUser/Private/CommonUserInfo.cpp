@@ -1,5 +1,12 @@
 #include "CommonUserInfo.h"
 
+UCommonUserInfo::UCommonUserInfo() {
+    this->LocalPlayerIndex = -1;
+    this->bCanBeGuest = false;
+    this->bIsGuest = false;
+    this->InitializationState = ECommonUserInitializationState::Invalid;
+}
+
 ECommonUserAvailability UCommonUserInfo::GetPrivilegeAvailability(ECommonUserPrivilege Privilege) const {
     return ECommonUserAvailability::Unknown;
 }
@@ -20,10 +27,4 @@ ECommonUserPrivilegeResult UCommonUserInfo::GetCachedPrivilegeResult(ECommonUser
     return ECommonUserPrivilegeResult::Unknown;
 }
 
-UCommonUserInfo::UCommonUserInfo() {
-    this->LocalPlayerIndex = -1;
-    this->bCanBeGuest = false;
-    this->bIsGuest = false;
-    this->InitializationState = ECommonUserInitializationState::Invalid;
-}
 

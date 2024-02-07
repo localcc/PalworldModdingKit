@@ -12,6 +12,7 @@ public:
     FString DisplayName;
     
     UPocketpairFriend();
+
     UFUNCTION(BlueprintCallable)
     FUniqueNetIdRepl GetNetId();
     

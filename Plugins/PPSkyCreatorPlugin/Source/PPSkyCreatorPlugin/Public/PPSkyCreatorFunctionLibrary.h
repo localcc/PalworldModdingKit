@@ -18,6 +18,7 @@ class PPSKYCREATORPLUGIN_API UPPSkyCreatorFunctionLibrary : public UBlueprintFun
     GENERATED_BODY()
 public:
     UPPSkyCreatorFunctionLibrary();
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static float KilometersToCentimeters(const float Value);
     

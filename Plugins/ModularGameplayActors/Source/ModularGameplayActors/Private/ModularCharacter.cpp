@@ -1,5 +1,6 @@
 #include "ModularCharacter.h"
 
-AModularCharacter::AModularCharacter() {
+AModularCharacter::AModularCharacter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

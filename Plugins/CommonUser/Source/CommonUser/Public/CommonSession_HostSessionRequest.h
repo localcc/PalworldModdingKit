@@ -33,5 +33,6 @@ public:
     int32 MaxPlayerCount;
     
     UCommonSession_HostSessionRequest();
+
 };
 

@@ -6,3 +6,4 @@ UCommonSession_HostSessionRequest::UCommonSession_HostSessionRequest() {
     this->MaxPlayerCount = 16;
 }
 
+

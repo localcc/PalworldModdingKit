@@ -1,6 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "CommonInputBaseTypes.h"
+#include "ECommonInputType.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "GameplayTagContainer.h"
 #include "Templates/SubclassOf.h"
@@ -16,6 +16,7 @@ class COMMONGAME_API UCommonUIExtensions : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UCommonUIExtensions();
+
     UFUNCTION(BlueprintCallable, BlueprintCosmetic)
     static FName SuspendInputForPlayer(APlayerController* PlayerController, FName SuspendReason);
     

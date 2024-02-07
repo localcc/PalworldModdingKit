@@ -8,5 +8,6 @@ class IMGUI_API UImGuiInputHandler : public UObject {
     GENERATED_BODY()
 public:
     UImGuiInputHandler();
+
 };
 

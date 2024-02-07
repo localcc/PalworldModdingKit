@@ -7,7 +7,7 @@
 #include "ImGuiKeyInfo.h"
 #include "ImGuiSettings.generated.h"
 
-UCLASS(Blueprintable, Config=Engine, DefaultConfig, Config=ImGui)
+UCLASS(Blueprintable, DefaultConfig, Config=ImGui)
 class UImGuiSettings : public UObject {
     GENERATED_BODY()
 public:
@@ -38,5 +38,6 @@ protected:
     
 public:
     UImGuiSettings();
+
 };
 

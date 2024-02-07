@@ -8,5 +8,6 @@ class COMMONGAME_API UCommonLocalPlayer : public ULocalPlayer {
     GENERATED_BODY()
 public:
     UCommonLocalPlayer();
+
 };
 

@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class COMMONGAME_API ACommonPlayerController : public AModularPlayerController {
     GENERATED_BODY()
 public:
-    ACommonPlayerController();
+    ACommonPlayerController(const FObjectInitializer& ObjectInitializer);
+
 };
 

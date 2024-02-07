@@ -15,6 +15,7 @@ public:
     FAsyncHTTPRequestFunction Completed;
     
     UHTTPRequestAsyncFunction();
+
     UFUNCTION(BlueprintCallable)
     static UHTTPRequestAsyncFunction* HTTPRequestAsyncFunction(UPocketpairUserSubsystem* Target, const FString& URL, const FString& Verb);
     
