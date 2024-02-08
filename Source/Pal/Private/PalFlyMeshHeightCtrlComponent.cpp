@@ -38,9 +38,6 @@ void UPalFlyMeshHeightCtrlComponent::HighFlingEnd_Server() {
 void UPalFlyMeshHeightCtrlComponent::HighFlingEnd_Implementation() {
 }
 
-void UPalFlyMeshHeightCtrlComponent::HighFlingEnd_Implementation() {
-}
-
 float UPalFlyMeshHeightCtrlComponent::GetDefaultMeshLocationZ() {
     return 0.0f;
 }

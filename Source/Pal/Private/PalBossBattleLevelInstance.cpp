@@ -1,6 +1,6 @@
 #include "PalBossBattleLevelInstance.h"
 
-APalBossBattleLevelInstance::APalBossBattleLevelInstance(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+APalBossBattleLevelInstance::APalBossBattleLevelInstance(const FObjectInitializer& ObjectInitializer) {
     this->bIsLoaded = false;
 }
 
