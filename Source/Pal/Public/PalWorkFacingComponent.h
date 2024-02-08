@@ -10,7 +10,7 @@ public:
     UPalWorkFacingComponent(const FObjectInitializer& ObjectInitializer);
 
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bReverseDirection;
 };
 
