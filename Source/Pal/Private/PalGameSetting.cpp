@@ -10,6 +10,7 @@ UPalGameSetting::UPalGameSetting() {
     this->ReturnOtomoPalCoolTime = 3.00f;
     this->OtomoSlotNum = 5;
     this->OtomoWazaCoolDownSpeedRate = 2.00f;
+    this->BerserkerOtomoSerchRadius_FromPlayer = 1500.00f;
     this->PlayerHPRateFromRespawn = 1.00f;
     this->PlayerStomachRateFromRespawn = 1.00f;
     this->RarePal_AppearanceProbability = 1.00f;
@@ -388,6 +389,7 @@ UPalGameSetting::UPalGameSetting() {
     this->MinSprintThreshold = 2000.00f;
     this->MaxSprintThreshold = 3000.00f;
     this->MinHPGaugeDisplayTime = 3.00f;
+    this->ToggleInteractMoveDelay = 0.30f;
     this->SoundSourceDataTable = NULL;
 }
 

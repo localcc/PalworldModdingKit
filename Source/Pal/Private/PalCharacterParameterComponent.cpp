@@ -87,6 +87,12 @@ void UPalCharacterParameterComponent::SetMaxMP(FFixedPoint64 NewMaxMP) {
 void UPalCharacterParameterComponent::SetMaxHP(FFixedPoint64 NewMaxHP) {
 }
 
+void UPalCharacterParameterComponent::SetIsOverrideTarget_ToServer_Implementation(int32 ID, bool IsOverride) {
+}
+
+void UPalCharacterParameterComponent::SetIsOverrideTarget_ToALL_Implementation(int32 ID, bool IsOverride) {
+}
+
 void UPalCharacterParameterComponent::SetIsOverrideTarget_Innner(bool IsOverride) {
 }
 

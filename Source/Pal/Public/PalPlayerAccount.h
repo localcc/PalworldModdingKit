@@ -4,6 +4,7 @@
 #include "UObject/Object.h"
 #include "UObject/NoExportTypes.h"
 #include "EPalPlayerAccountState.h"
+#include "PalInstanceID.h"
 #include "PalPlayerAccount.generated.h"
 
 class UPalIndividualCharacterHandle;
@@ -21,6 +22,9 @@ public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FGuid PlayerUId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FPalInstanceID InstanceId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     EPalPlayerAccountState State;

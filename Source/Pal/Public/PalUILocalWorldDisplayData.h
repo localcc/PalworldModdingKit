@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "EPalWorldBaseInfoSaveDataType.h"
 #include "PalUILocalWorldDisplayData.generated.h"
 
 USTRUCT(BlueprintType)
@@ -27,6 +28,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString DirectoryPath;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool CanMultiplay;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalWorldBaseInfoSaveDataType BaseInfoSaveDataType;
     
     PAL_API FPalUILocalWorldDisplayData();
 };

@@ -14,6 +14,9 @@ public:
     bool bIsSyncEnable;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIgnoreOnSave;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalContainerOperationRestrictType OperationRestrictType;
     
     PAL_API FPalContainerCreateExtraParameter();

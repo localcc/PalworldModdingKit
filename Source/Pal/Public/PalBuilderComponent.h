@@ -92,5 +92,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void CollectItemInfoEnableToUseMaterial(TArray<FName> StaticItemIds, TArray<FPalStaticItemIdAndNum>& OutItemInfos) const;
     
+private:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    EPalMapObjectOperationResult CanRequestDismantle() const;
+    
 };
 

@@ -1,13 +1,13 @@
 #include "PalGameLocalSettings.h"
 
 UPalGameLocalSettings::UPalGameLocalSettings() {
-    this->GraphicsLevel = EPalOptionGraphicsLevel::VeryHigh;
-    this->DefaultGraphicsLevel = EPalOptionGraphicsLevel::High;
+    this->GraphicsLevel = EPalOptionGraphicsLevel::None;
+    this->DefaultGraphicsLevel = EPalOptionGraphicsLevel::Medium;
     this->bRunedBenchMark = true;
     this->bHasAppliedUserSetting = true;
-    this->AntiAliasingType = AAM_TSR;
-    this->DLSSMode = UDLSSMode::Off;
-    this->GraphicsCommonQuality = 3;
+    this->AntiAliasingType = AAM_FXAA;
+    this->DLSSMode = UDLSSMode::Performance;
+    this->GraphicsCommonQuality = 1;
 }
 
 bool UPalGameLocalSettings::RequireBenchMarkScalaBility() {

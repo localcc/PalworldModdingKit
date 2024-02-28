@@ -19,6 +19,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FPalContainerId, UPalIndividualCharacterContainer*> LocalContainerMap;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSet<FPalContainerId> LoadedContainerIDs;
+    
 public:
     UPalCharacterContainerManager();
 

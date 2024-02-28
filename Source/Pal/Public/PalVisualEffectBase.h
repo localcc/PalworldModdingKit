@@ -61,6 +61,9 @@ public:
     bool IsEndVisualEffect();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    USkeletalMeshComponent* GetPlayerHeadMesh() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     AActor* GetOwner() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -68,6 +71,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     USkeletalMeshComponent* GetMainMesh() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    TArray<UMaterialInstanceDynamic*> GetMainAndHeadMeshMaterials() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetFloatParameter(FName Name, float DefaultValue);

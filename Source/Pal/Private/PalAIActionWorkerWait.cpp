@@ -7,6 +7,10 @@ UPalAIActionWorkerWait::UPalAIActionWorkerWait() {
 void UPalAIActionWorkerWait::OnTickForWait_Implementation(float DeltaTime) {
 }
 
+TEnumAsByte<EPathFollowingRequestResult::Type> UPalAIActionWorkerWait::MoveToLocationInBaseCamp(const FVector& ToLocation, float DeltaTime) {
+    return EPathFollowingRequestResult::Failed;
+}
+
 TEnumAsByte<EPathFollowingRequestResult::Type> UPalAIActionWorkerWait::MoveToLocation(const FVector& ToLocation) {
     return EPathFollowingRequestResult::Failed;
 }

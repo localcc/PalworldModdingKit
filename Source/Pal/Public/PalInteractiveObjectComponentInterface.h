@@ -30,7 +30,7 @@ public:
     virtual FText GetIndicatorText(const UObject* WorldContextObject, EPalInteractiveObjectIndicatorType IndicatorType) const PURE_VIRTUAL(GetIndicatorText, return FText::GetEmpty(););
     
     UFUNCTION(BlueprintCallable)
-    virtual FVector GetIndicatorLocation() PURE_VIRTUAL(GetIndicatorLocation, return FVector{};);
+    virtual FVector GetIndicatorLocation(bool bNoShapeOffset) PURE_VIRTUAL(GetIndicatorLocation, return FVector{};);
     
     UFUNCTION(BlueprintCallable)
     virtual void GetIndicatorInfo(FPalInteractiveObjectActionInfoSet& ActionInfo, const FPalInteractiveObjectActionBy& SituationInfo) const PURE_VIRTUAL(GetIndicatorInfo,);

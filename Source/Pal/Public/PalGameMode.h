@@ -19,6 +19,9 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
+    void OnUpdateSession(const FString& ResponseBody, bool bResponseOK, int32 ResponseCode);
+    
+    UFUNCTION(BlueprintCallable)
     void OnServerLobbyUpdate() const;
     
 public:
@@ -27,8 +30,13 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
-    void OnCompleteCreateSession(bool IsSuccess, const FString& ErrorStr);
+    void OnCompleteCreateSession(const FString& ResponseBody, bool bResponseOK, int32 ResponseCode);
     
+public:
+    UFUNCTION(BlueprintCallable)
+    void InitDedicatedServer();
+    
+private:
     UFUNCTION(BlueprintCallable)
     void CreateSession(const FString& Address);
     

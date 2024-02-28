@@ -38,6 +38,9 @@ void APalHUDInGame::OnApplicationActivationStateChanged(bool bIsFocused) {
 void APalHUDInGame::HideLiftIcon() {
 }
 
+void APalHUDInGame::Debug_DrawInteractPoints() {
+}
+
 UPalUserWidgetWorldHUD* APalHUDInGame::CreateWorldHUDWidget(TSubclassOf<UPalUserWidgetWorldHUD> WidgetClass, UPalHUDDispatchParameterBase* Parameter) {
     return NULL;
 }

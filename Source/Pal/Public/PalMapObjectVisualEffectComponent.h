@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "EPalMapObjectVisualEffectType.h"
+#include "EPalStatusID.h"
 #include "PalMapObjectVisualEffectInstanceSet.h"
 #include "PalMapObjectVisualEffectComponent.generated.h"
 
@@ -24,7 +25,7 @@ private:
     void UpdateVisualByEffect(UPalMapObjectModelEffectBase* Effect);
     
     UFUNCTION(BlueprintCallable)
-    void OnRemoveEffect(UPalMapObjectModel* Model, UPalMapObjectModelEffectBase* Effect);
+    void OnRemoveEffect(UPalMapObjectModel* Model, UPalMapObjectModelEffectBase* Effect, const EPalStatusID StatusId);
     
     UFUNCTION(BlueprintCallable)
     void OnGrantedEffect(UPalMapObjectModel* Model, UPalMapObjectModelEffectBase* Effect);

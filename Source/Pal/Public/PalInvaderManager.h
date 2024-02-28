@@ -3,7 +3,9 @@
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "EPalLogType.h"
+#include "PalGameWorldDataSaveInterface.h"
 #include "PalIncidentBroadcastParameter.h"
+#include "PalInvaderSaveData.h"
 #include "PalInvaderStartPointInfo.h"
 #include "PalWorldSubsystem.h"
 #include "PalInvaderManager.generated.h"
@@ -16,7 +18,7 @@ class UPalInvaderBaseCampObserver;
 class UPalInvaderIncidentBase;
 
 UCLASS(Blueprintable)
-class PAL_API UPalInvaderManager : public UPalWorldSubsystem {
+class PAL_API UPalInvaderManager : public UPalWorldSubsystem, public IPalGameWorldDataSaveInterface {
     GENERATED_BODY()
 public:
     DECLARE_DYNAMIC_DELEGATE_RetVal_OneParam(AActor*, FSpawnDummyNavInvokerDelegate, FTransform, Transform);
@@ -48,6 +50,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGuid StartInvaderLogId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FGuid, FPalInvaderSaveData> InvaderSaveDataMapCache;
     
 public:
     UPalInvaderManager();
@@ -86,5 +91,7 @@ protected:
     UFUNCTION(BlueprintCallable)
     void RemoveInvaderIncident(UPalIncidentBase* Incident);
     
+
+    // Fix for true pure virtual functions not being implemented
 };
 

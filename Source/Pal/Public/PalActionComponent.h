@@ -96,6 +96,12 @@ public:
     UPalActionBase* GetCurrentAction() const;
     
 private:
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void CancelAllAction_ToServer(int32 ID);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void CancelAllAction_ToALL(int32 ID);
+    
     UFUNCTION(BlueprintCallable)
     void CancelAllAction_Internal();
     
@@ -107,6 +113,12 @@ public:
     void CancelActionByType(EPalActionType Type);
     
 private:
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void CancelAction_ToServer(int32 ID, FGuid ActionID);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void CancelAction_ToALL(int32 ID, FGuid ActionID);
+    
     UFUNCTION(BlueprintCallable)
     void CancelAction_Internal(FGuid ActionID);
     

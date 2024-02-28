@@ -116,6 +116,10 @@ protected:
     UFUNCTION(BlueprintCallable)
     void HideLiftIcon();
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void Debug_DrawInteractPoints();
+    
 public:
     UFUNCTION(BlueprintCallable)
     UPalUserWidgetWorldHUD* CreateWorldHUDWidget(TSubclassOf<UPalUserWidgetWorldHUD> WidgetClass, UPalHUDDispatchParameterBase* Parameter);

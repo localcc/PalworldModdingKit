@@ -2,5 +2,6 @@
 
 UPalHUDDispatchParameter_WorldSetting::UPalHUDDispatchParameter_WorldSetting() {
     this->IsNewWorld = false;
+    this->CanMultiplay = false;
 }
 

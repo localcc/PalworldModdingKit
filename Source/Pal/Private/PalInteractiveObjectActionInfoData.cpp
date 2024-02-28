@@ -7,5 +7,6 @@ FPalInteractiveObjectActionInfoData::FPalInteractiveObjectActionInfoData() {
     this->bValid = false;
     this->bLockRiding = false;
     this->isInputComsume = false;
+    this->bCanToggle = false;
 }
 

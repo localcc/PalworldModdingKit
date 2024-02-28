@@ -18,6 +18,9 @@ public:
     bool bReferenceSlot;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIgnoreOnSave;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalContainerOperationRestrictType OperationRestrictType;
     
     PAL_API FPalContainerInitializeParameter();

@@ -7,6 +7,7 @@
 #include "PalSystemInitializeInterface.h"
 #include "PalWorldSecurityWantedStateInfo.h"
 #include "PalWorldSubsystem.h"
+#include "Templates/SubclassOf.h"
 #include "PalWorldSecuritySystem.generated.h"
 
 class APalTriggerAreaBase;
@@ -57,6 +58,9 @@ private:
     TMap<FGuid, UPalIndividualCharacterHandle*> CriminalMap;
     
 public:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<TSubclassOf<UPalWorldSecurityLawBase>> LawArray;
+    
     UPalWorldSecuritySystem();
 
     UFUNCTION(BlueprintCallable)

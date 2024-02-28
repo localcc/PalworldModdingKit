@@ -28,6 +28,10 @@ bool UPalVisualEffectBase::IsEndVisualEffect_Implementation() {
     return false;
 }
 
+USkeletalMeshComponent* UPalVisualEffectBase::GetPlayerHeadMesh() const {
+    return NULL;
+}
+
 AActor* UPalVisualEffectBase::GetOwner() const {
     return NULL;
 }
@@ -38,6 +42,10 @@ TArray<UMaterialInstanceDynamic*> UPalVisualEffectBase::GetMainMeshMaterials() c
 
 USkeletalMeshComponent* UPalVisualEffectBase::GetMainMesh() const {
     return NULL;
+}
+
+TArray<UMaterialInstanceDynamic*> UPalVisualEffectBase::GetMainAndHeadMeshMaterials() const {
+    return TArray<UMaterialInstanceDynamic*>();
 }
 
 float UPalVisualEffectBase::GetFloatParameter(FName Name, float DefaultValue) {

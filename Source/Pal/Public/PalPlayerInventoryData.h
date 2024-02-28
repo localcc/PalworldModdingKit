@@ -239,6 +239,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool CanEquip(EPalPlayerEquipItemSlotType equipmentSlotType, const FName& StaticItemId) const;
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool CanCheckPalTalentsByInventoryItem();
+    
     UFUNCTION(BlueprintCallable)
     EPalItemOperationResult AddItem_ServerInternal(const FName StaticItemId, const int32 Count, bool isAssignPassive);
     

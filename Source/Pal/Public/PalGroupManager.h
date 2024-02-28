@@ -11,6 +11,7 @@
 #include "PalWorldSubsystem.h"
 #include "PalGroupManager.generated.h"
 
+class AActor;
 class UObject;
 class UPalGroupBase;
 class UPalGroupGuildBase;
@@ -40,6 +41,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool TryGetGroupName(const FGuid& GroupID, FString& OutGroupName) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsInGuild(const AActor* TargetActor);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsExistGroup(const FString& GroupName) const;

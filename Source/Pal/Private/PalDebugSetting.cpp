@@ -130,6 +130,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->BaseCampWorkerEatTime = 0.00f;
     this->bBaseCampShowCannotTransportTarget = false;
     this->bBaseCampMoveModeTeleportForce = false;
+    this->bShowBaseCampSquaredDistanceFromPlayer = false;
     this->bVisibleSpawnPointFromPalBox = false;
     this->fallBackDefense = 0;
     this->bDebugLogWorldSecurity = false;
@@ -171,6 +172,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bUseFixedPositionPlayerUI = true;
     this->bForceShowHPGauge = false;
     this->bForceWordFilter_ACE = false;
+    this->ForceWordFilterAPIType_ACE = EPalACEWordFilterAPIType::Unknown;
     this->bIsFixedRandomSeed = false;
     this->actionRandomSeed = 1192;
     this->bAvailableBuildObjectInDevelop = false;
@@ -250,6 +252,8 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bShowStageDeathPenaltyLocation = false;
     this->bForceLocationTeleport = false;
     this->bShowInvaderDeubgLog = false;
+    this->bForceToggleInteract = false;
+    this->bShowInteractPoints = false;
 }
 
 

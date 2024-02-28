@@ -194,6 +194,15 @@ public:
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString BanListURL;
     
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool WebAPIEnabled;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, NotReplicated, meta=(AllowPrivateAccess=true))
+    int32 WebAPIPort;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bShowPlayerList;
+    
     PAL_API FPalOptionWorldSettings();
 };
 

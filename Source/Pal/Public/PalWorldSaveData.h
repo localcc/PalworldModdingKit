@@ -16,6 +16,7 @@
 #include "PalGroupSaveData.h"
 #include "PalIndividualCharacterSaveParameterSaveData.h"
 #include "PalInstanceID.h"
+#include "PalInvaderSaveData.h"
 #include "PalItemContainerSaveData.h"
 #include "PalMapObjectSaveData.h"
 #include "PalMapObjectSpawnerInStageSaveData.h"
@@ -81,6 +82,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FPalDungeonSaveData> DungeonSaveData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FGuid, FPalInvaderSaveData> InvaderSaveData;
     
     PAL_API FPalWorldSaveData();
 };

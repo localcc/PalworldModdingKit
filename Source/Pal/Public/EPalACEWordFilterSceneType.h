@@ -1,9 +1,9 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "EPalWordFilterSceneType.generated.h"
+#include "EPalACEWordFilterSceneType.generated.h"
 
 UENUM(BlueprintType)
-enum class EPalWordFilterSceneType : uint8 {
+enum class EPalACEWordFilterSceneType : uint8 {
     PlayerName,
     PalName,
     WorldName,

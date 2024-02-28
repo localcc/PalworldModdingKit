@@ -209,6 +209,12 @@ private:
     UFUNCTION(BlueprintCallable)
     void StopReloadInternal();
     
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void StopReload_ToServer(int32 ID);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void StopReload_ToALL(int32 ID);
+    
 public:
     UFUNCTION(BlueprintCallable)
     void StopReload();
@@ -284,6 +290,12 @@ public:
 private:
     UFUNCTION(BlueprintCallable)
     void ReloadWeaponInternal();
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void ReloadWeapon_ToServer(int32 ID);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void ReloadWeapon_ToALL(int32 ID);
     
 public:
     UFUNCTION(BlueprintCallable)
@@ -382,8 +394,20 @@ private:
     UFUNCTION(BlueprintCallable)
     void ChangeWeapon(APalWeaponBase* weapon);
     
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void ChangeIsShooting_ToServer(int32 ID, bool NewIsShooting);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void ChangeIsShooting_ToALL(int32 ID, bool NewIsShooting);
+    
     UFUNCTION(BlueprintCallable)
     void ChangeIsShooting(bool NewIsShooting);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void ChangeIsAiming_ToServer(int32 ID, bool NewIsAiming);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void ChangeIsAiming_ToALL(int32 ID, bool NewIsAiming);
     
     UFUNCTION(BlueprintCallable)
     void ChangeIsAiming(bool NewIsAiming);

@@ -18,6 +18,10 @@ void UPalUIUtility::SetCustomSlateNavigation(const UObject* WorldContextObject, 
 void UPalUIUtility::ResetSlateNavigation(const UObject* WorldContextObject) {
 }
 
+bool UPalUIUtility::IsToggleInteract(const UObject* WorldContextObject) {
+    return false;
+}
+
 bool UPalUIUtility::IsShiftDown_ForUI() {
     return false;
 }

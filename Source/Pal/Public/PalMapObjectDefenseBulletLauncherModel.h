@@ -14,10 +14,10 @@ class UPalMapObjectDefenseBulletLauncherModel : public UPalMapObjectDefenseModel
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TWeakObjectPtr<APalMapObject> WeakLauncherControlMapObject;
     
-    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TWeakObjectPtr<APalStationaryWeaponBase> WeakWeapon;
     
 private:

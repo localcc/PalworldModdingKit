@@ -50,4 +50,8 @@ APalBuildObject* UPalBuilderComponent::GetDismantleTargetObject() {
 void UPalBuilderComponent::CollectItemInfoEnableToUseMaterial(TArray<FName> StaticItemIds, TArray<FPalStaticItemIdAndNum>& OutItemInfos) const {
 }
 
+EPalMapObjectOperationResult UPalBuilderComponent::CanRequestDismantle() const {
+    return EPalMapObjectOperationResult::None;
+}
+
 

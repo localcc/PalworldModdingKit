@@ -3,7 +3,6 @@
 #include "UObject/NoExportTypes.h"
 #include "Components/ActorComponent.h"
 #include "EPalAIResponseType.h"
-#include "EPalBiologicalGradeComparedResult.h"
 #include "FlagContainer.h"
 #include "PalDeadInfo.h"
 #include "Templates/SubclassOf.h"
@@ -67,13 +66,16 @@ public:
     void SightCheckAllEdibleDeadNPC(TArray<APalCharacter*>& InSightCharacters);
     
     UFUNCTION(BlueprintCallable)
-    void SightCheckAllAliveNPC(TArray<APalCharacter*>& InSightCharacters);
+    void SightCheckAllAliveNPC(TArray<APalCharacter*>& InSightCharacters, bool ignoreOtomo);
     
     UFUNCTION(BlueprintCallable)
     void Setup();
     
     UFUNCTION(BlueprintCallable)
     void SetDisableSightFlag(FName flagName, bool isDisable);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetDisableEscape();
     
     UFUNCTION(BlueprintCallable)
     void SetDebugAIResponse(TSubclassOf<UPalAIResponsePreset> PresetClass);
@@ -91,9 +93,6 @@ private:
 public:
     UFUNCTION(BlueprintCallable)
     void OnResponseSpecialLookat();
-    
-    UFUNCTION(BlueprintCallable)
-    APalCharacter* MaximumStrengthEnemy(const TArray<APalCharacter*>& FindCharacters, EPalBiologicalGradeComparedResult& Result);
     
     UFUNCTION(BlueprintCallable)
     bool IsInSightKillerAndDeadBody(AActor* Killer, AActor* DeadBody);

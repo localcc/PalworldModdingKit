@@ -3,10 +3,12 @@
 #include "Components/ActorComponent.h"
 #include "EPalInteractiveObjectActionType.h"
 #include "FlagContainer.h"
+#include "PalInteractComponentOverlapComponentSet.h"
 #include "PalInteractComponent.generated.h"
 
 class IPalInteractiveObjectComponentInterface;
 class UPalInteractiveObjectComponentInterface;
+class UObject;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalInteractComponent : public UActorComponent {
@@ -29,6 +31,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<TScriptInterface<IPalInteractiveObjectComponentInterface>> InteractiveObjects;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<UObject*, FPalInteractComponentOverlapComponentSet> InteractComponentOverlapMap;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TScriptInterface<IPalInteractiveObjectComponentInterface> TargetInteractiveObject;
     
@@ -46,7 +51,7 @@ public:
     void TerminateInteract();
     
     UFUNCTION(BlueprintCallable)
-    void StartTriggerInteract(EPalInteractiveObjectActionType ActionType);
+    void StartTriggerInteract(EPalInteractiveObjectActionType ActionType, bool IsToggle);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void SetEnableInteractByFlagName(const FName& flagName, const bool bEnable, const bool bTerminateInteractIfDisable);
@@ -60,10 +65,16 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool IsInteracting();
+    bool IsToggleInteracting() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsInteracting() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsEnableInteract() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    EPalInteractiveObjectActionType GetTriggeringActionType() const;
     
     UFUNCTION(BlueprintCallable)
     void EndTriggerInteract(EPalInteractiveObjectActionType ActionType);

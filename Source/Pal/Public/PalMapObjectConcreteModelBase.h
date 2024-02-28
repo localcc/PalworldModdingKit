@@ -54,8 +54,9 @@ private:
     
 public:
     UPalMapObjectConcreteModelBase();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FName TryGetMapObjectId();
     

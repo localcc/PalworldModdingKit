@@ -10,5 +10,6 @@ FPalOptionPadSettings::FPalOptionPadSettings() {
     this->bIsRightStickReversePitch = false;
     this->bEnableVibration = false;
     this->bEnableAimAssist = false;
+    this->bIsToggleInteract = false;
 }
 

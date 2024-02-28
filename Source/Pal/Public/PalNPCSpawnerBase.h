@@ -113,6 +113,9 @@ protected:
     void SetAllNPCLocation();
     
     UFUNCTION(BlueprintCallable)
+    void RequestDeleteGroup();
+    
+    UFUNCTION(BlueprintCallable)
     void RequestCreateGroup(TArray<FName> CharacterIDList);
     
 public:

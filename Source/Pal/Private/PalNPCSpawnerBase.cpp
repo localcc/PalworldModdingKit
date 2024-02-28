@@ -39,6 +39,9 @@ void APalNPCSpawnerBase::SetCheckRadius(float SpawnRadius, float DespawnRadius) 
 }
 
 
+void APalNPCSpawnerBase::RequestDeleteGroup() {
+}
+
 void APalNPCSpawnerBase::RequestCreateGroup(TArray<FName> CharacterIDList) {
 }
 

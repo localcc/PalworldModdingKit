@@ -2,7 +2,12 @@
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
 #include "Engine/EngineTypes.h"
+#include "EPalInLoadCollectionType.h"
+#include "FlagContainer.h"
 #include "PalAsyncSaveProcessParallel.h"
+#include "PalContainerId.h"
+#include "PalDynamicItemId.h"
+#include "PalInstanceID.h"
 #include "PalWorldBaseInfoData.h"
 #include "PalSaveGameManager.generated.h"
 
@@ -91,6 +96,18 @@ private:
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 DaySaveBackupNum;
+    
+    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<EPalInLoadCollectionType, FFlagContainer> bIsCollectIDInLoad;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSet<FPalInstanceID> UsedInstanceIDSetInLoad;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSet<FPalContainerId> UsedContainerIDSetInLoad;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSet<FPalDynamicItemId> UsedDynamicItemIDSetInLoad;
     
 public:
     UPalSaveGameManager();

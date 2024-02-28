@@ -8,5 +8,6 @@ FPalOptionKeyboardSettings::FPalOptionKeyboardSettings() {
     this->bIsReversePitch = false;
     this->bEnableAimAssist = false;
     this->bShowChat = false;
+    this->bIsToggleInteract = false;
 }
 

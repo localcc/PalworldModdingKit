@@ -111,6 +111,9 @@ public:
     void SetRuntimeAnimRateScale(FName flagName, float RateScale);
     
     UFUNCTION(BlueprintCallable)
+    void SetEnableRagdollCCD(bool IsActive);
+    
+    UFUNCTION(BlueprintCallable)
     void SetDisableChangeMesh(bool Disable);
     
     UFUNCTION(BlueprintCallable)

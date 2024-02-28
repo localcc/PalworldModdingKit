@@ -268,9 +268,6 @@ bool UPalUtility::LineTraceToTarget_ForAIAttack(AActor* SelfActor, AActor* Targe
     return false;
 }
 
-void UPalUtility::KillCharacter_NotDamageToEquipItem(APalCharacter* Character) {
-}
-
 void UPalUtility::JudgePalCapture_TryAllPhase(const UPalIndividualCharacterHandle* targetHandle, const UPalIndividualCharacterHandle* throwCharacterHandle, int32 captureItemLevel, TArray<bool>& outJudgeFlagArray, bool Robbery) {
 }
 
@@ -479,6 +476,10 @@ bool UPalUtility::IsDedicatedServer(const UObject* WorldContextObject) {
 }
 
 bool UPalUtility::IsDead(AActor* Actor) {
+    return false;
+}
+
+bool UPalUtility::IsCrossplayBlock() {
     return false;
 }
 
@@ -737,6 +738,10 @@ FString UPalUtility::GetPlayerListDisplayMessage(const UObject* WorldContextObje
     return TEXT("");
 }
 
+TArray<FPlayerListItem> UPalUtility::GetPlayerList(const UObject* WorldContextObject) {
+    return TArray<FPlayerListItem>();
+}
+
 FGuid UPalUtility::GetPlayerGUIDByPlayerUIDOrSteamId(const UObject* WorldContextObject, const FString& PlayerUIdORSteamId) {
     return FGuid{};
 }
@@ -890,6 +895,14 @@ FPalOptionWorldSettings UPalUtility::GetOptionWorldSettings(const UObject* World
 
 UPalOptionSubsystem* UPalUtility::GetOptionSubsystem(const UObject* WorldContextObject) {
     return NULL;
+}
+
+FPalOptionPadSettings UPalUtility::GetOptionPadSettings(const UObject* WorldContextObject) {
+    return FPalOptionPadSettings{};
+}
+
+FPalOptionKeyboardSettings UPalUtility::GetOptionKeyboardSettings(const UObject* WorldContextObject) {
+    return FPalOptionKeyboardSettings{};
 }
 
 FPalOptionGraphicsSettings UPalUtility::GetOptionGraphicsSettings(const UObject* WorldContextObject) {
@@ -1380,10 +1393,12 @@ void UPalUtility::DropCharactersCircularly_ServerInternal(const UObject* WorldCo
 void UPalUtility::DropCharacter_ServerInternal(const UObject* WorldContextObject, const FPalInstanceID& IndividualId, FVector DropLocation, const FGuid& RequestPlayerUId) {
 }
 
-void UPalUtility::DialogWithParameter(const UObject* WorldContextObject, UPalDialogParameterDialog* Parameter) {
+FGuid UPalUtility::DialogWithParameter(const UObject* WorldContextObject, UPalDialogParameterDialog* Parameter) {
+    return FGuid{};
 }
 
-void UPalUtility::Dialog(const UObject* WorldContextObject, const FText Message, const EPalDialogType DialogType, FPalDialogBoolCallback Callback, const bool bNegativeDefault) {
+FGuid UPalUtility::Dialog(const UObject* WorldContextObject, const FText Message, const EPalDialogType DialogType, FPalDialogBoolCallback Callback, const bool bNegativeDefault) {
+    return FGuid{};
 }
 
 void UPalUtility::DestroyActorIncludingAttachedActors(AActor* Actor) {

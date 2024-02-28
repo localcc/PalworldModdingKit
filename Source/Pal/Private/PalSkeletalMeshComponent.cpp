@@ -27,6 +27,9 @@ void UPalSkeletalMeshComponent::SetRuntimePitch(FName flagName, float Pitch) {
 void UPalSkeletalMeshComponent::SetRuntimeAnimRateScale(FName flagName, float RateScale) {
 }
 
+void UPalSkeletalMeshComponent::SetEnableRagdollCCD(bool IsActive) {
+}
+
 void UPalSkeletalMeshComponent::SetDisableChangeMesh(bool Disable) {
 }
 

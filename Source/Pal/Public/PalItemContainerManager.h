@@ -29,6 +29,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FPalContainerId, FPalItemContainerBelongInfo> ItemContainerBelongInfo;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSet<FPalContainerId> LoadedContainerIDs;
+    
 public:
     UPalItemContainerManager();
 

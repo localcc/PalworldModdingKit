@@ -6,6 +6,7 @@
 #include "EPalPassiveSkillEffectType.h"
 #include "EPalPlayerEquipItemSlotType.h"
 #include "PalHeatSourceInfo.h"
+#include "PalTemperatureInfo.h"
 #include "PalBodyTemperatureComponent.generated.h"
 
 class APalCharacter;
@@ -32,32 +33,23 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FName, FPalHeatSourceInfo> HeatSourceInfoMap;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    int32 CurrentTemperature;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName SelfKeyName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FTimerHandle SlipDamageTimer;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    int32 CurrentResistRank_Heat;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_TemperatureInfo, meta=(AllowPrivateAccess=true))
+    FPalTemperatureInfo TemperatureInfo;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    int32 CurrentResistRank_Cold;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    EPalBodyTemperatureState CurrentBodyState;
+    FPalTemperatureInfo TemperatureInfo_Pre_ForClient;
     
 public:
     UPalBodyTemperatureComponent(const FObjectInitializer& ObjectInitializer);
 
-private:
-    UFUNCTION(BlueprintCallable, Reliable, Server)
-    void RequestReSend_ToServer();
-    
-public:
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
     UFUNCTION(BlueprintCallable)
     void RemoveHeatSource(FName UniqueName);
     
@@ -69,7 +61,7 @@ private:
     void OnUpdateEquipment(UPalItemSlot* itemSlot, EPalPlayerEquipItemSlotType slotType);
     
     UFUNCTION(BlueprintCallable)
-    void OnInitializedPlayer_ForClient(APalCharacter* Character);
+    void OnRep_TemperatureInfo();
     
     UFUNCTION(BlueprintCallable)
     void OnInitializedPlayer(APalCharacter* Character);

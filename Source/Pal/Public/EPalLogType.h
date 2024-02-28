@@ -69,5 +69,7 @@ enum class EPalLogType : uint8 {
     PartnerSkillExecute_NightRunner,
     ObtainNote,
     OutdoorBedNortice,
+    FullPalBox,
+    FireBaseCamp,
 };
 

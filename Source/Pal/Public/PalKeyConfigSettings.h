@@ -20,6 +20,12 @@ public:
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FPalAxisKeyConfigKeys> GamePadAxisMappings;
     
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FName, FKey> MouseAndKeyboardUIInputMappings;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FName, FKey> GamePadUIInputMappings;
+    
     PAL_API FPalKeyConfigSettings();
 };
 
