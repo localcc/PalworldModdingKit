@@ -1,0 +1,3 @@
+[submodule "Plugins/ModdingEx"]
+	path = Plugins/ModdingEx
+	url = git@github.com:ToniMacaroni/ModdingEx.git
