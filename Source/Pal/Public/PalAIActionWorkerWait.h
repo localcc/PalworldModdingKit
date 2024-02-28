@@ -18,6 +18,9 @@ protected:
     void OnTickForWait(float DeltaTime);
     
     UFUNCTION(BlueprintCallable)
+    TEnumAsByte<EPathFollowingRequestResult::Type> MoveToLocationInBaseCamp(const FVector& ToLocation, float DeltaTime);
+    
+    UFUNCTION(BlueprintCallable)
     TEnumAsByte<EPathFollowingRequestResult::Type> MoveToLocation(const FVector& ToLocation);
     
     UFUNCTION(BlueprintCallable)

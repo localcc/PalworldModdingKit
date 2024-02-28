@@ -33,6 +33,12 @@ void UPalShooterComponent::StopWeaponChangeAnimation() {
 void UPalShooterComponent::StopReloadInternal() {
 }
 
+void UPalShooterComponent::StopReload_ToServer_Implementation(int32 ID) {
+}
+
+void UPalShooterComponent::StopReload_ToALL_Implementation(int32 ID) {
+}
+
 void UPalShooterComponent::StopReload() {
 }
 
@@ -103,6 +109,12 @@ void UPalShooterComponent::ResetOverrideWeaponType() {
 }
 
 void UPalShooterComponent::ReloadWeaponInternal() {
+}
+
+void UPalShooterComponent::ReloadWeapon_ToServer_Implementation(int32 ID) {
+}
+
+void UPalShooterComponent::ReloadWeapon_ToALL_Implementation(int32 ID) {
 }
 
 void UPalShooterComponent::ReloadWeapon() {
@@ -212,7 +224,19 @@ void UPalShooterComponent::EndAim() {
 void UPalShooterComponent::ChangeWeapon(APalWeaponBase* weapon) {
 }
 
+void UPalShooterComponent::ChangeIsShooting_ToServer_Implementation(int32 ID, bool NewIsShooting) {
+}
+
+void UPalShooterComponent::ChangeIsShooting_ToALL_Implementation(int32 ID, bool NewIsShooting) {
+}
+
 void UPalShooterComponent::ChangeIsShooting(bool NewIsShooting) {
+}
+
+void UPalShooterComponent::ChangeIsAiming_ToServer_Implementation(int32 ID, bool NewIsAiming) {
+}
+
+void UPalShooterComponent::ChangeIsAiming_ToALL_Implementation(int32 ID, bool NewIsAiming) {
 }
 
 void UPalShooterComponent::ChangeIsAiming(bool NewIsAiming) {

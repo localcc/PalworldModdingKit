@@ -1,14 +1,8 @@
 #include "PalBodyTemperatureComponent.h"
+#include "Net/UnrealNetwork.h"
 
 UPalBodyTemperatureComponent::UPalBodyTemperatureComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->CurrentTemperature = 0;
     this->SelfKeyName = TEXT("BodyTemperatureComponent");
-    this->CurrentResistRank_Heat = 0;
-    this->CurrentResistRank_Cold = 0;
-    this->CurrentBodyState = EPalBodyTemperatureState::Default;
-}
-
-void UPalBodyTemperatureComponent::RequestReSend_ToServer_Implementation() {
 }
 
 void UPalBodyTemperatureComponent::RemoveHeatSource(FName UniqueName) {
@@ -20,7 +14,7 @@ void UPalBodyTemperatureComponent::OnUpdatePassiveSkill(EPalPassiveSkillEffectTy
 void UPalBodyTemperatureComponent::OnUpdateEquipment(UPalItemSlot* itemSlot, EPalPlayerEquipItemSlotType slotType) {
 }
 
-void UPalBodyTemperatureComponent::OnInitializedPlayer_ForClient(APalCharacter* Character) {
+void UPalBodyTemperatureComponent::OnRep_TemperatureInfo() {
 }
 
 void UPalBodyTemperatureComponent::OnInitializedPlayer(APalCharacter* Character) {
@@ -48,6 +42,12 @@ void UPalBodyTemperatureComponent::AddHeatSourceInfo(FName UniqueName, FPalHeatS
 }
 
 void UPalBodyTemperatureComponent::AddHeatSource(FName UniqueName, int32 HeatLevel) {
+}
+
+void UPalBodyTemperatureComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
+    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+    
+    DOREPLIFETIME(UPalBodyTemperatureComponent, TemperatureInfo);
 }
 
 

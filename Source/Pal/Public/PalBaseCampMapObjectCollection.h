@@ -2,11 +2,14 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/Object.h"
+#include "EPalStatusID.h"
 #include "PalMapObjectDisposeOptions.h"
 #include "PalBaseCampMapObjectCollection.generated.h"
 
 class UPalMapObjectConcreteModelBase;
 class UPalMapObjectModel;
+class UPalMapObjectModelEffectBase;
+class UPalMapObjectModelEffect_AccumulateTrigger;
 
 UCLASS(Blueprintable)
 class UPalBaseCampMapObjectCollection : public UObject {
@@ -15,6 +18,11 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FMapObjectInstanceDelegate, UPalMapObjectModel*, Model);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FMapObjectConcreteModelDelegate, UPalMapObjectConcreteModelBase*, Model);
     
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FGuid> BurningMapObjectInstanceIds;
+    
+public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FMapObjectInstanceDelegate OnRegisteredMapObjectInstance;
     
@@ -33,10 +41,22 @@ public:
 
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
+protected:
+    UFUNCTION(BlueprintCallable)
+    void OnTriggeredBurnAnyMapObject(UPalMapObjectModelEffect_AccumulateTrigger* This, UPalMapObjectModel* OwnerModel);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnRemovedEffectAnyMapObject(UPalMapObjectModel* OwnerModel, UPalMapObjectModelEffectBase* Effect, EPalStatusID StatusId);
+    
 private:
     UFUNCTION(BlueprintCallable)
     void OnNotAvailableConcreteModel(UPalMapObjectConcreteModelBase* Model);
     
+protected:
+    UFUNCTION(BlueprintCallable)
+    void OnGrantedEffectAnyMapObject(UPalMapObjectModel* OwnerModel, UPalMapObjectModelEffectBase* Effect);
+    
+private:
     UFUNCTION(BlueprintCallable)
     void OnDisposeMapObject(UPalMapObjectModel* Model, const FPalMapObjectDisposeOptions& Options);
     

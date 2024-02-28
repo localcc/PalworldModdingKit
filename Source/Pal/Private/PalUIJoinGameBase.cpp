@@ -2,12 +2,15 @@
 
 UPalUIJoinGameBase::UPalUIJoinGameBase() {
     this->bIsShowIgnoreVersionServer = false;
+    this->CurrentPage = 1;
+    this->PageSize = 0;
+    this->IsNextPage = false;
 }
 
 void UPalUIJoinGameBase::RequestOfficialServerIPRange() {
 }
 
-void UPalUIJoinGameBase::RequestGetServerList(EPalUIServerListFilterType Type, const FString& Region, bool IsCleanCache, bool NextPage) {
+void UPalUIJoinGameBase::RequestGetServerList(EPalUIServerListFilterType Type, const FString& Region, bool IsCleanCache, bool NextPage, const FString& SearchWord) {
 }
 
 void UPalUIJoinGameBase::OnCompleteOfficialServerIPRange(const FString& ResponseBody, bool bResponseOK, int32 ResponseCode) {
@@ -15,6 +18,9 @@ void UPalUIJoinGameBase::OnCompleteOfficialServerIPRange(const FString& Response
 
 
 void UPalUIJoinGameBase::OnCompleteFindSessions(bool IsSuccess, const TArray<FBlueprintSessionResult>& Results, const FString& ErrorStr) {
+}
+
+void UPalUIJoinGameBase::OnCompleteFindSessionResult(const FString& ResponseBody, bool bResponseOK, int32 ResponseCode) {
 }
 
 void UPalUIJoinGameBase::ConnectServerByAddress(const FString& Address, int32 Port) {

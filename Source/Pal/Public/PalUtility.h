@@ -50,9 +50,12 @@
 #include "PalKeyAction.h"
 #include "PalMakeDamageInfo.h"
 #include "PalOptionGraphicsSettings.h"
+#include "PalOptionKeyboardSettings.h"
+#include "PalOptionPadSettings.h"
 #include "PalOptionWorldSettings.h"
 #include "PalPlayerDataCharacterMakeInfo.h"
 #include "PalTimerGaugeWidgetCreateInfo.h"
+#include "PlayerListItem.h"
 #include "Templates/SubclassOf.h"
 #include "PalUtility.generated.h"
 
@@ -396,9 +399,6 @@ public:
     static bool LineTraceToTarget_ForAIAttack(AActor* SelfActor, AActor* Target);
     
     UFUNCTION(BlueprintCallable)
-    static void KillCharacter_NotDamageToEquipItem(APalCharacter* Character);
-    
-    UFUNCTION(BlueprintCallable)
     static void JudgePalCapture_TryAllPhase(const UPalIndividualCharacterHandle* targetHandle, const UPalIndividualCharacterHandle* throwCharacterHandle, int32 captureItemLevel, TArray<bool>& outJudgeFlagArray, bool Robbery);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -556,6 +556,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsDead(AActor* Actor);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool IsCrossplayBlock();
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsClientDedicatedServer(const UObject* WorldContextObject);
@@ -756,6 +759,9 @@ public:
     static FString GetPlayerListDisplayMessage(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static TArray<FPlayerListItem> GetPlayerList(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FGuid GetPlayerGUIDByPlayerUIDOrSteamId(const UObject* WorldContextObject, const FString& PlayerUIdORSteamId);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
@@ -874,6 +880,12 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalOptionSubsystem* GetOptionSubsystem(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static FPalOptionPadSettings GetOptionPadSettings(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static FPalOptionKeyboardSettings GetOptionKeyboardSettings(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FPalOptionGraphicsSettings GetOptionGraphicsSettings(const UObject* WorldContextObject);
@@ -1257,10 +1269,10 @@ public:
     static void DropCharacter_ServerInternal(const UObject* WorldContextObject, const FPalInstanceID& IndividualId, FVector DropLocation, const FGuid& RequestPlayerUId);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static void DialogWithParameter(const UObject* WorldContextObject, UPalDialogParameterDialog* Parameter);
+    static FGuid DialogWithParameter(const UObject* WorldContextObject, UPalDialogParameterDialog* Parameter);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static void Dialog(const UObject* WorldContextObject, const FText Message, const EPalDialogType DialogType, FPalDialogBoolCallback Callback, const bool bNegativeDefault);
+    static FGuid Dialog(const UObject* WorldContextObject, const FText Message, const EPalDialogType DialogType, FPalDialogBoolCallback Callback, const bool bNegativeDefault);
     
     UFUNCTION(BlueprintCallable)
     static void DestroyActorIncludingAttachedActors(AActor* Actor);

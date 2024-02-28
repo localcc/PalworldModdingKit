@@ -3,6 +3,7 @@
 
 UPalContainerBase::UPalContainerBase() {
     this->OperationRestrictType = EPalContainerOperationRestrictType::None;
+    this->bIgnoreOnSave = false;
 }
 
 bool UPalContainerBase::IsEmpty() const {

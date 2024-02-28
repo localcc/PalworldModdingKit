@@ -3,6 +3,7 @@
 
 UPalIndividualCharacterParameter::UPalIndividualCharacterParameter() {
     this->IndividualActor = NULL;
+    this->IsWaitResponseWordFiltering = false;
     this->EquipItemContainer = NULL;
 }
 

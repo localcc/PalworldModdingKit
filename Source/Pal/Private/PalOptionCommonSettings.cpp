@@ -5,5 +5,6 @@ FPalOptionCommonSettings::FPalOptionCommonSettings() {
     this->FOV = 0.00f;
     this->bEnableMotionBlur = false;
     this->bEnableCameraShake = false;
+    this->Brightness = 0.00f;
 }
 

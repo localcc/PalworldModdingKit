@@ -2,14 +2,12 @@
 #include "Net/UnrealNetwork.h"
 #include "PalAIActionComponent.h"
 #include "PalCutsceneComponent.h"
-#include "PalNetworkMulticastGateComponent.h"
 
 APalPlayerController::APalPlayerController(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->bAutoManageActiveCameraTarget = false;
     this->ClickEventKeys.AddDefaulted(1);
     this->bAdmin = false;
     this->AIActionComponent = CreateDefaultSubobject<UPalAIActionComponent>(TEXT("ActionsComp"));
-    this->MulticastGateComponent = CreateDefaultSubobject<UPalNetworkMulticastGateComponent>(TEXT("NetworkMulticastGateComponent"));
     this->CutsceneComponent = CreateDefaultSubobject<UPalCutsceneComponent>(TEXT("PalCutsceneComponent"));
     this->Transmitter = NULL;
     this->WeaponPaletteLongPressTime = 1.00f;
@@ -20,6 +18,7 @@ APalPlayerController::APalPlayerController(const FObjectInitializer& ObjectIniti
     this->DamageCamShakeRegulatorClass = NULL;
     this->DamageCamShakeRegulator = NULL;
     this->AutoAimTarget = NULL;
+    this->PlayerInputOneFlameCommandList = NULL;
 }
 
 bool APalPlayerController::TrySwitchOtomo() {
@@ -38,6 +37,24 @@ void APalPlayerController::StartStepCoolDownCoolTimer() {
 void APalPlayerController::StartFlyToServer_Implementation() {
 }
 
+void APalPlayerController::SetupInternalForSphere_ToServer_Implementation(int32 ID, APalSphereBodyBase* Target, APalCharacter* TargetCharacter) {
+}
+
+void APalPlayerController::SetupInternalForSphere_ToALL_Implementation(int32 ID, APalSphereBodyBase* Target, APalCharacter* TargetCharacter) {
+}
+
+void APalPlayerController::SetupInternalForSphere(APalSphereBodyBase* Target, APalCharacter* TargetCharacter) {
+}
+
+void APalPlayerController::SetSneakBonusFlagForSphere_ToServer_Implementation(int32 ID, APalSphereBodyBase* Target, bool isSneak) {
+}
+
+void APalPlayerController::SetSneakBonusFlagForSphere_ToALL_Implementation(int32 ID, APalSphereBodyBase* Target, bool isSneak) {
+}
+
+void APalPlayerController::SetSneakBonusFlagForSphere(APalSphereBodyBase* Target, bool isSneak) {
+}
+
 void APalPlayerController::SetRiderRelativeRotation_ToServer_Implementation(FRotator Rotator) {
 }
 
@@ -52,6 +69,15 @@ void APalPlayerController::SetDisableSwitchPalFlag(FName flagName, bool isDisabl
 void APalPlayerController::SetDisableInputFlag(FName flagName, bool isDisable) {
 }
 
+void APalPlayerController::SetCaptureLevelForSphere_ToServer_Implementation(int32 ID, APalSphereBodyBase* Target, int32 Level) {
+}
+
+void APalPlayerController::SetCaptureLevelForSphere_ToALL_Implementation(int32 ID, APalSphereBodyBase* Target, int32 Level) {
+}
+
+void APalPlayerController::SetCaptureLevelForSphere(APalSphereBodyBase* Target, int32 Level) {
+}
+
 void APalPlayerController::SetCameraRotatorToPlayerCharacter_ToServer_Implementation(FRotator CameraRotator) {
 }
 
@@ -59,6 +85,9 @@ void APalPlayerController::SendScreenLogToClient_Implementation(const FString& M
 }
 
 void APalPlayerController::SendLog_ToClient_Implementation(const EPalLogPriority Priority, const FText& Text, const FPalLogAdditionalData& AdditionalData) {
+}
+
+void APalPlayerController::SelfKillPlayer_Implementation() {
 }
 
 void APalPlayerController::RPCDummy_Implementation() {
@@ -91,6 +120,9 @@ void APalPlayerController::OnWeaponNotify(EWeaponNotifyType Type) {
 void APalPlayerController::OnUpdateWeightInventory(float Weight) {
 }
 
+
+void APalPlayerController::OnStartGliding() {
+}
 
 
 void APalPlayerController::OnStartAim() {
@@ -151,6 +183,9 @@ void APalPlayerController::OnChangePadOption(const FPalOptionPadSettings& PrevSe
 void APalPlayerController::OnChangeKeyboardOption(const FPalOptionKeyboardSettings& PrevSettings, const FPalOptionKeyboardSettings& NewSettings) {
 }
 
+
+void APalPlayerController::OnActionBegin(const UPalActionBase* ActionBase) {
+}
 
 void APalPlayerController::NotifyLiftupCampPal_ToClient_Implementation(APalCharacter* TargetCharacter) {
 }

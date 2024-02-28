@@ -19,6 +19,7 @@ enum class EPalMapObjectOperationResult : uint8 {
     FailedNotEnoughMaterials,
     FailedInValidWeakSelf,
     FailedInValidRequestHandler,
+    FailedNotAuthenticatedPasswordLock,
     FailedNotReady,
     FailNotFoundClass,
     FailLackSupportedLevel,

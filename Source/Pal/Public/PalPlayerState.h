@@ -470,6 +470,9 @@ public:
     void AddItemGetLog_ToClient(const FPalStaticItemIdAndNum& ItemAndNum) const;
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
+    void AddFullPalBoxLog_ToClient() const;
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void AddFullInventoryLog_ToClient() const;
     
 };

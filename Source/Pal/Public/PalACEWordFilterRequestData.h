@@ -1,26 +1,22 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
 #include "AsyncHTTPRequestFunctionDelegate.h"
-#include "EPalWordFilterSceneType.h"
-#include "PalWordFilterRequestData.generated.h"
+#include "EPalACEWordFilterSceneType.h"
+#include "PalACEWordFilterRequestData.generated.h"
 
 USTRUCT(BlueprintType)
-struct FPalWordFilterRequestData {
+struct FPalACEWordFilterRequestData {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FGuid PlayerUId;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString TargetString;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    EPalWordFilterSceneType SceneType;
+    EPalACEWordFilterSceneType SceneType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FAsyncHTTPRequestFunction Callback;
     
-    PAL_API FPalWordFilterRequestData();
+    PAL_API FPalACEWordFilterRequestData();
 };
 

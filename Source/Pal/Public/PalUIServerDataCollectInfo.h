@@ -10,9 +10,6 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalUIServerListSortType SortType;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FString SearchWord;
-    
     PAL_API FPalUIServerDataCollectInfo();
 };
 

@@ -158,6 +158,10 @@ bool UPalPlayerInventoryData::CanEquip(EPalPlayerEquipItemSlotType equipmentSlot
     return false;
 }
 
+bool UPalPlayerInventoryData::CanCheckPalTalentsByInventoryItem() {
+    return false;
+}
+
 EPalItemOperationResult UPalPlayerInventoryData::AddItem_ServerInternal(const FName StaticItemId, const int32 Count, bool isAssignPassive) {
     return EPalItemOperationResult::Success;
 }

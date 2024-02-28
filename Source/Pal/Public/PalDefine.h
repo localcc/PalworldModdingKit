@@ -91,6 +91,9 @@ public:
     static FName StatusPointName_AddCaptureLevel();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FName StaticItemID_UnlockTalentCheck();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName StaticItemID_UnlockLantern();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

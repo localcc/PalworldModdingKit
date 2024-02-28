@@ -111,6 +111,10 @@ FName UPalDefine::StatusPointName_AddCaptureLevel() {
     return NAME_None;
 }
 
+FName UPalDefine::StaticItemID_UnlockTalentCheck() {
+    return NAME_None;
+}
+
 FName UPalDefine::StaticItemID_UnlockLantern() {
     return NAME_None;
 }

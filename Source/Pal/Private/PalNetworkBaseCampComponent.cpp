@@ -33,6 +33,9 @@ void UPalNetworkBaseCampComponent::Request_Server_FPalNetArchive_Implementation(
 void UPalNetworkBaseCampComponent::Request_Server_bool_Implementation(const FGuid& BaseCampId, const FName FunctionName, bool Value) {
 }
 
+void UPalNetworkBaseCampComponent::RemoveBaseCampBurningLog_Client_Implementation(const FGuid& BaseCampId) {
+}
+
 void UPalNetworkBaseCampComponent::NotifyModule_RequestClient_void_Implementation(const FGuid& BaseCampId, const EPalBaseCampModuleType ModuleType, const FName FunctionName) {
 }
 
@@ -93,6 +96,9 @@ void UPalNetworkBaseCampComponent::Notify_Multicast_FPalNetArchive_Implementatio
 void UPalNetworkBaseCampComponent::Notify_Multicast_bool_Implementation(const FGuid& BaseCampId, const FName FunctionName, bool Value) {
 }
 
+void UPalNetworkBaseCampComponent::BroadcastRemoveBaseCampBurningLog_Server_Implementation(const FGuid& BaseCampId) {
+}
+
 void UPalNetworkBaseCampComponent::BroadcastBaseCampWorkerMealLog_Server_Implementation(const FPalMealLogDisplayData& DisplayData) {
 }
 
@@ -102,10 +108,16 @@ void UPalNetworkBaseCampComponent::BroadcastBaseCampWorkerLog_Server_Implementat
 void UPalNetworkBaseCampComponent::BroadcastBaseCampLog_Server_Implementation(const FPalMonsterControllerBaseCampLogContent& LogContent) {
 }
 
+void UPalNetworkBaseCampComponent::BroadcastAddBaseCampBurningLog_Server_Implementation(const FGuid& BaseCampId) {
+}
+
 void UPalNetworkBaseCampComponent::AddBaseCampWorkerLog_Client_Implementation(EPalLogType DisplayLogType, const FPalInstanceID& WorkerCharacterInstanceId, const FName& EventDataID) {
 }
 
 void UPalNetworkBaseCampComponent::AddBaseCampLog_Client_Implementation(const FPalMonsterControllerBaseCampLogContent& LogContent) {
+}
+
+void UPalNetworkBaseCampComponent::AddBaseCampBurningLog_Client_Implementation(const FGuid& BaseCampId) {
 }
 
 

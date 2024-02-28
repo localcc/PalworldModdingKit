@@ -11,6 +11,10 @@ bool UPalGroupManager::TryGetGroupName(const FGuid& GroupID, FString& OutGroupNa
     return false;
 }
 
+bool UPalGroupManager::IsInGuild(const AActor* TargetActor) {
+    return false;
+}
+
 bool UPalGroupManager::IsExistGroup(const FString& GroupName) const {
     return false;
 }

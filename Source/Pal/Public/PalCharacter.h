@@ -27,7 +27,6 @@ class UPalFootIKComponent;
 class UPalHeadUpDisplayComponent;
 class UPalLookAtComponent;
 class UPalNavigationInvokerComponent;
-class UPalNetworkMulticastGateComponent;
 class UPalPassiveSkillComponent;
 class UPalShooterSpringArmComponent;
 class UPalSkeletalMeshComponent;
@@ -72,9 +71,6 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPalCharacterCameraComponent* FollowCamera;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    UPalNetworkMulticastGateComponent* MulticastGateComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPalLookAtComponent* LookAtComponent;

@@ -9,6 +9,8 @@ UPalBaseCampManager::UPalBaseCampManager() {
     this->WorkerSickMasterDataTable = NULL;
     this->WorkerEventTriggerTickMaxCount = 2147483647;
     this->UpdateIntervalSquaredDistanceFromPlayer = 1.00f;
+    this->RestoreIgnoredWorkDistanceFromPlayer = 0.00f;
+    this->ClearUnreachableDistanceFromPlayer = 0.00f;
     this->BaseCampTickInvokeMaxNumInOneTick = 5;
 }
 

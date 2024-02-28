@@ -17,6 +17,15 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FString> OfficialServerIPRangeList;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 CurrentPage;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 PageSize;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IsNextPage;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FPalUIServerDisplayData> CachedServerDisplayInfo;
@@ -27,7 +36,7 @@ public:
     void RequestOfficialServerIPRange();
     
     UFUNCTION(BlueprintCallable)
-    void RequestGetServerList(EPalUIServerListFilterType Type, const FString& Region, bool IsCleanCache, bool NextPage);
+    void RequestGetServerList(EPalUIServerListFilterType Type, const FString& Region, bool IsCleanCache, bool NextPage, const FString& SearchWord);
     
 private:
     UFUNCTION(BlueprintCallable)
@@ -42,6 +51,9 @@ private:
     void OnCompleteFindSessions(bool IsSuccess, const TArray<FBlueprintSessionResult>& Results, const FString& ErrorStr);
     
 public:
+    UFUNCTION(BlueprintCallable)
+    void OnCompleteFindSessionResult(const FString& ResponseBody, bool bResponseOK, int32 ResponseCode);
+    
     UFUNCTION(BlueprintCallable)
     void ConnectServerByAddress(const FString& Address, int32 Port);
     

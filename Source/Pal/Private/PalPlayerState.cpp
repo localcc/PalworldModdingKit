@@ -312,6 +312,9 @@ void APalPlayerState::AddMealLog_Implementation(const TArray<FPalMealLogDisplayD
 void APalPlayerState::AddItemGetLog_ToClient_Implementation(const FPalStaticItemIdAndNum& ItemAndNum) const {
 }
 
+void APalPlayerState::AddFullPalBoxLog_ToClient_Implementation() const {
+}
+
 void APalPlayerState::AddFullInventoryLog_ToClient_Implementation() const {
 }
 

@@ -11,6 +11,7 @@ enum class EPalGroupOperationResult : uint8 {
     FailedNotFoundGuild,
     FailedNotFoundOrganization,
     FailedNotFoundCharacterHandle,
+    FailedNotFoundCharacterIndividualID,
     FailedNotFoundCharacterParameter,
     FailedNotFoundPlayerCharacterHandle,
     FailedAlreadyBelongToGroup,

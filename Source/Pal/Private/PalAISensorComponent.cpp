@@ -20,13 +20,16 @@ void UPalAISensorComponent::SightCheckAllPlayer(TArray<APalCharacter*>& InSightP
 void UPalAISensorComponent::SightCheckAllEdibleDeadNPC(TArray<APalCharacter*>& InSightCharacters) {
 }
 
-void UPalAISensorComponent::SightCheckAllAliveNPC(TArray<APalCharacter*>& InSightCharacters) {
+void UPalAISensorComponent::SightCheckAllAliveNPC(TArray<APalCharacter*>& InSightCharacters, bool ignoreOtomo) {
 }
 
 void UPalAISensorComponent::Setup() {
 }
 
 void UPalAISensorComponent::SetDisableSightFlag(FName flagName, bool isDisable) {
+}
+
+void UPalAISensorComponent::SetDisableEscape() {
 }
 
 void UPalAISensorComponent::SetDebugAIResponse(TSubclassOf<UPalAIResponsePreset> PresetClass) {
@@ -43,10 +46,6 @@ void UPalAISensorComponent::ReceiveSound(int32 SoundRadius, FVector EmitLocation
 }
 
 void UPalAISensorComponent::OnResponseSpecialLookat() {
-}
-
-APalCharacter* UPalAISensorComponent::MaximumStrengthEnemy(const TArray<APalCharacter*>& FindCharacters, EPalBiologicalGradeComparedResult& Result) {
-    return NULL;
 }
 
 bool UPalAISensorComponent::IsInSightKillerAndDeadBody(AActor* Killer, AActor* DeadBody) {

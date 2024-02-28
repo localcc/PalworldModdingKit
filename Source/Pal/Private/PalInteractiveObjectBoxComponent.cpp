@@ -22,7 +22,7 @@ void UPalInteractiveObjectBoxComponent::OnOverlapEnd(UPrimitiveComponent* Overla
 void UPalInteractiveObjectBoxComponent::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) {
 }
 
-FVector UPalInteractiveObjectBoxComponent::GetIndicatorLocation() {
+FVector UPalInteractiveObjectBoxComponent::GetIndicatorLocation(bool bNoShapeOffset) {
     return FVector{};
 }
 

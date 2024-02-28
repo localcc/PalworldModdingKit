@@ -53,7 +53,7 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     APalAIController* GetControllerRef();
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

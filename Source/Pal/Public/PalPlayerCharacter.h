@@ -31,6 +31,7 @@ class UPalObjectReplicatorComponent;
 class UPalPlayerBattleSituation;
 class UPalPlayerGenderChanger;
 class UPalShooterComponent;
+class USkeletalMeshComponent;
 
 UCLASS(Blueprintable)
 class APalPlayerCharacter : public APalCharacter, public IPalInteractiveObjectIndicatorInterface {
@@ -43,6 +44,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnPlayerMoveToRespawnLocationDelegate, APalPlayerCharacter*, Player, FVector, Location);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPlayerDeathAction);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnLiftupCampPalDelegate, APalCharacter*, LiftingPal);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnInsufficientPalStaminaDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnEndLiftCampPalDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnCombatStartUIActionDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCombatRankDownDelegate, EPalPlayerBattleFinishType, FinishType);
@@ -113,6 +115,9 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnToggleGrapplingCancelDelegate OnGrapplingCancelPlayerBed;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnInsufficientPalStaminaDelegate OnInsufficientPalStamina;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FName LastInsideRegionNameID;
@@ -265,6 +270,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetLastInsideRegionNameID(FName& OutNameID) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure)
+    USkeletalMeshComponent* GetHeadMesh();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FPalPlayerDataCharacterMakeInfo GetCharacterMakeInfo() const;

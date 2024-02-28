@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "EPalDamageAnimationReactionType.h"
+#include "EPalElementType.h"
 #include "EPalPlayerDamageCameraShakeCategory.h"
 #include "PalDamageResult.generated.h"
 
@@ -40,6 +41,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool IgnorePlayerEquipItemDamage;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalElementType AttackElementType;
     
     PAL_API FPalDamageResult();
 };

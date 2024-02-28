@@ -40,6 +40,12 @@ void UPalOtomoHolderComponentBase::Tmp_EmptySlot(const FPalCharacterSlotId& Slot
 }
 
 
+void UPalOtomoHolderComponentBase::SetSelectOtomoID_ToServer_Implementation(int32 ID, int32 Index) {
+}
+
+void UPalOtomoHolderComponentBase::SetSelectOtomoID_ToALL_Implementation(int32 ID, int32 Index) {
+}
+
 
 void UPalOtomoHolderComponentBase::SetSelectOtomoID(int32 Index) {
 }
@@ -114,6 +120,12 @@ void UPalOtomoHolderComponentBase::Initialize_ServerInternal() {
 void UPalOtomoHolderComponentBase::Initialize() {
 }
 
+void UPalOtomoHolderComponentBase::IncrementSelectOtomoID_ToServer_Implementation(int32 ID) {
+}
+
+void UPalOtomoHolderComponentBase::IncrementSelectOtomoID_ToALL_Implementation(int32 ID) {
+}
+
 
 void UPalOtomoHolderComponentBase::IncrementSelectOtomoID() {
 }
@@ -167,6 +179,12 @@ UPalIndividualCharacterSlot* UPalOtomoHolderComponentBase::GetEmptySlot() const 
 }
 
 void UPalOtomoHolderComponentBase::GetAllIndividualHandle(TArray<UPalIndividualCharacterHandle*>& OutArray) const {
+}
+
+void UPalOtomoHolderComponentBase::DecrementSelectOtomoID_ToServer_Implementation(int32 ID) {
+}
+
+void UPalOtomoHolderComponentBase::DecrementSelectOtomoID_ToALL_Implementation(int32 ID) {
 }
 
 

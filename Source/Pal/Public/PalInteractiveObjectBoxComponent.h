@@ -71,7 +71,7 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable)
-    FVector GetIndicatorLocation();
+    FVector GetIndicatorLocation(bool bNoShapeOffset);
     
 protected:
     UFUNCTION(BlueprintCallable)

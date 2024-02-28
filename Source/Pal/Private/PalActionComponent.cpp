@@ -57,6 +57,12 @@ UPalActionBase* UPalActionComponent::GetCurrentAction() const {
     return NULL;
 }
 
+void UPalActionComponent::CancelAllAction_ToServer_Implementation(int32 ID) {
+}
+
+void UPalActionComponent::CancelAllAction_ToALL_Implementation(int32 ID) {
+}
+
 void UPalActionComponent::CancelAllAction_Internal() {
 }
 
@@ -64,6 +70,12 @@ void UPalActionComponent::CancelAllAction() {
 }
 
 void UPalActionComponent::CancelActionByType(EPalActionType Type) {
+}
+
+void UPalActionComponent::CancelAction_ToServer_Implementation(int32 ID, FGuid ActionID) {
+}
+
+void UPalActionComponent::CancelAction_ToALL_Implementation(int32 ID, FGuid ActionID) {
 }
 
 void UPalActionComponent::CancelAction_Internal(FGuid ActionID) {

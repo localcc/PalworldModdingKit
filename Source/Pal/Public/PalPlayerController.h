@@ -23,18 +23,20 @@ class AActor;
 class APalCharacter;
 class APalNetworkTransmitter;
 class APalPlayerState;
+class APalSphereBodyBase;
 class APawn;
 class UCameraShakeBase;
 class UCurveFloat;
 class UPalAIActionComponent;
+class UPalActionBase;
 class UPalActionComponent;
 class UPalCharacterMovementComponent;
 class UPalCutsceneComponent;
 class UPalIndividualCharacterHandle;
 class UPalLoadoutSelectorComponent;
 class UPalLongPressObject;
-class UPalNetworkMulticastGateComponent;
 class UPalPlayerDamageCamShakeRegulator;
+class UPalPlayerInputOneFlameCommandList;
 class UPalUserWidgetTimerGaugeBase;
 
 UCLASS(Blueprintable)
@@ -49,6 +51,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnPressedMoveForwardDelegate, float, InputValue, bool, IsController);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPressedJumpDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPressConstructionMenuButtonDelegate);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnMoveInputDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnLongReleasedSpawnPalButtonDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnLongPressedSpawnPalButtonDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnInteractDelegate);
@@ -60,9 +63,6 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPalAIActionComponent* AIActionComponent;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    UPalNetworkMulticastGateComponent* MulticastGateComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPalCutsceneComponent* CutsceneComponent;
@@ -98,6 +98,9 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnPressedMoveForwardDelegate OnInputMoveForwardDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnMoveInputDelegate OnMoveInputDelegate;
     
 private:
     UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -166,6 +169,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FRotator CacheActorRotator;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalPlayerInputOneFlameCommandList* PlayerInputOneFlameCommandList;
+    
 public:
     APalPlayerController(const FObjectInitializer& ObjectInitializer);
 
@@ -190,6 +196,24 @@ private:
     void StartFlyToServer();
     
 public:
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void SetupInternalForSphere_ToServer(int32 ID, APalSphereBodyBase* Target, APalCharacter* TargetCharacter);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void SetupInternalForSphere_ToALL(int32 ID, APalSphereBodyBase* Target, APalCharacter* TargetCharacter);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetupInternalForSphere(APalSphereBodyBase* Target, APalCharacter* TargetCharacter);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void SetSneakBonusFlagForSphere_ToServer(int32 ID, APalSphereBodyBase* Target, bool isSneak);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void SetSneakBonusFlagForSphere_ToALL(int32 ID, APalSphereBodyBase* Target, bool isSneak);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetSneakBonusFlagForSphere(APalSphereBodyBase* Target, bool isSneak);
+    
     UFUNCTION(BlueprintCallable, Server, Unreliable)
     void SetRiderRelativeRotation_ToServer(FRotator Rotator);
     
@@ -210,6 +234,15 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetDisableInputFlag(FName flagName, bool isDisable);
     
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void SetCaptureLevelForSphere_ToServer(int32 ID, APalSphereBodyBase* Target, int32 Level);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void SetCaptureLevelForSphere_ToALL(int32 ID, APalSphereBodyBase* Target, int32 Level);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetCaptureLevelForSphere(APalSphereBodyBase* Target, int32 Level);
+    
 private:
     UFUNCTION(BlueprintCallable, Server, Unreliable)
     void SetCameraRotatorToPlayerCharacter_ToServer(FRotator CameraRotator);
@@ -223,6 +256,9 @@ private:
     void SendLog_ToClient(const EPalLogPriority Priority, const FText& Text, const FPalLogAdditionalData& AdditionalData);
     
 public:
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void SelfKillPlayer();
+    
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void RPCDummy();
     
@@ -260,6 +296,11 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSwitchOtomoSpawn();
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnStartGliding();
+    
+protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnStartCoopRequest();
     
@@ -366,6 +407,9 @@ protected:
     void OnChangeInstructions();
     
 private:
+    UFUNCTION(BlueprintCallable)
+    void OnActionBegin(const UPalActionBase* ActionBase);
+    
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void NotifyLiftupCampPal_ToClient(APalCharacter* TargetCharacter);
     

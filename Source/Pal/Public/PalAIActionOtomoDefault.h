@@ -27,6 +27,9 @@ protected:
     void SetOtomoCombatAction();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void SetOtomoBerserker(AActor* Target);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetOtomoBaseCampAction();
     
 };

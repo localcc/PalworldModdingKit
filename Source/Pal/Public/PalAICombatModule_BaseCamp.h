@@ -10,7 +10,7 @@ class PAL_API UPalAICombatModule_BaseCamp : public UPalAICombatModule {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TWeakObjectPtr<UPalAIActionBaseCampFighter> ParentFighterAction;
     
 public:

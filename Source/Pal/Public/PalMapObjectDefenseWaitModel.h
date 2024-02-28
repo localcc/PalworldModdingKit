@@ -10,7 +10,7 @@ class UPalMapObjectDefenseWaitModel : public UPalMapObjectDefenseModelBase {
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TWeakObjectPtr<APalMapObject> WeakLauncherControlMapObject;
     
 public:

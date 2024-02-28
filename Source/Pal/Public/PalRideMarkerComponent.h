@@ -48,7 +48,7 @@ public:
     FChangeRiding OnChangeRiding;
     
 private:
-    UPROPERTY(EditAnywhere, Export, Replicated, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Export, Replicated, meta=(AllowPrivateAccess=true))
     TWeakObjectPtr<UPalRiderComponent> Rider;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))

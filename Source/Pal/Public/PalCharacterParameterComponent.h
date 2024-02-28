@@ -88,7 +88,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     APalCharacter* OtomoPal;
     
-    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TWeakObjectPtr<AActor> ReticleTargetActor;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -305,6 +305,12 @@ public:
     void SetMaxHP(FFixedPoint64 NewMaxHP);
     
 private:
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void SetIsOverrideTarget_ToServer(int32 ID, bool IsOverride);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void SetIsOverrideTarget_ToALL(int32 ID, bool IsOverride);
+    
     UFUNCTION(BlueprintCallable)
     void SetIsOverrideTarget_Innner(bool IsOverride);
     

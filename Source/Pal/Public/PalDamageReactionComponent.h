@@ -3,6 +3,7 @@
 #include "UObject/NoExportTypes.h"
 #include "Components/ActorComponent.h"
 #include "EPalDamageAnimationReactionType.h"
+#include "EPalDeadType.h"
 #include "EPalWazaID.h"
 #include "PalDamageInfo.h"
 #include "PalDamageRactionInfo.h"

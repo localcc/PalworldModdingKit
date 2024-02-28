@@ -10,6 +10,15 @@ UPalRiderComponent::UPalRiderComponent(const FObjectInitializer& ObjectInitializ
 void UPalRiderComponent::StopShakingMontage() {
 }
 
+void UPalRiderComponent::SetRideMarker_ToServer_Implementation(int32 ID, UPalRideMarkerComponent* Marker) {
+}
+
+void UPalRiderComponent::SetRideMarker_ToALL_Implementation(int32 ID, UPalRideMarkerComponent* Marker) {
+}
+
+void UPalRiderComponent::SetRideMarker_Internal(UPalRideMarkerComponent* Marker) {
+}
+
 void UPalRiderComponent::SetRideMarker(UPalRideMarkerComponent* Marker) {
 }
 
@@ -114,7 +123,19 @@ EPalRidePositionType UPalRiderComponent::GetCurrentRidePositionType() const {
     return EPalRidePositionType::None;
 }
 
+void UPalRiderComponent::DettachRiderNoAnimation_ToServer_Implementation(int32 ID) {
+}
+
+void UPalRiderComponent::DettachRiderNoAnimation_ToALL_Implementation(int32 ID) {
+}
+
 void UPalRiderComponent::DettachRiderNoAnimation() {
+}
+
+void UPalRiderComponent::DettachRider_ToServer_Implementation(int32 ID) {
+}
+
+void UPalRiderComponent::DettachRider_ToALL_Implementation(int32 ID) {
 }
 
 void UPalRiderComponent::DettachRider() {
@@ -122,6 +143,12 @@ void UPalRiderComponent::DettachRider() {
 
 bool UPalRiderComponent::CanUniqueRideIK() {
     return false;
+}
+
+void UPalRiderComponent::AttachRiderNoAnimation_ToServer_Implementation(int32 ID) {
+}
+
+void UPalRiderComponent::AttachRiderNoAnimation_ToALL_Implementation(int32 ID) {
 }
 
 void UPalRiderComponent::AttachRiderNoAnimation() {

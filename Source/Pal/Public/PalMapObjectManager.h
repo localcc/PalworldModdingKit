@@ -290,7 +290,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalMapObjectConcreteModelBase* FindConcreteModel(const FGuid& InstanceId) const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

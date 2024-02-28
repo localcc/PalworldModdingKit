@@ -10,7 +10,6 @@
 #include "PalFootIKComponent.h"
 #include "PalHeadUpDisplayComponent.h"
 #include "PalLookAtComponent.h"
-#include "PalNetworkMulticastGateComponent.h"
 #include "PalPassiveSkillComponent.h"
 #include "PalShooterSpringArmComponent.h"
 #include "PalSkeletalMeshComponent.h"
@@ -27,7 +26,6 @@ APalCharacter::APalCharacter(const FObjectInitializer& ObjectInitializer) : Supe
     this->StatusComponent = CreateDefaultSubobject<UPalStatusComponent>(TEXT("StatusComponent"));
     this->CameraBoom = CreateDefaultSubobject<UPalShooterSpringArmComponent>(TEXT("CameraBoom"));
     this->FollowCamera = CreateDefaultSubobject<UPalCharacterCameraComponent>(TEXT("FollowCamera"));
-    this->MulticastGateComponent = CreateDefaultSubobject<UPalNetworkMulticastGateComponent>(TEXT("NetworkMulticastGateComponent"));
     this->LookAtComponent = CreateDefaultSubobject<UPalLookAtComponent>(TEXT("LookAtComponent"));
     this->NavInvokerComponent = NULL;
     this->FootIKComponent = CreateDefaultSubobject<UPalFootIKComponent>(TEXT("FootIKComponent"));
@@ -44,9 +42,9 @@ APalCharacter::APalCharacter(const FObjectInitializer& ObjectInitializer) : Supe
     this->ImportanceType = EPalCharacterImportanceType::Near;
     const FProperty* p_Mesh = GetClass()->FindPropertyByName("Mesh");
     (*p_Mesh->ContainerPtrToValuePtr<USkeletalMeshComponent*>(this))->SetupAttachment(RootComponent);
+    this->AroundInfoCollectorComponent->SetupAttachment(RootComponent);
     this->CameraBoom->SetupAttachment(RootComponent);
     this->FollowCamera->SetupAttachment(CameraBoom);
-    this->AroundInfoCollectorComponent->SetupAttachment(RootComponent);
 }
 
 void APalCharacter::UpdateGroundRayCast() {

@@ -9,5 +9,6 @@ FPalDamageResult::FPalDamageResult() {
     this->IsPlayedLeanBack = false;
     this->CameraShake = EPalPlayerDamageCameraShakeCategory::None;
     this->IgnorePlayerEquipItemDamage = false;
+    this->AttackElementType = EPalElementType::None;
 }
 

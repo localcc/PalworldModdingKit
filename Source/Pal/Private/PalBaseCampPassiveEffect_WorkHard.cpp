@@ -9,7 +9,7 @@ void UPalBaseCampPassiveEffect_WorkHard::OnRep_WorkHardType() {
 }
 
 EPalBaseCampPassiveEffectWorkHardType UPalBaseCampPassiveEffect_WorkHard::GetWorkHardType() const {
-    return EPalBaseCampPassiveEffectWorkHardType::Normal;
+    return EPalBaseCampPassiveEffectWorkHardType::Easy;
 }
 
 void UPalBaseCampPassiveEffect_WorkHard::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {

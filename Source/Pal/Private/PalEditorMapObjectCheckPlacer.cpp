@@ -7,9 +7,9 @@ APalEditorMapObjectCheckPlacer::APalEditorMapObjectCheckPlacer(const FObjectInit
     this->LeftEdgeArrow = CreateDefaultSubobject<UArrowComponent>(TEXT("LeftEdgeArrow"));
     this->RightEdgeArrow = CreateDefaultSubobject<UArrowComponent>(TEXT("WidthEdgeArrow"));
     this->StackRowArrow = CreateDefaultSubobject<UArrowComponent>(TEXT("StackRowArrow"));
-    this->StackRowArrow->SetupAttachment(RootComponent);
     this->LeftEdgeArrow->SetupAttachment(RootComponent);
     this->RightEdgeArrow->SetupAttachment(RootComponent);
+    this->StackRowArrow->SetupAttachment(RootComponent);
 }
 
 void APalEditorMapObjectCheckPlacer::PlaceMapObjects() {
