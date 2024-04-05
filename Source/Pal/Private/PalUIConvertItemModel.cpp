@@ -2,12 +2,10 @@
 
 UPalUIConvertItemModel::UPalUIConvertItemModel() {
     this->ProductSettingModel = NULL;
+    this->bCanTransportOut = false;
 }
 
 void UPalUIConvertItemModel::UpdateProductSetting_TransportToStorage(const bool bOn) {
-}
-
-void UPalUIConvertItemModel::UpdateProductSetting() {
 }
 
 bool UPalUIConvertItemModel::TryGetConcreteModel(UPalMapObjectConvertItemModel*& Model) {

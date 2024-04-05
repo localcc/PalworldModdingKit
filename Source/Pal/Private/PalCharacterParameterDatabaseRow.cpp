@@ -18,7 +18,9 @@ FPalCharacterParameterDatabaseRow::FPalCharacterParameterDatabaseRow() {
     this->Defense = 0;
     this->Support = 0;
     this->CraftSpeed = 0;
+    this->EnemyMaxHPRate = 0.00f;
     this->EnemyReceiveDamageRate = 0.00f;
+    this->EnemyInflictDamageRate = 0.00f;
     this->CaptureRateCorrect = 0.00f;
     this->ExpRatio = 0.00f;
     this->Price = 0.00f;
@@ -29,6 +31,7 @@ FPalCharacterParameterDatabaseRow::FPalCharacterParameterDatabaseRow() {
     this->TransportSpeed = 0;
     this->IsBoss = false;
     this->IsTowerBoss = false;
+    this->IsRaidBoss = false;
     this->BattleBGM = EPalBattleBGMType::None;
     this->IgnoreLeanBack = false;
     this->IgnoreBlowAway = false;

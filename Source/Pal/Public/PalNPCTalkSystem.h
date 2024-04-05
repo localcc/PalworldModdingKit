@@ -47,6 +47,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 CustomFuncChoseIndex;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 CustomFuncTalkDataIndex;
+    
 public:
     UPalNPCTalkSystem();
 

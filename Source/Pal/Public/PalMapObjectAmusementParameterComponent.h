@@ -4,7 +4,7 @@
 #include "Templates/SubclassOf.h"
 #include "PalMapObjectAmusementParameterComponent.generated.h"
 
-class UPalAIActionBase;
+class UPalAIActionBaseCampInUsingAmusement;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalMapObjectAmusementParameterComponent : public UActorComponent {
@@ -14,7 +14,7 @@ public:
     float AffectSanityRate;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSubclassOf<UPalAIActionBase> AIActionClass;
+    TSubclassOf<UPalAIActionBaseCampInUsingAmusement> AIActionClass;
     
     UPalMapObjectAmusementParameterComponent(const FObjectInitializer& ObjectInitializer);
 

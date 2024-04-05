@@ -9,6 +9,7 @@ class UPalDefine : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UPalDefine();
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FGameplayTag UILayerTag_Modal();
     
@@ -122,6 +123,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName Socket_BodyCenter();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FName Socket_AimTarget();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName NP_PlayerCenterPosition();

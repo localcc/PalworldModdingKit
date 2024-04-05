@@ -8,7 +8,6 @@
 #include "Engine/EngineTypes.h"
 #include "GameFramework/OnlineReplStructs.h"
 #include "EPalChatCategory.h"
-#include "EPalGuildJoinRequestResult.h"
 #include "EPalPlayerJoinResult.h"
 #include "PalChatMessage.h"
 #include "PalDamageInfo.h"
@@ -28,7 +27,6 @@
 class APalCharacter;
 class APalLevelObjectObtainable;
 class APalPlayerState;
-class UPalDialogParameter_RequestJoinGuild;
 class UPalGroupGuildBase;
 class UPalIndividualCharacterHandle;
 class UPalNetworkPlayerStateComponent;
@@ -87,6 +85,12 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     FQuat CachedPlayerRotation;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    bool CachedIsPlayerDead;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    bool CachedIsPlayerDying;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalPlayerOtomoData* OtomoData;
@@ -153,9 +157,6 @@ private:
     TArray<FPalLogInfo_DropPal> DropPalInfo;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    UPalDialogParameter_RequestJoinGuild* RequestJoinGuildDialogParameter;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FGuid, FTimerHandle> WaitLoadingWorldPartitionTimerMap;
     
 public:
@@ -218,9 +219,6 @@ public:
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void ReceiveNotifyLoginComplete();
     
-    UFUNCTION(BlueprintCallable, Client, Reliable)
-    void OpenRequestJoinGuildDialog_ToClient(const FPalInstanceID& RequestPlayerInstanceId);
-    
 private:
     UFUNCTION(BlueprintCallable)
     void OnUpdatePlayerInfoInGuildBelongTo(const UPalGroupGuildBase* Guild, const FGuid& InPlayerUId, const FPalGuildPlayerInfo& InPlayerInfo);
@@ -239,9 +237,6 @@ private:
 public:
     UFUNCTION(BlueprintCallable)
     void OnRelicNumAdded(int32 AddNum);
-    
-    UFUNCTION(BlueprintCallable, Client, Reliable)
-    void OnRecievedGuildJoinRequestResult(const EPalGuildJoinRequestResult ResultType, const FPalInstanceID& RequestPlayerInstanceId, const FPalInstanceID& TargerPlayerInstanceId);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void OnNotifiedReturnToFieldFromStage_ToClient();
@@ -269,15 +264,6 @@ private:
     void OnCompleteLoadInitWorldPartition_InClient(APalPlayerState* PlayerState);
     
 public:
-    UFUNCTION(BlueprintCallable)
-    void OnClosedRequestJoinGuildDialog(bool Result);
-    
-    UFUNCTION(BlueprintCallable)
-    void OnClosedOverBaseCampDialog(bool Result);
-    
-    UFUNCTION(BlueprintCallable)
-    void OnClosedCheckBaseCampAuthorityDialog(bool Result);
-    
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void NotifyStartInitSelectMap_ToServer();
     
@@ -325,6 +311,15 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSelectedInitMapPoint();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsPlayerDying() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsPlayerDead() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsPlayerCompletelyDead() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInStage() const;
@@ -449,13 +444,16 @@ public:
     void Debug_DeleteWorldAndShutdownRemoteServer();
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void Debug_CaptureNewMonsterByDebugOtomoInfo_ToServer(const FPalDebugOtomoPalInfo& Info);
+    void Debug_CaptureNewMonsterByDebugOtomoInfo_ToServer(const FPalDebugOtomoPalInfo& Info, bool bRandomPassiveSkill);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Debug_CaptureNewMonster_ToServer(FName CharacterID);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Debug_BuildDebugBaseCamp_ToServer(FName CampMode, int32 workerCount);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Debug_BotEnterDungeon_ToServer();
     
     UFUNCTION(BlueprintCallable)
     void CallOrRegisterOnCompleteSyncPlayerFromServer_InClient(APalPlayerState::FReturnSelfSingleDelegate Delegate);

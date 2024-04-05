@@ -4,7 +4,6 @@
 UPalBodyPartsSphereComponent::UPalBodyPartsSphereComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->bCanEverAffectNavigation = false;
     this->CanCharacterStepUpOn = ECB_No;
-    this->ShapeBodySetup = NULL;
     this->bDynamicObstacle = true;
     this->BodyPartsType = EPalBodyPartsType::Normal;
 }

@@ -38,6 +38,18 @@ TSoftClassPtr<AActor> UPalStaticItemDataBase::GetVisualBlueprintClass(const UObj
     return NULL;
 }
 
+FName UPalStaticItemDataBase::GetPassiveSkill4() const {
+    return NAME_None;
+}
+
+FName UPalStaticItemDataBase::GetPassiveSkill3() const {
+    return NAME_None;
+}
+
+FName UPalStaticItemDataBase::GetPassiveSkill2() const {
+    return NAME_None;
+}
+
 FName UPalStaticItemDataBase::GetPassiveSkill() const {
     return NAME_None;
 }
@@ -58,6 +70,9 @@ TSubclassOf<UPalDynamicItemDataBase> UPalStaticItemDataBase::GetDynamicItemDataC
 }
 
 void UPalStaticItemDataBase::GetDescriptionMsgId(FName& OutMsgID) const {
+}
+
+void UPalStaticItemDataBase::GetAllPassiveSkill(TArray<FName>& OutArray) const {
 }
 
 TSoftClassPtr<AActor> UPalStaticItemDataBase::GetActorClass() const {

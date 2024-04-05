@@ -6,6 +6,9 @@ APalNPC::APalNPC(const FObjectInitializer& ObjectInitializer) : Super(ObjectInit
     this->DefaultVoiceID = -1;
 }
 
+void APalNPC::RemoveEnemyFromBattleManager(FPalDeadInfo DeadInfo) {
+}
+
 void APalNPC::OnCompletedInitParam(APalCharacter* InCharacter) {
 }
 

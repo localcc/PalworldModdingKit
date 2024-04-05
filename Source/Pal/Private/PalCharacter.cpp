@@ -8,7 +8,6 @@
 #include "PalCharacterParameterComponent.h"
 #include "PalDamageReactionComponent.h"
 #include "PalFootIKComponent.h"
-#include "PalHeadUpDisplayComponent.h"
 #include "PalLookAtComponent.h"
 #include "PalPassiveSkillComponent.h"
 #include "PalShooterSpringArmComponent.h"
@@ -31,7 +30,7 @@ APalCharacter::APalCharacter(const FObjectInitializer& ObjectInitializer) : Supe
     this->FootIKComponent = CreateDefaultSubobject<UPalFootIKComponent>(TEXT("FootIKComponent"));
     this->VisualEffectComponent = CreateDefaultSubobject<UPalVisualEffectComponent>(TEXT("VisualEffectComponent"));
     this->PassiveSkillComponent = CreateDefaultSubobject<UPalPassiveSkillComponent>(TEXT("PassiveSkillComponent"));
-    this->HUDComponent = CreateDefaultSubobject<UPalHeadUpDisplayComponent>(TEXT("HUDComponent"));
+    this->HUDComponent = NULL;
     this->AnimNotifyComponent = CreateDefaultSubobject<UPalAnimNotifyParameterComponent>(TEXT("AnimNotifyComponent"));
     this->AroundInfoCollectorComponent = CreateDefaultSubobject<UPalCharacterAroundInfoCollectorComponent>(TEXT("AroundInfoCollectorComponent"));
     this->bIsBattleMode = false;
@@ -42,9 +41,9 @@ APalCharacter::APalCharacter(const FObjectInitializer& ObjectInitializer) : Supe
     this->ImportanceType = EPalCharacterImportanceType::Near;
     const FProperty* p_Mesh = GetClass()->FindPropertyByName("Mesh");
     (*p_Mesh->ContainerPtrToValuePtr<USkeletalMeshComponent*>(this))->SetupAttachment(RootComponent);
-    this->AroundInfoCollectorComponent->SetupAttachment(RootComponent);
     this->CameraBoom->SetupAttachment(RootComponent);
     this->FollowCamera->SetupAttachment(CameraBoom);
+    this->AroundInfoCollectorComponent->SetupAttachment(RootComponent);
 }
 
 void APalCharacter::UpdateGroundRayCast() {
@@ -83,6 +82,9 @@ void APalCharacter::ResetTickInterval() {
 void APalCharacter::RequestJump() {
 }
 
+void APalCharacter::Play2Montage_WithPlayRate(UAnimMontage* firstMontage, UAnimMontage* nextMontage, float PlayRate) {
+}
+
 void APalCharacter::Play2Montage(UAnimMontage* firstMontage, UAnimMontage* nextMontage) {
 }
 
@@ -102,6 +104,9 @@ void APalCharacter::OnOverlapBeginByAroundInfo(AActor* OtherActor) {
 }
 
 void APalCharacter::OnChangeWetnessStatus(bool IsSwim) {
+}
+
+void APalCharacter::LocalInitialized() {
 }
 
 bool APalCharacter::IsInitialized() const {

@@ -14,9 +14,11 @@
 #include "FloatContainer.h"
 #include "PalCharacterSlotId.h"
 #include "PalContainerId.h"
+#include "PalFoodRegeneInfo.h"
 #include "PalGotStatusPoint.h"
 #include "PalIndividualCharacterCacheParameter.h"
 #include "PalWorkSuitabilityInfo.h"
+#include "PalWorkSuitabilityPreferenceInfo.h"
 #include "Templates/SubclassOf.h"
 #include "PalIndividualCharacterSaveParameter.generated.h"
 
@@ -43,6 +45,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 Rank;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 RankUpExp;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 Rank_HP;
@@ -174,6 +179,9 @@ public:
     TArray<FPalGotStatusPoint> GotStatusPointList;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FPalGotStatusPoint> GotExStatusPointList;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FFloatContainer DecreaseFullStomachRates;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -192,7 +200,13 @@ public:
     int32 Tiemr_FoodWithStatusEffect;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalFoodRegeneInfo FoodRegeneEffectInfo;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalWorkSuitability CurrentWorkSuitability;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalWorkSuitabilityPreferenceInfo WorkSuitabilityOptionInfo;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bAppliedDeathPenarty;

@@ -47,6 +47,7 @@ private:
     
 public:
     UPalCheatManager();
+
     UFUNCTION(BlueprintCallable, Exec)
     void WorkerEventLog();
     
@@ -94,6 +95,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void TriggerBaseCampWorkerEvent(const EPalBaseCampWorkerEventType EventType);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void TraceReticleDirectionAllObjectType(const float Length);
     
     UFUNCTION(BlueprintCallable, Exec)
     void ToggleVisibleFoliageChunk();
@@ -244,6 +248,9 @@ public:
     void ShowTargetLocalPlayerEnemyList();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void ShowStreamingLevel();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void ShowSpawnerInfo();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -268,6 +275,9 @@ public:
     void ShowMovementMode();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void ShowMaxPlayers();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void ShowMapObjectStatus();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -286,7 +296,7 @@ public:
     void ShowInviteCode() const;
     
     UFUNCTION(BlueprintCallable, Exec)
-    void ShowInvaderDeubgLog() const;
+    void ShowInvaderDebugLog() const;
     
     UFUNCTION(BlueprintCallable, Exec)
     void ShowHateArrow();
@@ -335,9 +345,6 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void ShowActionAndStatus();
-    
-    UFUNCTION(BlueprintCallable, Exec)
-    void SetWorldPartitionLoadParameter(float Range, bool bIsActivated);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetVoiceID(int32 VoiceID);
@@ -427,6 +434,9 @@ public:
     void SetDebugFullStomachDecreaseRate(const float Rate);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SetDamageTextMaxNum(int32 Num);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetCharacterName(const FString& Name);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -460,6 +470,9 @@ public:
     void SetAlwaysGrantPassiveSkillMode(bool Flag);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SetAllowBaseCampBattle(const bool bAllowBaseCampBattle);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetActivity(const FString& ConnStr, int32 maxPlayer, int32 currentPlayer);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -484,6 +497,9 @@ public:
     void RequestLogTreasureBoxLocalPlayerAround();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void RequestLogServerThreadNum();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void RequestFillSlotChestToInventory();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -494,6 +510,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void RandomizePassive_PlayerWeapon();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void PrintRealTime();
     
     UFUNCTION(BlueprintCallable, Exec)
     void PrintInventoryDynamicItemLog();
@@ -592,7 +611,7 @@ public:
     void KillAllEnemy();
     
     UFUNCTION(BlueprintCallable, Exec)
-    void KickPlayer(const FString& PlayerUIdORSteamId, FText KickReason);
+    void KickPlayer(const FString& UserId, FText KickReason);
     
     UFUNCTION(BlueprintCallable, Exec)
     void JumpToClientStartLocation();
@@ -670,6 +689,9 @@ public:
     void IgnoreRestrictedByItemsForPartnerSkill();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void IgnoreDamageCheckByServer();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void IgnoreBuildRestrictionBaseCamp();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -682,6 +704,9 @@ protected:
 public:
     UFUNCTION(BlueprintCallable, Exec)
     void HideTutorialQuest();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void HideDebugInfo();
     
     UFUNCTION(BlueprintCallable, Exec)
     void GetRelic(int32 Count);
@@ -766,6 +791,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void EnterGuildPlayer(const FString& GuildName, APalPlayerCharacter* Player);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void EnterGuildOtherPlayerBelongTo(const FGuid& TargetPlayerUId);
     
     UFUNCTION(BlueprintCallable, Exec)
     void EnterGuildLocalPlayer(const FString& GuildName);
@@ -870,6 +898,9 @@ public:
     void CopyWorldDirectoryName();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void CopyPlayerUId();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void CopyPlayerLocation();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -883,6 +914,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void ChangePassive_PlayerWeapon(int32 Index, FName SkillName);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void ChangeMaxPlayers(int32 Players);
     
     UFUNCTION(BlueprintCallable, Exec)
     void ChangeHUDScale(float Scale);
@@ -924,6 +958,9 @@ public:
     void BotOff();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void BanPlayerFromGuildLocalPlayerBelongTo(const FGuid& TargetPlayerUId);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void ApplyDebugGameProgress(FName PresetName);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -958,6 +995,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void AddGameTime_Hours(const int32 Hours);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void AddExStatusPoint(int32 Point);
     
     UFUNCTION(BlueprintCallable, Exec)
     void AddExpForALLPlayer(int32 addExp);

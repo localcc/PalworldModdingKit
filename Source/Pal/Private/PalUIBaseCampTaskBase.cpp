@@ -10,7 +10,7 @@ bool UPalUIBaseCampTaskBase::TryBaseCampLevelUp() {
     return false;
 }
 
-void UPalUIBaseCampTaskBase::SetTargetBaseCampID(const FGuid& TargetBaseCampId) {
+void UPalUIBaseCampTaskBase::SetTargetBaseCampID(const FGuid& TargetBaseCampID) {
 }
 
 bool UPalUIBaseCampTaskBase::IsCampLevelMax() {

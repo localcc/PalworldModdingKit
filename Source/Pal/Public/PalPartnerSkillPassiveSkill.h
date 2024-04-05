@@ -9,6 +9,7 @@
 class AActor;
 class ACharacter;
 class APalCharacter;
+class APalPlayerCharacter;
 class APalPlayerController;
 class UPalCharacterParameterComponent;
 
@@ -45,6 +46,7 @@ private:
     
 public:
     UPalPartnerSkillPassiveSkill();
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnWorkerAssignChanged(UPalCharacterParameterComponent* Parameter);
@@ -105,7 +107,7 @@ private:
     APalPlayerController* GetTrainerController() const;
     
     UFUNCTION(BlueprintCallable)
-    APalCharacter* GetTrainerActor() const;
+    APalPlayerCharacter* GetTrainerActor() const;
     
     UFUNCTION(BlueprintCallable)
     ACharacter* GetTrainer() const;

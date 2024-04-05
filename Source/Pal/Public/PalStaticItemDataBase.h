@@ -71,6 +71,15 @@ public:
     FName PassiveSkill;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName PassiveSkill2;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName PassiveSkill3;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName PassiveSkill4;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float CorruptionFactor;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -85,6 +94,7 @@ protected:
     
 public:
     UPalStaticItemDataBase();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     bool UseItem(UPalDynamicItemDataBase* DynamicItemData, const UObject* WorldContextObject);
     
@@ -99,6 +109,15 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     TSoftClassPtr<AActor> GetVisualBlueprintClass(const UObject* WorldContextObject) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FName GetPassiveSkill4() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FName GetPassiveSkill3() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FName GetPassiveSkill2() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FName GetPassiveSkill() const;
@@ -117,6 +136,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetDescriptionMsgId(FName& OutMsgID) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    void GetAllPassiveSkill(TArray<FName>& OutArray) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TSoftClassPtr<AActor> GetActorClass() const;

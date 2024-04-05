@@ -54,5 +54,8 @@ public:
     UFUNCTION(BlueprintCallable)
     void OnActivatedAsOtomoHolder();
     
+    UFUNCTION(BlueprintCallable)
+    void InitializedCharacterByFunnel();
+    
 };
 

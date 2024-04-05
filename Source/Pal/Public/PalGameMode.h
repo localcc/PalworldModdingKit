@@ -3,11 +3,17 @@
 #include "PalGameModeBase.h"
 #include "PalGameMode.generated.h"
 
+class APlayerStart;
 class UPocketpairUserInfo;
 
 UCLASS(Blueprintable, NonTransient)
 class PAL_API APalGameMode : public APalGameModeBase {
     GENERATED_BODY()
+public:
+protected:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    APlayerStart* CachePlayerStart;
+    
 public:
     APalGameMode(const FObjectInitializer& ObjectInitializer);
 
@@ -35,6 +41,10 @@ private:
 public:
     UFUNCTION(BlueprintCallable)
     void InitDedicatedServer();
+    
+protected:
+    UFUNCTION(BlueprintCallable)
+    APlayerStart* FindPlayerStartWithTag(const FName& Tag);
     
 private:
     UFUNCTION(BlueprintCallable)

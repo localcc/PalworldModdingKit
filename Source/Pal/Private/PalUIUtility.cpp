@@ -160,7 +160,7 @@ FSlateBrush UPalUIUtility::GetKeyIconByKey(const UObject* WorldContextObject, co
     return FSlateBrush{};
 }
 
-void UPalUIUtility::GetItemTypeAName(const UObject* WorldContextObject, const EPalItemTypeA itemTypeA, FText& outName) {
+void UPalUIUtility::GetItemTypeAName(const UObject* WorldContextObject, const EPalItemTypeA ItemTypeA, FText& outName) {
 }
 
 void UPalUIUtility::GetItemName(const UObject* WorldContextObject, const FName& StaticItemId, FText& outName) {
@@ -188,6 +188,9 @@ void UPalUIUtility::GetBaseCampEventName(const UObject* WorldContextObject, cons
 }
 
 void UPalUIUtility::GetAllTagFromText(const UObject* WorldContextObject, const FText& targetText, TArray<FString>& outTagArray) {
+}
+
+void UPalUIUtility::GetAdditionalEffectName(const UObject* WorldContextObject, EPalAdditionalEffectType EffectType, FText& outName) {
 }
 
 UPalUserWidget* UPalUIUtility::FindOwningActivatableWidget(const UObject* WorldContextObject, const UWidget* Widget) {

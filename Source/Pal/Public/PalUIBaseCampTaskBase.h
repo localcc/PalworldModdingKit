@@ -30,12 +30,13 @@ private:
     
 public:
     UPalUIBaseCampTaskBase();
+
 protected:
     UFUNCTION(BlueprintCallable)
     bool TryBaseCampLevelUp();
     
     UFUNCTION(BlueprintCallable)
-    void SetTargetBaseCampID(const FGuid& TargetBaseCampId);
+    void SetTargetBaseCampID(const FGuid& TargetBaseCampID);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsCampLevelMax();

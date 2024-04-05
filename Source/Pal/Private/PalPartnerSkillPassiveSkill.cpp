@@ -64,7 +64,7 @@ APalPlayerController* UPalPartnerSkillPassiveSkill::GetTrainerController() const
     return NULL;
 }
 
-APalCharacter* UPalPartnerSkillPassiveSkill::GetTrainerActor() const {
+APalPlayerCharacter* UPalPartnerSkillPassiveSkill::GetTrainerActor() const {
     return NULL;
 }
 

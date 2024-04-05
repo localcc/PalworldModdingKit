@@ -22,12 +22,12 @@
 
 class APalSoundDebugModel;
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnLoadingScreenVisibilityChangedDelegate);
-
 UCLASS(Blueprintable, Config=Game)
 class UPalDebugSetting : public UObject {
     GENERATED_BODY()
 public:
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnLoadingScreenVisibilityChangedDelegate, bool, Visible);
+
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bEnableCommandToServer;
     
@@ -51,6 +51,9 @@ private:
     bool bIsRequiredLoadLocalWorldSaveData;
     
 public:
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGuid EditorServerPlayerUIdOverwrite;
+    
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<int32, FGuid> EditorPlayerSaveDataOverwriteMap;
     
@@ -125,6 +128,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bNotConsumeMaterialsInRepair;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIgnoreDamageCheckByServer;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsMutekiALL;
@@ -289,6 +295,9 @@ public:
     bool IsDisableSpawner;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsEnableRandomizeSpawner;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     float OverrideSpawnRadius;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -314,6 +323,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bCanAccessToOtherGuildMapObject;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 ExpireGuildEnterRequestLogInfoMinutes;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bFirstBuildPalBox;
@@ -820,12 +832,6 @@ public:
     float ShowDefenseRange;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float WorldPartitionLoadCheckRange;
-    
-    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool WorldPartitionLoadActivatedCheck;
-    
-    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bDisableInteractRecicleTarget;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -835,13 +841,16 @@ public:
     bool bForceLocationTeleport;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bShowInvaderDeubgLog;
+    bool bShowInvaderDebugLog;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bForceToggleInteract;
+    bool bShowStreamingLevel;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bShowInteractPoints;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bEnableArenaTest;
     
     UPalDebugSetting();
 

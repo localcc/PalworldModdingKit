@@ -20,6 +20,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     EPalInvaderType InvaderType;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FString FilteredNickName;
+    
     PAL_API FPalIndividualCharacterCacheParameter();
 };
 

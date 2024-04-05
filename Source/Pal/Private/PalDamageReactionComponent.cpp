@@ -4,6 +4,7 @@
 UPalDamageReactionComponent::UPalDamageReactionComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->DamageEffectSlotClass = UPalHitEffectSlot::StaticClass();
     this->EffectSlot = NULL;
+    this->DisableLargeDown = false;
 }
 
 void UPalDamageReactionComponent::SlipDamageAndBlowWhenDead(int32 Damage, FVector Velocity) {
@@ -13,6 +14,9 @@ void UPalDamageReactionComponent::SlipDamage(int32 Damage, bool ShieldIgnore, EP
 }
 
 void UPalDamageReactionComponent::ShowDeadDebugLog(FPalDeadInfo DeadInfo) {
+}
+
+void UPalDamageReactionComponent::SetDisableLargeDown() {
 }
 
 void UPalDamageReactionComponent::ProcessDeath_ToServer_Implementation() {
@@ -40,6 +44,10 @@ void UPalDamageReactionComponent::OnEndDamageMotion(UAnimMontage* Montage, bool 
 }
 
 void UPalDamageReactionComponent::OnDyingDeadEndDelegate_ToALL_Implementation() {
+}
+
+bool UPalDamageReactionComponent::IsIgnoreElementStatus(EPalAdditionalEffectType Effect) {
+    return false;
 }
 
 void UPalDamageReactionComponent::ForceDamageDelegateForCaptureBall(AActor* Attacker) {

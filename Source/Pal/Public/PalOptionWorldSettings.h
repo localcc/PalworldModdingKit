@@ -1,5 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "EPalAllowConnectPlatform.h"
+#include "EPalLogFormatType.h"
 #include "EPalOptionWorldDeathPenalty.h"
 #include "EPalOptionWorldDifficulty.h"
 #include "PalOptionWorldSettings.generated.h"
@@ -195,13 +197,22 @@ public:
     FString BanListURL;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool WebAPIEnabled;
+    bool RESTAPIEnabled;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, NotReplicated, meta=(AllowPrivateAccess=true))
-    int32 WebAPIPort;
+    int32 RESTAPIPort;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bShowPlayerList;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalAllowConnectPlatform AllowConnectPlatform;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsUseBackupSaveData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalLogFormatType LogFormatType;
     
     PAL_API FPalOptionWorldSettings();
 };

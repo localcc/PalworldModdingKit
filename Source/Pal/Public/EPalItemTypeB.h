@@ -17,6 +17,7 @@ enum class EPalItemTypeB : uint8 {
     WeaponGatlingGun,
     WeaponCollectionTool,
     WeaponThrowObject,
+    WeaponGrapplingGun,
     SPWeaponCaptureBall,
     SPWeaponDamageTrap,
     SPWeaponCaptureTrap,
@@ -37,7 +38,13 @@ enum class EPalItemTypeB : uint8 {
     ConsumeBullet,
     ConsumeWazaMachine,
     ConsumeTechnologyBook,
+    ConsumeAncientTechnologyBook,
     ConsumeOther,
+    ConsumeGainStatusPoints,
+    ConsumePalLevelUp,
+    ConsumePalGainExp,
+    ConsumePalTalentUp,
+    ConsumePalRankUp,
     FoodMeat,
     FoodVegetable,
     FoodFish,
@@ -54,5 +61,6 @@ enum class EPalItemTypeB : uint8 {
     Drug,
     MonsterEquipWeapon,
     Blueprint,
+    ReturnToBaseCamp,
 };
 

@@ -20,10 +20,26 @@ void UPalMapObjectItemContainerModule::RequestSortContainer_ServerInternal() {
 void UPalMapObjectItemContainerModule::RequestSortContainer() {
 }
 
+void UPalMapObjectItemContainerModule::RequestChangeFilter_ServerInternal(const int32 RequestPlayerId, const FPalNetArchive& Archive) {
+}
+
+void UPalMapObjectItemContainerModule::RequestChangeAllFilterUncheck_ServerInternal() {
+}
+
+void UPalMapObjectItemContainerModule::RequestChangeAllFilterCheck_ServerInternal() {
+}
+
+void UPalMapObjectItemContainerModule::OnUpdateFilterPreference(UPalItemContainer* Container) {
+}
+
 void UPalMapObjectItemContainerModule::OnUpdateContents(UPalItemContainer* Container) {
 }
 
 void UPalMapObjectItemContainerModule::OnRep_TargetContainer() {
+}
+
+TArray<FName> UPalMapObjectItemContainerModule::GetFilterOffList() const {
+    return TArray<FName>();
 }
 
 FPalContainerId UPalMapObjectItemContainerModule::GetContainerId() const {

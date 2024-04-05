@@ -17,5 +17,20 @@ FPalDropItemDatabaseRow::FPalDropItemDatabaseRow() {
     this->Rate5 = 0.00f;
     this->min5 = 0;
     this->Max5 = 0;
+    this->Rate6 = 0.00f;
+    this->min6 = 0;
+    this->Max6 = 0;
+    this->Rate7 = 0.00f;
+    this->min7 = 0;
+    this->Max7 = 0;
+    this->Rate8 = 0.00f;
+    this->min8 = 0;
+    this->Max8 = 0;
+    this->Rate9 = 0.00f;
+    this->min9 = 0;
+    this->Max9 = 0;
+    this->Rate10 = 0.00f;
+    this->min10 = 0;
+    this->Max10 = 0;
 }
 

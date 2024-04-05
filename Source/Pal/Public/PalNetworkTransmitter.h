@@ -12,12 +12,12 @@ class UPalNetworkBossBattleComponent;
 class UPalNetworkCharacterComponent;
 class UPalNetworkCharacterContainerComponent;
 class UPalNetworkCharacterStatusOperationComponent;
-class UPalNetworkGroupComponent;
 class UPalNetworkIndividualComponent;
 class UPalNetworkInvaderComponent;
 class UPalNetworkItemComponent;
 class UPalNetworkMapObjectComponent;
 class UPalNetworkPlayerComponent;
+class UPalNetworkRaidBossComponent;
 class UPalNetworkShopComponent;
 class UPalNetworkTimeComponent;
 class UPalNetworkWorkProgressComponent;
@@ -39,9 +39,6 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPalNetworkCharacterContainerComponent* CharacterContainer;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    UPalNetworkGroupComponent* Group;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPalNetworkPlayerComponent* Player;
@@ -69,6 +66,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPalNetworkCharacterStatusOperationComponent* CharacterStatusOperation;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UPalNetworkRaidBossComponent* RaidBoss;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UPalNetworkIndividualComponent* NetworkIndividualComponent;
@@ -132,9 +132,6 @@ public:
     UPalNetworkInvaderComponent* GetInvader() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    UPalNetworkGroupComponent* GetGroup() const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalNetworkCharacterStatusOperationComponent* GetCharacterStatusOperation() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -158,6 +155,12 @@ private:
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void Debug_ReceiveLogTreasureBoxLocalPlayerAround_ToRequestPlayer(const FString& Message);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Debug_LogServerThreadNum_ToServer();
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void Debug_LogServerThreadNum_ToRequestPlayer(const FString& Message);
     
 };
 

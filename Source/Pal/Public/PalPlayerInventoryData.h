@@ -19,6 +19,7 @@ class UPalItemContainer;
 class UPalItemContainerMultiHelper;
 class UPalItemSlot;
 class UPalMoneyData;
+class UPalStaticItemDataBase;
 
 UCLASS(Blueprintable)
 class PAL_API UPalPlayerInventoryData : public UObject {
@@ -34,6 +35,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOverWeightInventoryDelegate, float, nowWeight);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FMaxWeightBuffedDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FFixedWeightInventoryDelegate, float, nowWeight);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCurrentWeightBuffedDelegate, float, ChangedWeight);
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FUpdateInventoryContainerDelegate OnUpdateInventoryContainerDelegate;
@@ -63,6 +65,9 @@ public:
     FMaxWeightBuffedDelegate OnMaxWeightBuffedDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FCurrentWeightBuffedDelegate OnCurrentWeightBuffedDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPickupItemDelegate OnPickupItemDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -90,6 +95,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_BuffMaxWeight, meta=(AllowPrivateAccess=true))
     float PassiveBuffedMaxWeight;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_BuffCurrentWeight, meta=(AllowPrivateAccess=true))
+    float PassiveBuffedCurrentWeight;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FGuid OwnerPlayerUId;
@@ -126,7 +134,7 @@ public:
     bool TryGetEmptySlot(EPalPlayerInventoryType inventoryType, UPalItemSlot*& emptySlot);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool TryGetContainerIdFromItemType(EPalItemTypeA itemTypeA, FPalContainerId& outContainerId) const;
+    bool TryGetContainerIdFromItemType(EPalItemTypeA ItemTypeA, FPalContainerId& outContainerId) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool TryGetContainerIDFromInventoryType(const EPalPlayerInventoryType inventoryType, FPalContainerId& outContainerId) const;
@@ -201,6 +209,9 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnRep_BuffMaxWeight();
     
+    UFUNCTION(BlueprintCallable)
+    void OnRep_BuffCurrentWeight();
+    
 protected:
     UFUNCTION(BlueprintCallable)
     void OnOnUpdateStatusPoint(FName StatusName, int32 prevPoint, int32 newPoint);
@@ -222,16 +233,19 @@ public:
     int32 GetUnlockedFoodEquipSlotNum() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetPassiveBuffedItemWeight(const UPalStaticItemDataBase* Item);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetNowItemWeight() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    void GetItemInfoByItemTypeA(TArray<EPalItemTypeA> itemTypeA, TArray<FPalItemAndNum>& OutItemInfos);
+    void GetItemInfoByItemTypeA(TArray<EPalItemTypeA> ItemTypeA, TArray<FPalItemAndNum>& OutItemInfos);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     EPalPlayerInventoryType GetInventoryTypeFromStaticItemID(const FName& StaticItemId) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    EPalPlayerInventoryType GetInventoryTypeFromItemTypeA(const EPalItemTypeA itemTypeA) const;
+    EPalPlayerInventoryType GetInventoryTypeFromItemTypeA(const EPalItemTypeA ItemTypeA) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 CountItemNum(const FName& StaticItemId) const;

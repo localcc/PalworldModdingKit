@@ -27,6 +27,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bGetAllBulletItems = false;
     this->bIgnoreItemDurabilityDecrease = false;
     this->bNotConsumeMaterialsInRepair = false;
+    this->bIgnoreDamageCheckByServer = false;
     this->bIsMutekiALL = false;
     this->bIsMutekiForPlayer = false;
     this->bIsMutekiForFriend = false;
@@ -81,6 +82,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bIsDisableShiftKey = false;
     this->IsSpawnAlwaysFromSpawner = false;
     this->IsDisableSpawner = false;
+    this->bIsEnableRandomizeSpawner = false;
     this->OverrideSpawnRadius = -1.00f;
     this->OverrideDespawnRadius = -1.00f;
     this->bIsPlayerCompleteSTEALTH = false;
@@ -90,6 +92,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bIsShowMovementMode = false;
     this->bIsShowOrganization = false;
     this->bCanAccessToOtherGuildMapObject = false;
+    this->ExpireGuildEnterRequestLogInfoMinutes = -1;
     this->bFirstBuildPalBox = false;
     this->WorkExtraRate = 1.00f;
     this->bIsDisableFootIK = false;
@@ -246,14 +249,13 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bDrawDefenseAttackableRange = false;
     this->bShowDefenseAttackTarget = false;
     this->ShowDefenseRange = 2000.00f;
-    this->WorldPartitionLoadCheckRange = -1.00f;
-    this->WorldPartitionLoadActivatedCheck = false;
     this->bDisableInteractRecicleTarget = false;
     this->bShowStageDeathPenaltyLocation = false;
     this->bForceLocationTeleport = false;
-    this->bShowInvaderDeubgLog = false;
-    this->bForceToggleInteract = false;
+    this->bShowInvaderDebugLog = false;
+    this->bShowStreamingLevel = false;
     this->bShowInteractPoints = false;
+    this->bEnableArenaTest = false;
 }
 
 

@@ -11,6 +11,11 @@ UCLASS(Blueprintable)
 class UPalUIConvertItemModel : public UObject {
     GENERATED_BODY()
 public:
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FReturnBoolDelegate, bool, bOn);
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FReturnBoolDelegate OnUpdateCanTransportOut;
+    
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalUIProductSettingModel* ProductSettingModel;
@@ -18,14 +23,14 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TWeakObjectPtr<UPalMapObjectConvertItemModel> WeakConvertItemModel;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bCanTransportOut;
+    
 public:
     UPalUIConvertItemModel();
 
     UFUNCTION(BlueprintCallable)
     void UpdateProductSetting_TransportToStorage(const bool bOn);
-    
-    UFUNCTION(BlueprintCallable)
-    void UpdateProductSetting();
     
     UFUNCTION(BlueprintCallable)
     bool TryGetConcreteModel(UPalMapObjectConvertItemModel*& Model);

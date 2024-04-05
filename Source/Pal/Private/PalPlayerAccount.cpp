@@ -10,5 +10,7 @@ UPalPlayerAccount::UPalPlayerAccount() {
     this->TechnologyData = NULL;
     this->RecordData = NULL;
     this->bIsSelectedInitMapPoint = false;
+    this->bShouldSaveOnNextTime = false;
 }
+
 

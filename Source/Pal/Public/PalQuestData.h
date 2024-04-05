@@ -36,6 +36,7 @@ private:
     
 public:
     UPalQuestData();
+
 protected:
     UFUNCTION(BlueprintCallable)
     void ProgressInternal();
@@ -47,6 +48,9 @@ protected:
     void OnCompletedQuestBlock(UPalQuestBlock* CompletedBlock);
     
 public:
+    UFUNCTION(BlueprintCallable)
+    void InitializeWithoutLoadQuestBlock(int32 BlockIndex, const FName& InQuestName);
+    
     UFUNCTION(BlueprintCallable)
     void Initialize(int32 BlockIndex, const FName& InQuestName);
     

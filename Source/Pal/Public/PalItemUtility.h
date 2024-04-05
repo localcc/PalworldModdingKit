@@ -18,6 +18,7 @@ class UPalItemUtility : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UPalItemUtility();
+
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool TryGetItemVisualBlueprintClass(const UObject* WorldContextObject, const FName StaticItemId, TSoftClassPtr<AActor>& VisualBlueprintClass);
     
@@ -50,6 +51,9 @@ public:
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool CanUseHealItem(const UObject* WorldContextObject, FName staticItemName, UPalIndividualCharacterParameter* targetParameter);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool CanItemLevelUp(const UPalStaticItemDataBase* ItemData, UPalIndividualCharacterParameter* targetParameter);
     
 };
 

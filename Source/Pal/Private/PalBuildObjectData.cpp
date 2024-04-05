@@ -19,6 +19,7 @@ FPalBuildObjectData::FPalBuildObjectData() {
     this->bIsInstallOnlyOnBase = false;
     this->bIsInstallOnlyInDoor = false;
     this->bIsInstallOnlyHubAround = false;
+    this->InstallMaxNumInBaseCamp = 0;
     this->bInstallableNoObstacleFromCamera = false;
 }
 

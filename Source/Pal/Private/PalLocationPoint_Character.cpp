@@ -24,7 +24,7 @@ void UPalLocationPoint_Character::GetLifetimeReplicatedProps(TArray<FLifetimePro
     
     DOREPLIFETIME(UPalLocationPoint_Character, IndividualId);
     DOREPLIFETIME(UPalLocationPoint_Character, CharacterLocationType);
-    DOREPLIFETIME(UPalLocationPoint_Character, TargetBaseCampId);
+    DOREPLIFETIME(UPalLocationPoint_Character, TargetBaseCampID);
     DOREPLIFETIME(UPalLocationPoint_Character, CharacterID);
 }
 

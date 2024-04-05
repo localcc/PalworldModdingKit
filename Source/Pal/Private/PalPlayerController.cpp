@@ -21,6 +21,9 @@ APalPlayerController::APalPlayerController(const FObjectInitializer& ObjectIniti
     this->PlayerInputOneFlameCommandList = NULL;
 }
 
+void APalPlayerController::UpdateCharacterNickName_ToServer_Implementation(const FPalInstanceID& InstanceId, const FString& NewNickName) {
+}
+
 bool APalPlayerController::TrySwitchOtomo() {
     return false;
 }
@@ -35,6 +38,21 @@ void APalPlayerController::StartStepCoolDownCoolTimer() {
 }
 
 void APalPlayerController::StartFlyToServer_Implementation() {
+}
+
+void APalPlayerController::ShooterComponent_StopReload_ToServer_Implementation(UPalShooterComponent* Shooter, int32 ID) {
+}
+
+void APalPlayerController::ShooterComponent_SetTargetDirection_ToServer_Implementation(UPalShooterComponent* Shooter, FVector targetDirection) {
+}
+
+void APalPlayerController::ShooterComponent_ReloadWeapon_ToServer_Implementation(UPalShooterComponent* Shooter, int32 ID) {
+}
+
+void APalPlayerController::ShooterComponent_ChangeIsShooting_ToServer_Implementation(UPalShooterComponent* Shooter, int32 ID, bool IsShooting) {
+}
+
+void APalPlayerController::ShooterComponent_ChangeIsAiming_ToServer_Implementation(UPalShooterComponent* Shooter, int32 ID, bool IsAiming) {
 }
 
 void APalPlayerController::SetupInternalForSphere_ToServer_Implementation(int32 ID, APalSphereBodyBase* Target, APalCharacter* TargetCharacter) {
@@ -93,6 +111,12 @@ void APalPlayerController::SelfKillPlayer_Implementation() {
 void APalPlayerController::RPCDummy_Implementation() {
 }
 
+void APalPlayerController::RequestUseReturnToBaseCampItem_ToServer_Implementation(const FPalItemSlotId& ItemData) {
+}
+
+void APalPlayerController::RequestUseReturnToBaseCampItem(const FPalItemSlotId& ItemData) {
+}
+
 void APalPlayerController::RequestLiftupThrow_ToServer_Implementation(AActor* Target) {
 }
 
@@ -102,10 +126,40 @@ void APalPlayerController::RequestLiftup_ToServer_Implementation(APalCharacter* 
 void APalPlayerController::RequestFastTravel_ToServer_Implementation(const FGuid& LocationId) {
 }
 
+void APalPlayerController::RequestExitGuild_ToServer_Implementation() {
+}
+
+void APalPlayerController::RequestEnterToPlayerGuild_ToServer_Implementation(APalPlayerCharacter* RespondentPlayerCharacter) {
+}
+
+void APalPlayerController::RequestChangeGuildName_ToServer_Implementation(const FString& NewGuildName) {
+}
+
+void APalPlayerController::RequestChangeCharacterMakeInfo_ToServer_Implementation(const FPalPlayerDataCharacterMakeInfo& NewMakeInfo) {
+}
+
+void APalPlayerController::RequestChangeAdminGuild_ToServer_Implementation(const FGuid& NextAdminPlayerUId) {
+}
+
+void APalPlayerController::RequestBanPlayerFromGuild_ToServer_Implementation(const FGuid& TargetPlayerUId) {
+}
+
 void APalPlayerController::RemoveCameraRotateSpeedModifierRate(const FName& modifierName) {
 }
 
+void APalPlayerController::ReceiveSuccessRequestEnterGuild_ToClient_Implementation(const EPalGuildJoinRequestResult Result, const FPalInstanceID& EnterPlayerInstanceId) {
+}
+
+void APalPlayerController::ReceiveOfferJoinGuildPlayer_ToClient_Implementation(const FGuid& FlowUniqueId, const FPalInstanceID& RequestPlayerInstanceId) {
+}
+
 void APalPlayerController::ReceiveLiftupRequestResult_ToClient_Implementation(EPalLiftupRequestResult Result) {
+}
+
+void APalPlayerController::ReceiveFailedRequestGuildWithLog_ToClient_Implementation(const EPalGuildJoinRequestResult Result) {
+}
+
+void APalPlayerController::ReceiveFailedRequestGuildWithAlert_ToClient_Implementation(const EPalGuildJoinRequestResult Result) {
 }
 
 void APalPlayerController::PlaySkill(int32 SlotID) {
@@ -130,6 +184,9 @@ void APalPlayerController::OnStartAim() {
 
 
 void APalPlayerController::OnReleasedSpawnPalButton() {
+}
+
+void APalPlayerController::OnReceiveConfirmResultRequestGuild_ClientInternal(const bool bResponse) {
 }
 
 
@@ -188,6 +245,9 @@ void APalPlayerController::OnActionBegin(const UPalActionBase* ActionBase) {
 }
 
 void APalPlayerController::NotifyLiftupCampPal_ToClient_Implementation(APalCharacter* TargetCharacter) {
+}
+
+void APalPlayerController::NotifyConfirmRequestGuild_ToServer_Implementation(const FGuid& FlowUniqueId, const bool bResponse) {
 }
 
 void APalPlayerController::JumpCancelPalThrow(UPalCharacterMovementComponent* MovementComponent) {
@@ -283,7 +343,7 @@ void APalPlayerController::Debug_TeleportToBotCamp_Implementation(int32 botIndex
 void APalPlayerController::Debug_Teleport2D_Implementation(const FVector& Location) {
 }
 
-void APalPlayerController::Debug_ShowInvaderDeubgLog_Implementation() {
+void APalPlayerController::Debug_ShowInvaderDebugLog_Implementation() {
 }
 
 void APalPlayerController::Debug_SetPalWorldTimeScale_Implementation(float Rate) {
@@ -347,6 +407,9 @@ void APalPlayerController::Debug_AddMoney_ToServer_Implementation(int64 addValue
 }
 
 void APalPlayerController::Debug_AddExpForALLPlayer_ToServer_Implementation(int32 addExp) {
+}
+
+void APalPlayerController::ConfirmRequestGuild_ToClient_Implementation(const FGuid& FlowUniqueId, const EPalGuildJoinRequestConfirm ConfirmType) {
 }
 
 bool APalPlayerController::CanCooping() const {

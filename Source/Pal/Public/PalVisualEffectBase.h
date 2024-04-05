@@ -38,7 +38,11 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalVisualEffectDynamicParameter DynamicParameter;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IsCallEndOnComponentEndPlay;
+    
     UPalVisualEffectBase();
+
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void TickVisualEffect(float DeltaTime);
     

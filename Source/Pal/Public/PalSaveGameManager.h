@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
 #include "Engine/EngineTypes.h"
+#include "SocialId.h"
 #include "EPalInLoadCollectionType.h"
 #include "FlagContainer.h"
 #include "PalAsyncSaveProcessParallel.h"
@@ -111,6 +112,7 @@ private:
     
 public:
     UPalSaveGameManager();
+
     UFUNCTION(BlueprintCallable)
     void StartWorldDataAutoSave();
     
@@ -141,6 +143,11 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsLoadedLocalWorldData() const;
     
+private:
+    UFUNCTION(BlueprintCallable)
+    bool IsExistSocialId(FSocialId ID);
+    
+public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsAppliedPlayerData();
     

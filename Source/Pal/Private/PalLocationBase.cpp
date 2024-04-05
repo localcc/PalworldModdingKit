@@ -31,6 +31,10 @@ EPalLocationType UPalLocationBase::GetType() const {
     return EPalLocationType::Undefined;
 }
 
+FGuid UPalLocationBase::GetLocationId() const {
+    return FGuid{};
+}
+
 void UPalLocationBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     

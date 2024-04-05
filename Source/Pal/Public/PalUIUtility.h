@@ -5,6 +5,7 @@
 #include "Engine/DataTable.h"
 #include "InputCoreTypes.h"
 #include "Styling/SlateBrush.h"
+#include "EPalAdditionalEffectType.h"
 #include "EPalBaseCampWorkerEventType.h"
 #include "EPalBaseCampWorkerSickType.h"
 #include "EPalBuildObjectTypeA.h"
@@ -35,6 +36,7 @@ class PAL_API UPalUIUtility : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UPalUIUtility();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetVisibilityHUD(const UObject* WorldContextObject, bool IsVisible);
     
@@ -174,7 +176,7 @@ public:
     static FSlateBrush GetKeyIconByKey(const UObject* WorldContextObject, const FKey Key, ECommonInputType InputType);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static void GetItemTypeAName(const UObject* WorldContextObject, const EPalItemTypeA itemTypeA, FText& outName);
+    static void GetItemTypeAName(const UObject* WorldContextObject, const EPalItemTypeA ItemTypeA, FText& outName);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static void GetItemName(const UObject* WorldContextObject, const FName& StaticItemId, FText& outName);
@@ -202,6 +204,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static void GetAllTagFromText(const UObject* WorldContextObject, const FText& targetText, TArray<FString>& outTagArray);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static void GetAdditionalEffectName(const UObject* WorldContextObject, EPalAdditionalEffectType EffectType, FText& outName);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalUserWidget* FindOwningActivatableWidget(const UObject* WorldContextObject, const UWidget* Widget);

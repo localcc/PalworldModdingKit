@@ -1,7 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
-#include "EPalGroupOperationResult.h"
 #include "PalGroupOrganization.h"
 #include "PalGuildPlayerInfo.h"
 #include "PalGroupGuildBase.generated.h"
@@ -46,9 +45,6 @@ public:
 
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
-    UFUNCTION(BlueprintCallable)
-    EPalGroupOperationResult RequestDismantleBaseCamp(const FGuid& BaseCampId);
-    
     UFUNCTION(BlueprintCallable)
     void OnRep_Guildname();
     

@@ -24,7 +24,7 @@ void UPalNetworkShopComponent::RequestBuyLostPal_ToServer_Implementation(const F
 void UPalNetworkShopComponent::RemoveShopData_ToServer_Implementation(const FGuid& RemoveShopID) {
 }
 
-void UPalNetworkShopComponent::RecieveBuyResult_ToClient_Implementation(EPalShopBuyResultType ResultType) {
+void UPalNetworkShopComponent::RecieveBuyResult_ToClient_Implementation(EPalShopBuyResultType resultType) {
 }
 
 void UPalNetworkShopComponent::ReceiveDroppedPalProductData_ToClient_Implementation(const TArray<FPalDroppedPalProductDataForShop>& CollectedData) {

@@ -4,6 +4,7 @@
 #include "Engine/DataTable.h"
 #include "PalDataTableRowName_NPCUniqueData.h"
 #include "PalDataTableRowName_PalHumanData.h"
+#include "PalDataTableRowName_PalMonsterData.h"
 #include "Templates/SubclassOf.h"
 #include "PalRandomIncidentSpawnNPCData.generated.h"
 
@@ -19,6 +20,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalDataTableRowName_NPCUniqueData UniqueNPCID;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalDataTableRowName_PalMonsterData OtomoName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 Level;

@@ -1,0 +1,6 @@
+#include "PalGuildChangeAdminRequestSequence_ChangeAdminMainProcess.h"
+
+UPalGuildChangeAdminRequestSequence_ChangeAdminMainProcess::UPalGuildChangeAdminRequestSequence_ChangeAdminMainProcess() {
+}
+
+

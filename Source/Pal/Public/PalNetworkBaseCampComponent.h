@@ -5,6 +5,7 @@
 #include "Components/ActorComponent.h"
 #include "EPalBaseCampModuleType.h"
 #include "EPalLogType.h"
+#include "EPalWorkSuitability.h"
 #include "PalInstanceID.h"
 #include "PalMealLogDisplayData.h"
 #include "PalMonsterControllerBaseCampLogContent.h"
@@ -39,6 +40,12 @@ public:
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestModule_Server_bool(const FGuid& BaseCampId, const EPalBaseCampModuleType ModuleType, const FName FunctionName, bool Value);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestChangeWorkSuitability_ToServer(const FPalInstanceID& TargetIndividualId, const EPalWorkSuitability WorkSuitability, const bool bOn);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestChangeBaseCampBattle_ToServer(const FPalInstanceID& TargetIndividualId, const bool bOn);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Request_Server_void(const FGuid& BaseCampId, const FName FunctionName);
@@ -137,6 +144,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void AddBaseCampWorkerLog_Client(EPalLogType DisplayLogType, const FPalInstanceID& WorkerCharacterInstanceId, const FName& EventDataID);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void AddBaseCampWorkerDeathLog_Client(const FPalInstanceID& WorkerCharacterInstanceId);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void AddBaseCampLog_Client(const FPalMonsterControllerBaseCampLogContent& LogContent);

@@ -12,7 +12,7 @@ class UPalTalkWidgetParameter : public UPalHUDDispatchParameterBase {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    UDataTable* talkDataTable;
+    UDataTable* TalkDataTable;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FName startTalkSequence;
@@ -27,5 +27,6 @@ public:
     bool IsCancel;
     
     UPalTalkWidgetParameter();
+
 };
 

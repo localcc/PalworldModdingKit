@@ -5,12 +5,17 @@ UPalUIJoinGameBase::UPalUIJoinGameBase() {
     this->CurrentPage = 1;
     this->PageSize = 0;
     this->IsNextPage = false;
+    this->IsCheckedInputPassword = false;
+    this->SaveConfigCategoryName = TEXT("JoinGameSettings");
+}
+
+void UPalUIJoinGameBase::SaveConfigValue() {
 }
 
 void UPalUIJoinGameBase::RequestOfficialServerIPRange() {
 }
 
-void UPalUIJoinGameBase::RequestGetServerList(EPalUIServerListFilterType Type, const FString& Region, bool IsCleanCache, bool NextPage, const FString& SearchWord) {
+void UPalUIJoinGameBase::RequestGetServerList(EPalUIServerListFilterType Type, EPalUIServerListSortType SortType, const FString& Region, bool IsCleanCache, int32 PageOffset, const FString& SearchWord) {
 }
 
 void UPalUIJoinGameBase::OnCompleteOfficialServerIPRange(const FString& ResponseBody, bool bResponseOK, int32 ResponseCode) {

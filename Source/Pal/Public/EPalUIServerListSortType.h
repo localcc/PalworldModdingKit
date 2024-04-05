@@ -4,7 +4,10 @@
 
 UENUM(BlueprintType)
 enum class EPalUIServerListSortType : uint8 {
-    PlayerNum,
-    Day,
+    Latest,
+    DaysAsc,
+    DaysDesc,
+    CurrentPlayerAsc,
+    CurrentPlayerDesc,
 };
 

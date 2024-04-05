@@ -2,6 +2,7 @@
 #include "Net/UnrealNetwork.h"
 
 UPalMapObjectDeathPenaltyStorageModel::UPalMapObjectDeathPenaltyStorageModel() {
+    this->bCanOpenByProgressTime = false;
 }
 
 void UPalMapObjectDeathPenaltyStorageModel::OnChangedPlayerInfoInLocalPlayerGuild_ClientInternal(APalPlayerState* LocalPlayerState) {
@@ -16,6 +17,7 @@ void UPalMapObjectDeathPenaltyStorageModel::GetLifetimeReplicatedProps(TArray<FL
     
     DOREPLIFETIME(UPalMapObjectDeathPenaltyStorageModel, OwnerPlayerUId);
     DOREPLIFETIME(UPalMapObjectDeathPenaltyStorageModel, LocationId);
+    DOREPLIFETIME(UPalMapObjectDeathPenaltyStorageModel, bCanOpenByProgressTime);
 }
 
 

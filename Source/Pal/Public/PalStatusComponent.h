@@ -32,6 +32,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<UPalStatusBase*> ExecutionStatusListCache;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<EPalStatusID> DisableAddStatusIDs;
+    
 public:
     UPalStatusComponent(const FObjectInitializer& ObjectInitializer);
 
@@ -41,6 +44,11 @@ private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void SomeStatus_ToAll(EPalStatusID StatusId, FStatusDynamicParameter Param);
     
+public:
+    UFUNCTION(BlueprintCallable)
+    void SetDisableAddStatusIDs(TArray<EPalStatusID> StatusIDs);
+    
+private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RemoveStatus_ToServer(EPalStatusID StatusId, int32 issuerID);
     

@@ -57,6 +57,7 @@ enum class EPalPassiveSkillEffectType : uint8 {
     Logging,
     Mining,
     GainItemDrop,
+    CollectItemDrop,
     LifeSteal,
     TemperatureResist_Heat,
     TemperatureResist_Cold,
@@ -66,5 +67,7 @@ enum class EPalPassiveSkillEffectType : uint8 {
     FullStomatch_Decrease,
     Sanity_Decrease,
     BodyPartsWeakDamage,
+    NonKilling,
+    ItemWeightReduction,
 };
 

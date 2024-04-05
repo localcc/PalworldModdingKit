@@ -2,6 +2,7 @@
 
 UPalHUDDispatchParameter_WorkerRadialMenu::UPalHUDDispatchParameter_WorkerRadialMenu() {
     this->IndividualHandle = NULL;
-    this->ResultType = EPalWorkerRadialMenuResult::Cancel;
+    this->resultType = EPalWorkerRadialMenuResult::Cancel;
 }
+
 

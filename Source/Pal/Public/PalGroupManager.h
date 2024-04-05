@@ -7,6 +7,7 @@
 #include "PalGroupCreateParameter.h"
 #include "PalGroupOperationDynamicDelegateDelegate.h"
 #include "PalGroupOperationWithGroupIdDynamicDelegateDelegate.h"
+#include "PalGuildEnterRequestLogInfo.h"
 #include "PalInstanceID.h"
 #include "PalWorldSubsystem.h"
 #include "PalGroupManager.generated.h"
@@ -15,6 +16,7 @@ class AActor;
 class UObject;
 class UPalGroupBase;
 class UPalGroupGuildBase;
+class UPalGuildRequestFlowBase;
 
 UCLASS(Blueprintable)
 class UPalGroupManager : public UPalWorldSubsystem, public IPalGameWorldDataSaveInterface {
@@ -33,6 +35,12 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<EPalOrganizationType, FGuid> StaticOrganizationGroupIdMap;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FGuid, UPalGuildRequestFlowBase*> GuildRequestFlowMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FGuid, FPalGuildEnterRequestLogInfo> GuildEnterRequestLogInfoMap;
+    
 public:
     UPalGroupManager();
 
@@ -42,6 +50,11 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool TryGetGroupName(const FGuid& GroupID, FString& OutGroupName) const;
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnFinishedGuildRequest_ServerInternal(UPalGuildRequestFlowBase* Flow);
+    
+public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInGuild(const AActor* TargetActor);
     

@@ -9,8 +9,9 @@ class UPalIncidentDynamicParameterInvader : public UPalIncidentDynamicParameter 
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FGuid TargetBaseCampId;
+    FGuid TargetBaseCampID;
     
     UPalIncidentDynamicParameterInvader();
+
 };
 

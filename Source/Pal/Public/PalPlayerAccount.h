@@ -56,7 +56,11 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsSelectedInitMapPoint;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bShouldSaveOnNextTime;
+    
 public:
     UPalPlayerAccount();
+
 };
 

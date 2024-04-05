@@ -135,9 +135,6 @@ private:
     bool bIsDisable_ChangeTickInterval_ByImportance;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    FTimerHandle GroundCheckTimerHandle;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FVector SpawnLocation_ForServer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -197,6 +194,9 @@ public:
     void RequestJump();
     
     UFUNCTION(BlueprintCallable)
+    void Play2Montage_WithPlayRate(UAnimMontage* firstMontage, UAnimMontage* nextMontage, float PlayRate);
+    
+    UFUNCTION(BlueprintCallable)
     void Play2Montage(UAnimMontage* firstMontage, UAnimMontage* nextMontage);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
@@ -219,6 +219,9 @@ private:
     void OnChangeWetnessStatus(bool IsSwim);
     
 public:
+    UFUNCTION(BlueprintCallable)
+    void LocalInitialized();
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInitialized() const;
     

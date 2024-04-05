@@ -15,4 +15,7 @@ void UPalUIInventoryEquipment::RequestUpdatePlayerStatusPoint(const TMap<FName, 
 void UPalUIInventoryEquipment::QuickSortInventory() {
 }
 
+void UPalUIInventoryEquipment::ChangeLocalPlayerNickname(const FString& NewName) {
+}
+
 

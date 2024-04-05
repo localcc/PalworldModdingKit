@@ -5,6 +5,7 @@ FPalIndividualCharacterSaveParameter::FPalIndividualCharacterSaveParameter() {
     this->CharacterClass = NULL;
     this->Level = 0;
     this->Rank = 0;
+    this->RankUpExp = 0;
     this->Rank_HP = 0;
     this->Rank_Attack = 0;
     this->Rank_Defence = 0;

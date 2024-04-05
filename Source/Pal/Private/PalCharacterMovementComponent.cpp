@@ -152,6 +152,9 @@ void UPalCharacterMovementComponent::OnDeactivated(UActorComponent* Component) {
 void UPalCharacterMovementComponent::OnChangeCrouch(UPalCharacterMovementComponent* Component, bool IsInCrouch) {
 }
 
+void UPalCharacterMovementComponent::OnChangeActiveCharacter(bool bInIsActive) {
+}
+
 void UPalCharacterMovementComponent::MergeLastLandingLocationCache(const UPalCharacterMovementComponent* MovementComponent) {
 }
 

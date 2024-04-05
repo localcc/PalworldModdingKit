@@ -48,6 +48,10 @@ void APalGameStateInGame::OnRep_CharacterManagerReplicator() {
 void APalGameStateInGame::OnRep_BaseCampReplicator() {
 }
 
+FString APalGameStateInGame::GetWorldSaveDirectoryName() const {
+    return TEXT("");
+}
+
 FString APalGameStateInGame::GetWorldName() const {
     return TEXT("");
 }

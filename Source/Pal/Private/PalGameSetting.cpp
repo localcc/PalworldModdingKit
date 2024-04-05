@@ -23,6 +23,7 @@ UPalGameSetting::UPalGameSetting() {
     this->CharacterStayingSecondsInSpa = 10.00f;
     this->PalBoxPageNum = 16;
     this->PalBoxSlotNumInPage = 30;
+    this->PalBoxTimePeriodRecoverySick = 60;
     this->PlayerBattleJudge_EnemyDistance = 5000.00f;
     this->LiftupCharacterThrownVelocityScalar = 100.00f;
     this->LiftupCharacterClearCollisionDelayTime = 1.00f;
@@ -127,6 +128,7 @@ UPalGameSetting::UPalGameSetting() {
     this->PlayerDeath_DropOtomoNum = 5;
     this->PlayerDeath_DropOtomoRange = 100.00f;
     this->PlayerDeath_DropOtomoDisappearHours = 48;
+    this->PlayerDeath_DropItemStorage_HoursCanOpen = 24;
     this->PlayerDyingDamagePerTime = 1.00f;
     this->ElementStatus_ResistanceInitialValue = 100;
     this->ElementStatus_AutoDecreasePerSecond = 0.50f;
@@ -227,6 +229,7 @@ UPalGameSetting::UPalGameSetting() {
     this->BaseCampWorkerMoveModeChangeThreshold = EPalCharacterImportanceType::Farthest;
     this->BaseCampWorkerDirectorTickForAssignWorkByCount = 3;
     this->BaseCampWorkerTimeDetectContinuousStuck = 10.00f;
+    this->BaseCampWorkerMaxTimeReturnBack = 10.00f;
     this->BaseCampWorkerLookToTargetWork = 10.00f;
     this->ReviveWorkAdditionalRange = 100.00f;
     this->WorkAroundRangeDefault = 1000.00f;
@@ -248,6 +251,7 @@ UPalGameSetting::UPalGameSetting() {
     this->TimeForCameraMaxSpeed = 0.50f;
     this->AimInterpInterval = 0.00f;
     this->InvaderSelfDeleteAddTime = 1;
+    this->VisitorSelfDeleteTime = 30;
     this->InvadeProbability = 0.50f;
     this->InvadeOccurablePlayerLevel = 5;
     this->InvadeJudgmentInterval_Minutes = 10;
@@ -313,6 +317,7 @@ UPalGameSetting::UPalGameSetting() {
     this->CaptureRateAdd_ByLegHold = 0.30f;
     this->LongPressInterval = 1.20f;
     this->LongPressInterval_EnemyCampCage = 5.00f;
+    this->LongPressInterval_StartRaidBoss = 2.00f;
     this->LongPressInterval_GetHatchedPal = 4.00f;
     this->CrouchLockAttenuation = 0.30f;
     this->IsEnableCharacterWazaScale = true;
@@ -376,6 +381,7 @@ UPalGameSetting::UPalGameSetting() {
     this->AddAttackPerAttackRank = 0.03f;
     this->AddDefencePerDefenceRank = 0.03f;
     this->AddWorkSpeedPerWorkSpeedRank = 0.03f;
+    this->MaxUseablePoint_SumStatusPointAndExStatusPoint_PerParameter = 50;
     this->DebugInfoFont = NULL;
     this->MaxGuildNameLength = 30;
     this->JoinGuildRequestInteractLongPushTime = 4.00f;

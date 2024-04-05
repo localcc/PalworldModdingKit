@@ -2,7 +2,7 @@
 
 UPalWorkProgressManager::UPalWorkProgressManager() {
     this->MoveCheckProcessIndex = 0;
-    this->MoveCheckMaxNumPerFrame = 100;
+    this->MoveCheckMaxNumPerFrame = 1000;
     this->WorkTickInvokeMaxNumInOneTick = 600;
 }
 

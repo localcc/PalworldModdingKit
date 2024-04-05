@@ -57,6 +57,7 @@ enum class EPalActionType : uint8 {
     HumanFeeding_DoMotion,
     GetupUtubuse_orRight,
     GetupAomuke_orRight,
+    ReturnToBaseCamp,
     WaitLoadingAction,
     HumanPetting,
     PalPetting,
@@ -81,5 +82,6 @@ enum class EPalActionType : uint8 {
     CutPalMeat,
     Grappling,
     PalRandomRest,
+    LargeDown,
 };
 

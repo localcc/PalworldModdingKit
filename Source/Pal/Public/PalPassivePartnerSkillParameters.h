@@ -5,6 +5,7 @@
 #include "PalDataTableRowName_ItemData.h"
 #include "PalDataTableRowName_MapObjectData.h"
 #include "PalDataTableRowName_PalMonsterData.h"
+#include "PalPassivePartnerSkillItemParameter.h"
 #include "PalPassivePartnerSkillParameters.generated.h"
 
 USTRUCT(BlueprintType)
@@ -37,6 +38,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bNotAssignSelf;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalPassivePartnerSkillItemParameter ItemParam;
     
     PAL_API FPalPassivePartnerSkillParameters();
 };

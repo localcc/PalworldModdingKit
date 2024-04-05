@@ -11,6 +11,7 @@
 #include "PalOptionKeyboardSettings.h"
 #include "PalOptionLocalStaticSettings.h"
 #include "PalOptionPadSettings.h"
+#include "PalOptionUISettings.h"
 #include "PalOptionWorldSettings.h"
 #include "PalOptionWorldStaticSettings.h"
 #include "PalWorldSubsystem.h"
@@ -25,6 +26,7 @@ class PAL_API UPalOptionSubsystem : public UPalWorldSubsystem {
     GENERATED_BODY()
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnChangeWorldSettingsDelegate, const FPalOptionWorldSettings&, PrevSettings, const FPalOptionWorldSettings&, NewSettings);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnChangeUISettingDelegate, const FPalOptionUISettings&, PrevSettings, const FPalOptionUISettings&, NewSettings);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangeScreenRatioDelegate, float, newRatio);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnChangePadDelegate, const FPalOptionPadSettings&, PrevSettings, const FPalOptionPadSettings&, NewSettings);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnChangeKeyConfigDelegate, const FPalKeyConfigSettings&, PrevSettings, const FPalKeyConfigSettings&, NewSettings);
@@ -45,6 +47,9 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnChangeKeyConfigDelegate OnChangeKeyConfigDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnChangeUISettingDelegate OnChangeUISettingDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnChangeScreenRatioDelegate OnChangeScreenRatioDelegate;
@@ -80,6 +85,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalKeyConfigSettings KeyConfigSettings;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalOptionUISettings UISettings;
+    
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float BaseFov;
@@ -102,6 +110,10 @@ private:
     
 public:
     UPalOptionSubsystem();
+
+    UFUNCTION(BlueprintCallable)
+    void SetUISettings(const FPalOptionUISettings& InUISettings);
+    
     UFUNCTION(BlueprintCallable)
     void SetPadSettings(const FPalOptionPadSettings& InPadSettings);
     
@@ -134,6 +146,9 @@ private:
     void OnCompletedGetBanlist(const FString& ResponseBody, bool bResponseOK, int32 ResponseCode);
     
 public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FPalOptionUISettings GetUISettings() const;
+    
     UFUNCTION(BlueprintCallable)
     void GetSupportScreenSizes(TArray<FIntPoint>& SupportResolutions, TEnumAsByte<EWindowMode::Type> WindowMode);
     

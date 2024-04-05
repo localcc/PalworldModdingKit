@@ -6,6 +6,7 @@
 #include "PalOptionGraphicsSettings.h"
 #include "PalOptionKeyboardSettings.h"
 #include "PalOptionPadSettings.h"
+#include "PalOptionUISettings.h"
 #include "PalOptionSaveData.generated.h"
 
 USTRUCT(BlueprintType)
@@ -20,6 +21,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalKeyConfigSettings KeyConfigSettings;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalOptionUISettings UISettings;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalOptionCommonSettings CommonSettings;

@@ -11,6 +11,9 @@ bool UPalGroupManager::TryGetGroupName(const FGuid& GroupID, FString& OutGroupNa
     return false;
 }
 
+void UPalGroupManager::OnFinishedGuildRequest_ServerInternal(UPalGuildRequestFlowBase* Flow) {
+}
+
 bool UPalGroupManager::IsInGuild(const AActor* TargetActor) {
     return false;
 }

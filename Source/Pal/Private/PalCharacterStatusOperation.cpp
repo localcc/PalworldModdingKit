@@ -30,7 +30,7 @@ int32 UPalCharacterStatusOperation::GetCurrentStatusRank(const UPalIndividualCha
     return 0;
 }
 
-int32 UPalCharacterStatusOperation::GetCurrentLocalPlayerStatusPoint(const UObject* WorldContextObject, const FName StatusName) {
+int32 UPalCharacterStatusOperation::GetCurrentLocalPlayerTotalStatusPoint(const UObject* WorldContextObject, const FName StatusName) {
     return 0;
 }
 

@@ -7,5 +7,6 @@ FPalBaseCampWorkerSickMasterData::FPalBaseCampWorkerSickMasterData() {
     this->WorkSpeed = 0;
     this->MoveSpeed = 0;
     this->SatietyDecrease = 0;
+    this->RecoveryProbabilityPercentageInPalBox = 0;
 }
 

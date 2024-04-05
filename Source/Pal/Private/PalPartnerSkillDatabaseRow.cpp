@@ -1,7 +1,7 @@
 #include "PalPartnerSkillDatabaseRow.h"
 
 FPalPartnerSkillDatabaseRow::FPalPartnerSkillDatabaseRow() {
-    this->effectTime = 0.00f;
+    this->EffectTime = 0.00f;
     this->CoolDownTime = 0.00f;
     this->ExecCost = 0.00f;
     this->IdleCost = 0.00f;

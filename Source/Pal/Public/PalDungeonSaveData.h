@@ -45,6 +45,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FPalMapObjectSaveData> MapObjectSaveData;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameDateTime RespawnBossTimeAt;
+    
     PAL_API FPalDungeonSaveData();
 };
 

@@ -24,10 +24,14 @@ private:
     
 public:
     UPalQuestBlock();
+
     UFUNCTION(BlueprintCallable)
     void Setup();
     
 protected:
+    UFUNCTION(BlueprintCallable)
+    void SetCanComplete(bool Flag);
+    
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSetup_ForBP();
     

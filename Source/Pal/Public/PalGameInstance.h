@@ -42,16 +42,19 @@ class UPalMapObjectManager;
 class UPalMasterDataTables;
 class UPalNPCManager;
 class UPalObjectCollector;
+class UPalOilrigManager;
 class UPalPassiveSkillManager;
 class UPalPersistentSoundPlayer;
 class UPalPlayerDataStorage;
 class UPalPlayerManager;
+class UPalRaidBossManager;
 class UPalSaveGameManager;
 class UPalTutorialManager;
 class UPalVisualEffectDataBase;
 class UPalWazaDatabase;
 class UPalWorkProgressManager;
 class UPalWorldSecuritySystem;
+class UWorld;
 
 UCLASS(Blueprintable, NonTransient, Config=Engine)
 class PAL_API UPalGameInstance : public UGameInstance {
@@ -144,6 +147,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalBossBattleManager> BossBattleManagerClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UPalRaidBossManager> RaidBossManagerClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UPalOilrigManager> OilrigManagerClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalPlayerDataStorage> PlayerDataStorageClass;
@@ -322,6 +331,10 @@ public:
     
     UFUNCTION(BlueprintCallable)
     bool SelectWorld(const FString& WorldName);
+    
+protected:
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OverrideLoadMap(const TSoftObjectPtr<UWorld>& World);
     
 private:
     UFUNCTION(BlueprintCallable)

@@ -3,6 +3,7 @@
 #include "EPalWazaID.h"
 #include "PalDataTableRowName_PalMonsterData.h"
 #include "PalDataTableRowName_PassiveSkillData.h"
+#include "PalDebugCharacterStatusRank.h"
 #include "PalDebugOtomoPalInfo.generated.h"
 
 USTRUCT(BlueprintType)
@@ -23,6 +24,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FPalDataTableRowName_PassiveSkillData> PassiveSkill;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FPalDebugCharacterStatusRank> StatusRank;
     
     PAL_API FPalDebugOtomoPalInfo();
 };

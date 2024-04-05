@@ -14,6 +14,9 @@ void UPalItemContainer::OnRep_Permission() {
 void UPalItemContainer::OnRep_ItemSlotArray() {
 }
 
+void UPalItemContainer::OnRep_FilterPreference() {
+}
+
 int32 UPalItemContainer::Num() const {
     return 0;
 }
@@ -26,6 +29,14 @@ int32 UPalItemContainer::GetItemStackCount(const FName StaticItemId) const {
     return 0;
 }
 
+FPalItemContainerFilter UPalItemContainer::GetFilterPreference() const {
+    return FPalItemContainerFilter{};
+}
+
+TArray<FName> UPalItemContainer::GetFilterOffList() const {
+    return TArray<FName>();
+}
+
 UPalItemSlot* UPalItemContainer::Get(const int32 Index) const {
     return NULL;
 }
@@ -36,6 +47,7 @@ void UPalItemContainer::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Ou
     DOREPLIFETIME(UPalItemContainer, ItemSlotArray);
     DOREPLIFETIME(UPalItemContainer, Permission);
     DOREPLIFETIME(UPalItemContainer, CorruptionMultiplier);
+    DOREPLIFETIME(UPalItemContainer, FilterPreference);
 }
 
 

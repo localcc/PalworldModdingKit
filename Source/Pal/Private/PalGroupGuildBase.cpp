@@ -7,10 +7,6 @@ UPalGroupGuildBase::UPalGroupGuildBase() {
     this->bAllPlayerNotOnlineAndAlreadyReset = false;
 }
 
-EPalGroupOperationResult UPalGroupGuildBase::RequestDismantleBaseCamp(const FGuid& BaseCampId) {
-    return EPalGroupOperationResult::Success;
-}
-
 void UPalGroupGuildBase::OnRep_Guildname() {
 }
 

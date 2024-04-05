@@ -17,6 +17,10 @@ private:
     
 public:
     UPalNPCMultiTalkHandle();
+
+    UFUNCTION(BlueprintCallable)
+    void SetIsTransientTalkCount(bool IsTransient);
+    
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnFinishOneTalk();
     

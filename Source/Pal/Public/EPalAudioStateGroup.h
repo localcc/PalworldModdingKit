@@ -16,6 +16,7 @@ enum class EPalAudioStateGroup : uint8 {
     Battle_Human_Villain,
     Battle_FieldBoss,
     Battle_Legend,
+    Battle_RaidBoss,
     Battle_TowerBoss,
     SpotName,
     Biome,

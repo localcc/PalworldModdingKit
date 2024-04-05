@@ -93,6 +93,9 @@ private:
     FTimerHandle SelfDeleteTimerHandle;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IsSelfTimeDelate_FromSpawnTime_ForVisitor;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bShouldCheckStuckByTick;
     
 public:

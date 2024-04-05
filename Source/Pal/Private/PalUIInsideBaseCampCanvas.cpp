@@ -9,6 +9,9 @@ UPalUIInsideBaseCampCanvas::UPalUIInsideBaseCampCanvas() {
 void UPalUIInsideBaseCampCanvas::UnregisterTaskProgressEvent(const UPalBaseCampModel* Model) {
 }
 
+void UPalUIInsideBaseCampCanvas::ResetCollectedBaseCampWorkerInfo() {
+}
+
 void UPalUIInsideBaseCampCanvas::ResetCachedTaskCheckData() {
 }
 
@@ -18,17 +21,36 @@ void UPalUIInsideBaseCampCanvas::RemoveAllTaskCompletedLog() {
 void UPalUIInsideBaseCampCanvas::RegisterTaskProgressEvent() {
 }
 
+void UPalUIInsideBaseCampCanvas::OnUpdateBaseCampWorkerDirectorBattleType(UPalMapObjectBaseCampWorkerDirectorModel* Model) {
+}
+
 void UPalUIInsideBaseCampCanvas::OnNotAvailableInsideBaseCampMapObjectConcreteModel(UPalMapObjectConcreteModelBase* ConcreteModel) {
 }
 
 void UPalUIInsideBaseCampCanvas::OnAvailableInsideBaseCampMapObjectConcreteModel(UPalMapObjectConcreteModelBase* ConcreteModel) {
 }
 
+bool UPalUIInsideBaseCampCanvas::IsExistWorkHardModel() const {
+    return false;
+}
+
+bool UPalUIInsideBaseCampCanvas::IsExistWorkerDirectorModel() const {
+    return false;
+}
+
+EPalBaseCampPassiveEffectWorkHardType UPalUIInsideBaseCampCanvas::GetWorkHardType() const {
+    return EPalBaseCampPassiveEffectWorkHardType::Easy;
+}
+
 bool UPalUIInsideBaseCampCanvas::GetTaskData(FPalBaseCampTaskDataSet& outTaskData) {
     return false;
 }
 
-UPalBaseCampModel* UPalUIInsideBaseCampCanvas::GetInsideBaseCampModel() {
+FGuid UPalUIInsideBaseCampCanvas::GetLocalPlayerGroupID() const {
+    return FGuid{};
+}
+
+UPalBaseCampModel* UPalUIInsideBaseCampCanvas::GetInsideBaseCampModel() const {
     return NULL;
 }
 
@@ -37,6 +59,9 @@ void UPalUIInsideBaseCampCanvas::GetBaseCampPalSlots(TArray<UPalIndividualCharac
 
 int32 UPalUIInsideBaseCampCanvas::GetBaseCampPalBedCount() {
     return 0;
+}
+
+void UPalUIInsideBaseCampCanvas::CollectBaseCampWorkerInfo() {
 }
 
 bool UPalUIInsideBaseCampCanvas::CheckTask(FPalBaseCampTaskCheckedData& outCheckedData) {

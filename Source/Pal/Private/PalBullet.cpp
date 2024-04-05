@@ -1,11 +1,11 @@
 #include "PalBullet.h"
-#include "GameFramework/ProjectileMovementComponent.h"
 #include "Components/SphereComponent.h"
+#include "PalProjectileMovementComponent.h"
 
 APalBullet::APalBullet(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->RootComponent = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComp"));
     this->CollisionComp = (USphereComponent*)RootComponent;
-    this->ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileComp"));
+    this->ProjectileMovement = CreateDefaultSubobject<UPalProjectileMovementComponent>(TEXT("ProjectileComp"));
     this->PlayerDamageCameraShake = EPalPlayerDamageCameraShakeCategory::Gun_S;
     this->bIsHitFriend = false;
     this->WeaponDamage = 0;

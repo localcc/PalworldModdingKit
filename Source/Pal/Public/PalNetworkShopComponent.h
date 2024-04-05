@@ -40,7 +40,7 @@ public:
     void RemoveShopData_ToServer(const FGuid& RemoveShopID);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
-    void RecieveBuyResult_ToClient(EPalShopBuyResultType ResultType);
+    void RecieveBuyResult_ToClient(EPalShopBuyResultType resultType);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void ReceiveDroppedPalProductData_ToClient(const TArray<FPalDroppedPalProductDataForShop>& CollectedData);

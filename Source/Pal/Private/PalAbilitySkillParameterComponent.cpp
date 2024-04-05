@@ -35,4 +35,7 @@ void UPalAbilitySkillParameterComponent::OnActivatedAsPartner() {
 void UPalAbilitySkillParameterComponent::OnActivatedAsOtomoHolder() {
 }
 
+void UPalAbilitySkillParameterComponent::InitializedCharacterByFunnel() {
+}
+
 

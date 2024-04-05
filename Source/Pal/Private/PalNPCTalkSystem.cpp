@@ -8,6 +8,7 @@ UPalNPCTalkSystem::UPalNPCTalkSystem() {
     this->FuncParam = NULL;
     this->CustomFuncResult = EPalNPCTalkCustomFunctionResult::None;
     this->CustomFuncChoseIndex = 0;
+    this->CustomFuncTalkDataIndex = 0;
 }
 
 void UPalNPCTalkSystem::SetCustomFunctionResult_Implementation(EPalNPCTalkCustomFunctionResult Result) {

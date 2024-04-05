@@ -11,6 +11,10 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalIndividualCharacterSaveParameter CharacterSaveParameter;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool CreateLocationPoint;
+    
     UPalMapObjectModelInitializeExtraParameterInitialCharacter();
+
 };
 

@@ -155,6 +155,10 @@ FName UPalDefine::Socket_BodyCenter() {
     return NAME_None;
 }
 
+FName UPalDefine::Socket_AimTarget() {
+    return NAME_None;
+}
+
 FName UPalDefine::NP_PlayerCenterPosition() {
     return NAME_None;
 }

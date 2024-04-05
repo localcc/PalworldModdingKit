@@ -6,6 +6,12 @@ UPalMapObjectProductItemModel::UPalMapObjectProductItemModel() {
     this->WorkSpeedAdditionalRate = 1.00f;
 }
 
+void UPalMapObjectProductItemModel::ReceivePickupItemResult_Client(const FPalNetArchive& Archive) {
+}
+
+void UPalMapObjectProductItemModel::PickupItem_ServerInternal(const int32 PlayerId) {
+}
+
 void UPalMapObjectProductItemModel::OnUpdateContainerContent(UPalItemContainer* Container) {
 }
 

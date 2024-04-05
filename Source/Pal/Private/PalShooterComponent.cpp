@@ -22,6 +22,7 @@ UPalShooterComponent::UPalShooterComponent(const FObjectInitializer& ObjectIniti
     this->bIsHoldTrigger = false;
     this->bBufferedInput = false;
     this->bIsShootingHold = false;
+    this->bIsAttachRequest = false;
     this->NPCWeapon = NULL;
     this->CurrentBulletBlurRate = 0.00f;
     this->RapidFireBlur = 0.00f;
@@ -58,6 +59,9 @@ void UPalShooterComponent::SetupInputComponent(UInputComponent* InputComponent) 
 }
 
 void UPalShooterComponent::SetTargetDirection_ToServer_Implementation(FVector NewTargetDirection) {
+}
+
+void UPalShooterComponent::SetTargetDirection_ByServer(FVector NewTargetDirection) {
 }
 
 void UPalShooterComponent::SetTargetDirection(const FVector& Direction) {

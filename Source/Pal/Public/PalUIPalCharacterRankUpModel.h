@@ -47,6 +47,7 @@ protected:
     
 public:
     UPalUIPalCharacterRankUpModel();
+
     UFUNCTION(BlueprintCallable)
     bool ToggleResourceCharacter(UPalIndividualCharacterHandle* Handle);
     
@@ -72,18 +73,17 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnUpdateResourceSlot(UPalIndividualCharacterReferenceSlot* Slot, FPalInstanceID LastIndividualId);
     
-public:
-    UFUNCTION(BlueprintCallable)
-    void OnClickTargetCharacterSlot();
-    
-    UFUNCTION(BlueprintCallable)
-    void OnClickResourceCharacterSlot(const int32 SlotIndex);
-    
 protected:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSelectableSlotInternal(const UPalIndividualCharacterSlot* Slot) const;
     
 public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsOverflowResourcesForTarget() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsFilledResourcesForTarget() const;
+    
     UFUNCTION(BlueprintCallable)
     void InvokeRankUp();
     
@@ -95,6 +95,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetResourceSlots(TArray<UPalIndividualCharacterSlot*>& Slots) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetCurrentResourceCount() const;
     
     UFUNCTION(BlueprintCallable)
     void Dispose();
@@ -110,6 +113,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     EPalUIPalCharacterRankUpRequestResult CanInvokeRankUp() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    void CalcRankByCurrentSelectForUI(int32& OutToRank, int32& OutToRankUpExp, int32& OutTotalRankUpExp) const;
     
 };
 

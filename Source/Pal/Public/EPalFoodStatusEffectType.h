@@ -10,5 +10,6 @@ enum class EPalFoodStatusEffectType : uint8 {
     HungerResist,
     SANResist,
     WorkSpeed,
+    Regene_Hp,
 };
 

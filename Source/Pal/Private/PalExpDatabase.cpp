@@ -24,6 +24,10 @@ int32 UPalExpDatabase::CalcPaldexBonusExp(const FName CharacterID, int32 Capture
     return 0;
 }
 
+int32 UPalExpDatabase::CalcNeedLevelUpExp(int32 TotalEXP, bool IsPlayer) {
+    return 0;
+}
+
 int32 UPalExpDatabase::CalcLevelFromTotalExp(int32 TotalEXP, bool IsPlayer) {
     return 0;
 }

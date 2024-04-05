@@ -7,7 +7,9 @@
 #include "Templates/SubclassOf.h"
 #include "PalMapObjectHatchingEggModel.generated.h"
 
+class UPalDynamicPalEggItemDataBase;
 class UPalItemContainer;
+class UPalMapObjectEnergyModule;
 class UPalMapObjectHatchingEggModel;
 class UPalUserWidgetOverlayUI;
 class UPalWorkBase;
@@ -16,6 +18,7 @@ UCLASS(Blueprintable)
 class PAL_API UPalMapObjectHatchingEggModel : public UPalMapObjectConcreteModelBase, public IPalWorkProgressWorkableCheckInterface {
     GENERATED_BODY()
 public:
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateWorkableDelegate, bool, Workable);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateHatchTemperatureDelegate, int32, Temperature);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateHatchedCharacterDelegate, UPalMapObjectHatchingEggModel*, Model);
     
@@ -24,6 +27,9 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FUpdateHatchTemperatureDelegate OnUpdateHatchTemperaturDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FUpdateWorkableDelegate OnUpdateWorkableDelegate;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_HatchedCharacterSaveParameter, meta=(AllowPrivateAccess=true))
@@ -39,6 +45,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_HatchTemperatureDiff, meta=(AllowPrivateAccess=true))
     int32 CurrentPalEggTemperatureDiff;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    UPalDynamicPalEggItemDataBase* HatchedPalEggData;
+    
 public:
     UPalMapObjectHatchingEggModel();
 
@@ -51,6 +60,9 @@ public:
     void SetTemperatureDiff(int32 TemperatureDiff);
     
 private:
+    UFUNCTION(BlueprintCallable)
+    void OnUpdateEnergyModuleState(UPalMapObjectEnergyModule* EnergyModule);
+    
     UFUNCTION(BlueprintCallable)
     void OnUpdateContainerContentInServer(UPalItemContainer* Container);
     
@@ -69,6 +81,9 @@ private:
     void ObtainHatchedCharacter_ServerInternal(const int32 RequestPlayerId);
     
 public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsWorkable() const;
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetTemperatureDiff();
     

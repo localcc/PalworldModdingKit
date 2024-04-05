@@ -50,6 +50,10 @@ bool UPalSaveGameManager::IsLoadedLocalWorldData() const {
     return false;
 }
 
+bool UPalSaveGameManager::IsExistSocialId(FSocialId ID) {
+    return false;
+}
+
 bool UPalSaveGameManager::IsAppliedPlayerData() {
     return false;
 }

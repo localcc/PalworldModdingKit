@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Engine/EngineTypes.h"
 #include "EPalVisualEffectID.h"
 #include "PalVisualEffectDynamicParameter.h"
 #include "PalVisualEffectComponent.generated.h"
@@ -72,6 +73,9 @@ private:
     void RemoveConflictVisualEffect(EPalVisualEffectID VisualEffectID);
     
 public:
+    UFUNCTION(BlueprintCallable)
+    void EndPlay(const TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
+    
     UFUNCTION(BlueprintCallable)
     void BeginPlay();
     

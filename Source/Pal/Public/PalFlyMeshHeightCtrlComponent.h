@@ -2,6 +2,8 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "EPalFlyHeightType.h"
+#include "FixedPoint64.h"
+#include "PalDeadInfo.h"
 #include "PalFlyMeshHeightCtrlComponent.generated.h"
 
 class APalCharacter;
@@ -36,8 +38,14 @@ public:
 
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void ToLand_All(float Duration);
+    
     UFUNCTION(BlueprintCallable)
     void ToLand(float Duration);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void ToFly_All(float Duration);
     
     UFUNCTION(BlueprintCallable)
     void ToFly(float Duration);
@@ -47,10 +55,16 @@ private:
     void SetupMesh();
     
     UFUNCTION(BlueprintCallable)
+    void OnUpdatePlayerHp(FFixedPoint64 nowHP, FFixedPoint64 nowMaxHP);
+    
+    UFUNCTION(BlueprintCallable)
     void OnRep_bIsHighFling();
     
     UFUNCTION(BlueprintCallable)
     void OnInitializedCharacter(APalCharacter* OwnerCharacter);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnDead(FPalDeadInfo Info);
     
     UFUNCTION(BlueprintCallable)
     void OnChangeBattleMode(bool bIsBattleMode);

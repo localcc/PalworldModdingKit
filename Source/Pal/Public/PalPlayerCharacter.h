@@ -3,7 +3,6 @@
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "Engine/EngineTypes.h"
-#include "Engine/EngineTypes.h"
 #include "EPalBattleBGMType.h"
 #include "EPalCharacterMovementCustomMode.h"
 #include "EPalInteractiveObjectIndicatorType.h"
@@ -143,9 +142,6 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsSetRespawnTelemetry;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    FTimerHandle InDoorTimerHandle;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalPlayerGenderChanger> GenderChangerClass;

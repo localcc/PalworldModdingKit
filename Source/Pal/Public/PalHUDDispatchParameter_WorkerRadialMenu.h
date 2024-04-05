@@ -14,8 +14,9 @@ public:
     UPalIndividualCharacterHandle* IndividualHandle;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    EPalWorkerRadialMenuResult ResultType;
+    EPalWorkerRadialMenuResult resultType;
     
     UPalHUDDispatchParameter_WorkerRadialMenu();
+
 };
 

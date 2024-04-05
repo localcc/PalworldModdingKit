@@ -23,6 +23,10 @@ void UPalNPCManager::SetEnemyCampStatus(FName KeyName, FPalEnemyCampStatus Enemy
 void UPalNPCManager::RemoveGroupWhenDestoryActor(AActor* DestoryActor) {
 }
 
+bool UPalNPCManager::IsTransientTalkCount(APalCharacter* Character) {
+    return false;
+}
+
 bool UPalNPCManager::IsTalkable(APalCharacter* Character) {
     return false;
 }

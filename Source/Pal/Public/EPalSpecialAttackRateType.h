@@ -7,5 +7,7 @@ enum class EPalSpecialAttackRateType : uint8 {
     None,
     vsWood,
     vsStone,
+    vsWood_Raid,
+    vsStone_Raid,
 };
 

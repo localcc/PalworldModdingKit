@@ -51,5 +51,8 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     EPalLocationType GetType() const;
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FGuid GetLocationId() const;
+    
 };
 

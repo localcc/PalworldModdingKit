@@ -16,4 +16,13 @@ void UPalNetworkCharacterComponent::NotifyTalkStart_ToServer_Implementation(APal
 void UPalNetworkCharacterComponent::NotifyTalkEnd_ToServer_Implementation(APalPlayerCharacter* TalkPlayer, APalCharacter* TargetNPC) {
 }
 
+void UPalNetworkCharacterComponent::NotifyCustomFunction_ToServer_Implementation(APalPlayerCharacter* TalkPlayer, APalCharacter* TargetNPC, const FPalNPCTalkNotifyInfo& TalkNotifyInfo) {
+}
+
+void UPalNetworkCharacterComponent::ArenaStart_ToClient_Implementation(const FPalArenaStartParameter& StartParam) {
+}
+
+void UPalNetworkCharacterComponent::ArenaSetup_ToClient_Implementation() {
+}
+
 

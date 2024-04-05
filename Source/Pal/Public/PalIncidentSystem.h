@@ -7,6 +7,8 @@
 #include "Templates/SubclassOf.h"
 #include "PalIncidentSystem.generated.h"
 
+class APalCharacter;
+class APalPlayerCharacter;
 class UDataTable;
 class UObject;
 class UPalIncidentBase;
@@ -48,6 +50,12 @@ private:
     
 public:
     UPalIncidentSystem();
+
+protected:
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void TalkCustomFunction_AttackToPlayer(APalPlayerCharacter* TalkPlayer, APalCharacter* TargetNPC, const UDataTable* CunstomFuncParam);
+    
+public:
     UFUNCTION(BlueprintCallable)
     UPalIncidentList* RequestIncidents(const TArray<FName>& Incidents, UObject* OccuredObject, UObject* OwnerObject, UPalIncidentDynamicParameter* Parameter);
     
@@ -58,6 +66,11 @@ private:
     UFUNCTION(BlueprintCallable)
     void NotifyIncidentState(EPalIncidentState NotifyType, const FPalIncidentNotifyParameter& Parameter);
     
+public:
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure)
+    void LotteryItemAndNum(const UDataTable* PresentLotteryDataTable, FName& OutItemName, int32& OutNum) const;
+    
+private:
     UFUNCTION(BlueprintCallable)
     bool IsIncidentBeginAllowed(UPalIncidentBase* Incident);
     

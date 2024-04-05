@@ -32,6 +32,7 @@ enum class EPalVisualEffectID : uint8 {
     FunnelEndEmissive,
     SelfDestructEmissive,
     Mosaic,
+    ChangeElement_Ice,
     DebugRefresh,
 };
 

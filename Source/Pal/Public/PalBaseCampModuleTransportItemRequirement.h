@@ -18,7 +18,7 @@ public:
     TArray<FPalStaticItemIdAndNum> ItemInfo;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<EPalItemTypeA> itemTypeA;
+    TArray<EPalItemTypeA> ItemTypeA;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<EPalItemTypeB> ItemTypeB;

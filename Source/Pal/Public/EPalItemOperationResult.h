@@ -31,6 +31,8 @@ enum class EPalItemOperationResult : uint8 {
     FailedSlotCountIsZero,
     FailedCannotAggregateSlotItem,
     FailedInvalidPermission,
+    FailedNotAllowedByFilter,
+    FailedNotControllable,
     FailedRestrictedOperation,
     FailedRecievedItemNotEqual,
     FailedTransactionLockedOperation,

@@ -13,6 +13,9 @@ void UPalQuestData::OnUpdatedQuestBlock(UPalQuestBlock* UpdatedBlock) {
 void UPalQuestData::OnCompletedQuestBlock(UPalQuestBlock* CompletedBlock) {
 }
 
+void UPalQuestData::InitializeWithoutLoadQuestBlock(int32 BlockIndex, const FName& InQuestName) {
+}
+
 void UPalQuestData::Initialize(int32 BlockIndex, const FName& InQuestName) {
 }
 

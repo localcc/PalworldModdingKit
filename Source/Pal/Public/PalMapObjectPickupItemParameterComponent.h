@@ -11,6 +11,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FPalMapObjectPickupItemData> DropItems;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bForceIgnoreSaveItemContainer;
+    
     UPalMapObjectPickupItemParameterComponent(const FObjectInitializer& ObjectInitializer);
 
 };

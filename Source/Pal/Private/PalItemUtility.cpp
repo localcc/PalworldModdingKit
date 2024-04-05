@@ -44,4 +44,8 @@ bool UPalItemUtility::CanUseHealItem(const UObject* WorldContextObject, FName st
     return false;
 }
 
+bool UPalItemUtility::CanItemLevelUp(const UPalStaticItemDataBase* ItemData, UPalIndividualCharacterParameter* targetParameter) {
+    return false;
+}
+
 

@@ -38,6 +38,7 @@ UPalStaticCharacterParameterComponent::UPalStaticCharacterParameterComponent(con
     this->MissWazaAction = NULL;
     this->IsBoss_Database = false;
     this->IsTowerBoss_Database = false;
+    this->IsRaidBoss_Database = false;
     this->SpawnedCharacterType = EPalSpawnedCharacterType::Common;
 }
 
@@ -56,6 +57,10 @@ bool UPalStaticCharacterParameterComponent::IsSwimPal() {
 }
 
 bool UPalStaticCharacterParameterComponent::IsRarePal() {
+    return false;
+}
+
+bool UPalStaticCharacterParameterComponent::IsRaidBossPal() {
     return false;
 }
 

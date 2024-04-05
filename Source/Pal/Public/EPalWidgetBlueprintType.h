@@ -21,6 +21,8 @@ enum class EPalWidgetBlueprintType : uint8 {
     MapObjectSecuritySetting,
     PasswordSetting,
     BaseCampWorkHard,
+    WorkSuitabilityPreference,
+    ItemChestPreference,
     CutsceneOverlay,
 };
 

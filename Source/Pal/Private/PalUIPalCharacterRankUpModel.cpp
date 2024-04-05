@@ -32,13 +32,15 @@ void UPalUIPalCharacterRankUpModel::OnUpdateTargetCharacterRank(const int32 nowR
 void UPalUIPalCharacterRankUpModel::OnUpdateResourceSlot(UPalIndividualCharacterReferenceSlot* Slot, FPalInstanceID LastIndividualId) {
 }
 
-void UPalUIPalCharacterRankUpModel::OnClickTargetCharacterSlot() {
-}
-
-void UPalUIPalCharacterRankUpModel::OnClickResourceCharacterSlot(const int32 SlotIndex) {
-}
-
 bool UPalUIPalCharacterRankUpModel::IsSelectableSlotInternal(const UPalIndividualCharacterSlot* Slot) const {
+    return false;
+}
+
+bool UPalUIPalCharacterRankUpModel::IsOverflowResourcesForTarget() const {
+    return false;
+}
+
+bool UPalUIPalCharacterRankUpModel::IsFilledResourcesForTarget() const {
     return false;
 }
 
@@ -56,6 +58,10 @@ UPalIndividualCharacterReferenceSlot* UPalUIPalCharacterRankUpModel::GetSlot(con
 void UPalUIPalCharacterRankUpModel::GetResourceSlots(TArray<UPalIndividualCharacterSlot*>& Slots) const {
 }
 
+int32 UPalUIPalCharacterRankUpModel::GetCurrentResourceCount() const {
+    return 0;
+}
+
 void UPalUIPalCharacterRankUpModel::Dispose() {
 }
 
@@ -71,6 +77,9 @@ void UPalUIPalCharacterRankUpModel::ClearResourceCharacters() {
 
 EPalUIPalCharacterRankUpRequestResult UPalUIPalCharacterRankUpModel::CanInvokeRankUp() const {
     return EPalUIPalCharacterRankUpRequestResult::Success;
+}
+
+void UPalUIPalCharacterRankUpModel::CalcRankByCurrentSelectForUI(int32& OutToRank, int32& OutToRankUpExp, int32& OutTotalRankUpExp) const {
 }
 
 

@@ -57,6 +57,9 @@ void UPalCheatManager::UNKO() {
 void UPalCheatManager::TriggerBaseCampWorkerEvent(const EPalBaseCampWorkerEventType EventType) {
 }
 
+void UPalCheatManager::TraceReticleDirectionAllObjectType(const float Length) {
+}
+
 void UPalCheatManager::ToggleVisibleFoliageChunk() {
 }
 
@@ -185,6 +188,9 @@ void UPalCheatManager::ShutdownRemoteServer() {
 void UPalCheatManager::ShowTargetLocalPlayerEnemyList() {
 }
 
+void UPalCheatManager::ShowStreamingLevel() {
+}
+
 void UPalCheatManager::ShowSpawnerInfo() {
 }
 
@@ -209,6 +215,9 @@ void UPalCheatManager::ShowObjectNameForward() {
 void UPalCheatManager::ShowMovementMode() {
 }
 
+void UPalCheatManager::ShowMaxPlayers() {
+}
+
 void UPalCheatManager::ShowMapObjectStatus() {
 }
 
@@ -227,7 +236,7 @@ void UPalCheatManager::ShowLaunchArguments() const {
 void UPalCheatManager::ShowInviteCode() const {
 }
 
-void UPalCheatManager::ShowInvaderDeubgLog() const {
+void UPalCheatManager::ShowInvaderDebugLog() const {
 }
 
 void UPalCheatManager::ShowHateArrow() {
@@ -276,9 +285,6 @@ void UPalCheatManager::ShowActionAndStatus_ToServer() {
 }
 
 void UPalCheatManager::ShowActionAndStatus() {
-}
-
-void UPalCheatManager::SetWorldPartitionLoadParameter(float Range, bool bIsActivated) {
 }
 
 void UPalCheatManager::SetVoiceID(int32 VoiceID) {
@@ -368,6 +374,9 @@ void UPalCheatManager::SetDebugRespawnPointForPlayer(APalPlayerCharacter* Charac
 void UPalCheatManager::SetDebugFullStomachDecreaseRate(const float Rate) {
 }
 
+void UPalCheatManager::SetDamageTextMaxNum(int32 Num) {
+}
+
 void UPalCheatManager::SetCharacterName(const FString& Name) {
 }
 
@@ -401,6 +410,9 @@ void UPalCheatManager::SetBaseCampWorkerHp(const float Percentage) {
 void UPalCheatManager::SetAlwaysGrantPassiveSkillMode(bool Flag) {
 }
 
+void UPalCheatManager::SetAllowBaseCampBattle(const bool bAllowBaseCampBattle) {
+}
+
 void UPalCheatManager::SetActivity(const FString& ConnStr, int32 maxPlayer, int32 currentPlayer) {
 }
 
@@ -425,6 +437,9 @@ void UPalCheatManager::RerollCharacterMake() {
 void UPalCheatManager::RequestLogTreasureBoxLocalPlayerAround() {
 }
 
+void UPalCheatManager::RequestLogServerThreadNum() {
+}
+
 void UPalCheatManager::RequestFillSlotChestToInventory() {
 }
 
@@ -435,6 +450,9 @@ void UPalCheatManager::RepairEquipment() {
 }
 
 void UPalCheatManager::RandomizePassive_PlayerWeapon() {
+}
+
+void UPalCheatManager::PrintRealTime() {
 }
 
 void UPalCheatManager::PrintInventoryDynamicItemLog() {
@@ -521,7 +539,7 @@ void UPalCheatManager::KillAllFriend() {
 void UPalCheatManager::KillAllEnemy() {
 }
 
-void UPalCheatManager::KickPlayer(const FString& PlayerUIdORSteamId, FText KickReason) {
+void UPalCheatManager::KickPlayer(const FString& UserId, FText KickReason) {
 }
 
 void UPalCheatManager::JumpToClientStartLocation() {
@@ -611,6 +629,9 @@ void UPalCheatManager::InitInventory(const FName StaticItemId, const int32 Count
 void UPalCheatManager::IgnoreRestrictedByItemsForPartnerSkill() {
 }
 
+void UPalCheatManager::IgnoreDamageCheckByServer() {
+}
+
 void UPalCheatManager::IgnoreBuildRestrictionBaseCamp() {
 }
 
@@ -619,6 +640,9 @@ void UPalCheatManager::HPOneAllCharacter() {
 
 
 void UPalCheatManager::HideTutorialQuest() {
+}
+
+void UPalCheatManager::HideDebugInfo() {
 }
 
 void UPalCheatManager::GetRelic(int32 Count) {
@@ -703,6 +727,9 @@ void UPalCheatManager::ExitGuildLocalPlayer(const FString& GuildName) {
 }
 
 void UPalCheatManager::EnterGuildPlayer(const FString& GuildName, APalPlayerCharacter* Player) {
+}
+
+void UPalCheatManager::EnterGuildOtherPlayerBelongTo(const FGuid& TargetPlayerUId) {
 }
 
 void UPalCheatManager::EnterGuildLocalPlayer(const FString& GuildName) {
@@ -807,6 +834,9 @@ void UPalCheatManager::CountPalCharacter() {
 void UPalCheatManager::CopyWorldDirectoryName() {
 }
 
+void UPalCheatManager::CopyPlayerUId() {
+}
+
 void UPalCheatManager::CopyPlayerLocation() {
 }
 
@@ -820,6 +850,9 @@ void UPalCheatManager::CheckFoliageChunkStatus(const bool bShowInstanceDetail, c
 }
 
 void UPalCheatManager::ChangePassive_PlayerWeapon(int32 Index, FName SkillName) {
+}
+
+void UPalCheatManager::ChangeMaxPlayers(int32 Players) {
 }
 
 void UPalCheatManager::ChangeHUDScale(float Scale) {
@@ -861,6 +894,9 @@ void UPalCheatManager::BotOn() {
 void UPalCheatManager::BotOff() {
 }
 
+void UPalCheatManager::BanPlayerFromGuildLocalPlayerBelongTo(const FGuid& TargetPlayerUId) {
+}
+
 void UPalCheatManager::ApplyDebugGameProgress(FName PresetName) {
 }
 
@@ -895,6 +931,9 @@ void UPalCheatManager::AddGameTime_Minutes(const int32 Minutes) {
 }
 
 void UPalCheatManager::AddGameTime_Hours(const int32 Hours) {
+}
+
+void UPalCheatManager::AddExStatusPoint(int32 Point) {
 }
 
 void UPalCheatManager::AddExpForALLPlayer(int32 addExp) {

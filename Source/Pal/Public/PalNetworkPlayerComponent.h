@@ -8,12 +8,14 @@
 #include "EPalStageRequestResult.h"
 #include "PalItemSlotId.h"
 #include "PalStageInstanceId.h"
+#include "Templates/SubclassOf.h"
 #include "PalNetworkPlayerComponent.generated.h"
 
 class UPalIndividualCharacterHandle;
 class UPalItemContainer;
 class UPalItemSlot;
 class UPalLoadoutSelectorComponent;
+class UPalQuestData;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalNetworkPlayerComponent : public UActorComponent {
@@ -69,6 +71,9 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestAddBossTechnolgyPointByItem_ToServer(const FPalItemSlotId& ConsumeItemSlotID);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void RegisterRespawnLocation_ToServer(const FGuid& PlayerUId, const FVector& Location);
     
 private:
@@ -80,6 +85,9 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, Client, Reliable)
+    void NotifyUnlockAchievement_ToClient(const FString& AchievementId);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void NotifyStartCrime_ToClient(FGuid CrimeInstanceId);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
@@ -87,6 +95,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void NotifyReleaseWanted_ToClient(UPalIndividualCharacterHandle* CriminalHandle);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void NotifyQuestCompleted(TSubclassOf<UPalQuestData> CompletedQuestDataClass);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void NotifyEndCrime_ToClient(FGuid CrimeInstanceId);

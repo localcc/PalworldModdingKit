@@ -12,6 +12,7 @@ class PAL_API UPalCharacterStatusOperation : public UObject {
     GENERATED_BODY()
 public:
     UPalCharacterStatusOperation();
+
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static TMap<FName, int32> GetReturnItemsForResetCharacterStatusAll(const UObject* WorldContextObject, const UPalIndividualCharacterParameter* TargetIndividualParameter);
     
@@ -34,7 +35,7 @@ public:
     static int32 GetCurrentStatusRank(const UPalIndividualCharacterParameter* TargetIndividualParameter, const EPalCharacterStatusOperationName StatusName);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static int32 GetCurrentLocalPlayerStatusPoint(const UObject* WorldContextObject, const FName StatusName);
+    static int32 GetCurrentLocalPlayerTotalStatusPoint(const UObject* WorldContextObject, const FName StatusName);
     
 };
 

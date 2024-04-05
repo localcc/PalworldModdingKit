@@ -83,6 +83,9 @@ public:
     bool bIsInstallOnlyHubAround;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 InstallMaxNumInBaseCamp;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bInstallableNoObstacleFromCamera;
     
     PAL_API FPalBuildObjectData();

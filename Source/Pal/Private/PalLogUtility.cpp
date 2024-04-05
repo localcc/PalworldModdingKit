@@ -55,10 +55,16 @@ void UPalLogUtility::AddSkillLog(const UObject* WorldContextObject, EPalLogType 
 void UPalLogUtility::AddMealLog(const UObject* WorldContextObject, const FPalMealLogDisplayData& DisplayData) {
 }
 
+void UPalLogUtility::AddItemsGetLog(const UObject* WorldContextObject, const TArray<FPalItemAndNum>& ItemAndNumArray) {
+}
+
 void UPalLogUtility::AddItemGetLog(const UObject* WorldContextObject, const FPalStaticItemIdAndNum& ItemIDAndNum) {
 }
 
 void UPalLogUtility::AddDropPalLog(const UObject* WorldContextObject, const FPalLogInfo_DropPal& LogInfo) {
+}
+
+void UPalLogUtility::AddDeathLog(const UObject* WorldContextObject, const UPalIndividualCharacterHandle* CharacterHandle) {
 }
 
 

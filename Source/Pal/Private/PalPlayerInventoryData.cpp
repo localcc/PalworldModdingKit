@@ -8,6 +8,7 @@ UPalPlayerInventoryData::UPalPlayerInventoryData() {
     this->maxInventoryWeight_Cached = 0.00f;
     this->InventoryMultiHelper = NULL;
     this->PassiveBuffedMaxWeight = 0.00f;
+    this->PassiveBuffedCurrentWeight = 0.00f;
     this->moneyData = CreateDefaultSubobject<UPalMoneyData>(TEXT("moneyData"));
     this->EquipmentBreakAudioEvent = NULL;
 }
@@ -36,7 +37,7 @@ bool UPalPlayerInventoryData::TryGetEmptySlot(EPalPlayerInventoryType inventoryT
     return false;
 }
 
-bool UPalPlayerInventoryData::TryGetContainerIdFromItemType(EPalItemTypeA itemTypeA, FPalContainerId& outContainerId) const {
+bool UPalPlayerInventoryData::TryGetContainerIdFromItemType(EPalItemTypeA ItemTypeA, FPalContainerId& outContainerId) const {
     return false;
 }
 
@@ -113,6 +114,9 @@ void UPalPlayerInventoryData::OnRep_InventoryInfo() {
 void UPalPlayerInventoryData::OnRep_BuffMaxWeight() {
 }
 
+void UPalPlayerInventoryData::OnRep_BuffCurrentWeight() {
+}
+
 void UPalPlayerInventoryData::OnOnUpdateStatusPoint(FName StatusName, int32 prevPoint, int32 newPoint) {
 }
 
@@ -135,18 +139,22 @@ int32 UPalPlayerInventoryData::GetUnlockedFoodEquipSlotNum() const {
     return 0;
 }
 
+float UPalPlayerInventoryData::GetPassiveBuffedItemWeight(const UPalStaticItemDataBase* Item) {
+    return 0.0f;
+}
+
 float UPalPlayerInventoryData::GetNowItemWeight() const {
     return 0.0f;
 }
 
-void UPalPlayerInventoryData::GetItemInfoByItemTypeA(TArray<EPalItemTypeA> itemTypeA, TArray<FPalItemAndNum>& OutItemInfos) {
+void UPalPlayerInventoryData::GetItemInfoByItemTypeA(TArray<EPalItemTypeA> ItemTypeA, TArray<FPalItemAndNum>& OutItemInfos) {
 }
 
 EPalPlayerInventoryType UPalPlayerInventoryData::GetInventoryTypeFromStaticItemID(const FName& StaticItemId) const {
     return EPalPlayerInventoryType::Common;
 }
 
-EPalPlayerInventoryType UPalPlayerInventoryData::GetInventoryTypeFromItemTypeA(const EPalItemTypeA itemTypeA) const {
+EPalPlayerInventoryType UPalPlayerInventoryData::GetInventoryTypeFromItemTypeA(const EPalItemTypeA ItemTypeA) const {
     return EPalPlayerInventoryType::Common;
 }
 
@@ -176,6 +184,7 @@ void UPalPlayerInventoryData::GetLifetimeReplicatedProps(TArray<FLifetimePropert
     DOREPLIFETIME(UPalPlayerInventoryData, maxInventoryWeight);
     DOREPLIFETIME(UPalPlayerInventoryData, InventoryMultiHelper);
     DOREPLIFETIME(UPalPlayerInventoryData, PassiveBuffedMaxWeight);
+    DOREPLIFETIME(UPalPlayerInventoryData, PassiveBuffedCurrentWeight);
     DOREPLIFETIME(UPalPlayerInventoryData, OwnerPlayerUId);
 }
 

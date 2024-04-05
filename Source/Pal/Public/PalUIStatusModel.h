@@ -23,6 +23,7 @@ protected:
     
 public:
     UPalUIStatusModel();
+
     UFUNCTION(BlueprintCallable)
     void OnClickedPalIcon(int32 Index);
     
@@ -99,7 +100,7 @@ public:
     FText GetDisplayActiveSkillName(int32 Index, int32 skillIndex) const;
     
     UFUNCTION(BlueprintCallable)
-    void ChangeNickname(int32 Index, const FString& newNickName);
+    void ChangeNickname(int32 Index, const FString& NewNickName);
     
     UFUNCTION(BlueprintCallable)
     void ChangeIndex(uint8 Index);

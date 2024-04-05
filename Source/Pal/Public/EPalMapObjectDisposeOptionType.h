@@ -11,5 +11,6 @@ enum class EPalMapObjectDisposeOptionType : uint8 {
     NotNotifyOwnerSpawnerLevelObject,
     ByUnloadStage,
     DropBuildMaterials,
+    RequireRespawnImmediately,
 };
 

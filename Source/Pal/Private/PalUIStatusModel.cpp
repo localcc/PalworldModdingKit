@@ -100,7 +100,7 @@ FText UPalUIStatusModel::GetDisplayActiveSkillName(int32 Index, int32 skillIndex
     return FText::GetEmpty();
 }
 
-void UPalUIStatusModel::ChangeNickname(int32 Index, const FString& newNickName) {
+void UPalUIStatusModel::ChangeNickname(int32 Index, const FString& NewNickName) {
 }
 
 void UPalUIStatusModel::ChangeIndex(uint8 Index) {

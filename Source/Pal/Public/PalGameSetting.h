@@ -29,6 +29,7 @@
 #include "PalDeforestRankDefineData.h"
 #include "PalDungeonMarkerPointSpawnParameter.h"
 #include "PalEggRankInfo.h"
+#include "PalItemFilterPreference.h"
 #include "PalMapObjectRepairInfo.h"
 #include "PalMiningRankDefineData.h"
 #include "PalNavigationUpdateFrequencySetting.h"
@@ -124,6 +125,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 PalBoxSlotNumInPage;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 PalBoxTimePeriodRecoverySick;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float PlayerBattleJudge_EnemyDistance;
@@ -448,6 +452,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 PlayerDeath_DropOtomoDisappearHours;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 PlayerDeath_DropItemStorage_HoursCanOpen;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float PlayerDyingDamagePerTime;
@@ -786,6 +793,9 @@ public:
     float BaseCampWorkerTimeDetectContinuousStuck;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float BaseCampWorkerMaxTimeReturnBack;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float BaseCampWorkerLookToTargetWork;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -873,6 +883,9 @@ public:
     int32 DropItemWaitInsertMaxNumPerTick;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalItemFilterPreference ItemFilterPreference;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalDungeonMarkerPointSpawnParameter DungeonSpawnParameterDefault;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -898,6 +911,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 InvaderSelfDeleteAddTime;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 VisitorSelfDeleteTime;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float InvadeProbability;
@@ -1128,6 +1144,9 @@ public:
     float LongPressInterval_EnemyCampCage;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float LongPressInterval_StartRaidBoss;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float LongPressInterval_GetHatchedPal;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -1339,6 +1358,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float AddWorkSpeedPerWorkSpeedRank;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 MaxUseablePoint_SumStatusPointAndExStatusPoint_PerParameter;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<float> Combi_TalentInheritNum;

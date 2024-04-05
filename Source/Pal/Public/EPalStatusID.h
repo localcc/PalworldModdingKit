@@ -34,5 +34,6 @@ enum class EPalStatusID : uint8 {
     DefenseUp,
     CollectItem,
     LifeSteal,
+    RaidBossStatusChange,
 };
 

@@ -39,15 +39,14 @@ class UPalMapObjectModelInitializeExtraParameterSpawnedBy;
 class UPalMapObjectSpawnRequestHandler;
 class UPalMapObjectWorldDisposer;
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FMapObjectModelWithVectorDelegate, UPalMapObjectModel*, MapObjectModel, const FVector&, Vector);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FMapObjectModelSpawnedByDelegate, UPalMapObjectModel*, MapObjectModel, UPalMapObjectModelInitializeExtraParameterSpawnedBy*, SpawnedBy);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FMapObjectModelInterfaceDelegate, TScriptInterface<IPalMapObjectModelInterface>, MapObjectModel);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FMapObjectModelDynamicDelegate, UPalMapObjectModel*, MapObjectModel);
-
 UCLASS(Blueprintable, Config=Game)
 class UPalMapObjectManager : public UPalWorldSubsystem, public IPalGameWorldDataSaveInterface {
     GENERATED_BODY()
 public:
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FMapObjectModelWithVectorDelegate, UPalMapObjectModel*, MapObjectModel, const FVector&, Vector);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FMapObjectModelSpawnedByDelegate, UPalMapObjectModel*, MapObjectModel, UPalMapObjectModelInitializeExtraParameterSpawnedBy*, SpawnedBy);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FMapObjectModelInterfaceDelegate, TScriptInterface<IPalMapObjectModelInterface>, MapObjectModel);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FMapObjectModelDynamicDelegate, UPalMapObjectModel*, MapObjectModel);
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FMapObjectModelWithVectorDelegate OnCreateMapObjectModelInServerDelegate;
@@ -254,6 +253,7 @@ public:
     TArray<TWeakObjectPtr<UObject>> PointLightComponents;
     
     UPalMapObjectManager();
+
     UFUNCTION(BlueprintCallable)
     void UpdateSkeletalMeshComponentForLOD(int32 InExecuteCount);
     

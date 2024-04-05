@@ -23,6 +23,7 @@ protected:
     
 public:
     UPalExpDatabase();
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetTotalExp(int32 Level, bool IsPlayer);
     
@@ -37,6 +38,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 CalcPaldexBonusExp(const FName CharacterID, int32 CaptureCount, APalPlayerState* captureOwnerState);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 CalcNeedLevelUpExp(int32 TotalEXP, bool IsPlayer);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 CalcLevelFromTotalExp(int32 TotalEXP, bool IsPlayer);

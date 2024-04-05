@@ -37,6 +37,10 @@ bool UPalActiveSkillSlot::IsTransient(int32 SlotID) const {
     return false;
 }
 
+bool UPalActiveSkillSlot::IsNearMaxRange_AndRayCheck(int32 SlotID, AActor* TargetActor) const {
+    return false;
+}
+
 bool UPalActiveSkillSlot::IsNearMaxRange(int32 SlotID, AActor* TargetActor) const {
     return false;
 }
@@ -72,7 +76,15 @@ float UPalActiveSkillSlot::GetCoolTime(int32 SlotID) const {
     return 0.0f;
 }
 
+int32 UPalActiveSkillSlot::FindSlotIndexByWazaID(EPalWazaID WazaID) {
+    return 0;
+}
+
 int32 UPalActiveSkillSlot::FindMostEffectiveSlotID(AActor* TargetActor) const {
+    return 0;
+}
+
+int32 UPalActiveSkillSlot::FindFarthestSlotID_IgnoreSlotID(int32 IgnoreID) {
     return 0;
 }
 

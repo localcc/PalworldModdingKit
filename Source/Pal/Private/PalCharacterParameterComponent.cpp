@@ -32,6 +32,7 @@ UPalCharacterParameterComponent::UPalCharacterParameterComponent(const FObjectIn
     this->DefenseUp = 0;
     this->IsSleepAction = false;
     this->IsDisableOtomoReturnEffect = false;
+    this->MaxHPRate_ForTowerBoss = 1.00f;
     this->bIsUseGroundRayCast = true;
     this->BaseCampWorkerOrderType = EPalMapBaseCampWorkerOrderType::Work;
     this->bBaseCampWorkerAttackableFriend = false;
@@ -42,6 +43,7 @@ UPalCharacterParameterComponent::UPalCharacterParameterComponent(const FObjectIn
     this->ItemContainer = NULL;
     this->IsCapturedProcessing = false;
     this->CanDropItem = false;
+    this->IsImmortality = false;
     this->OtomoAttackStopJudge = NULL;
 }
 
@@ -82,9 +84,6 @@ void UPalCharacterParameterComponent::SetMaxSP(FFixedPoint64 NewMaxSP) {
 }
 
 void UPalCharacterParameterComponent::SetMaxMP(FFixedPoint64 NewMaxMP) {
-}
-
-void UPalCharacterParameterComponent::SetMaxHP(FFixedPoint64 NewMaxHP) {
 }
 
 void UPalCharacterParameterComponent::SetIsOverrideTarget_ToServer_Implementation(int32 ID, bool IsOverride) {
@@ -306,6 +305,10 @@ UPalIndividualCharacterParameter* UPalCharacterParameterComponent::GetIndividual
     return NULL;
 }
 
+float UPalCharacterParameterComponent::GetHPRate() {
+    return 0.0f;
+}
+
 FFixedPoint64 UPalCharacterParameterComponent::GetHP() const {
     return FFixedPoint64{};
 }
@@ -362,6 +365,7 @@ void UPalCharacterParameterComponent::GetLifetimeReplicatedProps(TArray<FLifetim
     DOREPLIFETIME(UPalCharacterParameterComponent, IndividualParameter);
     DOREPLIFETIME(UPalCharacterParameterComponent, IsCanSneakAttacked);
     DOREPLIFETIME(UPalCharacterParameterComponent, IsFriendBulletIgnore);
+    DOREPLIFETIME(UPalCharacterParameterComponent, MaxHPRate_ForTowerBoss);
     DOREPLIFETIME(UPalCharacterParameterComponent, WorkAssignId);
     DOREPLIFETIME(UPalCharacterParameterComponent, WorkType);
     DOREPLIFETIME(UPalCharacterParameterComponent, PossessStaticItemId);
@@ -369,6 +373,7 @@ void UPalCharacterParameterComponent::GetLifetimeReplicatedProps(TArray<FLifetim
     DOREPLIFETIME(UPalCharacterParameterComponent, DyingHP);
     DOREPLIFETIME(UPalCharacterParameterComponent, DyingMaxHP);
     DOREPLIFETIME(UPalCharacterParameterComponent, ItemContainer);
+    DOREPLIFETIME(UPalCharacterParameterComponent, IsImmortality);
     DOREPLIFETIME(UPalCharacterParameterComponent, UnreachableMapObjectRepInfoArray);
 }
 

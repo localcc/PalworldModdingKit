@@ -365,6 +365,9 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnChangeCrouch(UPalCharacterMovementComponent* Component, bool IsInCrouch);
     
+    UFUNCTION(BlueprintCallable)
+    void OnChangeActiveCharacter(bool bInIsActive);
+    
 public:
     UFUNCTION(BlueprintCallable)
     void MergeLastLandingLocationCache(const UPalCharacterMovementComponent* MovementComponent);

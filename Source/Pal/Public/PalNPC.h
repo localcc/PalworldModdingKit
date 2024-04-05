@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "PalCharacter.h"
+#include "PalDeadInfo.h"
 #include "PalNPC.generated.h"
 
 class UPalNPCWeaponGenerator;
@@ -23,6 +24,9 @@ public:
     APalNPC(const FObjectInitializer& ObjectInitializer);
 
 private:
+    UFUNCTION(BlueprintCallable)
+    void RemoveEnemyFromBattleManager(FPalDeadInfo DeadInfo);
+    
     UFUNCTION(BlueprintCallable)
     void OnCompletedInitParam(APalCharacter* InCharacter);
     

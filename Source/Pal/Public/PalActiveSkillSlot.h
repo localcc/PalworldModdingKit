@@ -28,6 +28,7 @@ private:
     
 public:
     UPalActiveSkillSlot();
+
     UFUNCTION(BlueprintCallable)
     void UpdateCoolTime(float DeltaTime);
     
@@ -61,6 +62,9 @@ public:
     bool IsTransient(int32 SlotID) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsNearMaxRange_AndRayCheck(int32 SlotID, AActor* TargetActor) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsNearMaxRange(int32 SlotID, AActor* TargetActor) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -88,7 +92,13 @@ public:
     float GetCoolTime(int32 SlotID) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 FindSlotIndexByWazaID(EPalWazaID WazaID);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 FindMostEffectiveSlotID(AActor* TargetActor) const;
+    
+    UFUNCTION(BlueprintCallable)
+    int32 FindFarthestSlotID_IgnoreSlotID(int32 IgnoreID);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 ChoiceEnableSlotIDByRandom() const;

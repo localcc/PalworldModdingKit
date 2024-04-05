@@ -43,9 +43,6 @@ public:
     float CallApproachWalkSpeedMultiplier;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<UAnimMontage*> RandomRestMontage;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FPalRandomRestInfo> RandomRestMontageInfos;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -223,6 +220,9 @@ private:
     bool IsTowerBoss_Database;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool IsRaidBoss_Database;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     EPalSpawnedCharacterType SpawnedCharacterType;
     
 public:
@@ -242,6 +242,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsRarePal();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsRaidBossPal();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsFlyPal();

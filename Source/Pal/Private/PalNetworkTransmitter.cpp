@@ -5,12 +5,12 @@
 #include "PalNetworkCharacterComponent.h"
 #include "PalNetworkCharacterContainerComponent.h"
 #include "PalNetworkCharacterStatusOperationComponent.h"
-#include "PalNetworkGroupComponent.h"
 #include "PalNetworkIndividualComponent.h"
 #include "PalNetworkInvaderComponent.h"
 #include "PalNetworkItemComponent.h"
 #include "PalNetworkMapObjectComponent.h"
 #include "PalNetworkPlayerComponent.h"
+#include "PalNetworkRaidBossComponent.h"
 #include "PalNetworkShopComponent.h"
 #include "PalNetworkTimeComponent.h"
 #include "PalNetworkWorkProgressComponent.h"
@@ -27,7 +27,6 @@ APalNetworkTransmitter::APalNetworkTransmitter(const FObjectInitializer& ObjectI
     this->Item = CreateDefaultSubobject<UPalNetworkItemComponent>(TEXT("Item"));
     this->BaseCamp = CreateDefaultSubobject<UPalNetworkBaseCampComponent>(TEXT("BaseCamp"));
     this->CharacterContainer = CreateDefaultSubobject<UPalNetworkCharacterContainerComponent>(TEXT("CharacterContainer"));
-    this->Group = CreateDefaultSubobject<UPalNetworkGroupComponent>(TEXT("Group"));
     this->Player = CreateDefaultSubobject<UPalNetworkPlayerComponent>(TEXT("Player"));
     this->Character = CreateDefaultSubobject<UPalNetworkCharacterComponent>(TEXT("Character"));
     this->WorkProgress = CreateDefaultSubobject<UPalNetworkWorkProgressComponent>(TEXT("WorkProgress"));
@@ -37,6 +36,7 @@ APalNetworkTransmitter::APalNetworkTransmitter(const FObjectInitializer& ObjectI
     this->Shop = CreateDefaultSubobject<UPalNetworkShopComponent>(TEXT("Shop"));
     this->Invader = CreateDefaultSubobject<UPalNetworkInvaderComponent>(TEXT("Invader"));
     this->CharacterStatusOperation = CreateDefaultSubobject<UPalNetworkCharacterStatusOperationComponent>(TEXT("CharacterStatusOperation"));
+    this->RaidBoss = CreateDefaultSubobject<UPalNetworkRaidBossComponent>(TEXT("RaidBoss"));
     this->NetworkIndividualComponent = CreateDefaultSubobject<UPalNetworkIndividualComponent>(TEXT("NetworkIndividualComponent"));
 }
 
@@ -99,10 +99,6 @@ UPalNetworkInvaderComponent* APalNetworkTransmitter::GetInvader() const {
     return NULL;
 }
 
-UPalNetworkGroupComponent* APalNetworkTransmitter::GetGroup() const {
-    return NULL;
-}
-
 UPalNetworkCharacterStatusOperationComponent* APalNetworkTransmitter::GetCharacterStatusOperation() const {
     return NULL;
 }
@@ -130,6 +126,12 @@ void APalNetworkTransmitter::Debug_RequestLogTreasureBoxLocalPlayerAround_ToServ
 }
 
 void APalNetworkTransmitter::Debug_ReceiveLogTreasureBoxLocalPlayerAround_ToRequestPlayer_Implementation(const FString& Message) {
+}
+
+void APalNetworkTransmitter::Debug_LogServerThreadNum_ToServer_Implementation() {
+}
+
+void APalNetworkTransmitter::Debug_LogServerThreadNum_ToRequestPlayer_Implementation(const FString& Message) {
 }
 
 

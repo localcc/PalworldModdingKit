@@ -1,0 +1,6 @@
+#include "PalGuildEnterRequestSequence_ConfirmLoseBaseCampToApplicantPlayer.h"
+
+UPalGuildEnterRequestSequence_ConfirmLoseBaseCampToApplicantPlayer::UPalGuildEnterRequestSequence_ConfirmLoseBaseCampToApplicantPlayer() {
+}
+
+

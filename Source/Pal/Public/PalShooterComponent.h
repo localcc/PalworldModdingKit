@@ -185,6 +185,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsShootingHold;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsAttachRequest;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     APalWeaponBase* NPCWeapon;
     
@@ -212,10 +215,10 @@ private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void StopReload_ToServer(int32 ID);
     
+public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void StopReload_ToALL(int32 ID);
     
-public:
     UFUNCTION(BlueprintCallable)
     void StopReload();
     
@@ -239,6 +242,9 @@ private:
     void SetTargetDirection_ToServer(FVector NewTargetDirection);
     
 public:
+    UFUNCTION(BlueprintCallable)
+    void SetTargetDirection_ByServer(FVector NewTargetDirection);
+    
     UFUNCTION(BlueprintCallable)
     void SetTargetDirection(const FVector& Direction);
     
@@ -294,10 +300,10 @@ private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void ReloadWeapon_ToServer(int32 ID);
     
+public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void ReloadWeapon_ToALL(int32 ID);
     
-public:
     UFUNCTION(BlueprintCallable)
     void ReloadWeapon();
     
@@ -397,18 +403,22 @@ private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void ChangeIsShooting_ToServer(int32 ID, bool NewIsShooting);
     
+public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void ChangeIsShooting_ToALL(int32 ID, bool NewIsShooting);
     
+private:
     UFUNCTION(BlueprintCallable)
     void ChangeIsShooting(bool NewIsShooting);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void ChangeIsAiming_ToServer(int32 ID, bool NewIsAiming);
     
+public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void ChangeIsAiming_ToALL(int32 ID, bool NewIsAiming);
     
+private:
     UFUNCTION(BlueprintCallable)
     void ChangeIsAiming(bool NewIsAiming);
     

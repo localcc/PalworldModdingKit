@@ -3,6 +3,7 @@
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "EPalLogType.h"
 #include "EPalWorkType.h"
+#include "PalItemAndNum.h"
 #include "PalItemId.h"
 #include "PalLogAdditionalData.h"
 #include "PalLogInfo_DropPal.h"
@@ -72,10 +73,16 @@ public:
     static void AddMealLog(const UObject* WorldContextObject, const FPalMealLogDisplayData& DisplayData);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void AddItemsGetLog(const UObject* WorldContextObject, const TArray<FPalItemAndNum>& ItemAndNumArray);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void AddItemGetLog(const UObject* WorldContextObject, const FPalStaticItemIdAndNum& ItemIDAndNum);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void AddDropPalLog(const UObject* WorldContextObject, const FPalLogInfo_DropPal& LogInfo);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void AddDeathLog(const UObject* WorldContextObject, const UPalIndividualCharacterHandle* CharacterHandle);
     
 };
 

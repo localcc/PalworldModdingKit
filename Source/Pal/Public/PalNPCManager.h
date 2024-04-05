@@ -79,6 +79,9 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsTransientTalkCount(APalCharacter* Character);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsTalkable(APalCharacter* Character);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

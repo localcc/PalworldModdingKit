@@ -147,6 +147,9 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    FString GetWorldSaveDirectoryName() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetWorldName() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

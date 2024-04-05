@@ -7,6 +7,9 @@ UPalStatusComponent::UPalStatusComponent(const FObjectInitializer& ObjectInitial
 void UPalStatusComponent::SomeStatus_ToAll_Implementation(EPalStatusID StatusId, FStatusDynamicParameter Param) {
 }
 
+void UPalStatusComponent::SetDisableAddStatusIDs(TArray<EPalStatusID> StatusIDs) {
+}
+
 void UPalStatusComponent::RemoveStatus_ToServer_Implementation(EPalStatusID StatusId, int32 issuerID) {
 }
 

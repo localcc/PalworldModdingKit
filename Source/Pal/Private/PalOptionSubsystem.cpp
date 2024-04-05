@@ -9,6 +9,9 @@ UPalOptionSubsystem::UPalOptionSubsystem() {
     this->PalPlayerCharacterClass = NULL;
 }
 
+void UPalOptionSubsystem::SetUISettings(const FPalOptionUISettings& InUISettings) {
+}
+
 void UPalOptionSubsystem::SetPadSettings(const FPalOptionPadSettings& InPadSettings) {
 }
 
@@ -37,6 +40,10 @@ void UPalOptionSubsystem::RefreshBanList() {
 }
 
 void UPalOptionSubsystem::OnCompletedGetBanlist(const FString& ResponseBody, bool bResponseOK, int32 ResponseCode) {
+}
+
+FPalOptionUISettings UPalOptionSubsystem::GetUISettings() const {
+    return FPalOptionUISettings{};
 }
 
 void UPalOptionSubsystem::GetSupportScreenSizes(TArray<FIntPoint>& SupportResolutions, TEnumAsByte<EWindowMode::Type> WindowMode) {

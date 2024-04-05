@@ -5,12 +5,16 @@ UPalMapObjectHatchingEggModel::UPalMapObjectHatchingEggModel() {
     this->bWorkable = false;
     this->MenuUIWidgetClass = NULL;
     this->CurrentPalEggTemperatureDiff = 0;
+    this->HatchedPalEggData = NULL;
 }
 
 void UPalMapObjectHatchingEggModel::UpdateWorkAmountBySec(const float NewWorkAmountBySec) {
 }
 
 void UPalMapObjectHatchingEggModel::SetTemperatureDiff(int32 TemperatureDiff) {
+}
+
+void UPalMapObjectHatchingEggModel::OnUpdateEnergyModuleState(UPalMapObjectEnergyModule* EnergyModule) {
 }
 
 void UPalMapObjectHatchingEggModel::OnUpdateContainerContentInServer(UPalItemContainer* Container) {
@@ -28,6 +32,10 @@ void UPalMapObjectHatchingEggModel::OnFinishWorkInServer(UPalWorkBase* Work) {
 void UPalMapObjectHatchingEggModel::ObtainHatchedCharacter_ServerInternal(const int32 RequestPlayerId) {
 }
 
+bool UPalMapObjectHatchingEggModel::IsWorkable() const {
+    return false;
+}
+
 int32 UPalMapObjectHatchingEggModel::GetTemperatureDiff() {
     return 0;
 }
@@ -43,6 +51,7 @@ void UPalMapObjectHatchingEggModel::GetLifetimeReplicatedProps(TArray<FLifetimeP
     DOREPLIFETIME(UPalMapObjectHatchingEggModel, bWorkable);
     DOREPLIFETIME(UPalMapObjectHatchingEggModel, MenuUIWidgetClass);
     DOREPLIFETIME(UPalMapObjectHatchingEggModel, CurrentPalEggTemperatureDiff);
+    DOREPLIFETIME(UPalMapObjectHatchingEggModel, HatchedPalEggData);
 }
 
 

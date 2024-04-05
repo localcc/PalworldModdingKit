@@ -2,12 +2,12 @@
 
 UPalGameLocalSettings::UPalGameLocalSettings() {
     this->GraphicsLevel = EPalOptionGraphicsLevel::None;
-    this->DefaultGraphicsLevel = EPalOptionGraphicsLevel::Medium;
+    this->DefaultGraphicsLevel = EPalOptionGraphicsLevel::High;
     this->bRunedBenchMark = true;
     this->bHasAppliedUserSetting = true;
-    this->AntiAliasingType = AAM_FXAA;
-    this->DLSSMode = UDLSSMode::Performance;
-    this->GraphicsCommonQuality = 1;
+    this->AntiAliasingType = AAM_TSR;
+    this->DLSSMode = UDLSSMode::Off;
+    this->GraphicsCommonQuality = 3;
 }
 
 bool UPalGameLocalSettings::RequireBenchMarkScalaBility() {

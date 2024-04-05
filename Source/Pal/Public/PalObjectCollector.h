@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "PalCharacterList.h"
+#include "PalSpawnerGroupInfo.h"
 #include "PalWorldSubsystem.h"
 #include "PalObjectCollector.generated.h"
 
@@ -57,5 +58,9 @@ private:
     
 public:
     UPalObjectCollector();
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    TArray<FPalSpawnerGroupInfo> GetRandomSpawnerGroupInfo(FVector spawnerLocation);
+    
 };
 

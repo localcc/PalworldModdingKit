@@ -3,6 +3,9 @@
 UPalNPCMultiTalkHandle::UPalNPCMultiTalkHandle() {
 }
 
+void UPalNPCMultiTalkHandle::SetIsTransientTalkCount(bool IsTransient) {
+}
+
 
 void UPalNPCMultiTalkHandle::IncrementTalkCountRecord() {
 }

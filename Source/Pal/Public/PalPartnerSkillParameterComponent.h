@@ -29,7 +29,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnStart);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnSearchEffect);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnOverheat);
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnEffectTimeChanged, FFixedPoint, effectTime, FFixedPoint, effectTimeMax);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnEffectTimeChanged, FFixedPoint, EffectTime, FFixedPoint, effectTimeMax);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnCoolDownTimeChanged, FFixedPoint, CoolDownTime, FFixedPoint, coolDownTimeMax);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnCoolDownCompleted);
     
@@ -67,7 +67,7 @@ public:
     EPalWazaID WazaID;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FFixedPoint effectTime;
+    FFixedPoint EffectTime;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FFixedPoint effectTimeMax;

@@ -9,8 +9,9 @@ class UPalHUDDispatchParameter_BaseCampTask : public UPalHUDDispatchParameterBas
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FGuid TargetBaseCampId;
+    FGuid TargetBaseCampID;
     
     UPalHUDDispatchParameter_BaseCampTask();
+
 };
 

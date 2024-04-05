@@ -27,6 +27,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 SatietyDecrease;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 RecoveryProbabilityPercentageInPalBox;
+    
     PAL_API FPalBaseCampWorkerSickMasterData();
 };
 

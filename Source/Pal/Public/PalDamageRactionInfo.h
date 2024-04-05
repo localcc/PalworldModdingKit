@@ -20,6 +20,9 @@ public:
     bool IsStan;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IsLargeDown;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FVector HitLocation;
     
     PAL_API FPalDamageRactionInfo();

@@ -1,6 +1,7 @@
 #include "PalGameMode.h"
 
 APalGameMode::APalGameMode(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->CachePlayerStart = NULL;
 }
 
 void APalGameMode::RestartGame() {
@@ -22,6 +23,10 @@ void APalGameMode::OnCompleteCreateSession(const FString& ResponseBody, bool bRe
 }
 
 void APalGameMode::InitDedicatedServer() {
+}
+
+APlayerStart* APalGameMode::FindPlayerStartWithTag(const FName& Tag) {
+    return NULL;
 }
 
 void APalGameMode::CreateSession(const FString& Address) {

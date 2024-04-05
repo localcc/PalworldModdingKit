@@ -56,8 +56,11 @@ FPalOptionWorldSettings::FPalOptionWorldSettings() {
     this->RCONEnabled = false;
     this->RCONPort = 0;
     this->bUseAuth = false;
-    this->WebAPIEnabled = false;
-    this->WebAPIPort = 0;
+    this->RESTAPIEnabled = false;
+    this->RESTAPIPort = 0;
     this->bShowPlayerList = false;
+    this->AllowConnectPlatform = EPalAllowConnectPlatform::Steam;
+    this->bIsUseBackupSaveData = false;
+    this->LogFormatType = EPalLogFormatType::Text;
 }
 

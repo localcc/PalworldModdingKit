@@ -2,6 +2,8 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "ActionDynamicParameter.h"
+#include "PalArenaStartParameter.h"
+#include "PalNPCTalkNotifyInfo.h"
 #include "Templates/SubclassOf.h"
 #include "PalNetworkCharacterComponent.generated.h"
 
@@ -26,6 +28,15 @@ public:
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void NotifyTalkEnd_ToServer(APalPlayerCharacter* TalkPlayer, APalCharacter* TargetNPC);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void NotifyCustomFunction_ToServer(APalPlayerCharacter* TalkPlayer, APalCharacter* TargetNPC, const FPalNPCTalkNotifyInfo& TalkNotifyInfo);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void ArenaStart_ToClient(const FPalArenaStartParameter& StartParam);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void ArenaSetup_ToClient();
     
 };
 

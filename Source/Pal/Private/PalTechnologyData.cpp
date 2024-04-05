@@ -12,6 +12,9 @@ void UPalTechnologyData::RequestUnlockRecipeTechnology(const FName& UnlockTechno
 void UPalTechnologyData::RequestAddTechnologyPointByItem(const FPalItemSlotId& ConsumeSlotId) {
 }
 
+void UPalTechnologyData::RequestAddBossTechnologyPointByItem(const FPalItemSlotId& ConsumeSlotId) {
+}
+
 void UPalTechnologyData::RemoveNewUnlockedFlag(const FName& technologyName) {
 }
 

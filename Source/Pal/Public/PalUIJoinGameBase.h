@@ -2,12 +2,13 @@
 #include "CoreMinimal.h"
 #include "FindSessionsCallbackProxy.h"
 #include "EPalUIServerListFilterType.h"
+#include "EPalUIServerListSortType.h"
 #include "PalUIServerDataCollectInfo.h"
 #include "PalUIServerDisplayData.h"
 #include "PalUserWidgetOverlayUI.h"
 #include "PalUIJoinGameBase.generated.h"
 
-UCLASS(Blueprintable, EditInlineNew)
+UCLASS(Blueprintable, EditInlineNew, Config=GameUserSettings)
 class PAL_API UPalUIJoinGameBase : public UPalUserWidgetOverlayUI {
     GENERATED_BODY()
 public:
@@ -30,13 +31,30 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FPalUIServerDisplayData> CachedServerDisplayInfo;
     
+protected:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString InputIPAddress;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IsCheckedInputPassword;
+    
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString SaveConfigCategoryName;
+    
 public:
     UPalUIJoinGameBase();
+
+protected:
+    UFUNCTION(BlueprintCallable)
+    void SaveConfigValue();
+    
+public:
     UFUNCTION(BlueprintCallable)
     void RequestOfficialServerIPRange();
     
     UFUNCTION(BlueprintCallable)
-    void RequestGetServerList(EPalUIServerListFilterType Type, const FString& Region, bool IsCleanCache, bool NextPage, const FString& SearchWord);
+    void RequestGetServerList(EPalUIServerListFilterType Type, EPalUIServerListSortType SortType, const FString& Region, bool IsCleanCache, int32 PageOffset, const FString& SearchWord);
     
 private:
     UFUNCTION(BlueprintCallable)

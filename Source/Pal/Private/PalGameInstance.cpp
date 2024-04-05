@@ -56,6 +56,8 @@ UPalGameInstance::UPalGameInstance() {
     this->WazaDatabase = NULL;
     this->BattleManagerClass = NULL;
     this->BossBattleManagerClass = NULL;
+    this->RaidBossManagerClass = NULL;
+    this->OilrigManagerClass = NULL;
     this->PlayerDataStorageClass = UPalPlayerDataStorage::StaticClass();
     this->PlayerDataStorage = NULL;
     this->HUDServiceClass = UPalHUDService::StaticClass();
@@ -97,7 +99,7 @@ UPalGameInstance::UPalGameInstance() {
     this->ObjectCollectorClass = UPalObjectCollector::StaticClass();
     this->ActionDummyTargetManager = UPalActionDummyTargetManager::StaticClass();
     this->LogManagerClass = UPalLogManager::StaticClass();
-    this->revisionNum = 48425;
+    this->revisionNum = 50653;
     this->TitleBGMPlayerClass = UPalPersistentSoundPlayer::StaticClass();
     this->TitleBGMPlayer = NULL;
     this->bIsNewGame = false;
@@ -121,6 +123,7 @@ bool UPalGameInstance::SelectWorldSaveDirectoryName(const FString& WorldSaveDire
 bool UPalGameInstance::SelectWorld(const FString& WorldName) {
     return false;
 }
+
 
 void UPalGameInstance::OnInitializeCompleteSystem() {
 }

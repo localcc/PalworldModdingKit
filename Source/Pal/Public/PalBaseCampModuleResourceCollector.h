@@ -22,6 +22,9 @@ public:
 
 private:
     UFUNCTION(BlueprintCallable)
+    void OnRespawnFoliageInstance(UPalFoliageInstance* Instance);
+    
+    UFUNCTION(BlueprintCallable)
     void OnRegisteredMapObjectModel(UPalMapObjectModel* Model);
     
     UFUNCTION(BlueprintCallable)

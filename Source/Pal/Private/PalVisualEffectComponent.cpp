@@ -30,6 +30,9 @@ void UPalVisualEffectComponent::RemoveVisualEffect(EPalVisualEffectID VisualEffe
 void UPalVisualEffectComponent::RemoveConflictVisualEffect(EPalVisualEffectID VisualEffectID) {
 }
 
+void UPalVisualEffectComponent::EndPlay(const TEnumAsByte<EEndPlayReason::Type> EndPlayReason) {
+}
+
 void UPalVisualEffectComponent::BeginPlay() {
 }
 

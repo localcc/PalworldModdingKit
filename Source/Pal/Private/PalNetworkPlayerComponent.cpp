@@ -1,4 +1,5 @@
 #include "PalNetworkPlayerComponent.h"
+#include "Templates/SubclassOf.h"
 
 UPalNetworkPlayerComponent::UPalNetworkPlayerComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
@@ -48,6 +49,9 @@ void UPalNetworkPlayerComponent::RequestAddTechnolgyPoint_ToServer_Implementatio
 void UPalNetworkPlayerComponent::RequestAddItem_ToServer_Implementation(const FName StaticItemId, const int32 Count, bool isAssignPassive) {
 }
 
+void UPalNetworkPlayerComponent::RequestAddBossTechnolgyPointByItem_ToServer_Implementation(const FPalItemSlotId& ConsumeItemSlotID) {
+}
+
 void UPalNetworkPlayerComponent::RegisterRespawnLocation_ToServer_Implementation(const FGuid& PlayerUId, const FVector& Location) {
 }
 
@@ -57,6 +61,9 @@ void UPalNetworkPlayerComponent::ReceiveExitStageRequestResult_ToRequestClient_I
 void UPalNetworkPlayerComponent::ReceiveEnterStageRequestResult_ToRequestClient_Implementation(const FPalStageInstanceId& StageInstanceId, const EPalStageRequestResult Result) {
 }
 
+void UPalNetworkPlayerComponent::NotifyUnlockAchievement_ToClient_Implementation(const FString& AchievementId) {
+}
+
 void UPalNetworkPlayerComponent::NotifyStartCrime_ToClient_Implementation(FGuid CrimeInstanceId) {
 }
 
@@ -64,6 +71,9 @@ void UPalNetworkPlayerComponent::NotifyReportCriminal_ToClient_Implementation(UP
 }
 
 void UPalNetworkPlayerComponent::NotifyReleaseWanted_ToClient_Implementation(UPalIndividualCharacterHandle* CriminalHandle) {
+}
+
+void UPalNetworkPlayerComponent::NotifyQuestCompleted_Implementation(TSubclassOf<UPalQuestData> CompletedQuestDataClass) {
 }
 
 void UPalNetworkPlayerComponent::NotifyEndCrime_ToClient_Implementation(FGuid CrimeInstanceId) {

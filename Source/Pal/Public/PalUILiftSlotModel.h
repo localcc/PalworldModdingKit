@@ -39,16 +39,17 @@ public:
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    FPalItemSlotId ItemSourceSlotId;
+    FPalItemSlotId SourceItemSlotId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    FPalItemAndNum ItemInfo;
+    FPalItemAndNum SourceLiftItemInfo;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalIndividualCharacterSlot* CharacterSlot;
     
 public:
     UPalUILiftSlotModel();
+
     UFUNCTION(BlueprintCallable)
     void SelectItemSlot(const FPalItemSlotId SlotID, const EPalItemSlotPressType Type);
     

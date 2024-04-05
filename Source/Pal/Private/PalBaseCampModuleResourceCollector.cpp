@@ -3,6 +3,9 @@
 UPalBaseCampModuleResourceCollector::UPalBaseCampModuleResourceCollector() {
 }
 
+void UPalBaseCampModuleResourceCollector::OnRespawnFoliageInstance(UPalFoliageInstance* Instance) {
+}
+
 void UPalBaseCampModuleResourceCollector::OnRegisteredMapObjectModel(UPalMapObjectModel* Model) {
 }
 

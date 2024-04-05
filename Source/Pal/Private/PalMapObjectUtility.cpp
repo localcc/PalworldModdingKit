@@ -24,4 +24,7 @@ bool UPalMapObjectUtility::IsContainsCollisionProfiles(const UPrimitiveComponent
     return false;
 }
 
+void UPalMapObjectUtility::GetItemVisualModelFX(TSubclassOf<AActor> actorClass, TArray<FPalItemVisualModelFXInfo>& OutFXInfos) {
+}
+
 

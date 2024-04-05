@@ -439,6 +439,10 @@ bool UPalUtility::IsEnemy(const AActor* ActorA, const AActor* ActorB) {
     return false;
 }
 
+bool UPalUtility::IsEnableRandomizeSpawner(const UObject* WorldContextObject) {
+    return false;
+}
+
 bool UPalUtility::IsEnableBotLocationFlag(const UObject* WorldContextObject) {
     return false;
 }
@@ -459,7 +463,7 @@ bool UPalUtility::IsEditorBuild() {
     return false;
 }
 
-bool UPalUtility::IsDying(AActor* Actor) {
+bool UPalUtility::IsDyingPlayer(const APalPlayerCharacter* PlayerCharacter) {
     return false;
 }
 
@@ -531,7 +535,7 @@ bool UPalUtility::IsAllLevelLoaded(const UObject* WorldContextObject) {
     return false;
 }
 
-bool UPalUtility::IsAliveFriendPlayers_ByUId(const UObject* WorldContextObject, FGuid PlayerUId) {
+bool UPalUtility::IsAliveOrDyingFriendPlayers_ByUId(const UObject* WorldContextObject, FGuid PlayerUId) {
     return false;
 }
 
@@ -585,7 +589,11 @@ bool UPalUtility::InConeShapAndDitance(FVector SelfLocation, FRotator SelfRotato
 void UPalUtility::HeadBillboardEffectSetTransform(APalCharacter* Character, USceneComponent* Effect, const FVector AddOffset) {
 }
 
-bool UPalUtility::HasAliveFriendPlayers(AActor* My) {
+bool UPalUtility::HasResponseToChannelByPalObjectType(APalCharacter* Character, EPalObjectTypeQuery Type, TEnumAsByte<ECollisionResponse> Response) {
+    return false;
+}
+
+bool UPalUtility::HasAliveFriendPlayers(APalCharacter* My) {
     return false;
 }
 
@@ -593,6 +601,9 @@ void UPalUtility::GiveExpToAroundPlayerCharacter(const UObject* WorldContextObje
 }
 
 void UPalUtility::GiveExpToAroundCharacter(const UObject* WorldContextObject, const FVector& Center, float Radius, float Exp, TSubclassOf<APalCharacter> CharacterClass, bool bCallDelegate) {
+}
+
+void UPalUtility::GiftItem_FromOtomoCutMeat(const AActor* Otomo, const AActor* Trainer) {
 }
 
 UPalWorldSecuritySystem* UPalUtility::GetWorldSecuritySystem(const UObject* WorldContextObject) {
@@ -683,6 +694,10 @@ FString UPalUtility::GetServerWorldDisplayName(const UObject* WorldContextObject
     return TEXT("");
 }
 
+EPalLogFormatType UPalUtility::GetServerLogFormatType(const UObject* WorldContextObject) {
+    return EPalLogFormatType::Text;
+}
+
 UPalSaveGameManager* UPalUtility::GetSaveGameManager(const UObject* WorldContextObject) {
     return NULL;
 }
@@ -693,6 +708,10 @@ float UPalUtility::GetSafeZero(float Value) {
 
 float UPalUtility::GetRTTJitter(const UObject* WorldContextObject) {
     return 0.0f;
+}
+
+UPalRESTAPISubsystem* UPalUtility::GetRESTAPISubsystem(const UObject* WorldContextObject) {
+    return NULL;
 }
 
 FTransform UPalUtility::GetRelativeTransformFromRoot(USceneComponent* SceneComponent) {
@@ -714,8 +733,28 @@ float UPalUtility::GetRangeToGround(AActor* Actor) {
 void UPalUtility::GetRandomPointList(int32 pointNum, int32 maxLoopCount, float minXPos, float maxXPos, float minYPos, float maxYPos, float SizeX, float SizeY, FRandomStream RandomStream, TArray<FVector2D>& outPointArray) {
 }
 
+UPalRaidBossManager* UPalUtility::GetRaidBossManager(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+FString UPalUtility::GetPlayerUniqueIdToString(const FUniqueNetIdRepl& UserId) {
+    return TEXT("");
+}
+
+FGuid UPalUtility::GetPlayerUIdByString(const UObject* WorldContextObject, const FString& PlayerUIdOrSteamId) {
+    return FGuid{};
+}
+
 FGuid UPalUtility::GetPlayerUIDByActor(const AActor* playerActor) {
     return FGuid{};
+}
+
+APalPlayerState* UPalUtility::GetPlayerStateByUserId(const UObject* WorldContextObject, const FString& UserId) {
+    return NULL;
+}
+
+APalPlayerState* UPalUtility::GetPlayerStateByPlayerUid(const UObject* WorldContextObject, const FGuid& PlayerUId) {
+    return NULL;
 }
 
 APalPlayerState* UPalUtility::GetPlayerStateByPlayer(const APalPlayerCharacter* Player) {
@@ -742,10 +781,6 @@ TArray<FPlayerListItem> UPalUtility::GetPlayerList(const UObject* WorldContextOb
     return TArray<FPlayerListItem>();
 }
 
-FGuid UPalUtility::GetPlayerGUIDByPlayerUIDOrSteamId(const UObject* WorldContextObject, const FString& PlayerUIdORSteamId) {
-    return FGuid{};
-}
-
 int32 UPalUtility::GetPlayerEquipmentShield(const UObject* WorldContextObject, FGuid PlayerUId) {
     return 0;
 }
@@ -765,6 +800,10 @@ UPalPlayerDataStorage* UPalUtility::GetPlayerDataStorage(const UObject* WorldCon
     return NULL;
 }
 
+APalPlayerController* UPalUtility::GetPlayerControllerByPlayerUId(const UObject* WorldContextObject, const FGuid& PlayerUId) {
+    return NULL;
+}
+
 APalPlayerController* UPalUtility::GetPlayerControllerByPlayerId(const UObject* WorldContextObject, const int32 PlayerId) {
     return NULL;
 }
@@ -774,6 +813,10 @@ APawn* UPalUtility::GetPlayerControlledPawn(const UObject* WorldContextObject) {
 }
 
 APalCharacter* UPalUtility::GetPlayerControlledCharacter(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+APalPlayerCharacter* UPalUtility::GetPlayerCharacterByPlayerUID(const UObject* WorldContextObject, const FGuid PlayerUId) {
     return NULL;
 }
 
@@ -907,6 +950,10 @@ FPalOptionKeyboardSettings UPalUtility::GetOptionKeyboardSettings(const UObject*
 
 FPalOptionGraphicsSettings UPalUtility::GetOptionGraphicsSettings(const UObject* WorldContextObject) {
     return FPalOptionGraphicsSettings{};
+}
+
+UPalOilrigManager* UPalUtility::GetOilrigManager(const UObject* WorldContextObject) {
+    return NULL;
 }
 
 bool UPalUtility::GetOffFromPal(AActor* RiderActor, bool bIsSkipAnimation, bool bNoAnimCancel) {
@@ -1052,7 +1099,7 @@ bool UPalUtility::GetInitializedPlayerSaveParemter(const UObject* WorldContextOb
     return false;
 }
 
-bool UPalUtility::GetInitializedCharacterSaveParemter_DebugDefaultParamSetup(const UObject* WorldContextObject, const FName CharacterID, const FName UniqueNPCID, const int32 Level, const FGuid& OwnerPlayerUId, FPalIndividualCharacterSaveParameter& outParameter, bool DisableRandomPassiveSkilll, TArray<EPalWazaID> WazaList, TArray<FName> PassiveSkillList, int32 Rank, bool RarePalAble) {
+bool UPalUtility::GetInitializedCharacterSaveParemter_DebugDefaultParamSetup(const UObject* WorldContextObject, const FName CharacterID, const FName UniqueNPCID, const int32 Level, const FGuid& OwnerPlayerUId, FPalIndividualCharacterSaveParameter& outParameter, bool DisableRandomPassiveSkilll, TArray<EPalWazaID> WazaList, TArray<FName> PassiveSkillList, int32 Rank, TArray<FPalDebugCharacterStatusRank> StatusRank, bool RarePalAble) {
     return false;
 }
 
@@ -1099,6 +1146,10 @@ UPalGameSetting* UPalUtility::GetGameSetting(const UObject* WorldContextObject) 
     return NULL;
 }
 
+TArray<FName> UPalUtility::GetGainStatusItemEffectStatus(const UObject* WorldContextObject, const FName ItemId) {
+    return TArray<FName>();
+}
+
 UPalFunnelCharacterManager* UPalUtility::GetFunnelCharacterManager(const UObject* WorldContextObject) {
     return NULL;
 }
@@ -1137,6 +1188,10 @@ TEnumAsByte<ECollisionChannel> UPalUtility::GetEngineCollisionChannelByPalObject
 
 TEnumAsByte<ECollisionChannel> UPalUtility::GetEngineCollisionChannel(EPalObjectTypeQuery channnel) {
     return ECC_WorldStatic;
+}
+
+TArray<APalCharacter*> UPalUtility::GetEnemiesByLocation2D(const UObject* WorldContextObject, FVector Location, APalCharacter* myCharacter, float minDistance, float MaxDistance, float minHeight, float maxHeight) {
+    return TArray<APalCharacter*>();
 }
 
 TArray<APalCharacter*> UPalUtility::GetEnemiesByLocation(const UObject* WorldContextObject, FVector Location, APalCharacter* myCharacter, float minDistance, float MaxDistance) {
@@ -1309,6 +1364,10 @@ bool UPalUtility::GetArrivableLocation(UObject* WorldContextObject, const FVecto
     return false;
 }
 
+FString UPalUtility::GetAPIBaseURL(const UObject* WorldContextObject) {
+    return TEXT("");
+}
+
 void UPalUtility::GetAllPlayerStates(const UObject* WorldContextObject, TArray<APalPlayerState*>& OutPlayerStates) {
 }
 
@@ -1381,16 +1440,13 @@ void UPalUtility::EmitSoundForAIListener(FName SoundFName, AActor* EmitterCharac
 void UPalUtility::Editor_AddCharacterToImportanceManager(APalCharacter* Character) {
 }
 
-void UPalUtility::DropItem_FromOtomoCutMeat(const AActor* Otomo, const AActor* Trainer) {
-}
-
 void UPalUtility::DropItem_FromEnemyDeath(const AActor* EnemyActor, const AActor* LastAttacker) {
 }
 
 void UPalUtility::DropCharactersCircularly_ServerInternal(const UObject* WorldContextObject, const TArray<UPalIndividualCharacterHandle*>& IndividualHandles, const FVector& Location, const FPalDropCharacterExtraParameter ExtraParameter) {
 }
 
-void UPalUtility::DropCharacter_ServerInternal(const UObject* WorldContextObject, const FPalInstanceID& IndividualId, FVector DropLocation, const FGuid& RequestPlayerUId) {
+void UPalUtility::DropCharacter_ServerInternal(const UObject* WorldContextObject, const FPalInstanceID& IndividualId, FVector DropLocation, const FGuid& RequestPlayerUId, bool CreateLocation) {
 }
 
 FGuid UPalUtility::DialogWithParameter(const UObject* WorldContextObject, UPalDialogParameterDialog* Parameter) {
@@ -1447,6 +1503,14 @@ void UPalUtility::ClearCharacterRagdoll(APalCharacter* Character) {
 }
 
 void UPalUtility::ChangeDefaultLandMovementModeForWalking(APalCharacter* Character) {
+}
+
+bool UPalUtility::CanUseTargetRankUp(const UObject* WorldContextObject, UPalIndividualCharacterParameter* IndividualParameter, const UPalStaticItemDataBase* Item) {
+    return false;
+}
+
+bool UPalUtility::CanUseTargetPalExpItem(const UObject* WorldContextObject, UPalIndividualCharacterParameter* IndividualParameter, const UPalStaticItemDataBase* Item) {
+    return false;
 }
 
 bool UPalUtility::CanUseTargetMedicine(const UObject* WorldContextObject, UPalIndividualCharacterParameter* IndividualParameter, const UPalStaticItemDataBase* Item) {

@@ -4,6 +4,7 @@
 #include "UObject/NoExportTypes.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "EPalMapObjectOperationResult.h"
+#include "PalItemVisualModelFXInfo.h"
 #include "Templates/SubclassOf.h"
 #include "PalMapObjectUtility.generated.h"
 
@@ -17,6 +18,7 @@ class UPalMapObjectUtility : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UPalMapObjectUtility();
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool TryGetItemVisualModelStaticMesh(TSubclassOf<AActor> actorClass, UStaticMesh*& OutStaticMesh, FTransform& OutComponentTransform, FVector& OutCenterOfMass, UMaterialInterface*& OutMaterialInterface);
     
@@ -31,6 +33,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsContainsCollisionProfiles(const UPrimitiveComponent* Component, const TArray<FName>& CollisionProfiles);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static void GetItemVisualModelFX(TSubclassOf<AActor> actorClass, TArray<FPalItemVisualModelFXInfo>& OutFXInfos);
     
 };
 

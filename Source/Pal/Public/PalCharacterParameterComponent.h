@@ -154,6 +154,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool IsDisableOtomoReturnEffect;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    float MaxHPRate_ForTowerBoss;
+    
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FHitResult GroundHitResult;
@@ -240,6 +243,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FFlagContainer DisableNaturalHealing_Component;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    bool IsImmortality;
+    
 protected:
     UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<TWeakObjectPtr<AActor>> TrapLegHoldList;
@@ -300,9 +306,6 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetMaxMP(FFixedPoint64 NewMaxMP);
-    
-    UFUNCTION(BlueprintCallable)
-    void SetMaxHP(FFixedPoint64 NewMaxHP);
     
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
@@ -495,6 +498,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalIndividualCharacterParameter* GetIndividualParameter() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetHPRate();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FFixedPoint64 GetHP() const;

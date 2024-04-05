@@ -15,7 +15,7 @@ private:
     UPalBaseCampModel* TargetBaseCamp;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FGuid TargetBaseCampId;
+    FGuid TargetBaseCampID;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsInvading;
@@ -34,5 +34,6 @@ private:
     
 public:
     UPalInvaderBaseCampObserver();
+
 };
 

@@ -9,7 +9,7 @@ void UPalUICharacterStatus::RemoveActiveSkill(UPalIndividualCharacterHandle* tar
 void UPalUICharacterStatus::DropCharacter(UPalIndividualCharacterHandle* targetHandle) {
 }
 
-void UPalUICharacterStatus::ChangeNickname(UPalIndividualCharacterHandle* targetHandle, const FText& newNickName) {
+void UPalUICharacterStatus::ChangeNickname(UPalIndividualCharacterHandle* targetHandle, const FText& NewNickName) {
 }
 
 void UPalUICharacterStatus::ChangeActiveSkill(UPalIndividualCharacterHandle* targetHandle, EPalWazaID changeWazaID, EPalWazaID newWazaID) {

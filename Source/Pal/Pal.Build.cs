@@ -54,6 +54,7 @@ public class Pal : ModuleRules {
             "Slate",
             "SlateCore",
             "TemplateSequence",
+            "PPSkyCreatorPlugin",
             "UMG",
         });
 

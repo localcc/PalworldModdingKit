@@ -21,7 +21,7 @@ private:
     EPalCharacterLocationType CharacterLocationType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
-    FGuid TargetBaseCampId;
+    FGuid TargetBaseCampID;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FName CharacterID;

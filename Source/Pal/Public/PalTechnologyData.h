@@ -69,6 +69,9 @@ public:
     void RequestAddTechnologyPointByItem(const FPalItemSlotId& ConsumeSlotId);
     
     UFUNCTION(BlueprintCallable)
+    void RequestAddBossTechnologyPointByItem(const FPalItemSlotId& ConsumeSlotId);
+    
+    UFUNCTION(BlueprintCallable)
     void RemoveNewUnlockedFlag(const FName& technologyName);
     
 protected:

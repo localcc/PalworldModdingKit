@@ -4,6 +4,9 @@
 UPalGroupGuild::UPalGroupGuild() {
 }
 
+void UPalGroupGuild::OnFilteredPlayerInfo(UPlGuildPlayerInfoFilteringWaiter* Waiter, const FPalGuildPlayerInfo& FilteredInfo) {
+}
+
 void UPalGroupGuild::OnChangedGuildMemberNickName(UPalIndividualCharacterParameter* Parameter, const FString& NickName) {
 }
 

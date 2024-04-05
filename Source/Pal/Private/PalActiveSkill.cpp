@@ -5,6 +5,7 @@ UPalActiveSkill::UPalActiveSkill() {
     this->IsCooling = false;
     this->ReuseCoolTimer = 0.00f;
     this->WazaType = EPalWazaID::None;
+    this->IsIgnoreRaycast = false;
     this->IsStopTimer = false;
     this->DatabaseCoolTime = 0.00f;
     this->bIsTransient = false;

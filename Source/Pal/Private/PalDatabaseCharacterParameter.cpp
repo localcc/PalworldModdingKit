@@ -14,7 +14,9 @@ UPalDatabaseCharacterParameter::UPalDatabaseCharacterParameter() {
     this->PalSizeParameterDataTable = NULL;
     this->PalCapturedCageDataTable = NULL;
     this->PalStatusEffectFoodDataTable = NULL;
+    this->PalGainStatusPointsItemDataTable = NULL;
     this->PalCombiUniqueDataTable = NULL;
+    this->PalTalentUpItemDataTable = NULL;
     this->PettingPressetInstance = NULL;
     this->CombiMonsterParameter = NULL;
 }
@@ -123,6 +125,10 @@ bool UPalDatabaseCharacterParameter::GetIsTowerBoss(FName RowName) {
     return false;
 }
 
+bool UPalDatabaseCharacterParameter::GetIsRaidBoss(FName RowName) {
+    return false;
+}
+
 bool UPalDatabaseCharacterParameter::GetIsPal(FName RowName) {
     return false;
 }
@@ -131,11 +137,11 @@ bool UPalDatabaseCharacterParameter::GetIsBoss(FName RowName) {
     return false;
 }
 
-int32 UPalDatabaseCharacterParameter::GetHPBySaveParameter(const FPalIndividualCharacterSaveParameter& SaveParameter) {
+int32 UPalDatabaseCharacterParameter::GetHPBySaveParameter(const FPalIndividualCharacterSaveParameter& SaveParameter) const {
     return 0;
 }
 
-int32 UPalDatabaseCharacterParameter::GetHP(UPalIndividualCharacterParameter* IndividualParameter) {
+int32 UPalDatabaseCharacterParameter::GetHP(const UPalIndividualCharacterParameter* IndividualParameter) const {
     return 0;
 }
 
@@ -208,6 +214,10 @@ TSoftClassPtr<APalCharacter> UPalDatabaseCharacterParameter::GetBPClass(FName Ro
 
 EPalBattleBGMType UPalDatabaseCharacterParameter::GetBattleBGM(FName RowName) {
     return EPalBattleBGMType::None;
+}
+
+bool UPalDatabaseCharacterParameter::FindTalentUpItem(FName ItemName, FPalTalentUpItemDataRow& OutData) const {
+    return false;
 }
 
 bool UPalDatabaseCharacterParameter::FindPalSizeParameter(EPalSizeType CharacterSize, FPalSizeParameterDataRow& RowData) const {

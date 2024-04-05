@@ -179,12 +179,20 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetSpawnLevelRandom_OneTribe(FPalSpawnerOneTribeInfo Info);
     
+public:
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure)
+    TArray<FPalSpawnerGroupInfo> GetSpawnGroupList() const;
+    
+protected:
     UFUNCTION(BlueprintCallable)
     float GetSpawnerRadiusByType();
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetSpawnDisableDebugInfo() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    TArray<FPalSpawnerGroupInfo> GetOriginalSpawnGroupList() const;
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     int32 GetMaxMonsterLevel() const;
