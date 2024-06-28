@@ -12,7 +12,8 @@ class UPalDynamicItemDataBase;
 class UStaticMesh;
 class UTexture2D;
 
-UCLASS(Blueprintable)
+// DefaultToInstanced and EditInlineNew is necessary for editing DA_StaticItemDataAsset in the Editor. Thank you Zylox and Narknon!
+UCLASS(DefaultToInstanced, Blueprintable, EditInlineNew)
 class UPalStaticItemDataBase : public UObject {
     GENERATED_BODY()
 public:
