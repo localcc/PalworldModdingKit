@@ -8,5 +8,7 @@ FPalOptionGraphicsPresetRow::FPalOptionGraphicsPresetRow() {
     this->FoliageQuality = 0;
     this->ShadowQuality = 0;
     this->TextureQuality = 0;
+    this->bEnableMotionBlur = false;
+    this->ScreenPercentage = 0;
 }
 

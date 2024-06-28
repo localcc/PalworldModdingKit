@@ -12,4 +12,10 @@ void APalNPC::RemoveEnemyFromBattleManager(FPalDeadInfo DeadInfo) {
 void APalNPC::OnCompletedInitParam(APalCharacter* InCharacter) {
 }
 
+void APalNPC::MasterWazaUpdateWhenLevelUp(int32 addLevel, int32 nowLevel) {
+}
+
+void APalNPC::MasterWazaSetup(APalCharacter* InCharacter) {
+}
+
 

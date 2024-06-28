@@ -35,6 +35,7 @@ class UPalStatusComponent;
 class UPalVisualEffectComponent;
 class USceneComponent;
 class USkeletalMeshComponent;
+class USphereComponent;
 
 UCLASS(Blueprintable)
 class APalCharacter : public ACharacter {
@@ -44,6 +45,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnCompleteSyncPlayerFromServer_InClient);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCompleteInitializeParameter, APalCharacter*, InCharacter);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangeImportance, EPalCharacterImportanceType, NextType);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnChangeBattleModeCharacter, APalCharacter*, SelfCharacter, bool, bIsBattleMode);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangeBattleMode, bool, bIsBattleMode);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangeActiveActor, bool, bIsActive);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnCaptured, APalCharacter*, SelfCharacter, APalCharacter*, Attacker);
@@ -96,6 +98,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPalCharacterAroundInfoCollectorComponent* AroundInfoCollectorComponent;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    USphereComponent* RagdollInteractiveSphere;
+    
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnChangeActiveActor OnChangeActiveActorDelegate;
     
@@ -110,6 +115,9 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnChangeBattleMode OnChangeBattleModeDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnChangeBattleModeCharacter OnChangeBattleModeCharacterDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnChangeImportance OnChangeImportanceDelegate;

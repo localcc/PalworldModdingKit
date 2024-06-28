@@ -16,6 +16,9 @@ void UPalStatusComponent::RemoveStatus_ToServer_Implementation(EPalStatusID Stat
 void UPalStatusComponent::RemoveStatus(EPalStatusID StatusId) {
 }
 
+void UPalStatusComponent::RemoveAll() {
+}
+
 void UPalStatusComponent::OnRep_ExecutionStatusList() {
 }
 

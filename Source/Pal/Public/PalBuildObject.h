@@ -11,13 +11,16 @@
 #include "PalBuildObjectMeshDefaultSetting.h"
 #include "PalDamageInfo.h"
 #include "PalMapObject.h"
+#include "Templates/SubclassOf.h"
 #include "PalBuildObject.generated.h"
 
 class AActor;
 class IPalInteractiveObjectComponentInterface;
 class UPalInteractiveObjectComponentInterface;
 class UAkAudioEvent;
+class UBoxComponent;
 class UMeshComponent;
+class UPalBuildObjectInstallStrategyBase;
 class UPalBuildObjectOverlapChecker;
 class UPalBuildObjectVisualControlComponent;
 class UPalBuildProcess;
@@ -27,7 +30,7 @@ class UPrimitiveComponent;
 class UShapeComponent;
 
 UCLASS(Blueprintable)
-class APalBuildObject : public APalMapObject {
+class PAL_API APalBuildObject : public APalMapObject {
     GENERATED_BODY()
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangeStateDelegate, EPalBuildObjectState, State);
@@ -40,10 +43,16 @@ protected:
     EPalBuildObjectInstallStrategy InstallStrategy;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UPalBuildObjectInstallStrategyBase> InstallStrategyClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float InstallCapacitySlopeAngle;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float InstallCapacitySinkRateByHeight;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FVector InstallLocationOffset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UPalBuildObjectVisualControlComponent* VisualCtrl;
@@ -57,6 +66,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FComponentReference OverlapCheckCollisionRef;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UBoxComponent* SnapCheckBoxCollision;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FBox LocalBounds;
     
@@ -68,6 +80,15 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     TArray<UPrimitiveComponent*> VirtualMeshCollisions;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UMeshComponent* MainMesh;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FComponentReference MainMeshRef;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FVector MainMeshCenterOffset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_CurrentState, meta=(AllowPrivateAccess=true))
     EPalBuildObjectState CurrentState;

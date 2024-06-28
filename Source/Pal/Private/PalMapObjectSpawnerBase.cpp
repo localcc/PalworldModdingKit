@@ -7,6 +7,7 @@ APalMapObjectSpawnerBase::APalMapObjectSpawnerBase(const FObjectInitializer& Obj
     this->ProbabilityRespawn = 100;
     this->LotteryCoolTimeMinutes = 60.00f;
     this->LocateSphere = NULL;
+    this->State = EPalMapObjectSpawnerState::Init;
 }
 
 void APalMapObjectSpawnerBase::OnWorldMapObjectSpawnableInServer() {

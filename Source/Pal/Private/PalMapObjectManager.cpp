@@ -27,9 +27,11 @@ UPalMapObjectManager::UPalMapObjectManager() {
     this->DropItemSpawnLocationFromActorBounds = 15.00f;
     this->DropItemSpawnDirectionZ = 6.00f;
     this->HitEffectSlotClass = NULL;
+    this->SnapModeFXClass = NULL;
     this->Registrator = NULL;
     this->InDoorCheckProcessIndex_AnyThread = 0;
     this->InDoorCheckMaxNumPerFrame_AnyThread = 1000;
+    this->SnapModeFX = NULL;
 }
 
 void UPalMapObjectManager::UpdateSkeletalMeshComponentForLOD(int32 InExecuteCount) {
@@ -54,6 +56,9 @@ void UPalMapObjectManager::RequestDismantleObject_OnResponseDialog(const bool bR
 }
 
 void UPalMapObjectManager::RecalcPointLightOverlap() {
+}
+
+void UPalMapObjectManager::PlayMapObjectDestroyFX(const FVector& Location, const FBoxSphereBounds& Bounds, const EPalMapObjectDestroyFXType Type) {
 }
 
 UPalMapObjectFoliage* UPalMapObjectManager::GetFoliage() const {

@@ -15,6 +15,7 @@
 
 class APalCharacter;
 class UPalBaseCampModel;
+class UPalBaseCampWorkerDirectorBattle;
 class UPalBaseCampWorkerTaskBase;
 class UPalIndividualCharacterContainer;
 class UPalIndividualCharacterHandle;
@@ -53,6 +54,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalIndividualCharacterSlotsObserver* SlotObserverForServer;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalBaseCampWorkerDirectorBattle* BattleDirector;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FPalBaseCampWorkAssignRequest> RequiredAssignWorks;

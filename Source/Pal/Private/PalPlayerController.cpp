@@ -19,6 +19,7 @@ APalPlayerController::APalPlayerController(const FObjectInitializer& ObjectIniti
     this->DamageCamShakeRegulator = NULL;
     this->AutoAimTarget = NULL;
     this->PlayerInputOneFlameCommandList = NULL;
+    this->IsBuldingActiveFlag_ForServer = false;
 }
 
 void APalPlayerController::UpdateCharacterNickName_ToServer_Implementation(const FPalInstanceID& InstanceId, const FString& NewNickName) {
@@ -28,7 +29,7 @@ bool APalPlayerController::TrySwitchOtomo() {
     return false;
 }
 
-void APalPlayerController::ThrowPalByOutSide(AActor* PreOtomoPal) {
+void APalPlayerController::ThrowPalByOutSide(AActor* PreOtomoPal, UPalIndividualCharacterHandle* PreHandle) {
 }
 
 void APalPlayerController::TeleportToSafePoint_ToServer_Implementation() {
@@ -47,6 +48,9 @@ void APalPlayerController::ShooterComponent_SetTargetDirection_ToServer_Implemen
 }
 
 void APalPlayerController::ShooterComponent_ReloadWeapon_ToServer_Implementation(UPalShooterComponent* Shooter, int32 ID) {
+}
+
+void APalPlayerController::ShooterComponent_PullCancel_ToServer_Implementation(UPalShooterComponent* Shooter) {
 }
 
 void APalPlayerController::ShooterComponent_ChangeIsShooting_ToServer_Implementation(UPalShooterComponent* Shooter, int32 ID, bool IsShooting) {
@@ -78,6 +82,9 @@ void APalPlayerController::SetRiderRelativeRotation_ToServer_Implementation(FRot
 
 
 
+void APalPlayerController::SetFavoraitePal_ToServer_Implementation(const FPalInstanceID& InstanceId, const bool IsFavorite) {
+}
+
 void APalPlayerController::SetDisableThrowPalFlag(FName flagName, bool isDisable) {
 }
 
@@ -85,6 +92,9 @@ void APalPlayerController::SetDisableSwitchPalFlag(FName flagName, bool isDisabl
 }
 
 void APalPlayerController::SetDisableInputFlag(FName flagName, bool isDisable) {
+}
+
+void APalPlayerController::SetDisableCoopFlag(FName flagName, bool isDisable) {
 }
 
 void APalPlayerController::SetCaptureLevelForSphere_ToServer_Implementation(int32 ID, APalSphereBodyBase* Target, int32 Level) {
@@ -105,6 +115,9 @@ void APalPlayerController::SendScreenLogToClient_Implementation(const FString& M
 void APalPlayerController::SendLog_ToClient_Implementation(const EPalLogPriority Priority, const FText& Text, const FPalLogAdditionalData& AdditionalData) {
 }
 
+void APalPlayerController::SendBuldingActiveFlag_ToServer_Implementation(bool IsActive) {
+}
+
 void APalPlayerController::SelfKillPlayer_Implementation() {
 }
 
@@ -115,6 +128,9 @@ void APalPlayerController::RequestUseReturnToBaseCampItem_ToServer_Implementatio
 }
 
 void APalPlayerController::RequestUseReturnToBaseCampItem(const FPalItemSlotId& ItemData) {
+}
+
+void APalPlayerController::RequestSyncOilrigDestroyObject_ToServer_Implementation(FGuid ObjectID) {
 }
 
 void APalPlayerController::RequestLiftupThrow_ToServer_Implementation(AActor* Target) {
@@ -132,6 +148,12 @@ void APalPlayerController::RequestExitGuild_ToServer_Implementation() {
 void APalPlayerController::RequestEnterToPlayerGuild_ToServer_Implementation(APalPlayerCharacter* RespondentPlayerCharacter) {
 }
 
+void APalPlayerController::RequestDestroyOilrigCannon_Implementation(APalOilRigCannonBase* Cannon) {
+}
+
+void APalPlayerController::RequestDecreaseWeaponDurability_ToServer_Implementation(FPalItemId ItemId) {
+}
+
 void APalPlayerController::RequestChangeGuildName_ToServer_Implementation(const FString& NewGuildName) {
 }
 
@@ -142,6 +164,12 @@ void APalPlayerController::RequestChangeAdminGuild_ToServer_Implementation(const
 }
 
 void APalPlayerController::RequestBanPlayerFromGuild_ToServer_Implementation(const FGuid& TargetPlayerUId) {
+}
+
+void APalPlayerController::ReplaceEquipWaza_ToServer_Implementation(const FPalInstanceID& InstanceId, const EPalWazaID OldWaza, const EPalWazaID NewWaza) {
+}
+
+void APalPlayerController::RemoveEquipWaza_ToServer_Implementation(const FPalInstanceID& InstanceId, const EPalWazaID TargetWaza) {
 }
 
 void APalPlayerController::RemoveCameraRotateSpeedModifierRate(const FName& modifierName) {
@@ -160,6 +188,9 @@ void APalPlayerController::ReceiveFailedRequestGuildWithLog_ToClient_Implementat
 }
 
 void APalPlayerController::ReceiveFailedRequestGuildWithAlert_ToClient_Implementation(const EPalGuildJoinRequestResult Result) {
+}
+
+void APalPlayerController::ReauestDamageExplode_ToServer_Implementation(UPalDamageExplodeComponent* ExplodeComponent, const FPalDamageInfo DamageInfo) {
 }
 
 void APalPlayerController::PlaySkill(int32 SlotID) {
@@ -244,6 +275,9 @@ void APalPlayerController::OnChangeKeyboardOption(const FPalOptionKeyboardSettin
 void APalPlayerController::OnActionBegin(const UPalActionBase* ActionBase) {
 }
 
+void APalPlayerController::NotifyRideWallStop_ToClient_Implementation() {
+}
+
 void APalPlayerController::NotifyLiftupCampPal_ToClient_Implementation(APalCharacter* TargetCharacter) {
 }
 
@@ -265,13 +299,21 @@ bool APalPlayerController::IsRiding() const {
     return false;
 }
 
+bool APalPlayerController::IsOtomoPartnerSkillCanTrigger() const {
+    return false;
+}
+
 bool APalPlayerController::IsCooping() const {
+    return false;
+}
+
+bool APalPlayerController::IsBuldingActiveFlagForServer() const {
     return false;
 }
 
 
 
-AActor* APalPlayerController::GetRidingCharacter() const {
+APalCharacter* APalPlayerController::GetRiderCharacter() const {
     return NULL;
 }
 
@@ -388,6 +430,12 @@ void APalPlayerController::Debug_InsightsTraceStart_ToServer_Implementation() {
 void APalPlayerController::Debug_IgnoreRestrictedByItemsForPartnerSkill_Implementation() {
 }
 
+void APalPlayerController::Debug_HighJump_ToServer_Implementation() {
+}
+
+void APalPlayerController::Debug_HighJump() {
+}
+
 void APalPlayerController::Debug_ForceSpawnRarePal_ToServer_Implementation() {
 }
 
@@ -417,6 +465,18 @@ bool APalPlayerController::CanCooping() const {
 }
 
 void APalPlayerController::CallOnCoopReleaseDelegate_ToServer_Implementation() {
+}
+
+void APalPlayerController::AddPlayerStatusPoint_ToServer_Implementation(const TArray<FPalGotStatusPoint>& AddStatusPointArray) {
+}
+
+void APalPlayerController::AddKillLog_Client_Implementation(const FPalKillLogDisplayData& KillLogData) {
+}
+
+void APalPlayerController::AddEquipWaza_ToServer_Implementation(const FPalInstanceID& InstanceId, const EPalWazaID NewWaza) {
+}
+
+void APalPlayerController::AddDeathLog_Client_Implementation(const FPalKillLogDisplayData& DeathLogData) {
 }
 
 void APalPlayerController::AddCameraRotateSpeedModifierRate(const FName& modifierName, float Rate) {

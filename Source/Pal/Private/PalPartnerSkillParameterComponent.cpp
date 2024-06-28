@@ -28,6 +28,12 @@ void UPalPartnerSkillParameterComponent::Start() {
 void UPalPartnerSkillParameterComponent::SetName(FName Name) {
 }
 
+void UPalPartnerSkillParameterComponent::SetDisableGlider_ToAll_Implementation(FName flagName, bool isDisable) {
+}
+
+void UPalPartnerSkillParameterComponent::SetDisableFunnel(FName flagName, bool isDisable) {
+}
+
 void UPalPartnerSkillParameterComponent::SetDisableFlagsBySetting_Implementation(bool isDisable) {
 }
 
@@ -88,11 +94,23 @@ bool UPalPartnerSkillParameterComponent::IsRestrictedByItems(AActor* Trainer) co
     return false;
 }
 
+bool UPalPartnerSkillParameterComponent::IsPlayerTrigger() const {
+    return false;
+}
+
 bool UPalPartnerSkillParameterComponent::IsOverheat() const {
     return false;
 }
 
 bool UPalPartnerSkillParameterComponent::IsExistActiveSkill() const {
+    return false;
+}
+
+bool UPalPartnerSkillParameterComponent::IsDisableGlider() const {
+    return false;
+}
+
+bool UPalPartnerSkillParameterComponent::IsDisableFunnel() const {
     return false;
 }
 
@@ -159,6 +177,10 @@ void UPalPartnerSkillParameterComponent::ExecDuring(float DeltaTime) {
 
 UPalCoopSkillModuleBase* UPalPartnerSkillParameterComponent::CreateSkillModule(TSubclassOf<UPalCoopSkillModuleBase> SkillModuleClass) {
     return NULL;
+}
+
+bool UPalPartnerSkillParameterComponent::CanOpenTreasure(EPalMapObjectTreasureGradeType TreasureGrade) const {
+    return false;
 }
 
 bool UPalPartnerSkillParameterComponent::CanExec() const {

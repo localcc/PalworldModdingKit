@@ -9,7 +9,7 @@ struct FPalMapObjectBelongInfo : public FPalBelongInfo {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FGuid GroupID;
+    FGuid GroupId;
     
     PAL_API FPalMapObjectBelongInfo();
 };

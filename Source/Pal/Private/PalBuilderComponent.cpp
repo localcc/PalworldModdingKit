@@ -20,6 +20,10 @@ void UPalBuilderComponent::OnExitBaseCamp(UPalBaseCampModel* BaseCampModel) {
 void UPalBuilderComponent::OnEnterBaseCamp(UPalBaseCampModel* BaseCampModel) {
 }
 
+bool UPalBuilderComponent::IsSnapMode() const {
+    return false;
+}
+
 bool UPalBuilderComponent::IsInstallAtReticle() const {
     return false;
 }

@@ -26,6 +26,9 @@ public:
     float ClavicleAdjustDegree;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bUseCustomURO;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsEnableGroundTilt;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -51,6 +54,21 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float TiltTimer;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float UpdateRate;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float EvaluationRate;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float CurrentUpdateInterval;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float CurrentEvaluationInterval;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float OriginalTickInterval;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FAppliedMakeInfoDelegate OnAppliedMakeInfo;
@@ -87,6 +105,9 @@ private:
     FName BodyTypeName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FName SkinName;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool DisableChangeMesh_ByPlayerDead;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -99,6 +120,9 @@ public:
     UPalSkeletalMeshComponent(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable)
+    void SetUpdateRate(float InRate, bool bResetCurrentInterval);
+    
+    UFUNCTION(BlueprintCallable)
     void SetTiltDisable(FName flagName, bool bIsDisable);
     
     UFUNCTION(BlueprintCallable)
@@ -109,6 +133,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetRuntimeAnimRateScale(FName flagName, float RateScale);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetEvaluationRate(float InRate, bool bResetCurrentInterval);
     
     UFUNCTION(BlueprintCallable)
     void SetEnableRagdollCCD(bool IsActive);
@@ -126,7 +153,13 @@ public:
     bool IsDisableTilt() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetUpdateRate() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     EPalSkeletalMeshType GetPalSkeletalMeshType() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetEvaluationRate() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetAnimRateScale();

@@ -67,9 +67,12 @@ enum class EPalLogType : uint8 {
     SurvivorExp,
     PartnerSkillExecute_Berserk,
     PartnerSkillExecute_NightRunner,
+    PartnerSkillExecute_StatusUp,
+    PartnerSkillExecute_SearchDungeonGoal_Failed,
     ObtainNote,
     OutdoorBedNortice,
     FullPalBox,
     FireBaseCamp,
+    SupplyDropStart,
 };
 

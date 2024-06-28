@@ -6,6 +6,7 @@ UPalBaseCampWorkerDirector::UPalBaseCampWorkerDirector() {
     this->CurrentOrderType = EPalMapBaseCampWorkerOrderType::Work;
     this->CurrentBattleType = EPalBaseCampWorkerDirectionBattleType::FirstValue;
     this->SlotObserverForServer = NULL;
+    this->BattleDirector = NULL;
     this->WorkerEventTickCount = 0;
     this->State = EPalBaseCampWorkerDirectorState::Init;
 }

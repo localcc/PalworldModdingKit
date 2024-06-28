@@ -2,6 +2,7 @@
 
 APalBossBattleLevelInstance::APalBossBattleLevelInstance(const FObjectInitializer& ObjectInitializer) {
     this->bIsLoaded = false;
+    this->Difficulty = EPalBossBattleDifficulty::None;
 }
 
 

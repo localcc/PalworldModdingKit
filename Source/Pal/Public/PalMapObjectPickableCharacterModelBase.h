@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
 #include "PalCharacterStoredParameterId.h"
 #include "PalIndividualCharacterSaveParameter.h"
 #include "PalMapObjectConcreteModelBase.h"
@@ -20,6 +21,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FGuid LocationId;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FDateTime CreatedAtRealTime;
+    
 public:
     UPalMapObjectPickableCharacterModelBase();
 
@@ -36,10 +40,6 @@ public:
 protected:
     UFUNCTION(BlueprintCallable)
     void OnRemovedStoredCharacter_ServerInternal(const FPalCharacterStoredParameterId& RemovedID);
-    
-private:
-    UFUNCTION(BlueprintCallable)
-    void OnDisappearTimeAt();
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)

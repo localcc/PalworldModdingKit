@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
+#include "EPalMapObjectOperationResult.h"
 #include "PalUIBuildingModel.generated.h"
 
 class UPalItemContainer;
@@ -39,6 +40,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsExistBaseCamp();
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FText GetWarningText(const EPalMapObjectOperationResult Result);
+    
     UFUNCTION(BlueprintCallable)
     void FinishBuilding();
     
@@ -46,7 +50,13 @@ public:
     void Dispose();
     
     UFUNCTION(BlueprintCallable)
+    void ChangeSnapMode(const bool bOn);
+    
+    UFUNCTION(BlueprintCallable)
     void ChangeMode(const bool bOn);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool CanChangeSnapModeForBuildObject() const;
     
     UFUNCTION(BlueprintCallable)
     void BuildObject(const bool bContinuously);

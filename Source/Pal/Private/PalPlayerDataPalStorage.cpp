@@ -6,7 +6,8 @@ UPalPlayerDataPalStorage::UPalPlayerDataPalStorage() {
     this->SlotNumInPage = 0;
     this->TargetContainer = NULL;
     this->SlotObserver = NULL;
-    this->IsOpen = false;
+    this->SyncPageIndex = -1;
+    this->bIsForceSyncAllSlot = false;
 }
 
 void UPalPlayerDataPalStorage::OnUpdateCharacterContainer_InServer() {
@@ -15,11 +16,15 @@ void UPalPlayerDataPalStorage::OnUpdateCharacterContainer_InServer() {
 void UPalPlayerDataPalStorage::OnRep_TargetContainer() {
 }
 
-void UPalPlayerDataPalStorage::GetSlotsInPage(const int32 PageIndex, TArray<UPalIndividualCharacterSlot*>& Slots) const {
+void UPalPlayerDataPalStorage::GetSlotsInPage(const int32 pageIndex, TArray<UPalIndividualCharacterSlot*>& Slots) const {
 }
 
-UPalIndividualCharacterSlot* UPalPlayerDataPalStorage::GetSlot(const int32 PageIndex, const int32 SlotIndex) const {
+UPalIndividualCharacterSlot* UPalPlayerDataPalStorage::GetSlot(const int32 pageIndex, const int32 SlotIndex) const {
     return NULL;
+}
+
+int32 UPalPlayerDataPalStorage::GetPageNum() const {
+    return 0;
 }
 
 void UPalPlayerDataPalStorage::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {

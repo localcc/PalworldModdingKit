@@ -5,4 +5,8 @@ APalBackWeaponBase::APalBackWeaponBase(const FObjectInitializer& ObjectInitializ
     this->IsEquipHand = false;
 }
 
+USceneComponent* APalBackWeaponBase::GetMainMesh_Implementation() {
+    return NULL;
+}
+
 

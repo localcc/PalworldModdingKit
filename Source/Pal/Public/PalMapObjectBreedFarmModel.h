@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "EPalItemOperationResult.h"
+#include "PalBaseCampModuleTransportItemDepotInterface.h"
 #include "PalInstanceID.h"
 #include "PalItemSlotIdAndNum.h"
 #include "PalMapObjectConcreteModelBase.h"
@@ -10,7 +11,7 @@
 class UPalWorkBase;
 
 UCLASS(Blueprintable)
-class PAL_API UPalMapObjectBreedFarmModel : public UPalMapObjectConcreteModelBase {
+class PAL_API UPalMapObjectBreedFarmModel : public UPalMapObjectConcreteModelBase, public IPalBaseCampModuleTransportItemDepotInterface {
     GENERATED_BODY()
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnBreedProgressChangedDelegate, float, CurrentProgress, float, MaxProgress);

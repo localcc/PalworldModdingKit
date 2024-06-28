@@ -8,5 +8,6 @@ enum class EPalCoopSkillSearchType : uint8 {
     MapObject,
     Character,
     DungeonPortal,
+    DungeonGoal,
 };
 

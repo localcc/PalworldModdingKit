@@ -68,6 +68,10 @@ FGuid UPalMapObjectConcreteModelBase::GetBaseCampIdBelongTo() const {
     return FGuid{};
 }
 
+APalMapObject* UPalMapObjectConcreteModelBase::GetActor() const {
+    return NULL;
+}
+
 void UPalMapObjectConcreteModelBase::CallOrRegisterOnReadyModule(const EPalMapObjectConcreteModelModuleType ModuleType, FPalMapObjectModuleDelegate Delegate) {
 }
 

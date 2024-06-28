@@ -45,6 +45,12 @@ public:
     TMap<EPalCharacterImportanceType, float> CharacterImportance_TickInterval_Mesh;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<EPalCharacterImportanceType, float> CharacterImportance_TickInterval_Mesh_Update;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<EPalCharacterImportanceType, float> CharacterImportance_TickInterval_Mesh_Evaluation;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<EPalCharacterImportanceType, float> CharacterImportance_TickInterval_Action;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

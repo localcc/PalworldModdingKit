@@ -73,7 +73,7 @@ void UPalShooterSpringArmComponent::OnFly(UPalCharacterMovementComponent* Compon
 void UPalShooterSpringArmComponent::OnEndAim() {
 }
 
-void UPalShooterSpringArmComponent::OnDyingDeadEnd(APalPlayerCharacter* PlayerCharacter) {
+void UPalShooterSpringArmComponent::OnDyingDeadEnd(APalPlayerCharacter* PlayerCharacter, const FPalDyingEndInfo& DyingEndInfo) {
 }
 
 void UPalShooterSpringArmComponent::OnDead(FPalDeadInfo DeadInfo) {

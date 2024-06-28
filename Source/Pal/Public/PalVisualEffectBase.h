@@ -41,6 +41,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool IsCallEndOnComponentEndPlay;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsEnableForDedicatedServer;
+    
     UPalVisualEffectBase();
 
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)

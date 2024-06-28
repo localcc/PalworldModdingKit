@@ -9,6 +9,7 @@ UPalDatabaseCharacterParameter::UPalDatabaseCharacterParameter() {
     this->MonsterNameDataTable = NULL;
     this->HumanNameDataTable = NULL;
     this->CharacterIconDataTable = NULL;
+    this->CharacterSkinIconDataTable = NULL;
     this->BPClassDataTable = NULL;
     this->PartnerSkillDataTable = NULL;
     this->PalSizeParameterDataTable = NULL;
@@ -17,6 +18,7 @@ UPalDatabaseCharacterParameter::UPalDatabaseCharacterParameter() {
     this->PalGainStatusPointsItemDataTable = NULL;
     this->PalCombiUniqueDataTable = NULL;
     this->PalTalentUpItemDataTable = NULL;
+    this->NPCOtomoWazaDataTable = NULL;
     this->PettingPressetInstance = NULL;
     this->CombiMonsterParameter = NULL;
 }
@@ -55,6 +57,10 @@ int32 UPalDatabaseCharacterParameter::GetViewingDistance_cm(FName RowName) {
 
 int32 UPalDatabaseCharacterParameter::GetViewingAngle_Degree(FName RowName) {
     return 0;
+}
+
+bool UPalDatabaseCharacterParameter::GetUseBossHPGauge(FName RowName) {
+    return false;
 }
 
 EPalTribeID UPalDatabaseCharacterParameter::GetTribe(FName RowName) {
@@ -192,7 +198,11 @@ FSoftObjectPath UPalDatabaseCharacterParameter::GetCharacterIconTexturePath(cons
     return FSoftObjectPath{};
 }
 
-TSoftObjectPtr<UTexture2D> UPalDatabaseCharacterParameter::GetCharacterIconTextureByTribeID(const EPalTribeID TribeID) const {
+TSoftObjectPtr<UTexture2D> UPalDatabaseCharacterParameter::GetCharacterIconTextureBySkinName(const FName& SkinName) const {
+    return NULL;
+}
+
+TSoftObjectPtr<UTexture2D> UPalDatabaseCharacterParameter::GetCharacterIconTextureByIndividualHandle(const UPalIndividualCharacterHandle* IndividualHandle) const {
     return NULL;
 }
 

@@ -8,7 +8,7 @@ UPalUIPalStorageModel::UPalUIPalStorageModel() {
 void UPalUIPalStorageModel::ToPrevPage() {
 }
 
-void UPalUIPalStorageModel::ToPage(const int32 PageIndex, const bool bForce) {
+void UPalUIPalStorageModel::ToPage(const int32 pageIndex, const bool bForce) {
 }
 
 void UPalUIPalStorageModel::ToNextPage() {

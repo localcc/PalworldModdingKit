@@ -1,13 +1,17 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "EPalItemShopProductType.h"
 #include "PalDroppedPalProductDataForShop.h"
 #include "PalGameWorldDataSaveInterface.h"
 #include "PalWorldSubsystem.h"
+#include "Templates/SubclassOf.h"
 #include "PalShopManager.generated.h"
 
+class UDataTable;
 class UPalShopBase;
 class UPalShopProduct_LostPal;
+class UPalShopProduct_TradeItem;
 
 // todo: these probably have params
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FRecievedBuyResultDelegate);
@@ -22,6 +26,13 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FReceivedDroppedPalDataDelegate OnReceivedDroppedPalDataDelegate;
+    
+protected:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<EPalItemShopProductType, TSubclassOf<UPalShopProduct_TradeItem>> ItemShopProductClassMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* ItemShopSettingDataTable;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))

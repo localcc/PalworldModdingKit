@@ -18,7 +18,10 @@ FGuid UPalLogManager::AddLog(EPalLogPriority logPriority, const FText& LogText, 
     return FGuid{};
 }
 
-void UPalLogManager::AddDeathLog(const FText& LogText, const TSoftObjectPtr<UTexture2D> Icon) {
+void UPalLogManager::AddKillLog(const FPalKillLogDisplayData& KillLogData) {
+}
+
+void UPalLogManager::AddDeathLog(const FPalKillLogDisplayData& DeathLogDisplayData) {
 }
 
 

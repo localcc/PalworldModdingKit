@@ -8,5 +8,9 @@ class UPalBuildObjectInstallStrategyNormal : public UPalBuildObjectInstallStrate
     GENERATED_BODY()
 public:
     UPalBuildObjectInstallStrategyNormal();
+
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    bool IsStandAlongSurface() const;
+    
 };
 

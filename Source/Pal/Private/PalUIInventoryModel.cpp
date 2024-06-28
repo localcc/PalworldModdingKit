@@ -23,9 +23,6 @@ void UPalUIInventoryModel::TryFillSlotToInventoryFromTargetContainer(const FPalC
 void UPalUIInventoryModel::TrashLiftUpItem() {
 }
 
-void UPalUIInventoryModel::TrashItemFromDropSlot() {
-}
-
 void UPalUIInventoryModel::Setup() {
 }
 
@@ -55,9 +52,6 @@ bool UPalUIInventoryModel::IsExistItems(TArray<FPalStaticItemIdAndNum> RequiredI
 }
 
 void UPalUIInventoryModel::DropLiftUpItem() {
-}
-
-void UPalUIInventoryModel::DropItemFromDropSlot() {
 }
 
 void UPalUIInventoryModel::Dispose() {

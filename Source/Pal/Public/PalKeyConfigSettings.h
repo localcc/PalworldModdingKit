@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "InputCoreTypes.h"
 #include "PalAxisKeyConfigKeys.h"
 #include "PalKeyConfigKeys.h"
 #include "PalKeyConfigSettings.generated.h"

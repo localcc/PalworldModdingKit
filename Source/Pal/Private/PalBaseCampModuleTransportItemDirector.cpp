@@ -18,10 +18,10 @@ void UPalBaseCampModuleTransportItemDirector::OnNotAvailableMapObjectConcreteMod
 void UPalBaseCampModuleTransportItemDirector::OnAvailableMapObjectConcreteModel(UPalMapObjectConcreteModelBase* ConcreteModel) {
 }
 
-void UPalBaseCampModuleTransportItemDirector::OnAssignWorkTransportItemTarget(UPalWorkBase* Work, const FPalInstanceID& IndividualId) {
+void UPalBaseCampModuleTransportItemDirector::OnAssignWorkTransportItemTarget(UPalWorkBase* Work, UPalWorkAssign* WorkAssign) {
 }
 
-void UPalBaseCampModuleTransportItemDirector::OnAssignWorkRequirement(UPalWorkBase* Work, const FPalInstanceID& IndividualId) {
+void UPalBaseCampModuleTransportItemDirector::OnAssignWorkRequirement(UPalWorkBase* Work, UPalWorkAssign* WorkAssign) {
 }
 
 

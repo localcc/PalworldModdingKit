@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "FloatContainer.h"
 #include "PalContainerBase.h"
 #include "PalItemContainerBelongInfo.h"
 #include "PalItemContainerFilter.h"
@@ -30,6 +31,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     float CorruptionMultiplier;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FFloatContainer CorruptionMultiplierContainer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_FilterPreference, meta=(AllowPrivateAccess=true))
     FPalItemContainerFilter FilterPreference;

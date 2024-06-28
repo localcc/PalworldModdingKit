@@ -9,6 +9,7 @@
 
 class UPalMapObjectConcreteModelBase;
 class UPalMapObjectItemContainerModule;
+class UPalWorkAssign;
 class UPalWorkBase;
 
 UCLASS(Blueprintable)
@@ -41,10 +42,10 @@ private:
     void OnAvailableMapObjectConcreteModel(UPalMapObjectConcreteModelBase* ConcreteModel);
     
     UFUNCTION(BlueprintCallable)
-    void OnAssignWorkTransportItemTarget(UPalWorkBase* Work, const FPalInstanceID& IndividualId);
+    void OnAssignWorkTransportItemTarget(UPalWorkBase* Work, UPalWorkAssign* WorkAssign);
     
     UFUNCTION(BlueprintCallable)
-    void OnAssignWorkRequirement(UPalWorkBase* Work, const FPalInstanceID& IndividualId);
+    void OnAssignWorkRequirement(UPalWorkBase* Work, UPalWorkAssign* WorkAssign);
     
 };
 

@@ -11,6 +11,9 @@ public:
     UPalClimbingComponent(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    bool TryClimbAfterGrappling();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void StartClimb(const FHitResult& Result);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

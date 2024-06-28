@@ -12,7 +12,7 @@ public:
     EPalMonsterControllerBaseCampLogType Type;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    FName TextId;
+    FName textID;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FName TargetObjectTextId;

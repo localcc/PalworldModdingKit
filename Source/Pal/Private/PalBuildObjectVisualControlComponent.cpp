@@ -4,4 +4,7 @@ UPalBuildObjectVisualControlComponent::UPalBuildObjectVisualControlComponent(con
     this->DamageNiagaraComp = NULL;
 }
 
+void UPalBuildObjectVisualControlComponent::OnReplicatedChildActor(UChildActorComponent* ChildActorComponent) {
+}
+
 

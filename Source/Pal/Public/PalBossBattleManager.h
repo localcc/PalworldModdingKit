@@ -5,6 +5,7 @@
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "EPalBossBattleCombatResult.h"
+#include "EPalBossBattleDifficulty.h"
 #include "EPalBossType.h"
 #include "PalBossBattleStaticInfo.h"
 #include "PalWorldSubsystem.h"
@@ -53,6 +54,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<EPalBossType, FPalBossBattleStaticInfo> BossInfoMap;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalBossType HardUnlockTiggerBoss;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<EPalBossType, UPalBossBattleInstanceModel*> InstanceModelMap;
     
@@ -67,6 +71,7 @@ private:
     
 public:
     UPalBossBattleManager();
+
     UFUNCTION(BlueprintCallable)
     void UnlockAchievement(EPalBossType BossType);
     
@@ -85,7 +90,7 @@ public:
     FTransform GetTopWarpPointTransform(EPalBossType BossType) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    FPalBossBattleStaticInfo GetStaticInfo(EPalBossType BossType);
+    FPalBossBattleStaticInfo GetStaticInfo(EPalBossType BossType) const;
     
     UFUNCTION(BlueprintCallable)
     FTransform GetPlayerSpawnTransformForMultiPlayer(int32 Index, FVector Location, FRotator Rotate, float Offset);
@@ -100,7 +105,7 @@ public:
     float GetBossHPMultiPlayerRate(int32 JoinedPlayerNum);
     
     UFUNCTION(BlueprintCallable)
-    int32 GetBossAchievementIndex(EPalBossType BossType) const;
+    FString GetBossAchievementIndex(EPalBossType BossType) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetBattleTimeLimit() const;
@@ -117,13 +122,16 @@ public:
     bool CanStartBossBattle(EPalBossType BossType);
     
     UFUNCTION(BlueprintCallable)
+    bool CanEntryHard(const APalPlayerCharacter* Player) const;
+    
+    UFUNCTION(BlueprintCallable)
     void BossBattleExit(EPalBossType BossType, APalPlayerCharacter* ExitPlayer);
     
     UFUNCTION(BlueprintCallable)
     void BossBattleEntryCancel(EPalBossType BossType, APalPlayerCharacter* EntryPlayer);
     
     UFUNCTION(BlueprintCallable)
-    void BossBattleEntry(EPalBossType BossType, APalPlayerCharacter* EntryPlayer);
+    void BossBattleEntry(EPalBossType BossType, EPalBossBattleDifficulty Difficulty, APalPlayerCharacter* EntryPlayer);
     
     UFUNCTION(BlueprintCallable)
     void AddGroupCharacter(UPalIndividualCharacterHandle* AddIndividualHandle);

@@ -21,17 +21,20 @@ class UPalMasterDataTableAccess_ItemRecipe;
 class UPalMasterDataTableAccess_ItemShop;
 class UPalMasterDataTableAccess_ItemShopLottery;
 class UPalMasterDataTableAccess_MapObjectMasterData;
+class UPalMasterDataTableAccess_PalRandomizerData;
 class UPalMasterDataTableAccess_PalShop;
 class UPalMasterDataTableAccess_PlayerStatusRankData;
+class UPalMasterDataTableAccess_SpawnerPlacementData;
 class UPalMasterDataTableAccess_UIInputActionData;
 class UPalMasterDataTableAccess_WildSpawnerData;
 class UPalNoteDataAsset;
 
 UCLASS(Blueprintable)
-class UPalMasterDataTablesUtility : public UBlueprintFunctionLibrary {
+class PAL_API UPalMasterDataTablesUtility : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UPalMasterDataTablesUtility();
+
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalMasterDataTableAccess_WildSpawnerData* GetWildSpawnerDataTableAccess(const UObject* WorldContextObject);
     
@@ -43,6 +46,12 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UDataTable* GetUIInputActionDataTable(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UPalMasterDataTableAccess_SpawnerPlacementData* GetSpawnerPlacementDataTableAccess(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UDataTable* GetSpawnerPlacementDataTable(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalMasterDataTableAccess_PlayerStatusRankData* GetPlayerStatusRankDataTableAccess(const UObject* WorldContextObject);
@@ -57,6 +66,12 @@ public:
     static UDataTable* GetPalShopDataTable(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UPalMasterDataTableAccess_PalRandomizerData* GetPalRandomizerDataTableAccess(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UDataTable* GetPalRandomizerDataTable(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalNoteDataAsset* GetNoteDataAsset(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
@@ -66,7 +81,7 @@ public:
     static UDataTable* GetMapObjectDataTable(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static FText GetLocalizedText(const UObject* WorldContextObject, EPalLocalizeTextCategory TextCategory, FName TextId);
+    static FText GetLocalizedText(const UObject* WorldContextObject, EPalLocalizeTextCategory TextCategory, FName textID);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalMasterDataTableAccess_ItemShopLottery* GetItemShopLotteryDataTableAccess(const UObject* WorldContextObject);

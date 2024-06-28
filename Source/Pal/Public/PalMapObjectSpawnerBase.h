@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "EPalMapObjectSpawnerState.h"
 #include "PalLevelObjectActor.h"
 #include "PalStageInstanceId.h"
 #include "PalMapObjectSpawnerBase.generated.h"
@@ -23,6 +24,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USphereComponent* LocateSphere;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    EPalMapObjectSpawnerState State;
     
 public:
     APalMapObjectSpawnerBase(const FObjectInitializer& ObjectInitializer);

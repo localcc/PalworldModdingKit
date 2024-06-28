@@ -10,6 +10,7 @@ UPalAIActionCombatBase::UPalAIActionCombatBase() {
     this->NextActionClass = NULL;
     this->InterruptSkillSlotID = -1;
     this->bInterruptSkill = false;
+    this->bInterruptSkillWaiting = false;
 }
 
 void UPalAIActionCombatBase::StartNextAction_Event(const UPalActionComponent* ActionComponent) {

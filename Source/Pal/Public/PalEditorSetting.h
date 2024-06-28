@@ -4,6 +4,8 @@
 #include "UObject/NoExportTypes.h"
 #include "PalEditorSetting.generated.h"
 
+class UPalEditorSetting;
+
 UCLASS(Blueprintable, Config=Editor)
 class PAL_API UPalEditorSetting : public UObject {
     GENERATED_BODY()
@@ -68,6 +70,16 @@ public:
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSoftObjectPath GameProgressPresetTableAssetPath;
     
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bEditorToolMenu_DisplaySpreadSheetName;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bEditorToolMenu_SpreadSheetGrouping;
+    
     UPalEditorSetting();
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static UPalEditorSetting* GetPalEditorSettings();
+    
 };
 

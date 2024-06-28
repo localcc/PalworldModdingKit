@@ -12,6 +12,7 @@
 #include "PalMapObjectConcreteModelBase.generated.h"
 
 class AActor;
+class APalMapObject;
 class UPalBaseCampModel;
 class UPalMapObjectCharacterContainerModule;
 class UPalMapObjectConcreteModelBase;
@@ -22,7 +23,7 @@ class UPalMapObjectSwitchModule;
 class UPalMapObjectWorkeeModule;
 
 UCLASS(Abstract, Blueprintable)
-class UPalMapObjectConcreteModelBase : public UObject {
+class PAL_API UPalMapObjectConcreteModelBase : public UObject {
     GENERATED_BODY()
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSimpleDelegate, UPalMapObjectConcreteModelBase*, Model);
@@ -109,6 +110,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FGuid GetBaseCampIdBelongTo() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    APalMapObject* GetActor() const;
     
     UFUNCTION(BlueprintCallable)
     void CallOrRegisterOnReadyModule(const EPalMapObjectConcreteModelModuleType ModuleType, FPalMapObjectModuleDelegate Delegate);

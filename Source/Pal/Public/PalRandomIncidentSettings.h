@@ -4,6 +4,7 @@
 #include "Templates/SubclassOf.h"
 #include "PalRandomIncidentSettings.generated.h"
 
+class APalRandomIncidentObjectPlacement;
 class UDataTable;
 class UPalRandomIncidentActionBase;
 
@@ -22,6 +23,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalRandomIncidentActionBase> action;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<APalRandomIncidentObjectPlacement> ObjectPlacement;
     
     PAL_API FPalRandomIncidentSettings();
 };

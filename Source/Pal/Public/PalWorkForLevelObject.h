@@ -3,10 +3,11 @@
 #include "PalWorkBase.h"
 #include "PalWorkForLevelObject.generated.h"
 
-UCLASS(Blueprintable)
+UCLASS(Abstract, Blueprintable)
 class PAL_API UPalWorkForLevelObject : public UPalWorkBase {
     GENERATED_BODY()
 public:
     UPalWorkForLevelObject();
+
 };
 

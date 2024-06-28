@@ -8,7 +8,7 @@ APalBullet* APalMonsterEquipWeaponBase::ShootOneBulletDefault() {
     return NULL;
 }
 
-APalBullet* APalMonsterEquipWeaponBase::ShootOneBullet(TSubclassOf<APalBullet> bulletClass, UNiagaraSystem* MuzzleEffect, FVector MuzzleLocation, FRotator MuzzleRotate, float BulrAngle) {
+APalBullet* APalMonsterEquipWeaponBase::ShootOneBullet(TSubclassOf<APalBullet> BulletClass, UNiagaraSystem* MuzzleEffect, FVector MuzzleLocation, FRotator MuzzleRotate, float BulrAngle) {
     return NULL;
 }
 

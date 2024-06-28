@@ -12,7 +12,7 @@ void UPalUIPlayerEquipment::SwapEquipment(EPalPlayerEquipItemSlotType slotType, 
 void UPalUIPlayerEquipment::SetDisableEquipmentHeadMeshFlag(bool isDisable) {
 }
 
-void UPalUIPlayerEquipment::RemoveItemSlot(UPalItemSlot* targetSlot, UPalItemSlot* toSlot) {
+void UPalUIPlayerEquipment::RemoveItemSlot(UPalItemSlot* TargetSlot, UPalItemSlot* toSlot) {
 }
 
 void UPalUIPlayerEquipment::RemoveEquipment(EPalPlayerEquipItemSlotType slotType, UPalItemSlot* toSlot) {

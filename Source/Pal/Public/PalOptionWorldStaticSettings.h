@@ -93,10 +93,16 @@ public:
     FPalOptionValueInt GuildPlayerMaxNum;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalOptionValueInt BaseCampMaxNumInGuild;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalOptionValueInt PalEggDefaultHatchingTime;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalOptionValueInt BaseCampWorkerMaxNum;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalOptionValueInt autoSaveSpan;
     
     PAL_API FPalOptionWorldStaticSettings();
 };

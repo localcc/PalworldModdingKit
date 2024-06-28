@@ -3,6 +3,12 @@
 UPalNetworkBaseCampComponent::UPalNetworkBaseCampComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
 
+void UPalNetworkBaseCampComponent::RequestUnassignWorkInBaseCamp_ToServer_Implementation(const FGuid& BaseCampId, const FGuid& WorkId, const FPalInstanceID& IndividualId) {
+}
+
+void UPalNetworkBaseCampComponent::RequestReplicateBaseCampWork_ToServer_Implementation(const FGuid& BaseCampId, const bool bReplicate) {
+}
+
 void UPalNetworkBaseCampComponent::RequestModule_Server_void_Implementation(const FGuid& BaseCampId, const EPalBaseCampModuleType ModuleType, const FName FunctionName) {
 }
 
@@ -16,6 +22,9 @@ void UPalNetworkBaseCampComponent::RequestModule_Server_FPalNetArchive_Implement
 }
 
 void UPalNetworkBaseCampComponent::RequestModule_Server_bool_Implementation(const FGuid& BaseCampId, const EPalBaseCampModuleType ModuleType, const FName FunctionName, bool Value) {
+}
+
+void UPalNetworkBaseCampComponent::RequestFixedAssignWorkInBaseCamp_ToServer_Implementation(const FGuid& BaseCampId, const FGuid& WorkId, const FPalInstanceID& IndividualId) {
 }
 
 void UPalNetworkBaseCampComponent::RequestChangeWorkSuitability_ToServer_Implementation(const FPalInstanceID& TargetIndividualId, const EPalWorkSuitability WorkSuitability, const bool bOn) {
@@ -120,7 +129,7 @@ void UPalNetworkBaseCampComponent::BroadcastAddBaseCampBurningLog_Server_Impleme
 void UPalNetworkBaseCampComponent::AddBaseCampWorkerLog_Client_Implementation(EPalLogType DisplayLogType, const FPalInstanceID& WorkerCharacterInstanceId, const FName& EventDataID) {
 }
 
-void UPalNetworkBaseCampComponent::AddBaseCampWorkerDeathLog_Client_Implementation(const FPalInstanceID& WorkerCharacterInstanceId) {
+void UPalNetworkBaseCampComponent::AddBaseCampWorkerDeathLog_Client_Implementation(const FPalKillLogDisplayData& DeathLogDisplayData) {
 }
 
 void UPalNetworkBaseCampComponent::AddBaseCampLog_Client_Implementation(const FPalMonsterControllerBaseCampLogContent& LogContent) {

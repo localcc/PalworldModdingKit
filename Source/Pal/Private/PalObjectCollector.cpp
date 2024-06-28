@@ -8,8 +8,4 @@ UPalObjectCollector::UPalObjectCollector() {
     this->NearDistanceForSpawnerBaseFromBaseCamp = 5000.00f;
 }
 
-TArray<FPalSpawnerGroupInfo> UPalObjectCollector::GetRandomSpawnerGroupInfo(FVector spawnerLocation) {
-    return TArray<FPalSpawnerGroupInfo>();
-}
-
 

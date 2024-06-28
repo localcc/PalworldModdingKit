@@ -37,6 +37,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalOptionValueFloat DamageTextMaxNum;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalOptionValueFloat ChatUICloseDelayTime;
+    
     PAL_API FPalOptionLocalStaticSettings();
 };
 

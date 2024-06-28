@@ -4,7 +4,6 @@ UPalNPCTalkSystem::UPalNPCTalkSystem() {
     this->talkWidgetParameter = NULL;
     this->talkWidget = NULL;
     this->nowTalkDataIndex = 0;
-    this->targetFunc = NULL;
     this->FuncParam = NULL;
     this->CustomFuncResult = EPalNPCTalkCustomFunctionResult::None;
     this->CustomFuncChoseIndex = 0;

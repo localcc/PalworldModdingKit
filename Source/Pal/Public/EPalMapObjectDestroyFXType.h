@@ -18,5 +18,6 @@ enum class EPalMapObjectDestroyFXType : uint8 {
     Rock,
     FoliageTree_CherryBlossom,
     Mushroom,
+    Glass,
 };
 

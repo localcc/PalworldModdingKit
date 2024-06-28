@@ -12,6 +12,7 @@
 #include "EPalWorkSuitability.h"
 #include "FixedPoint64.h"
 #include "FloatContainer.h"
+#include "PalArenaCharacterRestoreParameter.h"
 #include "PalCharacterSlotId.h"
 #include "PalContainerId.h"
 #include "PalFoodRegeneInfo.h"
@@ -216,6 +217,21 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 VoiceID;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGuid SkinAppliedCharacterId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName SkinName;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bSkinApplied;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IsFavoritePal;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalArenaCharacterRestoreParameter ArenaRestoreParameter;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FPalIndividualCharacterCacheParameter Dynamic;

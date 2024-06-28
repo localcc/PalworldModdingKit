@@ -44,5 +44,10 @@ UPalMasterDataTables::UPalMasterDataTables() {
     this->Access_ItemShopDataTable = NULL;
     this->PalShopDataTable = NULL;
     this->Access_PalShopDataTable = NULL;
+    this->SpawnerPlacementDataTable = NULL;
+    this->Access_SpawnerPlacementDataTable = NULL;
+    this->PalRandomizerDataTable = NULL;
+    this->Access_PalRandomizerDataTable = NULL;
 }
+
 

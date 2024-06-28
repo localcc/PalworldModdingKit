@@ -62,5 +62,6 @@ enum class EPalItemTypeB : uint8 {
     MonsterEquipWeapon,
     Blueprint,
     ReturnToBaseCamp,
+    Essential_PalGear,
 };
 

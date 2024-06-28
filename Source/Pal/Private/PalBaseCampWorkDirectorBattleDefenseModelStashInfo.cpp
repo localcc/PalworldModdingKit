@@ -1,0 +1,5 @@
+#include "PalBaseCampWorkDirectorBattleDefenseModelStashInfo.h"
+
+FPalBaseCampWorkDirectorBattleDefenseModelStashInfo::FPalBaseCampWorkDirectorBattleDefenseModelStashInfo() {
+}
+

@@ -11,7 +11,11 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FName, float> UserParameterMap;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool ScaleWithMesh;
+    
 public:
     UPalAnimNotifyState_Effect();
+
 };
 

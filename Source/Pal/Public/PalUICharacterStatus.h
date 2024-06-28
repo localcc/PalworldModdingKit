@@ -14,6 +14,9 @@ public:
 
 protected:
     UFUNCTION(BlueprintCallable)
+    void ToggleFavoritePal(UPalIndividualCharacterHandle* targetHandle);
+    
+    UFUNCTION(BlueprintCallable)
     void RemoveActiveSkill(UPalIndividualCharacterHandle* targetHandle, EPalWazaID targetWazaID);
     
     UFUNCTION(BlueprintCallable)

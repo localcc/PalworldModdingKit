@@ -33,10 +33,13 @@ UPalCharacterParameterComponent::UPalCharacterParameterComponent(const FObjectIn
     this->IsSleepAction = false;
     this->IsDisableOtomoReturnEffect = false;
     this->MaxHPRate_ForTowerBoss = 1.00f;
+    this->MaxSPBuffRate = 1.00f;
     this->bIsUseGroundRayCast = true;
     this->BaseCampWorkerOrderType = EPalMapBaseCampWorkerOrderType::Work;
     this->bBaseCampWorkerAttackableFriend = false;
     this->WorkType = EPalWorkType::None;
+    this->bAppliedBaseCampWorkerInitialized = false;
+    this->WorkingState = EPalWorkWorkerWorkingState::Wait;
     this->bBeingRescued = false;
     this->DyingHP = 0.00f;
     this->DyingMaxHP = 100.00f;
@@ -44,6 +47,7 @@ UPalCharacterParameterComponent::UPalCharacterParameterComponent(const FObjectIn
     this->IsCapturedProcessing = false;
     this->CanDropItem = false;
     this->IsImmortality = false;
+    this->IsMimicryMode = false;
     this->OtomoAttackStopJudge = NULL;
 }
 
@@ -74,7 +78,7 @@ void UPalCharacterParameterComponent::SetOverrideTargetLocation_ToServer_Impleme
 void UPalCharacterParameterComponent::SetOverrideTargetLocation(FVector TargetLocation) {
 }
 
-void UPalCharacterParameterComponent::SetMuteki(FName flagName, bool isEnable) {
+void UPalCharacterParameterComponent::SetMuteki(FName flagName, bool IsEnable) {
 }
 
 void UPalCharacterParameterComponent::SetMP(FFixedPoint64 NewMP) {
@@ -104,7 +108,7 @@ void UPalCharacterParameterComponent::SetIsCapturedProcessing(bool IsCaptureProc
 void UPalCharacterParameterComponent::SetHP(FFixedPoint64 NewHP) {
 }
 
-void UPalCharacterParameterComponent::SetEnableSendReticleTarget(FName flagName, bool isEnable) {
+void UPalCharacterParameterComponent::SetEnableSendReticleTarget(FName flagName, bool IsEnable) {
 }
 
 void UPalCharacterParameterComponent::SetElementTypeFromDatabase(APalCharacter* InCharacter) {
@@ -116,7 +120,7 @@ void UPalCharacterParameterComponent::SetDisableNaturalHealing_Component(FName K
 void UPalCharacterParameterComponent::SetDisableCreateUNKO(FName flagName, bool isDisable) {
 }
 
-void UPalCharacterParameterComponent::SetCoopingFlag(bool isEnable) {
+void UPalCharacterParameterComponent::SetCoopingFlag(bool IsEnable) {
 }
 
 void UPalCharacterParameterComponent::ReviveFromDying() {
@@ -240,6 +244,10 @@ int32 UPalCharacterParameterComponent::GetShotAttack() {
 
 float UPalCharacterParameterComponent::GetSanity() {
     return 0.0f;
+}
+
+AActor* UPalCharacterParameterComponent::GetReticleTargetActor() {
+    return NULL;
 }
 
 float UPalCharacterParameterComponent::GetRadius() const {
@@ -368,6 +376,7 @@ void UPalCharacterParameterComponent::GetLifetimeReplicatedProps(TArray<FLifetim
     DOREPLIFETIME(UPalCharacterParameterComponent, MaxHPRate_ForTowerBoss);
     DOREPLIFETIME(UPalCharacterParameterComponent, WorkAssignId);
     DOREPLIFETIME(UPalCharacterParameterComponent, WorkType);
+    DOREPLIFETIME(UPalCharacterParameterComponent, WorkingState);
     DOREPLIFETIME(UPalCharacterParameterComponent, PossessStaticItemId);
     DOREPLIFETIME(UPalCharacterParameterComponent, bBeingRescued);
     DOREPLIFETIME(UPalCharacterParameterComponent, DyingHP);

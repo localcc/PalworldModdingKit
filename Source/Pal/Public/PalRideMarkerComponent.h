@@ -18,7 +18,7 @@ UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnable
 class UPalRideMarkerComponent : public UStaticMeshComponent {
     GENERATED_BODY()
 public:
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FChangeRiding, bool, isEnable);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FChangeRiding, bool, IsEnable);
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalRidePositionType RidePositionType;
@@ -70,6 +70,9 @@ private:
     void SetVisibleWeapon();
     
 public:
+    UFUNCTION(BlueprintCallable)
+    void SetupUniqueWeapon();
+    
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void SetRidingFlag(bool bIsEnable);
     

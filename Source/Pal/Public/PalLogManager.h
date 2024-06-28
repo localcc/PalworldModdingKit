@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "EPalLogPriority.h"
+#include "PalKillLogDisplayData.h"
 #include "PalLogAdditionalData.h"
 #include "PalLogDataSet.h"
 #include "PalWorldSubsystem.h"
@@ -9,7 +10,6 @@
 #include "PalLogManager.generated.h"
 
 class UPalStaticLogCollector;
-class UTexture2D;
 
 UCLASS(Blueprintable)
 class PAL_API UPalLogManager : public UPalWorldSubsystem {
@@ -18,8 +18,9 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FRemovedVeryImportantLogDelegate, const FGuid&, logId);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FAddedVeryImportantLogDelegate, const FGuid&, logId, const FText&, LogText, const FPalLogAdditionalData&, logAdditionalData);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FAddedNormalLogDelegate, const FText&, LogText, const FPalLogAdditionalData&, logAdditionalData);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FAddedKillLogDelegate, const FPalKillLogDisplayData&, KillLogData);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FAddedImportantLogDelegate, const FText&, LogText, const FPalLogAdditionalData&, logAdditionalData);
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FAddedDeathLogDelegate, const FText&, LogText, const TSoftObjectPtr<UTexture2D>, Icon);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FAddedDeathLogDelegate, const FPalKillLogDisplayData&, DeathLogDisplayData);
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float normalLogDisplayTime;
@@ -62,6 +63,9 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FAddedDeathLogDelegate OnAddedDeathLogDelegate;
     
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FAddedKillLogDelegate OnAddedKillLogDelegate;
+    
     UPalLogManager();
 
     UFUNCTION(BlueprintCallable)
@@ -71,7 +75,10 @@ public:
     FGuid AddLog(EPalLogPriority logPriority, const FText& LogText, const FPalLogAdditionalData& logAdditionalData);
     
     UFUNCTION(BlueprintCallable)
-    void AddDeathLog(const FText& LogText, const TSoftObjectPtr<UTexture2D> Icon);
+    void AddKillLog(const FPalKillLogDisplayData& KillLogData);
+    
+    UFUNCTION(BlueprintCallable)
+    void AddDeathLog(const FPalKillLogDisplayData& DeathLogDisplayData);
     
 };
 

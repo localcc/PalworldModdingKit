@@ -45,10 +45,10 @@ public:
     UPalGroupManager();
 
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool TryGetGuildName(const FGuid& GroupID, FString& OutGuildName) const;
+    bool TryGetGuildName(const FGuid& GroupId, FString& OutGuildName) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool TryGetGroupName(const FGuid& GroupID, FString& OutGroupName) const;
+    bool TryGetGroupName(const FGuid& GroupId, FString& OutGroupName) const;
     
 private:
     UFUNCTION(BlueprintCallable)
@@ -71,10 +71,10 @@ public:
     void Debug_RequestExitGroup(const FPalInstanceID& IndividualId, FPalGroupOperationDynamicDelegate Callback);
     
     UFUNCTION(BlueprintCallable)
-    void Debug_RequestEnterGroup(const FPalInstanceID& IndividualId, const FGuid& GroupID, FPalGroupOperationDynamicDelegate Callback);
+    void Debug_RequestEnterGroup(const FPalInstanceID& IndividualId, const FGuid& GroupId, FPalGroupOperationDynamicDelegate Callback);
     
     UFUNCTION(BlueprintCallable)
-    void Debug_RequestDisposeGroup(const FGuid& GroupID, FPalGroupOperationDynamicDelegate Callback);
+    void Debug_RequestDisposeGroup(const FGuid& GroupId, FPalGroupOperationDynamicDelegate Callback);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalGroupBase* Debug_GetFirstGroupByType(const EPalGroupType Type) const;

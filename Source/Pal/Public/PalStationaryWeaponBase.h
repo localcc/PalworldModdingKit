@@ -10,10 +10,7 @@ public:
     APalStationaryWeaponBase(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure)
-    float GetAttackableDistance();
-    
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure)
-    float GetAttackableAngle();
+    float GetAttackableDistance() const;
     
 };
 

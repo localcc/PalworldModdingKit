@@ -63,6 +63,9 @@ void UPalCheatManager::TraceReticleDirectionAllObjectType(const float Length) {
 void UPalCheatManager::ToggleVisibleFoliageChunk() {
 }
 
+void UPalCheatManager::ToggleUserAchievementDebug() {
+}
+
 void UPalCheatManager::ToggleShowReticleLocation() {
 }
 
@@ -80,6 +83,9 @@ void UPalCheatManager::ToggleLoadingScreen() {
 }
 
 void UPalCheatManager::ToggleHUD() {
+}
+
+void UPalCheatManager::ToggleForceSpawnRandomIncident() {
 }
 
 void UPalCheatManager::ToggleBuildInstallCheckLookToCamera() {
@@ -194,6 +200,9 @@ void UPalCheatManager::ShowStreamingLevel() {
 void UPalCheatManager::ShowSpawnerInfo() {
 }
 
+void UPalCheatManager::ShowSnapMode() {
+}
+
 void UPalCheatManager::ShowPlayers() {
 }
 
@@ -299,6 +308,9 @@ void UPalCheatManager::SetSanityToBaseCampPal(const float Sanity) {
 void UPalCheatManager::SetPlayerSP(int32 NewSP) {
 }
 
+void UPalCheatManager::SetPlayerSkin(EPalSkinType Part, FName SkinName) {
+}
+
 void UPalCheatManager::SetPlayerHP(int32 NewHP) {
 }
 
@@ -341,10 +353,16 @@ void UPalCheatManager::SetMultiplayRestriction(bool bRestriction) {
 void UPalCheatManager::SetMapObjectStatusRange(const float Range) {
 }
 
+void UPalCheatManager::SetMapObjectStatusMapObjectId(const FName MapObjectId) {
+}
+
 void UPalCheatManager::SetLoadingSceneVisible(bool IsVisible) {
 }
 
 void UPalCheatManager::SetInventoryItemDurability(const float Percent) {
+}
+
+void UPalCheatManager::SetHardTowerBossDebugNo(int32 DebugNo) {
 }
 
 void UPalCheatManager::SetGameTime_NextNight_SecondsAgo(const int32 SecondsAgo) {
@@ -360,6 +378,9 @@ void UPalCheatManager::SetGameTime_NextDay() {
 }
 
 void UPalCheatManager::SetFPSForServer(float fps) {
+}
+
+void UPalCheatManager::SetForceSpawnRandomIncidentName(const FString& IncidentName) {
 }
 
 void UPalCheatManager::SetForceLocationTeleport(bool bForceLocationTeleport) {
@@ -431,6 +452,9 @@ void UPalCheatManager::RideIKDisable() {
 void UPalCheatManager::RespawnPlayer() {
 }
 
+void UPalCheatManager::ResetOilrig() {
+}
+
 void UPalCheatManager::RerollCharacterMake() {
 }
 
@@ -449,10 +473,19 @@ void UPalCheatManager::RequestFillSlotChestFromInventory() {
 void UPalCheatManager::RepairEquipment() {
 }
 
+void UPalCheatManager::RemovePlayerSkin(EPalSkinType Part, FName InTarget) {
+}
+
 void UPalCheatManager::RandomizePassive_PlayerWeapon() {
 }
 
 void UPalCheatManager::PrintRealTime() {
+}
+
+void UPalCheatManager::PrintRandomizerInfo() {
+}
+
+void UPalCheatManager::PrintPlatformInventory() {
 }
 
 void UPalCheatManager::PrintInventoryDynamicItemLog() {
@@ -492,6 +525,9 @@ void UPalCheatManager::OnPingComplete(UPingIP* PingIP, const FString& Address, i
 }
 
 void UPalCheatManager::NotDecreaseWeaponItem() {
+}
+
+void UPalCheatManager::NotDecreaseDefenseBullet() {
 }
 
 void UPalCheatManager::NotConsumeMaterialsInCraft() {
@@ -551,11 +587,19 @@ void UPalCheatManager::JoinInviteCode(const FString& InviteCode) const {
 void UPalCheatManager::JoinClientPlayerToServerGuild() {
 }
 
+bool UPalCheatManager::IsSkillCoolTime() const {
+    return false;
+}
+
 bool UPalCheatManager::IsShowCharacterStatus() const {
     return false;
 }
 
 bool UPalCheatManager::IsNotDecreaseWeaponItem() const {
+    return false;
+}
+
+bool UPalCheatManager::IsNotDecreaseDefenseBullet() const {
     return false;
 }
 
@@ -602,6 +646,9 @@ bool UPalCheatManager::IsActionName() const {
     return false;
 }
 
+void UPalCheatManager::InvokePlayerAction(const EPalActionType ActionType) {
+}
+
 void UPalCheatManager::InvaderMarchRandom() {
 }
 
@@ -643,6 +690,15 @@ void UPalCheatManager::HideTutorialQuest() {
 }
 
 void UPalCheatManager::HideDebugInfo() {
+}
+
+void UPalCheatManager::GivePlayerSkin(FName SkinName) {
+}
+
+void UPalCheatManager::GivePlatformPromotionItem() {
+}
+
+void UPalCheatManager::GivePlatformInventoryItem(int32 ItemId, int32 Num) {
 }
 
 void UPalCheatManager::GetRelic(int32 Count) {
@@ -705,6 +761,9 @@ void UPalCheatManager::ForceDisableTimerLight() {
 void UPalCheatManager::ForceDisablePalMeshCollision() {
 }
 
+void UPalCheatManager::ForceArenaExitAll() {
+}
+
 void UPalCheatManager::FootIKEnable() {
 }
 
@@ -718,6 +777,9 @@ void UPalCheatManager::FixedSP() {
 }
 
 void UPalCheatManager::FixedActionRandomSeed() {
+}
+
+void UPalCheatManager::FetchMapObjectsTickIntervalInBackground() {
 }
 
 void UPalCheatManager::ExitGuildPlayer(const FString& GuildName, APalPlayerCharacter* Player) {
@@ -747,6 +809,9 @@ void UPalCheatManager::EnableStatPlayerInfo() {
 void UPalCheatManager::EnableStatPalnet() {
 }
 
+void UPalCheatManager::EnableStatPalNavigation() {
+}
+
 void UPalCheatManager::EnableCommandToServer() {
 }
 
@@ -754,6 +819,12 @@ void UPalCheatManager::EnableCollectServerPalCount() {
 }
 
 void UPalCheatManager::EasyGamePreset() {
+}
+
+void UPalCheatManager::DumpMapObjectOctreeStats() {
+}
+
+void UPalCheatManager::DropSupply() {
 }
 
 void UPalCheatManager::DropItems(const FName StaticItemId, const int32 Num, const int32 DropCount) {
@@ -789,7 +860,16 @@ void UPalCheatManager::DisableEnemyEyeSight() {
 void UPalCheatManager::DeleteWorldAndShutdownRemoteServer() {
 }
 
+void UPalCheatManager::DeletePlayerSkin(FName SkinName) {
+}
+
 void UPalCheatManager::DeletePlayerAndQuitGame() {
+}
+
+void UPalCheatManager::DeleteAllMapObjectSpawner() {
+}
+
+void UPalCheatManager::DeleteAllMapObject() {
 }
 
 void UPalCheatManager::DebugWindow() {
@@ -840,10 +920,19 @@ void UPalCheatManager::CopyPlayerUId() {
 void UPalCheatManager::CopyPlayerLocation() {
 }
 
+void UPalCheatManager::ConsumePlatformInventoryItem(int32 ItemId, int32 Num) {
+}
+
 void UPalCheatManager::CommandToServer(const FString& Command) {
 }
 
 void UPalCheatManager::CleatDebugInfoText() {
+}
+
+void UPalCheatManager::ClearSupply() {
+}
+
+void UPalCheatManager::ClearPlatformInventoryItem() {
 }
 
 void UPalCheatManager::CheckFoliageChunkStatus(const bool bShowInstanceDetail, const bool bShowGridDetail) {
@@ -880,6 +969,9 @@ void UPalCheatManager::CaptureAllMonsters() {
 }
 
 void UPalCheatManager::CaptureAllEnemy() {
+}
+
+void UPalCheatManager::CancelPlayerAction(const EPalActionType ActionType) {
 }
 
 void UPalCheatManager::BuildNotConsumeMaterials() {

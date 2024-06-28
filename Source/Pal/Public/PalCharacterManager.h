@@ -62,6 +62,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<UPalIndividualCharacterParameter*> CachedIndividualParameterList;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSet<FPalInstanceID> LoadedCharacterIDs;
+    
 public:
     UPalCharacterManager();
 

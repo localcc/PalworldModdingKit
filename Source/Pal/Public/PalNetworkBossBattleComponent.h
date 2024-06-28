@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "EPalBossBattleCombatResult.h"
+#include "EPalBossBattleDifficulty.h"
 #include "EPalBossBattleSequenceType.h"
 #include "EPalBossType.h"
 #include "PalStageInstanceId.h"
@@ -25,7 +26,7 @@ public:
     void RequestBossBattleStart_ToClient(bool IsSuccess, EPalBossType BossType, const FPalStageInstanceId StageInstanceId, const TArray<APalPlayerCharacter*>& JoinPlayers);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void RequestBossBattleEntry_ToServer(EPalBossType BossType, APalPlayerCharacter* EntryPlayer);
+    void RequestBossBattleEntry_ToServer(EPalBossType BossType, EPalBossBattleDifficulty Difficulty, APalPlayerCharacter* EntryPlayer);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void RemovePlayerFromRoom_ToClient(EPalBossType BossType, APalPlayerCharacter* DeadPlayer);

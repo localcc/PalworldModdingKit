@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "Framework/Text/TextLayout.h"
 #include "EPalDialogType.h"
 #include "PalDialogBoolCallbackDelegate.h"
 #include "PalDialogCallbackDelegate.h"
@@ -17,6 +18,9 @@ public:
     FText Message;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TEnumAsByte<ETextJustify::Type> TextJustify;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FPalDialogBoolCallback Callback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -29,6 +33,7 @@ public:
     bool IsEnableShortcutConfirmInput;
     
     UPalDialogParameterBase();
+
     UFUNCTION(BlueprintCallable)
     void InvokeCallback(const bool bResult);
     

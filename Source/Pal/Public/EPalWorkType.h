@@ -33,6 +33,7 @@ enum class EPalWorkType : uint8 {
     MonsterFarm,
     ExtinguishBurn,
     Cool,
+    Watering_Farm,
     Attack,
     CollectItemToStorage,
     TransportItem,

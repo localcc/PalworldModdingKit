@@ -75,6 +75,9 @@ void UPalHUDService::CloseOverlayUIAll() {
 void UPalHUDService::Close(const FGuid& ID) {
 }
 
+void UPalHUDService::ClearFadeQueue() {
+}
+
 FGuid UPalHUDService::AddWorldHUD(FPalWorldHUDParameter Parameter) {
     return FGuid{};
 }

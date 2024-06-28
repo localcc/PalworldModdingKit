@@ -1,5 +1,6 @@
 #include "PalNetworkTransmitter.h"
 #include "Components/SceneComponent.h"
+#include "PalNetworkArenaComponent.h"
 #include "PalNetworkBaseCampComponent.h"
 #include "PalNetworkBossBattleComponent.h"
 #include "PalNetworkCharacterComponent.h"
@@ -37,6 +38,7 @@ APalNetworkTransmitter::APalNetworkTransmitter(const FObjectInitializer& ObjectI
     this->Invader = CreateDefaultSubobject<UPalNetworkInvaderComponent>(TEXT("Invader"));
     this->CharacterStatusOperation = CreateDefaultSubobject<UPalNetworkCharacterStatusOperationComponent>(TEXT("CharacterStatusOperation"));
     this->RaidBoss = CreateDefaultSubobject<UPalNetworkRaidBossComponent>(TEXT("RaidBoss"));
+    this->Arena = CreateDefaultSubobject<UPalNetworkArenaComponent>(TEXT("Arena"));
     this->NetworkIndividualComponent = CreateDefaultSubobject<UPalNetworkIndividualComponent>(TEXT("NetworkIndividualComponent"));
 }
 
@@ -116,6 +118,10 @@ UPalNetworkBossBattleComponent* APalNetworkTransmitter::GetBossBattle() const {
 }
 
 UPalNetworkBaseCampComponent* APalNetworkTransmitter::GetBaseCamp() const {
+    return NULL;
+}
+
+UPalNetworkArenaComponent* APalNetworkTransmitter::GetArena() const {
     return NULL;
 }
 

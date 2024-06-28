@@ -62,7 +62,7 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     UPalBaseCampMapObjectCollection* MapObjectCollection;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     UPalBaseCampWorkCollection* WorkCollection;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -123,6 +123,9 @@ private:
     void OnAddNewWorker(UPalIndividualCharacterHandle* AddCharacterHandle);
     
 public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsAvailable() const;
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalBaseCampWorkCollection* GetWorkCollection() const;
     

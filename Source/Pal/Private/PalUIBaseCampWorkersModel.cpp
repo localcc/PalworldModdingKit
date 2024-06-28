@@ -4,7 +4,7 @@ UPalUIBaseCampWorkersModel::UPalUIBaseCampWorkersModel() {
     this->CurrentPageIndex = 0;
 }
 
-void UPalUIBaseCampWorkersModel::ToPage(const int32 PageIndex) {
+void UPalUIBaseCampWorkersModel::ToPage(const int32 pageIndex) {
 }
 
 void UPalUIBaseCampWorkersModel::SelectHandleSlot(const int32 DisplayIndex, const EPalItemSlotPressType PressType) {
@@ -25,7 +25,7 @@ TArray<UPalIndividualCharacterSlot*> UPalUIBaseCampWorkersModel::GetCurrentPageS
     return TArray<UPalIndividualCharacterSlot*>();
 }
 
-UPalBaseCampModel* UPalUIBaseCampWorkersModel::GetBaseCampModel(const int32 PageIndex) const {
+UPalBaseCampModel* UPalUIBaseCampWorkersModel::GetBaseCampModel(const int32 pageIndex) const {
     return NULL;
 }
 

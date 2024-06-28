@@ -9,5 +9,7 @@ enum class EPalBaseCampModuleTransportItemTransportPriority : uint8 {
     BaseCampChestHigh,
     Requirement,
     FoodBox,
+    FoodBoxCooling,
+    SpecificItemHighest,
 };
 

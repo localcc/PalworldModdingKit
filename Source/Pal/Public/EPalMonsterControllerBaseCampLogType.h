@@ -4,6 +4,7 @@
 
 UENUM(BlueprintType)
 enum class EPalMonsterControllerBaseCampLogType : uint8 {
+    Undefined,
     SuccessFixedAssign,
     FailedFixedAssignSimple,
     FailedFixedAssignWithTargetWork,

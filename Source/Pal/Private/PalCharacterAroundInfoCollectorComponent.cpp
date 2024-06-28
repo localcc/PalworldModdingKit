@@ -4,6 +4,9 @@ UPalCharacterAroundInfoCollectorComponent::UPalCharacterAroundInfoCollectorCompo
     this->ComponentTags.AddDefaulted(1);
 }
 
+void UPalCharacterAroundInfoCollectorComponent::OnSetMapObjectModel(APalMapObject* MapObject) {
+}
+
 void UPalCharacterAroundInfoCollectorComponent::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex) {
 }
 

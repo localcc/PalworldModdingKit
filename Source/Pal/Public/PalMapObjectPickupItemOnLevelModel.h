@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "EPalActionType.h"
 #include "EPalMapObjectItemCollectableType.h"
 #include "PalMapObjectItemCollectableInterface.h"
 #include "PalMapObjectPickableItemModelBase.h"
@@ -14,6 +15,12 @@ public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FName VisualStaticItemId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float LongHoldInteractDuration;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    EPalActionType InteractPlayerActionType;
     
 public:
     UPalMapObjectPickupItemOnLevelModel();

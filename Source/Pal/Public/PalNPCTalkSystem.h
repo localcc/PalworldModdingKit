@@ -8,7 +8,6 @@
 #include "PalNPCTalkSystem.generated.h"
 
 class UDataTable;
-class UFunction;
 class UPalTalkWidgetParameter;
 class UPalTalkWindowWidgetBase;
 
@@ -36,7 +35,7 @@ private:
     TArray<FName> defaultYesNoChoiceText;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UFunction* targetFunc;
+    FName CustomFuncName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* FuncParam;

@@ -20,6 +20,7 @@ UPalCharacterMovementComponent::UPalCharacterMovementComponent(const FObjectInit
     this->bIsEnableSkySliding = false;
     this->ClimbMaxSpeed = 100.00f;
     this->RollingMaxSpeed = 0.00f;
+    this->GrapplingMaxSpeed = 0.00f;
     this->LastLandedTransformCacheNum = 30;
     this->bIsUseLastLandedCache = false;
     this->bRequestCrouch = false;
@@ -31,7 +32,6 @@ UPalCharacterMovementComponent::UPalCharacterMovementComponent(const FObjectInit
     this->TransportSpeed_Default = 0.00f;
     this->TemporaryAccelerationTimeCount = 0.00f;
     this->IsFlyDashMode = false;
-    this->bIsGrapplingMoving = false;
     this->DefaultMaxStepHeight = 0.00f;
     this->CustomMovementMode_ForReplicate = EPalCharacterMovementCustomMode::None;
     this->InWaterRate = 0.65f;
@@ -42,6 +42,9 @@ UPalCharacterMovementComponent::UPalCharacterMovementComponent(const FObjectInit
     this->WaterPlaneZPrev = 340282346638528859811704183484516925440.00f;
     this->WaitTimeToSwimInFalling = 0.00f;
     this->bIsDashSwim = false;
+}
+
+void UPalCharacterMovementComponent::StartGrappling(const FVector& HitLocation, const FVector& HitNormal) {
 }
 
 void UPalCharacterMovementComponent::SetYawRotatorMultiplier(FName flagName, float Rate) {
@@ -74,7 +77,7 @@ void UPalCharacterMovementComponent::SetSlidingDisbleFlag(FName flagName, bool D
 void UPalCharacterMovementComponent::SetSlideAlphaMultiplier(FName flagName, float Rate) {
 }
 
-void UPalCharacterMovementComponent::SetPysicsAccelerationFlag(FName flagName, bool isEnable) {
+void UPalCharacterMovementComponent::SetPysicsAccelerationFlag(FName flagName, bool IsEnable) {
 }
 
 void UPalCharacterMovementComponent::SetNavWalkDisableFlag(FName flagName, bool isDisable) {
@@ -95,9 +98,6 @@ void UPalCharacterMovementComponent::SetInputDisableFlag(FName flagName, bool is
 void UPalCharacterMovementComponent::SetGravityZMultiplier(FName flagName, float Rate) {
 }
 
-void UPalCharacterMovementComponent::SetGrapplingMoving(bool IsMoving) {
-}
-
 void UPalCharacterMovementComponent::SetGliderDisbleFlag(FName flagName, bool Disable) {
 }
 
@@ -107,7 +107,7 @@ void UPalCharacterMovementComponent::SetForceMaxAccel(bool bIsEnable) {
 void UPalCharacterMovementComponent::SetFlyDashMode_ToServer_Implementation(bool IsDash) {
 }
 
-void UPalCharacterMovementComponent::SetDriveMoveFlag(FName flagName, bool isEnable) {
+void UPalCharacterMovementComponent::SetDriveMoveFlag(FName flagName, bool IsEnable) {
 }
 
 void UPalCharacterMovementComponent::SetDisableLeftHandAttachFlag(bool isDisable) {
@@ -197,7 +197,7 @@ bool UPalCharacterMovementComponent::IsInputDisabled() const {
     return false;
 }
 
-bool UPalCharacterMovementComponent::IsGrapplingMoving() const {
+bool UPalCharacterMovementComponent::IsGrappling() const {
     return false;
 }
 
@@ -275,6 +275,18 @@ float UPalCharacterMovementComponent::GetInWaterRate() const {
 
 float UPalCharacterMovementComponent::GetGravityZMultiplier() const {
     return 0.0f;
+}
+
+FVector UPalCharacterMovementComponent::GetGrapplingMoveHitLocation() const {
+    return FVector{};
+}
+
+FVector UPalCharacterMovementComponent::GetGrapplingMoveEndLocation() const {
+    return FVector{};
+}
+
+FVector UPalCharacterMovementComponent::GetGrapplingHitNormal() const {
+    return FVector{};
 }
 
 float UPalCharacterMovementComponent::GetDefaultRunSpeed() {

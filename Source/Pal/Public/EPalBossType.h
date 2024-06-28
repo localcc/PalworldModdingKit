@@ -10,5 +10,6 @@ enum class EPalBossType : uint8 {
     ForestBoss,
     SnowBoss,
     DesertBoss,
+    SakurajimaBoss,
 };
 

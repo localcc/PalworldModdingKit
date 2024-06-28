@@ -20,7 +20,7 @@ public:
     int32 WorkSpeed;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 maxInventoryWeight;
+    int32 MaxInventoryWeight;
     
     PAL_API FPalGainStatusPointsItemDataRow();
 };

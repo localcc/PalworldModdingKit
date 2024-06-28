@@ -4,7 +4,7 @@
 UPalBulletCreator::UPalBulletCreator() {
 }
 
-APalBullet* UPalBulletCreator::SpawnBullet(const UObject* WorldContextObject, TSubclassOf<APalBullet> bulletClass, const FTransform& SpawnTransform, ESpawnActorCollisionHandlingMethod collisionHandlingOverride, AActor* Owner, APawn* instigato) {
+APalBullet* UPalBulletCreator::SpawnBullet(const UObject* WorldContextObject, TSubclassOf<APalBullet> BulletClass, const FTransform& SpawnTransform, ESpawnActorCollisionHandlingMethod collisionHandlingOverride, AActor* Owner, APawn* instigato) {
     return NULL;
 }
 

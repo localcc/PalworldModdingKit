@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "PalPlayerSkinInfo.h"
 #include "PalPlayerDataCharacterMakeInfo.generated.h"
 
 USTRUCT(BlueprintType)
@@ -54,6 +55,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 VoiceID;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalPlayerSkinInfo SkinInfo;
     
     PAL_API FPalPlayerDataCharacterMakeInfo();
 };

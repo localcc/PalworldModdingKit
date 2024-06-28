@@ -12,6 +12,9 @@ UPalIncidentBase::UPalIncidentBase() {
 void UPalIncidentBase::Tick_Implementation(float DeltaTime) {
 }
 
+void UPalIncidentBase::Start() {
+}
+
 void UPalIncidentBase::SetDynamicParameter(UPalIncidentDynamicParameter* Parameter) {
 }
 

@@ -66,6 +66,9 @@ private:
     void OnEnterBaseCamp(UPalBaseCampModel* BaseCampModel);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsSnapMode() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInstallAtReticle() const;
     
 public:

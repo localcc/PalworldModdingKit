@@ -5,6 +5,7 @@
 #include "PalDataTableRowName_FieldLotteryNameData.h"
 #include "PalDataTableRowName_MapObjectData.h"
 #include "PalMapObjectSpawnerSingleBase.h"
+#include "PalMapObjectSpawnerTreasureBoxLotteryParameter.h"
 #include "PalMapObjectSpawnerTreasureBox.generated.h"
 
 UCLASS(Blueprintable)
@@ -17,6 +18,12 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalDataTableRowName_FieldLotteryNameData FieldLotteryName;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bLotteryByMultiTreasureBoxLotteryParameters;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FPalMapObjectSpawnerTreasureBoxLotteryParameter> MultiTreasureBoxLotteryParameters;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float RespawnTimeMinutesObtained;

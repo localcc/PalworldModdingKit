@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "Framework/Text/TextLayout.h"
 #include "EPalDialogType.h"
 #include "PalDialogParameterBase.h"
 #include "PalDialogParameterDialog.generated.h"
@@ -12,8 +13,9 @@ public:
     bool bDefaultNegative;
     
     UPalDialogParameterDialog();
+
     UFUNCTION(BlueprintCallable)
-    void SetParameters(const FText InMessage, const EPalDialogType InDialogType, const bool bInNegativeDefault);
+    void SetParameters(const FText InMessage, const EPalDialogType InDialogType, const bool bInNegativeDefault, const TEnumAsByte<ETextJustify::Type> OverrideJustify);
     
 };
 

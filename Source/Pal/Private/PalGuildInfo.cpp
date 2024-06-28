@@ -15,7 +15,7 @@ void APalGuildInfo::OnRep_Guild(const UPalGroupGuildBase* OldValue) {
 void APalGuildInfo::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
-    DOREPLIFETIME(APalGuildInfo, GroupID);
+    DOREPLIFETIME(APalGuildInfo, GroupId);
     DOREPLIFETIME(APalGuildInfo, Guild);
 }
 

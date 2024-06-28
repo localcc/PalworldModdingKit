@@ -10,7 +10,7 @@ class PAL_API UPalAIActionBaseCampChildBase : public UPalAIActionBase {
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TWeakObjectPtr<UPalAIActionBaseCampBase> BaseCampParentAction;
     
 public:

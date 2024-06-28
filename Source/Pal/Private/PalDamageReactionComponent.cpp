@@ -50,6 +50,10 @@ bool UPalDamageReactionComponent::IsIgnoreElementStatus(EPalAdditionalEffectType
     return false;
 }
 
+FPalInstanceID UPalDamageReactionComponent::GetLastAttackerInstanceID() {
+    return FPalInstanceID{};
+}
+
 void UPalDamageReactionComponent::ForceDamageDelegateForCaptureBall(AActor* Attacker) {
 }
 

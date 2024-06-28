@@ -10,7 +10,7 @@ FPalCharacterParameterDatabaseRow::FPalCharacterParameterDatabaseRow() {
     this->ElementType2 = EPalElementType::None;
     this->GenusCategory = EPalGenusCategoryType::None;
     this->Organization = EPalOrganizationType::None;
-    this->weapon = EPalWeaponType::None;
+    this->Weapon = EPalWeaponType::None;
     this->WeaponEquip = false;
     this->HP = 0;
     this->MeleeAttack = 0;
@@ -24,6 +24,7 @@ FPalCharacterParameterDatabaseRow::FPalCharacterParameterDatabaseRow() {
     this->CaptureRateCorrect = 0.00f;
     this->ExpRatio = 0.00f;
     this->Price = 0.00f;
+    this->StatusResistUpRate = 0.00f;
     this->SlowWalkSpeed = 0;
     this->WalkSpeed = 0;
     this->RunSpeed = 0;
@@ -32,6 +33,7 @@ FPalCharacterParameterDatabaseRow::FPalCharacterParameterDatabaseRow() {
     this->IsBoss = false;
     this->IsTowerBoss = false;
     this->IsRaidBoss = false;
+    this->UseBossHPGauge = false;
     this->BattleBGM = EPalBattleBGMType::None;
     this->IgnoreLeanBack = false;
     this->IgnoreBlowAway = false;

@@ -13,9 +13,6 @@ void UPalMapObjectPickableCharacterModelBase::RequestPickup() {
 void UPalMapObjectPickableCharacterModelBase::OnRemovedStoredCharacter_ServerInternal(const FPalCharacterStoredParameterId& RemovedID) {
 }
 
-void UPalMapObjectPickableCharacterModelBase::OnDisappearTimeAt() {
-}
-
 FPalIndividualCharacterSaveParameter UPalMapObjectPickableCharacterModelBase::GetCharacterSaveParameter() const {
     return FPalIndividualCharacterSaveParameter{};
 }

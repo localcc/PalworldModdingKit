@@ -18,6 +18,9 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FNotifyWorkProgressDelegate OnReflectWorkAmountDelegate;
     
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FNotifyWorkProgressDelegate OnChangedInProgressDelegate;
+    
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     float RequiredWorkAmount;
@@ -43,12 +46,18 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float ProgressTimeSinceLastTick;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_InProgress, meta=(AllowPrivateAccess=true))
+    bool bInProgress;
+    
 public:
     UPalWorkProgress();
 
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
 protected:
+    UFUNCTION(BlueprintCallable)
+    void OnRep_InProgress();
+    
     UFUNCTION(BlueprintCallable)
     void OnRep_CurrentWorkAmount();
     

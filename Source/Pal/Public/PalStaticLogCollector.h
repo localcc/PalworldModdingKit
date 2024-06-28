@@ -20,6 +20,7 @@ private:
     
 public:
     UPalStaticLogCollector();
+
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void RegisterLogCollectEvent_BP();
     
@@ -28,10 +29,10 @@ private:
     void OnReadyPlayerInventoryData(UPalPlayerDataStorage* PlayerDataStorage);
     
     UFUNCTION(BlueprintCallable)
-    void OnOverWeightInventory(float nowWeight);
+    void OnOverWeightInventory(float NowWeight);
     
     UFUNCTION(BlueprintCallable)
-    void OnFixedWeightInventory(float nowWeight);
+    void OnFixedWeightInventory(float NowWeight);
     
     UFUNCTION(BlueprintCallable)
     void OnEndedWorldAutoSave(bool IsSuccess);

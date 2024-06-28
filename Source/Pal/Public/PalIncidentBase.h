@@ -6,6 +6,7 @@
 #include "PalIncidentExecutionSettings.h"
 #include "PalIncidentIdParameter.h"
 #include "PalIncidentSystemFunctionAccessor.h"
+#include "PalNPCTalkSystemCustomFunctionParameters.h"
 #include "PalIncidentBase.generated.h"
 
 class UPalIncidentBase;
@@ -47,8 +48,12 @@ private:
     
 public:
     UPalIncidentBase();
+
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void Tick(float DeltaTime);
+    
+    UFUNCTION(BlueprintCallable)
+    void Start();
     
     UFUNCTION(BlueprintCallable)
     void SetDynamicParameter(UPalIncidentDynamicParameter* Parameter);
@@ -71,6 +76,9 @@ public:
     void OnEnd();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnCustomEvent(const FName& CustomEventName, const FPalNPCTalkSystemCustomFunctionParameters& Parameter);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnChildInitialized(UPalIncidentBase* Child);
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
@@ -81,6 +89,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInitialized() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    bool IsExistCustomEvent(const FName& CustomEventName);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsExecuting() const;

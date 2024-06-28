@@ -4,6 +4,7 @@ UPalAnimNotifyState_AttackCollision::UPalAnimNotifyState_AttackCollision() {
     this->bIsEnableHitStop = false;
     this->OverrideHitStopTime = 0.20f;
     this->AttackFilter = NULL;
+    this->bImmediateUpdateOverlaps = false;
     this->ShapeComponent = NULL;
 }
 

@@ -12,6 +12,9 @@ void UPalMapObjectProductItemModel::ReceivePickupItemResult_Client(const FPalNet
 void UPalMapObjectProductItemModel::PickupItem_ServerInternal(const int32 PlayerId) {
 }
 
+void UPalMapObjectProductItemModel::OnUpdateEnergyModuleState(UPalMapObjectEnergyModule* EnergyModule) {
+}
+
 void UPalMapObjectProductItemModel::OnUpdateContainerContent(UPalItemContainer* Container) {
 }
 

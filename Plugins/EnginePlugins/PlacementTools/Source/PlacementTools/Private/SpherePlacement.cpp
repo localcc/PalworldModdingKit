@@ -6,5 +6,6 @@ ASpherePlacement::ASpherePlacement() {
     this->SphereBrush = CreateDefaultSubobject<USphereComponent>(TEXT("SphereBrush"));
     this->FadeDirection = All;
     this->TraceChannel = ECC_Visibility;
+    this->SphereBrush->SetupAttachment(RootComponent);
 }
 

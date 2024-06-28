@@ -30,5 +30,11 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnCompletedInitParam(APalCharacter* InCharacter);
     
+    UFUNCTION(BlueprintCallable)
+    void MasterWazaUpdateWhenLevelUp(int32 addLevel, int32 nowLevel);
+    
+    UFUNCTION(BlueprintCallable)
+    void MasterWazaSetup(APalCharacter* InCharacter);
+    
 };
 

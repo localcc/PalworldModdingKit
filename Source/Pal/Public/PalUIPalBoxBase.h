@@ -1,8 +1,8 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
-#include "EPalCharacterContainerSortType.h"
 #include "EPalItemSlotPressType.h"
+#include "PalCharacterContainerSortInfo.h"
 #include "PalUserWidgetOverlayUI.h"
 #include "PalUIPalBoxBase.generated.h"
 
@@ -14,6 +14,7 @@ class PAL_API UPalUIPalBoxBase : public UPalUserWidgetOverlayUI {
     GENERATED_BODY()
 public:
     UPalUIPalBoxBase();
+
     UFUNCTION(BlueprintCallable)
     void TryMoveToOtomo(UPalIndividualCharacterSlot* MoveSlot);
     
@@ -24,7 +25,7 @@ public:
     void TryMoveToBaseCamp(UPalIndividualCharacterSlot* MoveSlot);
     
     UFUNCTION(BlueprintCallable)
-    void TryLoosePal(UPalIndividualCharacterSlot* targetSlot);
+    void TryLoosePal(UPalIndividualCharacterSlot* TargetSlot);
     
     UFUNCTION(BlueprintCallable)
     void SetPagePalBoxList(int32 newPage);
@@ -33,11 +34,11 @@ public:
     void SetBaseCampId(const FGuid& BaseCampId);
     
     UFUNCTION(BlueprintCallable)
-    void SelectCharacterSlot(UPalIndividualCharacterSlot* targetSlot, const EPalItemSlotPressType PressType);
+    void SelectCharacterSlot(UPalIndividualCharacterSlot* TargetSlot, const EPalItemSlotPressType PressType);
     
 protected:
     UFUNCTION(BlueprintCallable)
-    void RequestSortBox(EPalCharacterContainerSortType SortType);
+    void RequestSortBox(const FPalCharacterContainerSortInfo& SortInfo);
     
 private:
     UFUNCTION(BlueprintCallable)

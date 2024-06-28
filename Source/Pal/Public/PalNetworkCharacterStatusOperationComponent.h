@@ -5,6 +5,7 @@
 #include "EPalCharacterStatusOperationResult.h"
 #include "PalCharacterStatusOperationResultDelegateDelegate.h"
 #include "PalInstanceID.h"
+#include "PalStatusAndRank.h"
 #include "PalNetworkCharacterStatusOperationComponent.generated.h"
 
 class APalCharacter;
@@ -61,11 +62,11 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void RequestOtomoStatusPointAdd_ToServer(const FPalInstanceID& IndividualId, const EPalCharacterStatusOperationName StatusName, const int32 ToRank);
+    void RequestOtomoStatusPointAdd_ToServer(const FPalInstanceID& IndividualId, const TArray<FPalStatusAndRank>& ToStatusRank);
     
 public:
     UFUNCTION(BlueprintCallable)
-    void RequestOtomoStatusPointAdd(const UPalIndividualCharacterHandle* IndividualHandle, const EPalCharacterStatusOperationName StatusName, const int32 ToRank);
+    void RequestOtomoStatusPointAdd(const UPalIndividualCharacterHandle* IndividualHandle, const TMap<EPalCharacterStatusOperationName, int32> ToStatusRank);
     
 private:
     UFUNCTION(BlueprintCallable, Client, Reliable)

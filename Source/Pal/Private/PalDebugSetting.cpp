@@ -41,6 +41,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bIsCaptureFailAlways_BounceBall = false;
     this->bIsShowActionName = false;
     this->bIsShowCharacterStatus = false;
+    this->bIsShowSkillCoolTime = false;
     this->bIsShowCharacterTickInfo = false;
     this->bIsWazaCoolTimeFast = false;
     this->bIsShowUseRootMotion = false;
@@ -82,7 +83,9 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bIsDisableShiftKey = false;
     this->IsSpawnAlwaysFromSpawner = false;
     this->IsDisableSpawner = false;
-    this->bIsEnableRandomizeSpawner = false;
+    this->bIsRandomizerType_Override = false;
+    this->RandomizerType_Override = EPalRandomizerType::None;
+    this->bIsRandomizerSeed_Override = false;
     this->OverrideSpawnRadius = -1.00f;
     this->OverrideDespawnRadius = -1.00f;
     this->bIsPlayerCompleteSTEALTH = false;
@@ -93,6 +96,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bIsShowOrganization = false;
     this->bCanAccessToOtherGuildMapObject = false;
     this->ExpireGuildEnterRequestLogInfoMinutes = -1;
+    this->bActiveLog_UPalGroupManager_IsInGuild = false;
     this->bFirstBuildPalBox = false;
     this->WorkExtraRate = 1.00f;
     this->bIsDisableFootIK = false;
@@ -153,6 +157,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bPassiveSkill_CollectItem_10Sec = false;
     this->bPassiveSkill_LifeSteal_DisplayRecoverHp = false;
     this->bLogMapObjectFailedSpawn = false;
+    this->bShowMapObjectDebugDistanceInfinity = false;
     this->bShowMapObjectStatus = false;
     this->bShowMapObjectFoliageStatus = false;
     this->ShowMapObjectStatusRange = 1000.00f;
@@ -180,7 +185,9 @@ UPalDebugSetting::UPalDebugSetting() {
     this->actionRandomSeed = 1192;
     this->bAvailableBuildObjectInDevelop = false;
     this->bShowBuildObjectInstallCheck = false;
+    this->bDisableObstacleCheckFromCameraInBuild = false;
     this->bDrawDebugInstallConnection = false;
+    this->bDrawDebugSnapMode = false;
     this->bUseEagleForGlider = false;
     this->bEquipDefaultGlider = true;
     this->ExtraHpRegenRateInSleepingBed = 1.00f;
@@ -249,6 +256,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bDrawDefenseAttackableRange = false;
     this->bShowDefenseAttackTarget = false;
     this->ShowDefenseRange = 2000.00f;
+    this->bNotDecreaseDefenseBullet = false;
     this->bDisableInteractRecicleTarget = false;
     this->bShowStageDeathPenaltyLocation = false;
     this->bForceLocationTeleport = false;
@@ -256,6 +264,13 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bShowStreamingLevel = false;
     this->bShowInteractPoints = false;
     this->bEnableArenaTest = false;
+    this->EnableBossBattleHard = false;
+    this->bLoadWorldOptionInTestLevel = false;
+    this->bOilrigGoalShow = false;
+    this->bIgnoreTreasureBoxKey = false;
+    this->bAllUnlockSkin = false;
+    this->bEnableUserAchievementDebug = false;
+    this->HardTowerBossDebugNo = 0;
 }
 
 

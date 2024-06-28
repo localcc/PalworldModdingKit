@@ -1,7 +1,8 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
 #include "PalAIActionBase.h"
+#include "PalBaseCampWorkerWalkAroundDynamicInfo.h"
+#include "PalBaseCampWorkerWalkAroundSettings.h"
 #include "PalAIActionBaseCampDodgeWork.generated.h"
 
 UCLASS(Blueprintable, EditInlineNew)
@@ -10,15 +11,13 @@ class PAL_API UPalAIActionBaseCampDodgeWork : public UPalAIActionBase {
 public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float WalkAroundArrivalRange;
+    FPalBaseCampWorkerWalkAroundSettings WalkAroundSettings;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float WalkAroundNextDistance;
-    
-    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
-    FFloatInterval WalkAroundRandomTime;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FPalBaseCampWorkerWalkAroundDynamicInfo WalkAroundDynamicInfo;
     
 public:
     UPalAIActionBaseCampDodgeWork();
+
 };
 

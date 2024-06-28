@@ -1,14 +1,16 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "EPalActionType.h"
 #include "EPalMapObjectTreasureGradeType.h"
+#include "PalBaseCampAssignableObjectInterface.h"
 #include "PalItemAndNum.h"
 #include "PalMapObjectConcreteModelBase.h"
 #include "PalNetArchive.h"
 #include "PalMapObjectTreasureBoxModel.generated.h"
 
 UCLASS(Blueprintable)
-class PAL_API UPalMapObjectTreasureBoxModel : public UPalMapObjectConcreteModelBase {
+class PAL_API UPalMapObjectTreasureBoxModel : public UPalMapObjectConcreteModelBase, public IPalBaseCampAssignableObjectInterface {
     GENERATED_BODY()
 public:
 private:
@@ -21,6 +23,12 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bOpened;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float LongHoldInteractDuration;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    EPalActionType InteractPlayerActionType;
+    
 public:
     UPalMapObjectTreasureBoxModel();
 
@@ -28,7 +36,10 @@ public:
 
 private:
     UFUNCTION(BlueprintCallable)
-    void RequestOpen_ServerInternal(const int32 RequestPlayerId);
+    void RequestPicking_ServerInternal(const int32 RequestPlayerId);
+    
+    UFUNCTION(BlueprintCallable)
+    void RequestOpen_ServerInternal(const int32 RequestPlayerId, bool IgnoreOpenItem);
     
     UFUNCTION(BlueprintCallable)
     void ReceiveOpenSuccess_ClientInternal(const FPalNetArchive& Archive);
@@ -36,7 +47,16 @@ private:
     UFUNCTION(BlueprintCallable)
     void ReceiveOpenFailed_ClientInternal(const FPalNetArchive& Archive);
     
-protected:
+    UFUNCTION(BlueprintCallable)
+    void OpenPickingGame_ClientInternal();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnEndPickingGame(bool IsSuccess);
+    
+    UFUNCTION(BlueprintCallable)
+    void NotifyPickingGameResult_ServerInternal(const int32 RequestPlayerId, bool IsSuccess);
+    
+public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     EPalMapObjectTreasureGradeType GetTreasureGradeType() const;
     

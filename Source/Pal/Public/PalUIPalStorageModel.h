@@ -26,11 +26,12 @@ protected:
     
 public:
     UPalUIPalStorageModel();
+
     UFUNCTION(BlueprintCallable)
     void ToPrevPage();
     
     UFUNCTION(BlueprintCallable)
-    void ToPage(const int32 PageIndex, const bool bForce);
+    void ToPage(const int32 pageIndex, const bool bForce);
     
     UFUNCTION(BlueprintCallable)
     void ToNextPage();

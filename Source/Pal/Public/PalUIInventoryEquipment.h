@@ -12,6 +12,10 @@ class PAL_API UPalUIInventoryEquipment : public UPalUserWidget {
 public:
     UPalUIInventoryEquipment();
 
+protected:
+    UFUNCTION(BlueprintCallable)
+    void ToggleHeadEquipVisible();
+    
 private:
     UFUNCTION(BlueprintCallable)
     void SwapItemSlot(UPalItemSlot* SlotA, UPalItemSlot* SlotB);

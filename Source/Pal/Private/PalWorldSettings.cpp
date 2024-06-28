@@ -11,6 +11,7 @@ APalWorldSettings::APalWorldSettings(const FObjectInitializer& ObjectInitializer
     this->InvaderManagerClass = NULL;
     this->IncidentSystemClass = NULL;
     this->FunnelCharacterManagerClass = NULL;
+    this->ArenaWorldSubsystemClass = NULL;
     this->bRequestCharacterMake = false;
 }
 

@@ -6,6 +6,7 @@ UPalDynamicWeaponItemDataBase::UPalDynamicWeaponItemDataBase() {
     this->MaxDurability = 0.00f;
     this->OldDurability = -1.00f;
     this->RemainingBullets = 0;
+    this->ForceUpdateBulletsCounter = 0;
 }
 
 int32 UPalDynamicWeaponItemDataBase::UseBullets(int32 useNum) {
@@ -20,6 +21,9 @@ void UPalDynamicWeaponItemDataBase::SetDurability(float NewDurability) {
 }
 
 void UPalDynamicWeaponItemDataBase::SetBulletsNum(int32 bulletsNum) {
+}
+
+void UPalDynamicWeaponItemDataBase::OnRep_ForceUpdateBulletsCounter() {
 }
 
 void UPalDynamicWeaponItemDataBase::OnRep_Durability() {
@@ -63,6 +67,7 @@ void UPalDynamicWeaponItemDataBase::GetLifetimeReplicatedProps(TArray<FLifetimeP
     DOREPLIFETIME(UPalDynamicWeaponItemDataBase, MaxDurability);
     DOREPLIFETIME(UPalDynamicWeaponItemDataBase, RemainingBullets);
     DOREPLIFETIME(UPalDynamicWeaponItemDataBase, PassiveSkillList);
+    DOREPLIFETIME(UPalDynamicWeaponItemDataBase, ForceUpdateBulletsCounter);
 }
 
 

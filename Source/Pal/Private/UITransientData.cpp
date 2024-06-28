@@ -6,5 +6,6 @@ FUITransientData::FUITransientData() {
     this->NewsOpened = false;
     this->IsOpenedSurvivalGuide = false;
     this->ServerLobbyDialogOpened = false;
+    this->LoadingScreenLiving = false;
 }
 

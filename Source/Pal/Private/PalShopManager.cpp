@@ -1,7 +1,7 @@
 #include "PalShopManager.h"
 
 UPalShopManager::UPalShopManager() {
-    this->bShouldCreate = true;
+    this->ItemShopSettingDataTable = NULL;
     this->LostPalProduct_Tmp = NULL;
 }
 

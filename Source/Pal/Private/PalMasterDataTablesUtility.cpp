@@ -19,6 +19,14 @@ UDataTable* UPalMasterDataTablesUtility::GetUIInputActionDataTable(const UObject
     return NULL;
 }
 
+UPalMasterDataTableAccess_SpawnerPlacementData* UPalMasterDataTablesUtility::GetSpawnerPlacementDataTableAccess(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UDataTable* UPalMasterDataTablesUtility::GetSpawnerPlacementDataTable(const UObject* WorldContextObject) {
+    return NULL;
+}
+
 UPalMasterDataTableAccess_PlayerStatusRankData* UPalMasterDataTablesUtility::GetPlayerStatusRankDataTableAccess(const UObject* WorldContextObject) {
     return NULL;
 }
@@ -35,6 +43,14 @@ UDataTable* UPalMasterDataTablesUtility::GetPalShopDataTable(const UObject* Worl
     return NULL;
 }
 
+UPalMasterDataTableAccess_PalRandomizerData* UPalMasterDataTablesUtility::GetPalRandomizerDataTableAccess(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UDataTable* UPalMasterDataTablesUtility::GetPalRandomizerDataTable(const UObject* WorldContextObject) {
+    return NULL;
+}
+
 UPalNoteDataAsset* UPalMasterDataTablesUtility::GetNoteDataAsset(const UObject* WorldContextObject) {
     return NULL;
 }
@@ -47,7 +63,7 @@ UDataTable* UPalMasterDataTablesUtility::GetMapObjectDataTable(const UObject* Wo
     return NULL;
 }
 
-FText UPalMasterDataTablesUtility::GetLocalizedText(const UObject* WorldContextObject, EPalLocalizeTextCategory TextCategory, FName TextId) {
+FText UPalMasterDataTablesUtility::GetLocalizedText(const UObject* WorldContextObject, EPalLocalizeTextCategory TextCategory, FName textID) {
     return FText::GetEmpty();
 }
 

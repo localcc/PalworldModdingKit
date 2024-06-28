@@ -64,6 +64,7 @@ void UPalWorkBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLife
     
     DOREPLIFETIME(UPalWorkBase, AssignDefineDataId);
     DOREPLIFETIME(UPalWorkBase, OverrideWorkType);
+    DOREPLIFETIME(UPalWorkBase, AssignLocations);
     DOREPLIFETIME(UPalWorkBase, BaseCampIdBelongTo);
     DOREPLIFETIME(UPalWorkBase, OwnerMapObjectModelId);
     DOREPLIFETIME(UPalWorkBase, OwnerMapObjectConcreteModelId);

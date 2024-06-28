@@ -8,9 +8,6 @@ UPalMapObjectDropItemModel::UPalMapObjectDropItemModel() {
 void UPalMapObjectDropItemModel::OnUpdateItemContainerContentInServer(UPalItemContainer* Container) {
 }
 
-void UPalMapObjectDropItemModel::OnInteracting(float DeltaTime) {
-}
-
 void UPalMapObjectDropItemModel::OnInteractEnd(AActor* Other, TScriptInterface<IPalInteractiveObjectComponentInterface> Component) {
 }
 

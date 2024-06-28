@@ -4,11 +4,14 @@
 #include "UObject/NoExportTypes.h"
 #include "Engine/EngineTypes.h"
 #include "EPalBattleBGMType.h"
+#include "EPalBossBattleDifficulty.h"
 #include "EPalCharacterMovementCustomMode.h"
 #include "EPalInteractiveObjectIndicatorType.h"
 #include "EPalPlayerBattleFinishType.h"
 #include "PalCharacter.h"
 #include "PalDamageResult.h"
+#include "PalDeadInfo.h"
+#include "PalDyingEndInfo.h"
 #include "PalInteractiveObjectIndicatorInterface.h"
 #include "PalPlayerDataCharacterMakeInfo.h"
 #include "Templates/SubclassOf.h"
@@ -19,6 +22,7 @@ class APalPlayerCharacter;
 class APalPlayerController;
 class UAnimMontage;
 class UPalActionBase;
+class UPalArenaSequencer;
 class UPalBaseCampModel;
 class UPalBuilderComponent;
 class UPalCharacterMovementComponent;
@@ -47,10 +51,13 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnEndLiftCampPalDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnCombatStartUIActionDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCombatRankDownDelegate, EPalPlayerBattleFinishType, FinishType);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCharacterMakeInfoUpdateDelegate, FPalPlayerDataCharacterMakeInfo, MakeInfo);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangeRegionAreaDelegate, const FName&, RegionNameID);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangePlayerBattleMode, bool, IsBattle);
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnChangeBossTowerEntrancePlayer, FName, BossType, const TArray<APalPlayerCharacter*>&, PlayerList);
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnAddRemoveEnemyDelegate, EPalBattleBGMType, Rank, bool, IsAdd);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnChangeBossTowerEntrancePlayer, FName, BossType, EPalBossBattleDifficulty, Difficulty, const TArray<APalPlayerCharacter*>&, PlayerList);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangeBattleBGMDelegate, EPalBattleBGMType, Rank);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnArenaSequenceStartDelegate, UPalArenaSequencer*, ArenaSequencer);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnArenaSequenceEndDelegate);
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPalShooterComponent* ShooterComponent;
@@ -83,7 +90,7 @@ public:
     FOnCombatRankDownDelegate OnCombatRankDownDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FOnAddRemoveEnemyDelegate OnAddRemoveEnemyDelegate;
+    FOnChangeBattleBGMDelegate OnChangeBattleBGMDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnChangePlayerBattleMode OnChangeBattleModeDelegate_ForPlayer;
@@ -117,6 +124,15 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnInsufficientPalStaminaDelegate OnInsufficientPalStamina;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnCharacterMakeInfoUpdateDelegate OnCharacterMakeInfoUpdate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnArenaSequenceStartDelegate OnArenaSequenceStart;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnArenaSequenceEndDelegate OnArenaSequenceEnd;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FName LastInsideRegionNameID;
@@ -170,6 +186,12 @@ public:
     void SetNearCommonEnemy(bool IsExistNearEnemy);
     
     UFUNCTION(BlueprintCallable)
+    void SetDisablePlayerInput(FName flagName, bool Disable);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void SetCharacterMakeInfo_ToAll(FPalPlayerDataCharacterMakeInfo NextInfo);
+    
+    UFUNCTION(BlueprintCallable)
     void PlayIdleAnimation(UAnimMontage* Montage);
     
     UFUNCTION(BlueprintCallable)
@@ -216,8 +238,14 @@ public:
     void OnEndGliding();
     
 private:
-    UFUNCTION(BlueprintCallable, Client, Reliable)
+    UFUNCTION(BlueprintCallable)
+    void OnDyingDeadEnd_Server(APalPlayerCharacter* PlayerCharacter, const FPalDyingEndInfo& DyingEndInfo);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void OnDownBattleEnemyRank(EPalPlayerBattleFinishType FinishType);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnDeadPlayer_Server(FPalDeadInfo DeadInfo);
     
     UFUNCTION(BlueprintCallable)
     void OnDamagePlayer_Server(FPalDamageResult DamageResult);
@@ -242,8 +270,8 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnChangeMovementMode(UPalCharacterMovementComponent* Component, TEnumAsByte<EMovementMode> prevMode, TEnumAsByte<EMovementMode> newMode, EPalCharacterMovementCustomMode PrevCustomMode, EPalCharacterMovementCustomMode NewCustomMode);
     
-    UFUNCTION(BlueprintCallable, Client, Reliable)
-    void OnChangeBattleEnemyRank(EPalBattleBGMType Rank, bool IsAdd);
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void OnChangeBattleBGM(EPalBattleBGMType Rank);
     
     UFUNCTION(BlueprintCallable)
     void OnBeginAction(const UPalActionBase* action);
@@ -257,6 +285,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsGliding() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsCharacterMakeInfoInitialized() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsAdjustedLocation() const;
@@ -278,6 +309,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void CreateLantern();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void ClearLantern();
     
     UFUNCTION(BlueprintCallable)
     void ChangeToMale();

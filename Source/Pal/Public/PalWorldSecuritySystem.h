@@ -40,7 +40,7 @@ private:
     TArray<UPalWorldSecurityLawBase*> Laws;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    FGuid GroupID;
+    FGuid GroupId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FPalInstanceID, FPalCrimeStateInfo> IndividualCrimeStateMap;

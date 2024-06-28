@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
 #include "Engine/EngineTypes.h"
 #include "BuildingSurfaceMaterialSet.h"
 #include "EPalMapObjectChangeMeshFXType.h"
@@ -9,7 +10,10 @@
 #include "EPalMapObjectTreasureGradeType.h"
 #include "PalDataTableRowName_ItemData.h"
 #include "PalGameWorldDataSaveInterface.h"
+#include "PalMapObjectDamageInfo.h"
+#include "PalMapObjectInfoTickInBackground.h"
 #include "PalMapObjectModelStaticData.h"
+#include "PalMapObjectSignificanceInfo.h"
 #include "PalMapObjectStaticData.h"
 #include "PalMapObjectVisualEffectAssets.h"
 #include "PalWorldSubsystem.h"
@@ -19,6 +23,7 @@
 class APalFoliageModelChunk;
 class APalMapObject;
 class APalMapObjectSpawnerBase;
+class APalSnapModeFX;
 class APalTestMapObjectRegistrationToManager;
 class IPalBuildObjectSpawnValidationCheckInterface;
 class UPalBuildObjectSpawnValidationCheckInterface;
@@ -114,6 +119,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<TEnumAsByte<EObjectTypeQuery>> SearchObjectTypes;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FPalMapObjectSignificanceInfo> SignificanceInfoList;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<EPalMapObjectDestroyFXType, UNiagaraSystem*> DestroyEffectMap;
@@ -220,6 +228,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<EPalMapObjectTreasureGradeType, FPalDataTableRowName_ItemData> TreasureBoxOpenRequiredItemMap;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<APalSnapModeFX> SnapModeFXClass;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FGuid, UPalMapObjectModel*> MapObjectModelHandlingMap;
@@ -241,6 +252,15 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<APalMapObjectSpawnerBase*> SpawnedSpawners;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FGuid, FPalMapObjectInfoTickInBackground> MapObjectInfoMapTickInBackground;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FPalMapObjectDamageInfo> MapObjectDamageInfoStack;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    APalSnapModeFX* SnapModeFX;
     
 public:
     UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -277,6 +297,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void RecalcPointLightOverlap();
+    
+    UFUNCTION(BlueprintCallable)
+    void PlayMapObjectDestroyFX(const FVector& Location, const FBoxSphereBounds& Bounds, const EPalMapObjectDestroyFXType Type);
     
     UFUNCTION(BlueprintCallable)
     UPalMapObjectFoliage* GetFoliage() const;

@@ -14,6 +14,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalItemSlotId SlotID;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalItemSlotId FromSlotId;
+    
     PAL_API FPalSlotOpItemSlotInfo();
 };
 

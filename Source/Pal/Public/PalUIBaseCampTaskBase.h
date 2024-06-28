@@ -39,13 +39,22 @@ protected:
     void SetTargetBaseCampID(const FGuid& TargetBaseCampID);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsWorkerCapacityLimited(int32 InLevel) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsCampLevelMax();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetWorkerMaxNum(int32 InLevel) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool GetNowLevelTaskData(FPalBaseCampTaskDataSet& outTaskData);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalBaseCampModel* GetBaseCampModel();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetBaseCampMaxNumInGuild(int32 InLevel) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FGuid GetBaseCampId();

@@ -37,7 +37,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnReloadStart);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnReloadBullet);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnEndShootingAnimation, UAnimMontage*, Montage);
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangeWeapon, APalWeaponBase*, weapon);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangeWeapon, APalWeaponBase*, Weapon);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FEndAimDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FChangeTargetDirectionDelegate, FVector, Direction);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FChangeStateDelegate, bool, IsAim, bool, IsShoot);
@@ -187,6 +187,12 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsAttachRequest;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bChangeIsShootingPulling;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bChangeIsShootingRelaseRequest;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     APalWeaponBase* NPCWeapon;
@@ -398,7 +404,7 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
-    void ChangeWeapon(APalWeaponBase* weapon);
+    void ChangeWeapon(APalWeaponBase* Weapon);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void ChangeIsShooting_ToServer(int32 ID, bool NewIsShooting);
@@ -427,7 +433,7 @@ public:
     bool CanWeaponChangeAnime();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool CanUseWeapon(APalWeaponBase* weapon) const;
+    bool CanUseWeapon(APalWeaponBase* Weapon) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool CanUseRightHand() const;
@@ -460,13 +466,13 @@ public:
     void BowPullAnimeEnd();
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void AttachWeapon_ForPartnerSkillPalWeapon_ToAll(APalWeaponBase* weapon);
+    void AttachWeapon_ForPartnerSkillPalWeapon_ToAll(APalWeaponBase* Weapon);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void AttachWeapon_ForNPC_ToAll(bool IsNotNull);
     
     UFUNCTION(BlueprintCallable)
-    void AttachWeapon(APalWeaponBase* weapon);
+    void AttachWeapon(APalWeaponBase* Weapon);
     
 private:
     UFUNCTION(BlueprintCallable)

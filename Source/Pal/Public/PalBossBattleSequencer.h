@@ -4,12 +4,14 @@
 #include "EPalBossBattleCombatResult.h"
 #include "EPalBossBattleSequenceType.h"
 #include "EPalBossType.h"
+#include "PalDyingEndInfo.h"
 #include "Templates/SubclassOf.h"
 #include "PalBossBattleSequencer.generated.h"
 
 class APalCharacter;
 class APalPlayerCharacter;
 class UAkAudioEvent;
+class UPalBossBattleEventBase;
 class UPalBossBattleInstanceModel;
 class UPalBossBattleSequenceBase;
 
@@ -17,6 +19,7 @@ UCLASS(Blueprintable)
 class PAL_API UPalBossBattleSequencer : public UObject {
     GENERATED_BODY()
 public:
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnEventCreated, UPalBossBattleEventBase*, BossBattleEvent);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FBossBattleCombatStart, EPalBossType, BossType);
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -27,6 +30,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool IsBattleTimerCountDown;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnEventCreated OnEventCreated;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -63,8 +69,12 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsClientOnly;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalBossBattleEventBase* BossBattleEvent;
+    
 public:
     UPalBossBattleSequencer();
+
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void Tick_ForBP(float DeltaTime);
@@ -83,6 +93,9 @@ public:
     void SetBossCharacter(APalCharacter* BossActor);
     
     UFUNCTION(BlueprintCallable)
+    void SetBossBattlEvent(UPalBossBattleEventBase* NewBossBattleEvent);
+    
+    UFUNCTION(BlueprintCallable)
     void SetAllPlayerMoveDisable(bool Disable);
     
     UFUNCTION(BlueprintCallable)
@@ -99,7 +112,7 @@ private:
     void OnPlayerRespawn(APalPlayerCharacter* Player);
     
     UFUNCTION(BlueprintCallable)
-    void OnPlayerDeadStopBGM(APalPlayerCharacter* PlayerCharacter);
+    void OnPlayerDeadStopBGM(APalPlayerCharacter* PlayerCharacter, const FPalDyingEndInfo& DyingEndInfo);
     
     UFUNCTION(BlueprintCallable)
     void OnOpeningEnd(bool Success);
@@ -108,7 +121,7 @@ private:
     void OnEndingEnd(bool Success);
     
     UFUNCTION(BlueprintCallable)
-    void OnDyingDeadEndDelegate(APalPlayerCharacter* PlayerCharacter);
+    void OnDyingDeadEndDelegate(APalPlayerCharacter* PlayerCharacter, const FPalDyingEndInfo& DyingEndInfo);
     
     UFUNCTION(BlueprintCallable)
     void OnCompletedEnd(bool Success);
@@ -125,6 +138,9 @@ private:
     void NoticeClientCombatResult();
     
 public:
+    UFUNCTION(BlueprintCallable)
+    void LoadAndCreateBossBattleEvent(TSoftClassPtr<UPalBossBattleEventBase> BossBattleEventClass);
+    
     UFUNCTION(BlueprintCallable)
     void KillAllPlayer();
     
@@ -157,6 +173,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalBossBattleInstanceModel* GetBossBattleInstanceModel() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPalBossBattleEventBase* GetBossBattleEvent() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<APalPlayerCharacter*> GetAliveOrDyingPlayers();

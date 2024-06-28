@@ -3,6 +3,7 @@
 
 UPalNPCAIWeaponHandle::UPalNPCAIWeaponHandle() {
     this->ShooterHuman = NULL;
+    this->FireStateClass = NULL;
 }
 
 void UPalNPCAIWeaponHandle::UnequipWeapon() {
@@ -45,6 +46,10 @@ void UPalNPCAIWeaponHandle::InitializeNPCWeapon(APalWeaponBase* WeaponActor) {
 
 bool UPalNPCAIWeaponHandle::GetUseSideDashMovement() {
     return false;
+}
+
+float UPalNPCAIWeaponHandle::GetSphereCastRadius() {
+    return 0.0f;
 }
 
 float UPalNPCAIWeaponHandle::GetShootInterval() {

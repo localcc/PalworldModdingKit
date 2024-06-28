@@ -1,58 +1,64 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "PalMapObjectDefenseModelBase.h"
+#include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
+#include "PalMapObjectDefenseAttackModelBase.h"
 #include "PalMapObjectDefenseBulletLauncherModel.generated.h"
 
-class AActor;
-class APalCharacter;
-class APalMapObject;
-class APalStationaryWeaponBase;
-class UPalMapObjectEnergyModule;
-
 UCLASS(Blueprintable)
-class UPalMapObjectDefenseBulletLauncherModel : public UPalMapObjectDefenseModelBase {
+class UPalMapObjectDefenseBulletLauncherModel : public UPalMapObjectDefenseAttackModelBase {
     GENERATED_BODY()
 public:
-protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TWeakObjectPtr<APalMapObject> WeakLauncherControlMapObject;
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnBulletNumUpdated, int32, Num);
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TWeakObjectPtr<APalStationaryWeaponBase> WeakWeapon;
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnBulletNumUpdated OnBulletNumUpdatedDelegate;
     
 private:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_RemainingBulletsNum, meta=(AllowPrivateAccess=true))
     int32 remainingBulletsNum;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 MagazineSize;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FName BulletItemName;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float AttackableDistance;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float AttackableAngleElevation;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float AttackableAngleDepression;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float AttackableAngleElevationDot;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float AttackableAngleDepressionDot;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FVector RotateAxisWorldLocation;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FQuat RotateAxisWorldRotation;
     
 public:
     UPalMapObjectDefenseBulletLauncherModel();
+
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
     UFUNCTION(BlueprintCallable)
     void UseBullet();
     
     UFUNCTION(BlueprintCallable)
-    void TurnToTarget(const AActor* TargetActor, float DeltaTime);
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool TryGetWeapon(APalStationaryWeaponBase*& OutWeapon) const;
-    
-    UFUNCTION(BlueprintCallable)
-    void SetOwnerCharacter(const APalCharacter* OwnerCharacter);
-    
-    UFUNCTION(BlueprintCallable)
-    void SetEnableTrigger(bool EnableTrigger);
-    
-    UFUNCTION(BlueprintCallable)
     void ReloadBullets(int32 ReloadBulletsNum);
     
-private:
+protected:
     UFUNCTION(BlueprintCallable)
-    void OnUpdateEnergyModuleState(UPalMapObjectEnergyModule* EnergyModule);
+    void OnRep_RemainingBulletsNum();
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -63,15 +69,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FName GetBulletName() const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    float GetAttackableDistance() const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    float GetAttackableAngle() const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool CanAvailable() const;
     
 };
 

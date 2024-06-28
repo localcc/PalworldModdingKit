@@ -38,7 +38,4 @@ void UPalAIActionBaseCampBase::ChangeChildAction(UPalAIActionBaseCampChildBase* 
 void UPalAIActionBaseCampBase::ChangeActionToWorker() {
 }
 
-void UPalAIActionBaseCampBase::ChangeActionToFighter() {
-}
-
 

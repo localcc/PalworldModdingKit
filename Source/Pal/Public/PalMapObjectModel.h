@@ -25,6 +25,7 @@ class UPalBuildProcess;
 class UPalMapObjectConcreteModelBase;
 class UPalMapObjectModelConnectorBase;
 class UPalMapObjectModelEffect;
+class UPalWorkAssign;
 class UPalWorkBase;
 
 UCLASS(Blueprintable)
@@ -126,6 +127,9 @@ private:
     FGameDateTime CreatedAt;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float SignificanceValue;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float DeteriorationDamage;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -180,7 +184,7 @@ private:
     void OnEndTriggerInteract(AActor* Other, EPalInteractiveObjectIndicatorType IndicatorType);
     
     UFUNCTION(BlueprintCallable)
-    void OnAssignWorkRepairBuildObject(UPalWorkBase* Work, const FPalInstanceID& IndividualId);
+    void OnAssignWorkRepairBuildObject(UPalWorkBase* Work, UPalWorkAssign* WorkAssign);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)

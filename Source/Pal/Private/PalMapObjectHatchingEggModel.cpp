@@ -29,6 +29,12 @@ void UPalMapObjectHatchingEggModel::OnRep_HatchedCharacterSaveParameter() {
 void UPalMapObjectHatchingEggModel::OnFinishWorkInServer(UPalWorkBase* Work) {
 }
 
+void UPalMapObjectHatchingEggModel::OnChangeBaseCampPassive(const FGuid& BaseCampId) {
+}
+
+void UPalMapObjectHatchingEggModel::OnAddNewWorker(UPalIndividualCharacterHandle* AddCharacterHandle) {
+}
+
 void UPalMapObjectHatchingEggModel::ObtainHatchedCharacter_ServerInternal(const int32 RequestPlayerId) {
 }
 

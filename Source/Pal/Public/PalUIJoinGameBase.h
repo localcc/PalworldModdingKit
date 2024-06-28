@@ -16,6 +16,9 @@ public:
     bool bIsShowIgnoreVersionServer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalUIServerListFilterType ServerFilterType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FString> OfficialServerIPRangeList;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -38,6 +41,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool IsCheckedInputPassword;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString LastSelectedRegionName;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString SaveConfigCategoryName;
@@ -54,7 +60,7 @@ public:
     void RequestOfficialServerIPRange();
     
     UFUNCTION(BlueprintCallable)
-    void RequestGetServerList(EPalUIServerListFilterType Type, EPalUIServerListSortType SortType, const FString& Region, bool IsCleanCache, int32 PageOffset, const FString& SearchWord);
+    void RequestGetServerList(EPalUIServerListFilterType Type, EPalUIServerListSortType SortType, const FString& Region, int32 PageOffset, const FString& SearchWord);
     
 private:
     UFUNCTION(BlueprintCallable)

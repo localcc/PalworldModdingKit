@@ -111,6 +111,8 @@ void UPalMapObjectConvertItemModel::GetLifetimeReplicatedProps(TArray<FLifetimeP
     DOREPLIFETIME(UPalMapObjectConvertItemModel, TargetTypesA);
     DOREPLIFETIME(UPalMapObjectConvertItemModel, TargetTypesB);
     DOREPLIFETIME(UPalMapObjectConvertItemModel, TargetRankMax);
+    DOREPLIFETIME(UPalMapObjectConvertItemModel, MaterialTypesA);
+    DOREPLIFETIME(UPalMapObjectConvertItemModel, MaterialTypesB);
     DOREPLIFETIME(UPalMapObjectConvertItemModel, bCanTransportOutProduct);
 }
 

@@ -53,6 +53,7 @@ public:
     FOnActionDelegate OnFinishActionDelegate;
     
     UPalAIActionBase();
+
     UFUNCTION(BlueprintCallable)
     void SetWalkSpeed_ForAIAction(EPalMovementSpeedType MoveSpeedType);
     

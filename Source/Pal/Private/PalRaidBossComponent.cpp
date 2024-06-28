@@ -48,6 +48,7 @@ void UPalRaidBossComponent::AddGroupCharacter(UPalIndividualCharacterHandle* Pal
 void UPalRaidBossComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
+    DOREPLIFETIME(UPalRaidBossComponent, RaidBossPalList);
     DOREPLIFETIME(UPalRaidBossComponent, BaseCanpID);
     DOREPLIFETIME(UPalRaidBossComponent, BaseCampLocation);
     DOREPLIFETIME(UPalRaidBossComponent, RemainBattleTimer);

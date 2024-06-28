@@ -9,6 +9,7 @@
 #include "PalWorkAssignHandleId.h"
 #include "PalWorkAssign.generated.h"
 
+class UPalCharacterParameterComponent;
 class UPalIndividualCharacterHandle;
 class UPalIndividualCharacterParameter;
 class UPalWorkBase;
@@ -82,6 +83,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalIndividualCharacterHandle* GetAssignedIndividualHandle() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPalCharacterParameterComponent* GetAssignedCharacterParameterComponent() const;
     
 };
 

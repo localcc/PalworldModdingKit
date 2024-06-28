@@ -6,6 +6,7 @@
 #include "FixedPoint64.h"
 #include "FloatContainer.h"
 #include "PalDeadInfo.h"
+#include "PalDyingEndInfo.h"
 #include "PalOptionGraphicsSettings.h"
 #include "PalSpringArmComponent.h"
 #include "ShooterSpringCameraAdditionalOffset.h"
@@ -213,7 +214,7 @@ private:
     void OnEndAim();
     
     UFUNCTION(BlueprintCallable)
-    void OnDyingDeadEnd(APalPlayerCharacter* PlayerCharacter);
+    void OnDyingDeadEnd(APalPlayerCharacter* PlayerCharacter, const FPalDyingEndInfo& DyingEndInfo);
     
     UFUNCTION(BlueprintCallable)
     void OnDead(FPalDeadInfo DeadInfo);

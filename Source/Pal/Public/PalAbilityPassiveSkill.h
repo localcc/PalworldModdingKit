@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
 #include "UObject/Object.h"
 #include "PalDataTableRowName_PassiveSkillData.h"
 #include "PalPassiveAbilitySkillStatus.h"
@@ -12,6 +13,7 @@ class APalCharacter;
 class APalPlayerCharacter;
 class APalPlayerController;
 class UPalCharacterParameterComponent;
+class UPalIndividualCharacterHandle;
 class UPalItemContainer;
 
 UCLASS(Blueprintable)
@@ -58,6 +60,9 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnUpdateInventoryContainer(UPalItemContainer* Container);
     
+    UFUNCTION(BlueprintCallable)
+    void OnUpdateBaseCampId(const FGuid& BaseCampId);
+    
 public:
     UFUNCTION(BlueprintCallable)
     void OnRideInactivated();
@@ -71,6 +76,11 @@ public:
     UFUNCTION(BlueprintCallable)
     void OnReserveActivated();
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnRemoveWorker(UPalIndividualCharacterHandle* RemoveCharacterHandle);
+    
+public:
     UFUNCTION(BlueprintCallable)
     void OnInactivatedAsWorker();
     
@@ -80,6 +90,14 @@ public:
     UFUNCTION(BlueprintCallable)
     void OnInactivatedAsOtomo();
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnChangeDisablePassiveSkill(bool isDisable);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnAddNewWorker(UPalIndividualCharacterHandle* AddCharacterHandle);
+    
+public:
     UFUNCTION(BlueprintCallable)
     void OnActivatedAsWorker();
     

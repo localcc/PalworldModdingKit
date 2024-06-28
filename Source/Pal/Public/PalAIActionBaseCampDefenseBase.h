@@ -13,7 +13,6 @@ class APalAIController;
 class APalCharacter;
 class UPalAICombatModule;
 class UPalActionBase;
-class UPalMapObjectDefenseBulletLauncherModel;
 
 UCLASS(Blueprintable, EditInlineNew)
 class UPalAIActionBaseCampDefenseBase : public UPalAIActionBase, public IPalAIActionWorkerInterruptInterface {
@@ -44,11 +43,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalActionBase> DefenseWaitActionClass;
     
-    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TWeakObjectPtr<UPalMapObjectDefenseBulletLauncherModel> WeakDefenseModel;
-    
 public:
     UPalAIActionBaseCampDefenseBase();
+
 protected:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     APalAIController* GetControllerRef();

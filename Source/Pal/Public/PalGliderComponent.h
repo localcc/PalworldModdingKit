@@ -15,6 +15,7 @@ class APalCharacter;
 class APalGliderObject;
 class UPalCharacterMovementComponent;
 class UPalIndividualCharacterHandle;
+class UPalIndividualCharacterParameter;
 class UPalItemContainer;
 class UPalItemSlot;
 
@@ -37,6 +38,9 @@ public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     APalGliderObject* CurrentGlider;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_CurrentGliderPalID, meta=(AllowPrivateAccess=true))
+    FName CurrentGliderPalID;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_CurrentGliderSoftClass, meta=(AllowPrivateAccess=true))
     TSoftClassPtr<APalGliderObject> CurrentGliderSoftClass;
@@ -70,7 +74,13 @@ private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void SetCurrentGliderSoftClass_ToServer(const TSoftClassPtr<APalGliderObject>& gliderSoftClass);
     
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void SetCurrentGliderPalID_ToServer(const FName& PalID);
+    
 public:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void RequestCheckAndUpdateCurrentGlider_ToAll();
+    
     UFUNCTION(BlueprintCallable)
     void PlayGliderSound(const FPalDataTableRowName_SoundID& ID, const FPalSoundOptions& Option);
     
@@ -96,10 +106,16 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
+    void OnRevivedIndividual(UPalIndividualCharacterParameter* InParameter);
+    
+    UFUNCTION(BlueprintCallable)
     void OnRep_IsGliding();
     
     UFUNCTION(BlueprintCallable)
     void OnRep_CurrentGliderSoftClass();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnRep_CurrentGliderPalID();
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

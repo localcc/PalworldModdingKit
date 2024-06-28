@@ -28,8 +28,11 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FGuid OwnerPlayerUId;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool IsOpen;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    int32 SyncPageIndex;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsForceSyncAllSlot;
     
 public:
     UPalPlayerDataPalStorage();
@@ -46,10 +49,13 @@ protected:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    void GetSlotsInPage(const int32 PageIndex, TArray<UPalIndividualCharacterSlot*>& Slots) const;
+    void GetSlotsInPage(const int32 pageIndex, TArray<UPalIndividualCharacterSlot*>& Slots) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    UPalIndividualCharacterSlot* GetSlot(const int32 PageIndex, const int32 SlotIndex) const;
+    UPalIndividualCharacterSlot* GetSlot(const int32 pageIndex, const int32 SlotIndex) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetPageNum() const;
     
 };
 
