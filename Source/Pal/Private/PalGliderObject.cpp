@@ -15,6 +15,9 @@ APalGliderObject::APalGliderObject(const FObjectInitializer& ObjectInitializer) 
     this->SoundPlayerComponent = CreateDefaultSubobject<UPalSoundPlayerComponent>(TEXT("SoundPlayerComponent"));
 }
 
+void APalGliderObject::RefreshSkin(FName PalCharacterID) {
+}
+
 UPalSkeletalMeshComponent* APalGliderObject::GetMainMesh_Implementation() const {
     return NULL;
 }

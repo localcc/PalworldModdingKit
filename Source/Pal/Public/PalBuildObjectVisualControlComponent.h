@@ -4,6 +4,7 @@
 #include "PalBuildObjectMaterialArray.h"
 #include "PalBuildObjectVisualControlComponent.generated.h"
 
+class UChildActorComponent;
 class UDecalComponent;
 class UMaterialInterface;
 class UMeshComponent;
@@ -26,5 +27,9 @@ private:
 public:
     UPalBuildObjectVisualControlComponent(const FObjectInitializer& ObjectInitializer);
 
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnReplicatedChildActor(UChildActorComponent* ChildActorComponent);
+    
 };
 

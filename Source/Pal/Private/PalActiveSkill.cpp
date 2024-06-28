@@ -8,6 +8,7 @@ UPalActiveSkill::UPalActiveSkill() {
     this->IsIgnoreRaycast = false;
     this->IsStopTimer = false;
     this->DatabaseCoolTime = 0.00f;
+    this->NextCoolTime = 0.00f;
     this->bIsTransient = false;
 }
 

@@ -177,4 +177,10 @@ void UPalNetworkMapObjectComponent::NotifyConcreteModel_Multicast_FPalNetArchive
 void UPalNetworkMapObjectComponent::NotifyConcreteModel_Multicast_bool_Implementation(const FGuid& ConcreteModelInstanceId, const FName FunctionName, bool Value) {
 }
 
+void UPalNetworkMapObjectComponent::Dev_ReceiveMapObjectsTickIntervalInBackground_ToClient_Implementation(const TArray<FPalNetworkMapObjectTickIntervalInBackgroundInfo>& TickIntervalInfoArray) {
+}
+
+void UPalNetworkMapObjectComponent::Dev_FetchMapObjectsTickIntervalInBackground_ToServer_Implementation() {
+}
+
 

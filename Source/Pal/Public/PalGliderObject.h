@@ -6,6 +6,7 @@
 #include "PalGliderObject.generated.h"
 
 class UAnimMontage;
+class UMaterialInterface;
 class UPalSkeletalMeshComponent;
 class UPalSoundPlayerComponent;
 class USceneComponent;
@@ -57,9 +58,15 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPalSoundPlayerComponent* SoundPlayerComponent;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<UMaterialInterface*> OriginalMaterials;
+    
 public:
     APalGliderObject(const FObjectInitializer& ObjectInitializer);
 
+    UFUNCTION(BlueprintCallable)
+    void RefreshSkin(FName PalCharacterID);
+    
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     UPalSkeletalMeshComponent* GetMainMesh() const;
     

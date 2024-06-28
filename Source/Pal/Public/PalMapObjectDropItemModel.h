@@ -37,9 +37,6 @@ private:
     
 protected:
     UFUNCTION(BlueprintCallable)
-    void OnInteracting(float DeltaTime);
-    
-    UFUNCTION(BlueprintCallable)
     void OnInteractEnd(AActor* Other, TScriptInterface<IPalInteractiveObjectComponentInterface> Component);
     
     UFUNCTION(BlueprintCallable)

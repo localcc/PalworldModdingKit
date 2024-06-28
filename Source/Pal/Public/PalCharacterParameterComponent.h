@@ -10,6 +10,7 @@
 #include "EPalMapBaseCampWorkerOrderType.h"
 #include "EPalWorkSuitability.h"
 #include "EPalWorkType.h"
+#include "EPalWorkWorkerWorkingState.h"
 #include "FixedPoint64.h"
 #include "FlagContainer.h"
 #include "PalCharacterParameter_Work.h"
@@ -157,6 +158,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     float MaxHPRate_ForTowerBoss;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float MaxSPBuffRate;
+    
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FHitResult GroundHitResult;
@@ -196,6 +200,14 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FGuid BaseCampWalkAroundExcludeMapObjectInstanceId;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bAppliedBaseCampWorkerInitialized;
+    
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    EPalWorkWorkerWorkingState WorkingState;
+    
+public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_PossessStaticItemId, meta=(AllowPrivateAccess=true))
     FName PossessStaticItemId;
     
@@ -245,6 +257,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     bool IsImmortality;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IsMimicryMode;
     
 protected:
     UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -296,7 +311,7 @@ public:
     void SetOverrideTargetLocation(FVector TargetLocation);
     
     UFUNCTION(BlueprintCallable)
-    void SetMuteki(FName flagName, bool isEnable);
+    void SetMuteki(FName flagName, bool IsEnable);
     
     UFUNCTION(BlueprintCallable)
     void SetMP(FFixedPoint64 NewMP);
@@ -328,7 +343,7 @@ public:
     void SetHP(FFixedPoint64 NewHP);
     
     UFUNCTION(BlueprintCallable)
-    void SetEnableSendReticleTarget(FName flagName, bool isEnable);
+    void SetEnableSendReticleTarget(FName flagName, bool IsEnable);
     
     UFUNCTION(BlueprintCallable)
     void SetElementTypeFromDatabase(APalCharacter* InCharacter);
@@ -340,7 +355,7 @@ public:
     void SetDisableCreateUNKO(FName flagName, bool isDisable);
     
     UFUNCTION(BlueprintCallable)
-    void SetCoopingFlag(bool isEnable);
+    void SetCoopingFlag(bool IsEnable);
     
     UFUNCTION(BlueprintCallable)
     void ReviveFromDying();
@@ -450,6 +465,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetSanity();
+    
+    UFUNCTION(BlueprintCallable)
+    AActor* GetReticleTargetActor();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetRadius() const;

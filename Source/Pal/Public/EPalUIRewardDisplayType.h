@@ -9,5 +9,6 @@ enum class EPalUIRewardDisplayType : uint8 {
     HatchedPal,
     FastTravel,
     DefeatBoss,
+    UnlockHardMode,
 };
 

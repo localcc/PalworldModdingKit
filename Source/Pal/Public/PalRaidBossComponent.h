@@ -7,6 +7,7 @@
 #include "EPalRaidBossBattleFinishType.h"
 #include "EPalRaidBossBattleStateType.h"
 #include "PalDeadInfo.h"
+#include "PalInstanceID.h"
 #include "PalRaidBossSpawnInfoList.h"
 #include "PalRaidBossSpawnerInfo.h"
 #include "PalRaidBossComponent.generated.h"
@@ -22,8 +23,8 @@ class PAL_API UPalRaidBossComponent : public UActorComponent {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<UPalIndividualCharacterHandle*> RaidBossPalList;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FPalInstanceID> RaidBossPalList;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<UPalIndividualCharacterHandle*> DeadRaidBossPalList;
@@ -56,7 +57,7 @@ public:
 
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void SpawnRaidBoss_BP(FPalRaidBossSpawnInfoList SpawnInfo, const FTransform& SpawnTransform, TArray<UPalIndividualCharacterHandle*>& OutIndividualHandle);
+    void SpawnRaidBoss_BP(FPalRaidBossSpawnInfoList SpawnInfo, const FTransform& SpawnTransform);
     
     UFUNCTION(BlueprintCallable)
     void OnSpawnBossPal(AActor* Pal);

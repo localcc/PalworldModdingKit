@@ -5,10 +5,10 @@ UPalMapObjectPickableItemModelBase::UPalMapObjectPickableItemModelBase() {
     this->bAutoPickedUp = false;
 }
 
-void UPalMapObjectPickableItemModelBase::RequestPickup_ServerInternal(const int32 RequestPlayerId) {
+void UPalMapObjectPickableItemModelBase::RequestPickup_ServerInternal(const int32 RequestPlayerId, const bool bByAutoPickup) {
 }
 
-void UPalMapObjectPickableItemModelBase::RequestPickup() {
+void UPalMapObjectPickableItemModelBase::RequestPickup(const bool bByAutoPickup) {
 }
 
 void UPalMapObjectPickableItemModelBase::OnTimer_RemovePickupGuard() {

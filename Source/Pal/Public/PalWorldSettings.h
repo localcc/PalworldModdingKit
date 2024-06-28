@@ -6,6 +6,7 @@
 #include "PalWorldSettings.generated.h"
 
 class UDataLayerAsset;
+class UPalArenaWorldSubsystem;
 class UPalAudioWorldSubsystem;
 class UPalDungeonWorldSubsystem;
 class UPalFunnelCharacterManager;
@@ -47,6 +48,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalFunnelCharacterManager> FunnelCharacterManagerClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UPalArenaWorldSubsystem> ArenaWorldSubsystemClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bRequestCharacterMake;

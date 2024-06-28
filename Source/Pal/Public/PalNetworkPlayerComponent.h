@@ -24,6 +24,9 @@ public:
     UPalNetworkPlayerComponent(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable, Client, Reliable)
+    void ShowUnlockHardModeUI_ToClient();
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ShowBossDefeatRewardUI_ToClient(int32 TechPoint, bool AfterTeleport, int32 DelayTime);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
@@ -31,9 +34,6 @@ public:
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestUnlockTechnology_ToServer(const FName& UnlockTechnologyName);
-    
-    UFUNCTION(BlueprintCallable, Reliable, Server)
-    void RequestTrashItemFromInventoryDropSlot_ToServer();
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestSortInventory_ToServer();
@@ -54,9 +54,6 @@ public:
     void RequestDropOtomoPal_ToServer(const int32 OtomoIndex);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void RequestDropItemFromInventoryDropSlot_ToServer();
-    
-    UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestChangeVoiceID_ToServer(int32 NewVoiceID);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
@@ -67,7 +64,7 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void RequestAddItem_ToServer(const FName StaticItemId, const int32 Count, bool isAssignPassive);
+    void RequestAddItem_ToServer(const FName StaticItemId, const int32 Count, bool IsAssignPassive);
     
 public:
     UFUNCTION(BlueprintCallable, Reliable, Server)

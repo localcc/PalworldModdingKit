@@ -7,5 +7,6 @@ enum class EPalStageType : uint8 {
     Undefined,
     Dungeon,
     BossBattle,
+    Arena,
 };
 

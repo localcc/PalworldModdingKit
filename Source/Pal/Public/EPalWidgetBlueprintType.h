@@ -22,7 +22,11 @@ enum class EPalWidgetBlueprintType : uint8 {
     PasswordSetting,
     BaseCampWorkHard,
     WorkSuitabilityPreference,
+    BaseCampWorkFixedAssignManage,
     ItemChestPreference,
     CutsceneOverlay,
+    MapObjectCommonCharacterContainer,
+    PickingGame,
+    ArenaPalSelect,
 };
 

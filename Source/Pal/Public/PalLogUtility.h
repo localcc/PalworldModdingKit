@@ -5,6 +5,7 @@
 #include "EPalWorkType.h"
 #include "PalItemAndNum.h"
 #include "PalItemId.h"
+#include "PalKillLogDisplayData.h"
 #include "PalLogAdditionalData.h"
 #include "PalLogInfo_DropPal.h"
 #include "PalLogInfo_Skill.h"
@@ -82,7 +83,7 @@ public:
     static void AddDropPalLog(const UObject* WorldContextObject, const FPalLogInfo_DropPal& LogInfo);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static void AddDeathLog(const UObject* WorldContextObject, const UPalIndividualCharacterHandle* CharacterHandle);
+    static void AddDeathLog(const UObject* WorldContextObject, const FPalKillLogDisplayData& DeathLogDisplayData);
     
 };
 

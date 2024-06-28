@@ -82,6 +82,14 @@ enum class EPalActionType : uint8 {
     CutPalMeat,
     Grappling,
     PalRandomRest,
+    PalRandomRest_BaseCamp,
     LargeDown,
+    DefenseGunner,
+    DefenseWait,
+    OpenOilrigGoalBox,
+    Mimicry,
+    MimicryEncount,
+    PlayerSitChair,
+    DigOut,
 };
 

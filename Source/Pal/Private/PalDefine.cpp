@@ -59,6 +59,18 @@ FName UPalDefine::TextId_UICommon_LOG_ConsumeItem() {
     return NAME_None;
 }
 
+FName UPalDefine::TextId_UICommon_InteractIndicator_OtomoOpen() {
+    return NAME_None;
+}
+
+FName UPalDefine::TextId_UICommon_InteractIndicator_ObtainLongHold() {
+    return NAME_None;
+}
+
+FName UPalDefine::TextId_UICommon_InteractIndicator_LockedPrivateByNotLocalPlayer() {
+    return NAME_None;
+}
+
 FName UPalDefine::TextId_UICommon_InteractIndicator_InputPassword_CannotTry() {
     return NAME_None;
 }
@@ -76,6 +88,10 @@ FName UPalDefine::TextId_UICommon_DISMANTLING_FAILED_PALBOX() {
 }
 
 FName UPalDefine::TextId_UICommon_DISMANTLING_CONFIRM_PALBOX() {
+    return NAME_None;
+}
+
+FName UPalDefine::TextId_UICommon_ConfirmLockCheckPrivate() {
     return NAME_None;
 }
 
@@ -111,6 +127,10 @@ FName UPalDefine::StatusPointName_AddCaptureLevel() {
     return NAME_None;
 }
 
+TArray<FName> UPalDefine::StaticItemIDArray_UnlockPicking() {
+    return TArray<FName>();
+}
+
 FName UPalDefine::StaticItemID_UnlockTalentCheck() {
     return NAME_None;
 }
@@ -120,6 +140,14 @@ FName UPalDefine::StaticItemID_UnlockLantern() {
 }
 
 FName UPalDefine::StaticItemID_UnlockAutoMeal_Tier(int32 Num) {
+    return NAME_None;
+}
+
+FName UPalDefine::StaticItemID_UnlockAccessorySlot_02() {
+    return NAME_None;
+}
+
+FName UPalDefine::StaticItemID_UnlockAccessorySlot_01() {
     return NAME_None;
 }
 

@@ -8,6 +8,8 @@ UPalLoadoutSelectorComponent::UPalLoadoutSelectorComponent(const FObjectInitiali
     this->ThrowOtomoPalWeapon = NULL;
     this->spawnedWeaponsArray.AddDefaulted(4);
     this->DummyBall = NULL;
+    this->replicatedPrimaryTargetInventoryType = EPalPlayerInventoryType::None;
+    this->replicatedCurrentItemSlotIndex = 0;
 }
 
 void UPalLoadoutSelectorComponent::TryEquipNowSelectedWeapon_ToAll_Implementation() {
@@ -41,16 +43,20 @@ void UPalLoadoutSelectorComponent::OnUpdateWeaponLoadoutSlot(UPalItemSlot* itemS
 void UPalLoadoutSelectorComponent::OnUpdateInventorySlot(UPalItemSlot* itemSlot) {
 }
 
-void UPalLoadoutSelectorComponent::OnRemoveEquipItem_ByTransmitter_Implementation() {
+void UPalLoadoutSelectorComponent::OnRep_PrimaryTargetInventoryType() {
+}
+
+void UPalLoadoutSelectorComponent::OnRep_CurrentItemSlotIndex() {
 }
 
 void UPalLoadoutSelectorComponent::OnRemoveEquipItem(EPalPlayerInventoryType inventoryType, int32 Index) {
 }
 
-void UPalLoadoutSelectorComponent::OnEquipItem_ByTransmitter_Implementation(EPalPlayerInventoryType inventoryType, int32 Index) {
+void UPalLoadoutSelectorComponent::OnEquipItem(EPalPlayerInventoryType inventoryType, int32 Index) {
 }
 
-void UPalLoadoutSelectorComponent::OnEquipItem(EPalPlayerInventoryType inventoryType, int32 Index) {
+TArray<APalWeaponBase*> UPalLoadoutSelectorComponent::GetWeaponList() const {
+    return TArray<APalWeaponBase*>();
 }
 
 EPalPlayerInventoryType UPalLoadoutSelectorComponent::GetPrimaryInventoryType() {
@@ -107,6 +113,8 @@ void UPalLoadoutSelectorComponent::GetLifetimeReplicatedProps(TArray<FLifetimePr
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(UPalLoadoutSelectorComponent, NowEquipBallItemID);
+    DOREPLIFETIME(UPalLoadoutSelectorComponent, replicatedPrimaryTargetInventoryType);
+    DOREPLIFETIME(UPalLoadoutSelectorComponent, replicatedCurrentItemSlotIndex);
 }
 
 

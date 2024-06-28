@@ -8,5 +8,6 @@ FPalPartnerSkillDatabaseRow::FPalPartnerSkillDatabaseRow() {
     this->CanThrowPal = false;
     this->CanChangeWeapon = false;
     this->IsToggleKey = false;
+    this->TriggerType = EPalPartnerSkillTriggerType::None;
 }
 

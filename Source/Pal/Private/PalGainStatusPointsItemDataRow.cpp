@@ -5,6 +5,6 @@ FPalGainStatusPointsItemDataRow::FPalGainStatusPointsItemDataRow() {
     this->MaxSP = 0;
     this->Power = 0;
     this->WorkSpeed = 0;
-    this->maxInventoryWeight = 0;
+    this->MaxInventoryWeight = 0;
 }
 

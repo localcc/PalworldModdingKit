@@ -10,6 +10,7 @@ UPalBossBattleSequencer::UPalBossBattleSequencer() {
     this->BossCharacter = NULL;
     this->PlayingBGMId = 0;
     this->bIsClientOnly = false;
+    this->BossBattleEvent = NULL;
 }
 
 
@@ -23,6 +24,9 @@ void UPalBossBattleSequencer::SetMutekiAllPlayer(bool bIsMuteki) {
 }
 
 void UPalBossBattleSequencer::SetBossCharacter(APalCharacter* BossActor) {
+}
+
+void UPalBossBattleSequencer::SetBossBattlEvent(UPalBossBattleEventBase* NewBossBattleEvent) {
 }
 
 void UPalBossBattleSequencer::SetAllPlayerMoveDisable(bool Disable) {
@@ -40,7 +44,7 @@ void UPalBossBattleSequencer::PlayBGM(UAkAudioEvent* BGMAudioEvent) {
 void UPalBossBattleSequencer::OnPlayerRespawn(APalPlayerCharacter* Player) {
 }
 
-void UPalBossBattleSequencer::OnPlayerDeadStopBGM(APalPlayerCharacter* PlayerCharacter) {
+void UPalBossBattleSequencer::OnPlayerDeadStopBGM(APalPlayerCharacter* PlayerCharacter, const FPalDyingEndInfo& DyingEndInfo) {
 }
 
 void UPalBossBattleSequencer::OnOpeningEnd(bool Success) {
@@ -49,7 +53,7 @@ void UPalBossBattleSequencer::OnOpeningEnd(bool Success) {
 void UPalBossBattleSequencer::OnEndingEnd(bool Success) {
 }
 
-void UPalBossBattleSequencer::OnDyingDeadEndDelegate(APalPlayerCharacter* PlayerCharacter) {
+void UPalBossBattleSequencer::OnDyingDeadEndDelegate(APalPlayerCharacter* PlayerCharacter, const FPalDyingEndInfo& DyingEndInfo) {
 }
 
 void UPalBossBattleSequencer::OnCompletedEnd(bool Success) {
@@ -62,6 +66,9 @@ void UPalBossBattleSequencer::OnCombatEnd(bool Success) {
 }
 
 void UPalBossBattleSequencer::NoticeClientCombatResult() {
+}
+
+void UPalBossBattleSequencer::LoadAndCreateBossBattleEvent(TSoftClassPtr<UPalBossBattleEventBase> BossBattleEventClass) {
 }
 
 void UPalBossBattleSequencer::KillAllPlayer() {
@@ -104,6 +111,10 @@ APalCharacter* UPalBossBattleSequencer::GetBossCharacter() {
 }
 
 UPalBossBattleInstanceModel* UPalBossBattleSequencer::GetBossBattleInstanceModel() const {
+    return NULL;
+}
+
+UPalBossBattleEventBase* UPalBossBattleSequencer::GetBossBattleEvent() const {
     return NULL;
 }
 

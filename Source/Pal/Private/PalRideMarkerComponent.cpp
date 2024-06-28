@@ -19,6 +19,9 @@ void UPalRideMarkerComponent::SyncActiveSkill(UPalIndividualCharacterParameter* 
 void UPalRideMarkerComponent::SetVisibleWeapon() {
 }
 
+void UPalRideMarkerComponent::SetupUniqueWeapon() {
+}
+
 void UPalRideMarkerComponent::SetRidingFlag_Implementation(bool bIsEnable) {
 }
 

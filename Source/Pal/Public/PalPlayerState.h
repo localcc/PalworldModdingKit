@@ -9,6 +9,7 @@
 #include "GameFramework/OnlineReplStructs.h"
 #include "EPalChatCategory.h"
 #include "EPalPlayerJoinResult.h"
+#include "EPalStageType.h"
 #include "PalChatMessage.h"
 #include "PalDamageInfo.h"
 #include "PalDebugOtomoPalInfo.h"
@@ -16,10 +17,12 @@
 #include "PalInstanceID.h"
 #include "PalLogInfo_DropPal.h"
 #include "PalMealLogDisplayData.h"
+#include "PalOptionCommonSettings.h"
 #include "PalPlayerAccountInitData.h"
 #include "PalPlayerDataCharacterMakeInfo.h"
 #include "PalPlayerInfoForMap.h"
 #include "PalPlayerInitializeParameter.h"
+#include "PalPlayerSettingsForServer.h"
 #include "PalStaticItemIdAndNum.h"
 #include "PalUIPalCaptureInfo.h"
 #include "PalPlayerState.generated.h"
@@ -36,9 +39,11 @@ class UPalPlayerInventoryData;
 class UPalPlayerLocalRecordData;
 class UPalPlayerOtomoData;
 class UPalPlayerRecordData;
+class UPalPlayerSkinData;
 class UPalQuestManager;
 class UPalSyncTeleportComponent;
 class UPalTechnologyData;
+class UPalUserAchievementChecker;
 class UPalWorldMapUIData;
 
 UCLASS(Blueprintable, MinimalAPI)
@@ -50,6 +55,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FReturnSelfDelegate, APalPlayerState*, PlayerState);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FReportCrimeIdsDelegate, UPalIndividualCharacterHandle*, CriminalHandle, const TArray<FName>&, CrimeIds);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FReleaseWantedDelegate, UPalIndividualCharacterHandle*, CriminalHandle);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnLoadingProgressUpdate, int32, AddStep, int32, MaxStep);
     DECLARE_DYNAMIC_DELEGATE(FOnCompleteLoadWorldPartitionDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnCompleteLoadInitWorldPartitionDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FEndCrimeDelegate, FGuid, CrimeInstanceId);
@@ -57,6 +63,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_WinGDKUniqueId, meta=(AllowPrivateAccess=true))
     FUniqueNetIdRepl WinGDKUniqueId;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnLoadingProgressUpdate OnLoadingProgressUpdateDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FReportCrimeIdsDelegate OnReportCrimeIdsDelegate;
@@ -111,6 +120,9 @@ protected:
     UPalPlayerRecordData* RecordData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    UPalPlayerSkinData* PlayerSkinData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     bool bIsSelectedInitMapPoint;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -138,6 +150,9 @@ protected:
     FDateTime StartPlayTime;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalUserAchievementChecker* UserAchievementChecker;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsNewCharacter;
     
 private:
@@ -153,15 +168,24 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FPalPlayerAccountInitData AcountInitData;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalPlayerSettingsForServer PlayerSettingsForServer;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FPalLogInfo_DropPal> DropPalInfo;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FGuid, FTimerHandle> WaitLoadingWorldPartitionTimerMap;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString AccountName;
+    
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     int32 ChatCounter;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    bool DisableGuildJoin;
     
     APalPlayerState(const FObjectInitializer& ObjectInitializer);
 
@@ -169,6 +193,9 @@ public:
 
     UFUNCTION(BlueprintCallable)
     void WaitWorldPartitionDelegate(FTimerHandle& OutTimerHandle, APalPlayerState::FOnCompleteLoadWorldPartitionDelegate Delegate);
+    
+    UFUNCTION(BlueprintCallable)
+    void ShowUnlockHardModeUI();
     
     UFUNCTION(BlueprintCallable)
     void ShowTowerBossDefeatRewardUI();
@@ -187,6 +214,9 @@ private:
     void SendAccountInitData_ForServer(const FPalPlayerAccountInitData& accountInitData);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestUpdatePlayerSettingsForServer_ToServer(const FPalPlayerSettingsForServer& NewSettings);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestUnlockFastTravelPoint_ToServer(const FName UnlockFlagKey);
     
 public:
@@ -196,6 +226,9 @@ public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestRespawn();
     
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestPalBoxSyncPage_ToServer(int32 pageIndex);
+    
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestObtainLevelObject_ToServer(APalLevelObjectObtainable* TargetObject);
@@ -203,6 +236,11 @@ private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestJoinPlayer_ToServer(const FGuid& JoinPlayerUId, const FPalPlayerInitializeParameter& InitPlayerParam);
     
+public:
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestForceSyncPalBoxSlot_ToServer(bool isForceSync);
+    
+private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestBotLocation();
     
@@ -263,6 +301,9 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnCompleteLoadInitWorldPartition_InClient(APalPlayerState* PlayerState);
     
+    UFUNCTION(BlueprintCallable)
+    void OnChangeOptionCommonSettings(const FPalOptionCommonSettings& PrevSettings, const FPalOptionCommonSettings& NewSettings);
+    
 public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void NotifyStartInitSelectMap_ToServer();
@@ -272,9 +313,6 @@ public:
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void NotifyRemovedCharacterFromPalBox_ToServer(const FPalInstanceID& IndividualId);
-    
-    UFUNCTION(BlueprintCallable, Reliable, Server)
-    void NotifyOpenClosePalBox_ToServer(bool IsOpen);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void NotifyObtainComplete_ToServer(const FPalInstanceID& IndividualId);
@@ -322,6 +360,9 @@ public:
     bool IsPlayerCompletelyDead() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsInStateByStageType(EPalStageType StageType) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInStage() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -344,6 +385,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalQuestManager* GetQuestManager() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPalPlayerSkinData* GetPlayerSkinData() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FPalPlayerInfoForMap GetPlayerInfoForMap();

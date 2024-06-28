@@ -1,30 +1,23 @@
 #include "PalMapObjectDefenseBulletLauncherModel.h"
+#include "Net/UnrealNetwork.h"
 
 UPalMapObjectDefenseBulletLauncherModel::UPalMapObjectDefenseBulletLauncherModel() {
     this->remainingBulletsNum = 0;
     this->MagazineSize = 0;
+    this->AttackableDistance = 0.00f;
+    this->AttackableAngleElevation = 0.00f;
+    this->AttackableAngleDepression = 0.00f;
+    this->AttackableAngleElevationDot = 0.00f;
+    this->AttackableAngleDepressionDot = 0.00f;
 }
 
 void UPalMapObjectDefenseBulletLauncherModel::UseBullet() {
 }
 
-void UPalMapObjectDefenseBulletLauncherModel::TurnToTarget(const AActor* TargetActor, float DeltaTime) {
-}
-
-bool UPalMapObjectDefenseBulletLauncherModel::TryGetWeapon(APalStationaryWeaponBase*& OutWeapon) const {
-    return false;
-}
-
-void UPalMapObjectDefenseBulletLauncherModel::SetOwnerCharacter(const APalCharacter* OwnerCharacter) {
-}
-
-void UPalMapObjectDefenseBulletLauncherModel::SetEnableTrigger(bool EnableTrigger) {
-}
-
 void UPalMapObjectDefenseBulletLauncherModel::ReloadBullets(int32 ReloadBulletsNum) {
 }
 
-void UPalMapObjectDefenseBulletLauncherModel::OnUpdateEnergyModuleState(UPalMapObjectEnergyModule* EnergyModule) {
+void UPalMapObjectDefenseBulletLauncherModel::OnRep_RemainingBulletsNum() {
 }
 
 int32 UPalMapObjectDefenseBulletLauncherModel::GetRemainingBulletsNum() const {
@@ -39,16 +32,11 @@ FName UPalMapObjectDefenseBulletLauncherModel::GetBulletName() const {
     return NAME_None;
 }
 
-float UPalMapObjectDefenseBulletLauncherModel::GetAttackableDistance() const {
-    return 0.0f;
-}
-
-float UPalMapObjectDefenseBulletLauncherModel::GetAttackableAngle() const {
-    return 0.0f;
-}
-
-bool UPalMapObjectDefenseBulletLauncherModel::CanAvailable() const {
-    return false;
+void UPalMapObjectDefenseBulletLauncherModel::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
+    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+    
+    DOREPLIFETIME(UPalMapObjectDefenseBulletLauncherModel, remainingBulletsNum);
+    DOREPLIFETIME(UPalMapObjectDefenseBulletLauncherModel, BulletItemName);
 }
 
 

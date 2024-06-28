@@ -28,8 +28,12 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     AActor* ShooterHuman;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UPalStateMachineStateBase> FireStateClass;
+    
 public:
     UPalNPCAIWeaponHandle();
+
     UFUNCTION(BlueprintCallable)
     void UnequipWeapon();
     
@@ -65,6 +69,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool GetUseSideDashMovement();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetSphereCastRadius();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetShootInterval();

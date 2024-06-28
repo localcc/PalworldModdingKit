@@ -2,6 +2,8 @@
 #include "Net/UnrealNetwork.h"
 
 UPalMapObjectPickupItemOnLevelModel::UPalMapObjectPickupItemOnLevelModel() {
+    this->LongHoldInteractDuration = 0.00f;
+    this->InteractPlayerActionType = EPalActionType::None;
 }
 
 void UPalMapObjectPickupItemOnLevelModel::OnUpdateItemContainerContents(UPalItemContainer* Container) {

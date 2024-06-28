@@ -45,7 +45,7 @@ float APalRandomIncidentSpawnerBase::GetAreaRadius(EPalRandomIncidentSpawnerArea
     return 0.0f;
 }
 
-APalCharacter* APalRandomIncidentSpawnerBase::FindPlayerInsideArea(EPalRandomIncidentSpawnerAreaType AreaType) {
+APalPlayerCharacter* APalRandomIncidentSpawnerBase::FindPlayerInsideArea(EPalRandomIncidentSpawnerAreaType AreaType) {
     return NULL;
 }
 

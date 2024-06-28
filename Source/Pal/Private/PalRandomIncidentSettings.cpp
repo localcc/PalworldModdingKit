@@ -5,5 +5,6 @@ FPalRandomIncidentSettings::FPalRandomIncidentSettings() {
     this->NPCSpawnData = NULL;
     this->ExcludeOtherPal = false;
     this->action = NULL;
+    this->ObjectPlacement = NULL;
 }
 

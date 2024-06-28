@@ -80,8 +80,5 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalIndividualCharacterHandle* GetHandle() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool CanSetHandle(UPalIndividualCharacterHandle* InHandle) const;
-    
 };
 

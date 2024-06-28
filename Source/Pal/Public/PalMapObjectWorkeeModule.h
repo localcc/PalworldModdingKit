@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "PalMapObjectConcreteModelModuleBase.h"
+#include "PalMapObjectWorkeeModuleWorkDelegateDelegate.h"
 #include "PalMapObjectWorkeeModule.generated.h"
 
 class UPalWorkBase;
@@ -29,6 +30,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalWorkBase* GetWork() const;
+    
+    UFUNCTION(BlueprintCallable)
+    void CallOrRegisterOnReadyWork(FPalMapObjectWorkeeModuleWorkDelegate Delegate);
     
 };
 

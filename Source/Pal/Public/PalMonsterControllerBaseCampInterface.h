@@ -30,12 +30,6 @@ public:
     void SetCapturedStorageAction();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void SetBaseCampFighterGunnerAction();
-    
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void SetBaseCampFighterAction();
-    
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetBaseCampActionWithFixAssign(const FGuid& TargetWorkProgressId, const float DistanceFixAssignTargetting);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

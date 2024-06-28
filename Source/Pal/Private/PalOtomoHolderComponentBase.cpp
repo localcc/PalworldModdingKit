@@ -5,6 +5,8 @@ UPalOtomoHolderComponentBase::UPalOtomoHolderComponentBase(const FObjectInitiali
     this->CollisionChecker = NULL;
     this->OtomoOrder = EPalOtomoPalOrderType::Default;
     this->CharacterContainer = NULL;
+    this->bIsDisableDespawnCharacter = false;
+    this->bDisableDeadReturnOtomo = false;
 }
 
 UPalIndividualCharacterHandle* UPalOtomoHolderComponentBase::TryGetSpawnedOtomoHandle() const {
@@ -54,6 +56,9 @@ void UPalOtomoHolderComponentBase::SetOtomoOrder_ToServer_Implementation(EPalOto
 }
 
 void UPalOtomoHolderComponentBase::SetInteractComponent_Implementation(AActor* SpawnPal) {
+}
+
+void UPalOtomoHolderComponentBase::SetDisableDeadReturnOtomo(bool bDisable) {
 }
 
 void UPalOtomoHolderComponentBase::OnUpdateSlot(UPalIndividualCharacterSlot* Slot, UPalIndividualCharacterHandle* LastHandle) {
@@ -134,6 +139,7 @@ void UPalOtomoHolderComponentBase::InactiveOtomoByHandle_PreProcess(UPalIndividu
 }
 
 
+
 FTransform UPalOtomoHolderComponentBase::GetTransform_SpawnPalNearTrainer() {
     return FTransform{};
 }
@@ -192,6 +198,9 @@ void UPalOtomoHolderComponentBase::DecrementSelectOtomoID() {
 }
 
 
+void UPalOtomoHolderComponentBase::CompleteInactiveCurrentOtomo() {
+}
+
 
 bool UPalOtomoHolderComponentBase::AddOtomoHandleToFreeSlot(UPalIndividualCharacterHandle* Handle) {
     return false;
@@ -201,6 +210,9 @@ void UPalOtomoHolderComponentBase::AddLogOtomoPartnerSkill_Waza_ToClient_Impleme
 }
 
 void UPalOtomoHolderComponentBase::AddLogOtomoPartnerSkill_ToClient_Implementation(AActor* Otomo, EPalLogType PalLogType, int32 Value, bool AddSkillName) {
+}
+
+void UPalOtomoHolderComponentBase::AddLogOtomoPartnerSkill_Text_ToClient_Implementation(AActor* Otomo, FName textID) {
 }
 
 

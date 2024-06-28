@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "LevelInstance/LevelInstanceActor.h"
+#include "EPalBossBattleDifficulty.h"
 #include "EPalBossType.h"
 #include "PalBossBattleLevelInstance.generated.h"
 
@@ -19,6 +20,9 @@ public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsLoaded;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalBossBattleDifficulty Difficulty;
     
 public:
     APalBossBattleLevelInstance(const FObjectInitializer& ObjectInitializer);

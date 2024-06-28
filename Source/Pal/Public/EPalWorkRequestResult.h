@@ -23,5 +23,6 @@ enum class EPalWorkRequestResult : uint8 {
     FailedInvokeingInClientForServerInternalFunction,
     FailedTransportNotExistDirector,
     FailedTransportNotExistPathToMoveFor,
+    UnassignTargetWork,
 };
 

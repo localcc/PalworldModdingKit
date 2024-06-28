@@ -11,6 +11,7 @@ class PAL_API UPalUIPlayerEquipment : public UPalUserWidgetOverlayUI {
     GENERATED_BODY()
 public:
     UPalUIPlayerEquipment();
+
 protected:
     UFUNCTION(BlueprintCallable)
     void SwapItemSlot(UPalItemSlot* SlotA, UPalItemSlot* SlotB);
@@ -22,7 +23,7 @@ protected:
     void SetDisableEquipmentHeadMeshFlag(bool isDisable);
     
     UFUNCTION(BlueprintCallable)
-    void RemoveItemSlot(UPalItemSlot* targetSlot, UPalItemSlot* toSlot);
+    void RemoveItemSlot(UPalItemSlot* TargetSlot, UPalItemSlot* toSlot);
     
     UFUNCTION(BlueprintCallable)
     void RemoveEquipment(EPalPlayerEquipItemSlotType slotType, UPalItemSlot* toSlot);

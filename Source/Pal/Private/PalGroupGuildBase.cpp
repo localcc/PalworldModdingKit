@@ -19,8 +19,20 @@ void UPalGroupGuildBase::OnReceivedWordFilteringResult(const FString& ResponseBo
 void UPalGroupGuildBase::OnDeletePlayerAccount_ServerInternal(UPalPlayerAccount* DeleteAccount) {
 }
 
+bool UPalGroupGuildBase::IsWorkerCapacityLimited(int32 InLevel) const {
+    return false;
+}
+
+int32 UPalGroupGuildBase::GetWorkerCapacityNum(int32 InLevel) const {
+    return 0;
+}
+
 FString UPalGroupGuildBase::GetGuildName() const {
     return TEXT("");
+}
+
+int32 UPalGroupGuildBase::GetBaseCampMaxNumInGuildSpecLevel(int32 InLevel) const {
+    return 0;
 }
 
 int32 UPalGroupGuildBase::GetBaseCampMaxNumInGuild() const {

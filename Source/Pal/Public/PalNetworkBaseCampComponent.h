@@ -7,6 +7,7 @@
 #include "EPalLogType.h"
 #include "EPalWorkSuitability.h"
 #include "PalInstanceID.h"
+#include "PalKillLogDisplayData.h"
 #include "PalMealLogDisplayData.h"
 #include "PalMonsterControllerBaseCampLogContent.h"
 #include "PalNetArchive.h"
@@ -26,6 +27,14 @@ private:
 public:
     UPalNetworkBaseCampComponent(const FObjectInitializer& ObjectInitializer);
 
+private:
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestUnassignWorkInBaseCamp_ToServer(const FGuid& BaseCampId, const FGuid& WorkId, const FPalInstanceID& IndividualId);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestReplicateBaseCampWork_ToServer(const FGuid& BaseCampId, const bool bReplicate);
+    
+public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestModule_Server_void(const FGuid& BaseCampId, const EPalBaseCampModuleType ModuleType, const FName FunctionName);
     
@@ -41,6 +50,11 @@ public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestModule_Server_bool(const FGuid& BaseCampId, const EPalBaseCampModuleType ModuleType, const FName FunctionName, bool Value);
     
+private:
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestFixedAssignWorkInBaseCamp_ToServer(const FGuid& BaseCampId, const FGuid& WorkId, const FPalInstanceID& IndividualId);
+    
+public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestChangeWorkSuitability_ToServer(const FPalInstanceID& TargetIndividualId, const EPalWorkSuitability WorkSuitability, const bool bOn);
     
@@ -146,7 +160,7 @@ public:
     void AddBaseCampWorkerLog_Client(EPalLogType DisplayLogType, const FPalInstanceID& WorkerCharacterInstanceId, const FName& EventDataID);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
-    void AddBaseCampWorkerDeathLog_Client(const FPalInstanceID& WorkerCharacterInstanceId);
+    void AddBaseCampWorkerDeathLog_Client(const FPalKillLogDisplayData& DeathLogDisplayData);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void AddBaseCampLog_Client(const FPalMonsterControllerBaseCampLogContent& LogContent);

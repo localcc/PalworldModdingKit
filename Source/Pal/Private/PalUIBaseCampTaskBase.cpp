@@ -13,8 +13,16 @@ bool UPalUIBaseCampTaskBase::TryBaseCampLevelUp() {
 void UPalUIBaseCampTaskBase::SetTargetBaseCampID(const FGuid& TargetBaseCampID) {
 }
 
+bool UPalUIBaseCampTaskBase::IsWorkerCapacityLimited(int32 InLevel) const {
+    return false;
+}
+
 bool UPalUIBaseCampTaskBase::IsCampLevelMax() {
     return false;
+}
+
+int32 UPalUIBaseCampTaskBase::GetWorkerMaxNum(int32 InLevel) const {
+    return 0;
 }
 
 bool UPalUIBaseCampTaskBase::GetNowLevelTaskData(FPalBaseCampTaskDataSet& outTaskData) {
@@ -23,6 +31,10 @@ bool UPalUIBaseCampTaskBase::GetNowLevelTaskData(FPalBaseCampTaskDataSet& outTas
 
 UPalBaseCampModel* UPalUIBaseCampTaskBase::GetBaseCampModel() {
     return NULL;
+}
+
+int32 UPalUIBaseCampTaskBase::GetBaseCampMaxNumInGuild(int32 InLevel) const {
+    return 0;
 }
 
 FGuid UPalUIBaseCampTaskBase::GetBaseCampId() {

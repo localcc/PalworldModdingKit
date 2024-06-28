@@ -4,6 +4,9 @@
 UPalNetworkPlayerComponent::UPalNetworkPlayerComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
 
+void UPalNetworkPlayerComponent::ShowUnlockHardModeUI_ToClient_Implementation() {
+}
+
 void UPalNetworkPlayerComponent::ShowBossDefeatRewardUI_ToClient_Implementation(int32 TechPoint, bool AfterTeleport, int32 DelayTime) {
 }
 
@@ -11,9 +14,6 @@ void UPalNetworkPlayerComponent::SetCurrentSelectPalSphereIndex_ToServer_Impleme
 }
 
 void UPalNetworkPlayerComponent::RequestUnlockTechnology_ToServer_Implementation(const FName& UnlockTechnologyName) {
-}
-
-void UPalNetworkPlayerComponent::RequestTrashItemFromInventoryDropSlot_ToServer_Implementation() {
 }
 
 void UPalNetworkPlayerComponent::RequestSortInventory_ToServer_Implementation() {
@@ -34,9 +34,6 @@ void UPalNetworkPlayerComponent::RequestEnterStage_ToServer_Implementation(const
 void UPalNetworkPlayerComponent::RequestDropOtomoPal_ToServer_Implementation(const int32 OtomoIndex) {
 }
 
-void UPalNetworkPlayerComponent::RequestDropItemFromInventoryDropSlot_ToServer_Implementation() {
-}
-
 void UPalNetworkPlayerComponent::RequestChangeVoiceID_ToServer_Implementation(int32 NewVoiceID) {
 }
 
@@ -46,7 +43,7 @@ void UPalNetworkPlayerComponent::RequestAddTechnolgyPointByItem_ToServer_Impleme
 void UPalNetworkPlayerComponent::RequestAddTechnolgyPoint_ToServer_Implementation(const int32 AddPoint) {
 }
 
-void UPalNetworkPlayerComponent::RequestAddItem_ToServer_Implementation(const FName StaticItemId, const int32 Count, bool isAssignPassive) {
+void UPalNetworkPlayerComponent::RequestAddItem_ToServer_Implementation(const FName StaticItemId, const int32 Count, bool IsAssignPassive) {
 }
 
 void UPalNetworkPlayerComponent::RequestAddBossTechnolgyPointByItem_ToServer_Implementation(const FPalItemSlotId& ConsumeItemSlotID) {

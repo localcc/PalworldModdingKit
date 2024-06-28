@@ -20,6 +20,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FGuid OwnerPlayerUId;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    bool bCanOpenForAnyone;
+    
 public:
     UPalMapObjectDeathDroppedCharacterModel();
 

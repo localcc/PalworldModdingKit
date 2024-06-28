@@ -3,7 +3,7 @@
 UPalUIRecoverPalBase::UPalUIRecoverPalBase() {
 }
 
-void UPalUIRecoverPalBase::SelectCharacterSlot(UPalIndividualCharacterSlot* targetSlot, const EPalItemSlotPressType PressType) {
+void UPalUIRecoverPalBase::SelectCharacterSlot(UPalIndividualCharacterSlot* TargetSlot, const EPalItemSlotPressType PressType) {
 }
 
 

@@ -18,6 +18,9 @@ enum class EPalWeaponType : uint8 {
     GatlingGun,
     Liftup,
     LaserRifle,
+    MissileLauncher,
+    GrenadeLauncher,
+    Katana,
     MAX,
 };
 

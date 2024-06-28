@@ -20,6 +20,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<float> ExtendRangePerSecByRank;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IsRangeIgnore;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FVector SearchOrigin;
@@ -45,8 +48,12 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FPalCoopSkillSearchResultParameter> SearchResultParameters;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IsNotFinishAfterSearched;
+    
 public:
     UPalCoopSkillSearchBase();
+
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void Tick(float DeltaTime, UPalCoopSkillSearchLocationRegister* LocationRegister);
     
@@ -74,10 +81,16 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsSearchRangeIgnore() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsRunning() const;
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
     bool IsFinished() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
+    bool IsContinueProcess() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetSearchRangeMax() const;

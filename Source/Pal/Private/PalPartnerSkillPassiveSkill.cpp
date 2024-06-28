@@ -17,6 +17,12 @@ void UPalPartnerSkillPassiveSkill::OnUpdateOtomoHolder(APalCharacter* Character)
 void UPalPartnerSkillPassiveSkill::OnUpdateInventoryContainer() {
 }
 
+void UPalPartnerSkillPassiveSkill::OnUpdateCurrentGround(TEnumAsByte<EPhysicalSurface> GroundType) {
+}
+
+void UPalPartnerSkillPassiveSkill::OnUpdateBaseCampId(const FGuid& BaseCampId) {
+}
+
 void UPalPartnerSkillPassiveSkill::OnRideInactivated() {
 }
 
@@ -29,6 +35,9 @@ void UPalPartnerSkillPassiveSkill::OnReserveInactivated() {
 void UPalPartnerSkillPassiveSkill::OnReserveActivated() {
 }
 
+void UPalPartnerSkillPassiveSkill::OnRemoveWorker(UPalIndividualCharacterHandle* RemoveCharacterHandle) {
+}
+
 void UPalPartnerSkillPassiveSkill::OnInactivatedAsWorker() {
 }
 
@@ -36,6 +45,12 @@ void UPalPartnerSkillPassiveSkill::OnInactivatedAsOtomoHolder() {
 }
 
 void UPalPartnerSkillPassiveSkill::OnInactivatedAsOtomo() {
+}
+
+void UPalPartnerSkillPassiveSkill::OnChangeDisablePassiveSkill(bool isDisable) {
+}
+
+void UPalPartnerSkillPassiveSkill::OnAddNewWorker(UPalIndividualCharacterHandle* AddCharacterHandle) {
 }
 
 void UPalPartnerSkillPassiveSkill::OnActivatedAsWorker() {

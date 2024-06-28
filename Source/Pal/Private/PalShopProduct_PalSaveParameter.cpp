@@ -10,7 +10,7 @@ void UPalShopProduct_PalSaveParameter::OnCreatedBuyPal(FPalInstanceID CreatedPal
 void UPalShopProduct_PalSaveParameter::GetProductPalParameter(FPalIndividualCharacterSaveParameter& outParameter) const {
 }
 
-int32 UPalShopProduct_PalSaveParameter::GetPrice() const {
+int32 UPalShopProduct_PalSaveParameter::GetPrice(const FGuid& PlayerUId) const {
     return 0;
 }
 

@@ -1,11 +1,13 @@
 #include "PalCoopSkillSearchBase.h"
 
 UPalCoopSkillSearchBase::UPalCoopSkillSearchBase() {
+    this->IsRangeIgnore = false;
     this->SearchRangeMax = 0.00f;
     this->ExtendRangePerSec = 0.00f;
     this->ElapsedTime = 0.00f;
     this->SkillRank = 0;
     this->bIsRunning = false;
+    this->IsNotFinishAfterSearched = false;
 }
 
 void UPalCoopSkillSearchBase::Tick_Implementation(float DeltaTime, UPalCoopSkillSearchLocationRegister* LocationRegister) {
@@ -25,11 +27,19 @@ void UPalCoopSkillSearchBase::OnRemoveLocationForCompass(const FGuid& LocationId
 void UPalCoopSkillSearchBase::OnAddedLocationForCompass(const FGuid& LocationId, UPalLocationBase* Location) {
 }
 
+bool UPalCoopSkillSearchBase::IsSearchRangeIgnore() const {
+    return false;
+}
+
 bool UPalCoopSkillSearchBase::IsRunning() const {
     return false;
 }
 
 bool UPalCoopSkillSearchBase::IsFinished_Implementation() const {
+    return false;
+}
+
+bool UPalCoopSkillSearchBase::IsContinueProcess_Implementation() const {
     return false;
 }
 

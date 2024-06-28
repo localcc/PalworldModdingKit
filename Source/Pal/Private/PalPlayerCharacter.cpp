@@ -38,6 +38,12 @@ void APalPlayerCharacter::SetSpectatorMode_Implementation(bool bSpectator) {
 void APalPlayerCharacter::SetNearCommonEnemy(bool IsExistNearEnemy) {
 }
 
+void APalPlayerCharacter::SetDisablePlayerInput(FName flagName, bool Disable) {
+}
+
+void APalPlayerCharacter::SetCharacterMakeInfo_ToAll_Implementation(FPalPlayerDataCharacterMakeInfo NextInfo) {
+}
+
 void APalPlayerCharacter::PlayIdleAnimation(UAnimMontage* Montage) {
 }
 
@@ -76,7 +82,13 @@ void APalPlayerCharacter::OnEndIdle() {
 }
 
 
+void APalPlayerCharacter::OnDyingDeadEnd_Server(APalPlayerCharacter* PlayerCharacter, const FPalDyingEndInfo& DyingEndInfo) {
+}
+
 void APalPlayerCharacter::OnDownBattleEnemyRank_Implementation(EPalPlayerBattleFinishType FinishType) {
+}
+
+void APalPlayerCharacter::OnDeadPlayer_Server(FPalDeadInfo DeadInfo) {
 }
 
 void APalPlayerCharacter::OnDamagePlayer_Server(FPalDamageResult DamageResult) {
@@ -96,7 +108,7 @@ void APalPlayerCharacter::OnChangeNearEnemy_ToAll_Implementation(bool IsExist) {
 void APalPlayerCharacter::OnChangeMovementMode(UPalCharacterMovementComponent* Component, TEnumAsByte<EMovementMode> prevMode, TEnumAsByte<EMovementMode> newMode, EPalCharacterMovementCustomMode PrevCustomMode, EPalCharacterMovementCustomMode NewCustomMode) {
 }
 
-void APalPlayerCharacter::OnChangeBattleEnemyRank_Implementation(EPalBattleBGMType Rank, bool IsAdd) {
+void APalPlayerCharacter::OnChangeBattleBGM_Implementation(EPalBattleBGMType Rank) {
 }
 
 void APalPlayerCharacter::OnBeginAction(const UPalActionBase* action) {
@@ -114,6 +126,10 @@ bool APalPlayerCharacter::IsGliding() const {
     return false;
 }
 
+bool APalPlayerCharacter::IsCharacterMakeInfoInitialized() const {
+    return false;
+}
+
 bool APalPlayerCharacter::IsAdjustedLocation() const {
     return false;
 }
@@ -125,6 +141,7 @@ APalPlayerController* APalPlayerCharacter::GetPalPlayerController() const {
 void APalPlayerCharacter::GetLastInsideRegionNameID(FName& OutNameID) const {
 }
 
+
 FPalPlayerDataCharacterMakeInfo APalPlayerCharacter::GetCharacterMakeInfo() const {
     return FPalPlayerDataCharacterMakeInfo{};
 }
@@ -132,6 +149,7 @@ FPalPlayerDataCharacterMakeInfo APalPlayerCharacter::GetCharacterMakeInfo() cons
 FRotator APalPlayerCharacter::GetCameraRotator() const {
     return FRotator{};
 }
+
 
 
 void APalPlayerCharacter::ChangeToMale() {

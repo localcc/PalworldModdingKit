@@ -14,11 +14,13 @@ class UPalGameSystemInitManagerComponent;
 class UPalLocationReplicator;
 class UPalOptionReplicator;
 class UPalStageReplicator;
+class UPalSupplySpawnerData;
 
 UCLASS(Blueprintable, MinimalAPI)
 class APalGameStateInGame : public APalGameState {
     GENERATED_BODY()
 public:
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnRecievedServerNoticeDelegate, const FString&, NoticeMessage);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnRecievedChatMessageDelegate, const FPalChatMessage&, Message);
     
 private:
@@ -115,6 +117,12 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     int32 NavMeshInvokerCount;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    TArray<UPalSupplySpawnerData*> SupplySpawnerDataList;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float WorldOceanPlaneZ;
+    
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FPalChatMessage> ChatMessages;
@@ -122,10 +130,21 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnRecievedChatMessageDelegate OnRecievedChatMessageDelegate;
     
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnRecievedServerNoticeDelegate OnRecievedServerNoticeDelegate;
+    
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString SaveConfigCategoryName;
+    
+public:
     APalGameStateInGame(const FObjectInitializer& ObjectInitializer);
 
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
+    UFUNCTION(BlueprintCallable)
+    void SetWorldOceanPlaneZ(const float InZ);
+    
 private:
     UFUNCTION(BlueprintCallable)
     void OnRep_WorldSaveDirectoryName();
@@ -157,6 +176,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetMaxPlayerNum() const;
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void BroadcastServerNotice(const FString& NoticeMessage);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void BroadcastChatMessage(const FPalChatMessage& ChatMessage);

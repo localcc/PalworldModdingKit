@@ -122,6 +122,9 @@ public:
     void Close(const FGuid& ID);
     
     UFUNCTION(BlueprintCallable)
+    void ClearFadeQueue();
+    
+    UFUNCTION(BlueprintCallable)
     FGuid AddWorldHUD(FPalWorldHUDParameter Parameter);
     
     UFUNCTION(BlueprintCallable)

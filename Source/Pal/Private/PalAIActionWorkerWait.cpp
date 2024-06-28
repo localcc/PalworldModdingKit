@@ -3,6 +3,9 @@
 UPalAIActionWorkerWait::UPalAIActionWorkerWait() {
 }
 
+void UPalAIActionWorkerWait::TickForWalkAround(float DeltaTime) {
+}
+
 
 void UPalAIActionWorkerWait::OnTickForWait_Implementation(float DeltaTime) {
 }

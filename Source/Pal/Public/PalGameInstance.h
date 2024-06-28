@@ -29,6 +29,7 @@ class UPalDataTableRowIdMapper;
 class UPalDatabaseCharacterParameter;
 class UPalDeadBodyManager;
 class UPalDeathPenaltyManager;
+class UPalDisplaySafeAreaDebugger;
 class UPalEventNotifySystem;
 class UPalExpDatabase;
 class UPalGameSetting;
@@ -49,6 +50,9 @@ class UPalPlayerDataStorage;
 class UPalPlayerManager;
 class UPalRaidBossManager;
 class UPalSaveGameManager;
+class UPalShopManager;
+class UPalSkinManager;
+class UPalSupplyManager;
 class UPalTutorialManager;
 class UPalVisualEffectDataBase;
 class UPalWazaDatabase;
@@ -75,6 +79,9 @@ protected:
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bNetworkError;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bSaveError;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString DisplayVersion;
@@ -277,6 +284,18 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalLogManager> LogManagerClass;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UPalSkinManager> SkinManagerClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalSkinManager* SkinManager;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UPalSupplyManager> SupplyManagerClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UPalShopManager> ShopManagerSubsystemClass;
+    
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 revisionNum;
     
@@ -285,6 +304,9 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FFxiedCharacterName FxiedCharacterNameDelegate;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPalDisplaySafeAreaDebugger* DisplaySafeAreaDebugger;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -367,6 +389,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void CompleteInitCharacterMakeData();
+    
+    UFUNCTION(BlueprintCallable)
+    void ClearSaveError();
     
     UFUNCTION(BlueprintCallable)
     void ClearNetworkError();

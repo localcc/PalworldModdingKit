@@ -5,6 +5,7 @@
 #include "GameFramework/Actor.h"
 #include "EPalCheckSpawnResultType.h"
 #include "EPalSpawnRadiusType.h"
+#include "EPalSpawnedCharacterType.h"
 #include "EPalSpwnerImportanceType.h"
 #include "FlagContainer.h"
 #include "PalSpawnerGroupInfo.h"
@@ -66,6 +67,9 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FCreatedGroupDelegate OnCreatedGroupDelegate;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FPalSpawnerGroupInfo> RandomizeSpawnerGroupInfos;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FGuid WildGroupGuid;
@@ -101,6 +105,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetSpawnDisableFlag(const FName& Name, bool isDisable);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetIgnoreRandomizer(bool bInIgnoreRandomizer);
     
 protected:
     UFUNCTION(BlueprintCallable)
@@ -167,6 +174,12 @@ protected:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsIgnoreRandomizer() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    EPalSpawnRadiusType GetSpawnRadiusType() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetSpawnRadiusCM() const;
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
@@ -180,14 +193,20 @@ protected:
     int32 GetSpawnLevelRandom_OneTribe(FPalSpawnerOneTribeInfo Info);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure)
-    TArray<FPalSpawnerGroupInfo> GetSpawnGroupList() const;
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    TArray<FPalSpawnerGroupInfo> GetSpawnGroupList(UObject* WorldContextObject) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    EPalSpawnedCharacterType GetSpawnerType() const;
     
 protected:
-    UFUNCTION(BlueprintCallable)
-    float GetSpawnerRadiusByType();
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetSpawnerRadiusByType() const;
     
 public:
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    FName GetSpawnerName() const;
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetSpawnDisableDebugInfo() const;
     
@@ -234,7 +253,7 @@ protected:
     void BlueprintTick(float DeltaTime);
     
     UFUNCTION(BlueprintCallable)
-    void AddGroupCharacterByGroupId(UPalIndividualCharacterHandle* AddIndividualHandle, const FGuid& GroupID, const FString& DebugName);
+    void AddGroupCharacterByGroupId(UPalIndividualCharacterHandle* AddIndividualHandle, const FGuid& GroupId, const FString& DebugName);
     
     UFUNCTION(BlueprintCallable)
     void AddGroupCharacter(UPalIndividualCharacterHandle* AddIndividualHandle);

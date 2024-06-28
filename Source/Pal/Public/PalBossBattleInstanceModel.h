@@ -4,8 +4,10 @@
 #include "UObject/Object.h"
 #include "UObject/NoExportTypes.h"
 #include "Engine/NetSerialization.h"
+#include "EPalBossBattleDifficulty.h"
 #include "EPalBossBattleState.h"
 #include "EPalBossType.h"
+#include "PalBossBattleSuccessItemInfo.h"
 #include "PalStageInstanceId.h"
 #include "PalBossBattleInstanceModel.generated.h"
 
@@ -16,6 +18,7 @@ class APalCutsceneActor;
 class APalPlayerCharacter;
 class UAkAudioEvent;
 class UDataLayerAsset;
+class UPalBossBattleEventBase;
 class UPalBossBattleSequencer;
 
 UCLASS(Blueprintable)
@@ -84,6 +87,15 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalBossBattleSequencer* LocalBattleSequencer;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    EPalBossBattleDifficulty Difficulty;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FPalBossBattleSuccessItemInfo> SuccessItemList;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSoftClassPtr<UPalBossBattleEventBase> BossBattleEvent;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataLayerAsset* ReservedDataLayerAsset;
@@ -115,6 +127,9 @@ protected:
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsLevelInstanceLoaded() const;
+    
+    UFUNCTION(BlueprintCallable)
+    void GiftSuccessItem_OnePlayer(APalPlayerCharacter* Player);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetLevel() const;

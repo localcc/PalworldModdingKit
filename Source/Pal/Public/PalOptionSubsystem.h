@@ -32,6 +32,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnChangeKeyConfigDelegate, const FPalKeyConfigSettings&, PrevSettings, const FPalKeyConfigSettings&, NewSettings);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnChangeKeyboardDelegate, const FPalOptionKeyboardSettings&, PrevSettings, const FPalOptionKeyboardSettings&, NewSettings);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnChangeGraphicsDelegate, const FPalOptionGraphicsSettings&, PrevSettings, const FPalOptionGraphicsSettings&, NewSettings);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnChangeCommonSettingsDelegate, const FPalOptionCommonSettings&, PrevSettings, const FPalOptionCommonSettings&, NewSettings);
     
     UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnChangeKeyboardDelegate OnChangeKeyboardDelegate;
@@ -53,6 +54,9 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnChangeScreenRatioDelegate OnChangeScreenRatioDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnChangeCommonSettingsDelegate OnChangeCommonSettingDelegate;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

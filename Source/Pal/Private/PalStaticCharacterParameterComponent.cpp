@@ -8,7 +8,7 @@ UPalStaticCharacterParameterComponent::UPalStaticCharacterParameterComponent(con
     this->FollowSideDistanceRate = 1.00f;
     this->StepVelocityXY = 50.00f;
     this->StepVelocityZ = 10.00f;
-    this->HeadBoneName = TEXT("head");
+    this->HeadBoneName = TEXT("Head");
     this->PhysicsBodyRootName = TEXT("pelvis");
     this->ToolAttachBoneName = TEXT("Socket_Weapon_R");
     this->ExclamationMarkOffsetZ = 50.00f;
@@ -33,6 +33,9 @@ UPalStaticCharacterParameterComponent::UPalStaticCharacterParameterComponent(con
     this->SmallDamageAnimationPlayRate = 2.00f;
     this->IsForcedTurnWhenDamageReaction = false;
     this->DisableNPCDamageRolling = false;
+    this->DefenseBuildObjectAssignDistance = 0.00f;
+    this->DefenseBuildObjectAssignHeight = 0.00f;
+    this->IsHideDefenseLauncherFooting = false;
     this->PalSoundSlotCache = NULL;
     this->PalFootStepEffectAssetCache = NULL;
     this->MissWazaAction = NULL;
@@ -40,6 +43,7 @@ UPalStaticCharacterParameterComponent::UPalStaticCharacterParameterComponent(con
     this->IsTowerBoss_Database = false;
     this->IsRaidBoss_Database = false;
     this->SpawnedCharacterType = EPalSpawnedCharacterType::Common;
+    this->IsRaidBoss_BP = false;
 }
 
 void UPalStaticCharacterParameterComponent::SetSpawnedCharacterType(EPalSpawnedCharacterType SpawnedType) {
@@ -86,6 +90,10 @@ bool UPalStaticCharacterParameterComponent::IgnoreBlowAway() {
 
 EPalSpawnedCharacterType UPalStaticCharacterParameterComponent::GetSpawnedCharacterType() {
     return EPalSpawnedCharacterType::Common;
+}
+
+FPalRandomRestInfo UPalStaticCharacterParameterComponent::GetRandomRestInfoWithOption(const TArray<UAnimMontage*>& ExceptMontages) const {
+    return FPalRandomRestInfo{};
 }
 
 FPalRandomRestInfo UPalStaticCharacterParameterComponent::GetRandomRestInfo() const {

@@ -6,6 +6,7 @@
 class UPalPlayerDataCharacterMake;
 class UPalPlayerInventoryData;
 class UPalPlayerRecordData;
+class UPalPlayerSkinData;
 class UPalQuestManager;
 class UPalWorldMapUIData;
 
@@ -27,6 +28,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalPlayerInventoryData> InventoryDataClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UPalPlayerSkinData> PlayerSkinDataClass;
     
     PAL_API FPalPlayerClassStructSet();
 };

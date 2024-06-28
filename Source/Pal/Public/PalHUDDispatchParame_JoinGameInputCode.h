@@ -10,11 +10,15 @@ class UPalHUDDispatchParame_JoinGameInputCode : public UPalHUDDispatchParameterB
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IsCancel;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalUIJoinGameInputCodeType InputCodeType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalUIServerDisplayData TargetServerDisplayInfo;
     
     UPalHUDDispatchParame_JoinGameInputCode();
+
 };
 

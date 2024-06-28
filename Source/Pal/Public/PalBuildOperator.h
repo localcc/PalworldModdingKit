@@ -24,9 +24,6 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalBuildObjectDataMap* DataMap;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<APalBuildObject*> BuildObjects;
-    
 public:
     UPalBuildOperator();
 

@@ -1,4 +1,5 @@
 #include "PalCharacter.h"
+#include "Components/SphereComponent.h"
 #include "Net/UnrealNetwork.h"
 #include "PalActionComponent.h"
 #include "PalAnimNotifyParameterComponent.h"
@@ -33,6 +34,7 @@ APalCharacter::APalCharacter(const FObjectInitializer& ObjectInitializer) : Supe
     this->HUDComponent = NULL;
     this->AnimNotifyComponent = CreateDefaultSubobject<UPalAnimNotifyParameterComponent>(TEXT("AnimNotifyComponent"));
     this->AroundInfoCollectorComponent = CreateDefaultSubobject<UPalCharacterAroundInfoCollectorComponent>(TEXT("AroundInfoCollectorComponent"));
+    this->RagdollInteractiveSphere = CreateDefaultSubobject<USphereComponent>(TEXT("RagdollInteractiveSphere"));
     this->bIsBattleMode = false;
     this->bIsTalkMode = false;
     this->bIsPalActiveActor = true;
@@ -44,6 +46,7 @@ APalCharacter::APalCharacter(const FObjectInitializer& ObjectInitializer) : Supe
     this->CameraBoom->SetupAttachment(RootComponent);
     this->FollowCamera->SetupAttachment(CameraBoom);
     this->AroundInfoCollectorComponent->SetupAttachment(RootComponent);
+    this->RagdollInteractiveSphere->SetupAttachment(RootComponent);
 }
 
 void APalCharacter::UpdateGroundRayCast() {

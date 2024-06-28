@@ -4,5 +4,6 @@
 ABoxPlacement::ABoxPlacement() {
     this->BoxBrush = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxBrush"));
     this->TraceChannel = ECC_Visibility;
+    this->BoxBrush->SetupAttachment(RootComponent);
 }
 

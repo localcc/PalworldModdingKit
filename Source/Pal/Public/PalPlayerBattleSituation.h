@@ -2,12 +2,14 @@
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
 #include "Engine/EngineTypes.h"
+#include "EPalBattleBGMType.h"
 #include "PalInstanceID.h"
 #include "PalPlayerBattleEnemyInfo.h"
 #include "PalPlayerBattleSituation.generated.h"
 
+// todo: probably has some parameters
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnBattleRankDownDelegate);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnEnemyAddRemoveDelegate);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnChangeBGMTypeDelegate);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnChangeNearEnemyDelegate);
 
 UCLASS(Blueprintable)
@@ -18,7 +20,7 @@ public:
     FOnBattleRankDownDelegate OnBattleRankDownDelegate;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FOnEnemyAddRemoveDelegate OnEnemyAddRemoveDelegate;
+    FOnChangeBGMTypeDelegate OnChangeBGMTypeDelegate;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnChangeNearEnemyDelegate OnChangeNearEnemyDelegate;
@@ -36,7 +38,11 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FTimerHandle DistanceUpdateTimerHandle;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalBattleBGMType CurrentMaxRank;
+    
 public:
     UPalPlayerBattleSituation();
+
 };
 

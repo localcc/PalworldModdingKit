@@ -6,5 +6,6 @@ FPalPlayerClassStructSet::FPalPlayerClassStructSet() {
     this->WorldMapUIDataClass = NULL;
     this->LocalQuestManagerClass = NULL;
     this->InventoryDataClass = NULL;
+    this->PlayerSkinDataClass = NULL;
 }
 

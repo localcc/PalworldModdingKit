@@ -21,7 +21,9 @@
 #include "PalMapObjectSaveData.h"
 #include "PalMapObjectSpawnerInStageSaveData.h"
 #include "PalMapObjectSpawnerSaveData.h"
+#include "PalOilrigSaveData.h"
 #include "PalStageInstanceId.h"
+#include "PalSupplySaveData.h"
 #include "PalWorkSaveData.h"
 #include "PalWorldSaveData.generated.h"
 
@@ -85,6 +87,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FGuid, FPalInvaderSaveData> InvaderSaveData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalOilrigSaveData OilrigSaveData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalSupplySaveData SupplySaveData;
     
     PAL_API FPalWorldSaveData();
 };

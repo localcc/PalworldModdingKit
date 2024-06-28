@@ -1,7 +1,7 @@
 #include "PalDynamicItemDataManager.h"
 
 UPalDynamicItemDataManager::UPalDynamicItemDataManager() {
-    this->DisposeReservedDynamicItemRemainingTime = 0.20f;
+    this->DisposeReservedDynamicItemRemainingTime = 0.25f;
     this->DynamicItemDisposeReserveCount = 0;
 }
 

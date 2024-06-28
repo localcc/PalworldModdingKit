@@ -31,7 +31,7 @@ public:
     void GetProductPalParameter(FPalIndividualCharacterSaveParameter& outParameter) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetPrice() const;
+    int32 GetPrice(const FGuid& PlayerUId) const;
     
 };
 

@@ -2,6 +2,7 @@
 
 UPalDialogParameterBase::UPalDialogParameterBase() {
     this->DialogType = EPalDialogType::Alert;
+    this->TextJustify = ETextJustify::Center;
     this->IsCloseWhenDamaged = false;
     this->IsEnableShortcutConfirmInput = false;
 }

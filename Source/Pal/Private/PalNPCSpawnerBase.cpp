@@ -32,6 +32,9 @@ void APalNPCSpawnerBase::SetSpawnedFlag(bool NewIsSpawned) {
 void APalNPCSpawnerBase::SetSpawnDisableFlag(const FName& Name, bool isDisable) {
 }
 
+void APalNPCSpawnerBase::SetIgnoreRandomizer(bool bInIgnoreRandomizer) {
+}
+
 void APalNPCSpawnerBase::SetDisableBossSpawner_ToSaveData(FName KeyName) {
 }
 
@@ -88,6 +91,14 @@ bool APalNPCSpawnerBase::IsNearBaseCamp() {
     return false;
 }
 
+bool APalNPCSpawnerBase::IsIgnoreRandomizer() const {
+    return false;
+}
+
+EPalSpawnRadiusType APalNPCSpawnerBase::GetSpawnRadiusType() const {
+    return EPalSpawnRadiusType::S;
+}
+
 float APalNPCSpawnerBase::GetSpawnRadiusCM() const {
     return 0.0f;
 }
@@ -101,13 +112,17 @@ int32 APalNPCSpawnerBase::GetSpawnLevelRandom_OneTribe(FPalSpawnerOneTribeInfo I
     return 0;
 }
 
-float APalNPCSpawnerBase::GetSpawnerRadiusByType() {
+
+
+float APalNPCSpawnerBase::GetSpawnerRadiusByType() const {
     return 0.0f;
 }
+
 
 FString APalNPCSpawnerBase::GetSpawnDisableDebugInfo() const {
     return TEXT("");
 }
+
 
 int32 APalNPCSpawnerBase::GetMaxMonsterLevel_Implementation() const {
     return 0;
@@ -133,7 +148,7 @@ EPalCheckSpawnResultType APalNPCSpawnerBase::CheckSpawnDistance(bool NewIsSpawne
 
 
 
-void APalNPCSpawnerBase::AddGroupCharacterByGroupId(UPalIndividualCharacterHandle* AddIndividualHandle, const FGuid& GroupID, const FString& DebugName) {
+void APalNPCSpawnerBase::AddGroupCharacterByGroupId(UPalIndividualCharacterHandle* AddIndividualHandle, const FGuid& GroupId, const FString& DebugName) {
 }
 
 void APalNPCSpawnerBase::AddGroupCharacter(UPalIndividualCharacterHandle* AddIndividualHandle) {

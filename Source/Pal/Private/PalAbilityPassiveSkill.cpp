@@ -17,6 +17,9 @@ void UPalAbilityPassiveSkill::OnUpdateOtomoHolder(APalCharacter* Character) {
 void UPalAbilityPassiveSkill::OnUpdateInventoryContainer(UPalItemContainer* Container) {
 }
 
+void UPalAbilityPassiveSkill::OnUpdateBaseCampId(const FGuid& BaseCampId) {
+}
+
 void UPalAbilityPassiveSkill::OnRideInactivated() {
 }
 
@@ -29,6 +32,9 @@ void UPalAbilityPassiveSkill::OnReserveInactivated() {
 void UPalAbilityPassiveSkill::OnReserveActivated() {
 }
 
+void UPalAbilityPassiveSkill::OnRemoveWorker(UPalIndividualCharacterHandle* RemoveCharacterHandle) {
+}
+
 void UPalAbilityPassiveSkill::OnInactivatedAsWorker() {
 }
 
@@ -36,6 +42,12 @@ void UPalAbilityPassiveSkill::OnInactivatedAsOtomoHolder() {
 }
 
 void UPalAbilityPassiveSkill::OnInactivatedAsOtomo() {
+}
+
+void UPalAbilityPassiveSkill::OnChangeDisablePassiveSkill(bool isDisable) {
+}
+
+void UPalAbilityPassiveSkill::OnAddNewWorker(UPalIndividualCharacterHandle* AddCharacterHandle) {
 }
 
 void UPalAbilityPassiveSkill::OnActivatedAsWorker() {

@@ -13,7 +13,7 @@ void UPalHeadUpDisplayComponent::ShowInvaderHUD() {
 void UPalHeadUpDisplayComponent::OnUpdatePossessItem(UPalCharacterParameterComponent* Parameter) {
 }
 
-void UPalHeadUpDisplayComponent::OnUpdateOwnerCharacterGroupId(const FGuid& GroupID) {
+void UPalHeadUpDisplayComponent::OnUpdateOwnerCharacterGroupId(const FGuid& GroupId) {
 }
 
 void UPalHeadUpDisplayComponent::OnInitializedCharacter(APalCharacter* OwnerCharacter) {

@@ -41,10 +41,6 @@ UPalIndividualCharacterHandle* UPalIndividualCharacterSlot::GetHandle() const {
     return NULL;
 }
 
-bool UPalIndividualCharacterSlot::CanSetHandle(UPalIndividualCharacterHandle* InHandle) const {
-    return false;
-}
-
 void UPalIndividualCharacterSlot::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     

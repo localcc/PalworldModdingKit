@@ -57,6 +57,12 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<UPalIndividualCharacterHandle*> CreatingHandleCache;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsDisableDespawnCharacter;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bDisableDeadReturnOtomo;
+    
 public:
     UPalOtomoHolderComponentBase(const FObjectInitializer& ObjectInitializer);
 
@@ -120,6 +126,10 @@ public:
 protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void SetInteractComponent(AActor* SpawnPal);
+    
+public:
+    UFUNCTION(BlueprintCallable)
+    void SetDisableDeadReturnOtomo(bool bDisable);
     
 private:
     UFUNCTION(BlueprintCallable)
@@ -215,6 +225,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void InactivateCurrentOtomo();
     
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void InactivateAllOtomo();
+    
 protected:
     UFUNCTION(BlueprintCallable)
     FTransform GetTransform_SpawnPalNearTrainer();
@@ -286,6 +299,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void CoopCallCommand();
     
+    UFUNCTION(BlueprintCallable)
+    void CompleteInactiveCurrentOtomo();
+    
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void CallCancelCommand();
     
@@ -297,6 +313,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void AddLogOtomoPartnerSkill_ToClient(AActor* Otomo, EPalLogType PalLogType, int32 Value, bool AddSkillName);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void AddLogOtomoPartnerSkill_Text_ToClient(AActor* Otomo, FName textID);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     bool ActivateCurrentOtomoNearThePlayer();

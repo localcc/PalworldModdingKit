@@ -1,17 +1,20 @@
 #include "PalOilrigManager.h"
 
 UPalOilrigManager::UPalOilrigManager() {
-    this->CurrentShootingTower = NULL;
+    this->ClearedOilrigResetTimeSecond = 600.00f;
+    this->MachineStartTimeSecond_ByAlarm = 180.00f;
+    this->ClearCountUpDistance = 30000.00f;
 }
 
-void UPalOilrigManager::RemoveShootingTower(AActor* Tower) {
+void UPalOilrigManager::OnEndPlayNPC(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason) {
 }
 
-bool UPalOilrigManager::IsShootingAnyTower() {
-    return false;
+APalOilrigController* UPalOilrigManager::FindOilrigController(EPalOilrigType KeyName) {
+    return NULL;
 }
 
-void UPalOilrigManager::AddShootingTower(AActor* Tower) {
+APalOilrigController* UPalOilrigManager::FindNearestOilrigController(FVector Location) {
+    return NULL;
 }
 
 

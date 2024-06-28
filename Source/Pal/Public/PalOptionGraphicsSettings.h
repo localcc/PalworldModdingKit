@@ -83,6 +83,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MaxFPS;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 ScreenPercentage;
+    
     PAL_API FPalOptionGraphicsSettings();
 };
 

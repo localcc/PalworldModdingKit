@@ -3,6 +3,9 @@
 UPalUICharacterStatus::UPalUICharacterStatus() {
 }
 
+void UPalUICharacterStatus::ToggleFavoritePal(UPalIndividualCharacterHandle* targetHandle) {
+}
+
 void UPalUICharacterStatus::RemoveActiveSkill(UPalIndividualCharacterHandle* targetHandle, EPalWazaID targetWazaID) {
 }
 

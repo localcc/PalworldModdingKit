@@ -15,5 +15,7 @@ enum class EPalMapObjectConcreteModelModuleType : uint8 {
     PlayerRecord,
     BaseCampPassiveEffect,
     PasswordLock,
+    RequireElementalAction,
+    Picking,
 };
 

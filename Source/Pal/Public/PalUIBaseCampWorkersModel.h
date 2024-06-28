@@ -24,8 +24,9 @@ protected:
     
 public:
     UPalUIBaseCampWorkersModel();
+
     UFUNCTION(BlueprintCallable)
-    void ToPage(const int32 PageIndex);
+    void ToPage(const int32 pageIndex);
     
     UFUNCTION(BlueprintCallable)
     void SelectHandleSlot(const int32 DisplayIndex, const EPalItemSlotPressType PressType);
@@ -43,7 +44,7 @@ public:
     TArray<UPalIndividualCharacterSlot*> GetCurrentPageSlots() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    UPalBaseCampModel* GetBaseCampModel(const int32 PageIndex) const;
+    UPalBaseCampModel* GetBaseCampModel(const int32 pageIndex) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FGuid GetBaseCampId() const;

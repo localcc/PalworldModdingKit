@@ -4,8 +4,10 @@
 
 UENUM(BlueprintType)
 enum class EPalAsyncSaveProcessState : uint8 {
+    Collecting,
+    CollectFailed,
     Saving,
-    Completed,
-    Failed,
+    SaveCompleted,
+    SaveFailed,
 };
 

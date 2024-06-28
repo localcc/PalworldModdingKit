@@ -63,6 +63,10 @@ UPalIndividualCharacterHandle* UPalWorkAssign::GetAssignedIndividualHandle() con
     return NULL;
 }
 
+UPalCharacterParameterComponent* UPalWorkAssign::GetAssignedCharacterParameterComponent() const {
+    return NULL;
+}
+
 void UPalWorkAssign::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     

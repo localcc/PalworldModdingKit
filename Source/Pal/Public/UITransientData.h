@@ -34,6 +34,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FName, int32> TransientNPCTalkCountMap;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool LoadingScreenLiving;
+    
     PAL_API FUITransientData();
 };
 

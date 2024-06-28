@@ -1,8 +1,11 @@
 #include "PalSaveGameManager.h"
 
 UPalSaveGameManager::UPalSaveGameManager() {
+    this->bIsLoadedWorldSaveData = false;
     this->LoadedWorldSaveData = NULL;
+    this->bIsLoadedLocalWorldSaveData = false;
     this->LoadedLocalWorldSaveData = NULL;
+    this->bIsLoadedWorldOptionSaveData = false;
     this->LoadedWorldOptionSaveData = NULL;
     this->IsAppliedPlayerSaveData = false;
     this->bIsForceDisableAutoSave = false;

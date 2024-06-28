@@ -4,12 +4,14 @@
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "GameFramework/CheatManager.h"
+#include "EPalActionType.h"
 #include "EPalBaseCampWorkerEventType.h"
 #include "EPalBossType.h"
 #include "EPalEnergyType.h"
 #include "EPalLimitVolumeFlag.h"
 #include "EPalMapBaseCampWorkerOrderType.h"
 #include "EPalMapObjectVisualEffectType.h"
+#include "EPalSkinType.h"
 #include "PalInstanceID.h"
 #include "Templates/SubclassOf.h"
 #include "PalCheatManager.generated.h"
@@ -103,6 +105,9 @@ public:
     void ToggleVisibleFoliageChunk();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void ToggleUserAchievementDebug();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void ToggleShowReticleLocation();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -124,6 +129,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void ToggleHUD();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void ToggleForceSpawnRandomIncident();
     
     UFUNCTION(BlueprintCallable, Exec)
     void ToggleBuildInstallCheckLookToCamera();
@@ -254,6 +262,9 @@ public:
     void ShowSpawnerInfo();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void ShowSnapMode();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void ShowPlayers();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -359,6 +370,9 @@ public:
     void SetPlayerSP(int32 NewSP);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SetPlayerSkin(EPalSkinType Part, FName SkinName);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetPlayerHP(int32 NewHP);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -401,10 +415,16 @@ public:
     void SetMapObjectStatusRange(const float Range);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SetMapObjectStatusMapObjectId(const FName MapObjectId);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetLoadingSceneVisible(bool IsVisible);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetInventoryItemDurability(const float Percent);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetHardTowerBossDebugNo(int32 DebugNo);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetGameTime_NextNight_SecondsAgo(const int32 SecondsAgo);
@@ -420,6 +440,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetFPSForServer(float fps);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetForceSpawnRandomIncidentName(const FString& IncidentName);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetForceLocationTeleport(bool bForceLocationTeleport);
@@ -491,6 +514,9 @@ public:
     void RespawnPlayer();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void ResetOilrig();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void RerollCharacterMake();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -509,10 +535,19 @@ public:
     void RepairEquipment();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void RemovePlayerSkin(EPalSkinType Part, FName InTarget);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void RandomizePassive_PlayerWeapon();
     
     UFUNCTION(BlueprintCallable, Exec)
     void PrintRealTime();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void PrintRandomizerInfo();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void PrintPlatformInventory();
     
     UFUNCTION(BlueprintCallable, Exec)
     void PrintInventoryDynamicItemLog();
@@ -564,6 +599,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void NotDecreaseWeaponItem();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void NotDecreaseDefenseBullet();
     
     UFUNCTION(BlueprintCallable, Exec)
     void NotConsumeMaterialsInCraft();
@@ -623,10 +661,16 @@ public:
     void JoinClientPlayerToServerGuild();
     
     UFUNCTION(BlueprintCallable)
+    bool IsSkillCoolTime() const;
+    
+    UFUNCTION(BlueprintCallable)
     bool IsShowCharacterStatus() const;
     
     UFUNCTION(BlueprintCallable)
     bool IsNotDecreaseWeaponItem() const;
+    
+    UFUNCTION(BlueprintCallable)
+    bool IsNotDecreaseDefenseBullet() const;
     
     UFUNCTION(BlueprintCallable)
     bool IsNotConsumeMaterialsInBuild() const;
@@ -660,6 +704,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     bool IsActionName() const;
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void InvokePlayerAction(const EPalActionType ActionType);
     
     UFUNCTION(BlueprintCallable, Exec)
     void InvaderMarchRandom();
@@ -707,6 +754,15 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void HideDebugInfo();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void GivePlayerSkin(FName SkinName);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void GivePlatformPromotionItem();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void GivePlatformInventoryItem(int32 ItemId, int32 Num);
     
     UFUNCTION(BlueprintCallable, Exec)
     void GetRelic(int32 Count);
@@ -769,6 +825,9 @@ public:
     void ForceDisablePalMeshCollision();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void ForceArenaExitAll();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void FootIKEnable();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -782,6 +841,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void FixedActionRandomSeed();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void FetchMapObjectsTickIntervalInBackground();
     
     UFUNCTION(BlueprintCallable, Exec)
     void ExitGuildPlayer(const FString& GuildName, APalPlayerCharacter* Player);
@@ -811,6 +873,9 @@ public:
     void EnableStatPalnet();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void EnableStatPalNavigation();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void EnableCommandToServer();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -818,6 +883,12 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void EasyGamePreset();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void DumpMapObjectOctreeStats();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void DropSupply();
     
     UFUNCTION(BlueprintCallable, Exec)
     void DropItems(const FName StaticItemId, const int32 Num, const int32 DropCount);
@@ -853,7 +924,16 @@ public:
     void DeleteWorldAndShutdownRemoteServer();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void DeletePlayerSkin(FName SkinName);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void DeletePlayerAndQuitGame();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void DeleteAllMapObjectSpawner();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void DeleteAllMapObject();
     
     UFUNCTION(BlueprintCallable, Exec)
     void DebugWindow();
@@ -904,10 +984,19 @@ public:
     void CopyPlayerLocation();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void ConsumePlatformInventoryItem(int32 ItemId, int32 Num);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void CommandToServer(const FString& Command);
     
     UFUNCTION(BlueprintCallable, Exec)
     void CleatDebugInfoText();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void ClearSupply();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void ClearPlatformInventoryItem();
     
     UFUNCTION(BlueprintCallable, Exec)
     void CheckFoliageChunkStatus(const bool bShowInstanceDetail, const bool bShowGridDetail);
@@ -944,6 +1033,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void CaptureAllEnemy();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void CancelPlayerAction(const EPalActionType ActionType);
     
     UFUNCTION(BlueprintCallable, Exec)
     void BuildNotConsumeMaterials();

@@ -27,8 +27,5 @@ public:
     UFUNCTION(BlueprintCallable)
     void ChangeActionToWorker();
     
-    UFUNCTION(BlueprintCallable)
-    void ChangeActionToFighter();
-    
 };
 

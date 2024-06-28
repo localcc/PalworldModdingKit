@@ -64,7 +64,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void OnEndSyncTeleportFadeIn();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsTeleporting() const;
     
     UFUNCTION(BlueprintCallable)

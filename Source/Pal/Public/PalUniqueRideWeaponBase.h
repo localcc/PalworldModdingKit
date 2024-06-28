@@ -4,6 +4,7 @@
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "PalWeaponBase.h"
+#include "PalWeaponBulletHijackInfo.h"
 #include "Templates/SubclassOf.h"
 #include "PalUniqueRideWeaponBase.generated.h"
 
@@ -18,6 +19,11 @@ UCLASS(Blueprintable)
 class PAL_API APalUniqueRideWeaponBase : public APalWeaponBase {
     GENERATED_BODY()
 public:
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnShootHijackBulletDelegate, FPalWeaponBulletHijackInfo, HijackInfo);
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnShootHijackBulletDelegate OnShootHijackBullet;
+    
     APalUniqueRideWeaponBase(const FObjectInitializer& ObjectInitializer);
 
 protected:
@@ -25,7 +31,11 @@ protected:
     void ShootOneBulletByDefault();
     
     UFUNCTION(BlueprintCallable)
-    void ShootOneBullet(TSubclassOf<APalBullet> bulletClass, UNiagaraSystem* MuzzleEffect, FVector MuzzleLocation, FRotator MuzzleRotate, float BulrAngle, TSubclassOf<AActor> AmmoClass, FTransform AmmoEject);
+    void ShootOneBullet(TSubclassOf<APalBullet> BulletClass, UNiagaraSystem* MuzzleEffect, FVector MuzzleLocation, FRotator MuzzleRotate, float BulrAngle, TSubclassOf<AActor> AmmoClass, FTransform AmmoEject);
+    
+public:
+    UFUNCTION(BlueprintCallable)
+    void SetHijackEnable(bool IsEnable);
     
 private:
     UFUNCTION(BlueprintCallable)
@@ -41,6 +51,10 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void OnActionBegin(const UPalActionBase* action);
+    
+public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsWeaponHijacked();
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure)

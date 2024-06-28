@@ -25,6 +25,7 @@ class UDataTable;
 class UPalAIResponsePreset;
 class UPalAISightResponsePreset;
 class UPalCombiMonsterParameter;
+class UPalIndividualCharacterHandle;
 class UPalIndividualCharacterParameter;
 class UPalPettingPresset;
 class UTexture2D;
@@ -65,6 +66,9 @@ protected:
     UDataTable* CharacterIconDataTable;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* CharacterSkinIconDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* BPClassDataTable;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -87,6 +91,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* PalTalentUpItemDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* NPCOtomoWazaDataTable;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -130,6 +137,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetViewingAngle_Degree(FName RowName);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool GetUseBossHPGauge(FName RowName);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     EPalTribeID GetTribe(FName RowName);
@@ -237,7 +247,10 @@ public:
     FSoftObjectPath GetCharacterIconTexturePath(const FName CharacterID) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    TSoftObjectPtr<UTexture2D> GetCharacterIconTextureByTribeID(const EPalTribeID TribeID) const;
+    TSoftObjectPtr<UTexture2D> GetCharacterIconTextureBySkinName(const FName& SkinName) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    TSoftObjectPtr<UTexture2D> GetCharacterIconTextureByIndividualHandle(const UPalIndividualCharacterHandle* IndividualHandle) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TSoftObjectPtr<UTexture2D> GetCharacterIconTexture(const FName CharacterID) const;

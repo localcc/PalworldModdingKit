@@ -16,6 +16,9 @@ UPalWorkBase* UPalMapObjectWorkeeModule::GetWork() const {
     return NULL;
 }
 
+void UPalMapObjectWorkeeModule::CallOrRegisterOnReadyWork(FPalMapObjectWorkeeModuleWorkDelegate Delegate) {
+}
+
 void UPalMapObjectWorkeeModule::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     

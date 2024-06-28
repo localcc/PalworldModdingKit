@@ -1,6 +1,6 @@
 #include "PalAsyncSaveProcess.h"
 
 FPalAsyncSaveProcess::FPalAsyncSaveProcess() {
-    this->State = EPalAsyncSaveProcessState::Saving;
+    this->State = EPalAsyncSaveProcessState::Collecting;
 }
 

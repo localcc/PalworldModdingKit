@@ -28,6 +28,9 @@
 #include "PalPlayerDataStorage.h"
 #include "PalPlayerManager.h"
 #include "PalSaveGameManager.h"
+#include "PalShopManager.h"
+#include "PalSkinManager.h"
+#include "PalSupplyManager.h"
 #include "PalTutorialManager.h"
 #include "PalVisualEffectDataBase.h"
 #include "PalWazaDatabase.h"
@@ -36,6 +39,7 @@
 
 UPalGameInstance::UPalGameInstance() {
     this->bNetworkError = false;
+    this->bSaveError = false;
     this->GameSettingClass = UPalGameSetting::StaticClass();
     this->GameSetting = NULL;
     this->MasterDataTablesClass = UPalMasterDataTables::StaticClass();
@@ -99,7 +103,12 @@ UPalGameInstance::UPalGameInstance() {
     this->ObjectCollectorClass = UPalObjectCollector::StaticClass();
     this->ActionDummyTargetManager = UPalActionDummyTargetManager::StaticClass();
     this->LogManagerClass = UPalLogManager::StaticClass();
-    this->revisionNum = 50653;
+    this->SkinManagerClass = UPalSkinManager::StaticClass();
+    this->SkinManager = NULL;
+    this->SupplyManagerClass = UPalSupplyManager::StaticClass();
+    this->ShopManagerSubsystemClass = UPalShopManager::StaticClass();
+    this->revisionNum = 55394;
+    this->DisplaySafeAreaDebugger = NULL;
     this->TitleBGMPlayerClass = UPalPersistentSoundPlayer::StaticClass();
     this->TitleBGMPlayer = NULL;
     this->bIsNewGame = false;
@@ -155,6 +164,9 @@ FString UPalGameInstance::GetSelectedWorldName() const {
 }
 
 void UPalGameInstance::CompleteInitCharacterMakeData() {
+}
+
+void UPalGameInstance::ClearSaveError() {
 }
 
 void UPalGameInstance::ClearNetworkError() {

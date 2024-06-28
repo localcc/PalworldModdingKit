@@ -197,6 +197,10 @@ enum class EPalTribeID : uint8 {
     FoxMage_Dark,
     SkyDragon_Grass,
     WeaselDragon_Fire,
+    OctopusGirl,
+    MimicDog,
+    IceNarwhal,
+    JellyfishFairy,
     Human,
 };
 

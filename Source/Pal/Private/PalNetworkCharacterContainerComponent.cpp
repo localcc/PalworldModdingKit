@@ -9,7 +9,7 @@ void UPalNetworkCharacterContainerComponent::RequestUnlockSlot_ToServer_Implemen
 void UPalNetworkCharacterContainerComponent::RequestSwap_ToServer_Rep_Implementation(const FPalCharacterSlotId& SlotIdA, const FPalCharacterSlotId& SlotIdB) {
 }
 
-void UPalNetworkCharacterContainerComponent::RequestSortContainer_ToServer_Implementation(const FPalContainerId& ContainerId, const EPalCharacterContainerSortType SortType) {
+void UPalNetworkCharacterContainerComponent::RequestSortContainer_ToServer_Implementation(const FPalContainerId& ContainerId, const FPalCharacterContainerSortInfo& SortInfo) {
 }
 
 void UPalNetworkCharacterContainerComponent::RequestEmptySlot_ToServer_Rep_Implementation(const FPalCharacterSlotId& SlotID) {

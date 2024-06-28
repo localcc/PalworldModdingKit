@@ -8,6 +8,7 @@
 #include "PalLoggedinPlayerSaveDataRecordData.h"
 #include "PalPlayerDataCharacterMakeInfo.h"
 #include "PalPlayerDataInventoryInfo.h"
+#include "PalSkinInventoryInfo.h"
 #include "PalWorldPlayerSaveData.generated.h"
 
 USTRUCT(BlueprintType)
@@ -39,7 +40,7 @@ public:
     EPalOtomoPalOrderType OtomoOrder;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FPalPlayerDataInventoryInfo inventoryInfo;
+    FPalPlayerDataInventoryInfo InventoryInfo;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 TechnologyPoint;
@@ -55,6 +56,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalLoggedinPlayerSaveDataRecordData RecordData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalSkinInventoryInfo SkinInventoryInfo;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsSelectedInitMapPoint;

@@ -33,10 +33,10 @@ void UPalNetworkCharacterStatusOperationComponent::RequestOtomoStatusPointClear_
 void UPalNetworkCharacterStatusOperationComponent::RequestOtomoStatusPointClear(const UPalIndividualCharacterHandle* IndividualHandle, const EPalCharacterStatusOperationName StatusName) {
 }
 
-void UPalNetworkCharacterStatusOperationComponent::RequestOtomoStatusPointAdd_ToServer_Implementation(const FPalInstanceID& IndividualId, const EPalCharacterStatusOperationName StatusName, const int32 ToRank) {
+void UPalNetworkCharacterStatusOperationComponent::RequestOtomoStatusPointAdd_ToServer_Implementation(const FPalInstanceID& IndividualId, const TArray<FPalStatusAndRank>& ToStatusRank) {
 }
 
-void UPalNetworkCharacterStatusOperationComponent::RequestOtomoStatusPointAdd(const UPalIndividualCharacterHandle* IndividualHandle, const EPalCharacterStatusOperationName StatusName, const int32 ToRank) {
+void UPalNetworkCharacterStatusOperationComponent::RequestOtomoStatusPointAdd(const UPalIndividualCharacterHandle* IndividualHandle, const TMap<EPalCharacterStatusOperationName, int32> ToStatusRank) {
 }
 
 void UPalNetworkCharacterStatusOperationComponent::ReceiveOperationResult_ToClient_Implementation(const EPalCharacterStatusOperationResult Result) {

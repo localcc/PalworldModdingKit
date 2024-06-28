@@ -11,6 +11,7 @@
 #include "PalFoliageInstanceId.h"
 #include "PalNetArchive.h"
 #include "PalNetworkMapObjectSpawnRequestParameter.h"
+#include "PalNetworkMapObjectTickIntervalInBackgroundInfo.h"
 #include "PalNetworkMapObjectComponent.generated.h"
 
 class APalMapObjectSpawnerBase;
@@ -211,6 +212,12 @@ private:
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void NotifyConcreteModel_Multicast_bool(const FGuid& ConcreteModelInstanceId, const FName FunctionName, bool Value);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void Dev_ReceiveMapObjectsTickIntervalInBackground_ToClient(const TArray<FPalNetworkMapObjectTickIntervalInBackgroundInfo>& TickIntervalInfoArray);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Dev_FetchMapObjectsTickIntervalInBackground_ToServer();
     
 };
 

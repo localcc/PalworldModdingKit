@@ -2,6 +2,7 @@
 
 UPalUIJoinGameBase::UPalUIJoinGameBase() {
     this->bIsShowIgnoreVersionServer = false;
+    this->ServerFilterType = EPalUIServerListFilterType::Official;
     this->CurrentPage = 1;
     this->PageSize = 0;
     this->IsNextPage = false;
@@ -15,7 +16,7 @@ void UPalUIJoinGameBase::SaveConfigValue() {
 void UPalUIJoinGameBase::RequestOfficialServerIPRange() {
 }
 
-void UPalUIJoinGameBase::RequestGetServerList(EPalUIServerListFilterType Type, EPalUIServerListSortType SortType, const FString& Region, bool IsCleanCache, int32 PageOffset, const FString& SearchWord) {
+void UPalUIJoinGameBase::RequestGetServerList(EPalUIServerListFilterType Type, EPalUIServerListSortType SortType, const FString& Region, int32 PageOffset, const FString& SearchWord) {
 }
 
 void UPalUIJoinGameBase::OnCompleteOfficialServerIPRange(const FString& ResponseBody, bool bResponseOK, int32 ResponseCode) {

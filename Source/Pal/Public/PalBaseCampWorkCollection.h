@@ -7,6 +7,8 @@
 #include "PalWorkAssignRequirementParameter.h"
 #include "PalBaseCampWorkCollection.generated.h"
 
+class UPalBaseCampGroupedWorkBase;
+class UPalBaseCampWorkCollectionReplicationList;
 class UPalWorkBase;
 
 UCLASS(Blueprintable)
@@ -26,11 +28,20 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FGuid> WorkIds;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    TArray<UPalBaseCampGroupedWorkBase*> GroupedWorks;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    UPalBaseCampWorkCollectionReplicationList* ReplicationList;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FGuid, FPalBaseCampWorkCollectionStashInfo> CannotMoveToWorkInfoMap;
     
 public:
     UPalBaseCampWorkCollection();
+
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnUnassignWork_ServerInternal(UPalWorkBase* Work, const FPalInstanceID& IndividualId);

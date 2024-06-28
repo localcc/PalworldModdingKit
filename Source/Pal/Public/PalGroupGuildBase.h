@@ -60,7 +60,16 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsWorkerCapacityLimited(int32 InLevel) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetWorkerCapacityNum(int32 InLevel) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetGuildName() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetBaseCampMaxNumInGuildSpecLevel(int32 InLevel) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetBaseCampMaxNumInGuild() const;

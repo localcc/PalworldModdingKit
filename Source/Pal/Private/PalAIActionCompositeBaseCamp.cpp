@@ -16,7 +16,4 @@ void UPalAIActionCompositeBaseCamp::InterruptActionToRecoverHungry(const FPalMon
 void UPalAIActionCompositeBaseCamp::ChangeActionToWorker() {
 }
 
-void UPalAIActionCompositeBaseCamp::ChangeActionToFighter() {
-}
-
 

@@ -11,6 +11,10 @@ void UPalMapObjectModelConnectorRoof::GetLifetimeReplicatedProps(TArray<FLifetim
     DOREPLIFETIME(UPalMapObjectModelConnectorRoof, BackConnectInfo);
     DOREPLIFETIME(UPalMapObjectModelConnectorRoof, LeftConnectInfo);
     DOREPLIFETIME(UPalMapObjectModelConnectorRoof, RightConnectInfo);
+    DOREPLIFETIME(UPalMapObjectModelConnectorRoof, CornerFrontLeftConnectInfo);
+    DOREPLIFETIME(UPalMapObjectModelConnectorRoof, CornerFrontRightConnectInfo);
+    DOREPLIFETIME(UPalMapObjectModelConnectorRoof, CornerBackLeftConnectInfo);
+    DOREPLIFETIME(UPalMapObjectModelConnectorRoof, CornerBackRightConnectInfo);
 }
 
 

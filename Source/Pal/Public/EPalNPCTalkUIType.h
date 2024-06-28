@@ -11,5 +11,6 @@ enum class EPalNPCTalkUIType : uint8 {
     PalShop,
     QuestOrder,
     RandomEventShop,
+    CollectionItemTrade_001,
 };
 

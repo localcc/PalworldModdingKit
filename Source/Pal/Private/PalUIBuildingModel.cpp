@@ -26,13 +26,24 @@ bool UPalUIBuildingModel::IsExistBaseCamp() {
     return false;
 }
 
+FText UPalUIBuildingModel::GetWarningText(const EPalMapObjectOperationResult Result) {
+    return FText::GetEmpty();
+}
+
 void UPalUIBuildingModel::FinishBuilding() {
 }
 
 void UPalUIBuildingModel::Dispose() {
 }
 
+void UPalUIBuildingModel::ChangeSnapMode(const bool bOn) {
+}
+
 void UPalUIBuildingModel::ChangeMode(const bool bOn) {
+}
+
+bool UPalUIBuildingModel::CanChangeSnapModeForBuildObject() const {
+    return false;
 }
 
 void UPalUIBuildingModel::BuildObject(const bool bContinuously) {

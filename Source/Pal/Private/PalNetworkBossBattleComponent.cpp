@@ -12,7 +12,7 @@ void UPalNetworkBossBattleComponent::RequestBossBattleStart_ToServer_Implementat
 void UPalNetworkBossBattleComponent::RequestBossBattleStart_ToClient_Implementation(bool IsSuccess, EPalBossType BossType, const FPalStageInstanceId StageInstanceId, const TArray<APalPlayerCharacter*>& JoinPlayers) {
 }
 
-void UPalNetworkBossBattleComponent::RequestBossBattleEntry_ToServer_Implementation(EPalBossType BossType, APalPlayerCharacter* EntryPlayer) {
+void UPalNetworkBossBattleComponent::RequestBossBattleEntry_ToServer_Implementation(EPalBossType BossType, EPalBossBattleDifficulty Difficulty, APalPlayerCharacter* EntryPlayer) {
 }
 
 void UPalNetworkBossBattleComponent::RemovePlayerFromRoom_ToClient_Implementation(EPalBossType BossType, APalPlayerCharacter* DeadPlayer) {

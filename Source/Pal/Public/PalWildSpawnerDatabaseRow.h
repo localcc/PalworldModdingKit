@@ -79,6 +79,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 NumMax_3;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsAllowRandomizer;
+    
     PAL_API FPalWildSpawnerDatabaseRow();
 };
 

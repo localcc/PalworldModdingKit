@@ -17,5 +17,6 @@ FPalWildSpawnerDatabaseRow::FPalWildSpawnerDatabaseRow() {
     this->LvMax_3 = 0;
     this->NumMin_3 = 0;
     this->NumMax_3 = 0;
+    this->bIsAllowRandomizer = false;
 }
 

@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
 #include "EPalBaseCampItemContainerType.h"
 #include "PalContainerId.h"
 #include "PalBaseCampItemContainerInfo.generated.h"
@@ -10,6 +11,9 @@ struct FPalBaseCampItemContainerInfo {
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalContainerId ContainerId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FGuid OwnerMapObjectConcreteModelInstanceId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalBaseCampItemContainerType Type;

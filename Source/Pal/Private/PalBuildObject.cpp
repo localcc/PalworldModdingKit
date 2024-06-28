@@ -4,11 +4,14 @@
 
 APalBuildObject::APalBuildObject(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->InstallStrategy = EPalBuildObjectInstallStrategy::Normal;
+    this->InstallStrategyClass = NULL;
     this->InstallCapacitySlopeAngle = -1.00f;
     this->InstallCapacitySinkRateByHeight = -1.00f;
     this->VisualCtrl = CreateDefaultSubobject<UPalBuildObjectVisualControlComponent>(TEXT("VisualController"));
     this->OverlapCheckCollision = NULL;
+    this->SnapCheckBoxCollision = NULL;
     this->OverlapChecker = NULL;
+    this->MainMesh = NULL;
     this->CurrentState = EPalBuildObjectState::Init;
     this->WorldHUDDisplayRange = 0.00f;
     this->buildProgressHUDDisplayRange = 0.00f;

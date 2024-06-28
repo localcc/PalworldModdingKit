@@ -18,11 +18,11 @@ public:
     UPalBulletCreator();
 private:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    APalBullet* SpawnBullet(const UObject* WorldContextObject, TSubclassOf<APalBullet> bulletClass, const FTransform& SpawnTransform, ESpawnActorCollisionHandlingMethod collisionHandlingOverride, AActor* Owner, APawn* instigato);
+    APalBullet* SpawnBullet(const UObject* WorldContextObject, TSubclassOf<APalBullet> BulletClass, const FTransform& SpawnTransform, ESpawnActorCollisionHandlingMethod collisionHandlingOverride, AActor* Owner, APawn* instigato);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, meta=(WorldContext="WorldContextObject"))
-    APalBullet* CreateBullet(const UObject* WorldContextObject, APalWeaponBase* weapon, TSubclassOf<APalBullet> bulletClass, const FTransform& SpawnTransform, ESpawnActorCollisionHandlingMethod collisionHandlingOverride, AActor* Owner, APawn* Instigator);
+    APalBullet* CreateBullet(const UObject* WorldContextObject, APalWeaponBase* Weapon, TSubclassOf<APalBullet> BulletClass, const FTransform& SpawnTransform, ESpawnActorCollisionHandlingMethod collisionHandlingOverride, AActor* Owner, APawn* Instigator);
     
 };
 

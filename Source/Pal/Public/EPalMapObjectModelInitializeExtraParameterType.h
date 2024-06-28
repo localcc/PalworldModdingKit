@@ -20,6 +20,7 @@ enum class EPalMapObjectModelInitializeExtraParameterType : uint8 {
     Interact,
     ItemContainerAttribute,
     ByPlayerUId,
+    DropCharacter,
     InstanceId,
 };
 

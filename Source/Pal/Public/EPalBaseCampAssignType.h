@@ -6,7 +6,7 @@ UENUM(BlueprintType)
 enum class EPalBaseCampAssignType : uint8 {
     None,
     Work,
-    WorkAttack,
+    WorkableObject,
     Defense,
 };
 

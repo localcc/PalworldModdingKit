@@ -3,6 +3,9 @@
 UPalUIInventoryEquipment::UPalUIInventoryEquipment() {
 }
 
+void UPalUIInventoryEquipment::ToggleHeadEquipVisible() {
+}
+
 void UPalUIInventoryEquipment::SwapItemSlot(UPalItemSlot* SlotA, UPalItemSlot* SlotB) {
 }
 

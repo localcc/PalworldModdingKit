@@ -28,6 +28,11 @@ APalGameStateInGame::APalGameStateInGame(const FObjectInitializer& ObjectInitial
     this->ImportanceCharacterCount_Farthest = -1;
     this->BaseCampCount = -1;
     this->NavMeshInvokerCount = -1;
+    this->WorldOceanPlaneZ = -1048575.00f;
+    this->SaveConfigCategoryName = TEXT("JoinGameSettings");
+}
+
+void APalGameStateInGame::SetWorldOceanPlaneZ(const float InZ) {
 }
 
 void APalGameStateInGame::OnRep_WorldSaveDirectoryName() {
@@ -64,6 +69,9 @@ int32 APalGameStateInGame::GetMaxPlayerNum() const {
     return 0;
 }
 
+void APalGameStateInGame::BroadcastServerNotice_Implementation(const FString& NoticeMessage) {
+}
+
 void APalGameStateInGame::BroadcastChatMessage_Implementation(const FPalChatMessage& ChatMessage) {
 }
 
@@ -98,6 +106,7 @@ void APalGameStateInGame::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
     DOREPLIFETIME(APalGameStateInGame, ImportanceCharacterCount_Farthest);
     DOREPLIFETIME(APalGameStateInGame, BaseCampCount);
     DOREPLIFETIME(APalGameStateInGame, NavMeshInvokerCount);
+    DOREPLIFETIME(APalGameStateInGame, SupplySpawnerDataList);
 }
 
 

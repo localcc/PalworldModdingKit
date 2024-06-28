@@ -5,6 +5,9 @@ UPalMapObjectCharacterContainerModule::UPalMapObjectCharacterContainerModule() {
     this->TargetContainer = NULL;
 }
 
+void UPalMapObjectCharacterContainerModule::TryMoveCharacterToContainerFrom(UPalIndividualCharacterSlot* fromSlot) {
+}
+
 bool UPalMapObjectCharacterContainerModule::TryGetContainer(UPalIndividualCharacterContainer*& OutContainer) const {
     return false;
 }

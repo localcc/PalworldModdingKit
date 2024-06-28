@@ -26,6 +26,15 @@ void UPalIndividualCharacterParameter::StartRecuperatingInMedicalBed() {
 void UPalIndividualCharacterParameter::SetStatusPoint(FName StatusName, int32 Point) {
 }
 
+void UPalIndividualCharacterParameter::SetSkinName(FName InSkinName) {
+}
+
+void UPalIndividualCharacterParameter::SetSkinAppliedCharacterId(FGuid InCharacterId) {
+}
+
+void UPalIndividualCharacterParameter::SetSkinApplied(bool bIsApplied) {
+}
+
 void UPalIndividualCharacterParameter::SetShieldMaxHP(FFixedPoint64 NextSheildMaxHP) {
 }
 
@@ -42,6 +51,9 @@ void UPalIndividualCharacterParameter::SetLastJumpedLocation(FVector Location) {
 }
 
 void UPalIndividualCharacterParameter::SetInvaderData(EPalInvaderType InvaderType, const FGuid InBaseCampId) {
+}
+
+void UPalIndividualCharacterParameter::SetInArena(bool InArena) {
 }
 
 void UPalIndividualCharacterParameter::SetExStatusPoint(FName StatusName, int32 Point) {
@@ -92,7 +104,11 @@ bool UPalIndividualCharacterParameter::IsSleeping() const {
     return false;
 }
 
-bool UPalIndividualCharacterParameter::IsRarePal() {
+bool UPalIndividualCharacterParameter::IsSkinApplied() const {
+    return false;
+}
+
+bool UPalIndividualCharacterParameter::IsRarePal() const {
     return false;
 }
 
@@ -108,7 +124,15 @@ bool UPalIndividualCharacterParameter::IsLevelMax() const {
     return false;
 }
 
+bool UPalIndividualCharacterParameter::IsInArena() const {
+    return false;
+}
+
 bool UPalIndividualCharacterParameter::IsHPFullRecovered() {
+    return false;
+}
+
+bool UPalIndividualCharacterParameter::IsFavoritePal() const {
     return false;
 }
 
@@ -175,6 +199,14 @@ int32 UPalIndividualCharacterParameter::GetStatusPoint(FName StatusName) const {
     return 0;
 }
 
+FName UPalIndividualCharacterParameter::GetSkinName() const {
+    return NAME_None;
+}
+
+FGuid UPalIndividualCharacterParameter::GetSkinAppliedCharacterId() const {
+    return FGuid{};
+}
+
 int32 UPalIndividualCharacterParameter::GetShotAttack_withBuff() const {
     return 0;
 }
@@ -231,6 +263,14 @@ TArray<FName> UPalIndividualCharacterParameter::GetPassiveSkillList() {
     return TArray<FName>();
 }
 
+float UPalIndividualCharacterParameter::GetPassiveRateBySkillEffect(EPalPassiveSkillEffectType EffectType) const {
+    return 0.0f;
+}
+
+float UPalIndividualCharacterParameter::GetPassiveRateByEquipment(EPalPassiveSkillEffectType EffectType) const {
+    return 0.0f;
+}
+
 int32 UPalIndividualCharacterParameter::GetPalSoulRank() const {
     return 0;
 }
@@ -272,6 +312,10 @@ int32 UPalIndividualCharacterParameter::GetLevel() const {
 
 FVector UPalIndividualCharacterParameter::GetLastJumpedLocation() const {
     return FVector{};
+}
+
+APalCharacter* UPalIndividualCharacterParameter::GetIndividualActor() const {
+    return NULL;
 }
 
 EPalStatusHungerType UPalIndividualCharacterParameter::GetHungerType() const {

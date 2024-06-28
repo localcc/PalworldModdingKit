@@ -23,7 +23,7 @@ float UPPSkyCreatorFunctionLibrary::GetCloudDensityAtPosition(UObject* WorldCont
     return 0.0f;
 }
 
-bool UPPSkyCreatorFunctionLibrary::FindLightningPosition(UObject* WorldContextObject, bool bSampleCloudDensity, int32 Samples, UMaterialParameterCollection* ParameterCollection, UMaterialInterface* Material, UTextureRenderTarget2D* RenderTarget, FVector Position, float InnerRadius, float OuterRadius, float MinHeight, float MaxHeight, float DensityThreshold, FVector& OutPosition) {
+bool UPPSkyCreatorFunctionLibrary::FindLightningPosition(UObject* WorldContextObject, bool bSampleCloudDensity, int32 Samples, UMaterialParameterCollection* ParameterCollection, UMaterialInterface* Material, UTextureRenderTarget2D* RenderTarget, FVector Position, float InnerRadius, float OuterRadius, float minHeight, float maxHeight, float DensityThreshold, FVector& OutPosition) {
     return false;
 }
 

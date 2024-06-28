@@ -48,7 +48,6 @@ void UPalMapObjectPasswordLockModule::GetLifetimeReplicatedProps(TArray<FLifetim
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(UPalMapObjectPasswordLockModule, LockState);
-    DOREPLIFETIME(UPalMapObjectPasswordLockModule, Password);
     DOREPLIFETIME(UPalMapObjectPasswordLockModule, PlayerInfos);
     DOREPLIFETIME(UPalMapObjectPasswordLockModule, TryAuthenticateMaxNum);
 }

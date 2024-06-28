@@ -5,6 +5,7 @@ UPalVisualEffectBase::UPalVisualEffectBase() {
     this->bCanDeleteInstance = true;
     this->VisualEffectID = EPalVisualEffectID::None;
     this->IsCallEndOnComponentEndPlay = false;
+    this->bIsEnableForDedicatedServer = true;
 }
 
 void UPalVisualEffectBase::TickVisualEffect_Implementation(float DeltaTime) {

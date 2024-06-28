@@ -15,6 +15,7 @@ APalMapObject::APalMapObject(const FObjectInitializer& ObjectInitializer) : Supe
     this->bSpawnSlipAboveIfAnyOverlap = false;
     this->bShakeOnDamaged = false;
     this->DestroyFXType = EPalMapObjectDestroyFXType::Normal;
+    this->PlayDestroyFXPlayerRange = 0.00f;
     this->bShowOutlineInTargettingReticle = false;
     this->bShowOutlineNearPlayer = false;
     this->bAutoDestroyByOverlapSpawning = false;

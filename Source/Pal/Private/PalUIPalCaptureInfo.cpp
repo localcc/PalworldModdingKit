@@ -5,5 +5,7 @@ FPalUIPalCaptureInfo::FPalUIPalCaptureInfo() {
     this->Level = 0;
     this->IsRarePal = false;
     this->IsUnlockedPaldeck = false;
+    this->IsCompleteCaptureBonus = false;
+    this->Exp = 0;
 }
 

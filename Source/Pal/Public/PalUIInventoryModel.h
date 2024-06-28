@@ -63,9 +63,6 @@ public:
     void TrashLiftUpItem();
     
     UFUNCTION(BlueprintCallable)
-    void TrashItemFromDropSlot();
-    
-    UFUNCTION(BlueprintCallable)
     void Setup();
     
     UFUNCTION(BlueprintCallable)
@@ -96,9 +93,6 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void DropLiftUpItem();
-    
-    UFUNCTION(BlueprintCallable)
-    void DropItemFromDropSlot();
     
     UFUNCTION(BlueprintCallable)
     void Dispose();

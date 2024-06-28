@@ -69,6 +69,11 @@ protected:
     UFUNCTION(BlueprintCallable)
     void SetOutputBusVolume(float Volume);
     
+public:
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void SetDsiableBattleBGM(bool bIsDisable);
+    
+protected:
     UFUNCTION(BlueprintCallable)
     void PostTriggerByString(const FString& Trigger);
     

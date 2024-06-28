@@ -2,6 +2,7 @@
 #include "Net/UnrealNetwork.h"
 
 UPalMapObjectDeathDroppedCharacterModel::UPalMapObjectDeathDroppedCharacterModel() {
+    this->bCanOpenForAnyone = false;
 }
 
 void UPalMapObjectDeathDroppedCharacterModel::OnChangedPlayerInfoInLocalPlayerGuild_ClientInternal(APalPlayerState* LocalPlayerState) {
@@ -15,6 +16,7 @@ void UPalMapObjectDeathDroppedCharacterModel::GetLifetimeReplicatedProps(TArray<
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(UPalMapObjectDeathDroppedCharacterModel, OwnerPlayerUId);
+    DOREPLIFETIME(UPalMapObjectDeathDroppedCharacterModel, bCanOpenForAnyone);
 }
 
 

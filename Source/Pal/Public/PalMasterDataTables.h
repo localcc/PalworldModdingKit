@@ -23,8 +23,10 @@ class UPalMasterDataTableAccess_ItemShop;
 class UPalMasterDataTableAccess_ItemShopLottery;
 class UPalMasterDataTableAccess_LocalizeText;
 class UPalMasterDataTableAccess_MapObjectMasterData;
+class UPalMasterDataTableAccess_PalRandomizerData;
 class UPalMasterDataTableAccess_PalShop;
 class UPalMasterDataTableAccess_PlayerStatusRankData;
+class UPalMasterDataTableAccess_SpawnerPlacementData;
 class UPalMasterDataTableAccess_UIInputActionData;
 class UPalMasterDataTableAccess_WildSpawnerData;
 class UPalNoteDataAsset;
@@ -172,7 +174,20 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalMasterDataTableAccess_PalShop* Access_PalShopDataTable;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* SpawnerPlacementDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalMasterDataTableAccess_SpawnerPlacementData* Access_SpawnerPlacementDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* PalRandomizerDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalMasterDataTableAccess_PalRandomizerData* Access_PalRandomizerDataTable;
+    
 public:
     UPalMasterDataTables();
+
 };
 

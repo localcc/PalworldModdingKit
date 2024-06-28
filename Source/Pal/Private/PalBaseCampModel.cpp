@@ -37,6 +37,10 @@ void UPalBaseCampModel::OnDamageInCampActor(FPalDamageResult DamageResult) {
 void UPalBaseCampModel::OnAddNewWorker(UPalIndividualCharacterHandle* AddCharacterHandle) {
 }
 
+bool UPalBaseCampModel::IsAvailable() const {
+    return false;
+}
+
 UPalBaseCampWorkCollection* UPalBaseCampModel::GetWorkCollection() const {
     return NULL;
 }
@@ -97,6 +101,7 @@ void UPalBaseCampModel::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Ou
     DOREPLIFETIME(UPalBaseCampModel, FastTravelLocalTransform);
     DOREPLIFETIME(UPalBaseCampModel, WorkerDirector);
     DOREPLIFETIME(UPalBaseCampModel, MapObjectCollection);
+    DOREPLIFETIME(UPalBaseCampModel, WorkCollection);
     DOREPLIFETIME(UPalBaseCampModel, ModuleArray);
     DOREPLIFETIME(UPalBaseCampModel, PlayerUIdsExistsInsideInServer);
     DOREPLIFETIME(UPalBaseCampModel, OwnerMapObjectInstanceId);

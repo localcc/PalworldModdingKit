@@ -12,7 +12,7 @@ class PAL_API APalGuildInfo : public AInfo {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
-    FGuid GroupID;
+    FGuid GroupId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_Guild, meta=(AllowPrivateAccess=true))
     UPalGroupGuildBase* Guild;

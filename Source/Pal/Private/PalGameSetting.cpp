@@ -21,7 +21,7 @@ UPalGameSetting::UPalGameSetting() {
     this->CharacterHUDDisplayRange = 1000.00f;
     this->CharacterFedEatingTime = 3.00f;
     this->CharacterStayingSecondsInSpa = 10.00f;
-    this->PalBoxPageNum = 16;
+    this->PalBoxPageNum = 32;
     this->PalBoxSlotNumInPage = 30;
     this->PalBoxTimePeriodRecoverySick = 60;
     this->PlayerBattleJudge_EnemyDistance = 5000.00f;
@@ -127,8 +127,10 @@ UPalGameSetting::UPalGameSetting() {
     this->ResuscitationTime = 10.00f;
     this->PlayerDeath_DropOtomoNum = 5;
     this->PlayerDeath_DropOtomoRange = 100.00f;
-    this->PlayerDeath_DropOtomoDisappearHours = 48;
+    this->PlayerDeath_DropOtomo_HoursCanOpen = 24;
+    this->PlayerDeath_DropOtomo_HoursAutoDestroy = 48;
     this->PlayerDeath_DropItemStorage_HoursCanOpen = 24;
+    this->PlayerDeath_DropItemStorage_HoursAutoDestroy = 48;
     this->PlayerDyingDamagePerTime = 1.00f;
     this->ElementStatus_ResistanceInitialValue = 100;
     this->ElementStatus_AutoDecreasePerSecond = 0.50f;
@@ -139,9 +141,7 @@ UPalGameSetting::UPalGameSetting() {
     this->MapObjectDestroyProceedExp = 5;
     this->MapObjectDistributeExpRange = 1000.00f;
     this->OtomoExp_HigherPlayerLevel = 10;
-    this->CaptureExpBonus_Tier1_TableReferenceNum = 5;
-    this->CaptureExpBonus_Tier2_TableReferenceNum = 2;
-    this->CaptureExpBonus_Tier3_TableReferenceNum = 3;
+    this->CaptureExpBonusMaxCount = 10;
     this->WorldHUDDisplayRangeDefault = 1000.00f;
     this->WorldHUDDetailDisplayRange = 500.00f;
     this->FarmCropGrowupSpeedBySec = 1.00f;
@@ -176,7 +176,6 @@ UPalGameSetting::UPalGameSetting() {
     this->CombatEndDistance_BattleStartSelfPos_To_TargetPos = 100.00f;
     this->CombatEndDistance_BattleStartSelfPos_To_TargetPos_AddFirstTargetDistance = 50.00f;
     this->NavigationAreaDivideExtents = 1000.00f;
-    this->autoSaveSpan = 300.00f;
     this->SaveDataName_WorldBaseInfo = TEXT("LevelMeta");
     this->SaveDataName_World = TEXT("Level");
     this->SaveDataName_PlayerDirectory = TEXT("Players");
@@ -199,6 +198,10 @@ UPalGameSetting::UPalGameSetting() {
     this->BuildingProgressInterpolationSpeed = 1.00f;
     this->PlayerRecord_BuildingObjectMaxNum = 10;
     this->BuildingMaxZ = 80000.00f;
+    this->SnapBuildObjectTraceDistance = 2000.00f;
+    this->SnapBuildObjectInstallReticleDistance = 1000.00f;
+    this->SnapBuildObjectAttachDistance = 100.00f;
+    this->InBuildProcessObjectExpireRealHours = 24.00f;
     this->BuildObj_HatchedPalCharacterLevel = 1;
     this->BuildObj_DamageScarecrowStartRecoveryTime = 3.00f;
     this->BaseCampAreaRange = 5000.00f;
@@ -241,8 +244,10 @@ UPalGameSetting::UPalGameSetting() {
     this->WorkTransportingDelayTimeDropItem = 2.00f;
     this->BaseCampStopProvideEnergyInterval = 10.00f;
     this->BaseCampWorkCollectionRestoreStashSeconds = 120.00f;
+    this->BaseCampWorkerDirectorBattleRestoreStashSeconds = 120.00f;
     this->WorkSuitabilityMaxRank = 5;
     this->DropItemWaitInsertMaxNumPerTick = 100;
+    this->MergeDropItemRange = 500.00f;
     this->GamePad_NotAimCameraRotateSpeed_DegreePerSecond = 120.00f;
     this->GamePad_AimCameraRotateSpeed_DegreePerSecond = 40.00f;
     this->Mouse_NotAimCameraRotateSpeed = 2.50f;
@@ -353,6 +358,7 @@ UPalGameSetting::UPalGameSetting() {
     this->IsAutoEquipMasteredWaza = true;
     this->ActiveUNKO = false;
     this->MaxSpawnableDeathPenaltyChest = 10;
+    this->MaxSpawnableDeathDroppedCharacter = 20;
     this->MapObjectShakeTimeOnDamaged = 0.50f;
     this->MapObjectOutlineByReticleTargetting = 2;
     this->MapObjectOutlineByInteractable = 3;
@@ -370,6 +376,7 @@ UPalGameSetting::UPalGameSetting() {
     this->MapObjectEffect_Burn_DamageAroundAccumulateValue_ForCharacter = 100.00f;
     this->PasswordLockFailedMaxNum = 3;
     this->MapObjectItemChestCorruptionRateFromWorkSpeed = 1.00f;
+    this->MapObjectItemChestUnlockAutoPrivateTime = 72.00f;
     this->StatusPointPerLevel = 1;
     this->AddMaxHPPerStatusPoint = 50.00f;
     this->AddMaxSPPerStatusPoint = 5.00f;
@@ -382,6 +389,7 @@ UPalGameSetting::UPalGameSetting() {
     this->AddDefencePerDefenceRank = 0.03f;
     this->AddWorkSpeedPerWorkSpeedRank = 0.03f;
     this->MaxUseablePoint_SumStatusPointAndExStatusPoint_PerParameter = 50;
+    this->Combi_BossPalRate = 0.10f;
     this->DebugInfoFont = NULL;
     this->MaxGuildNameLength = 30;
     this->JoinGuildRequestInteractLongPushTime = 4.00f;
@@ -396,6 +404,14 @@ UPalGameSetting::UPalGameSetting() {
     this->MaxSprintThreshold = 3000.00f;
     this->MinHPGaugeDisplayTime = 3.00f;
     this->ToggleInteractMoveDelay = 0.30f;
+    this->Arena_PlayerToPlayerDamageRate = 1.00f;
+    this->Arena_PlayerToPalDamageRate = 1.00f;
+    this->Arena_PlayerToPlayerStatusRate = 1.00f;
+    this->Arena_PlayerToPalStatusRate = 1.00f;
+    this->Arena_PalToPlayerDamageRate = 1.00f;
+    this->Arena_PalToPalDamageRate = 1.00f;
+    this->Arena_PalToPlayerStatusRate = 1.00f;
+    this->Arena_PalToPalStatusRate = 1.00f;
     this->SoundSourceDataTable = NULL;
 }
 

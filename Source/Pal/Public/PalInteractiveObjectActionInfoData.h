@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "EPalActionType.h"
 #include "EPalInteractiveObjectButtonType.h"
 #include "EPalInteractiveObjectIndicatorType.h"
 #include "PalInteractiveObjectActionInfoData.generated.h"
@@ -16,6 +17,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float longPushTime;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalActionType ActionType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bValid;

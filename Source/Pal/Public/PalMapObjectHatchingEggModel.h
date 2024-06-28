@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
 #include "PalEggRankInfo.h"
 #include "PalIndividualCharacterSaveParameter.h"
 #include "PalMapObjectConcreteModelBase.h"
@@ -8,6 +9,7 @@
 #include "PalMapObjectHatchingEggModel.generated.h"
 
 class UPalDynamicPalEggItemDataBase;
+class UPalIndividualCharacterHandle;
 class UPalItemContainer;
 class UPalMapObjectEnergyModule;
 class UPalMapObjectHatchingEggModel;
@@ -24,6 +26,9 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FUpdateHatchedCharacterDelegate OnUpdateHatchedCharacterDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FUpdateHatchedCharacterDelegate OnHatchedCharacterDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FUpdateHatchTemperatureDelegate OnUpdateHatchTemperaturDelegate;
@@ -76,6 +81,12 @@ protected:
 private:
     UFUNCTION(BlueprintCallable)
     void OnFinishWorkInServer(UPalWorkBase* Work);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnChangeBaseCampPassive(const FGuid& BaseCampId);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnAddNewWorker(UPalIndividualCharacterHandle* AddCharacterHandle);
     
     UFUNCTION(BlueprintCallable)
     void ObtainHatchedCharacter_ServerInternal(const int32 RequestPlayerId);

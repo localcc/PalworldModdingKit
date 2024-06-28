@@ -21,6 +21,18 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FPalMapObjectModelConnectInfo RightConnectInfo;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    FPalMapObjectModelConnectInfo CornerFrontLeftConnectInfo;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    FPalMapObjectModelConnectInfo CornerFrontRightConnectInfo;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    FPalMapObjectModelConnectInfo CornerBackLeftConnectInfo;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    FPalMapObjectModelConnectInfo CornerBackRightConnectInfo;
+    
 public:
     UPalMapObjectModelConnectorFoundation();
 

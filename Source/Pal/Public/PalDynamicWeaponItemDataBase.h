@@ -25,6 +25,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     TArray<FName> PassiveSkillList;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_ForceUpdateBulletsCounter, meta=(AllowPrivateAccess=true))
+    uint8 ForceUpdateBulletsCounter;
+    
 public:
     UPalDynamicWeaponItemDataBase();
 
@@ -43,6 +46,9 @@ public:
     void SetBulletsNum(int32 bulletsNum);
     
 protected:
+    UFUNCTION(BlueprintCallable)
+    void OnRep_ForceUpdateBulletsCounter();
+    
     UFUNCTION(BlueprintCallable)
     void OnRep_Durability();
     

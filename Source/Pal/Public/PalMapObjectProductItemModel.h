@@ -6,6 +6,7 @@
 #include "PalMapObjectProductItemModel.generated.h"
 
 class UPalItemContainer;
+class UPalMapObjectEnergyModule;
 class UPalMapObjectProductItemModel;
 class UPalWorkBase;
 
@@ -39,6 +40,9 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void PickupItem_ServerInternal(const int32 PlayerId);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnUpdateEnergyModuleState(UPalMapObjectEnergyModule* EnergyModule);
     
     UFUNCTION(BlueprintCallable)
     void OnUpdateContainerContent(UPalItemContainer* Container);

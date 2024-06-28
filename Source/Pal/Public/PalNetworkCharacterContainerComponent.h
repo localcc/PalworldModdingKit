@@ -3,7 +3,7 @@
 #include "UObject/NoExportTypes.h"
 #include "Components/ActorComponent.h"
 #include "EPalCharacterContainerOperationResult.h"
-#include "EPalCharacterContainerSortType.h"
+#include "PalCharacterContainerSortInfo.h"
 #include "PalCharacterSlotId.h"
 #include "PalContainerId.h"
 #include "PalInstanceID.h"
@@ -29,7 +29,7 @@ private:
     void RequestSwap_ToServer_Rep(const FPalCharacterSlotId& SlotIdA, const FPalCharacterSlotId& SlotIdB);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void RequestSortContainer_ToServer(const FPalContainerId& ContainerId, const EPalCharacterContainerSortType SortType);
+    void RequestSortContainer_ToServer(const FPalContainerId& ContainerId, const FPalCharacterContainerSortInfo& SortInfo);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestEmptySlot_ToServer_Rep(const FPalCharacterSlotId& SlotID);

@@ -12,6 +12,7 @@ APalPlayerState::APalPlayerState(const FObjectInitializer& ObjectInitializer) : 
     this->PalStorage = NULL;
     this->TechnologyData = NULL;
     this->RecordData = NULL;
+    this->PlayerSkinData = NULL;
     this->bIsSelectedInitMapPoint = false;
     this->bDetectedInValidPlayer = false;
     this->LocalRecordData = NULL;
@@ -20,13 +21,18 @@ APalPlayerState::APalPlayerState(const FObjectInitializer& ObjectInitializer) : 
     this->GuildBelongTo = NULL;
     this->NetworkComp = CreateDefaultSubobject<UPalNetworkPlayerStateComponent>(TEXT("NetworkComp"));
     this->SyncTeleportComp = CreateDefaultSubobject<UPalSyncTeleportComponent>(TEXT("SyncTeleportComp"));
+    this->UserAchievementChecker = NULL;
     this->bIsNewCharacter = false;
     this->TryCreateIndividualHandleTemporarily = NULL;
     this->bIsCompleteSyncPlayerFromServer_InClient = false;
     this->ChatCounter = 0;
+    this->DisableGuildJoin = false;
 }
 
 void APalPlayerState::WaitWorldPartitionDelegate(FTimerHandle& OutTimerHandle, APalPlayerState::FOnCompleteLoadWorldPartitionDelegate Delegate) {
+}
+
+void APalPlayerState::ShowUnlockHardModeUI() {
 }
 
 void APalPlayerState::ShowTowerBossDefeatRewardUI() {
@@ -44,6 +50,9 @@ void APalPlayerState::SendDamage_ToServer_Implementation(APalCharacter* Target, 
 void APalPlayerState::SendAccountInitData_ForServer_Implementation(const FPalPlayerAccountInitData& accountInitData) {
 }
 
+void APalPlayerState::RequestUpdatePlayerSettingsForServer_ToServer_Implementation(const FPalPlayerSettingsForServer& NewSettings) {
+}
+
 void APalPlayerState::RequestUnlockFastTravelPoint_ToServer_Implementation(const FName UnlockFlagKey) {
 }
 
@@ -53,10 +62,16 @@ void APalPlayerState::RequestSpawnMonsterForPlayer_Implementation(const FName& C
 void APalPlayerState::RequestRespawn_Implementation() {
 }
 
+void APalPlayerState::RequestPalBoxSyncPage_ToServer_Implementation(int32 pageIndex) {
+}
+
 void APalPlayerState::RequestObtainLevelObject_ToServer_Implementation(APalLevelObjectObtainable* TargetObject) {
 }
 
 void APalPlayerState::RequestJoinPlayer_ToServer_Implementation(const FGuid& JoinPlayerUId, const FPalPlayerInitializeParameter& InitPlayerParam) {
+}
+
+void APalPlayerState::RequestForceSyncPalBoxSlot_ToServer_Implementation(bool isForceSync) {
 }
 
 void APalPlayerState::RequestBotLocation_Implementation() {
@@ -113,6 +128,9 @@ void APalPlayerState::OnCompleteSyncAll_InClient(APalPlayerState* PlayerState) {
 void APalPlayerState::OnCompleteLoadInitWorldPartition_InClient(APalPlayerState* PlayerState) {
 }
 
+void APalPlayerState::OnChangeOptionCommonSettings(const FPalOptionCommonSettings& PrevSettings, const FPalOptionCommonSettings& NewSettings) {
+}
+
 void APalPlayerState::NotifyStartInitSelectMap_ToServer_Implementation() {
 }
 
@@ -120,9 +138,6 @@ void APalPlayerState::NotifyRunInitialize_ToClient() {
 }
 
 void APalPlayerState::NotifyRemovedCharacterFromPalBox_ToServer_Implementation(const FPalInstanceID& IndividualId) {
-}
-
-void APalPlayerState::NotifyOpenClosePalBox_ToServer_Implementation(bool IsOpen) {
 }
 
 void APalPlayerState::NotifyObtainComplete_ToServer_Implementation(const FPalInstanceID& IndividualId) {
@@ -166,6 +181,10 @@ bool APalPlayerState::IsPlayerCompletelyDead() const {
     return false;
 }
 
+bool APalPlayerState::IsInStateByStageType(EPalStageType StageType) const {
+    return false;
+}
+
 bool APalPlayerState::IsInStage() const {
     return false;
 }
@@ -194,6 +213,10 @@ UPalPlayerRecordData* APalPlayerState::GetRecordData() const {
 }
 
 UPalQuestManager* APalPlayerState::GetQuestManager() const {
+    return NULL;
+}
+
+UPalPlayerSkinData* APalPlayerState::GetPlayerSkinData() const {
     return NULL;
 }
 
@@ -333,9 +356,11 @@ void APalPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     DOREPLIFETIME(APalPlayerState, PalStorage);
     DOREPLIFETIME(APalPlayerState, TechnologyData);
     DOREPLIFETIME(APalPlayerState, RecordData);
+    DOREPLIFETIME(APalPlayerState, PlayerSkinData);
     DOREPLIFETIME(APalPlayerState, bIsSelectedInitMapPoint);
     DOREPLIFETIME(APalPlayerState, GuildBelongTo);
     DOREPLIFETIME(APalPlayerState, ChatCounter);
+    DOREPLIFETIME(APalPlayerState, DisableGuildJoin);
 }
 
 

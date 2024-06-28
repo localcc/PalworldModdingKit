@@ -3,11 +3,11 @@
 UPalGroupManager::UPalGroupManager() {
 }
 
-bool UPalGroupManager::TryGetGuildName(const FGuid& GroupID, FString& OutGuildName) const {
+bool UPalGroupManager::TryGetGuildName(const FGuid& GroupId, FString& OutGuildName) const {
     return false;
 }
 
-bool UPalGroupManager::TryGetGroupName(const FGuid& GroupID, FString& OutGroupName) const {
+bool UPalGroupManager::TryGetGroupName(const FGuid& GroupId, FString& OutGroupName) const {
     return false;
 }
 
@@ -32,10 +32,10 @@ void UPalGroupManager::Debug_RequestNewGroup(FPalGroupCreateParameter CreatePara
 void UPalGroupManager::Debug_RequestExitGroup(const FPalInstanceID& IndividualId, FPalGroupOperationDynamicDelegate Callback) {
 }
 
-void UPalGroupManager::Debug_RequestEnterGroup(const FPalInstanceID& IndividualId, const FGuid& GroupID, FPalGroupOperationDynamicDelegate Callback) {
+void UPalGroupManager::Debug_RequestEnterGroup(const FPalInstanceID& IndividualId, const FGuid& GroupId, FPalGroupOperationDynamicDelegate Callback) {
 }
 
-void UPalGroupManager::Debug_RequestDisposeGroup(const FGuid& GroupID, FPalGroupOperationDynamicDelegate Callback) {
+void UPalGroupManager::Debug_RequestDisposeGroup(const FGuid& GroupId, FPalGroupOperationDynamicDelegate Callback) {
 }
 
 UPalGroupBase* UPalGroupManager::Debug_GetFirstGroupByType(const EPalGroupType Type) const {

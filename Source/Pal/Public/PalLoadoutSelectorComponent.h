@@ -52,6 +52,12 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     APalWeaponBase* DummyBall;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_PrimaryTargetInventoryType, meta=(AllowPrivateAccess=true))
+    EPalPlayerInventoryType replicatedPrimaryTargetInventoryType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_CurrentItemSlotIndex, meta=(AllowPrivateAccess=true))
+    int32 replicatedCurrentItemSlotIndex;
+    
 public:
     UPalLoadoutSelectorComponent(const FObjectInitializer& ObjectInitializer);
 
@@ -93,22 +99,23 @@ public:
     UFUNCTION(BlueprintCallable)
     void OnUpdateInventorySlot(UPalItemSlot* itemSlot);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void OnRemoveEquipItem_ByTransmitter();
-    
 private:
+    UFUNCTION(BlueprintCallable)
+    void OnRep_PrimaryTargetInventoryType();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnRep_CurrentItemSlotIndex();
+    
     UFUNCTION(BlueprintCallable)
     void OnRemoveEquipItem(EPalPlayerInventoryType inventoryType, int32 Index);
     
-public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void OnEquipItem_ByTransmitter(EPalPlayerInventoryType inventoryType, int32 Index);
-    
-private:
     UFUNCTION(BlueprintCallable)
     void OnEquipItem(EPalPlayerInventoryType inventoryType, int32 Index);
     
 public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    TArray<APalWeaponBase*> GetWeaponList() const;
+    
     UFUNCTION(BlueprintCallable)
     EPalPlayerInventoryType GetPrimaryInventoryType();
     

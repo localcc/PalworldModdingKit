@@ -56,6 +56,9 @@ public:
     UFUNCTION(BlueprintCallable)
     void RemoveStatus(EPalStatusID StatusId);
     
+    UFUNCTION(BlueprintCallable)
+    void RemoveAll();
+    
 private:
     UFUNCTION(BlueprintCallable)
     void OnRep_ExecutionStatusList();

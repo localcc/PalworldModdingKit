@@ -7,6 +7,7 @@
 #include "PalNetworkTransmitterDelaySpawnInfo.h"
 #include "PalNetworkTransmitter.generated.h"
 
+class UPalNetworkArenaComponent;
 class UPalNetworkBaseCampComponent;
 class UPalNetworkBossBattleComponent;
 class UPalNetworkCharacterComponent;
@@ -69,6 +70,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPalNetworkRaidBossComponent* RaidBoss;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UPalNetworkArenaComponent* Arena;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UPalNetworkIndividualComponent* NetworkIndividualComponent;
@@ -145,6 +149,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalNetworkBaseCampComponent* GetBaseCamp() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPalNetworkArenaComponent* GetArena() const;
     
 private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)

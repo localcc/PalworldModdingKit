@@ -2,6 +2,8 @@
 
 FPalPassiveSkillDatabaseRow::FPalPassiveSkillDatabaseRow() {
     this->Rank = 0;
+    this->LotteryWeight = 0;
+    this->TargetElementType = EPalElementType::None;
     this->EffectType1 = EPalPassiveSkillEffectType::no;
     this->EffectValue1 = 0.00f;
     this->TargetType1 = EPalPassiveSkillEffectTargetType::None;
@@ -17,6 +19,7 @@ FPalPassiveSkillDatabaseRow::FPalPassiveSkillDatabaseRow() {
     this->InvokeReserve = false;
     this->InvokeInOtomo = false;
     this->InvokeAlways = false;
+    this->InvokeInBaseCamp = false;
     this->AddPal = false;
     this->AddRarePal = false;
     this->AddShotWeapon = false;
