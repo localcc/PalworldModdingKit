@@ -5,7 +5,7 @@
 
 class APalCharacter;
 
-UCLASS(Blueprintable)
+UCLASS(DefaultToInstanced, Blueprintable, EditInlineNew)
 class UPalSkinDataPalCharacterClass : public UPalSkinDataBase {
     GENERATED_BODY()
 public:
