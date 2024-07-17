@@ -9,7 +9,7 @@ UCLASS(Blueprintable)
 class PAL_API UPalStaticSkinDataAsset : public UDataAsset {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     TMap<FName, UPalSkinDataBase*> StaticSkinMap;
     
     UPalStaticSkinDataAsset();
