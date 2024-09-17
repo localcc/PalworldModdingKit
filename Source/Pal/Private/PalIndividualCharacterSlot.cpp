@@ -3,12 +3,16 @@
 
 UPalIndividualCharacterSlot::UPalIndividualCharacterSlot() {
     this->Handle = NULL;
+    this->ReplicateIndividualParameter = NULL;
     this->SlotIndex = -1;
     this->PermissionTribeID = EPalTribeID::None;
     this->bIsReplicateCharacterParameter = true;
 }
 
 void UPalIndividualCharacterSlot::Setup(const int32 InSlotIndex, const FPalContainerId& InContainerId) {
+}
+
+void UPalIndividualCharacterSlot::OnRep_Parameter() {
 }
 
 void UPalIndividualCharacterSlot::OnRep_LockPlayerUId() {
@@ -45,6 +49,7 @@ void UPalIndividualCharacterSlot::GetLifetimeReplicatedProps(TArray<FLifetimePro
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(UPalIndividualCharacterSlot, ReplicateHandleID);
+    DOREPLIFETIME(UPalIndividualCharacterSlot, ReplicateIndividualParameter);
     DOREPLIFETIME(UPalIndividualCharacterSlot, ContainerId);
     DOREPLIFETIME(UPalIndividualCharacterSlot, SlotIndex);
     DOREPLIFETIME(UPalIndividualCharacterSlot, LockPlayerUId);

@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
 #include "EPalArenaPlayerIndex.h"
 #include "PalArenaPlayerInitializeParameter.generated.h"
 
@@ -11,6 +12,9 @@ struct FPalArenaPlayerInitializeParameter {
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalArenaPlayerIndex PlayerIndex;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGuid PlayerUId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UPalIndividualCharacterParameter* PlayerIndividualParameter;

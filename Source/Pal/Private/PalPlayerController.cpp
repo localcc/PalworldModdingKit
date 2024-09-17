@@ -2,6 +2,7 @@
 #include "Net/UnrealNetwork.h"
 #include "PalAIActionComponent.h"
 #include "PalCutsceneComponent.h"
+#include "Templates/SubclassOf.h"
 
 APalPlayerController::APalPlayerController(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->bAutoManageActiveCameraTarget = false;
@@ -457,6 +458,18 @@ void APalPlayerController::Debug_AddMoney_ToServer_Implementation(int64 addValue
 void APalPlayerController::Debug_AddExpForALLPlayer_ToServer_Implementation(int32 addExp) {
 }
 
+void APalPlayerController::DamageReactionComponent_ProcessDeath_ToServer_ToSelfPlayer_Implementation() {
+}
+
+void APalPlayerController::DamageReactionComponent_ProcessDeath_ToServer_ToNPC_Implementation(const AActor* TargetActor) {
+}
+
+void APalPlayerController::DamageReactionComponent_ProcessDamage_ToServer_ToSelfPlayer_Implementation(const FPalDamageInfo& Info, const AActor* DefenderOtomo) {
+}
+
+void APalPlayerController::DamageReactionComponent_ProcessDamage_ToServer_ToNPC_Implementation(const FPalDamageInfo& Info, const AActor* Defender) {
+}
+
 void APalPlayerController::ConfirmRequestGuild_ToClient_Implementation(const FGuid& FlowUniqueId, const EPalGuildJoinRequestConfirm ConfirmType) {
 }
 
@@ -482,6 +495,9 @@ void APalPlayerController::AddDeathLog_Client_Implementation(const FPalKillLogDi
 void APalPlayerController::AddCameraRotateSpeedModifierRate(const FName& modifierName, float Rate) {
 }
 
+
+void APalPlayerController::ActionComponent_PlayAction_ToServer_ForPlayer_Implementation(AActor* TargetActor, FActionDynamicParameter Param, TSubclassOf<UPalActionBase> actionClass, int32 issuerID) {
+}
 
 void APalPlayerController::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);

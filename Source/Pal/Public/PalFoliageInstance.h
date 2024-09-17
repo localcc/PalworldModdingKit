@@ -32,7 +32,7 @@ private:
     FName FoliageTypeId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
-    int32 HP;
+    int32 Hp;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_Alive, meta=(AllowPrivateAccess=true))
     bool bAlive;

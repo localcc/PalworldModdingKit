@@ -6,7 +6,6 @@
 #include "Engine/EngineTypes.h"
 #include "EPalCharacterCompleteDelegatePriority.h"
 #include "EPalCharacterImportanceType.h"
-#include "FixedPoint.h"
 #include "FlagContainer.h"
 #include "PalOnCharacterCompleteInitializeParameterDelegate.h"
 #include "PalCharacter.generated.h"
@@ -23,6 +22,7 @@ class UPalCharacterMovementComponent;
 class UPalCharacterOnCompleteInitializeParameterWrapper;
 class UPalCharacterParameterComponent;
 class UPalDamageReactionComponent;
+class UPalFlyMeshHeightCtrlComponent;
 class UPalFootIKComponent;
 class UPalHeadUpDisplayComponent;
 class UPalLookAtComponent;
@@ -132,6 +132,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsTalkMode;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UPalFlyMeshHeightCtrlComponent* FlyMeshHeightCtrlComponent;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_IsPalActiveActor, meta=(AllowPrivateAccess=true))
     bool bIsPalActiveActor;
@@ -188,12 +191,6 @@ public:
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void RPCDummy();
-    
-    UFUNCTION(BlueprintCallable, Reliable, Server)
-    void ReviveCharacter_ToServer(FFixedPoint HP);
-    
-    UFUNCTION(BlueprintCallable)
-    void ReviveCharacter(FFixedPoint HP);
     
     UFUNCTION(BlueprintCallable)
     void ResetTickInterval();

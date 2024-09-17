@@ -28,6 +28,7 @@ void UPalPlayerRecordData::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
     DOREPLIFETIME(UPalPlayerRecordData, TowerBossDefeatFlag);
     DOREPLIFETIME(UPalPlayerRecordData, TowerBossDefeatCount);
     DOREPLIFETIME(UPalPlayerRecordData, NormalBossDefeatFlag);
+    DOREPLIFETIME(UPalPlayerRecordData, RaidBossDefeatCount);
     DOREPLIFETIME(UPalPlayerRecordData, BossDefeatCount);
     DOREPLIFETIME(UPalPlayerRecordData, TribeCaptureCount);
     DOREPLIFETIME(UPalPlayerRecordData, PalCaptureCount);

@@ -5,3 +5,8 @@ APalBuildObjectDefenseBase::APalBuildObjectDefenseBase(const FObjectInitializer&
 }
 
 
+void APalBuildObjectDefenseBase::GetCharacterLocationAndRotationWithOffset(APalCharacter* OwnerCharacter, FVector PreCharaLocation, FVector& OutLocation, FRotator& OutRotation) {
+}
+
+
+

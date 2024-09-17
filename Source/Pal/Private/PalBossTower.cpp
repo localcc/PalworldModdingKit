@@ -19,10 +19,10 @@ void APalBossTower::UpdateEntry_Multicast_Implementation(EPalBossBattleDifficult
 void APalBossTower::ShowWaitInfo(const FVector TargetLocation, const FVector DisplayOffset, bool isWaiting) {
 }
 
-void APalBossTower::RequestBossBattleStart(APalPlayerCharacter* Player) {
+void APalBossTower::RequestBossBattleStart() {
 }
 
-void APalBossTower::RequestBossBattleEntry(APalPlayerCharacter* Player, EPalBossBattleDifficulty Difficulty) {
+void APalBossTower::RequestBossBattleEntry(EPalBossBattleDifficulty Difficulty) {
 }
 
 void APalBossTower::RemoveInDoorPlayer(APalPlayerCharacter* Player) {

@@ -10,13 +10,14 @@ UPalSupplyManager::UPalSupplyManager() {
     this->SpawnNPCSeconds = 60;
     this->SpawnDistanceLimit = 20000.00f;
     this->BroadcastLogDistanceLimit = 40000.00f;
-    this->SupplyFirstDelaySeconds = 1;
-    this->SupplyCoolDownSeconds = 1800;
     this->LotteryCoolDownSeconds = 600;
     this->SupplyTotalFallSeconds = 60;
     this->SupplyDespawnSeconds = 600;
     this->SupplyCapsuleDropClass = NULL;
     this->SupplyMeteorDropClass = NULL;
+}
+
+void UPalSupplyManager::OnChangeWorldSettings(const FPalOptionWorldSettings& PrevSettings, const FPalOptionWorldSettings& NewSettings) {
 }
 
 UPalSupplySpawnerData* UPalSupplyManager::GetSupplySpawnerFromIncidentSpawner(APalRandomIncidentSpawnerBase* IncidentSpawner) const {

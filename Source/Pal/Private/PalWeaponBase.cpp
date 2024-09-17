@@ -99,6 +99,9 @@ void APalWeaponBase::OnEndAim_Implementation() {
 void APalWeaponBase::OnDetachWeapon_Implementation(AActor* detachActor) {
 }
 
+void APalWeaponBase::OnCreatedDynamicItemDataInClient(UPalDynamicItemDataBase* CreatedItemData) {
+}
+
 void APalWeaponBase::OnCreatedBullet_Implementation(APalBullet* Bullet) {
 }
 

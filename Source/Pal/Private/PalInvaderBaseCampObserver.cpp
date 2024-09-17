@@ -9,10 +9,4 @@ UPalInvaderBaseCampObserver::UPalInvaderBaseCampObserver() {
     this->PlayerInBaseCampTimer = 0.00f;
 }
 
-void UPalInvaderBaseCampObserver::OnExitCharacter(UPalIndividualCharacterHandle* Handle) {
-}
-
-void UPalInvaderBaseCampObserver::OnEnterCharacter(UPalIndividualCharacterHandle* Handle) {
-}
-
 

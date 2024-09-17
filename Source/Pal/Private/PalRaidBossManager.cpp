@@ -28,7 +28,7 @@ FPalRaidBossSpawnInfo UPalRaidBossManager::FindRaidBossInfoByCharacterID(FName C
     return FPalRaidBossSpawnInfo{};
 }
 
-FPalRaidBossDataRow UPalRaidBossManager::FindRaidBossData(FName ItemName) {
+FPalRaidBossDataRow UPalRaidBossManager::FindRaidBossData(FName ItemName) const {
     return FPalRaidBossDataRow{};
 }
 

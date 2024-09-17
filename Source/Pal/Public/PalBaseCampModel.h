@@ -17,7 +17,6 @@ class UPalBaseCampMapObjectCollection;
 class UPalBaseCampModel;
 class UPalBaseCampWorkCollection;
 class UPalBaseCampWorkerDirector;
-class UPalGuildPalStorage;
 class UPalIndividualCharacterHandle;
 class UPalWorkBase;
 
@@ -26,7 +25,6 @@ class UPalBaseCampModel : public UObject {
     GENERATED_BODY()
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSimpleDelegate, UPalBaseCampModel*, Model);
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FBaseCampGuildPalStorageUpdateDelegate, UPalBaseCampModel*, Model, UPalGuildPalStorage*, GuildPalStorage);
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSimpleDelegate OnUpdateStatusDelegate;

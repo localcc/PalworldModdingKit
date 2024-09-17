@@ -14,6 +14,8 @@ UPalSaveGameManager::UPalSaveGameManager() {
     this->MinutesSaveBackupNum = 6;
     this->HourSaveBackupNum = 12;
     this->DaySaveBackupNum = 7;
+    this->GDKMaxBackupSlotNum = 3;
+    this->GDKBackupFrequency = 3;
 }
 
 void UPalSaveGameManager::StartWorldDataAutoSave() {

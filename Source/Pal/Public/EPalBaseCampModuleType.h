@@ -13,5 +13,6 @@ enum class EPalBaseCampModuleType : uint8 {
     FacilityReservation,
     ObjectMaintenance,
     PassiveEffect,
+    ItemStackInfo,
 };
 

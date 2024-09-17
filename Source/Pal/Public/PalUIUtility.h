@@ -52,6 +52,9 @@ public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void ResetSlateNavigation(const UObject* WorldContextObject);
     
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void ResetEnableCommonUIInput(const UObject* WorldContextObject);
+    
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsToggleInteract(const UObject* WorldContextObject);
     

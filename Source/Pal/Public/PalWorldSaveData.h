@@ -94,6 +94,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalSupplySaveData SupplySaveData;
     
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint32 WorldMetaSaveVersionBitMask;
+    
     PAL_API FPalWorldSaveData();
 };
 

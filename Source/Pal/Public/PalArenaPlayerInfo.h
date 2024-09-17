@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
 #include "PalArenaPlayerParty.h"
 #include "PalArenaPlayerInfo.generated.h"
 
@@ -11,6 +12,9 @@ struct FPalArenaPlayerInfo {
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UPalIndividualCharacterParameter* PlayerIndividualParameter;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGuid PlayerUId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<UPalIndividualCharacterParameter*> OtomoList;

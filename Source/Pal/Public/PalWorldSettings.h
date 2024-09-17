@@ -13,6 +13,7 @@ class UPalFunnelCharacterManager;
 class UPalIncidentSystem;
 class UPalInvaderManager;
 class UPalOptionSubsystem;
+class UPalStaticMeshImposterSubsystem;
 class UPalTimeManager;
 
 UCLASS(Blueprintable)
@@ -51,6 +52,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalArenaWorldSubsystem> ArenaWorldSubsystemClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UPalStaticMeshImposterSubsystem> StaticMeshImposterSubsystemClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bRequestCharacterMake;

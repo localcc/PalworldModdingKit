@@ -22,4 +22,8 @@ AActor* UPalAICombatModule_RaidBoss::FindPlayerTarget() {
     return NULL;
 }
 
+AActor* UPalAICombatModule_RaidBoss::FindNearTarget() {
+    return NULL;
+}
+
 

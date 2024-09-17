@@ -8,6 +8,9 @@ APalMapObjectDropItem::APalMapObjectDropItem(const FObjectInitializer& ObjectIni
 void APalMapObjectDropItem::StopMovement_Multicast_Implementation(const FVector& Location, const FRotator& Rotation) {
 }
 
+void APalMapObjectDropItem::OnProceedTimerMovementActive() {
+}
+
 void APalMapObjectDropItem::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     

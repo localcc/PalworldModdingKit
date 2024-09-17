@@ -37,6 +37,7 @@ APalCharacter::APalCharacter(const FObjectInitializer& ObjectInitializer) : Supe
     this->RagdollInteractiveSphere = CreateDefaultSubobject<USphereComponent>(TEXT("RagdollInteractiveSphere"));
     this->bIsBattleMode = false;
     this->bIsTalkMode = false;
+    this->FlyMeshHeightCtrlComponent = NULL;
     this->bIsPalActiveActor = true;
     this->bIsLocalInitialized = false;
     this->bIsDisable_ChangeTickInterval_ByImportance = false;
@@ -71,12 +72,6 @@ void APalCharacter::SetActiveActor_Implementation(bool Active) {
 }
 
 void APalCharacter::RPCDummy_Implementation() {
-}
-
-void APalCharacter::ReviveCharacter_ToServer_Implementation(FFixedPoint HP) {
-}
-
-void APalCharacter::ReviveCharacter(FFixedPoint HP) {
 }
 
 void APalCharacter::ResetTickInterval() {

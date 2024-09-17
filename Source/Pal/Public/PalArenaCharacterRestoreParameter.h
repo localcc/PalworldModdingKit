@@ -12,7 +12,7 @@ public:
     bool bValid;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FFixedPoint64 HP;
+    FFixedPoint64 Hp;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float FullStomach;

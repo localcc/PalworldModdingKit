@@ -536,7 +536,7 @@ public:
     static bool IsInClientConnection(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    static bool IsInArenaByCharacter(APalCharacter* Character);
+    static bool IsInArenaByCharacter(const APalCharacter* Character);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsIgnoreNetworkVersionCheck(const UObject* WorldContextObject);

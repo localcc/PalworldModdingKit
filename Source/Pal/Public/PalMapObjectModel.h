@@ -94,7 +94,7 @@ private:
     EPalMapObjectDamagableType DamagableType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
-    FPalMapObjectStatusValue HP;
+    FPalMapObjectStatusValue Hp;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FTransform InitialTransformCache;

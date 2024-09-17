@@ -20,6 +20,9 @@ void UPalActiveSkillSlot::SetSkill(int32 SlotID, EPalWazaID WazaType) {
 void UPalActiveSkillSlot::SetCoolTimeRate(FName Key, float Rate) {
 }
 
+void UPalActiveSkillSlot::RestartCoolTime_ByWazaID(EPalWazaID WazaID) {
+}
+
 void UPalActiveSkillSlot::RestartCoolTime(int32 SlotID) {
 }
 

@@ -97,7 +97,7 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
-    void OnChangeDisablePassiveSkill(bool isDisable);
+    void OnChangeDisablePassiveSkill(bool isDisable, bool IsAllReset);
     
     UFUNCTION(BlueprintCallable)
     void OnAddNewWorker(UPalIndividualCharacterHandle* AddCharacterHandle);

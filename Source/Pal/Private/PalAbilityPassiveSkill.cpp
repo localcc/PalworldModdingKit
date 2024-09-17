@@ -44,7 +44,7 @@ void UPalAbilityPassiveSkill::OnInactivatedAsOtomoHolder() {
 void UPalAbilityPassiveSkill::OnInactivatedAsOtomo() {
 }
 
-void UPalAbilityPassiveSkill::OnChangeDisablePassiveSkill(bool isDisable) {
+void UPalAbilityPassiveSkill::OnChangeDisablePassiveSkill(bool isDisable, bool IsAllReset) {
 }
 
 void UPalAbilityPassiveSkill::OnAddNewWorker(UPalIndividualCharacterHandle* AddCharacterHandle) {

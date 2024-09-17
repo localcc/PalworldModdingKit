@@ -60,7 +60,7 @@ public:
     void RequestOfficialServerIPRange();
     
     UFUNCTION(BlueprintCallable)
-    void RequestGetServerList(EPalUIServerListFilterType Type, EPalUIServerListSortType SortType, const FString& Region, int32 PageOffset, const FString& SearchWord);
+    void RequestGetServerList(EPalUIServerListFilterType Type, EPalUIServerListSortType SortType, const FString& Region, int32 PageOffset, const FString& SearchWord, bool IsStrictVersion);
     
 private:
     UFUNCTION(BlueprintCallable)

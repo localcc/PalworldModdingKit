@@ -64,10 +64,10 @@ public:
     void ShowWaitInfo(const FVector TargetLocation, const FVector DisplayOffset, bool isWaiting);
     
     UFUNCTION(BlueprintCallable)
-    void RequestBossBattleStart(APalPlayerCharacter* Player);
+    void RequestBossBattleStart();
     
     UFUNCTION(BlueprintCallable)
-    void RequestBossBattleEntry(APalPlayerCharacter* Player, EPalBossBattleDifficulty Difficulty);
+    void RequestBossBattleEntry(EPalBossBattleDifficulty Difficulty);
     
 protected:
     UFUNCTION(BlueprintCallable)

@@ -12,7 +12,7 @@ FPalCharacterParameterDatabaseRow::FPalCharacterParameterDatabaseRow() {
     this->Organization = EPalOrganizationType::None;
     this->Weapon = EPalWeaponType::None;
     this->WeaponEquip = false;
-    this->HP = 0;
+    this->Hp = 0;
     this->MeleeAttack = 0;
     this->ShotAttack = 0;
     this->Defense = 0;

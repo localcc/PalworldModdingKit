@@ -1,7 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "PalDamageReactionComponent.h"
+#include "PalDamageInfo.h"
 #include "PalSkillDamageReactionComponent.generated.h"
 
 class UPalHitEffectSlot;

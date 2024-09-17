@@ -13,6 +13,9 @@ public:
     float TickInterval;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bBuildObjectVisible;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bInvalidTickForSkeletalMeshComponent;
     
     PAL_API FPalMapObjectSignificanceInfo();

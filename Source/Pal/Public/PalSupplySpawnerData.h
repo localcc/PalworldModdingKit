@@ -52,7 +52,10 @@ public:
     float MeteorPieceRandomMaxRange;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    float SafeAreaRadius;
+    float SafeAreaRadiusForBaseCamp;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float SafeAreaRadiusForActor;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     EPalSupplyType ForceSupplyType;

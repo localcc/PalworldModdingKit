@@ -14,6 +14,7 @@ class PAL_API UPalMapObjectPasswordLockModule : public UPalMapObjectConcreteMode
     GENERATED_BODY()
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FReturnSelfMulticastDelegate, UPalMapObjectPasswordLockModule*, Module);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FReturnSelfAndPlayerNewInfoDelegate, UPalMapObjectPasswordLockModule*, Self, const FPalMapObjectPasswordLockPlayerInfo&, NewPlayerInfo);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FReturnSelfAndPasswordMulticastDelegate, UPalMapObjectPasswordLockModule*, Module, const FString&, Password);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FReturnPlayerInfoDelegate, const FPalMapObjectPasswordLockPlayerInfo&, OldLocalPlayerInfo, const FPalMapObjectPasswordLockPlayerInfo&, NewLocalPlayerInfo);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FNotifyAuthenticationResultDelegate, bool, passed);
@@ -36,6 +37,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     int32 TryAuthenticateMaxNum;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    bool bCanPrivateLock;
     
 public:
     UPalMapObjectPasswordLockModule();
@@ -84,6 +88,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool CanTryAuthenticateByPlayer(const FGuid& RequestPlayerUId) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool CanPrivateLock() const;
     
 };
 

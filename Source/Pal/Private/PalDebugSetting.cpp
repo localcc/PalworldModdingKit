@@ -167,8 +167,15 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bDrawDetectMapObjectInDoor = false;
     this->bCanDamageToMapObjectFromSameGroup = false;
     this->MapObjectHpOverride = -1;
+    this->bShowUpdateInDoorLog = false;
     this->FoliageRespawnIntervalOverrideSeconds = -1.00f;
     this->bVisibleFoliageChunk = false;
+    this->bCanRegisterPalStaticMeshImposter = true;
+    this->MaxDrawDistancePalStaticMeshImposter = -1.00f;
+    this->ChunkGridSizePalStaticMeshImposter = -1.00f;
+    this->ActivateStaticMeshImposterDefaultRange = -1.00f;
+    this->bVisibleStaticMeshImposterChunk = false;
+    this->bEnablePalHLODVisibilityControll = true;
     this->bShowPalEggStatus = false;
     this->ShowPalEggStatusRange = 1000.00f;
     this->bIsHideAllHUD = false;
@@ -196,6 +203,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bForceDisableTickOptimization = false;
     this->bForceDisableDamagePopup = false;
     this->bIsShowTickOptimizationType = false;
+    this->bForceDisableAsyncMovement = false;
     this->bIgnoreFastTravelLock = false;
     this->bIsShowPostAkEvent = false;
     this->SoundDebugModelClass = NULL;

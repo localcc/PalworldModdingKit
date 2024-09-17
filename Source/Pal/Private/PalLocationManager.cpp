@@ -18,8 +18,11 @@ UPalLocationBase* UPalLocationManager::GetLocation(const FGuid& ID) const {
     return NULL;
 }
 
-int32 UPalLocationManager::GetLocalCustomLocationCount() {
-    return 0;
+TMap<FGuid, FPalCustomMarkerSaveData> UPalLocationManager::GetCustomMarkers() const {
+    return TMap<FGuid, FPalCustomMarkerSaveData>();
+}
+
+void UPalLocationManager::ChangeCustomMarkerType(const FGuid& LocationId, int32 Type) {
 }
 
 FGuid UPalLocationManager::AddLocalCustomLocation(FVector IconLocation, int32 IconType) {

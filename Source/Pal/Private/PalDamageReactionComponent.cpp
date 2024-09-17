@@ -19,12 +19,6 @@ void UPalDamageReactionComponent::ShowDeadDebugLog(FPalDeadInfo DeadInfo) {
 void UPalDamageReactionComponent::SetDisableLargeDown() {
 }
 
-void UPalDamageReactionComponent::ProcessDeath_ToServer_Implementation() {
-}
-
-void UPalDamageReactionComponent::ProcessDamage_ToServer_Implementation(const FPalDamageInfo& Info) {
-}
-
 void UPalDamageReactionComponent::PopupDamageBySlipDamage_ToALL_Implementation(int32 Damage) {
 }
 

@@ -8,12 +8,6 @@ UPalBuilderComponent::UPalBuilderComponent(const FObjectInitializer& ObjectIniti
     this->DismantleChecker = NULL;
 }
 
-void UPalBuilderComponent::RequestBuild_ToServer_Implementation(const FName BuildObjectId, const FVector& Location, const FQuat& Rotation, const TArray<FPalNetArchive>& ExtraParameterArchives, FPalBuildRequestDebugParameter DebugParameter) {
-}
-
-void UPalBuilderComponent::ReceiveBuildResult_ToRequestClient_Implementation(const EPalMapObjectOperationResult Result) {
-}
-
 void UPalBuilderComponent::OnExitBaseCamp(UPalBaseCampModel* BaseCampModel) {
 }
 

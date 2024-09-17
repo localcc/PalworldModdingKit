@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "EPalPassiveSkillEffectType.h"
 #include "PalWorldSubsystem.h"
 #include "Templates/SubclassOf.h"
 #include "PalArenaWorldSubsystem.generated.h"
@@ -24,6 +25,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 InBattleTime;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<EPalPassiveSkillEffectType> DisablePassiveTypesToSubPals;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))

@@ -12,6 +12,7 @@ APalWorldSettings::APalWorldSettings(const FObjectInitializer& ObjectInitializer
     this->IncidentSystemClass = NULL;
     this->FunnelCharacterManagerClass = NULL;
     this->ArenaWorldSubsystemClass = NULL;
+    this->StaticMeshImposterSubsystemClass = NULL;
     this->bRequestCharacterMake = false;
 }
 

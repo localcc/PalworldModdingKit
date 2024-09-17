@@ -104,6 +104,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalOptionValueInt autoSaveSpan;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalOptionValueInt SupplyDropSpan;
+    
     PAL_API FPalOptionWorldStaticSettings();
 };
 

@@ -74,9 +74,6 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable)
-    void EndPlay(const TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
-    
-    UFUNCTION(BlueprintCallable)
     void BeginPlay();
     
     UFUNCTION(BlueprintCallable)

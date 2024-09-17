@@ -23,7 +23,7 @@ public:
     static bool TryGetItemVisualBlueprintClass(const UObject* WorldContextObject, const FName StaticItemId, TSoftClassPtr<AActor>& VisualBlueprintClass);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static void RestoreWithItem(const UObject* WorldContextObject, FName staticItemName, UPalIndividualCharacterParameter* TargetParameter);
+    static void RestoreWithItem(const UObject* WorldContextObject, FName StaticItemName, UPalIndividualCharacterParameter* TargetParameter);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static void MaterialInfos(const FPalItemRecipe& Recipe, TArray<FPalStaticItemIdAndNum>& NewMaterialInfos);
@@ -50,7 +50,7 @@ public:
     static void CollectLocalPlayerControllableItemInfos(const UObject* WorldContextObject, TArray<FName> StaticItemIds, TArray<FPalStaticItemIdAndNum>& OutItemInfos, const bool bIncludeInRangeBaseCamp);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static bool CanUseHealItem(const UObject* WorldContextObject, FName staticItemName, UPalIndividualCharacterParameter* TargetParameter);
+    static bool CanUseHealItem(const UObject* WorldContextObject, FName StaticItemName, UPalIndividualCharacterParameter* TargetParameter);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool CanItemLevelUp(const UPalStaticItemDataBase* ItemData, UPalIndividualCharacterParameter* TargetParameter);

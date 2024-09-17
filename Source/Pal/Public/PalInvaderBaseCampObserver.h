@@ -39,12 +39,5 @@ private:
 public:
     UPalInvaderBaseCampObserver();
 
-private:
-    UFUNCTION(BlueprintCallable)
-    void OnExitCharacter(UPalIndividualCharacterHandle* Handle);
-    
-    UFUNCTION(BlueprintCallable)
-    void OnEnterCharacter(UPalIndividualCharacterHandle* Handle);
-    
 };
 

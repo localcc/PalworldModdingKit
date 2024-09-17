@@ -2,7 +2,6 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
-#include "UObject/NoExportTypes.h"
 #include "Components/ActorComponent.h"
 #include "EPalMapObjectConcreteModelModuleType.h"
 #include "EPalMapObjectOperationResult.h"
@@ -33,9 +32,6 @@ public:
     UPalNetworkMapObjectComponent(const FObjectInitializer& ObjectInitializer);
 
 private:
-    UFUNCTION(BlueprintCallable, Reliable, Server)
-    void RequestSpawnMapObject_ToServer(const FGuid& RequestID, const FName MapObjectId, const FVector& Location, const FQuat& Rotation, const TArray<FPalNetArchive>& ExtraParameterArchives);
-    
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestRepair_ToServer(const FGuid& InstanceId);
     

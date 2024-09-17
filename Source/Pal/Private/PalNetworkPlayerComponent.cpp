@@ -13,10 +13,16 @@ void UPalNetworkPlayerComponent::ShowBossDefeatRewardUI_ToClient_Implementation(
 void UPalNetworkPlayerComponent::SetCurrentSelectPalSphereIndex_ToServer_Implementation(int32 NextIndex, UPalLoadoutSelectorComponent* LoadoutSelector) {
 }
 
+void UPalNetworkPlayerComponent::RequestUpdatePlayerSettingsForServer_ToServer_Implementation(const FPalPlayerSettingsForServer& NewSettings) {
+}
+
 void UPalNetworkPlayerComponent::RequestUnlockTechnology_ToServer_Implementation(const FName& UnlockTechnologyName) {
 }
 
 void UPalNetworkPlayerComponent::RequestSortInventory_ToServer_Implementation() {
+}
+
+void UPalNetworkPlayerComponent::RequestObtainLevelObject_ToServer_Implementation(APalLevelObjectObtainable* TargetObject) {
 }
 
 void UPalNetworkPlayerComponent::RequestMoveItemToInventoryFromSlot_Implementation(UPalItemSlot* fromSlot, bool IsTryEquip) {
@@ -37,10 +43,10 @@ void UPalNetworkPlayerComponent::RequestDropOtomoPal_ToServer_Implementation(con
 void UPalNetworkPlayerComponent::RequestChangeVoiceID_ToServer_Implementation(int32 NewVoiceID) {
 }
 
-void UPalNetworkPlayerComponent::RequestAddTechnolgyPointByItem_ToServer_Implementation(const FPalItemSlotId& ConsumeItemSlotID) {
+void UPalNetworkPlayerComponent::RequestBuild_ToServer_Implementation(const FName BuildObjectId, const FVector& Location, const FQuat& Rotation, const TArray<FPalNetArchive>& ExtraParameterArchives, FPalBuildRequestDebugParameter DebugParameter) {
 }
 
-void UPalNetworkPlayerComponent::RequestAddTechnolgyPoint_ToServer_Implementation(const int32 AddPoint) {
+void UPalNetworkPlayerComponent::RequestAddTechnolgyPointByItem_ToServer_Implementation(const FPalItemSlotId& ConsumeItemSlotID) {
 }
 
 void UPalNetworkPlayerComponent::RequestAddItem_ToServer_Implementation(const FName StaticItemId, const int32 Count, bool IsAssignPassive) {
@@ -74,6 +80,9 @@ void UPalNetworkPlayerComponent::NotifyQuestCompleted_Implementation(TSubclassOf
 }
 
 void UPalNetworkPlayerComponent::NotifyEndCrime_ToClient_Implementation(FGuid CrimeInstanceId) {
+}
+
+void UPalNetworkPlayerComponent::NotifyClientInitializedEssential_ToServer_Implementation() {
 }
 
 void UPalNetworkPlayerComponent::LoadoutSelectorRemoveEquipItem_Implementation(UPalLoadoutSelectorComponent* LoadoutSelector) {

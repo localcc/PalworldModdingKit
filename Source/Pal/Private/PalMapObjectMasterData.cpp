@@ -3,7 +3,7 @@
 FPalMapObjectMasterData::FPalMapObjectMasterData() {
     this->MaterialType = EPalMapObjectMaterialType::None;
     this->MaterialSubType = EPalMapObjectMaterialSubType::None;
-    this->HP = 0;
+    this->Hp = 0;
     this->Defense = 0;
     this->bBelongToBaseCamp = false;
     this->DistributeExpAroundPlayer = 0;

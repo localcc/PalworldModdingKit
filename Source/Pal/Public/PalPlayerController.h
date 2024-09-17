@@ -7,6 +7,7 @@
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "Engine/HitResult.h"
+#include "ActionDynamicParameter.h"
 #include "DelegateTickFunction.h"
 #include "EPalGuildJoinRequestConfirm.h"
 #include "EPalGuildJoinRequestResult.h"
@@ -715,6 +716,18 @@ public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Debug_AddExpForALLPlayer_ToServer(int32 addExp);
     
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void DamageReactionComponent_ProcessDeath_ToServer_ToSelfPlayer();
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void DamageReactionComponent_ProcessDeath_ToServer_ToNPC(const AActor* TargetActor);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void DamageReactionComponent_ProcessDamage_ToServer_ToSelfPlayer(const FPalDamageInfo& Info, const AActor* DefenderOtomo);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void DamageReactionComponent_ProcessDamage_ToServer_ToNPC(const FPalDamageInfo& Info, const AActor* Defender);
+    
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void ConfirmRequestGuild_ToClient(const FGuid& FlowUniqueId, const EPalGuildJoinRequestConfirm ConfirmType);
     
@@ -745,6 +758,10 @@ private:
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ActivateCurrentOtomoNearThePlayer();
+    
+public:
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void ActionComponent_PlayAction_ToServer_ForPlayer(AActor* TargetActor, FActionDynamicParameter Param, TSubclassOf<UPalActionBase> actionClass, int32 issuerID);
     
 };
 

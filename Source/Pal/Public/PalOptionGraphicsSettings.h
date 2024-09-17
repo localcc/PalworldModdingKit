@@ -5,6 +5,7 @@
 #include "SceneUtils.h"
 #include "GameFramework/GameUserSettings.h"
 #include "EPalOptionGraphicsLevel.h"
+#include "EPalOptionMapObjectDrawDistanceType.h"
 #include "PalOptionGraphicsSettings.generated.h"
 
 USTRUCT(BlueprintType)
@@ -67,6 +68,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 ShadowQuality;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalOptionMapObjectDrawDistanceType MapObjectDrawDistanceType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float Brightness;

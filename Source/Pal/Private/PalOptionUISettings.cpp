@@ -7,5 +7,6 @@ FPalOptionUISettings::FPalOptionUISettings() {
     this->ReticleColorIndex = 0;
     this->ReticleOutlineOpacity = 0.00f;
     this->ChatUICloseDelayTime = 0.00f;
+    this->MinFontSize = 0;
 }
 

@@ -19,6 +19,7 @@ FPalOptionGraphicsSettings::FPalOptionGraphicsSettings() {
     this->ViewDistanceQuality = 0;
     this->FoliageQuality = 0;
     this->ShadowQuality = 0;
+    this->MapObjectDrawDistanceType = EPalOptionMapObjectDrawDistanceType::Invalid;
     this->Brightness = 0.00f;
     this->bEnableAutoContrast = false;
     this->TextureQuality = 0;

@@ -13,6 +13,9 @@ public:
 
 protected:
     UFUNCTION(BlueprintCallable)
+    void ResetHateAll();
+    
+    UFUNCTION(BlueprintCallable)
     void FillPartyPalAuto(EPalArenaPlayerIndex PlayerIndex, UPARAM(Ref) FPalArenaPlayerParty& ArenaPlayerParty);
     
 };

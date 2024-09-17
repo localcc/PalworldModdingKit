@@ -2,18 +2,19 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
+#include "PalCustomMarkerSaveData.h"
 #include "PalWorldSubsystem.h"
 #include "PalLocationManager.generated.h"
 
 class UPalLocationBase;
 class UPalLocationPoint;
-class UPalLocationPoint_Custom;
 
 UCLASS(Blueprintable)
 class UPalLocationManager : public UPalWorldSubsystem {
     GENERATED_BODY()
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FLocationDelegate, const FGuid&, LocationId, UPalLocationBase*, Location);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCustomMarkerDelegate, const FGuid&, MarkerId);
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FLocationDelegate OnAddedLocation;
@@ -27,12 +28,15 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FLocationDelegate OnRemoveLocationForCompass;
     
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FCustomMarkerDelegate OnCustomMarkerChanged;
+    
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FGuid, UPalLocationBase*> LocationMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<UPalLocationPoint_Custom*> CustomLocations;
+    TMap<FGuid, FPalCustomMarkerSaveData> CustomMarkers;
     
 public:
     UPalLocationManager();
@@ -49,7 +53,10 @@ public:
     UPalLocationBase* GetLocation(const FGuid& ID) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetLocalCustomLocationCount();
+    TMap<FGuid, FPalCustomMarkerSaveData> GetCustomMarkers() const;
+    
+    UFUNCTION(BlueprintCallable)
+    void ChangeCustomMarkerType(const FGuid& LocationId, int32 Type);
     
     UFUNCTION(BlueprintCallable)
     FGuid AddLocalCustomLocation(FVector IconLocation, int32 IconType);

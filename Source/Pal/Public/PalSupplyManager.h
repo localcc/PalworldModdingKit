@@ -4,6 +4,7 @@
 #include "EPalSupplyType.h"
 #include "PalGameWorldDataSaveInterface.h"
 #include "PalOnSupplyEventDelegate.h"
+#include "PalOptionWorldSettings.h"
 #include "PalWorldSubsystem.h"
 #include "Templates/SubclassOf.h"
 #include "PalSupplyManager.generated.h"
@@ -48,12 +49,6 @@ protected:
     float BroadcastLogDistanceLimit;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 SupplyFirstDelaySeconds;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 SupplyCoolDownSeconds;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 LotteryCoolDownSeconds;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -71,6 +66,11 @@ protected:
 public:
     UPalSupplyManager();
 
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnChangeWorldSettings(const FPalOptionWorldSettings& PrevSettings, const FPalOptionWorldSettings& NewSettings);
+    
+public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalSupplySpawnerData* GetSupplySpawnerFromIncidentSpawner(APalRandomIncidentSpawnerBase* IncidentSpawner) const;
     

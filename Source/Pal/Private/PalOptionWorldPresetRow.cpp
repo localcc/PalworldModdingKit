@@ -36,5 +36,6 @@ FPalOptionWorldPresetRow::FPalOptionWorldPresetRow() {
     this->GuildPlayerMaxNum = 0;
     this->PalEggDefaultHatchingTime = 0.00f;
     this->BaseCampWorkerMaxNum = 0;
+    this->SupplyDropSpan = 0;
 }
 

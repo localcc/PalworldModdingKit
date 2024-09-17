@@ -78,6 +78,9 @@ public:
     void SetupStatusCharacter(UPalIndividualCharacterParameter* IndividualParameter);
     
     UFUNCTION(BlueprintCallable)
+    void SetMutekiAllPlayer(bool bIsMuteki);
+    
+    UFUNCTION(BlueprintCallable)
     void SetDisableNotSelectedOtomo(EPalArenaPlayerIndex PlayerIndex, bool bDisable);
     
     UFUNCTION(BlueprintCallable)
@@ -114,6 +117,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalArenaSequenceBase* GetCurrentSequence() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    TArray<APalCharacter*> GetCharacterAll() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TMap<EPalArenaPlayerIndex, FPalArenaPlayerInfo> GetArenaPlayerInfoMap() const;

@@ -25,9 +25,6 @@ UPalActionBase* UPalActionComponent::PlayActionByType(AActor* ActionTarget, EPal
     return NULL;
 }
 
-void UPalActionComponent::PlayAction_ToServer_Implementation(FActionDynamicParameter Param, TSubclassOf<UPalActionBase> actionClass, int32 issuerID) {
-}
-
 void UPalActionComponent::PlayAction_ToALL_Implementation(FActionDynamicParameter Param, TSubclassOf<UPalActionBase> actionClass, int32 issuerID) {
 }
 

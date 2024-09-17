@@ -28,6 +28,9 @@ void UPalCharacterManager::RaiseToMainActor(UPalIndividualCharacterHandle* Handl
 void UPalCharacterManager::OnCreateIndividualID(FPalInstanceID ID) {
 }
 
+void UPalCharacterManager::OnChangeIndividualID_ClientInternal(FPalInstanceID ID, UPalIndividualCharacterParameter* Parameter) {
+}
+
 UPalIndividualCharacterHandleReference* UPalCharacterManager::GetIndividualHandleReference(FPalInstanceID ID) {
     return NULL;
 }

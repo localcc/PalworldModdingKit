@@ -28,6 +28,7 @@ UPalShooterComponent::UPalShooterComponent(const FObjectInitializer& ObjectIniti
     this->NPCWeapon = NULL;
     this->CurrentBulletBlurRate = 0.00f;
     this->RapidFireBlur = 0.00f;
+    this->CurrentWeaponUseLeftHandIK = false;
 }
 
 void UPalShooterComponent::StopWeaponChangeAnimation() {
@@ -196,16 +197,20 @@ FVector UPalShooterComponent::GetTargetDirection() const {
     return FVector{};
 }
 
-FWeaponAnimationInfo UPalShooterComponent::GetPrevWeaponAnimationInfo() const {
-    return FWeaponAnimationInfo{};
+UWeaponAnimationInfoWrap* UPalShooterComponent::GetPrevWeaponAnimationInfo() const {
+    return NULL;
 }
 
 APalWeaponBase* UPalShooterComponent::GetHasWeapon() const {
     return NULL;
 }
 
-FWeaponAnimationInfo UPalShooterComponent::GetCurrentWeaponAnimationInfo() const {
-    return FWeaponAnimationInfo{};
+FTransform UPalShooterComponent::GetCurrentWeaponTransformLeftHandIK() const {
+    return FTransform{};
+}
+
+UWeaponAnimationInfoWrap* UPalShooterComponent::GetCurrentWeaponAnimationInfo() const {
+    return NULL;
 }
 
 FRidingAnimationInfo UPalShooterComponent::GetCurrentRidingAnimationInfo() const {

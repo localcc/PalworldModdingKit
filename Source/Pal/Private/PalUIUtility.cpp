@@ -18,6 +18,9 @@ void UPalUIUtility::SetCustomSlateNavigation(const UObject* WorldContextObject, 
 void UPalUIUtility::ResetSlateNavigation(const UObject* WorldContextObject) {
 }
 
+void UPalUIUtility::ResetEnableCommonUIInput(const UObject* WorldContextObject) {
+}
+
 bool UPalUIUtility::IsToggleInteract(const UObject* WorldContextObject) {
     return false;
 }
