@@ -54,6 +54,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdateNickNameWithParameterDelegate, UPalIndividualCharacterParameter*, IndividualParameter, const FString&, NewNickName);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateNickNameDelegate, const FString&, NewNickName);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdateLevelDelegate, int32, addLevel, int32, nowLevel);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdateIndividualIDDelegate, FPalInstanceID, IndividualId, UPalIndividualCharacterParameter*, IndividualParameter);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdateHungerTypeDelegate, EPalStatusHungerType, Current, EPalStatusHungerType, Last);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdateHPDelegate, FFixedPoint64, nowHP, FFixedPoint64, nowMaxHP);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateGroupIdDelegate, const FGuid&, NewGroupId);
@@ -74,7 +75,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FChangeMasteredWazaDelegate, UPalIndividualCharacterParameter*, IndividualParameter, EPalWazaID, WazaID);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FChangeEquipWazaDelegate, UPalIndividualCharacterParameter*, IndividualParameter);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FChangeBuffStatusDelegate);
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FAddExpDelegate, int32, addExp, int32, nowExp);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FAddExpDelegate, int64, addExp, int64, NowExp);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FAddEquipWazaDelegate, EPalWazaID, WazaID);
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -168,6 +169,9 @@ public:
     FOnFavoritePalChangedDelegate OnFavoritePalChangedDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FUpdateIndividualIDDelegate OnUpdateIndividualIDDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FEndMedicalBedDelegate OnEndMedicalBedDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -182,7 +186,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_IndividualActor, meta=(AllowPrivateAccess=true))
     APalCharacter* IndividualActor;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_IndividualId, meta=(AllowPrivateAccess=true))
     FPalInstanceID IndividualId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -314,6 +318,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void OnRep_PhantomActorReplicateArray();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnRep_IndividualId();
     
     UFUNCTION(BlueprintCallable)
     void OnRep_IndividualActor();
@@ -531,8 +538,8 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetExStatusPoint(FName StatusName) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetExp() const;
+    UFUNCTION(BlueprintPure)
+    int64 GetExp() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<EPalWazaID> GetEquipWaza() const;

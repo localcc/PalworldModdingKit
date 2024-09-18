@@ -9,7 +9,6 @@
 #include "PalBaseCampWorkAssignRequest.h"
 #include "PalDeadInfo.h"
 #include "PalInstanceID.h"
-#include "PalOptionWorldSettings.h"
 #include "PalWorkAssignRequirementParameter.h"
 #include "PalBaseCampWorkerDirector.generated.h"
 
@@ -115,11 +114,6 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnDeadWorkerInServer(const FPalDeadInfo Info);
     
-public:
-    UFUNCTION(BlueprintCallable)
-    void OnChangeWorldSettings_ServerInternal(const FPalOptionWorldSettings& PrevSettings, const FPalOptionWorldSettings& NewSettings);
-    
-private:
     UFUNCTION(BlueprintCallable)
     void OnAddedNewCharacterInServer(const FPalInstanceID& IndividualId);
     

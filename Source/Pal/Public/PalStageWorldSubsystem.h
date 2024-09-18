@@ -11,7 +11,6 @@ class UPalStageModelBase;
 UCLASS(Blueprintable)
 class PAL_API UPalStageWorldSubsystem : public UPalWorldSubsystem {
     GENERATED_BODY()
-public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FPalStageInstanceId, UPalStageModelBase*> StageModelMap;

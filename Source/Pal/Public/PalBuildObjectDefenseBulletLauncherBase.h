@@ -1,7 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
-#include "UObject/NoExportTypes.h"
 #include "PalBuildObjectDefenseBase.h"
 #include "PalBuildObjectDefenseBulletLauncherBase.generated.h"
 
@@ -46,9 +45,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetCharacterLocationWithOffset(APalCharacter* OwnerCharacter, FVector& OutLocation);
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    void GetCharacterLocationAndRotationWithOffset(APalCharacter* OwnerCharacter, FVector PreCharaLocation, FVector& OutLocation, FRotator& OutRotation);
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

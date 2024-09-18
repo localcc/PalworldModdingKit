@@ -3,9 +3,6 @@
 UPalNetworkMapObjectComponent::UPalNetworkMapObjectComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
 
-void UPalNetworkMapObjectComponent::RequestSpawnMapObject_ToServer_Implementation(const FGuid& RequestID, const FName MapObjectId, const FVector& Location, const FQuat& Rotation, const TArray<FPalNetArchive>& ExtraParameterArchives) {
-}
-
 void UPalNetworkMapObjectComponent::RequestRepair_ToServer_Implementation(const FGuid& InstanceId) {
 }
 

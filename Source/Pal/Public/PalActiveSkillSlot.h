@@ -45,6 +45,9 @@ public:
     void SetCoolTimeRate(FName Key, float Rate);
     
     UFUNCTION(BlueprintCallable)
+    void RestartCoolTime_ByWazaID(EPalWazaID WazaID);
+    
+    UFUNCTION(BlueprintCallable)
     void RestartCoolTime(int32 SlotID);
     
     UFUNCTION(BlueprintCallable)

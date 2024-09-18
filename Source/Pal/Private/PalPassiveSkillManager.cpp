@@ -23,7 +23,7 @@ TArray<FName> UPalPassiveSkillManager::GetPassiveSkillNamesRowName(const TArray<
     return TArray<FName>();
 }
 
-TArray<FPalPassiveSkillEffect> UPalPassiveSkillManager::GetPassiveSkillEffect(const FName& SkillName, bool bTargetToSelf, bool bTargetToOtherPal, EPalPassiveSkillEffectTargetType targetType) {
+TArray<FPalPassiveSkillEffect> UPalPassiveSkillManager::GetPassiveSkillEffect(FPalPassiveSkillConditionInfo& ConditionInfo) {
     return TArray<FPalPassiveSkillEffect>();
 }
 

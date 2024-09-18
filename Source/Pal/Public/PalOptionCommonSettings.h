@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "EPalOptionMapObjectDrawDistanceType.h"
 #include "HistoryServerWorld.h"
 #include "PalOptionCommonSettings.generated.h"
 
@@ -33,6 +34,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 ScreenPercentage;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalOptionMapObjectDrawDistanceType MapObjectDrawDistanceType;
     
     PAL_API FPalOptionCommonSettings();
 };

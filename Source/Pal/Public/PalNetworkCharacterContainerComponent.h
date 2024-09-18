@@ -6,7 +6,6 @@
 #include "PalCharacterContainerSortInfo.h"
 #include "PalCharacterSlotId.h"
 #include "PalContainerId.h"
-#include "PalInstanceID.h"
 #include "PalNetworkCharacterContainerParameter.h"
 #include "PalNetworkCharacterContainerComponent.generated.h"
 
@@ -33,9 +32,6 @@ private:
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestEmptySlot_ToServer_Rep(const FPalCharacterSlotId& SlotID);
-    
-    UFUNCTION(BlueprintCallable, Reliable, Server)
-    void RequestAddToContainer_ToServer_Rep(const FPalContainerId& ContainerId, const FPalInstanceID& IndividualId);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void RecieveUnlockSlot_ToRequestClient(const FGuid& RequestID, const EPalCharacterContainerOperationResult Result);

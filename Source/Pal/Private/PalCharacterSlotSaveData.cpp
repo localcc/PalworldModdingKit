@@ -1,6 +1,6 @@
 #include "PalCharacterSlotSaveData.h"
 
 FPalCharacterSlotSaveData::FPalCharacterSlotSaveData() {
-    this->PermissionTribeID = EPalTribeID::None;
+    this->SlotIndex = 0;
 }
 

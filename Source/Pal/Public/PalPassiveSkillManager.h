@@ -2,9 +2,9 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/Object.h"
-#include "EPalPassiveSkillEffectTargetType.h"
 #include "EPalPassiveSkillEffectType.h"
 #include "PalItemCreateParameter.h"
+#include "PalPassiveSkillConditionInfo.h"
 #include "PalPassiveSkillDatabaseRow.h"
 #include "PalPassiveSkillEffect.h"
 #include "PalPassiveSkillManager.generated.h"
@@ -64,7 +64,7 @@ public:
     TArray<FName> GetPassiveSkillNamesRowName(const TArray<FName>& passiveList);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    TArray<FPalPassiveSkillEffect> GetPassiveSkillEffect(const FName& SkillName, bool bTargetToSelf, bool bTargetToOtherPal, EPalPassiveSkillEffectTargetType targetType);
+    TArray<FPalPassiveSkillEffect> GetPassiveSkillEffect(FPalPassiveSkillConditionInfo& ConditionInfo);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static float GetParameterWithSkillEffect(float originalValue, EPalPassiveSkillEffectType EffectType, const TArray<FPalPassiveSkillEffect>& skillEffectList);

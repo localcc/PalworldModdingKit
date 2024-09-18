@@ -44,6 +44,9 @@ public:
     FPalPlayerRecordDataRepInfoArray_BoolVal NormalBossDefeatFlag;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    FPalPlayerRecordDataRepInfoArray_IntVal RaidBossDefeatCount;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     int32 BossDefeatCount;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))

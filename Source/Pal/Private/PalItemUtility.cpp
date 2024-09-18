@@ -7,7 +7,7 @@ bool UPalItemUtility::TryGetItemVisualBlueprintClass(const UObject* WorldContext
     return false;
 }
 
-void UPalItemUtility::RestoreWithItem(const UObject* WorldContextObject, FName staticItemName, UPalIndividualCharacterParameter* TargetParameter) {
+void UPalItemUtility::RestoreWithItem(const UObject* WorldContextObject, FName StaticItemName, UPalIndividualCharacterParameter* TargetParameter) {
 }
 
 void UPalItemUtility::MaterialInfos(const FPalItemRecipe& Recipe, TArray<FPalStaticItemIdAndNum>& NewMaterialInfos) {
@@ -40,7 +40,7 @@ UPalItemSlot* UPalItemUtility::CreateLocalItemSlot(UObject* WorldContextObject, 
 void UPalItemUtility::CollectLocalPlayerControllableItemInfos(const UObject* WorldContextObject, TArray<FName> StaticItemIds, TArray<FPalStaticItemIdAndNum>& OutItemInfos, const bool bIncludeInRangeBaseCamp) {
 }
 
-bool UPalItemUtility::CanUseHealItem(const UObject* WorldContextObject, FName staticItemName, UPalIndividualCharacterParameter* TargetParameter) {
+bool UPalItemUtility::CanUseHealItem(const UObject* WorldContextObject, FName StaticItemName, UPalIndividualCharacterParameter* TargetParameter) {
     return false;
 }
 

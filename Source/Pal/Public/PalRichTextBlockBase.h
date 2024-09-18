@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "CommonRichTextBlock.h"
 #include "Engine/DataTable.h"
+#include "PalOptionUISettings.h"
 #include "PalRichTextBlockBase.generated.h"
 
 UCLASS(Blueprintable)
@@ -27,6 +28,10 @@ public:
 protected:
     UFUNCTION(BlueprintCallable)
     void SetText_GDKInternal(bool IsSuccess, const FString& OutString);
+    
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnUISettingChanged(const FPalOptionUISettings& PreSetting, const FPalOptionUISettings& NewSetting);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)

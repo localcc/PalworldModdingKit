@@ -1,6 +1,5 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "EPalOrganizationType.h"
 #include "PalInstanceID.h"
@@ -23,9 +22,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalGroupGuildBase* GetLocalPlayerGuild(const UObject* WorldContextObject);
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static FGuid GetGroupIdByIndividualId(const UObject* WorldContextObject, const FPalInstanceID& IndividualId);
     
 };
 

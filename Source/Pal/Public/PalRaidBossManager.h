@@ -70,8 +70,8 @@ public:
     UFUNCTION(BlueprintCallable)
     FPalRaidBossSpawnInfo FindRaidBossInfoByCharacterID(FName CharacterID);
     
-    UFUNCTION(BlueprintCallable)
-    FPalRaidBossDataRow FindRaidBossData(FName ItemName);
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FPalRaidBossDataRow FindRaidBossData(FName ItemName) const;
     
 };
 

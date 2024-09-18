@@ -9,6 +9,9 @@ void UPalNetworkBaseCampComponent::RequestUnassignWorkInBaseCamp_ToServer_Implem
 void UPalNetworkBaseCampComponent::RequestReplicateBaseCampWork_ToServer_Implementation(const FGuid& BaseCampId, const bool bReplicate) {
 }
 
+void UPalNetworkBaseCampComponent::RequestReplicateBaseCampItemStackInfo_ToServer_Implementation(const FGuid& BaseCampId, const bool bReplicate) {
+}
+
 void UPalNetworkBaseCampComponent::RequestModule_Server_void_Implementation(const FGuid& BaseCampId, const EPalBaseCampModuleType ModuleType, const FName FunctionName) {
 }
 

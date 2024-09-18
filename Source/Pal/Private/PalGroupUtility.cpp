@@ -15,8 +15,4 @@ UPalGroupGuildBase* UPalGroupUtility::GetLocalPlayerGuild(const UObject* WorldCo
     return NULL;
 }
 
-FGuid UPalGroupUtility::GetGroupIdByIndividualId(const UObject* WorldContextObject, const FPalInstanceID& IndividualId) {
-    return FGuid{};
-}
-
 

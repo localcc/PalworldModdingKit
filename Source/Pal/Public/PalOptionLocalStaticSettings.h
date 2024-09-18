@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "EPalOptionMapObjectDrawDistanceType.h"
 #include "PalOptionValueFloat.h"
 #include "PalOptionLocalStaticSettings.generated.h"
 
@@ -30,6 +31,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalOptionValueFloat FOV;
+    
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<EPalOptionMapObjectDrawDistanceType, int32> MapObjectDrawDistanceMaxMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalOptionValueFloat DamageTextScale;

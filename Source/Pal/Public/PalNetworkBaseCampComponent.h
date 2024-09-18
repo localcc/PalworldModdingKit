@@ -34,6 +34,9 @@ private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestReplicateBaseCampWork_ToServer(const FGuid& BaseCampId, const bool bReplicate);
     
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestReplicateBaseCampItemStackInfo_ToServer(const FGuid& BaseCampId, const bool bReplicate);
+    
 public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestModule_Server_void(const FGuid& BaseCampId, const EPalBaseCampModuleType ModuleType, const FName FunctionName);

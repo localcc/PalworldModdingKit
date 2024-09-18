@@ -102,6 +102,9 @@ public:
     void TraceReticleDirectionAllObjectType(const float Length);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void ToggleVisibleStaticMeshImposterChunk();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void ToggleVisibleFoliageChunk();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -361,7 +364,13 @@ public:
     void SetVoiceID(int32 VoiceID);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SetVisibilityMapObject(const FName MapObjectId, const bool bVisible);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetSunLightShadowDistance(const float InDistance);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetShouldReplicateBaseCampItemStackInfo(const bool bReplicate);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetSanityToBaseCampPal(const float Sanity);
@@ -530,6 +539,12 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void RequestFillSlotChestFromInventory();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void RequestDamageToMapObjectInAllBaseCamp(const int32 Value);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void RequestDamageToBaseCampPoint(const int32 Value);
     
     UFUNCTION(BlueprintCallable, Exec)
     void RepairEquipment();
@@ -1006,6 +1021,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void ChangeMaxPlayers(int32 Players);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void ChangeMaxDrawDistanceStaticMeshImposter(const float Distance);
     
     UFUNCTION(BlueprintCallable, Exec)
     void ChangeHUDScale(float Scale);

@@ -24,29 +24,29 @@ protected:
 public:
     UPalExpDatabase();
 
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetTotalExp(int32 Level, bool IsPlayer);
+    UFUNCTION(BlueprintPure)
+    int64 GetTotalExp(int32 Level, bool IsPlayer);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetNextExp(int32 Level, bool IsPlayer);
+    UFUNCTION(BlueprintPure)
+    int64 GetNextExp(int32 Level, bool IsPlayer);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetDropExp(int32 Level, FName RowName);
+    UFUNCTION(BlueprintPure)
+    int64 GetDropExp(int32 Level, FName RowName);
     
     UFUNCTION(BlueprintCallable)
-    void DistributionExpValue_forPlayerParty_Server(int32 ExpValue, TArray<APalPlayerCharacter*> GiftPlayerList, bool isCallDelegate);
+    void DistributionExpValue_forPlayerParty_Server(int64 ExpValue, TArray<APalPlayerCharacter*> GiftPlayerList, bool isCallDelegate);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 CalcPaldexBonusExp(const FName CharacterID, int32 CaptureCount, APalPlayerState* captureOwnerState);
+    UFUNCTION(BlueprintPure)
+    int64 CalcPaldexBonusExp(const FName CharacterID, int32 CaptureCount, APalPlayerState* captureOwnerState);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 CalcNeedLevelUpExp(int32 TotalEXP, bool IsPlayer);
+    UFUNCTION(BlueprintPure)
+    int64 CalcNeedLevelUpExp(int32 TotalEXP, bool IsPlayer);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 CalcLevelFromTotalExp(int32 TotalEXP, bool IsPlayer);
     
     UFUNCTION(BlueprintCallable)
-    void AddExpValue_forPlayerParty_Server(int32 ExpValue, TArray<APalPlayerCharacter*> GiftPlayerList, bool isCallDelegate);
+    void AddExpValue_forPlayerParty_Server(int64 ExpValue, TArray<APalPlayerCharacter*> GiftPlayerList, bool isCallDelegate);
     
     UFUNCTION(BlueprintCallable)
     void AddExp_forPlayerParty_TowerBoss(UPalIndividualCharacterHandle* DeadEnemyHandle, TArray<APalPlayerCharacter*> GiftPlayerList, bool isCallDelegate);

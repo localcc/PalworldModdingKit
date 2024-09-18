@@ -60,6 +60,9 @@ void UPalCheatManager::TriggerBaseCampWorkerEvent(const EPalBaseCampWorkerEventT
 void UPalCheatManager::TraceReticleDirectionAllObjectType(const float Length) {
 }
 
+void UPalCheatManager::ToggleVisibleStaticMeshImposterChunk() {
+}
+
 void UPalCheatManager::ToggleVisibleFoliageChunk() {
 }
 
@@ -299,7 +302,13 @@ void UPalCheatManager::ShowActionAndStatus() {
 void UPalCheatManager::SetVoiceID(int32 VoiceID) {
 }
 
+void UPalCheatManager::SetVisibilityMapObject(const FName MapObjectId, const bool bVisible) {
+}
+
 void UPalCheatManager::SetSunLightShadowDistance(const float InDistance) {
+}
+
+void UPalCheatManager::SetShouldReplicateBaseCampItemStackInfo(const bool bReplicate) {
 }
 
 void UPalCheatManager::SetSanityToBaseCampPal(const float Sanity) {
@@ -468,6 +477,12 @@ void UPalCheatManager::RequestFillSlotChestToInventory() {
 }
 
 void UPalCheatManager::RequestFillSlotChestFromInventory() {
+}
+
+void UPalCheatManager::RequestDamageToMapObjectInAllBaseCamp(const int32 Value) {
+}
+
+void UPalCheatManager::RequestDamageToBaseCampPoint(const int32 Value) {
 }
 
 void UPalCheatManager::RepairEquipment() {
@@ -942,6 +957,9 @@ void UPalCheatManager::ChangePassive_PlayerWeapon(int32 Index, FName SkillName) 
 }
 
 void UPalCheatManager::ChangeMaxPlayers(int32 Players) {
+}
+
+void UPalCheatManager::ChangeMaxDrawDistanceStaticMeshImposter(const float Distance) {
 }
 
 void UPalCheatManager::ChangeHUDScale(float Scale) {

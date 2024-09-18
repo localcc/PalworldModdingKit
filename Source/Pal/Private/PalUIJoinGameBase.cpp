@@ -16,7 +16,7 @@ void UPalUIJoinGameBase::SaveConfigValue() {
 void UPalUIJoinGameBase::RequestOfficialServerIPRange() {
 }
 
-void UPalUIJoinGameBase::RequestGetServerList(EPalUIServerListFilterType Type, EPalUIServerListSortType SortType, const FString& Region, int32 PageOffset, const FString& SearchWord) {
+void UPalUIJoinGameBase::RequestGetServerList(EPalUIServerListFilterType Type, EPalUIServerListSortType SortType, const FString& Region, int32 PageOffset, const FString& SearchWord, bool IsStrictVersion) {
 }
 
 void UPalUIJoinGameBase::OnCompleteOfficialServerIPRange(const FString& ResponseBody, bool bResponseOK, int32 ResponseCode) {

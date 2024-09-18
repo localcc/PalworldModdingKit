@@ -4,7 +4,7 @@ UPalUILoadOutModel::UPalUILoadOutModel() {
     this->draggedTargetContainerType = EPalPlayerInventoryType::None;
 }
 
-bool UPalUILoadOutModel::TryGetContainer(EPalPlayerInventoryType targetType, UPalItemContainer*& Container) const {
+bool UPalUILoadOutModel::TryGetContainer(EPalPlayerInventoryType TargetType, UPalItemContainer*& Container) const {
     return false;
 }
 

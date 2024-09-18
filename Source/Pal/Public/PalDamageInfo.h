@@ -10,6 +10,7 @@
 #include "EPalPlayerDamageCameraShakeCategory.h"
 #include "EPalSizeType.h"
 #include "EPalWazaCategory.h"
+#include "EPalWeaponType.h"
 #include "PalFoliageInstanceId.h"
 #include "PalSpecialAttackRateInfo.h"
 #include "PalDamageInfo.generated.h"
@@ -55,6 +56,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalAttackType AttackType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalWeaponType WeaponType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FVector HitLocation;

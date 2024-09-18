@@ -9,6 +9,12 @@ APalGuildInfo::APalGuildInfo(const FObjectInitializer& ObjectInitializer) : Supe
     this->Guild = NULL;
 }
 
+void APalGuildInfo::OnUpdatePlayerInfo_ServerInternal(const UPalGroupGuildBase* InGuild, const FGuid& PlayerUId, const FPalGuildPlayerInfo& PlayerInfo) {
+}
+
+void APalGuildInfo::OnRep_PlayerUIds(const TArray<FGuid>& OldValue) {
+}
+
 void APalGuildInfo::OnRep_Guild(const UPalGroupGuildBase* OldValue) {
 }
 
@@ -16,6 +22,7 @@ void APalGuildInfo::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(APalGuildInfo, GroupId);
+    DOREPLIFETIME(APalGuildInfo, PlayerUIds);
     DOREPLIFETIME(APalGuildInfo, Guild);
 }
 

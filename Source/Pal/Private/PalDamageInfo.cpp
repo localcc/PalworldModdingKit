@@ -11,6 +11,7 @@ FPalDamageInfo::FPalDamageInfo() {
     this->Attacker = NULL;
     this->OverrideNetworkOwner = NULL;
     this->AttackType = EPalAttackType::Waza;
+    this->WeaponType = EPalWeaponType::None;
     this->EffectType1 = EPalAdditionalEffectType::None;
     this->EffectValue1 = 0;
     this->EffectValueEx1 = 0.00f;

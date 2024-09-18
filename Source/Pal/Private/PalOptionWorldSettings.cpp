@@ -63,8 +63,10 @@ FPalOptionWorldSettings::FPalOptionWorldSettings() {
     this->RESTAPIEnabled = false;
     this->RESTAPIPort = 0;
     this->bShowPlayerList = false;
+    this->ChatPostLimitPerMinute = 0;
     this->AllowConnectPlatform = EPalAllowConnectPlatform::Steam;
     this->bIsUseBackupSaveData = false;
     this->LogFormatType = EPalLogFormatType::Text;
+    this->SupplyDropSpan = 0;
 }
 

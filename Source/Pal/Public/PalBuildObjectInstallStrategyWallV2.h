@@ -3,7 +3,6 @@
 #include "PalBuildObjectInstallStrategyBase.h"
 #include "PalBuildObjectInstallStrategyWallV2.generated.h"
 
-class AActor;
 class APalBuildObject;
 
 UCLASS(Blueprintable)
@@ -11,9 +10,6 @@ class UPalBuildObjectInstallStrategyWallV2 : public UPalBuildObjectInstallStrate
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    AActor* HitActorCache;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     APalBuildObject* HitBuildObjectCache;
     

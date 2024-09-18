@@ -63,9 +63,6 @@ public:
     UPalActionBase* PlayActionByType(AActor* ActionTarget, EPalActionType Type);
     
 private:
-    UFUNCTION(BlueprintCallable, Reliable, Server)
-    void PlayAction_ToServer(FActionDynamicParameter Param, TSubclassOf<UPalActionBase> actionClass, int32 issuerID);
-    
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void PlayAction_ToALL(FActionDynamicParameter Param, TSubclassOf<UPalActionBase> actionClass, int32 issuerID);
     

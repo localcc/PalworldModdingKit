@@ -7,20 +7,20 @@ USTRUCT(BlueprintType)
 struct FPalExpDatabaseRaw : public FTableRowBase {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 DropEXP;
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    int64 DropEXP;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 NextEXP;
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    int64 NextEXP;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 PalNextEXP;
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    int64 PalNextEXP;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 TotalEXP;
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    int64 TotalEXP;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 PalTotalEXP;
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    int64 PalTotalEXP;
     
     PAL_API FPalExpDatabaseRaw();
 };

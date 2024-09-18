@@ -15,9 +15,6 @@ void UPalNetworkCharacterContainerComponent::RequestSortContainer_ToServer_Imple
 void UPalNetworkCharacterContainerComponent::RequestEmptySlot_ToServer_Rep_Implementation(const FPalCharacterSlotId& SlotID) {
 }
 
-void UPalNetworkCharacterContainerComponent::RequestAddToContainer_ToServer_Rep_Implementation(const FPalContainerId& ContainerId, const FPalInstanceID& IndividualId) {
-}
-
 void UPalNetworkCharacterContainerComponent::RecieveUnlockSlot_ToRequestClient_Implementation(const FGuid& RequestID, const EPalCharacterContainerOperationResult Result) {
 }
 

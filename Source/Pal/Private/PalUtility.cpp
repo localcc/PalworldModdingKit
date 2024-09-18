@@ -428,7 +428,7 @@ bool UPalUtility::IsInClientConnection(const UObject* WorldContextObject) {
     return false;
 }
 
-bool UPalUtility::IsInArenaByCharacter(APalCharacter* Character) {
+bool UPalUtility::IsInArenaByCharacter(const APalCharacter* Character) {
     return false;
 }
 

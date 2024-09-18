@@ -13,6 +13,9 @@ UPalArenaSequencer::UPalArenaSequencer() {
 void UPalArenaSequencer::SetupStatusCharacter(UPalIndividualCharacterParameter* IndividualParameter) {
 }
 
+void UPalArenaSequencer::SetMutekiAllPlayer(bool bIsMuteki) {
+}
+
 void UPalArenaSequencer::SetDisableNotSelectedOtomo(EPalArenaPlayerIndex PlayerIndex, bool bDisable) {
 }
 
@@ -55,6 +58,10 @@ TArray<UPalIndividualCharacterHandle*> UPalArenaSequencer::GetInArenaPlayerHandl
 
 UPalArenaSequenceBase* UPalArenaSequencer::GetCurrentSequence() const {
     return NULL;
+}
+
+TArray<APalCharacter*> UPalArenaSequencer::GetCharacterAll() const {
+    return TArray<APalCharacter*>();
 }
 
 TMap<EPalArenaPlayerIndex, FPalArenaPlayerInfo> UPalArenaSequencer::GetArenaPlayerInfoMap() const {

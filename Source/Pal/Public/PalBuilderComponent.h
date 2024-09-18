@@ -1,12 +1,8 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
-#include "UObject/NoExportTypes.h"
 #include "Components/ActorComponent.h"
 #include "EPalMapObjectOperationResult.h"
 #include "PalBuildObjectData.h"
-#include "PalBuildRequestDebugParameter.h"
-#include "PalNetArchive.h"
 #include "PalStaticItemIdAndNum.h"
 #include "PalBuilderComponent.generated.h"
 
@@ -53,12 +49,6 @@ public:
     UPalBuilderComponent(const FObjectInitializer& ObjectInitializer);
 
 private:
-    UFUNCTION(BlueprintCallable, Reliable, Server)
-    void RequestBuild_ToServer(const FName BuildObjectId, const FVector& Location, const FQuat& Rotation, const TArray<FPalNetArchive>& ExtraParameterArchives, FPalBuildRequestDebugParameter DebugParameter);
-    
-    UFUNCTION(BlueprintCallable, Client, Reliable)
-    void ReceiveBuildResult_ToRequestClient(const EPalMapObjectOperationResult Result);
-    
     UFUNCTION(BlueprintCallable)
     void OnExitBaseCamp(UPalBaseCampModel* BaseCampModel);
     

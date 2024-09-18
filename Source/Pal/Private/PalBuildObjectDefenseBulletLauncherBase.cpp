@@ -17,9 +17,6 @@ void APalBuildObjectDefenseBulletLauncherBase::SetEnableTrigger(bool EnableTrigg
 void APalBuildObjectDefenseBulletLauncherBase::GetCharacterLocationWithOffset(APalCharacter* OwnerCharacter, FVector& OutLocation) {
 }
 
-void APalBuildObjectDefenseBulletLauncherBase::GetCharacterLocationAndRotationWithOffset(APalCharacter* OwnerCharacter, FVector PreCharaLocation, FVector& OutLocation, FRotator& OutRotation) {
-}
-
 
 
 

@@ -6,6 +6,7 @@
 #include "Templates/SubclassOf.h"
 #include "PalBuildObjectDefenseBase.generated.h"
 
+class APalCharacter;
 class UPalAIActionBaseCampDefenseBase;
 
 UCLASS(Blueprintable)
@@ -21,6 +22,9 @@ public:
 
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure)
     FRotator GetCharacterRotation() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    void GetCharacterLocationAndRotationWithOffset(APalCharacter* OwnerCharacter, FVector PreCharaLocation, FVector& OutLocation, FRotator& OutRotation);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure)
     FVector GetCharacterLocation() const;

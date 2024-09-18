@@ -4,6 +4,7 @@
 UPalMapObjectPasswordLockModule::UPalMapObjectPasswordLockModule() {
     this->LockState = EPalMapObjectPasswordLockState::Unlock;
     this->TryAuthenticateMaxNum = -1;
+    this->bCanPrivateLock = true;
 }
 
 void UPalMapObjectPasswordLockModule::RequestUpdateUnlock_ServerInternal(const int32 RequestPlayerId) {
@@ -44,12 +45,17 @@ bool UPalMapObjectPasswordLockModule::CanTryAuthenticateByPlayer(const FGuid& Re
     return false;
 }
 
+bool UPalMapObjectPasswordLockModule::CanPrivateLock() const {
+    return false;
+}
+
 void UPalMapObjectPasswordLockModule::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(UPalMapObjectPasswordLockModule, LockState);
     DOREPLIFETIME(UPalMapObjectPasswordLockModule, PlayerInfos);
     DOREPLIFETIME(UPalMapObjectPasswordLockModule, TryAuthenticateMaxNum);
+    DOREPLIFETIME(UPalMapObjectPasswordLockModule, bCanPrivateLock);
 }
 
 

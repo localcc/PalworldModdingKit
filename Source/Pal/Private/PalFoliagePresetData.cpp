@@ -1,7 +1,7 @@
 #include "PalFoliagePresetData.h"
 
 FPalFoliagePresetData::FPalFoliagePresetData() {
-    this->HP = 0;
+    this->Hp = 0;
     this->DropItemNum = 0;
     this->DropEXP = 0;
     this->DestroyFXType = EPalMapObjectDestroyFXType::None;

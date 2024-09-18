@@ -68,7 +68,7 @@ void UPalMapObjectModel::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& O
     DOREPLIFETIME(UPalMapObjectModel, BuildObjectId);
     DOREPLIFETIME(UPalMapObjectModel, BuildProcess);
     DOREPLIFETIME(UPalMapObjectModel, DamagableType);
-    DOREPLIFETIME(UPalMapObjectModel, HP);
+    DOREPLIFETIME(UPalMapObjectModel, Hp);
     DOREPLIFETIME(UPalMapObjectModel, InitialTransformCache);
     DOREPLIFETIME(UPalMapObjectModel, Connector);
     DOREPLIFETIME(UPalMapObjectModel, Effect);

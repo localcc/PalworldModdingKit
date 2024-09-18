@@ -18,7 +18,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnStartSkillEffect, EPalPassiveSkillEffectType, EffectType, float, Value);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnEndSkillEffect, EPalPassiveSkillEffectType, EffectType);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnChangeSkillEffectValue, EPalPassiveSkillEffectType, EffectType, float, Value);
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangeDisablePassiveSkill, bool, isDisable);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnChangeDisablePassiveSkill, bool, isDisable, bool, IsAllReset);
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnStartSkillEffect OnStartSkillEffectDelegate;
@@ -46,6 +46,11 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnChangeDisablePassiveSkill OnChangeDisablePassiveSkill;
     
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<EPalPassiveSkillEffectType> DisablePassiveTypes;
+    
+public:
     UPalPassiveSkillComponent(const FObjectInitializer& ObjectInitializer);
 
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;

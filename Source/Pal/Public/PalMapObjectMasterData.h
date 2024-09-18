@@ -27,7 +27,7 @@ public:
     EPalMapObjectMaterialSubType MaterialSubType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 HP;
+    int32 Hp;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 Defense;

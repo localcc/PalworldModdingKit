@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
 #include "Components/ActorComponent.h"
 #include "Animation/AnimNotifies/AnimNotify.h"
 #include "Engine/HitResult.h"
@@ -14,7 +15,6 @@
 #include "LayeredFlagContainer.h"
 #include "PalDeadInfo.h"
 #include "RidingAnimationInfo.h"
-#include "WeaponAnimationInfo.h"
 #include "WeaponNotifyAnimationInfo.h"
 #include "PalShooterComponent.generated.h"
 
@@ -24,6 +24,7 @@ class UInputComponent;
 class UPalActionBase;
 class UPalCharacterMovementComponent;
 class UPalShooterAnimeAssetBase;
+class UWeaponAnimationInfoWrap;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalShooterComponent : public UActorComponent {
@@ -144,7 +145,7 @@ private:
     APalWeaponBase* CacheNextWeapon;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    FWeaponAnimationInfo PrevWeaponAnimationInfo;
+    UWeaponAnimationInfoWrap* PrevWeaponAnimationInfo;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsDisableShootingTemporarily;
@@ -205,6 +206,12 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FRandomStream RandomStream;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool CurrentWeaponUseLeftHandIK;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FTransform CurrentWeaponTransformLeftHandIK;
     
 public:
     UPalShooterComponent(const FObjectInitializer& ObjectInitializer);
@@ -379,13 +386,16 @@ public:
     FVector GetTargetDirection() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    FWeaponAnimationInfo GetPrevWeaponAnimationInfo() const;
+    UWeaponAnimationInfoWrap* GetPrevWeaponAnimationInfo() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     APalWeaponBase* GetHasWeapon() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    FWeaponAnimationInfo GetCurrentWeaponAnimationInfo() const;
+    FTransform GetCurrentWeaponTransformLeftHandIK() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UWeaponAnimationInfoWrap* GetCurrentWeaponAnimationInfo() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FRidingAnimationInfo GetCurrentRidingAnimationInfo() const;

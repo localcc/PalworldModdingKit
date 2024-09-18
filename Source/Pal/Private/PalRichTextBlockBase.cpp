@@ -9,6 +9,9 @@ UPalRichTextBlockBase::UPalRichTextBlockBase() {
 void UPalRichTextBlockBase::SetText_GDKInternal(bool IsSuccess, const FString& OutString) {
 }
 
+void UPalRichTextBlockBase::OnUISettingChanged(const FPalOptionUISettings& PreSetting, const FPalOptionUISettings& NewSetting) {
+}
+
 void UPalRichTextBlockBase::Left(const int32 Count, FText& OutText) {
 }
 

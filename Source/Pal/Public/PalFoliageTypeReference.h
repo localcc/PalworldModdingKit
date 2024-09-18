@@ -19,7 +19,7 @@ public:
     FPalDataTableRowName_MapObjectData FoliageMapObjectId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 HP;
+    int32 Hp;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalDataTableRowName_ItemData DropItemId;

@@ -18,7 +18,7 @@ public:
     
     UPalUILoadOutModel();
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool TryGetContainer(EPalPlayerInventoryType targetType, UPalItemContainer*& Container) const;
+    bool TryGetContainer(EPalPlayerInventoryType TargetType, UPalItemContainer*& Container) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure=false)
     void SelectItemSlot(const FPalItemSlotId SlotID, const EPalItemSlotPressType PressType) const;

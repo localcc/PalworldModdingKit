@@ -6,7 +6,6 @@
 #include "EPalDamageAnimationReactionType.h"
 #include "EPalDeadType.h"
 #include "EPalWazaID.h"
-#include "PalDamageInfo.h"
 #include "PalDamageRactionInfo.h"
 #include "PalDamageResult.h"
 #include "PalDeadInfo.h"
@@ -106,12 +105,6 @@ public:
     void SetDisableLargeDown();
     
 private:
-    UFUNCTION(BlueprintCallable, Reliable, Server)
-    void ProcessDeath_ToServer();
-    
-    UFUNCTION(BlueprintCallable, Reliable, Server)
-    void ProcessDamage_ToServer(const FPalDamageInfo& Info);
-    
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void PopupDamageBySlipDamage_ToALL(int32 Damage);
     

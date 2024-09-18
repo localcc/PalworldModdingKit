@@ -35,7 +35,6 @@ FPalIndividualCharacterSaveParameter::FPalIndividualCharacterSaveParameter() {
     this->bAppliedDeathPenarty = false;
     this->PalReviveTimer = 0.00f;
     this->VoiceID = 0;
-    this->bSkinApplied = false;
     this->IsFavoritePal = false;
 }
 

@@ -29,6 +29,7 @@ class UCameraShakeBase;
 class UCurveFloat;
 class UMaterialInstanceDynamic;
 class UMaterialInterface;
+class UPalDynamicItemDataBase;
 class UPalDynamicWeaponItemDataBase;
 class UPalSoundSlot;
 class UPalStaticWeaponItemData;
@@ -283,6 +284,11 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnDetachWeapon(AActor* detachActor);
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnCreatedDynamicItemDataInClient(UPalDynamicItemDataBase* CreatedItemData);
+    
+public:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnCreatedBullet(APalBullet* Bullet);
     

@@ -115,6 +115,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 BaseCampWorkerMaxNum;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 SupplyDropSpan;
+    
     PAL_API FPalOptionWorldPresetRow();
 };
 

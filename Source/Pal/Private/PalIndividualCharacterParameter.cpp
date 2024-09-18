@@ -83,6 +83,9 @@ void UPalIndividualCharacterParameter::OnRep_SaveParameter() {
 void UPalIndividualCharacterParameter::OnRep_PhantomActorReplicateArray() {
 }
 
+void UPalIndividualCharacterParameter::OnRep_IndividualId() {
+}
+
 void UPalIndividualCharacterParameter::OnRep_IndividualActor() {
 }
 
@@ -358,7 +361,7 @@ int32 UPalIndividualCharacterParameter::GetExStatusPoint(FName StatusName) const
     return 0;
 }
 
-int32 UPalIndividualCharacterParameter::GetExp() const {
+int64 UPalIndividualCharacterParameter::GetExp() const {
     return 0;
 }
 

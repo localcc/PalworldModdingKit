@@ -90,6 +90,9 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnCreateIndividualID(FPalInstanceID ID);
     
+    UFUNCTION(BlueprintCallable)
+    void OnChangeIndividualID_ClientInternal(FPalInstanceID ID, UPalIndividualCharacterParameter* Parameter);
+    
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalIndividualCharacterHandleReference* GetIndividualHandleReference(FPalInstanceID ID);

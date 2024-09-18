@@ -68,5 +68,7 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FPalItemAndNum> CreateItemInfo() const;
     
+
+    // Fix for true pure virtual functions not being implemented
 };
 

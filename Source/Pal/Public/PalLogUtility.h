@@ -3,6 +3,7 @@
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "EPalLogType.h"
 #include "EPalWorkType.h"
+#include "PalBaseCampWorkerMovementLogDisplayData.h"
 #include "PalItemAndNum.h"
 #include "PalItemId.h"
 #include "PalKillLogDisplayData.h"
@@ -38,7 +39,7 @@ public:
     static void SetTextureToAdditionalDataFromCharacterID(const UObject* WorldContextObject, UPARAM(Ref) FPalLogAdditionalData& targetData, const FName CharacterID);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static void CreateLogText(const UObject* WorldContextObject, EPalLogType logType, FText& OutText);
+    static void CreateLogText(const UObject* WorldContextObject, EPalLogType LogType, FText& OutText);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static FText CreateItemGetLogText(const UObject* WorldContextObject, const FPalStaticItemIdAndNum& ItemIDAndNum);
@@ -84,6 +85,9 @@ public:
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void AddDeathLog(const UObject* WorldContextObject, const FPalKillLogDisplayData& DeathLogDisplayData);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void AddBaseCampWorkerMovementLog(const UObject* WorldContextObject, const FPalBaseCampWorkerMovementLogDisplayData& DisplayData);
     
 };
 

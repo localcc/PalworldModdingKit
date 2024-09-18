@@ -147,5 +147,7 @@ protected:
     UFUNCTION(BlueprintCallable)
     void AddOverlapCharacter(AActor* Actor);
     
+
+    // Fix for true pure virtual functions not being implemented
 };
 

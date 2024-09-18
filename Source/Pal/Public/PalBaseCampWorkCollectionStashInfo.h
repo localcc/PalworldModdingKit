@@ -10,6 +10,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FGameDateTime StashAtTime;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bRestoreAtNextResetTime;
+    
     PAL_API FPalBaseCampWorkCollectionStashInfo();
 };
 

@@ -2,7 +2,7 @@
 
 FPalPlayerParameterDatabaseRow::FPalPlayerParameterDatabaseRow() {
     this->Stamina = 0;
-    this->HP = 0;
+    this->Hp = 0;
     this->MeleeAttack = 0;
     this->ShotAttack = 0;
     this->Defense = 0;

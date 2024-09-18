@@ -22,5 +22,8 @@ private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void StopMovement_Multicast(const FVector& Location, const FRotator& Rotation);
     
+    UFUNCTION(BlueprintCallable)
+    void OnProceedTimerMovementActive();
+    
 };
 

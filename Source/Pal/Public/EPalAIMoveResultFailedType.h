@@ -6,5 +6,6 @@ UENUM(BlueprintType)
 enum class EPalAIMoveResultFailedType : uint8 {
     Undefined,
     PartialNavMesh,
+    CannotTeleportInsteadOfMove,
 };
 

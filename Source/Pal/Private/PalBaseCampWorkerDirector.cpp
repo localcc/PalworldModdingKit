@@ -44,9 +44,6 @@ void UPalBaseCampWorkerDirector::OnDeadWorkerInServer_Internal(APalCharacter* De
 void UPalBaseCampWorkerDirector::OnDeadWorkerInServer(const FPalDeadInfo Info) {
 }
 
-void UPalBaseCampWorkerDirector::OnChangeWorldSettings_ServerInternal(const FPalOptionWorldSettings& PrevSettings, const FPalOptionWorldSettings& NewSettings) {
-}
-
 void UPalBaseCampWorkerDirector::OnAddedNewCharacterInServer(const FPalInstanceID& IndividualId) {
 }
 

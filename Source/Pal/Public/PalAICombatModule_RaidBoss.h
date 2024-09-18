@@ -40,5 +40,8 @@ public:
     UFUNCTION(BlueprintCallable)
     AActor* FindPlayerTarget();
     
+    UFUNCTION(BlueprintCallable)
+    AActor* FindNearTarget();
+    
 };
 
