@@ -6,8 +6,8 @@
 
 // todo: this class should not be accessed directly, or stored in a struct without indirection
 // todo: fix will come after engine edits
-UCLASS(Blueprintable, EditInlineNew)
-class PAL_API UPalFoliageType_InstancedStaticMesh : public UObject /* : public UFoliageType_InstancedStaticMesh  */ {
+UCLASS(EditInlineNew)
+class PAL_API UPalFoliageType_InstancedStaticMesh : public UFoliageType_InstancedStaticMesh {
     GENERATED_BODY()
 public:
 protected:
