@@ -3,6 +3,7 @@
 #include "UObject/NoExportTypes.h"
 #include "UObject/Object.h"
 #include "EPalStatusID.h"
+#include "PalFastBaseCampMapObjectRepInfoArray.h"
 #include "PalMapObjectDisposeOptions.h"
 #include "PalBaseCampMapObjectCollection.generated.h"
 
@@ -34,7 +35,7 @@ public:
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
-    TArray<FGuid> MapObjectInstanceIds;
+    FPalFastBaseCampMapObjectRepInfoArray MapObjectInstanceIdRepInfoArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FGuid> DropItemConcreteModelInstanceIds;

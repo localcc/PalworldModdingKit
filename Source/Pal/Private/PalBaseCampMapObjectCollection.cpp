@@ -25,7 +25,7 @@ void UPalBaseCampMapObjectCollection::OnAvailableConcreteModel_ServerInternal(UP
 void UPalBaseCampMapObjectCollection::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
-    DOREPLIFETIME(UPalBaseCampMapObjectCollection, MapObjectInstanceIds);
+    DOREPLIFETIME(UPalBaseCampMapObjectCollection, MapObjectInstanceIdRepInfoArray);
 }
 
 
