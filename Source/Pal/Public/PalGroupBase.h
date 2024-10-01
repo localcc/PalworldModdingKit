@@ -5,6 +5,7 @@
 #include "FastPalIndividualCharacterHandleIdArray.h"
 #include "PalGroupBase.generated.h"
 
+class UPalGroupIndividualCharacterHandleIdArray;
 class UPalIndividualCharacterHandle;
 
 UCLASS(Abstract, Blueprintable)
@@ -31,7 +32,7 @@ protected:
     FString GroupName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
-    FFastPalIndividualCharacterHandleIdArray IndividualCharacterHandleIds;
+    UPalGroupIndividualCharacterHandleIdArray* IndividualIdArray;
     
 public:
     UPalGroupBase();
