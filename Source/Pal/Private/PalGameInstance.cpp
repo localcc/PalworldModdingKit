@@ -107,7 +107,7 @@ UPalGameInstance::UPalGameInstance() {
     this->SkinManager = NULL;
     this->SupplyManagerClass = UPalSupplyManager::StaticClass();
     this->ShopManagerSubsystemClass = UPalShopManager::StaticClass();
-    this->revisionNum = 58983;
+    this->revisionNum = 59545;
     this->bUseAsyncMovement = true;
     this->DisplaySafeAreaDebugger = NULL;
     this->TitleBGMPlayerClass = UPalPersistentSoundPlayer::StaticClass();
