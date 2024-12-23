@@ -14,5 +14,8 @@ FGeneralAnimationParameter::FGeneralAnimationParameter() {
     this->AdditiveAnimationRate = 0.00f;
     this->DisableUpperOverrideFlag = false;
     this->bTransportingObject = false;
+    this->MovementMode = MOVE_None;
+    this->CustomMovementMode = EPalCharacterMovementCustomMode::None;
+    this->bForceSprintForNPC = false;
 }
 

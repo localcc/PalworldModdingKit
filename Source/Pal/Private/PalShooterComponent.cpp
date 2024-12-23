@@ -6,9 +6,8 @@ UPalShooterComponent::UPalShooterComponent(const FObjectInitializer& ObjectIniti
     this->WalkSpeedMultiplierInHipShoot = 0.70f;
     this->ChangeWeaponInterpTime = 0.10f;
     this->IsUseBlurUpdate = false;
-    this->bIsAiming = false;
+    this->bIgnoreUIDelayForNextWeapon = false;
     this->bIsShooting = false;
-    this->bIsRequestAim = false;
     this->bIsRequestPullTrigger = false;
     this->bIsReloading = false;
     this->HasWeapon = NULL;
@@ -73,6 +72,9 @@ void UPalShooterComponent::SetTargetDirection(const FVector& Direction) {
 void UPalShooterComponent::SetShootingHold(bool IsHold) {
 }
 
+void UPalShooterComponent::SetRequestAiming(EPalShooterFlagContainerPriority Priority, bool IsRequest) {
+}
+
 void UPalShooterComponent::SetOverrideWeaponType(EPalWeaponType Type) {
 }
 
@@ -112,6 +114,12 @@ void UPalShooterComponent::SetDisableAimFlag_Layered(EPalShooterFlagContainerPri
 void UPalShooterComponent::SetDisableAimFlag(FName flagName, bool isDisable) {
 }
 
+void UPalShooterComponent::SetAiming(EPalShooterFlagContainerPriority Priority, bool bIsAiming) {
+}
+
+void UPalShooterComponent::ResetRequestAiming() {
+}
+
 void UPalShooterComponent::ResetOverrideWeaponType() {
 }
 
@@ -134,12 +142,6 @@ void UPalShooterComponent::PullTrigger() {
 }
 
 void UPalShooterComponent::OnWeaponNotify(EWeaponNotifyType Type) {
-}
-
-void UPalShooterComponent::OnWeaponAnimationNotifyEnd(FName NotifyName, const FBranchingPointNotifyPayload& BranchingPointNotifyPayload) {
-}
-
-void UPalShooterComponent::OnWeaponAnimationNotifyBegin(FName NotifyName, const FBranchingPointNotifyPayload& BranchingPointNotifyPayload) {
 }
 
 void UPalShooterComponent::OnStartOwnerAction(const UPalActionBase* action) {
@@ -173,6 +175,14 @@ bool UPalShooterComponent::IsShooting() const {
     return false;
 }
 
+bool UPalShooterComponent::IsRequestAiming_Layered(EPalShooterFlagContainerPriority Priority) const {
+    return false;
+}
+
+bool UPalShooterComponent::IsRequestAiming() const {
+    return false;
+}
+
 bool UPalShooterComponent::IsReloading() const {
     return false;
 }
@@ -182,6 +192,10 @@ bool UPalShooterComponent::IsPlayShootingAnimation() const {
 }
 
 bool UPalShooterComponent::IsHiddenAttachWeapon() {
+    return false;
+}
+
+bool UPalShooterComponent::IsAiming_Layered(EPalShooterFlagContainerPriority Priority) const {
     return false;
 }
 
@@ -195,6 +209,10 @@ UPalShooterAnimeAssetBase* UPalShooterComponent::GetThrowAnimAsset() {
 
 FVector UPalShooterComponent::GetTargetDirection() const {
     return FVector{};
+}
+
+EPalShooterFlagContainerPriority UPalShooterComponent::GetRequestAimingPriority() const {
+    return EPalShooterFlagContainerPriority::Weapon;
 }
 
 UWeaponAnimationInfoWrap* UPalShooterComponent::GetPrevWeaponAnimationInfo() const {
@@ -229,7 +247,11 @@ UPalShooterAnimeAssetBase* UPalShooterComponent::GetBowAnimAsset() {
     return NULL;
 }
 
-void UPalShooterComponent::EndAim() {
+EPalShooterFlagContainerPriority UPalShooterComponent::GetAimingPriority() const {
+    return EPalShooterFlagContainerPriority::Weapon;
+}
+
+void UPalShooterComponent::EndAim(bool bAllEndAim) {
 }
 
 void UPalShooterComponent::ChangeWeapon(APalWeaponBase* Weapon) {
@@ -244,13 +266,13 @@ void UPalShooterComponent::ChangeIsShooting_ToALL_Implementation(int32 ID, bool 
 void UPalShooterComponent::ChangeIsShooting(bool NewIsShooting) {
 }
 
-void UPalShooterComponent::ChangeIsAiming_ToServer_Implementation(int32 ID, bool NewIsAiming) {
+void UPalShooterComponent::ChangeIsAiming_ToServer_Implementation(int32 ID, EPalShooterFlagContainerPriority Priority, bool NewIsAiming) {
 }
 
-void UPalShooterComponent::ChangeIsAiming_ToALL_Implementation(int32 ID, bool NewIsAiming) {
+void UPalShooterComponent::ChangeIsAiming_ToALL_Implementation(int32 ID, EPalShooterFlagContainerPriority Priority, bool NewIsAiming) {
 }
 
-void UPalShooterComponent::ChangeIsAiming(bool NewIsAiming) {
+void UPalShooterComponent::ChangeIsAiming(EPalShooterFlagContainerPriority Priority, bool NewIsAiming) {
 }
 
 bool UPalShooterComponent::CanWeaponChangeAnime() {

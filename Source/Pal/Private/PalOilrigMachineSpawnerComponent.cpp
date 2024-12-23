@@ -4,13 +4,11 @@ UPalOilrigMachineSpawnerComponent::UPalOilrigMachineSpawnerComponent(const FObje
     this->SpawnDistanceFromPlayer = 0.00f;
     this->DespawnDistanceFromPlayer = 0.00f;
     this->IsSpawned = false;
-    this->MachineStartTimer = 0.00f;
-    this->IsMachineStartCountUp = false;
     this->IsMachineDestroyed = false;
 }
 
 
-void UPalOilrigMachineSpawnerComponent::OnDeadMachine() {
+void UPalOilrigMachineSpawnerComponent::OnDeadMachine(FPalDeadInfo DeadInfo) {
 }
 
 

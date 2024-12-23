@@ -1,0 +1,6 @@
+#include "PalMapObjectFarmSkillFruitsModelStateBehaviourHarvestable.h"
+
+UPalMapObjectFarmSkillFruitsModelStateBehaviourHarvestable::UPalMapObjectFarmSkillFruitsModelStateBehaviourHarvestable() {
+}
+
+

@@ -4,6 +4,11 @@ UPalIncidentSystem::UPalIncidentSystem() {
     this->IncidentParameterDataTable = NULL;
 }
 
+
+
+void UPalIncidentSystem::TalkCustomFunction_AddItemToInventory(APalPlayerCharacter* TalkPlayer, APalCharacter* TargetNPC, const UDataTable* CunstomFuncParam) {
+}
+
 UPalIncidentList* UPalIncidentSystem::RequestIncidents(const TArray<FName>& Incidents, UObject* OccuredObject, UObject* OwnerObject, UPalIncidentDynamicParameter* Parameter) {
     return NULL;
 }

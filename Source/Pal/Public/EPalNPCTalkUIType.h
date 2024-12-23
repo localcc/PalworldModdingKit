@@ -12,5 +12,7 @@ enum class EPalNPCTalkUIType : uint8 {
     QuestOrder,
     RandomEventShop,
     CollectionItemTrade_001,
+    Doctor,
+    BountyShop,
 };
 

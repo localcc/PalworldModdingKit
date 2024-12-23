@@ -5,6 +5,7 @@
 UENUM(BlueprintType)
 enum class EPalBaseCampModuleTransportItemTransportPriority : uint8 {
     None,
+    GuildChest,
     BaseCampChest,
     BaseCampChestHigh,
     Requirement,

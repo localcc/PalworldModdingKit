@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
+#include "UObject/NoExportTypes.h"
 #include "PalWorldMapUIDataTableRow.h"
 #include "PalWorldMapUIData.generated.h"
 
@@ -24,7 +25,7 @@ public:
     UTexture2D* MaskTexture;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<uint8> cachedTextureRawData;
+    TArray<uint8> CachedTextureRawData;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -40,6 +41,9 @@ public:
     UPalWorldMapUIData();
     UFUNCTION(BlueprintCallable)
     bool UnlockMap(const FName& regionId, const int32 PlayerId);
+    
+    UFUNCTION(BlueprintCallable)
+    void UnlockByScroll(const float& Diameter, const FVector2f& ActorLocation);
     
     UFUNCTION(BlueprintCallable)
     bool IsUnlockedMap(const FName& regionId);

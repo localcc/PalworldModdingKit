@@ -25,6 +25,10 @@ bool UPalUIUtility::IsToggleInteract(const UObject* WorldContextObject) {
     return false;
 }
 
+bool UPalUIUtility::IsToggleBuildMode(const UObject* WorldContextObject) {
+    return false;
+}
+
 bool UPalUIUtility::IsShiftDown_ForUI() {
     return false;
 }
@@ -104,6 +108,12 @@ void UPalUIUtility::GetUIDisplayPalCondition(const UObject* WorldContextObject, 
 }
 
 void UPalUIUtility::GetTechnologyDescription(const UObject* WorldContextObject, const FName& technologyName, FText& OutDescription) {
+}
+
+void UPalUIUtility::GetTeamMissionName(const UObject* WorldContextObject, const FName& MissionId, FText& OutMissionName) {
+}
+
+void UPalUIUtility::GetSkinName(const UObject* WorldContextObject, const FName& SkinName, FText& OutSKinName) {
 }
 
 int32 UPalUIUtility::GetPlayerInframeRenderTargetResolution() {
@@ -202,6 +212,10 @@ UPalUserWidget* UPalUIUtility::FindOwningActivatableWidget(const UObject* WorldC
 
 float UPalUIUtility::ConvertReviveTimerToUIDisplayRemainReviveTime(const UObject* WorldContextObject, float ReviveTimer) {
     return 0.0f;
+}
+
+bool UPalUIUtility::CanDisplayTalentDetailUI(const UObject* WorldContextObject, UPalIndividualCharacterParameter* TargetCharacterParameter) {
+    return false;
 }
 
 

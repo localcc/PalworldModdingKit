@@ -1,11 +1,14 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
+#include "EPalItemUseEffectType.h"
 #include "PalDataTableRowName_ItemData.h"
 #include "PalItemData.h"
 #include "PalItemId.h"
+#include "Templates/SubclassOf.h"
 #include "PalItemIDManager.generated.h"
 
+class UPalItemUseProcessor;
 class UPalStaticItemDataAsset;
 class UPalStaticItemDataBase;
 class UPalStaticItemDataTable;
@@ -19,6 +22,15 @@ protected:
     UPalStaticItemDataAsset* StaticItemDataAsset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<EPalItemUseEffectType, TSubclassOf<UPalItemUseProcessor>> ItemUseProcessorClassMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<EPalItemUseEffectType, UPalItemUseProcessor*> ItemUseProcessorMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FName> WazaMachineStaticItemIds;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalDataTableRowName_ItemData WoodItemRowName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -29,6 +41,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalDataTableRowName_ItemData MoneyItemRowName;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalDataTableRowName_ItemData CrudeOilItemRowName;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

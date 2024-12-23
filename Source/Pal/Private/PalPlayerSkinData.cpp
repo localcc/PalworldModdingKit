@@ -4,7 +4,10 @@
 UPalPlayerSkinData::UPalPlayerSkinData() {
 }
 
-void UPalPlayerSkinData::SendNewInventoryInfo_Implementation(FPalSkinInventoryInfo NewInfo) {
+void UPalPlayerSkinData::SendNewInventoryInfo_ForClient_Implementation(FGuid Guid, FPalSkinInventoryInfo NewInfo) {
+}
+
+void UPalPlayerSkinData::SendNewInventoryInfo_Implementation(FGuid Guid, FPalSkinInventoryInfo NewInfo) {
 }
 
 void UPalPlayerSkinData::RequestRespawnPal_Implementation(UPalIndividualCharacterParameter* IndividualCharacterParameter) {

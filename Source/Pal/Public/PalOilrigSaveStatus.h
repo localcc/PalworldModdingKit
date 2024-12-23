@@ -32,13 +32,10 @@ public:
     float ResetTimer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool IsMachineTimerCountUp;
+    bool IsMachineSpawned;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool IsMachineDestroyed;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float MachineStartTimer;
     
     PAL_API FPalOilrigSaveStatus();
 };

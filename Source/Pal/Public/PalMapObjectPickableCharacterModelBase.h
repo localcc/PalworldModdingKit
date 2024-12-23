@@ -21,7 +21,7 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FGuid LocationId;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FDateTime CreatedAtRealTime;
     
 public:
@@ -42,6 +42,9 @@ protected:
     void OnRemovedStoredCharacter_ServerInternal(const FPalCharacterStoredParameterId& RemovedID);
     
 public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FDateTime GetCreatedAtRealTime() const;
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FPalIndividualCharacterSaveParameter GetCharacterSaveParameter() const;
     

@@ -36,7 +36,7 @@ void APalSkillEffectBase::PlayAkSound(UAkAudioEvent* AudioEvent) {
 void APalSkillEffectBase::LifeTimeCallback() {
 }
 
-bool APalSkillEffectBase::IsSelfOwnerCharacterOrRaider(AActor* HitTarget) {
+bool APalSkillEffectBase::IsSelfOwnerCharacterOrRaider(AActor* hitTarget) {
     return false;
 }
 

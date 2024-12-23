@@ -5,9 +5,7 @@ UPalIndividualCharacterParameter::UPalIndividualCharacterParameter() {
     this->IndividualActor = NULL;
     this->IsWaitResponseWordFiltering = false;
     this->EquipItemContainer = NULL;
-}
-
-void UPalIndividualCharacterParameter::UseItemInSlot(const FPalItemSlotIdAndNum SlotIdAndNum) {
+    this->LastExpUpdateType = EPalExpCalcType::None;
 }
 
 bool UPalIndividualCharacterParameter::TryFindEatItem(const FPalContainerId& ContainerId, int32& SlotIndex) {
@@ -21,6 +19,9 @@ void UPalIndividualCharacterParameter::StartRemainderOfLifeTimer() {
 }
 
 void UPalIndividualCharacterParameter::StartRecuperatingInMedicalBed() {
+}
+
+void UPalIndividualCharacterParameter::SetWorkSuitabilityAddRank(EPalWorkSuitability WorkSuitability, int32 addRank) {
 }
 
 void UPalIndividualCharacterParameter::SetStatusPoint(FName StatusName, int32 Point) {
@@ -68,6 +69,9 @@ void UPalIndividualCharacterParameter::SetDecreaseFullStomachRates(const FName N
 void UPalIndividualCharacterParameter::ResetLastJumpedLocation() {
 }
 
+void UPalIndividualCharacterParameter::RemovePassiveSkill(FName SkillId) {
+}
+
 void UPalIndividualCharacterParameter::RemoveEquipWaza(EPalWazaID WazaID) {
 }
 
@@ -90,6 +94,9 @@ void UPalIndividualCharacterParameter::OnRep_IndividualActor() {
 }
 
 void UPalIndividualCharacterParameter::OnReceivedWordFilteringResult(const FString& ResponseBody, bool bResponseOK, int32 ResponseCode) {
+}
+
+void UPalIndividualCharacterParameter::OnChangedBlockedUsers() {
 }
 
 void UPalIndividualCharacterParameter::NaturalUpdateSaveParameter(const EPalCharacterNaturalUpdateType Type) {
@@ -139,7 +146,19 @@ bool UPalIndividualCharacterParameter::IsFavoritePal() const {
     return false;
 }
 
+bool UPalIndividualCharacterParameter::IsEnablePlayerRespawnInHardcore() const {
+    return false;
+}
+
 bool UPalIndividualCharacterParameter::IsDead() const {
+    return false;
+}
+
+bool UPalIndividualCharacterParameter::IsAssignedToExpeditionIn(const FGuid& MapObjectConcreteInstanceId) const {
+    return false;
+}
+
+bool UPalIndividualCharacterParameter::IsAssignedToExpedition() const {
     return false;
 }
 
@@ -210,6 +229,10 @@ FGuid UPalIndividualCharacterParameter::GetSkinAppliedCharacterId() const {
     return FGuid{};
 }
 
+EPalSizeType UPalIndividualCharacterParameter::GetSizeType() const {
+    return EPalSizeType::None;
+}
+
 int32 UPalIndividualCharacterParameter::GetShotAttack_withBuff() const {
     return 0;
 }
@@ -242,7 +265,7 @@ FPalFoodRegeneInfo UPalIndividualCharacterParameter::GetRegeneItemName() const {
     return FPalFoodRegeneInfo{};
 }
 
-float UPalIndividualCharacterParameter::GetRatePassiveSkill(EPalPassiveSkillEffectType EffectType) const {
+float UPalIndividualCharacterParameter::GetRatePassiveSkillInBaseCamp(EPalPassiveSkillEffectType EffectType, const FPalPassiveSkillEffectKeyOption& EffectOption) const {
     return 0.0f;
 }
 
@@ -276,6 +299,12 @@ float UPalIndividualCharacterParameter::GetPassiveRateByEquipment(EPalPassiveSki
 
 int32 UPalIndividualCharacterParameter::GetPalSoulRank() const {
     return 0;
+}
+
+void UPalIndividualCharacterParameter::GetNickNameWithOnlineID(FString& outName) const {
+}
+
+void UPalIndividualCharacterParameter::GetNickNameByCheckBlockedUser(FString& outName) const {
 }
 
 void UPalIndividualCharacterParameter::GetNickname(FString& outName) const {
@@ -413,7 +442,7 @@ int32 UPalIndividualCharacterParameter::GetCraftSpeedByWorkSuitability(const EPa
     return 0;
 }
 
-float UPalIndividualCharacterParameter::GetCraftSpeedBuffRate() const {
+float UPalIndividualCharacterParameter::GetCraftSpeedBuffRate(const EPalWorkSuitability WorkSuitability) const {
     return 0.0f;
 }
 
@@ -443,6 +472,10 @@ EPalBaseCampWorkerEventType UPalIndividualCharacterParameter::GetBaseCampWorkerE
 
 FGuid UPalIndividualCharacterParameter::GetBaseCampId() const {
     return FGuid{};
+}
+
+float UPalIndividualCharacterParameter::GetBaseCampCraftSpeedBuffRate() const {
+    return 0.0f;
 }
 
 int32 UPalIndividualCharacterParameter::GetAttackRank() const {
@@ -490,6 +523,7 @@ void UPalIndividualCharacterParameter::GetLifetimeReplicatedProps(TArray<FLifeti
     DOREPLIFETIME(UPalIndividualCharacterParameter, SaveParameter);
     DOREPLIFETIME(UPalIndividualCharacterParameter, EquipItemContainer);
     DOREPLIFETIME(UPalIndividualCharacterParameter, BaseCampId);
+    DOREPLIFETIME(UPalIndividualCharacterParameter, LastExpUpdateType);
     DOREPLIFETIME(UPalIndividualCharacterParameter, Debug_CurrentAIActionName);
 }
 

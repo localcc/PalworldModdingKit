@@ -11,5 +11,6 @@ FPalOptionPadSettings::FPalOptionPadSettings() {
     this->bEnableVibration = false;
     this->bEnableAimAssist = false;
     this->bIsToggleInteract = false;
+    this->bIsToggleBuildMode = false;
 }
 

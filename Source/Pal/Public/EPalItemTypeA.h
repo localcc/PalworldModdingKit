@@ -17,5 +17,6 @@ enum class EPalItemTypeA : uint8 {
     Glider,
     MonsterEquipWeapon,
     Blueprint,
+    CaptureItemModifier,
 };
 

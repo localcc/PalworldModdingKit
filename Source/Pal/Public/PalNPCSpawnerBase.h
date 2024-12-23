@@ -61,6 +61,9 @@ protected:
     UPalNavigationInvokerComponent* NavInvokerComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IgnoreBaseCampCheck;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FVector> NPCLocations;
     
 public:

@@ -5,6 +5,8 @@
 #include "PalBackWeaponBase.generated.h"
 
 class UMaterialInterface;
+class UPalDynamicWeaponItemDataBase;
+class UPalStaticWeaponItemData;
 class USceneComponent;
 
 UCLASS(Blueprintable)
@@ -24,11 +26,25 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<UMaterialInterface*> OriginalMaterials;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalStaticWeaponItemData* ownWeaponStaticData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalDynamicWeaponItemDataBase* ownWeaponDynamicData;
+    
 public:
     APalBackWeaponBase(const FObjectInitializer& ObjectInitializer);
 
+protected:
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnActiveModel(bool IsActive);
+    
+public:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     USceneComponent* GetMainMesh();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetDurability() const;
     
 };
 

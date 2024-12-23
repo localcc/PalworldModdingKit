@@ -7,9 +7,11 @@ FPalLoggedinPlayerSaveDataRecordData::FPalLoggedinPlayerSaveDataRecordData() {
     this->PalCaptureCountBonusCount_Tier2 = 0;
     this->PalCaptureCountBonusCount_Tier3 = 0;
     this->PalCaptureBonusExpTableIndex = 0;
+    this->NpcBonusExpTableIndex = 0;
     this->RelicPossessNum = 0;
     this->NormalDungeonClearCount = 0;
     this->FixedDungeonClearCount = 0;
     this->OilrigClearCount = 0;
+    this->AreaBonusExpTableIndex = 0;
 }
 

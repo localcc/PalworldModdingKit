@@ -3,6 +3,7 @@
 #include "UObject/NoExportTypes.h"
 #include "UObject/Object.h"
 #include "Engine/EngineTypes.h"
+#include "PalItemShopSettingDataRow.h"
 #include "PalShopBase.generated.h"
 
 class UPalShopProductBase;
@@ -55,6 +56,12 @@ private:
     void OnRep_MyShopName();
     
 public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool GetShopSettingData(FPalItemShopSettingDataRow& OutSettingData);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FName GetShopName() const;
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetId(FGuid& OutID) const;
     

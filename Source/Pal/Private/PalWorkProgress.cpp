@@ -6,9 +6,11 @@ UPalWorkProgress::UPalWorkProgress() {
     this->CurrentWorkAmount = 0.00f;
     this->CurrentWorkAmountByLocalPlayer = 0.00f;
     this->WorkExp = 0;
+    this->WorkExpCalcType = EPalExpCalcType::None;
     this->AutoWorkSelfAmountBySec = 0.00f;
     this->bNotAllowReactionOnWorkComplete = false;
     this->ProgressTimeSinceLastTick = 0.00f;
+    this->TickProcessMinInterval = 0.00f;
     this->bInProgress = false;
 }
 

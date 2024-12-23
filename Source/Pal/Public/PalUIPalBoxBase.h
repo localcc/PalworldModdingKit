@@ -27,6 +27,11 @@ public:
     UFUNCTION(BlueprintCallable)
     void TryLoosePal(UPalIndividualCharacterSlot* TargetSlot);
     
+protected:
+    UFUNCTION(BlueprintCallable)
+    void ToggleFavorite(UPalIndividualCharacterSlot* TargetSlot);
+    
+public:
     UFUNCTION(BlueprintCallable)
     void SetPagePalBoxList(int32 newPage);
     

@@ -67,6 +67,10 @@ UPalWildPalDrinkWaterSpotProvider* UPalNPCManager::GetDrinkWaterSpotProvider() {
     return NULL;
 }
 
+FName UPalNPCManager::GetCharacterIDFromUniqueNPCID(FName UniqueNPCID) {
+    return NAME_None;
+}
+
 FName UPalNPCManager::GetCharacterIDFromCharacterIDAndUniqueNPCID(FName CharacterID, FName UniqueNPCID) {
     return NAME_None;
 }

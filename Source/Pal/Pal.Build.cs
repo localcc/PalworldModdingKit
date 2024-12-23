@@ -46,6 +46,7 @@ public class Pal : ModuleRules {
             "NiagaraShader",
             "OnlineSubsystem",
             "OnlineSubsystemUtils",
+            "Paper2D",
             "PhysicsCore",
             "PocketpairUser",
             "PropertyPath",

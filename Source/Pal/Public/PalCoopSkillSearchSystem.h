@@ -31,6 +31,12 @@ public:
     UFUNCTION(BlueprintCallable)
     void StartSearchEffect(const FPalCoopSkillSearchEffectParameter& EffectParam);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsRunning() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsFadingOut() const;
+    
     UFUNCTION(BlueprintCallable)
     UPalCoopSkillSearchBase* CreateSearchObject(TSubclassOf<UPalCoopSkillSearchBase> SearchClass);
     

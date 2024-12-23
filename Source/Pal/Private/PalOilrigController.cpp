@@ -4,6 +4,7 @@
 APalOilrigController::APalOilrigController(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->OilrigName = EPalOilrigType::Debug;
     this->CombatEndDistance = 0.00f;
+    this->TrackingDistance = 0.00f;
     this->CurrentShootingTower = NULL;
     this->ResetTimer = 0.00f;
     this->IsCombat = false;
@@ -29,6 +30,10 @@ bool APalOilrigController::IsShootingAnyTower() {
 }
 
 bool APalOilrigController::IsCombatMode() const {
+    return false;
+}
+
+bool APalOilrigController::InTrackingRange(const AActor* TargetActor) {
     return false;
 }
 

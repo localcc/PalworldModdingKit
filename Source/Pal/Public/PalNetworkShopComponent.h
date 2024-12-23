@@ -6,7 +6,6 @@
 #include "PalCharacterSlotId.h"
 #include "PalCharacterStoredParameterId.h"
 #include "PalDroppedPalProductDataForShop.h"
-#include "PalInstanceID.h"
 #include "PalItemSlotIdAndNum.h"
 #include "PalNetworkShopComponent.generated.h"
 
@@ -22,22 +21,19 @@ public:
     void SetupShopDataForActor_ToServer(AActor* VenderActor);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void RequestSellPals_ToServer(const FGuid& RequestPlayerUId, const FGuid& ShopID, const TArray<FPalCharacterSlotId>& SellPalSlotIDArray);
+    void RequestSellPals_ToServer(const FGuid& ShopID, const TArray<FPalCharacterSlotId>& SellPalSlotIDArray);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void RequestSellItems_ToServer(const FGuid& RequestPlayerUId, const FGuid& ShopID, const TArray<FPalItemSlotIdAndNum>& SellItemSlotIDArray);
+    void RequestSellItems_ToServer(const FGuid& ShopID, const TArray<FPalItemSlotIdAndNum>& SellItemSlotIDArray);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void RequestCollectDroppedPalProductData(const FGuid& RequestPlayerUId, const int32 MaxCollectNum);
+    void RequestCollectDroppedPalProductData(const int32 MaxCollectNum);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void RequestBuyProduct_ToServer(const FPalInstanceID& RequestPlayerInstanceId, const FGuid& ShopID, const FGuid& ProductId, int32 BuyNum);
+    void RequestBuyProduct_ToServer(const FGuid& ShopID, const FGuid& ProductId, int32 BuyNum);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void RequestBuyLostPal_ToServer(const FGuid& RequestPlayerUId, const FPalCharacterStoredParameterId& StoredParameterId);
-    
-    UFUNCTION(BlueprintCallable, Reliable, Server)
-    void RemoveShopData_ToServer(const FGuid& RemoveShopID);
+    void RequestBuyLostPal_ToServer(const FPalCharacterStoredParameterId& StoredParameterId);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void RecieveBuyResult_ToClient(EPalShopBuyResultType resultType);

@@ -44,6 +44,10 @@ protected:
     
 public:
     UPalUIInventoryModel();
+
+    UFUNCTION(BlueprintCallable)
+    bool TryUseLiftUpItemToPlayer();
+    
     UFUNCTION(BlueprintCallable)
     void TryMoveSlotToInventory(UPalItemSlot* fromSlot, bool tryAutoEquip);
     

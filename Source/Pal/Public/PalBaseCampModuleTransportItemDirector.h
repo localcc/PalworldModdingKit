@@ -21,6 +21,9 @@ protected:
     TMap<FGuid, FPalBaseCampModuleTransportItemStatus> TransportItemStatusMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSet<FGuid> TransportItemDepotSet;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FGuid, FPalBaseCampModuleTransportItemTarget> TransportTargetMap;
     
 public:

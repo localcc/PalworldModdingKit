@@ -22,6 +22,12 @@ public:
     UPalSkinManager();
 
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool HasSkin(FGuid InPlayerUId, const FName& CheckSkinName);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FName GetTargetPalName(const FName& SkinName);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool GetPalCharacterClass(FName SkinName, bool bIsBoss, TSoftClassPtr<APalCharacter>& OutCharacterClass);
     
     UFUNCTION(BlueprintCallable)

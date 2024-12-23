@@ -13,10 +13,16 @@ void UPalPassiveSkillComponent::SetDisablePassiveSkill(FName flagName, bool isDi
 void UPalPassiveSkillComponent::OverrideDamageInfoBySkill(FPalDamageInfo& inoutDamageInfo) {
 }
 
+void UPalPassiveSkillComponent::OnUpdateCharacterRank(int32 NowRank, int32 OldRank) {
+}
+
 void UPalPassiveSkillComponent::OnStartSkillEffect(EPalPassiveSkillEffectType EffectType, float Value) {
 }
 
 void UPalPassiveSkillComponent::OnRep_SkillInfos() {
+}
+
+void UPalPassiveSkillComponent::OnInitializedCharacter(APalCharacter* OwnerCharacter) {
 }
 
 void UPalPassiveSkillComponent::OnEndSkillEffect(EPalPassiveSkillEffectType EffectType) {
@@ -29,8 +35,16 @@ bool UPalPassiveSkillComponent::IsDisablePassiveSkill() const {
     return false;
 }
 
+bool UPalPassiveSkillComponent::HasSkill(EPalPassiveSkillEffectType Type, bool containEquip) {
+    return false;
+}
+
 float UPalPassiveSkillComponent::GetParameterWithPassiveSkillEffect(float originalValue, EPalPassiveSkillEffectType EffectType, bool containEquip) {
     return 0.0f;
+}
+
+EPalCurveBall UPalPassiveSkillComponent::GetCurveBallTypePassiveEffectByPlayerEquip() {
+    return EPalCurveBall::None;
 }
 
 void UPalPassiveSkillComponent::AddSpecialAttackRateInfo(TArray<FPalSpecialAttackRateInfo>& SpecialAttackRateInfos) {

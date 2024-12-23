@@ -2,12 +2,20 @@
 #include "Templates/SubclassOf.h"
 
 UPalHUDService::UPalHUDService() {
+    this->FadeWidget = NULL;
 }
 
-void UPalHUDService::StartFadeOut(EPalFadeWidgetLayerType LayerType) {
+void UPalHUDService::StartFadeOut(EPalFadeWidgetLayerType LayerType, UPalHUDDispatchParameter_FadeWidget* FadeParameter) {
 }
 
-void UPalHUDService::StartFadeIn(EPalFadeWidgetLayerType LayerType, UPalHUDDispatchParameter_FadeWidget* FadeParameter) {
+void UPalHUDService::StartFadeIn(EPalFadeWidgetLayerType LayerType) {
+}
+
+bool UPalHUDService::ShowUseItemUI(UPalItemSlot* TargetSlot, UPalHUDDispatchParameter_UseItem* Parameter) {
+    return false;
+}
+
+void UPalHUDService::ShowCommonWarning(const FPalUICommonWarningDisplayData& WarningDisplayData) {
 }
 
 FGuid UPalHUDService::ShowCommonUI(const EPalWidgetBlueprintType WBPType, UPalHUDDispatchParameterBase* Parameter) {
@@ -48,7 +56,17 @@ void UPalHUDService::InvokeFunction_FName(const FName FunctionName, FName Value)
 void UPalHUDService::InvokeFunction(const FName FunctionName) {
 }
 
+void UPalHUDService::HideCommonWarning(const FGuid PreserveID) {
+}
+
+void UPalHUDService::HideCommonReward() {
+}
+
 void UPalHUDService::HideCommonItemInfo() {
+}
+
+bool UPalHUDService::HasFadeQueue(EPalFadeWidgetLayerType InLayerType) const {
+    return false;
 }
 
 UPalSoundPlayer* UPalHUDService::GetSoundPlayer() {

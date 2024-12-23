@@ -5,6 +5,7 @@ UPalDamageReactionComponent::UPalDamageReactionComponent(const FObjectInitialize
     this->DamageEffectSlotClass = UPalHitEffectSlot::StaticClass();
     this->EffectSlot = NULL;
     this->DisableLargeDown = false;
+    this->BossEnemyLeanBackCoolTimeFlag = false;
 }
 
 void UPalDamageReactionComponent::SlipDamageAndBlowWhenDead(int32 Damage, FVector Velocity) {
@@ -17,6 +18,9 @@ void UPalDamageReactionComponent::ShowDeadDebugLog(FPalDeadInfo DeadInfo) {
 }
 
 void UPalDamageReactionComponent::SetDisableLargeDown() {
+}
+
+void UPalDamageReactionComponent::ResetBossEnemyLeanBackCoolTimeFlag() {
 }
 
 void UPalDamageReactionComponent::PopupDamageBySlipDamage_ToALL_Implementation(int32 Damage) {
@@ -37,7 +41,7 @@ void UPalDamageReactionComponent::OnHitNooseTrap(AActor* TrapActor, FVector FixL
 void UPalDamageReactionComponent::OnEndDamageMotion(UAnimMontage* Montage, bool bInterrupted) {
 }
 
-void UPalDamageReactionComponent::OnDyingDeadEndDelegate_ToALL_Implementation() {
+void UPalDamageReactionComponent::OnDyingDeadEndDelegate_ToALL_Implementation(bool bIsInstantDeath) {
 }
 
 bool UPalDamageReactionComponent::IsIgnoreElementStatus(EPalAdditionalEffectType Effect) {

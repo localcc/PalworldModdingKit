@@ -6,29 +6,39 @@
 #include "PalMasterDataTables.generated.h"
 
 class UDataTable;
+class UPalAchivementRewardDataAsset;
+class UPalCircumRequestDataAsset;
+class UPalDisplayRequestDataAsset;
 class UPalMasterDataTableAccess_BaseCampLevelData;
+class UPalMasterDataTableAccess_BossSpawnerUIData;
 class UPalMasterDataTableAccess_BuildObjectData;
 class UPalMasterDataTableAccess_BuildObjectIconData;
+class UPalMasterDataTableAccess_CharacterTeamMission;
+class UPalMasterDataTableAccess_CharacterTeamMissionChallengeCondition;
 class UPalMasterDataTableAccess_CharacterUpgradeData;
 class UPalMasterDataTableAccess_DungeonEnemySpawnerData;
 class UPalMasterDataTableAccess_DungeonItemLotteryData;
 class UPalMasterDataTableAccess_DungeonLevelData;
 class UPalMasterDataTableAccess_DungeonSpawnAreaData;
 class UPalMasterDataTableAccess_FarmCropData;
+class UPalMasterDataTableAccess_FarmSkillFruitsLotteryData;
 class UPalMasterDataTableAccess_FieldLotteryNameData;
 class UPalMasterDataTableAccess_ItemLotteryData;
 class UPalMasterDataTableAccess_ItemProductData;
 class UPalMasterDataTableAccess_ItemRecipe;
 class UPalMasterDataTableAccess_ItemShop;
 class UPalMasterDataTableAccess_ItemShopLottery;
+class UPalMasterDataTableAccess_LabResearch;
 class UPalMasterDataTableAccess_LocalizeText;
 class UPalMasterDataTableAccess_MapObjectMasterData;
+class UPalMasterDataTableAccess_NPCEmoteLotteryData;
 class UPalMasterDataTableAccess_PalRandomizerData;
 class UPalMasterDataTableAccess_PalShop;
 class UPalMasterDataTableAccess_PlayerStatusRankData;
 class UPalMasterDataTableAccess_SpawnerPlacementData;
 class UPalMasterDataTableAccess_UIInputActionData;
 class UPalMasterDataTableAccess_WildSpawnerData;
+class UPalMasterDataTableAccess_WorldMapAreaData;
 class UPalNoteDataAsset;
 
 UCLASS(Blueprintable)
@@ -121,6 +131,12 @@ protected:
     UPalMasterDataTableAccess_ItemLotteryData* Access_ItemLotteryDataTable;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* EmoteNPCLotteryDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalMasterDataTableAccess_NPCEmoteLotteryData* Access_EmoteNPCLotteryDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* PlayerStatusRankDataTable;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -137,6 +153,15 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UPalNoteDataAsset* HelpGuideDataAsset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPalAchivementRewardDataAsset* AchivementRewardDataAsset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPalCircumRequestDataAsset* ItemRequestNPCDataAsset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPalDisplayRequestDataAsset* PalDisplayNPCDataAsset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<EPalLocalizeTextCategory, UDataTable*> LocalizeTextDataTableMap;
@@ -185,6 +210,42 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalMasterDataTableAccess_PalRandomizerData* Access_PalRandomizerDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* CharacterTeamMissionDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalMasterDataTableAccess_CharacterTeamMission* Access_CharacterTeamMissionDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* CharacterTeamMissionChallengeConditionDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalMasterDataTableAccess_CharacterTeamMissionChallengeCondition* Access_CharacterTeamMissionChallengeConditionDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* LabResearchDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalMasterDataTableAccess_LabResearch* Access_LabResearchDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* WorldMapAreaDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalMasterDataTableAccess_WorldMapAreaData* Access_WorldMapAreaDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* BossSpawnerUIDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalMasterDataTableAccess_BossSpawnerUIData* Access_BossSpawnerUIDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* FarmSkillFruitsLotteryDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalMasterDataTableAccess_FarmSkillFruitsLotteryData* Access_FarmSkillFruitsLotteryDataTable;
     
 public:
     UPalMasterDataTables();

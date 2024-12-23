@@ -2,6 +2,7 @@
 #include "Net/UnrealNetwork.h"
 
 UPalMapObjectProductItemModel::UPalMapObjectProductItemModel() {
+    this->ExtraFunction = NULL;
     this->bIsWorkable = false;
     this->WorkSpeedAdditionalRate = 1.00f;
 }
@@ -36,6 +37,7 @@ float UPalMapObjectProductItemModel::CalcRequiredAmount(const float BaseRequired
 void UPalMapObjectProductItemModel::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
+    DOREPLIFETIME(UPalMapObjectProductItemModel, ExtraFunction);
     DOREPLIFETIME(UPalMapObjectProductItemModel, bIsWorkable);
     DOREPLIFETIME(UPalMapObjectProductItemModel, ProductItemId);
 }

@@ -10,6 +10,9 @@ bool UPalWorldMapUIData::UnlockMap(const FName& regionId, const int32 PlayerId) 
     return false;
 }
 
+void UPalWorldMapUIData::UnlockByScroll(const float& Diameter, const FVector2f& ActorLocation) {
+}
+
 bool UPalWorldMapUIData::IsUnlockedMap(const FName& regionId) {
     return false;
 }

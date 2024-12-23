@@ -36,6 +36,12 @@ UPalGroupGuildBase* UPalUIGuildMenu::GetMyGuild() const {
     return NULL;
 }
 
+void UPalUIGuildMenu::GetGuildNameModifierPlayerUId(FGuid& OutAdminPlayerUId) {
+}
+
+void UPalUIGuildMenu::GetGuildNameByCheckBlockedUser(FString& OutGuildName) const {
+}
+
 void UPalUIGuildMenu::GetGuildName(FString& OutGuildName) const {
 }
 

@@ -12,6 +12,10 @@ bool UPalMapObjectDeathDroppedCharacterModel::IsSameGuildInLocalPlayer() const {
     return false;
 }
 
+bool UPalMapObjectDeathDroppedCharacterModel::IsOpenForAnyone() const {
+    return false;
+}
+
 void UPalMapObjectDeathDroppedCharacterModel::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     

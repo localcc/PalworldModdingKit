@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
 #include "Components/ActorComponent.h"
 #include "EPalArenaBattleResult.h"
 #include "EPalArenaPlayerIndex.h"
@@ -19,6 +20,9 @@ public:
 
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void UpdateParty_ToClient(EPalArenaPlayerIndex PlayerIndex, const FPalArenaPlayerParty& ArenaPlayerParty);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void SyncBattleEndTimeToClient(FDateTime BattleEndTime);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void SetParty_ToServer(const FGuid& ArenaInstanceId, const FPalArenaPlayerParty& ArenaPlayerParty);

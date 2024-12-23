@@ -13,6 +13,9 @@ UPalArenaSequencer::UPalArenaSequencer() {
 void UPalArenaSequencer::SetupStatusCharacter(UPalIndividualCharacterParameter* IndividualParameter) {
 }
 
+void UPalArenaSequencer::SetupBattleTimer() {
+}
+
 void UPalArenaSequencer::SetMutekiAllPlayer(bool bIsMuteki) {
 }
 

@@ -40,5 +40,17 @@ public:
     FFadeWidgetDelegate OnEndFadeOut;
     
     UPalHUDDispatchParameter_FadeWidget();
+
+    UFUNCTION(BlueprintCallable)
+    void CallOnStartFadeOutDelegates();
+
+    UFUNCTION(BlueprintCallable)
+    void CallOnStartFadeInDelegates();
+
+    UFUNCTION(BlueprintCallable)
+    void CallOnEndFadeOutDelegates();
+
+    UFUNCTION(BlueprintCallable)
+    void CallOnEndFadeInDelegates();
 };
 

@@ -41,9 +41,6 @@ bool UPalAIActionCompositeWorker::IsAssignedToTarget() const {
     return false;
 }
 
-void UPalAIActionCompositeWorker::ChangeActionWaitForWorkable() {
-}
-
 void UPalAIActionCompositeWorker::ChangeActionWait() {
 }
 

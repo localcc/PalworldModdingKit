@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Engine/DataTable.h"
+#include "EPalBossType.h"
 #include "PalTechnologyDataTableRowBase.generated.h"
 
 USTRUCT(BlueprintType)
@@ -17,10 +18,13 @@ public:
     FName IconName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 RequireBossDefeatNum;
+    EPalBossType RequireDefeatTowerBoss;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName RequireTechnology;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName RequireResearchId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool IsBossTechnology;

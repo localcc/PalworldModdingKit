@@ -4,6 +4,10 @@ UPalUIInventoryModel::UPalUIInventoryModel() {
     this->InventoryContainers = NULL;
 }
 
+bool UPalUIInventoryModel::TryUseLiftUpItemToPlayer() {
+    return false;
+}
+
 void UPalUIInventoryModel::TryMoveSlotToInventory(UPalItemSlot* fromSlot, bool tryAutoEquip) {
 }
 

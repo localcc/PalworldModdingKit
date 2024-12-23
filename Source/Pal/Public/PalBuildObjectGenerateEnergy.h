@@ -1,6 +1,5 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "EPalEnergyType.h"
 #include "PalBuildObject.h"
 #include "PalBuildObjectGenerateEnergy.generated.h"
 
@@ -9,17 +8,6 @@ class UPalWorkBase;
 UCLASS(Blueprintable)
 class APalBuildObjectGenerateEnergy : public APalBuildObject {
     GENERATED_BODY()
-public:
-protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    EPalEnergyType GenerateEnergyType;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float GenerateEnergyRateByWorker;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float MaxEnergyStorage;
-    
 public:
     APalBuildObjectGenerateEnergy(const FObjectInitializer& ObjectInitializer);
 

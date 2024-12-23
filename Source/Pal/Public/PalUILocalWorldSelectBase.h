@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "EPalSaveDataRestoreResultType.h"
 #include "PalOptionWorldSaveData.h"
 #include "PalUILocalWorldDisplayData.h"
 #include "PalUserWidgetOverlayUI.h"
@@ -19,6 +20,9 @@ public:
 protected:
     UFUNCTION(BlueprintCallable)
     bool SelectWorld(const FString& WorldSaveDirectoryName, const FString& WorldName, FPalOptionWorldSaveData& OptionWorldData);
+    
+    UFUNCTION(BlueprintCallable)
+    EPalSaveDataRestoreResultType RestoreFromLatestBackup(const FString& WorldSaveDirectoryName, FString& OutBackupName);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetWorldDisplayInfo(TMap<FString, FPalUILocalWorldDisplayData>& OutDisplayInfo);

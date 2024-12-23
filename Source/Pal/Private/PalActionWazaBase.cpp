@@ -2,6 +2,7 @@
 
 UPalActionWazaBase::UPalActionWazaBase() {
     this->WazaID = EPalWazaID::None;
+    this->bIsDisableTickOptimization = false;
     this->SoundPlayer = NULL;
     this->bApplyFullStomachCost = true;
 }

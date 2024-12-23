@@ -37,6 +37,10 @@ private:
     
 public:
     UPalSquad();
+
+    UFUNCTION(BlueprintCallable)
+    void UpdateLeader(FPalInstanceID NextLeader);
+    
 private:
     UFUNCTION(BlueprintCallable)
     void RemoveWhenDestoryActor(AActor* DestoryActor);

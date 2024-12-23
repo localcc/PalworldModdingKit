@@ -26,7 +26,7 @@ protected:
     bool IsExistEnoughFoodInTarget();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool IsAvailableDistance();
+    bool IsAvailableDistance(const float Margin);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FVector GetTargetLocation();

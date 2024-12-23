@@ -26,5 +26,6 @@ FPalOptionGraphicsSettings::FPalOptionGraphicsSettings() {
     this->DLSSMode = UDLSSMode::Off;
     this->MaxFPS = 0.00f;
     this->ScreenPercentage = 0;
+    this->bArachnophobiaMode = false;
 }
 

@@ -6,8 +6,12 @@ UPalMapObjectConcreteModelBase::UPalMapObjectConcreteModelBase() {
     this->WorkeeModuleCache = NULL;
 }
 
-FName UPalMapObjectConcreteModelBase::TryGetMapObjectId() {
+FName UPalMapObjectConcreteModelBase::TryGetMapObjectId() const {
     return NAME_None;
+}
+
+FText UPalMapObjectConcreteModelBase::TryGetItemContainerOverrideName() const {
+    return FText::GetEmpty();
 }
 
 void UPalMapObjectConcreteModelBase::OnTriggerInteract(AActor* Other, EPalInteractiveObjectIndicatorType IndicatorType) {
@@ -45,6 +49,10 @@ void UPalMapObjectConcreteModelBase::GetMapObjectLocation(FVector& outVector) {
 }
 
 UPalMapObjectItemContainerModule* UPalMapObjectConcreteModelBase::GetItemContainerModule() const {
+    return NULL;
+}
+
+TScriptInterface<IPalMapObjectItemContainerAccessInterface> UPalMapObjectConcreteModelBase::GetItemContainerAccess() {
     return NULL;
 }
 

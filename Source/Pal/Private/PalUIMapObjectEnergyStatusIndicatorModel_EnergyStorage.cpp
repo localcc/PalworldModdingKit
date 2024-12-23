@@ -1,0 +1,9 @@
+#include "PalUIMapObjectEnergyStatusIndicatorModel_EnergyStorage.h"
+
+UPalUIMapObjectEnergyStatusIndicatorModel_EnergyStorage::UPalUIMapObjectEnergyStatusIndicatorModel_EnergyStorage() {
+}
+
+void UPalUIMapObjectEnergyStatusIndicatorModel_EnergyStorage::OnUpdateStoredEnergyAmount(UPalMapObjectEnergyStorageModel* EnergyStorageModel) {
+}
+
+

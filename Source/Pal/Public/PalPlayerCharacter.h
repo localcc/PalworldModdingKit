@@ -8,6 +8,7 @@
 #include "EPalCharacterMovementCustomMode.h"
 #include "EPalInteractiveObjectIndicatorType.h"
 #include "EPalPlayerBattleFinishType.h"
+#include "PalArenaEntryPair.h"
 #include "PalCharacter.h"
 #include "PalDamageResult.h"
 #include "PalDeadInfo.h"
@@ -46,8 +47,10 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPlayerRespawnDelegate, APalPlayerCharacter*, Player);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnPlayerMoveToRespawnLocationDelegate, APalPlayerCharacter*, Player, FVector, Location);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPlayerDeathAction);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNoArenaEntryDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnLiftupCampPalDelegate, APalCharacter*, LiftingPal);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnInsufficientPalStaminaDelegate);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnForceUpdataHPGaugeUIDelegate, APalCharacter*, TargetCharacter);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnEndLiftCampPalDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnCombatStartUIActionDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCombatRankDownDelegate, EPalPlayerBattleFinishType, FinishType);
@@ -58,6 +61,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangeBattleBGMDelegate, EPalBattleBGMType, Rank);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnArenaSequenceStartDelegate, UPalArenaSequencer*, ArenaSequencer);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnArenaSequenceEndDelegate);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnArenaEntranceInfoUpdateDelegate, FPalArenaEntryPair, EntryPair);
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPalShooterComponent* ShooterComponent;
@@ -134,6 +138,18 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnArenaSequenceEndDelegate OnArenaSequenceEnd;
     
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnArenaEntranceInfoUpdateDelegate OnArenaEntranceInfoUpdate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnNoArenaEntryDelegate OnNoArenaEntry;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnForceUpdataHPGaugeUIDelegate OnForceAddHPGaugeUI;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnForceUpdataHPGaugeUIDelegate OnForceRemoveHPGaugeUI;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FName LastInsideRegionNameID;
     
@@ -176,6 +192,9 @@ public:
 
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
+    UFUNCTION(BlueprintCallable)
+    void UpdateForceHPGaugeList(APalCharacter* TargetCharacter, bool IsAdd);
+    
     UFUNCTION(BlueprintCallable)
     void StopIdleAnimation();
     
@@ -241,6 +260,9 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnDyingDeadEnd_Server(APalPlayerCharacter* PlayerCharacter, const FPalDyingEndInfo& DyingEndInfo);
     
+    UFUNCTION(BlueprintCallable)
+    void OnDyingDeadEnd_All(APalPlayerCharacter* PlayerCharacter, const FPalDyingEndInfo& DyingEndInfo);
+    
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void OnDownBattleEnemyRank(EPalPlayerBattleFinishType FinishType);
     
@@ -300,6 +322,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure)
     USkeletalMeshComponent* GetHeadMesh();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    void GetForceHPGaugeList(TArray<APalCharacter*>& List) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FPalPlayerDataCharacterMakeInfo GetCharacterMakeInfo() const;

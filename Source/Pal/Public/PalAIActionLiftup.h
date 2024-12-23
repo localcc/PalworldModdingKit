@@ -3,6 +3,7 @@
 #include "Engine/HitResult.h"
 #include "PalAIActionBase.h"
 #include "PalAIActionWorkerInterruptInterface.h"
+#include "PalDeadInfo.h"
 #include "PalAIActionLiftup.generated.h"
 
 UCLASS(Blueprintable, EditInlineNew)
@@ -16,6 +17,9 @@ protected:
     void OnLanded();
     
 private:
+    UFUNCTION(BlueprintCallable)
+    void OnDead(FPalDeadInfo DeadInfo);
+    
     UFUNCTION(BlueprintCallable)
     void CallOnLanded(const FHitResult& Hit);
     

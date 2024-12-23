@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
 #include "PalMapObjectConcreteModelModuleBase.h"
 #include "PalMapObjectRequireElementalActionInterface.h"
 #include "PalMapObjectRequireElementalActionModule.generated.h"
@@ -11,6 +12,15 @@ public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FName AssignDefineId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bExistsAssignLocation;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FVector AssignLocationOffset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FVector AssignLocationDirection;
     
 public:
     UPalMapObjectRequireElementalActionModule();

@@ -15,5 +15,10 @@ private:
     
 public:
     UPalGameSystemInitProcessHandle();
+
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnChangeChildProcessHandleState(UPalGameSystemInitProcessHandle* ChangedProcessHandle);
+    
 };
 

@@ -20,6 +20,7 @@ FPalOptionWorldPresetRow::FPalOptionWorldPresetRow() {
     this->PalStaminaDecreaceRate = 0.00f;
     this->PalAutoHPRegeneRate = 0.00f;
     this->PalAutoHpRegeneRateInSleep = 0.00f;
+    this->BuildObjectHpRate = 0.00f;
     this->BuildObjectDamageRate = 0.00f;
     this->BuildObjectDeteriorationDamageRate = 0.00f;
     this->CollectionDropRate = 0.00f;
@@ -37,5 +38,7 @@ FPalOptionWorldPresetRow::FPalOptionWorldPresetRow() {
     this->PalEggDefaultHatchingTime = 0.00f;
     this->BaseCampWorkerMaxNum = 0;
     this->SupplyDropSpan = 0;
+    this->bHardcore = false;
+    this->bPalLost = false;
 }
 

@@ -5,8 +5,10 @@ UPalInvaderIncidentBase::UPalInvaderIncidentBase() {
     this->InvaderDataTable = NULL;
     this->MonsterAIControllerClass = NULL;
     this->EnemyAIControllerClass = NULL;
+    this->bUseFindPaths = false;
     this->bCanExecute = false;
     this->Squad = NULL;
+    this->bIsArrived = false;
 }
 
 void UPalInvaderIncidentBase::StartInvader() {

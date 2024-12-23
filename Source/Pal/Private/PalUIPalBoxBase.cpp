@@ -15,6 +15,9 @@ void UPalUIPalBoxBase::TryMoveToBaseCamp(UPalIndividualCharacterSlot* MoveSlot) 
 void UPalUIPalBoxBase::TryLoosePal(UPalIndividualCharacterSlot* TargetSlot) {
 }
 
+void UPalUIPalBoxBase::ToggleFavorite(UPalIndividualCharacterSlot* TargetSlot) {
+}
+
 void UPalUIPalBoxBase::SetPagePalBoxList(int32 newPage) {
 }
 

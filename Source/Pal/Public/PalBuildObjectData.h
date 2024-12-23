@@ -88,6 +88,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bInstallableNoObstacleFromCamera;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float BuildExpRate;
+    
     PAL_API FPalBuildObjectData();
 };
 

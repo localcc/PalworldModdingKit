@@ -40,8 +40,10 @@
 UPalGameInstance::UPalGameInstance() {
     this->bNetworkError = false;
     this->bSaveError = false;
+    this->LoginManager = NULL;
     this->GameSettingClass = UPalGameSetting::StaticClass();
     this->GameSetting = NULL;
+    this->PsnManager = NULL;
     this->MasterDataTablesClass = UPalMasterDataTables::StaticClass();
     this->MasterDataTables = NULL;
     this->MapObjectManagerClass = UPalMapObjectManager::StaticClass();
@@ -58,6 +60,7 @@ UPalGameInstance::UPalGameInstance() {
     this->ItemIDManager = NULL;
     this->WazaDatabaseClass = UPalWazaDatabase::StaticClass();
     this->WazaDatabase = NULL;
+    this->GamepadButtonImageDatabase = NULL;
     this->BattleManagerClass = NULL;
     this->BossBattleManagerClass = NULL;
     this->RaidBossManagerClass = NULL;
@@ -107,7 +110,7 @@ UPalGameInstance::UPalGameInstance() {
     this->SkinManager = NULL;
     this->SupplyManagerClass = UPalSupplyManager::StaticClass();
     this->ShopManagerSubsystemClass = UPalShopManager::StaticClass();
-    this->revisionNum = 59545;
+    this->revisionNum = 64554;
     this->bUseAsyncMovement = true;
     this->DisplaySafeAreaDebugger = NULL;
     this->TitleBGMPlayerClass = UPalPersistentSoundPlayer::StaticClass();
@@ -138,6 +141,12 @@ bool UPalGameInstance::SelectWorld(const FString& WorldName) {
 void UPalGameInstance::OnInitializeCompleteSystem() {
 }
 
+void UPalGameInstance::OnCompleteShowMultiplayRestrictionMessageDialog(bool bSuccess) {
+}
+
+void UPalGameInstance::OnCompleteMuyltiplayRestrictedDialog(bool bResult) {
+}
+
 void UPalGameInstance::OnCompletedJoinSession(bool IsSuccess, JoinSessionResultType Type) {
 }
 
@@ -153,6 +162,10 @@ bool UPalGameInstance::IsNewGame() const {
     return false;
 }
 
+bool UPalGameInstance::IsLoggedin() {
+    return false;
+}
+
 void UPalGameInstance::GoToDefaultMap() {
 }
 
@@ -162,6 +175,10 @@ FString UPalGameInstance::GetSelectedWorldSaveDirectoryName() const {
 
 FString UPalGameInstance::GetSelectedWorldName() const {
     return TEXT("");
+}
+
+UPalPsnManager* UPalGameInstance::GetPsnManager() const {
+    return NULL;
 }
 
 void UPalGameInstance::CompleteInitCharacterMakeData() {

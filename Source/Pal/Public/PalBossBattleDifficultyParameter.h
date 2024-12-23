@@ -4,7 +4,7 @@
 #include "PalDataTableRowName_PalMonsterData.h"
 #include "PalBossBattleDifficultyParameter.generated.h"
 
-class UPalBossBattleEventBase;
+class APalBossBattleEventBase;
 
 USTRUCT(BlueprintType)
 struct FPalBossBattleDifficultyParameter {
@@ -20,7 +20,7 @@ public:
     TArray<FPalBossBattleSuccessItemInfo> SuccessItemList;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftClassPtr<UPalBossBattleEventBase> BossBattleEvent;
+    TSoftClassPtr<APalBossBattleEventBase> BossBattleEvent;
     
     PAL_API FPalBossBattleDifficultyParameter();
 };

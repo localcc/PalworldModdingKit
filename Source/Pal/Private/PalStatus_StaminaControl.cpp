@@ -4,6 +4,7 @@ UPalStatus_StaminaControl::UPalStatus_StaminaControl() {
     this->bIsNerverEnd = true;
     this->IsLocalPlayerOrPal = false;
     this->IsPreCliming = false;
+    this->bIsOtomo = false;
 }
 
 void UPalStatus_StaminaControl::DecreaseStepStamina() {

@@ -78,6 +78,9 @@ public:
     void SetupStatusCharacter(UPalIndividualCharacterParameter* IndividualParameter);
     
     UFUNCTION(BlueprintCallable)
+    void SetupBattleTimer();
+    
+    UFUNCTION(BlueprintCallable)
     void SetMutekiAllPlayer(bool bIsMuteki);
     
     UFUNCTION(BlueprintCallable)

@@ -33,12 +33,14 @@ class UPalDisplaySafeAreaDebugger;
 class UPalEventNotifySystem;
 class UPalExpDatabase;
 class UPalGameSetting;
+class UPalGamepadButtonImageDatabase;
 class UPalGroupManager;
 class UPalHUDService;
 class UPalItemContainerManager;
 class UPalItemIDManager;
 class UPalLocationManager;
 class UPalLogManager;
+class UPalLoginManager;
 class UPalMapObjectManager;
 class UPalMasterDataTables;
 class UPalNPCManager;
@@ -48,6 +50,7 @@ class UPalPassiveSkillManager;
 class UPalPersistentSoundPlayer;
 class UPalPlayerDataStorage;
 class UPalPlayerManager;
+class UPalPsnManager;
 class UPalRaidBossManager;
 class UPalSaveGameManager;
 class UPalShopManager;
@@ -95,11 +98,17 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FString> BanList;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalLoginManager* LoginManager;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalGameSetting> GameSettingClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalGameSetting* GameSetting;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalPsnManager* PsnManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalMasterDataTables> MasterDataTablesClass;
@@ -148,6 +157,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalWazaDatabase* WazaDatabase;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPalGamepadButtonImageDatabase* GamepadButtonImageDatabase;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalBattleManager> BattleManagerClass;
@@ -367,6 +379,12 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable)
+    void OnCompleteShowMultiplayRestrictionMessageDialog(bool bSuccess);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnCompleteMuyltiplayRestrictedDialog(bool bResult);
+    
+    UFUNCTION(BlueprintCallable)
     void OnCompletedJoinSession(bool IsSuccess, JoinSessionResultType Type);
     
     UFUNCTION(BlueprintCallable)
@@ -381,6 +399,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsNewGame() const;
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsLoggedin();
+    
     UFUNCTION(BlueprintCallable)
     void GoToDefaultMap();
     
@@ -389,6 +410,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetSelectedWorldName() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPalPsnManager* GetPsnManager() const;
     
     UFUNCTION(BlueprintCallable)
     void CompleteInitCharacterMakeData();

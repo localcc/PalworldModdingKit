@@ -48,5 +48,14 @@ private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestDispose_ToServer(const FGuid& RequestID, const FPalItemSlotIdAndNum& SlotInfo);
     
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestChangeFilter_ToServer(const FPalContainerId& ContainerId, const FName FilterName, const bool bIsOn);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestChangeAllFilterUncheck_ToServer(const FPalContainerId& ContainerId);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestChangeAllFilterCheck_ToServer(const FPalContainerId& ContainerId);
+    
 };
 

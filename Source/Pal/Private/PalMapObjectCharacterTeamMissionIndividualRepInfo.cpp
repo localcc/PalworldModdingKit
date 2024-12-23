@@ -1,0 +1,5 @@
+#include "PalMapObjectCharacterTeamMissionIndividualRepInfo.h"
+
+FPalMapObjectCharacterTeamMissionIndividualRepInfo::FPalMapObjectCharacterTeamMissionIndividualRepInfo() {
+}
+

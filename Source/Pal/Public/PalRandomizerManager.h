@@ -3,7 +3,9 @@
 #include "EPalRandomizerType.h"
 #include "PalGameWorldDataSaveInterface.h"
 #include "PalOptionWorldSettings.h"
+#include "PalRandomizerSpawnInfoSaveData.h"
 #include "PalSpawnerGroupInfo.h"
+#include "PalSpawnerGroupInfoList.h"
 #include "PalUIPaldexDistributionData.h"
 #include "PalWorldSubsystem.h"
 #include "PalRandomizerManager.generated.h"
@@ -16,6 +18,26 @@ UCLASS(Blueprintable)
 class PAL_API UPalRandomizerManager : public UPalWorldSubsystem, public IPalGameWorldDataSaveInterface {
     GENERATED_BODY()
 public:
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FName, FPalSpawnerGroupInfoList> RegionRandomizeSpawnerList;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FString, FPalSpawnerGroupInfoList> AllRandomizeSpawnerInstanceList;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FName, FPalUIPaldexDistributionData> RegionRandomizeDistributionList;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FName, FPalUIPaldexDistributionData> AllRandomizeDistributionList;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FPalRandomizerSpawnInfoSaveData> RandomizerSpawnerRegionHashList;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FPalRandomizerSpawnInfoSaveData> RandomizerSpawnerInstanceHashList;
+    
+public:
     UPalRandomizerManager();
 
 private:
@@ -24,7 +46,13 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    TArray<FPalSpawnerGroupInfo> GetRandomSpawnerGroupInfo(APalNPCSpawnerBase* spawnerActor) const;
+    bool IsInitializedRandomizer() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    TArray<FPalSpawnerGroupInfo> GetRandomSpawnerGroupInfoFromActor(APalNPCSpawnerBase* spawnerActor) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool GetRandomSpawnerGroupInfo(FName InSpawnerName, const FString& InInstanceName, TArray<FPalSpawnerGroupInfo>& OutGroupInfo) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     EPalRandomizerType GetRandomizerType() const;
@@ -36,10 +64,19 @@ public:
     bool GetPaldexDistributionData(FName InPalName, FPalUIPaldexDistributionData& OutPaldexDestributionData) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    FName GetImprisonmentBossRemap(FName InSpawnerName) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FName GetFieldBossRemap(FName InSpawnerName) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetDungeonLevel(FName InSpawnerName) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetCoolTime(FName InSpawnerName) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FName GetBossRemap(FName InSpawnerName) const;
     
 
     // Fix for true pure virtual functions not being implemented

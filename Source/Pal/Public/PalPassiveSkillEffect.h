@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
 #include "EPalPassiveSkillEffectType.h"
 #include "PalPassivePartnerSkillItemParameter.h"
 #include "PalPassiveSkillEffect.generated.h"
@@ -19,6 +20,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalPassivePartnerSkillItemParameter ItemParam;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGuid PassiveId;
     
     PAL_API FPalPassiveSkillEffect();
 };

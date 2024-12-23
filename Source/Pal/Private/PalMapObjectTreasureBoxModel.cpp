@@ -6,6 +6,7 @@ UPalMapObjectTreasureBoxModel::UPalMapObjectTreasureBoxModel() {
     this->bOpened = false;
     this->LongHoldInteractDuration = 0.00f;
     this->InteractPlayerActionType = EPalActionType::None;
+    this->bIsLockRiding = false;
 }
 
 void UPalMapObjectTreasureBoxModel::RequestPicking_ServerInternal(const int32 RequestPlayerId) {
@@ -24,6 +25,9 @@ void UPalMapObjectTreasureBoxModel::OpenPickingGame_ClientInternal() {
 }
 
 void UPalMapObjectTreasureBoxModel::OnEndPickingGame(bool IsSuccess) {
+}
+
+void UPalMapObjectTreasureBoxModel::OnChangeElementalLock_ServerInternal(bool bIsLocked) {
 }
 
 void UPalMapObjectTreasureBoxModel::NotifyPickingGameResult_ServerInternal(const int32 RequestPlayerId, bool IsSuccess) {

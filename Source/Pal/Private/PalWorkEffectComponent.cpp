@@ -3,14 +3,17 @@
 
 UPalWorkEffectComponent::UPalWorkEffectComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->bAutoActivate = false;
-    this->LocationIndex = -1;
     this->bActiveFX = false;
+    this->bWorkFacingChild = false;
 }
 
 void UPalWorkEffectComponent::OnWorkStarted(UPalWorkBase* Work, const FPalInstanceID& IndividualId) {
 }
 
 void UPalWorkEffectComponent::OnWorkEnded(UPalWorkBase* Work, const FPalInstanceID& IndividualId) {
+}
+
+void UPalWorkEffectComponent::OnWorkDisposed(UPalWorkBase* Work) {
 }
 
 void UPalWorkEffectComponent::OnRep_ActiveFX() {
@@ -20,6 +23,7 @@ void UPalWorkEffectComponent::GetLifetimeReplicatedProps(TArray<FLifetimePropert
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(UPalWorkEffectComponent, bActiveFX);
+    DOREPLIFETIME(UPalWorkEffectComponent, bWorkFacingChild);
 }
 
 

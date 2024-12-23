@@ -1,6 +1,7 @@
 #include "PalHeatSourceSphereComponent.h"
 
 UPalHeatSourceSphereComponent::UPalHeatSourceSphereComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->ShapeBodySetup = NULL;
     this->DefaultActive = true;
     this->HeatSourceModule = NULL;
 }

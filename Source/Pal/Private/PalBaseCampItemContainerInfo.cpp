@@ -1,6 +1,7 @@
 #include "PalBaseCampItemContainerInfo.h"
 
 FPalBaseCampItemContainerInfo::FPalBaseCampItemContainerInfo() {
-    this->Type = EPalBaseCampItemContainerType::HomeChest;
+    this->Type = EPalBaseCampItemContainerType::Chest;
+    this->bShouldUseContainerIdCache = false;
 }
 

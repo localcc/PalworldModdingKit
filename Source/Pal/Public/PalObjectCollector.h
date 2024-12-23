@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "PalCharacterList.h"
+#include "PalCharacterSpatialGrid.h"
 #include "PalWorldSubsystem.h"
 #include "PalObjectCollector.generated.h"
 
@@ -21,6 +22,15 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<APalCharacter*> PalCharacter_Player;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FPalCharacterSpatialGrid PalCharacterGrid_All;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FPalCharacterSpatialGrid PalCharacterGrid_NPC;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FPalCharacterSpatialGrid PalCharacterGrid_Player;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<APalMapObjectSpawnerBase*> MapObject_SpawnerBase;

@@ -8,6 +8,7 @@
 #include "EPalWidgetBlueprintType.h"
 #include "PalUICommonItemInfoDisplayData.h"
 #include "PalUICommonRewardDisplayData.h"
+#include "PalUICommonWarningDisplayData.h"
 #include "PalUIPalCaptureInfo.h"
 #include "PalWorldHUDParameter.h"
 #include "Templates/SubclassOf.h"
@@ -19,6 +20,8 @@ class UPalHUDServiceProviderInterface;
 class UAkAudioEvent;
 class UPalHUDDispatchParameterBase;
 class UPalHUDDispatchParameter_FadeWidget;
+class UPalHUDDispatchParameter_UseItem;
+class UPalItemSlot;
 class UPalSoundPlayer;
 class UPalUILiftSlotModel;
 class UPalUserWidget;
@@ -31,6 +34,7 @@ class PAL_API UPalHUDService : public UObject {
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnSuccessedCapturePal, const FPalUIPalCaptureInfo&, CaptureInfo);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPushedStackableUI, const FGuid&, pushedWidgetID);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnNotifyUpdateReticleVisibility, bool, bVisible);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnApplicationActivationStateChangedDelegate, bool, bIsFocused);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FInvalidatePlayerInputGuard);
     
@@ -46,6 +50,9 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FInvalidatePlayerInputGuard OnInvalidatePlayerInputGuard;
     
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnNotifyUpdateReticleVisibility OnNotifyUpdateReticleVisibility;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FUITransientData TransientData;
     
@@ -53,13 +60,23 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TScriptInterface<IPalHUDServiceProviderInterface> ServiceProvider;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalHUDDispatchParameter_FadeWidget* FadeWidget;
+    
 public:
     UPalHUDService();
+
     UFUNCTION(BlueprintCallable)
-    void StartFadeOut(EPalFadeWidgetLayerType LayerType);
+    void StartFadeOut(EPalFadeWidgetLayerType LayerType, UPalHUDDispatchParameter_FadeWidget* FadeParameter);
     
     UFUNCTION(BlueprintCallable)
-    void StartFadeIn(EPalFadeWidgetLayerType LayerType, UPalHUDDispatchParameter_FadeWidget* FadeParameter);
+    void StartFadeIn(EPalFadeWidgetLayerType LayerType);
+    
+    UFUNCTION(BlueprintCallable)
+    bool ShowUseItemUI(UPalItemSlot* TargetSlot, UPalHUDDispatchParameter_UseItem* Parameter);
+    
+    UFUNCTION(BlueprintCallable)
+    void ShowCommonWarning(const FPalUICommonWarningDisplayData& WarningDisplayData);
     
     UFUNCTION(BlueprintCallable)
     FGuid ShowCommonUI(const EPalWidgetBlueprintType WBPType, UPalHUDDispatchParameterBase* Parameter);
@@ -98,7 +115,16 @@ public:
     void InvokeFunction(const FName FunctionName);
     
     UFUNCTION(BlueprintCallable)
+    void HideCommonWarning(const FGuid PreserveID);
+    
+    UFUNCTION(BlueprintCallable)
+    void HideCommonReward();
+    
+    UFUNCTION(BlueprintCallable)
     void HideCommonItemInfo();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool HasFadeQueue(EPalFadeWidgetLayerType InLayerType) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalSoundPlayer* GetSoundPlayer();

@@ -16,6 +16,7 @@ class IPalGamePlayerDataSaveInterface;
 class UPalGamePlayerDataSaveInterface;
 class IPalGameWorldDataSaveInterface;
 class UPalGameWorldDataSaveInterface;
+class UPalAutoSaveDisabler;
 class UPalLocalWorldSaveGame;
 class UPalWorldOptionSaveGame;
 class UPalWorldSaveGame;
@@ -48,6 +49,20 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnEndedPlayerAutoSave OnEndedPlayerAutoSave;
+    
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalAutoSaveDisabler* DebugAutoSaveDisabler;
+    
+public:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsFoundWorldSaveData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsFoundLocalWorldSaveData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsFoundWorldOptionSaveData;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -186,6 +201,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalLocalWorldSaveGame* GetLoadedLocalWorldSaveData() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool ForceLoadPerformanceChecktWorld() const;
     
 };
 

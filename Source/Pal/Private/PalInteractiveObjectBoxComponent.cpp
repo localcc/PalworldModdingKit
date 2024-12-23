@@ -2,6 +2,7 @@
 
 UPalInteractiveObjectBoxComponent::UPalInteractiveObjectBoxComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->bCanEverAffectNavigation = false;
+    this->ShapeBodySetup = NULL;
     this->InteractDelegates = NULL;
     this->bIsEnableTriggerInteract = false;
     this->bIsImplementedTriggerInteract = false;

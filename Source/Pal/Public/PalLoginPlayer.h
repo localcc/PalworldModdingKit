@@ -16,6 +16,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FVector RegisteredRespawnLocation;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FQuat RegisteredRespawnRotation;
+    
 public:
     UPalLoginPlayer();
 };

@@ -26,6 +26,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalActionType InteractPlayerActionType;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IsLockRiding;
+    
 public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnOpenDelegate OnOpenDelegate;
@@ -34,9 +37,15 @@ public:
 
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void TriggerUnlockElemental();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void TriggerOpen();
     
 private:
+    UFUNCTION(BlueprintCallable)
+    void OnUnlockElementalInServer(UPalMapObjectConcreteModelBase* ConcreteModel);
+    
     UFUNCTION(BlueprintCallable)
     void OnReceiveOpenInServer(UPalMapObjectConcreteModelBase* ConcreteModel);
     
@@ -45,6 +54,9 @@ protected:
     void NotifyStartOpenInAnimation();
     
 private:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void BroadcastTriggerUnlockElemental();
+    
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void BroadcastTriggerOpen();
     

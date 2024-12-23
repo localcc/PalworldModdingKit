@@ -12,6 +12,9 @@ public:
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<uint32, uint32> RemapRowNameHashList;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bNeedRemap;
+    
     PAL_API FPalRandomizerSpawnInfoSaveData();
 };
 

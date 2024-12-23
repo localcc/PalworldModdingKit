@@ -107,6 +107,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FGuid HPHUDId;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FGuid MultiplayModifierHUDId;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalMapObjectDamagableType DamagableType;
     
@@ -134,6 +137,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bWorkLocationGroupRaycastStartOffsetOrigin;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIgnoreBuildInstallConnection;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bShouldPlayDestroyFX;
@@ -192,6 +198,9 @@ public:
 private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void BroadcastShouldPlayDestroyFX();
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void BroadcastShouldNotPlayDestroyFX();
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)

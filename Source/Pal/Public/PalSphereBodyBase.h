@@ -18,6 +18,9 @@ public:
     void SetSneakBonusFlagInternal(bool isSneak);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void SetCriticalCaptureFlagInternal(bool bIsCritical);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetCaptureLevelInternal(int32 Level);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)

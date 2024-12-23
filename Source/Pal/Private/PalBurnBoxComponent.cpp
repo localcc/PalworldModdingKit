@@ -1,6 +1,7 @@
 #include "PalBurnBoxComponent.h"
 
 UPalBurnBoxComponent::UPalBurnBoxComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->ShapeBodySetup = NULL;
 }
 
 void UPalBurnBoxComponent::EndOverlapEvent(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex) {

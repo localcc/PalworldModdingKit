@@ -112,6 +112,9 @@ public:
     UPalWildPalDrinkWaterSpotProvider* GetDrinkWaterSpotProvider();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    FName GetCharacterIDFromUniqueNPCID(FName UniqueNPCID);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FName GetCharacterIDFromCharacterIDAndUniqueNPCID(FName CharacterID, FName UniqueNPCID);
     
 private:

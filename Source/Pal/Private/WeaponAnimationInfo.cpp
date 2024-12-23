@@ -11,6 +11,7 @@ FWeaponAnimationInfo::FWeaponAnimationInfo() {
     this->JumpLoopUp = NULL;
     this->JumpLoopDown = NULL;
     this->JumpEnd = NULL;
+    this->AirJumpUp = NULL;
     this->Sliding = NULL;
     this->SlidingEnd = NULL;
     this->Sprint = NULL;

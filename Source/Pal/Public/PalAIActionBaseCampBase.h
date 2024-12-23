@@ -4,7 +4,6 @@
 #include "EPalInteractiveObjectIndicatorType.h"
 #include "EPalMapBaseCampWorkerOrderType.h"
 #include "PalAIActionBase.h"
-#include "PalInteractiveObjectIndicatorInterface.h"
 #include "PalMonsterControllerBaseCampHungryParameter.h"
 #include "Templates/SubclassOf.h"
 #include "PalAIActionBaseCampBase.generated.h"
@@ -16,7 +15,7 @@ class UPalBaseCampModel;
 class UPalHUDDispatchParameterBase;
 
 UCLASS(Abstract, Blueprintable, EditInlineNew)
-class PAL_API UPalAIActionBaseCampBase : public UPalAIActionBase, public IPalInteractiveObjectIndicatorInterface {
+class PAL_API UPalAIActionBaseCampBase : public UPalAIActionBase {
     GENERATED_BODY()
 public:
 protected:
@@ -63,7 +62,5 @@ public:
     UFUNCTION(BlueprintCallable)
     void ChangeActionToWorker();
     
-
-    // Fix for true pure virtual functions not being implemented
 };
 

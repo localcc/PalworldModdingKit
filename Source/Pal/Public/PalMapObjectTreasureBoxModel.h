@@ -29,6 +29,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     EPalActionType InteractPlayerActionType;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsLockRiding;
+    
 public:
     UPalMapObjectTreasureBoxModel();
 
@@ -50,8 +53,16 @@ private:
     UFUNCTION(BlueprintCallable)
     void OpenPickingGame_ClientInternal();
     
+protected:
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnOpenElementalLock();
+    
+private:
     UFUNCTION(BlueprintCallable)
     void OnEndPickingGame(bool IsSuccess);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnChangeElementalLock_ServerInternal(bool bIsLocked);
     
     UFUNCTION(BlueprintCallable)
     void NotifyPickingGameResult_ServerInternal(const int32 RequestPlayerId, bool IsSuccess);

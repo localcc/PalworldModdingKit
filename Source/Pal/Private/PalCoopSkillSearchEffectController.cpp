@@ -13,5 +13,9 @@ bool UPalCoopSkillSearchEffectController::IsFinished_Implementation() const {
     return false;
 }
 
+bool UPalCoopSkillSearchEffectController::IsFadingOut_Implementation() const {
+    return false;
+}
+
 
 

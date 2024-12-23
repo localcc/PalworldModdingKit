@@ -9,11 +9,16 @@
 
 class APalNPCSpawnerBase;
 class UDataLayerAsset;
+class UPalInteractLockSettingComponent;
 
 UCLASS(Blueprintable)
 class PAL_API APalDungeonFixedEntrance : public APalDungeonEntrance, public IPalLevelObjectInterface {
     GENERATED_BODY()
 public:
+protected:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UPalInteractLockSettingComponent* InteractLockSettingComponent;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, NonPIEDuplicateTransient, meta=(AllowPrivateAccess=true))
     FGuid LevelObjectInstanceId;

@@ -10,5 +10,7 @@ enum class EPalSupportedPlatformType : uint8 {
     XB1,
     XSX,
     Linux,
+    PS5Base,
+    PS5Trinity,
 };
 

@@ -14,6 +14,10 @@ UPalAIActionBase* UPalAIActionBase::SetAIActionClassParameter(TSubclassOf<UPalAI
     return NULL;
 }
 
+UPalAIActionBase* UPalAIActionBase::PushChildActionByClass(TSubclassOf<UPalAIActionBase> NewActionClass, FPalAIActionDynamicParameter Parameter) {
+    return NULL;
+}
+
 bool UPalAIActionBase::PushChildAction(UPawnAction* action) {
     return false;
 }

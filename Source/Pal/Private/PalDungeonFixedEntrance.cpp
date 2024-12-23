@@ -1,7 +1,9 @@
 #include "PalDungeonFixedEntrance.h"
+#include "PalInteractLockSettingComponent.h"
 #include "Templates/SubclassOf.h"
 
 APalDungeonFixedEntrance::APalDungeonFixedEntrance(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->InteractLockSettingComponent = CreateDefaultSubobject<UPalInteractLockSettingComponent>(TEXT("InteractLockComponent"));
     this->DataLayerAsset = NULL;
     this->RespawnCoolTimeMinutesAfterBossDefeated = 10.00f;
     this->EnemySpawnerClass = NULL;

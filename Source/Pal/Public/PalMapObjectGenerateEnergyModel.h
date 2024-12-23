@@ -2,14 +2,16 @@
 #include "CoreMinimal.h"
 #include "EPalEnergyType.h"
 #include "PalBaseCampEnergyGeneratorInterface.h"
+#include "PalBaseCampEnergyStorageInterface.h"
 #include "PalMapObjectConcreteModelBase.h"
 #include "PalMapObjectGenerateEnergyModel.generated.h"
 
 class UPalMapObjectGenerateEnergyModel;
 class UPalWorkBase;
+class UPalWorkOnlyJoin;
 
 UCLASS(Blueprintable)
-class UPalMapObjectGenerateEnergyModel : public UPalMapObjectConcreteModelBase, public IPalBaseCampEnergyGeneratorInterface {
+class UPalMapObjectGenerateEnergyModel : public UPalMapObjectConcreteModelBase, public IPalBaseCampEnergyGeneratorInterface, public IPalBaseCampEnergyStorageInterface {
     GENERATED_BODY()
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateEnergyAmountDelegate, UPalMapObjectGenerateEnergyModel*, Model);
@@ -33,6 +35,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     float ConsumeEnergySpeed;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float ObtainExpByGenerateEnergy;
+    
 public:
     UPalMapObjectGenerateEnergyModel();
 
@@ -41,6 +46,9 @@ public:
 private:
     UFUNCTION(BlueprintCallable)
     void OnUpdateAssignedCharacter_ServerInternal(UPalWorkBase* Work);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnTickCharacterWorkWait_ServerInternal(UPalWorkOnlyJoin* Work);
     
 protected:
     UFUNCTION(BlueprintCallable)

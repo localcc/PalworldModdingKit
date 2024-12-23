@@ -4,9 +4,10 @@
 #include "PalBaseCampFunctionModuleBase.h"
 #include "PalBaseCampItemContainerInfo.h"
 #include "PalBaseCampItemExistsInfo.h"
-#include "PalContainerId.h"
 #include "PalBaseCampModuleItemStorage.generated.h"
 
+class IPalMapObjectItemContainerAccessInterface;
+class UPalMapObjectItemContainerAccessInterface;
 class UPalBaseCampModuleItemStorage;
 class UPalItemContainer;
 class UPalMapObjectConcreteModelBase;
@@ -25,8 +26,11 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     TArray<FPalBaseCampItemContainerInfo> ContainerInfos;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    FPalBaseCampItemContainerInfo GuildContainerInfo;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FPalBaseCampItemExistsInfo> RepairKitItemExistsInfos;
+    TMap<FGuid, FPalBaseCampItemExistsInfo> RepairKitUsableItemExistsInfos;
     
 public:
     UPalBaseCampModuleItemStorage();
@@ -35,17 +39,19 @@ public:
 
 private:
     UFUNCTION(BlueprintCallable)
-    void OnUpdateItemContainer(UPalMapObjectItemContainerModule* ItemContainerModule);
+    void OnUpdateItemContainerModule(UPalMapObjectItemContainerModule* ItemContainerModule);
     
     UFUNCTION(BlueprintCallable)
-    void OnNotAvailableConcreteModel(UPalMapObjectConcreteModelBase* ConcreteModel);
+    void OnUpdateItemContainer(UPalItemContainer* ItemContainer);
     
     UFUNCTION(BlueprintCallable)
-    void OnAvailableConcreteModel(UPalMapObjectConcreteModelBase* ConcreteModel);
+    void OnReadyItemContainerGuildChest(TScriptInterface<IPalMapObjectItemContainerAccessInterface> ItemContainerAccess);
     
-public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    void GetContainerIds(TArray<FPalContainerId>& OutContainerIds) const;
+    UFUNCTION(BlueprintCallable)
+    void OnNotAvailableConcreteModel_ServerInternal(UPalMapObjectConcreteModelBase* ConcreteModel);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnAvailableConcreteModel_ServerInternal(UPalMapObjectConcreteModelBase* ConcreteModel);
     
 };
 

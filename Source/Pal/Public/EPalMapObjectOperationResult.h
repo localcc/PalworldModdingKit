@@ -16,6 +16,7 @@ enum class EPalMapObjectOperationResult : uint8 {
     FailedUnderOceanPlane,
     FailedCannotInstallNotInDoor,
     FailedCannotInstallNotOnBase,
+    FailedNotExistsReplaceTarget,
     FailNotFoundBaseCampWorkerDirectorBelongTo,
     FailedNotEnoughMaterials,
     FailedInValidWeakSelf,
@@ -49,6 +50,7 @@ enum class EPalMapObjectOperationResult : uint8 {
     FailedChestCannotGrounded,
     FailedNotCanDismantleState,
     FailedNotExistRequestPlayer,
+    FailedBuildingLimit,
     Success,
 };
 

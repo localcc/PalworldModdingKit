@@ -68,6 +68,15 @@ public:
     int32 PalCaptureBonusExpTableIndex;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    int32 NpcBonusExpTableIndex;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    int32 AreaBonusExpTableIndex;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    FPalPlayerRecordDataRepInfoArray_BoolVal FindAreaFlag;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FPalPlayerRecordDataRepInfoArray_BoolVal RelicObtainForInstanceFlag;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_RelicNum, meta=(AllowPrivateAccess=true))
@@ -104,6 +113,9 @@ public:
     FPalPlayerRecordDataRepInfoArray_IntVal PalRankupCount;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FGuid> CompletedEmoteNPCIDArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FString Debug_EnteringStageDataLayerName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
@@ -131,6 +143,13 @@ protected:
 private:
     UFUNCTION(BlueprintCallable)
     void OnCompleteBuild_ServerInternal(UPalMapObjectModel* MapObjectModel);
+    
+public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetFoundedAreaNum() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetBonusExpTableIndex() const;
     
 };
 

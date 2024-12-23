@@ -32,5 +32,8 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetOtomoBaseCampAction();
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsSameTargetAsTrainerCommand() const;
+    
 };
 

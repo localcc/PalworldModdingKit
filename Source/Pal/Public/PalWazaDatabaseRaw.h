@@ -8,6 +8,7 @@
 #include "EPalWazaCategory.h"
 #include "EPalWazaID.h"
 #include "PalSpecialAttackRateInfo.h"
+#include "PalWazaCustomExecuteCondition.h"
 #include "PalWazaDatabaseRaw.generated.h"
 
 USTRUCT(BlueprintType)
@@ -73,6 +74,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsWeaponDamage;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FPalWazaCustomExecuteCondition> WazaCustomExecuteConditions;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool DisabledData;

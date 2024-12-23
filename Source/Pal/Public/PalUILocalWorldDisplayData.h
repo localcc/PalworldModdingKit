@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "EPalWorldBaseInfoSaveDataType.h"
+#include "PalOptionWorldSettings.h"
 #include "PalUILocalWorldDisplayData.generated.h"
 
 USTRUCT(BlueprintType)
@@ -34,6 +35,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalWorldBaseInfoSaveDataType BaseInfoSaveDataType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalOptionWorldSettings WorldSettingData;
     
     PAL_API FPalUILocalWorldDisplayData();
 };

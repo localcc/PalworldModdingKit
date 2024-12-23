@@ -16,5 +16,9 @@ private:
 public:
     USequentialProcessHandle();
 
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnChangeChildProcessHandleState(USequentialProcessHandle* ChangedProcessHandle);
+    
 };
 

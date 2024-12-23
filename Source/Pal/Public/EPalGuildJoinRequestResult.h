@@ -27,6 +27,8 @@ enum class EPalGuildJoinRequestResult : uint8 {
     Failed_OverBaseCampNum_Respondent,
     Failed_NotEnoughSpaceStoreBackBaseCampWorkers_Applicant,
     Failed_NotEnoughSpaceStoreBackBaseCampWorkers_Respondent,
+    Failed_NotEmptyGuildItemStorage_Applicant,
+    Failed_NotEmptyGuildItemStorage_Respondent,
     Separator_Success_Failed,
     Succcess_MergePalBox_Applicant,
     Succcess_MergePalBox_Respondent,

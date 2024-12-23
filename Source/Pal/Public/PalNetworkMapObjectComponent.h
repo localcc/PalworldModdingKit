@@ -209,11 +209,24 @@ private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void NotifyConcreteModel_Multicast_bool(const FGuid& ConcreteModelInstanceId, const FName FunctionName, bool Value);
     
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Dev_RequestDismantleMapObject_ToServer(const FGuid& InstanceId);
+    
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void Dev_ReceiveMapObjectsTickIntervalInBackground_ToClient(const TArray<FPalNetworkMapObjectTickIntervalInBackgroundInfo>& TickIntervalInfoArray);
     
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void Dev_ReceiveDismantleMapObjectResult_ToClient(const FString& ResultMessage);
+    
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Dev_FetchMapObjectsTickIntervalInBackground_ToServer();
+    
+public:
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void BroadcastStartTeamMissionLog_ToServer(const FGuid& ConcreteModelInstanceId);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void AddStartTeamMissionLog_ToServer();
     
 };
 

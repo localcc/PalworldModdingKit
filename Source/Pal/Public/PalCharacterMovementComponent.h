@@ -15,6 +15,7 @@
 class APalCharacter;
 class UActorComponent;
 class UPalCharacterMovementComponent;
+class UPrimitiveComponent;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalCharacterMovementComponent : public UCharacterMovementComponent {
@@ -127,7 +128,16 @@ public:
     bool bIsUseLastLandedCache;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float OverrideFlySpeed;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float OverrideFlySprintSpeed;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<int32, float> OverrideJumpZVelocityMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float SearchAgentRadiusFactor;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -197,6 +207,12 @@ private:
     FFlagContainer NavWalkDisableFlag;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FFlagContainer BlowVelocityDisableFlag;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FFlagContainer TickOptimizationDisableFlag;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<EPalWalkableFloorAnglePriority, float> WalkableFloorAngleOverridesMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -212,6 +228,12 @@ private:
     float RideSprintSpeed_Default;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float FlySpeed_Default;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float FlySprintSpeed_Default;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float TransportSpeed_Default;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -222,6 +244,12 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float DefaultMaxStepHeight;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bSimulatedJump;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TEnumAsByte<ENetRole> LastNetRole;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_CustomMovementMode_ForReplicate, meta=(AllowPrivateAccess=true))
     EPalCharacterMovementCustomMode CustomMovementMode_ForReplicate;
@@ -251,6 +279,15 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     bool bIsDashSwim;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    TArray<UPrimitiveComponent*> TempIgnore_ForPenetration;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float CacheTickInterval;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float ReserveTickInterval;
     
 public:
     UPalCharacterMovementComponent(const FObjectInitializer& ObjectInitializer);
@@ -294,6 +331,9 @@ public:
     void SetPysicsAccelerationFlag(FName flagName, bool IsEnable);
     
     UFUNCTION(BlueprintCallable)
+    void SetNetworkSmoothingMode(ENetworkSmoothingMode newMode, bool bResetMeshLocation);
+    
+    UFUNCTION(BlueprintCallable)
     void SetNavWalkDisableFlag(FName flagName, bool isDisable);
     
     UFUNCTION(BlueprintCallable)
@@ -323,6 +363,9 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetDriveMoveFlag(FName flagName, bool IsEnable);
     
+    UFUNCTION(BlueprintCallable)
+    void SetDisableTickOptimization(FName flagName, bool isDisable);
+    
 private:
     UFUNCTION(BlueprintCallable)
     void SetDisableLeftHandAttachFlag(bool isDisable);
@@ -341,7 +384,13 @@ public:
     void SetCrouchDisbleFlag(FName flagName, bool Disable);
     
     UFUNCTION(BlueprintCallable)
+    void SetBlowVelocityDisableFlag(FName flagName, bool isDisable);
+    
+    UFUNCTION(BlueprintCallable)
     void SetAirControlXYMultiplier(FName flagName, float Rate);
+    
+    UFUNCTION(BlueprintCallable)
+    void ResetNetworkSmoothingModeToDefault(bool bResetMeshLocation);
     
     UFUNCTION(BlueprintCallable)
     void ResetLastLandingLocationCache();
@@ -381,6 +430,12 @@ public:
     void Jump();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsTickOptimizationDisabled() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsSteppingShallows() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsStepDisabled() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -388,6 +443,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSliding() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsRolling() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsRequestSliding() const;
@@ -430,6 +488,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsClimbing() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsBlowVelocityDisabled() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetYawRotatorMultiplier() const;

@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "EPalCurveBall.h"
 #include "EPalPassiveSkillEffectType.h"
 #include "EPalStatusID.h"
 #include "FlagContainer.h"
@@ -9,6 +10,7 @@
 #include "PalSpecialAttackRateInfo.h"
 #include "PalPassiveSkillComponent.generated.h"
 
+class APalCharacter;
 class UObject;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
@@ -66,10 +68,16 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
+    void OnUpdateCharacterRank(int32 NowRank, int32 OldRank);
+    
+    UFUNCTION(BlueprintCallable)
     void OnStartSkillEffect(EPalPassiveSkillEffectType EffectType, float Value);
     
     UFUNCTION(BlueprintCallable)
     void OnRep_SkillInfos();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnInitializedCharacter(APalCharacter* OwnerCharacter);
     
     UFUNCTION(BlueprintCallable)
     void OnEndSkillEffect(EPalPassiveSkillEffectType EffectType);
@@ -82,7 +90,13 @@ public:
     bool IsDisablePassiveSkill() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool HasSkill(EPalPassiveSkillEffectType Type, bool containEquip);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetParameterWithPassiveSkillEffect(float originalValue, EPalPassiveSkillEffectType EffectType, bool containEquip);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    EPalCurveBall GetCurveBallTypePassiveEffectByPlayerEquip();
     
     UFUNCTION(BlueprintCallable)
     void AddSpecialAttackRateInfo(TArray<FPalSpecialAttackRateInfo>& SpecialAttackRateInfos);

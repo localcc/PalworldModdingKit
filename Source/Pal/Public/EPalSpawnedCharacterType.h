@@ -11,5 +11,7 @@ enum class EPalSpawnedCharacterType : uint8 {
     ImprisonmentBoss,
     TowerBoss,
     RaidBoss,
+    RaidBossServant,
+    Predator,
 };
 

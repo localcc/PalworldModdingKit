@@ -1,6 +1,7 @@
 #include "PalHiddenBoxComponent.h"
 
 UPalHiddenBoxComponent::UPalHiddenBoxComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->ShapeBodySetup = NULL;
 }
 
 void UPalHiddenBoxComponent::EndOverlapEvent(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex) {

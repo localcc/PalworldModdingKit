@@ -10,6 +10,14 @@ UPalCoopSkillSearchSystem::UPalCoopSkillSearchSystem() {
 void UPalCoopSkillSearchSystem::StartSearchEffect(const FPalCoopSkillSearchEffectParameter& EffectParam) {
 }
 
+bool UPalCoopSkillSearchSystem::IsRunning() const {
+    return false;
+}
+
+bool UPalCoopSkillSearchSystem::IsFadingOut() const {
+    return false;
+}
+
 UPalCoopSkillSearchBase* UPalCoopSkillSearchSystem::CreateSearchObject(TSubclassOf<UPalCoopSkillSearchBase> SearchClass) {
     return NULL;
 }

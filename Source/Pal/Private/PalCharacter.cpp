@@ -39,6 +39,7 @@ APalCharacter::APalCharacter(const FObjectInitializer& ObjectInitializer) : Supe
     this->bIsTalkMode = false;
     this->FlyMeshHeightCtrlComponent = NULL;
     this->bIsPalActiveActor = true;
+    this->bIsOtomoCollision = false;
     this->bIsLocalInitialized = false;
     this->bIsDisable_ChangeTickInterval_ByImportance = false;
     this->ImportanceType = EPalCharacterImportanceType::Near;
@@ -50,13 +51,19 @@ APalCharacter::APalCharacter(const FObjectInitializer& ObjectInitializer) : Supe
     this->RagdollInteractiveSphere->SetupAttachment(RootComponent);
 }
 
-void APalCharacter::UpdateGroundRayCast() {
+void APalCharacter::UpdateGroundRayCast(bool bImmediateApply) {
 }
 
 void APalCharacter::SetVisibleHandAttachMesh(bool Active) {
 }
 
 void APalCharacter::SetVisibleCharacterMesh(bool Active) {
+}
+
+void APalCharacter::SetRideMeshTranslationOffset(FVector InNewRideMeshTranslationOffset) {
+}
+
+void APalCharacter::SetOtomoCollisionProfile_Implementation(bool IsOtomoCollision) {
 }
 
 void APalCharacter::SetDisableChangeIntervalByImportance(FName flagName, bool isDisable) {
@@ -80,6 +87,9 @@ void APalCharacter::ResetTickInterval() {
 void APalCharacter::RequestJump() {
 }
 
+void APalCharacter::RequestExecuteTickNextFrameForAction() {
+}
+
 void APalCharacter::Play2Montage_WithPlayRate(UAnimMontage* firstMontage, UAnimMontage* nextMontage, float PlayRate) {
 }
 
@@ -95,16 +105,26 @@ void APalCharacter::OnRep_RootCollisionProfileName() {
 void APalCharacter::OnRep_IsPalActiveActor(bool PrevIsActiveActor) {
 }
 
+void APalCharacter::OnRep_IsOtomoCollision(bool PrevbIsOtomoCollision) {
+}
+
 void APalCharacter::OnOverlapEndByAroundInfo(AActor* OtherActor) {
 }
 
 void APalCharacter::OnOverlapBeginByAroundInfo(AActor* OtherActor) {
 }
 
+void APalCharacter::OnDeadCharacter(FPalDeadInfo DeadInfo) {
+}
+
 void APalCharacter::OnChangeWetnessStatus(bool IsSwim) {
 }
 
 void APalCharacter::LocalInitialized() {
+}
+
+bool APalCharacter::IsPreCooping() const {
+    return false;
 }
 
 bool APalCharacter::IsInitialized() const {
@@ -118,6 +138,10 @@ bool APalCharacter::IsCooping() const {
 
 bool APalCharacter::GetTalkMode() const {
     return false;
+}
+
+FVector APalCharacter::GetRideMeshTranslationOffset() const {
+    return FVector{};
 }
 
 UPalCharacterMovementComponent* APalCharacter::GetPalCharacterMovementComponent() const {
@@ -154,6 +178,9 @@ UPalActionComponent* APalCharacter::GetActionComponent() const {
     return NULL;
 }
 
+void APalCharacter::ForceResetJumpState() {
+}
+
 void APalCharacter::ChangeWantFood_ToAll_Implementation(bool IsWantFood, bool IsExistFood) {
 }
 
@@ -176,6 +203,7 @@ void APalCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(APalCharacter, bIsPalActiveActor);
+    DOREPLIFETIME(APalCharacter, bIsOtomoCollision);
     DOREPLIFETIME(APalCharacter, RootCollisionProfileName);
 }
 

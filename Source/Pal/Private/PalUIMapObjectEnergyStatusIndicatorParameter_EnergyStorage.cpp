@@ -1,0 +1,6 @@
+#include "PalUIMapObjectEnergyStatusIndicatorParameter_EnergyStorage.h"
+
+UPalUIMapObjectEnergyStatusIndicatorParameter_EnergyStorage::UPalUIMapObjectEnergyStatusIndicatorParameter_EnergyStorage() {
+}
+
+

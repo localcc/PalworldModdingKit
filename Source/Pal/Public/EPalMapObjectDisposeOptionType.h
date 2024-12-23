@@ -12,5 +12,6 @@ enum class EPalMapObjectDisposeOptionType : uint8 {
     ByUnloadStage,
     DropBuildMaterials,
     RequireRespawnImmediately,
+    Replace,
 };
 

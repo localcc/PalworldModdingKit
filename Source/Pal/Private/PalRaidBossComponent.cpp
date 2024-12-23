@@ -42,7 +42,7 @@ APalPlayerCharacter* UPalRaidBossComponent::FindInRangePlayers(TArray<APalPlayer
 void UPalRaidBossComponent::CallOnEnd_ToAll_Implementation(EPalRaidBossBattleFinishType FinishType) {
 }
 
-void UPalRaidBossComponent::AddGroupCharacter(UPalIndividualCharacterHandle* PalHandle) {
+void UPalRaidBossComponent::AddGroupCharacter(UPalIndividualCharacterHandle* PalHandle, bool IsBoss) {
 }
 
 void UPalRaidBossComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {

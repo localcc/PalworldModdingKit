@@ -31,6 +31,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bIsMutekiALL = false;
     this->bIsMutekiForPlayer = false;
     this->bIsMutekiForFriend = false;
+    this->bIsRemainHpOneOnDamage = false;
     this->bDisableDeathPenalty = false;
     this->bIgnoreRespawnTimer = false;
     this->bIsDisableDyingCountdown = false;
@@ -51,9 +52,11 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bIsShowGroundObjectName = false;
     this->bIsShowForwardObjectName = false;
     this->bDisableStatus_Darkness = false;
+    this->bIsEnableArachnophobiaMode = false;
     this->bIsIgnoreBuildRestrictionBaseCamp = false;
     this->ConfirmTransportItemBaseSpeedType = EPalMovementSpeedType::Run;
     this->ConfirmTransportItemSpeedMultipleRate = 1.00f;
+    this->bPrintLogMergeDropItemInBaseCamp = false;
     this->bNotConsumeMaterialsInBuild = false;
     this->BuildRequiredWorkAmount = 0.00f;
     this->bIsDisableEnemyEyeSight = false;
@@ -86,6 +89,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bIsRandomizerType_Override = false;
     this->RandomizerType_Override = EPalRandomizerType::None;
     this->bIsRandomizerSeed_Override = false;
+    this->bIsRandomizerSeed_Override_Random = false;
     this->OverrideSpawnRadius = -1.00f;
     this->OverrideDespawnRadius = -1.00f;
     this->bIsPlayerCompleteSTEALTH = false;
@@ -102,7 +106,6 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bIsDisableFootIK = false;
     this->bBuildInstallCheckLookToCamera = true;
     this->bBuildFXDebugLog = false;
-    this->bDamageTextStack = false;
     this->bFootStepNotify_DebugDisplay = false;
     this->bSkipBossCutscene = false;
     this->bShowRangeDistributeExpAround = false;
@@ -129,6 +132,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bForceRunInWork = false;
     this->bContinueSpeedInTransportWork = false;
     this->bNotInterruptTransportingWork = false;
+    this->bShowRepairWorkDebugLog = false;
     this->bPrintLogWorkerEventDetail = false;
     this->BaseCampWorkerEventTriggerInterval = -1.00f;
     this->IgnoreBaseCampTask = false;
@@ -138,6 +142,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bBaseCampShowCannotTransportTarget = false;
     this->bBaseCampMoveModeTeleportForce = false;
     this->bShowBaseCampSquaredDistanceFromPlayer = false;
+    this->bBaseCampWorkerWaitOnlyRestAction = false;
     this->bVisibleSpawnPointFromPalBox = false;
     this->fallBackDefense = 0;
     this->bDebugLogWorldSecurity = false;
@@ -188,6 +193,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bForceShowHPGauge = false;
     this->bForceWordFilter_ACE = false;
     this->ForceWordFilterAPIType_ACE = EPalACEWordFilterAPIType::Unknown;
+    this->bUseDebugUI_GuildLab = false;
     this->bIsFixedRandomSeed = false;
     this->actionRandomSeed = 1192;
     this->bAvailableBuildObjectInDevelop = false;
@@ -195,6 +201,8 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bDisableObstacleCheckFromCameraInBuild = false;
     this->bDrawDebugInstallConnection = false;
     this->bDrawDebugSnapMode = false;
+    this->bDisableBuildObjectChangeVisibility_Imposter = false;
+    this->bDisableBuildObjectChangeVisibility_Significance = false;
     this->bUseEagleForGlider = false;
     this->bEquipDefaultGlider = true;
     this->ExtraHpRegenRateInSleepingBed = 1.00f;
@@ -226,6 +234,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bIsShowAudioSoundPlayer = false;
     this->bForceSpawnRandomIncident = false;
     this->bForceDisableSpawnRandomIncident = false;
+    this->bForceSpawnRandomIncidentLotteryDataOnly = false;
     this->bShowRandomIncidentSpawnArea = false;
     this->bShowRandomIncidentEndArea = false;
     this->bShowRandomIncidentExcludeArea = false;
@@ -275,10 +284,28 @@ UPalDebugSetting::UPalDebugSetting() {
     this->EnableBossBattleHard = false;
     this->bLoadWorldOptionInTestLevel = false;
     this->bOilrigGoalShow = false;
+    this->bDisableOilrigCannon = false;
+    this->bDisableOilrigNPCOtomoDistanceCombatEnd = false;
+    this->bEnableFixedCannonDebugPrint = false;
     this->bIgnoreTreasureBoxKey = false;
     this->bAllUnlockSkin = false;
+    this->bFakeUGCOnlineID = false;
     this->bEnableUserAchievementDebug = false;
     this->HardTowerBossDebugNo = 0;
+    this->bDisableOilRigMessage = false;
+    this->bDisableOverrideCreateDynamicItemDataBase = false;
+    this->bEnableBattleModeLog = false;
+    this->bAutoCompletionGetItemId = false;
+    this->EnableOperatingTableDebug = false;
+    this->OperatingTableChangePassiveSkillIndex = -1;
+    this->bAccountTypeFailurePlayOnline = false;
+    this->bUnlockAllTeamMission = false;
+    this->bKillOnPlayerRide = false;
+    this->bDisableInteractLockComponent = false;
+}
+
+TArray<FString> UPalDebugSetting::GetDataLayerRuntimeSettingsNames() const {
+    return TArray<FString>();
 }
 
 

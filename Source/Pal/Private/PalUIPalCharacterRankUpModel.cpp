@@ -26,7 +26,7 @@ bool UPalUIPalCharacterRankUpModel::SelectResourceCharacterTo(UPalIndividualChar
 void UPalUIPalCharacterRankUpModel::OnUpdateTargetSlot(UPalIndividualCharacterReferenceSlot* Slot, FPalInstanceID LastIndividualId) {
 }
 
-void UPalUIPalCharacterRankUpModel::OnUpdateTargetCharacterRank(const int32 nowRank, const int32 oldRank) {
+void UPalUIPalCharacterRankUpModel::OnUpdateTargetCharacterRank(const int32 NowRank, const int32 OldRank) {
 }
 
 void UPalUIPalCharacterRankUpModel::OnUpdateResourceSlot(UPalIndividualCharacterReferenceSlot* Slot, FPalInstanceID LastIndividualId) {

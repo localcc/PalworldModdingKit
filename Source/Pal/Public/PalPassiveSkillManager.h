@@ -70,6 +70,9 @@ public:
     static float GetParameterWithSkillEffect(float originalValue, EPalPassiveSkillEffectType EffectType, const TArray<FPalPassiveSkillEffect>& skillEffectList);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    void GetPalAssignablePassiveIDs(TArray<FName>& List);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FName GetNameTextId(FName SkillName);
     
 };

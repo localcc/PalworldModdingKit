@@ -57,21 +57,24 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FFlagContainer DisableUpperOverrideFlag;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float MoveSpeedOverride;
+    
 public:
     UPalAnimInstance();
     UFUNCTION(BlueprintCallable)
     void SetUpperOverrideDisableFlag(FName flagName, bool isDisable);
     
     UFUNCTION(BlueprintCallable)
+    void SetMoveSpeedOverride(const float InMoveSpeed);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetForceSprintForNPC(const bool bOn);
+    
+    UFUNCTION(BlueprintCallable)
     void SetAdditiveAnimationRate(FName flagName, float Rate);
     
 private:
-    UFUNCTION()
-    void OnNotifyEndReceived(FName NotifyName, const FBranchingPointNotifyPayload& BranchingPointNotifyPayload);
-    
-    UFUNCTION()
-    void OnNotifyBeginReceived(FName NotifyName, const FBranchingPointNotifyPayload& BranchingPointNotifyPayload);
-    
     UFUNCTION(BlueprintCallable)
     void OnMontageEndedCallback(UAnimMontage* Montage, bool bInterrupted);
     
@@ -102,6 +105,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalBoneInfo* GetBoneInfo(FName BoneName);
+    
+    UFUNCTION(BlueprintCallable)
+    void ClearMoveSpeedOverride();
     
     UFUNCTION(BlueprintCallable)
     void CalcLength(FName Target, FName nextBone, float tipLength);

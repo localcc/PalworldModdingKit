@@ -9,6 +9,7 @@ USTRUCT(BlueprintType)
 struct FPalBaseCampItemStackRepInfo : public FFastArraySerializerItem {
     GENERATED_BODY()
 public:
+private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FGuid MapObjectConcreteModelInstanceId;
     
@@ -18,6 +19,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FPalBaseCampItemStackInfo> ItemStackInfos;
     
+public:
     PAL_API FPalBaseCampItemStackRepInfo();
 };
 

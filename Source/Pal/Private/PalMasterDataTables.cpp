@@ -29,12 +29,17 @@ UPalMasterDataTables::UPalMasterDataTables() {
     this->Access_FieldLotteryNameDataTable = NULL;
     this->ItemLotteryDataTable = NULL;
     this->Access_ItemLotteryDataTable = NULL;
+    this->EmoteNPCLotteryDataTable = NULL;
+    this->Access_EmoteNPCLotteryDataTable = NULL;
     this->PlayerStatusRankDataTable = NULL;
     this->Access_PlayerStatusRankDataTable = NULL;
     this->CharacterUpgradeDataTable = NULL;
     this->Access_CharacterUpgradeDataTable = NULL;
     this->NoteDataAsset = NULL;
     this->HelpGuideDataAsset = NULL;
+    this->AchivementRewardDataAsset = NULL;
+    this->ItemRequestNPCDataAsset = NULL;
+    this->PalDisplayNPCDataAsset = NULL;
     this->UIInputActionDataTable = NULL;
     this->Access_UIInputActionDataTable = NULL;
     this->worldMapDataTable = NULL;
@@ -48,6 +53,18 @@ UPalMasterDataTables::UPalMasterDataTables() {
     this->Access_SpawnerPlacementDataTable = NULL;
     this->PalRandomizerDataTable = NULL;
     this->Access_PalRandomizerDataTable = NULL;
+    this->CharacterTeamMissionDataTable = NULL;
+    this->Access_CharacterTeamMissionDataTable = NULL;
+    this->CharacterTeamMissionChallengeConditionDataTable = NULL;
+    this->Access_CharacterTeamMissionChallengeConditionDataTable = NULL;
+    this->LabResearchDataTable = NULL;
+    this->Access_LabResearchDataTable = NULL;
+    this->WorldMapAreaDataTable = NULL;
+    this->Access_WorldMapAreaDataTable = NULL;
+    this->BossSpawnerUIDataTable = NULL;
+    this->Access_BossSpawnerUIDataTable = NULL;
+    this->FarmSkillFruitsLotteryDataTable = NULL;
+    this->Access_FarmSkillFruitsLotteryDataTable = NULL;
 }
 
 

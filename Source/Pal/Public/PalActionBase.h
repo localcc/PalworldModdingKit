@@ -66,6 +66,11 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnUpdatePassiveSkill(EPalPassiveSkillEffectType EffectType, float Value);
     
+public:
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void OnQueueAction();
+    
+private:
     UFUNCTION(BlueprintCallable)
     void OnEndPassiveSkill(EPalPassiveSkillEffectType EffectType);
     
@@ -83,6 +88,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnBeginAction();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsReflectedForClient();
     
     UFUNCTION(BlueprintCallable)
     bool IsInServer() const;

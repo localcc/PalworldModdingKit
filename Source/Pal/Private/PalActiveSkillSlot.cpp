@@ -56,6 +56,10 @@ bool UPalActiveSkillSlot::IsCoolTimeFinish(int32 SlotID) const {
     return false;
 }
 
+bool UPalActiveSkillSlot::IsConditionSatisfy(int32 SlotID) const {
+    return false;
+}
+
 void UPalActiveSkillSlot::InitObject(AActor* ActorSelf) {
 }
 
@@ -80,6 +84,10 @@ float UPalActiveSkillSlot::GetCoolTime(int32 SlotID) const {
 }
 
 int32 UPalActiveSkillSlot::FindSlotIndexByWazaID(EPalWazaID WazaID) {
+    return 0;
+}
+
+int32 UPalActiveSkillSlot::FindSlotIDForWildPal() {
     return 0;
 }
 

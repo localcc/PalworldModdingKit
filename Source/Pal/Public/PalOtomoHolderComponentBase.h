@@ -63,6 +63,12 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bDisableDeadReturnOtomo;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bDisableReturnOtomo;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bReleaseContainerOnDestory;
+    
 public:
     UPalOtomoHolderComponentBase(const FObjectInitializer& ObjectInitializer);
 
@@ -129,6 +135,9 @@ protected:
     
 public:
     UFUNCTION(BlueprintCallable)
+    void SetDisableReturnOtomo(bool bDisable);
+    
+    UFUNCTION(BlueprintCallable)
     void SetDisableDeadReturnOtomo(bool bDisable);
     
 private:
@@ -166,6 +175,9 @@ private:
 public:
     UFUNCTION(BlueprintCallable, Client, Reliable, BlueprintPure=false)
     void LostOtomoByID_ToClient(FPalInstanceID ID) const;
+    
+    UFUNCTION(BlueprintCallable)
+    void LostOtomoByID(FPalInstanceID ID) const;
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure)
     bool IsValidCurrentSelectPalActor();
@@ -315,10 +327,16 @@ public:
     void AddLogOtomoPartnerSkill_ToClient(AActor* Otomo, EPalLogType PalLogType, int32 Value, bool AddSkillName);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
-    void AddLogOtomoPartnerSkill_Text_ToClient(AActor* Otomo, FName textID);
+    void AddLogOtomoPartnerSkill_Text_ToClient(AActor* Otomo, FName TextId);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void ActivateCurrentOtomoNearThePlayer_ToServer();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     bool ActivateCurrentOtomoNearThePlayer();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void ActivateCurrentOtomoFromBallNative(FTransform ballTransform, AActor* hitTarget);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     bool ActivateCurrentOtomo(FTransform SpawnTransform);

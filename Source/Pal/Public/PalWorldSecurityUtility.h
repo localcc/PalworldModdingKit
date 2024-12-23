@@ -17,6 +17,9 @@ public:
     static bool IsCriminalCharacter(APalCharacter* Target);
     
     UFUNCTION(BlueprintCallable)
+    static bool FindWantedsInSight(APalCharacter* Target, TArray<APalCharacter*>& Wanteds);
+    
+    UFUNCTION(BlueprintCallable)
     static bool FindCriminalsInSight(APalCharacter* Target, TArray<APalCharacter*>& Criminals);
     
 };

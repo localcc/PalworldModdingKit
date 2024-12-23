@@ -12,6 +12,12 @@ void UPalNetworkBaseCampComponent::RequestReplicateBaseCampWork_ToServer_Impleme
 void UPalNetworkBaseCampComponent::RequestReplicateBaseCampItemStackInfo_ToServer_Implementation(const FGuid& BaseCampId, const bool bReplicate) {
 }
 
+void UPalNetworkBaseCampComponent::RequestMoveItemToInventory_ToServer_Implementation(const FGuid& BaseCampId, const FPalItemId& ItemId, const int32 Num) {
+}
+
+void UPalNetworkBaseCampComponent::RequestMoveInventoryItemToBaseCamp_ToServer_Implementation(const TArray<FPalItemSlotId>& InventoryItemSlotIds, const FGuid& BaseCampId) {
+}
+
 void UPalNetworkBaseCampComponent::RequestModule_Server_void_Implementation(const FGuid& BaseCampId, const EPalBaseCampModuleType ModuleType, const FName FunctionName) {
 }
 
@@ -127,6 +133,9 @@ void UPalNetworkBaseCampComponent::BroadcastBaseCampLog_Server_Implementation(co
 }
 
 void UPalNetworkBaseCampComponent::BroadcastAddBaseCampBurningLog_Server_Implementation(const FGuid& BaseCampId) {
+}
+
+void UPalNetworkBaseCampComponent::AddBaseCampWorkerLowSanityLog_Client_Implementation(const FPalInstanceID& WorkerCharacterInstanceId) {
 }
 
 void UPalNetworkBaseCampComponent::AddBaseCampWorkerLog_Client_Implementation(EPalLogType DisplayLogType, const FPalInstanceID& WorkerCharacterInstanceId, const FName& EventDataID) {

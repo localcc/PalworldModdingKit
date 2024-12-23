@@ -7,7 +7,7 @@ UPalQuestBlock::UPalQuestBlock() {
 void UPalQuestBlock::Setup() {
 }
 
-void UPalQuestBlock::SetCanComplete(bool Flag) {
+void UPalQuestBlock::SetCanComplete(bool flag) {
 }
 
 

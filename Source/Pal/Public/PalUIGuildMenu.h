@@ -51,6 +51,12 @@ protected:
     UPalGroupGuildBase* GetMyGuild() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    void GetGuildNameModifierPlayerUId(FGuid& OutAdminPlayerUId);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    void GetGuildNameByCheckBlockedUser(FString& OutGuildName) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetGuildName(FString& OutGuildName) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

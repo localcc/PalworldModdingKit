@@ -16,6 +16,7 @@ class UPalGroupGuildBase : public UPalGroupOrganization {
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdatedGuildNameDelegate, const FString&, NewGuildName);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FReturnSelfDelegate, UPalGroupGuildBase*, Self);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FNotifyPlayerUIdDelegate, const UPalGroupGuildBase*, Self, const FGuid&, PlayerUId);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FNotifyPlayerInfoDelegate, const UPalGroupGuildBase*, Self, const FGuid&, PlayerUId, const FPalGuildPlayerInfo&, PlayerInfo);
     
 protected:
@@ -39,6 +40,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bAllPlayerNotOnlineAndAlreadyReset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    FGuid LastGuildNameModifierPlayerUid;
     
 public:
     UPalGroupGuildBase();
@@ -64,6 +68,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetWorkerCapacityNum(int32 InLevel) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    void GetGuildNameByCheckBlockedUser(FString& outName) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetGuildName() const;

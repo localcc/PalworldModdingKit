@@ -12,6 +12,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 LimitFlags;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bWorldBuildAreaLimit;
+    
 public:
     UPalLimitVolumeSphereComponent(const FObjectInitializer& ObjectInitializer);
 

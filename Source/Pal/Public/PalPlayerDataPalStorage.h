@@ -2,6 +2,8 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/Object.h"
+#include "FlagContainer.h"
+#include "PalInstanceID.h"
 #include "PalPlayerDataPalStorage.generated.h"
 
 class UPalIndividualCharacterContainer;
@@ -33,6 +35,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsForceSyncAllSlot;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FPalInstanceID, FFlagContainer> RequiredReplicatesFlagMapInServer;
     
 public:
     UPalPlayerDataPalStorage();

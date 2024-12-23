@@ -54,6 +54,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FVector InstallLocationOffset;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TEnumAsByte<EComponentMobility::Type> DefaultMobility;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UPalBuildObjectVisualControlComponent* VisualCtrl;
     
@@ -87,8 +90,11 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FComponentReference MainMeshRef;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FVector MainMeshCenterOffset;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FVector SnapCheckCoolisionCenterOffset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FBoxSphereBounds SnapCheckCollisionBounds;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_CurrentState, meta=(AllowPrivateAccess=true))
     EPalBuildObjectState CurrentState;
@@ -136,7 +142,7 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
-    void OnUpdateHp(UPalMapObjectModel* DamagedModel);
+    void OnUpdateHP(UPalMapObjectModel* DamagedModel);
     
     UFUNCTION(BlueprintCallable)
     void OnUpdateBuildWorkAmount(UPalWorkProgress* WorkProgress);

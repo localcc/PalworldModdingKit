@@ -12,6 +12,7 @@ UPalPlayerAccount::UPalPlayerAccount() {
     this->PlayerSkinData = NULL;
     this->bIsSelectedInitMapPoint = false;
     this->bShouldSaveOnNextTime = false;
+    this->PsnAccountId = 0;
 }
 
 

@@ -4,15 +4,16 @@
 #include "EPalMapObjectItemContainerSlotAttribute.h"
 #include "PalContainerId.h"
 #include "PalMapObjectConcreteModelModuleBase.h"
+#include "PalMapObjectItemContainerAccessDelegateDelegate.h"
+#include "PalMapObjectItemContainerAccessInterface.h"
 #include "PalMapObjectItemContainerModuleSlotIndexes.h"
-#include "PalNetArchive.h"
 #include "PalMapObjectItemContainerModule.generated.h"
 
 class UPalItemContainer;
 class UPalMapObjectItemContainerModule;
 
 UCLASS(Blueprintable)
-class UPalMapObjectItemContainerModule : public UPalMapObjectConcreteModelModuleBase {
+class UPalMapObjectItemContainerModule : public UPalMapObjectConcreteModelModuleBase, public IPalMapObjectItemContainerAccessInterface {
     GENERATED_BODY()
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateContentsMulticastDelegate, UPalMapObjectItemContainerModule*, Module);
@@ -53,18 +54,6 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
-    void RequestChangeFilter_ServerInternal(const int32 RequestPlayerId, const FPalNetArchive& Archive);
-    
-    UFUNCTION(BlueprintCallable)
-    void RequestChangeAllFilterUncheck_ServerInternal();
-    
-    UFUNCTION(BlueprintCallable)
-    void RequestChangeAllFilterCheck_ServerInternal();
-    
-    UFUNCTION(BlueprintCallable)
-    void OnUpdateFilterPreference(UPalItemContainer* Container);
-    
-    UFUNCTION(BlueprintCallable)
     void OnUpdateContents(UPalItemContainer* Container);
     
 protected:
@@ -73,9 +62,6 @@ protected:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    TArray<FName> GetFilterOffList() const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
     FPalContainerId GetContainerId() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -83,6 +69,29 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void BindUpdateContents(UPalMapObjectItemContainerModule::FUpdateContentsDelegate Delegate);
+    
+
+    // Fix for true pure virtual functions not being implemented
+    UFUNCTION(BlueprintCallable)
+    void UnregisterOnReadyItemContainerEvent(FPalMapObjectItemContainerAccessDelegate Delegate) override PURE_VIRTUAL(UnregisterOnReadyItemContainerEvent,);
+    
+    UFUNCTION(BlueprintCallable)
+    void RequestStopItemContainerReplication() const override PURE_VIRTUAL(RequestStopItemContainerReplication,);
+    
+    UFUNCTION(BlueprintCallable)
+    void RequestStartItemContainerReplication() const override PURE_VIRTUAL(RequestStartItemContainerReplication,);
+    
+    UFUNCTION(BlueprintCallable)
+    void RequestSortContainer_ItemContainerAccessInterface() override PURE_VIRTUAL(RequestSortContainer_ItemContainerAccessInterface,);
+    
+    UFUNCTION(BlueprintCallable)
+    void RegisterOnReadyItemContainerEvent(FPalMapObjectItemContainerAccessDelegate Delegate) override PURE_VIRTUAL(RegisterOnReadyItemContainerEvent,);
+    
+    UFUNCTION(BlueprintCallable)
+    UPalItemContainer* GetItemContainer_ItemContainerAccessInterface() const override PURE_VIRTUAL(GetItemContainer_ItemContainerAccessInterface, return NULL;);
+    
+    UFUNCTION(BlueprintCallable)
+    void CallOrRegisterOnReadyItemContainerEvent(FPalMapObjectItemContainerAccessDelegate Delegate) override PURE_VIRTUAL(CallOrRegisterOnReadyItemContainerEvent,);
     
 };
 

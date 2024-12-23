@@ -3,18 +3,19 @@
 UPalAnimInstance::UPalAnimInstance() {
     this->IsRotateYawInterpolation = false;
     this->RotateYawInterpolation_Acceleration = 0.00f;
+    this->MoveSpeedOverride = -1.00f;
 }
 
 void UPalAnimInstance::SetUpperOverrideDisableFlag(FName flagName, bool isDisable) {
 }
 
+void UPalAnimInstance::SetMoveSpeedOverride(const float InMoveSpeed) {
+}
+
+void UPalAnimInstance::SetForceSprintForNPC(const bool bOn) {
+}
+
 void UPalAnimInstance::SetAdditiveAnimationRate(FName flagName, float Rate) {
-}
-
-void UPalAnimInstance::OnNotifyEndReceived(FName NotifyName, const FBranchingPointNotifyPayload& BranchingPointNotifyPayload) {
-}
-
-void UPalAnimInstance::OnNotifyBeginReceived(FName NotifyName, const FBranchingPointNotifyPayload& BranchingPointNotifyPayload) {
 }
 
 void UPalAnimInstance::OnMontageEndedCallback(UAnimMontage* Montage, bool bInterrupted) {
@@ -53,6 +54,9 @@ FVector UPalAnimInstance::GetBonePosition(FName BoneName) {
 
 UPalBoneInfo* UPalAnimInstance::GetBoneInfo(FName BoneName) {
     return NULL;
+}
+
+void UPalAnimInstance::ClearMoveSpeedOverride() {
 }
 
 void UPalAnimInstance::CalcLength(FName Target, FName nextBone, float tipLength) {

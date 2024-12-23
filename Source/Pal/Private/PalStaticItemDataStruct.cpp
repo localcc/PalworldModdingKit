@@ -12,6 +12,7 @@ FPalStaticItemDataStruct::FPalStaticItemDataStruct() {
     this->bInTreasureBox = false;
     this->bNotConsumed = false;
     this->bEnableHandcraft = false;
+    this->bLegalInGame = false;
     this->TechnologyTreeLock = 0;
     this->DropItemType = EPalDropItemType::None;
     this->Editor_RowNameHash = 0;

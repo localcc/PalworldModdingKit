@@ -5,6 +5,8 @@ UPalPlayerRecordData::UPalPlayerRecordData() {
     this->BossDefeatCount = 0;
     this->TribeCaptureCount = 0;
     this->PalCaptureBonusExpTableIndex = 0;
+    this->NpcBonusExpTableIndex = 0;
+    this->AreaBonusExpTableIndex = 0;
     this->RelicPossessNum = 0;
     this->RelicPossessNumMirror = 0;
     this->NormalDungeonClearCount = 0;
@@ -19,6 +21,14 @@ void UPalPlayerRecordData::OnRep_RelicNum() {
 }
 
 void UPalPlayerRecordData::OnCompleteBuild_ServerInternal(UPalMapObjectModel* MapObjectModel) {
+}
+
+int32 UPalPlayerRecordData::GetFoundedAreaNum() const {
+    return 0;
+}
+
+int32 UPalPlayerRecordData::GetBonusExpTableIndex() const {
+    return 0;
 }
 
 void UPalPlayerRecordData::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
@@ -36,6 +46,9 @@ void UPalPlayerRecordData::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
     DOREPLIFETIME(UPalPlayerRecordData, PalButcherCount);
     DOREPLIFETIME(UPalPlayerRecordData, PaldeckUnlockFlag);
     DOREPLIFETIME(UPalPlayerRecordData, PalCaptureBonusExpTableIndex);
+    DOREPLIFETIME(UPalPlayerRecordData, NpcBonusExpTableIndex);
+    DOREPLIFETIME(UPalPlayerRecordData, AreaBonusExpTableIndex);
+    DOREPLIFETIME(UPalPlayerRecordData, FindAreaFlag);
     DOREPLIFETIME(UPalPlayerRecordData, RelicObtainForInstanceFlag);
     DOREPLIFETIME(UPalPlayerRecordData, RelicPossessNum);
     DOREPLIFETIME(UPalPlayerRecordData, NoteObtainForInstanceFlag);
@@ -47,6 +60,7 @@ void UPalPlayerRecordData::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
     DOREPLIFETIME(UPalPlayerRecordData, FixedDungeonClearCount);
     DOREPLIFETIME(UPalPlayerRecordData, OilrigClearCount);
     DOREPLIFETIME(UPalPlayerRecordData, PalRankupCount);
+    DOREPLIFETIME(UPalPlayerRecordData, CompletedEmoteNPCIDArray);
     DOREPLIFETIME(UPalPlayerRecordData, Debug_EnteringStageDataLayerName);
     DOREPLIFETIME(UPalPlayerRecordData, Debug_LastEnteredStageDataLayerName);
 }

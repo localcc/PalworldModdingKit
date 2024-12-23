@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/Object.h"
+#include "EPalWorldSecurityLawTriggerType.h"
 #include "PalWorldSecurityCrimeInstance.generated.h"
 
 UCLASS(Blueprintable)
@@ -17,6 +18,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGuid TargetId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalWorldSecurityLawTriggerType TriggerType;
     
 public:
     UPalWorldSecurityCrimeInstance();

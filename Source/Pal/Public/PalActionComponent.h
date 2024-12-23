@@ -25,6 +25,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<EPalActionType, TSubclassOf<UPalActionBase>> ActionMap;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<EPalActionType, TSubclassOf<AActor>> ActionToolOverrideMap;
+    
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FAllActionFinishDelegate OnAllActionFinishDelegate;
     
@@ -87,10 +90,16 @@ public:
     void OnCompleteCharacter(APalCharacter* InCharacter);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    EPalActionType GetCurrentActionType() const;
+    bool HasAction(EPalActionType Type);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    EPalActionType GetCurrentActionType(bool bIsCheckQueue) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalActionBase* GetCurrentAction() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    TSubclassOf<AActor> GetActionTool(EPalActionType ActionType, TSubclassOf<AActor> InDefaultClass) const;
     
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)

@@ -8,6 +8,7 @@ APalGameStateInGame::APalGameStateInGame(const FObjectInitializer& ObjectInitial
     this->OptionReplicator = NULL;
     this->StageReplicator = NULL;
     this->LocationReplicator = NULL;
+    this->ClientOnlyPlayerInfoReplicator = NULL;
     this->DedicatedServerTransmitter = NULL;
     this->GameSystemInitManager = CreateDefaultSubobject<UPalGameSystemInitManagerComponent>(TEXT("GameSystemInitManager"));
     this->bIsDedicatedServer = false;
@@ -47,6 +48,9 @@ void APalGameStateInGame::OnRep_OptionReplicator() {
 void APalGameStateInGame::OnRep_LocationReplicator() {
 }
 
+void APalGameStateInGame::OnRep_ClientOnlyPlayerInfo() {
+}
+
 void APalGameStateInGame::OnRep_CharacterManagerReplicator() {
 }
 
@@ -78,11 +82,13 @@ void APalGameStateInGame::BroadcastChatMessage_Implementation(const FPalChatMess
 void APalGameStateInGame::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
+    DOREPLIFETIME(APalGameStateInGame, RealProgressDateTime_ForRep);
     DOREPLIFETIME(APalGameStateInGame, CharacterManagerReplicator);
     DOREPLIFETIME(APalGameStateInGame, BaseCampReplicator);
     DOREPLIFETIME(APalGameStateInGame, OptionReplicator);
     DOREPLIFETIME(APalGameStateInGame, StageReplicator);
     DOREPLIFETIME(APalGameStateInGame, LocationReplicator);
+    DOREPLIFETIME(APalGameStateInGame, ClientOnlyPlayerInfoReplicator);
     DOREPLIFETIME(APalGameStateInGame, WorldName);
     DOREPLIFETIME(APalGameStateInGame, WorldSaveDirectoryName);
     DOREPLIFETIME(APalGameStateInGame, bIsDedicatedServer);

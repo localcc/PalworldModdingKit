@@ -4,6 +4,7 @@
 #include "EPalLogType.h"
 #include "EPalWorkType.h"
 #include "PalBaseCampWorkerMovementLogDisplayData.h"
+#include "PalGuildLabCompleteLogDisplayData.h"
 #include "PalItemAndNum.h"
 #include "PalItemId.h"
 #include "PalKillLogDisplayData.h"
@@ -79,6 +80,9 @@ public:
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void AddItemGetLog(const UObject* WorldContextObject, const FPalStaticItemIdAndNum& ItemIDAndNum);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void AddGuildLabCompleteLog(const UObject* WorldContextObject, const FPalGuildLabCompleteLogDisplayData& DisplayData);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void AddDropPalLog(const UObject* WorldContextObject, const FPalLogInfo_DropPal& LogInfo);

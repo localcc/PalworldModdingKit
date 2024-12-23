@@ -3,6 +3,14 @@
 UPalMasterDataTablesUtility::UPalMasterDataTablesUtility() {
 }
 
+UPalMasterDataTableAccess_WorldMapAreaData* UPalMasterDataTablesUtility::GetWorldMapAreaDataTableAccess(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UDataTable* UPalMasterDataTablesUtility::GetWorldMapAreaDataTable(const UObject* WorldContextObject) {
+    return NULL;
+}
+
 UPalMasterDataTableAccess_WildSpawnerData* UPalMasterDataTablesUtility::GetWildSpawnerDataTableAccess(const UObject* WorldContextObject) {
     return NULL;
 }
@@ -51,6 +59,10 @@ UDataTable* UPalMasterDataTablesUtility::GetPalRandomizerDataTable(const UObject
     return NULL;
 }
 
+UPalDisplayRequestDataAsset* UPalMasterDataTablesUtility::GetPalDisplayNPCDataAsset(const UObject* WorldContextObject) {
+    return NULL;
+}
+
 UPalNoteDataAsset* UPalMasterDataTablesUtility::GetNoteDataAsset(const UObject* WorldContextObject) {
     return NULL;
 }
@@ -63,8 +75,16 @@ UDataTable* UPalMasterDataTablesUtility::GetMapObjectDataTable(const UObject* Wo
     return NULL;
 }
 
-FText UPalMasterDataTablesUtility::GetLocalizedText(const UObject* WorldContextObject, EPalLocalizeTextCategory TextCategory, FName textID) {
+FText UPalMasterDataTablesUtility::GetLocalizedText(const UObject* WorldContextObject, EPalLocalizeTextCategory TextCategory, FName TextId) {
     return FText::GetEmpty();
+}
+
+UPalMasterDataTableAccess_LabResearch* UPalMasterDataTablesUtility::GetLabResearchDataTableAccess(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UDataTable* UPalMasterDataTablesUtility::GetLabResearchDataTable(const UObject* WorldContextObject) {
+    return NULL;
 }
 
 UPalMasterDataTableAccess_ItemShopLottery* UPalMasterDataTablesUtility::GetItemShopLotteryDataTableAccess(const UObject* WorldContextObject) {
@@ -80,6 +100,10 @@ UPalMasterDataTableAccess_ItemShop* UPalMasterDataTablesUtility::GetItemShopData
 }
 
 UDataTable* UPalMasterDataTablesUtility::GetItemShopDataTable(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UPalCircumRequestDataAsset* UPalMasterDataTablesUtility::GetItemRequestNPCDataAsset(const UObject* WorldContextObject) {
     return NULL;
 }
 
@@ -111,11 +135,27 @@ UDataTable* UPalMasterDataTablesUtility::GetFieldLotteryNameDataTable(const UObj
     return NULL;
 }
 
+UPalMasterDataTableAccess_FarmSkillFruitsLotteryData* UPalMasterDataTablesUtility::GetFarmSkillFruitsLotteryDataTableAccess(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UDataTable* UPalMasterDataTablesUtility::GetFarmSkillFruitsLotteryDataTable(const UObject* WorldContextObject) {
+    return NULL;
+}
+
 UPalMasterDataTableAccess_FarmCropData* UPalMasterDataTablesUtility::GetFarmCropDataTableAccess(const UObject* WorldContextObject) {
     return NULL;
 }
 
 UDataTable* UPalMasterDataTablesUtility::GetFarmCropDataTable(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UPalMasterDataTableAccess_NPCEmoteLotteryData* UPalMasterDataTablesUtility::GetEmoteNPCLotteryDataTableAccess(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UDataTable* UPalMasterDataTablesUtility::GetEmoteNPCLotteryDataTable(const UObject* WorldContextObject) {
     return NULL;
 }
 
@@ -159,6 +199,22 @@ UDataTable* UPalMasterDataTablesUtility::GetCharacterUpgradeDataTable(const UObj
     return NULL;
 }
 
+UPalMasterDataTableAccess_CharacterTeamMission* UPalMasterDataTablesUtility::GetCharacterTeamMissionDataTableAccess(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UDataTable* UPalMasterDataTablesUtility::GetCharacterTeamMissionDataTable(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UPalMasterDataTableAccess_CharacterTeamMissionChallengeCondition* UPalMasterDataTablesUtility::GetCharacterTeamMissionChallengeConditionDataTableAccess(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UDataTable* UPalMasterDataTablesUtility::GetCharacterTeamMissionChallengeConditionDataTable(const UObject* WorldContextObject) {
+    return NULL;
+}
+
 UPalMasterDataTableAccess_BuildObjectIconData* UPalMasterDataTablesUtility::GetBuildObjectIconDataTableAccess(const UObject* WorldContextObject) {
     return NULL;
 }
@@ -175,11 +231,23 @@ UDataTable* UPalMasterDataTablesUtility::GetBuildObjectDataTable(const UObject* 
     return NULL;
 }
 
+UPalMasterDataTableAccess_BossSpawnerUIData* UPalMasterDataTablesUtility::GetBossSpawnerUIDataTableAccess(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UDataTable* UPalMasterDataTablesUtility::GetBossSpawnerUIDataTable(const UObject* WorldContextObject) {
+    return NULL;
+}
+
 UPalMasterDataTableAccess_BaseCampLevelData* UPalMasterDataTablesUtility::GetBaseCampLevelDataTableAccess(const UObject* WorldContextObject) {
     return NULL;
 }
 
 UDataTable* UPalMasterDataTablesUtility::GetBaseCampLevelDataTable(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UPalAchivementRewardDataAsset* UPalMasterDataTablesUtility::GetAchivementRewardDataAsset(const UObject* WorldContextObject) {
     return NULL;
 }
 

@@ -46,11 +46,19 @@ bool UPalTechnologyData::IsUnlockableRecipeTechnology(const FName& technologyNam
     return false;
 }
 
+bool UPalTechnologyData::IsTowerBossRequirementSatisfied(const EPalBossType& BossType) const {
+    return false;
+}
+
 bool UPalTechnologyData::IsNewUnlockedTechnology(const FName& technologyName) {
     return false;
 }
 
 bool UPalTechnologyData::IsNewUnlockedBuild_Radial(const FName& BuildName) const {
+    return false;
+}
+
+bool UPalTechnologyData::IsLabResearchRequirementSatisfied(const FName ResearchId) const {
     return false;
 }
 

@@ -10,7 +10,7 @@ bool UPalUIPalShopBase::TrySell(const TArray<UPalIndividualCharacterSlot*> SellP
     return false;
 }
 
-bool UPalUIPalShopBase::TryBuy(const FGuid& buyProductID) {
+bool UPalUIPalShopBase::TryBuy(const FGuid& BuyProductID) {
     return false;
 }
 

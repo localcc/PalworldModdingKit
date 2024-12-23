@@ -29,6 +29,9 @@ APalPlayerCharacter::APalPlayerCharacter(const FObjectInitializer& ObjectInitial
     this->bSpectatorMode = false;
 }
 
+void APalPlayerCharacter::UpdateForceHPGaugeList(APalCharacter* TargetCharacter, bool IsAdd) {
+}
+
 void APalPlayerCharacter::StopIdleAnimation() {
 }
 
@@ -83,6 +86,9 @@ void APalPlayerCharacter::OnEndIdle() {
 
 
 void APalPlayerCharacter::OnDyingDeadEnd_Server(APalPlayerCharacter* PlayerCharacter, const FPalDyingEndInfo& DyingEndInfo) {
+}
+
+void APalPlayerCharacter::OnDyingDeadEnd_All(APalPlayerCharacter* PlayerCharacter, const FPalDyingEndInfo& DyingEndInfo) {
 }
 
 void APalPlayerCharacter::OnDownBattleEnemyRank_Implementation(EPalPlayerBattleFinishType FinishType) {
@@ -141,6 +147,9 @@ APalPlayerController* APalPlayerCharacter::GetPalPlayerController() const {
 void APalPlayerCharacter::GetLastInsideRegionNameID(FName& OutNameID) const {
 }
 
+
+void APalPlayerCharacter::GetForceHPGaugeList(TArray<APalCharacter*>& List) const {
+}
 
 FPalPlayerDataCharacterMakeInfo APalPlayerCharacter::GetCharacterMakeInfo() const {
     return FPalPlayerDataCharacterMakeInfo{};

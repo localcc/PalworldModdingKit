@@ -7,6 +7,8 @@
 #include "EPalLogType.h"
 #include "EPalWorkSuitability.h"
 #include "PalInstanceID.h"
+#include "PalItemId.h"
+#include "PalItemSlotId.h"
 #include "PalKillLogDisplayData.h"
 #include "PalMealLogDisplayData.h"
 #include "PalMonsterControllerBaseCampLogContent.h"
@@ -36,6 +38,12 @@ private:
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestReplicateBaseCampItemStackInfo_ToServer(const FGuid& BaseCampId, const bool bReplicate);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestMoveItemToInventory_ToServer(const FGuid& BaseCampId, const FPalItemId& ItemId, const int32 Num);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestMoveInventoryItemToBaseCamp_ToServer(const TArray<FPalItemSlotId>& InventoryItemSlotIds, const FGuid& BaseCampId);
     
 public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
@@ -158,6 +166,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void BroadcastAddBaseCampBurningLog_Server(const FGuid& BaseCampId);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void AddBaseCampWorkerLowSanityLog_Client(const FPalInstanceID& WorkerCharacterInstanceId);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void AddBaseCampWorkerLog_Client(EPalLogType DisplayLogType, const FPalInstanceID& WorkerCharacterInstanceId, const FName& EventDataID);

@@ -15,10 +15,18 @@ void UPalUIItemChestFilterModel::RequestAllUncheck() {
 void UPalUIItemChestFilterModel::RequestAllCheck() {
 }
 
-void UPalUIItemChestFilterModel::OnUpdateFilterPreference(UPalMapObjectItemContainerModule* Module) {
+void UPalUIItemChestFilterModel::OnUpdateFilterPreference(UPalItemContainer* Container) {
 }
 
 UPalMapObjectItemContainerModule* UPalUIItemChestFilterModel::GetItemContainerModule() const {
+    return NULL;
+}
+
+TScriptInterface<IPalMapObjectItemContainerAccessInterface> UPalUIItemChestFilterModel::GetItemContainerAccess() const {
+    return NULL;
+}
+
+UPalItemContainer* UPalUIItemChestFilterModel::GetItemContainer() const {
     return NULL;
 }
 

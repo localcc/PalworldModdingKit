@@ -29,7 +29,7 @@ void UPalMapObjectHatchingEggModel::OnRep_HatchedCharacterSaveParameter() {
 void UPalMapObjectHatchingEggModel::OnFinishWorkInServer(UPalWorkBase* Work) {
 }
 
-void UPalMapObjectHatchingEggModel::OnChangeBaseCampPassive(const FGuid& BaseCampId) {
+void UPalMapObjectHatchingEggModel::OnChangeBaseCampPassive(UPalBaseCampModulePassiveEffect* PassiveEffectModule) {
 }
 
 void UPalMapObjectHatchingEggModel::OnAddNewWorker(UPalIndividualCharacterHandle* AddCharacterHandle) {

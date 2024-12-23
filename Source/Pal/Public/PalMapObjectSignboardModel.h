@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
 #include "PalMapObjectConcreteModelBase.h"
 #include "PalNetArchive.h"
 #include "Templates/SubclassOf.h"
@@ -26,6 +27,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     bool bIsEditing;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    FGuid LastModifiedPlayerUid;
+    
 public:
     UPalMapObjectSignboardModel();
 
@@ -51,6 +55,9 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void OnOpenEdit();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnChangedBlockedUsers();
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)

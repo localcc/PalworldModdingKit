@@ -23,6 +23,9 @@ void UPalActionBase::SendNotify(FName NotifyName) {
 void UPalActionBase::OnUpdatePassiveSkill(EPalPassiveSkillEffectType EffectType, float Value) {
 }
 
+void UPalActionBase::OnQueueAction_Implementation() {
+}
+
 void UPalActionBase::OnEndPassiveSkill(EPalPassiveSkillEffectType EffectType) {
 }
 
@@ -36,6 +39,10 @@ void UPalActionBase::OnBreakAction_Implementation() {
 }
 
 void UPalActionBase::OnBeginAction_Implementation() {
+}
+
+bool UPalActionBase::IsReflectedForClient() {
+    return false;
 }
 
 bool UPalActionBase::IsInServer() const {

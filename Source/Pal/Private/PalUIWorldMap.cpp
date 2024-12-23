@@ -3,7 +3,7 @@
 UPalUIWorldMap::UPalUIWorldMap() {
 }
 
-void UPalUIWorldMap::RegisterRespawnLocation(const FVector& RespawnLocation) {
+void UPalUIWorldMap::RegisterRespawnPoint(const FVector& RespawnLocation, const FQuat& RespawnRotation) {
 }
 
 void UPalUIWorldMap::Debug_SetLocation(const FVector& Location) {

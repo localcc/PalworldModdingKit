@@ -1,13 +1,14 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
 #include "PalEggRankInfo.h"
 #include "PalIndividualCharacterSaveParameter.h"
 #include "PalMapObjectConcreteModelBase.h"
+#include "PalWorkProgressWorkSpeedInterface.h"
 #include "PalWorkProgressWorkableCheckInterface.h"
 #include "Templates/SubclassOf.h"
 #include "PalMapObjectHatchingEggModel.generated.h"
 
+class UPalBaseCampModulePassiveEffect;
 class UPalDynamicPalEggItemDataBase;
 class UPalIndividualCharacterHandle;
 class UPalItemContainer;
@@ -17,7 +18,7 @@ class UPalUserWidgetOverlayUI;
 class UPalWorkBase;
 
 UCLASS(Blueprintable)
-class PAL_API UPalMapObjectHatchingEggModel : public UPalMapObjectConcreteModelBase, public IPalWorkProgressWorkableCheckInterface {
+class PAL_API UPalMapObjectHatchingEggModel : public UPalMapObjectConcreteModelBase, public IPalWorkProgressWorkableCheckInterface, public IPalWorkProgressWorkSpeedInterface {
     GENERATED_BODY()
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateWorkableDelegate, bool, Workable);
@@ -83,7 +84,7 @@ private:
     void OnFinishWorkInServer(UPalWorkBase* Work);
     
     UFUNCTION(BlueprintCallable)
-    void OnChangeBaseCampPassive(const FGuid& BaseCampId);
+    void OnChangeBaseCampPassive(UPalBaseCampModulePassiveEffect* PassiveEffectModule);
     
     UFUNCTION(BlueprintCallable)
     void OnAddNewWorker(UPalIndividualCharacterHandle* AddCharacterHandle);

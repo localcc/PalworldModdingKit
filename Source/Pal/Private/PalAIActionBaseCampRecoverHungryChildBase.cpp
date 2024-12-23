@@ -14,7 +14,7 @@ bool UPalAIActionBaseCampRecoverHungryChildBase::IsExistEnoughFoodInTarget() {
     return false;
 }
 
-bool UPalAIActionBaseCampRecoverHungryChildBase::IsAvailableDistance() {
+bool UPalAIActionBaseCampRecoverHungryChildBase::IsAvailableDistance(const float Margin) {
     return false;
 }
 

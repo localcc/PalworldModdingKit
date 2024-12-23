@@ -4,6 +4,7 @@
 #include "EPalDropItemType.h"
 #include "EPalItemTypeA.h"
 #include "EPalItemTypeB.h"
+#include "PalInstanceID.h"
 #include "Templates/SubclassOf.h"
 #include "PalStaticItemDataBase.generated.h"
 
@@ -99,9 +100,6 @@ protected:
 public:
     UPalStaticItemDataBase();
 
-    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    bool UseItem(UPalDynamicItemDataBase* DynamicItemData, const UObject* WorldContextObject);
-    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsCorruptible() const;
     
@@ -110,6 +108,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasActorClass() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    float GetWorldScaledWeight(const UObject* WorldContextObject) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     TSoftClassPtr<AActor> GetVisualBlueprintClass(const UObject* WorldContextObject) const;
@@ -146,6 +147,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TSoftClassPtr<AActor> GetActorClass() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool CanUseItemToCharacter(const UObject* WorldContentObject, const FPalInstanceID& TargetCharacterID);
     
 };
 

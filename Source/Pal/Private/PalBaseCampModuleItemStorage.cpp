@@ -4,22 +4,26 @@
 UPalBaseCampModuleItemStorage::UPalBaseCampModuleItemStorage() {
 }
 
-void UPalBaseCampModuleItemStorage::OnUpdateItemContainer(UPalMapObjectItemContainerModule* ItemContainerModule) {
+void UPalBaseCampModuleItemStorage::OnUpdateItemContainerModule(UPalMapObjectItemContainerModule* ItemContainerModule) {
 }
 
-void UPalBaseCampModuleItemStorage::OnNotAvailableConcreteModel(UPalMapObjectConcreteModelBase* ConcreteModel) {
+void UPalBaseCampModuleItemStorage::OnUpdateItemContainer(UPalItemContainer* ItemContainer) {
 }
 
-void UPalBaseCampModuleItemStorage::OnAvailableConcreteModel(UPalMapObjectConcreteModelBase* ConcreteModel) {
+void UPalBaseCampModuleItemStorage::OnReadyItemContainerGuildChest(TScriptInterface<IPalMapObjectItemContainerAccessInterface> ItemContainerAccess) {
 }
 
-void UPalBaseCampModuleItemStorage::GetContainerIds(TArray<FPalContainerId>& OutContainerIds) const {
+void UPalBaseCampModuleItemStorage::OnNotAvailableConcreteModel_ServerInternal(UPalMapObjectConcreteModelBase* ConcreteModel) {
+}
+
+void UPalBaseCampModuleItemStorage::OnAvailableConcreteModel_ServerInternal(UPalMapObjectConcreteModelBase* ConcreteModel) {
 }
 
 void UPalBaseCampModuleItemStorage::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(UPalBaseCampModuleItemStorage, ContainerInfos);
+    DOREPLIFETIME(UPalBaseCampModuleItemStorage, GuildContainerInfo);
 }
 
 

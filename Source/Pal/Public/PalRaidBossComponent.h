@@ -62,6 +62,9 @@ protected:
     UFUNCTION(BlueprintCallable)
     void OnSpawnBossPal(AActor* Pal);
     
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnEndBattle_Server_BP();
+    
 private:
     UFUNCTION(BlueprintCallable)
     void OnDisposeBaseCamp(UPalBaseCampModel* Model);
@@ -95,7 +98,7 @@ private:
     
 protected:
     UFUNCTION(BlueprintCallable)
-    void AddGroupCharacter(UPalIndividualCharacterHandle* PalHandle);
+    void AddGroupCharacter(UPalIndividualCharacterHandle* PalHandle, bool IsBoss);
     
 };
 

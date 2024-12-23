@@ -6,5 +6,7 @@ UENUM(BlueprintType)
 enum class EPalKillLogDisplayType : uint8 {
     Down,
     Death,
+    HardcoreDeath_Pal,
+    HardcoreDeath_Player,
 };
 

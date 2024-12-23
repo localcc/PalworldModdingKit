@@ -8,6 +8,10 @@ bool UPalMapObjectUtility::TryGetItemVisualModelStaticMesh(TSubclassOf<AActor> a
     return false;
 }
 
+bool UPalMapObjectUtility::TryGetItemVisualModelSkeletalMesh(TSubclassOf<AActor> actorClass, USkeletalMesh*& OutSkeletalMesh, FTransform& OutComponentTransform, FVector& OutCenterOfMass, UMaterialInterface*& OutMaterialInterface) {
+    return false;
+}
+
 EPalMapObjectOperationResult UPalMapObjectUtility::ToMapObjectOperationResult(const int32 ResultIntValue) {
     return EPalMapObjectOperationResult::None;
 }

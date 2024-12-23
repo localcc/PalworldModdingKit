@@ -28,6 +28,12 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FMulticastReturnSelfDelegate OnEndBuildingMode_Local;
     
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FMulticastReturnSelfDelegate OnStartDismantlingMode_Local;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FMulticastReturnSelfDelegate OnEndDismantlingMode_Local;
+    
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float InstallDistanceNormalFromOwner;
@@ -55,9 +61,11 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnEnterBaseCamp(UPalBaseCampModel* BaseCampModel);
     
+public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSnapMode() const;
     
+private:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInstallAtReticle() const;
     
@@ -75,12 +83,26 @@ private:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     EPalMapObjectOperationResult IsEnableBuild() const;
     
+public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsDismantling() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsChangedMode() const;
+    
+private:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetSelectedBuildObjectId(FName& OutSelectedBuildObjectId) const;
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetMaxBuildingLimitNum() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     APalBuildObject* GetDismantleTargetObject();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetBuildingNum() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void CollectItemInfoEnableToUseMaterial(TArray<FName> StaticItemIds, TArray<FPalStaticItemIdAndNum>& OutItemInfos) const;

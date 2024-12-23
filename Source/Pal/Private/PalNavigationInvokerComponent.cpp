@@ -13,6 +13,9 @@ bool UPalNavigationInvokerComponent::IsDisableInvorker() const {
     return false;
 }
 
+void UPalNavigationInvokerComponent::DeactivateInvoker() {
+}
+
 void UPalNavigationInvokerComponent::ActivateInvoker() {
 }
 

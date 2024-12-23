@@ -6,16 +6,20 @@
 #include "Components/ActorComponent.h"
 #include "EPalBossType.h"
 #include "EPalPlayerInventoryType.h"
+#include "EPalPlayerReplicationEntityType.h"
 #include "EPalStageRequestResult.h"
 #include "PalBuildRequestDebugParameter.h"
+#include "PalInstanceID.h"
 #include "PalItemSlotId.h"
 #include "PalNetArchive.h"
 #include "PalPlayerSettingsForServer.h"
 #include "PalStageInstanceId.h"
+#include "PalUIBossDefeatRewardDisplayData.h"
 #include "Templates/SubclassOf.h"
 #include "PalNetworkPlayerComponent.generated.h"
 
 class APalLevelObjectObtainable;
+class UObject;
 class UPalIndividualCharacterHandle;
 class UPalItemContainer;
 class UPalItemSlot;
@@ -32,7 +36,7 @@ public:
     void ShowUnlockHardModeUI_ToClient();
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
-    void ShowBossDefeatRewardUI_ToClient(int32 TechPoint, bool AfterTeleport, int32 DelayTime);
+    void ShowBossDefeatRewardUI_ToClient(const FPalUIBossDefeatRewardDisplayData& BossDefeatDisplayData, bool AfterTeleport, int32 DelayTime);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void SetCurrentSelectPalSphereIndex_ToServer(int32 NextIndex, UPalLoadoutSelectorComponent* LoadoutSelector);
@@ -44,7 +48,19 @@ public:
     void RequestUnlockTechnology_ToServer(const FName& UnlockTechnologyName);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestUnlockFastTravelPoint_ToServer(const FName UnlockFlagKey);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestSortInventory_ToServer();
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestSetReplicationEntity_ToServer(const EPalPlayerReplicationEntityType EntityType, const bool bReplicate);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestPalStorageReplicates_ToServer(const FPalInstanceID& IndividualId, const FName Key, const bool bReplicate);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void RequestPalStorageReplicates(const UObject* WorldContextObject, const FPalInstanceID& IndividualId, const FName Key, const bool bReplicate);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestObtainLevelObject_ToServer(APalLevelObjectObtainable* TargetObject);
@@ -84,7 +100,7 @@ public:
     void RequestAddBossTechnolgyPointByItem_ToServer(const FPalItemSlotId& ConsumeItemSlotID);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void RegisterRespawnLocation_ToServer(const FGuid& PlayerUId, const FVector& Location);
+    void RegisterRespawnPoint_ToServer(const FGuid& PlayerUId, const FVector& Location, const FQuat& Rotation);
     
 private:
     UFUNCTION(BlueprintCallable, Client, Reliable)
@@ -120,6 +136,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void LoadoutSelectorEquipItem(UPalLoadoutSelectorComponent* LoadoutSelector, EPalPlayerInventoryType inventoryType, int32 Index);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Dev_SetEnablePlayerRespawnInHardcore(bool bEnable);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Dev_RequestTeleportToDungeonEntranceByIndex_ToServer(const int32 Index);

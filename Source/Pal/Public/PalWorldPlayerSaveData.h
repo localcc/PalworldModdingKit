@@ -63,6 +63,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsSelectedInitMapPoint;
     
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint64 PsnAccountId;
+    
     PAL_API FPalWorldPlayerSaveData();
 };
 

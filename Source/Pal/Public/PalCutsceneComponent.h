@@ -41,7 +41,7 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
-    void StartFadeOut();
+    void StartFadeIn();
     
 public:
     UFUNCTION(BlueprintCallable)
@@ -58,7 +58,7 @@ private:
     void OnFinished();
     
     UFUNCTION(BlueprintCallable)
-    void OnEndFadeOut();
+    void OnEndFadeIn();
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)

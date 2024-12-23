@@ -2,6 +2,7 @@
 #include "Net/UnrealNetwork.h"
 
 UPalMapObjectRequireElementalActionModule::UPalMapObjectRequireElementalActionModule() {
+    this->bExistsAssignLocation = false;
 }
 
 FName UPalMapObjectRequireElementalActionModule::GetAssignDefineId() const {

@@ -7,7 +7,7 @@ UPalNetworkPlayerComponent::UPalNetworkPlayerComponent(const FObjectInitializer&
 void UPalNetworkPlayerComponent::ShowUnlockHardModeUI_ToClient_Implementation() {
 }
 
-void UPalNetworkPlayerComponent::ShowBossDefeatRewardUI_ToClient_Implementation(int32 TechPoint, bool AfterTeleport, int32 DelayTime) {
+void UPalNetworkPlayerComponent::ShowBossDefeatRewardUI_ToClient_Implementation(const FPalUIBossDefeatRewardDisplayData& BossDefeatDisplayData, bool AfterTeleport, int32 DelayTime) {
 }
 
 void UPalNetworkPlayerComponent::SetCurrentSelectPalSphereIndex_ToServer_Implementation(int32 NextIndex, UPalLoadoutSelectorComponent* LoadoutSelector) {
@@ -19,7 +19,19 @@ void UPalNetworkPlayerComponent::RequestUpdatePlayerSettingsForServer_ToServer_I
 void UPalNetworkPlayerComponent::RequestUnlockTechnology_ToServer_Implementation(const FName& UnlockTechnologyName) {
 }
 
+void UPalNetworkPlayerComponent::RequestUnlockFastTravelPoint_ToServer_Implementation(const FName UnlockFlagKey) {
+}
+
 void UPalNetworkPlayerComponent::RequestSortInventory_ToServer_Implementation() {
+}
+
+void UPalNetworkPlayerComponent::RequestSetReplicationEntity_ToServer_Implementation(const EPalPlayerReplicationEntityType EntityType, const bool bReplicate) {
+}
+
+void UPalNetworkPlayerComponent::RequestPalStorageReplicates_ToServer_Implementation(const FPalInstanceID& IndividualId, const FName Key, const bool bReplicate) {
+}
+
+void UPalNetworkPlayerComponent::RequestPalStorageReplicates(const UObject* WorldContextObject, const FPalInstanceID& IndividualId, const FName Key, const bool bReplicate) {
 }
 
 void UPalNetworkPlayerComponent::RequestObtainLevelObject_ToServer_Implementation(APalLevelObjectObtainable* TargetObject) {
@@ -55,7 +67,7 @@ void UPalNetworkPlayerComponent::RequestAddItem_ToServer_Implementation(const FN
 void UPalNetworkPlayerComponent::RequestAddBossTechnolgyPointByItem_ToServer_Implementation(const FPalItemSlotId& ConsumeItemSlotID) {
 }
 
-void UPalNetworkPlayerComponent::RegisterRespawnLocation_ToServer_Implementation(const FGuid& PlayerUId, const FVector& Location) {
+void UPalNetworkPlayerComponent::RegisterRespawnPoint_ToServer_Implementation(const FGuid& PlayerUId, const FVector& Location, const FQuat& Rotation) {
 }
 
 void UPalNetworkPlayerComponent::ReceiveExitStageRequestResult_ToRequestClient_Implementation(const EPalStageRequestResult Result) {
@@ -89,6 +101,9 @@ void UPalNetworkPlayerComponent::LoadoutSelectorRemoveEquipItem_Implementation(U
 }
 
 void UPalNetworkPlayerComponent::LoadoutSelectorEquipItem_Implementation(UPalLoadoutSelectorComponent* LoadoutSelector, EPalPlayerInventoryType inventoryType, int32 Index) {
+}
+
+void UPalNetworkPlayerComponent::Dev_SetEnablePlayerRespawnInHardcore_Implementation(bool bEnable) {
 }
 
 void UPalNetworkPlayerComponent::Dev_RequestTeleportToDungeonEntranceByIndex_ToServer_Implementation(const int32 Index) {

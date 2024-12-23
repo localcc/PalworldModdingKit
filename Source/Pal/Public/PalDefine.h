@@ -62,6 +62,9 @@ public:
     static FName TextId_UICommon_InteractIndicator_LockedPrivateByNotLocalPlayer();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FName TextId_UICommon_InteractIndicator_LockedElementalTreasure();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName TextId_UICommon_InteractIndicator_InputPassword_CannotTry();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

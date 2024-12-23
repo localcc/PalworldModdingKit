@@ -11,6 +11,7 @@ enum class EPalBossType : uint8 {
     SnowBoss,
     DesertBoss,
     SakurajimaBoss,
+    VikingBoss,
     Max,
 };
 

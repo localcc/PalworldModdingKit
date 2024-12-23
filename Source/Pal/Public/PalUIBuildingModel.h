@@ -4,6 +4,7 @@
 #include "EPalMapObjectOperationResult.h"
 #include "PalUIBuildingModel.generated.h"
 
+class UPalBaseCampModel;
 class UPalItemContainer;
 
 UCLASS(Blueprintable)
@@ -17,6 +18,9 @@ protected:
 public:
     UPalUIBuildingModel();
 
+    UFUNCTION(BlueprintCallable)
+    void ToggleChangeModeReplace();
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool ShouldDisplayWarningForBuildObject() const;
     
@@ -35,13 +39,31 @@ protected:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsSnapMode() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsOutsideBaseCamp() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsExistBaseCamp();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsChangedMode() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FText GetWarningText(const EPalMapObjectOperationResult Result);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetMaxBuildingLimitNum() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetBuildingNum() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPalBaseCampModel* GetBaseCampModelForPlayer() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPalBaseCampModel* GetBaseCampModel(bool bIncludeForPlayer);
     
     UFUNCTION(BlueprintCallable)
     void FinishBuilding();
@@ -53,10 +75,16 @@ public:
     void ChangeSnapMode(const bool bOn);
     
     UFUNCTION(BlueprintCallable)
+    void ChangeModeReplace(const bool bOn);
+    
+    UFUNCTION(BlueprintCallable)
     void ChangeMode(const bool bOn);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool CanChangeSnapModeForBuildObject() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool CanChangeReplaceModeForBuildObject() const;
     
     UFUNCTION(BlueprintCallable)
     void BuildObject(const bool bContinuously);

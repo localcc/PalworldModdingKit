@@ -3,3 +3,7 @@
 UPalGameSystemInitProcessHandle::UPalGameSystemInitProcessHandle() {
 }
 
+void UPalGameSystemInitProcessHandle::OnChangeChildProcessHandleState(UPalGameSystemInitProcessHandle* ChangedProcessHandle) {
+}
+
+

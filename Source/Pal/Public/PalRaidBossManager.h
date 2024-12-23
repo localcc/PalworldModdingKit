@@ -71,6 +71,9 @@ public:
     FPalRaidBossSpawnInfo FindRaidBossInfoByCharacterID(FName CharacterID);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    FPalRaidBossDataRow FindRaidBossDataByCharacterID(FName CharacterID) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FPalRaidBossDataRow FindRaidBossData(FName ItemName) const;
     
 };

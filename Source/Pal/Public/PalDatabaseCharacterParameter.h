@@ -95,6 +95,12 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* NPCOtomoWazaDataTable;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* NPCBossIconDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* PalGainWorkSuitabilityRankItemDataTable;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<float> TalentMagnificationList;
@@ -199,6 +205,9 @@ public:
     bool GetIsRaidBoss(FName RowName);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool GetIsPredatorBoss(FName RowName);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool GetIsPal(FName RowName);
     
     UFUNCTION(BlueprintCallable)
@@ -218,6 +227,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetFoodAmount(FName RowName);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FName GetFirstDefeatRewardItemID(const FName& CharacterID) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetExpRatio(FName RowName);
@@ -263,6 +275,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TSoftClassPtr<APalCharacter> GetBPClass(FName RowName);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    TSoftObjectPtr<UTexture2D> GetBossNPCIconTexture(const FName& SpawnerID) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     EPalBattleBGMType GetBattleBGM(FName RowName);

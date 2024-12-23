@@ -19,6 +19,14 @@ void UPalShopBase::OnRep_ProductArray() {
 void UPalShopBase::OnRep_MyShopName() {
 }
 
+bool UPalShopBase::GetShopSettingData(FPalItemShopSettingDataRow& OutSettingData) {
+    return false;
+}
+
+FName UPalShopBase::GetShopName() const {
+    return NAME_None;
+}
+
 void UPalShopBase::GetId(FGuid& OutID) const {
 }
 
