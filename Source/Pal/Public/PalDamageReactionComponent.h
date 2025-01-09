@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "Components/ActorComponent.h"
+#include "Engine/EngineTypes.h"
 #include "EPalAdditionalEffectType.h"
 #include "EPalDamageAnimationReactionType.h"
 #include "EPalDeadType.h"
@@ -87,6 +88,12 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FPalInstanceID LastAttackerInstanceID;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool BossEnemyLeanBackCoolTimeFlag;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FTimerHandle BossEnemyLeanBackCoolTimeHandle;
+    
 public:
     UPalDamageReactionComponent(const FObjectInitializer& ObjectInitializer);
 
@@ -105,6 +112,9 @@ public:
     void SetDisableLargeDown();
     
 private:
+    UFUNCTION(BlueprintCallable)
+    void ResetBossEnemyLeanBackCoolTimeFlag();
+    
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void PopupDamageBySlipDamage_ToALL(int32 Damage);
     
@@ -126,7 +136,7 @@ private:
     void OnEndDamageMotion(UAnimMontage* Montage, bool bInterrupted);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void OnDyingDeadEndDelegate_ToALL();
+    void OnDyingDeadEndDelegate_ToALL(bool bIsInstantDeath);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)

@@ -36,19 +36,25 @@ void APalPlayerState::ShowUnlockHardModeUI() {
 void APalPlayerState::ShowTowerBossDefeatRewardUI() {
 }
 
-void APalPlayerState::ShowBossDefeatRewardUI(int32 TechPoint) {
+void APalPlayerState::ShowOilRigCrateOpenUI() {
+}
+
+void APalPlayerState::ShowBossDefeatRewardUI(const FPalUIBossDefeatRewardDisplayData& BossDefeatDisplayData) {
+}
+
+void APalPlayerState::SendRandomizerReplicateData_Implementation(FPalRandomizerReplicateData InRandomizerReplicateData) {
 }
 
 void APalPlayerState::SendAccountInitData_ForServer_Implementation(const FPalPlayerAccountInitData& accountInitData) {
-}
-
-void APalPlayerState::RequestUnlockFastTravelPoint_ToServer_Implementation(const FName UnlockFlagKey) {
 }
 
 void APalPlayerState::RequestSpawnMonsterForPlayer_Implementation(const FName& CharacterID, int32 Num, int32 Level) {
 }
 
 void APalPlayerState::RequestRespawn_Implementation() {
+}
+
+void APalPlayerState::RequestRandomizerReplicateData_Implementation() {
 }
 
 void APalPlayerState::RequestPalBoxSyncPage_ToServer_Implementation(int32 pageIndex) {
@@ -75,7 +81,10 @@ void APalPlayerState::RegisterForPalDex_ServerInternal(FPalInstanceID Individual
 void APalPlayerState::ReceiveNotifyLoginComplete_Implementation() {
 }
 
-void APalPlayerState::ReceiveBuildResult_ToRequestClient_Implementation(const EPalMapObjectOperationResult Result) {
+void APalPlayerState::ReceiveBuildResult_ToRequestClient_Implementation(const EPalMapObjectOperationResult Result, FPalBuildResultParameter BuildResultParameter) {
+}
+
+void APalPlayerState::OverridePsnAccountId_Implementation(const uint64& InPsnAccountId) {
 }
 
 void APalPlayerState::OnUpdatePlayerInfoInGuildBelongTo(const UPalGroupGuildBase* Guild, const FGuid& InPlayerUId, const FPalGuildPlayerInfo& InPlayerInfo) {
@@ -97,6 +106,9 @@ void APalPlayerState::OnNotifiedEnteredStage_ToClient_Implementation() {
 }
 
 void APalPlayerState::OnNotifiedClientInitializedEssentialInServer() {
+}
+
+void APalPlayerState::OnMultiHatchedIndividualHandle_ServerInternal(FPalInstanceID IndividualId) {
 }
 
 void APalPlayerState::OnFinishInitSelectMapTeleport(const FGuid TeleportPlayerUId) {
@@ -123,7 +135,16 @@ void APalPlayerState::OnCompleteLoadInitWorldPartition_InClient(APalPlayerState*
 void APalPlayerState::OnChangeOptionCommonSettings(const FPalOptionCommonSettings& PrevSettings, const FPalOptionCommonSettings& NewSettings) {
 }
 
+void APalPlayerState::NotifyTradeComplete_ToClient_Implementation() {
+}
+
 void APalPlayerState::NotifyRunInitialize_ToClient() {
+}
+
+void APalPlayerState::NotifyPalBoxOpenInHardcore_ToServer_Implementation() {
+}
+
+void APalPlayerState::NotifyMultiHatchComplete_ToClient_Implementation(const TArray<FPalInstanceID>& HatchedIDs) const {
 }
 
 void APalPlayerState::NotifyInvalidPlayer_ToClient_Implementation() {
@@ -304,6 +325,9 @@ void APalPlayerState::AddMealLog_Implementation(const TArray<FPalMealLogDisplayD
 void APalPlayerState::AddItemGetLog_ToClient_Implementation(const FPalStaticItemIdAndNum& ItemAndNum) const {
 }
 
+void APalPlayerState::AddGuildLabCompleteLog_Implementation(const TArray<FPalGuildLabCompleteLogDisplayData>& DisplayDataArray) {
+}
+
 void APalPlayerState::AddFullPalBoxLog_ToClient_Implementation() const {
 }
 
@@ -328,6 +352,7 @@ void APalPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     DOREPLIFETIME(APalPlayerState, RecordData);
     DOREPLIFETIME(APalPlayerState, PlayerSkinData);
     DOREPLIFETIME(APalPlayerState, bIsSelectedInitMapPoint);
+    DOREPLIFETIME(APalPlayerState, BaseCampBuildingNum);
     DOREPLIFETIME(APalPlayerState, GuildBelongTo);
     DOREPLIFETIME(APalPlayerState, ChatCounter);
     DOREPLIFETIME(APalPlayerState, DisableGuildJoin);

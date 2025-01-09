@@ -5,6 +5,7 @@ UPalHitFilter::UPalHitFilter() {
     this->HitInterval = 0.00f;
     this->HitLocationCalculator = NULL;
     this->bIsIntersectionCollision = false;
+    this->bFindNearestCollisionCombination = false;
     this->IntersectionNum = 0;
 }
 

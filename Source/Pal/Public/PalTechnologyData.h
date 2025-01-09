@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/Object.h"
+#include "EPalBossType.h"
 #include "PalItemSlotId.h"
 #include "PalTechnologyDataSet.h"
 #include "PalTechnologyDataTableRowBase.h"
@@ -101,10 +102,16 @@ public:
     bool IsUnlockableRecipeTechnology(const FName& technologyName) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsTowerBossRequirementSatisfied(const EPalBossType& BossType) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsNewUnlockedTechnology(const FName& technologyName);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsNewUnlockedBuild_Radial(const FName& BuildName) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsLabResearchRequirementSatisfied(const FName ResearchId) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsExistNewUnlockedTechnology();

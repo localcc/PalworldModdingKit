@@ -50,6 +50,9 @@ void UPalPartnerSkillPassiveSkill::OnInactivatedAsOtomo() {
 void UPalPartnerSkillPassiveSkill::OnChangeDisablePassiveSkill(bool isDisable, bool IsAllReset) {
 }
 
+void UPalPartnerSkillPassiveSkill::OnChangeDayTime() {
+}
+
 void UPalPartnerSkillPassiveSkill::OnAddNewWorker(UPalIndividualCharacterHandle* AddCharacterHandle) {
 }
 

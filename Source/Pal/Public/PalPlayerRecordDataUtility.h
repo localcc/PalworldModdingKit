@@ -24,7 +24,7 @@ public:
     static void SetRecordData_TribeIdCount_ForServer(const UObject* WorldContextObject, UPARAM(Ref) FPalPlayerRecordDataRepInfoArray_IntVal& RecordData, const EPalTribeID Key, const int32 Value);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static void SetRecordData_RankMaxCount_ForServer(const UObject* WorldContextObject, const FGuid RequestPlayerUId, int32 oldRank, int32 ToRank);
+    static void SetRecordData_RankMaxCount_ForServer(const UObject* WorldContextObject, const FGuid RequestPlayerUId, int32 OldRank, int32 ToRank);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetRecordData_Int_ForServer(const UObject* WorldContextObject, UPARAM(Ref) FPalPlayerRecordDataRepInfoArray_IntVal& RecordData, const FName Key, const int32 Value);

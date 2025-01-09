@@ -27,6 +27,7 @@
 class APalCharacter;
 class UObject;
 class UPalIndividualCharacterHandle;
+class UPalIndividualCharacterParameter;
 class UPalTextBlockBase;
 class UPalUserWidget;
 class UWidget;
@@ -57,6 +58,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsToggleInteract(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool IsToggleBuildMode(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsShiftDown_ForUI();
@@ -126,6 +130,12 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static void GetTechnologyDescription(const UObject* WorldContextObject, const FName& technologyName, FText& OutDescription);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static void GetTeamMissionName(const UObject* WorldContextObject, const FName& MissionId, FText& OutMissionName);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static void GetSkinName(const UObject* WorldContextObject, const FName& SkinName, FText& OutSKinName);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 GetPlayerInframeRenderTargetResolution();
@@ -216,6 +226,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static float ConvertReviveTimerToUIDisplayRemainReviveTime(const UObject* WorldContextObject, float ReviveTimer);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool CanDisplayTalentDetailUI(const UObject* WorldContextObject, UPalIndividualCharacterParameter* TargetCharacterParameter);
     
 };
 

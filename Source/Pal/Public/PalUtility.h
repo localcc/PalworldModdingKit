@@ -11,6 +11,7 @@
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "Engine/EngineTypes.h"
 #include "Engine/EngineTypes.h"
@@ -83,6 +84,7 @@ class APawn;
 class APlayerController;
 class UActorComponent;
 class UAnimMontage;
+class UAnimNotify;
 class UAnimNotifyState;
 class UCameraShakeBase;
 class UDataLayerInstance;
@@ -114,6 +116,8 @@ class UPalFunnelCharacterManager;
 class UPalGameInstance;
 class UPalGameSetting;
 class UPalGameWorldSettings;
+class UPalGamepadButtonImageDatabase;
+class UPalGroupGuildBase;
 class UPalGroupManager;
 class UPalHUDDispatchParameterBase;
 class UPalHUDService;
@@ -231,6 +235,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static void SortActorListByLabel(UPARAM(Ref) TArray<AActor*>& ActorList);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FVector Slerp(FVector Start, FVector End, float T);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void ShowUI(const UObject* WorldContextObject, const EPalWidgetBlueprintType WBPType, UPalHUDDispatchParameterBase* Parameter);
@@ -460,6 +467,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsUGCBlocked(const UObject* WorldContextObject);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool IsTransactionalObject(const UObject* Object);
+    
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsSteamDeck(const UObject* WorldContextObject);
     
@@ -479,10 +489,25 @@ public:
     static bool IsRandomizedPlayerUID(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool IsPvP(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool IsPS5Trinity(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool IsPS5Base(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool IsPS5(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsPointOnBase(const UObject* WorldContextObject, const FVector& Point, const TArray<AActor*>& IgnoreActors, const TEnumAsByte<EDrawDebugTrace::Type> DrawDebugType, const float DrawDebugDuration);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsPointInDoor(const UObject* WorldContextObject, const FVector& Point, const TArray<AActor*>& IgnoreActors, const TEnumAsByte<EDrawDebugTrace::Type> DrawDebugType, const float DrawDebugDuration);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool IsPlayersOtomo(const AActor* Actor);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsPlayerControlActor(AActor* CheckActor);
@@ -520,6 +545,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsMultiplayer(const UObject* WorldContextObject);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool IsMeasureStatUnit(const UObject* WorldContextObject);
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsLocalPlayerCampPal(const AActor* Actor);
     
@@ -547,11 +575,17 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsGDK(const UObject* WorldContextObject);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool IsGameConsole(const UObject* WorldContextObject);
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsFriend(const AActor* ActorA, const AActor* ActorB);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsForceQuitOnDisconnect(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool IsExistsUsableTargetMedicine(const UObject* WorldContextObject, const UPalIndividualCharacterParameter* IndividualParameter, const TArray<FName>& StaticItemIds);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsExistsPlayerInRange(const UObject* WorldContextObject, const FVector& Location, float Radius);
@@ -589,11 +623,17 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsDestructionByCompleteBuilt(const UObject* WorldContextObject);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool IsDefaultObject(const UObject* Object);
+    
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsDedicatedServer(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    static bool IsDead(AActor* Actor);
+    static bool IsDeadInHardcore(AActor* Actor);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool IsDead(const AActor* Actor);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsCrossplayBlock();
@@ -795,6 +835,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static float GetRTTJitter(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static APalCharacter* GetRidePal(APalPlayerCharacter* Player);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalRESTAPISubsystem* GetRESTAPISubsystem(const UObject* WorldContextObject);
@@ -1013,6 +1056,9 @@ public:
     static APalNetworkTransmitter* GetNetworkTransmitter(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static FString GetNetMode(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static float GetNearstPlayerDistance2D(const UObject* WorldContextObject, FVector Location);
     
     UFUNCTION(BlueprintCallable)
@@ -1032,6 +1078,12 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static void GetMontageNotifyStates(UAnimMontage* Montange, TArray<UAnimNotifyState*>& outStates, FName SectionName);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static UAnimNotify* GetMontageNotify(const UAnimMontage* Montage, FName NotifyName);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static void GetMontageNotifies(const UAnimMontage* Montage, TArray<UAnimNotify*>& OutNotifies, FName NotifyName);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalMoneyData* GetMoneyDataByPlayerUID(const UObject* WorldContextObject, FGuid PlayerUId);
@@ -1077,6 +1129,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalPlayerInput* GetLocalPalPlayerInput(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static APalPlayerController* GetLocalPalPlayerController(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalMoneyData* GetLocalMoneyData(const UObject* WorldContextObject);
@@ -1138,11 +1193,17 @@ public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static FName GetHairAttachAccessorySocketName(const UObject* WorldContextObject, const FName& HairEquipmentName, const FName& BodyTypeName);
     
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static UPalGroupGuildBase* GetGuildByPlayerUId(const UObject* WorldContextObject, const FGuid& PlayerUId);
+    
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalGroupManager* GetGroupManager(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalGameSetting* GetGameSetting(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UPalGamepadButtonImageDatabase* GetGamepadButtonImageDatabase(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static TArray<FName> GetGainStatusItemEffectStatus(const UObject* WorldContextObject, const FName ItemId);
@@ -1262,7 +1323,7 @@ public:
     static FName GetCharacterIDReplacedName(FName originalID);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    static FName GetCharacterIDFromTribeID(const EPalTribeID TribeID);
+    static FName GetCharacterIDFromTribeID(const EPalTribeID TribeId);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName GetCharacterIDFromCharacter(const APalCharacter* Character);
@@ -1325,6 +1386,9 @@ public:
     static FString GetAPIBaseURL(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static TArray<UPalIndividualCharacterHandle*> GetAllSameGuildPlayerIndividualHandles(const UObject* WorldContextObject, const FGuid& PlayerUId, bool IsIgnoreDead);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static void GetAllPlayerStates(const UObject* WorldContextObject, TArray<APalPlayerState*>& OutPlayerStates);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
@@ -1380,6 +1444,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static AActor* FindHomingTarget_ForPlayer(APalPlayerCharacter* Player, float MinRange, float MaxRange, float InFrontDegree);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static AActor* FindClosestActorToReticle(APalPlayerCharacter* Player, const TArray<AActor*>& Actors);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FText EnumToLocalizedText(const UObject* WorldContextObject, const FString& EnumStr, const EPalLocalizeTextCategory TextCategory, const FString& TextIdPrefix);
@@ -1444,6 +1511,12 @@ public:
     UFUNCTION(BlueprintCallable)
     static void ChangeDefaultLandMovementModeForWalking(APalCharacter* Character);
     
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void CapsuleOverlapActorsWithRotation(UObject* WorldContextObject, const FVector Start, const FVector End, float Radius, float HalfHeight, TEnumAsByte<ETraceTypeQuery> TraceChannel, bool bTraceComplex, const TArray<AActor*>& ActorsToIgnore, TEnumAsByte<EDrawDebugTrace::Type> DrawDebugType, TArray<AActor*>& OutActors, bool bIgnoreSelf, FLinearColor TraceColor, FLinearColor TraceHitColor, float DrawTime);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool CanUseTargetWorkSuitabilityRankUp(const UObject* WorldContextObject, UPalIndividualCharacterParameter* IndividualParameter, const UPalStaticItemDataBase* Item);
+    
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool CanUseTargetRankUp(const UObject* WorldContextObject, UPalIndividualCharacterParameter* IndividualParameter, const UPalStaticItemDataBase* Item);
     
@@ -1451,13 +1524,16 @@ public:
     static bool CanUseTargetPalExpItem(const UObject* WorldContextObject, UPalIndividualCharacterParameter* IndividualParameter, const UPalStaticItemDataBase* Item);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static bool CanUseTargetMedicine(const UObject* WorldContextObject, UPalIndividualCharacterParameter* IndividualParameter, const UPalStaticItemDataBase* Item);
+    static bool CanUseTargetMedicine(const UObject* WorldContextObject, const UPalIndividualCharacterParameter* IndividualParameter, const UPalStaticItemDataBase* Item);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool CanSpawnDashEffect(AActor* dashActor);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool CanNooseTrap(AActor* Actor);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContext"))
+    static bool CanAdjustLocationToFloorFromCDO(UObject* WorldContext, TSubclassOf<AActor> InClass, FVector InLocation, float UpOffset, FVector& OutLocation, bool ShortRayLength);
     
     UFUNCTION(BlueprintCallable)
     static bool CanAdjustActorToFloor(AActor* TargetActor, float UpOffset, FVector& OutLocation, bool ShortRayLength);
@@ -1473,6 +1549,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 CalcRemainBattleTime(FDateTime TimeLimit);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static FTimespan CalcRealTimeDifferenceToNow(const UObject* WorldContextObject, FDateTime OriginalDate, FTimespan Offset);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 CalcNPCWeaponDamage(const APalWeaponBase* Weapon);

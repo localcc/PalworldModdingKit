@@ -13,6 +13,7 @@ class UPalFunnelCharacterManager;
 class UPalIncidentSystem;
 class UPalInvaderManager;
 class UPalOptionSubsystem;
+class UPalStageWorldSubsystem;
 class UPalStaticMeshImposterSubsystem;
 class UPalTimeManager;
 
@@ -20,6 +21,9 @@ UCLASS(Blueprintable)
 class PAL_API APalWorldSettings : public AWorldSettings {
     GENERATED_BODY()
 public:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UPalStageWorldSubsystem> StageWorldSubsystemClass;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalDungeonWorldSubsystem> DungeonWorldSubsystemClass;
     

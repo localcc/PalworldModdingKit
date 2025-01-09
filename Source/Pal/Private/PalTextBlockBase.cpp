@@ -3,7 +3,9 @@
 UPalTextBlockBase::UPalTextBlockBase() {
     this->IsAutoTextSetWhenWidgetRebuilt = false;
     this->IsAutoAdjustScale = false;
+    this->IgnoreFontSizeSetting = false;
     this->MaxWidth = 100;
+    this->JustificationVerticalCenter = false;
 }
 
 void UPalTextBlockBase::UpdateRowName(const FName RowName) {

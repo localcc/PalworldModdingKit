@@ -7,7 +7,7 @@ USTRUCT(BlueprintType)
 struct FPalCaptureBonusExpRaw : public FTableRowBase {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     int64 BonusExp;
     
     PAL_API FPalCaptureBonusExpRaw();

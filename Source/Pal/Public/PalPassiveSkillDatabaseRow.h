@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "Engine/DataTable.h"
 #include "EPalElementType.h"
+#include "EPalPassiveCategory.h"
 #include "EPalPassiveSkillEffectTargetType.h"
 #include "EPalPassiveSkillEffectType.h"
 #include "PalPassiveSkillDatabaseRow.generated.h"
@@ -89,10 +90,13 @@ public:
     bool AddAccessory;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FName OverrideNameTextId;
+    FName OverrideNameTextID;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName OverrideSummaryTextId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalPassiveCategory Category;
     
     PAL_API FPalPassiveSkillDatabaseRow();
 };

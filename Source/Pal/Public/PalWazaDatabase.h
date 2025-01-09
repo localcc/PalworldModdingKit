@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
 #include "EPalAdditionalEffectType.h"
+#include "EPalElementType.h"
 #include "EPalStatusID.h"
 #include "EPalWazaID.h"
 #include "PalWazaDatabaseRaw.h"
@@ -25,6 +26,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* WazaMasterTamago_DataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<EPalElementType, EPalWazaID> OtomoBoringTimeWazaID;
     
 public:
     UPalWazaDatabase();

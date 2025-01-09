@@ -34,4 +34,8 @@ UPalIndividualCharacterContainer* UPalUIBaseCampWorkFixedAssignManageModel::GetT
 void UPalUIBaseCampWorkFixedAssignManageModel::GetFixedAssignableWorks(TArray<FPalUIBaseCampWorkFixedAssignInfo>& OutWorks) {
 }
 
+bool UPalUIBaseCampWorkFixedAssignManageModel::CanFixedAssign(const FPalUIBaseCampWorkFixedAssignInfo& TargetInfo, UPalIndividualCharacterParameter* TargetCharacterParameter) const {
+    return false;
+}
+
 

@@ -20,6 +20,7 @@ FPalOptionWorldSettings::FPalOptionWorldSettings() {
     this->PalStaminaDecreaceRate = 0.00f;
     this->PalAutoHPRegeneRate = 0.00f;
     this->PalAutoHpRegeneRateInSleep = 0.00f;
+    this->BuildObjectHpRate = 0.00f;
     this->BuildObjectDamageRate = 0.00f;
     this->BuildObjectDeteriorationDamageRate = 0.00f;
     this->CollectionDropRate = 0.00f;
@@ -47,6 +48,8 @@ FPalOptionWorldSettings::FPalOptionWorldSettings() {
     this->autoSaveSpan = 0.00f;
     this->bIsMultiplay = false;
     this->bIsPvP = false;
+    this->bHardcore = false;
+    this->bPalLost = false;
     this->bCanPickupOtherGuildDeathPenaltyDrop = false;
     this->bEnableNonLoginPenalty = false;
     this->bEnableFastTravel = false;
@@ -54,6 +57,8 @@ FPalOptionWorldSettings::FPalOptionWorldSettings() {
     this->bExistPlayerAfterLogout = false;
     this->bEnableDefenseOtherGuildPlayer = false;
     this->bInvisibleOtherGuildBaseCampAreaFX = false;
+    this->bBuildAreaLimit = false;
+    this->ItemWeightRate = 0.00f;
     this->CoopPlayerMaxNum = 0;
     this->ServerPlayerMaxNum = 0;
     this->PublicPort = 0;
@@ -68,5 +73,8 @@ FPalOptionWorldSettings::FPalOptionWorldSettings() {
     this->bIsUseBackupSaveData = false;
     this->LogFormatType = EPalLogFormatType::Text;
     this->SupplyDropSpan = 0;
+    this->EnablePredatorBossPal = false;
+    this->MaxBuildingLimitNum = 0;
+    this->ServerReplicatePawnCullDistance = 0.00f;
 }
 

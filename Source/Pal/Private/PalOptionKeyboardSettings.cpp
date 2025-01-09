@@ -9,5 +9,6 @@ FPalOptionKeyboardSettings::FPalOptionKeyboardSettings() {
     this->bEnableAimAssist = false;
     this->bShowChat = false;
     this->bIsToggleInteract = false;
+    this->bIsToggleBuildMode = false;
 }
 

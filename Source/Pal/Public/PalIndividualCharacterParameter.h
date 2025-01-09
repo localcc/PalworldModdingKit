@@ -6,11 +6,13 @@
 #include "EPalBaseCampWorkerEventType.h"
 #include "EPalBaseCampWorkerSickType.h"
 #include "EPalCharacterNaturalUpdateType.h"
+#include "EPalExpCalcType.h"
 #include "EPalFoodStatusEffectType.h"
 #include "EPalGenderType.h"
 #include "EPalGenusCategoryType.h"
 #include "EPalInvaderType.h"
 #include "EPalPassiveSkillEffectType.h"
+#include "EPalSizeType.h"
 #include "EPalStatusHungerType.h"
 #include "EPalStatusPhysicalHealthType.h"
 #include "EPalTribeID.h"
@@ -25,7 +27,7 @@
 #include "PalIndividualCharacterEquipItemContainerHandler.h"
 #include "PalIndividualCharacterSaveParameter.h"
 #include "PalInstanceID.h"
-#include "PalItemSlotIdAndNum.h"
+#include "PalPassiveSkillEffectKeyOption.h"
 #include "PalPhantomReplicateInfo.h"
 #include "PalWorkSuitabilityPreferenceInfo.h"
 #include "PalIndividualCharacterParameter.generated.h"
@@ -40,6 +42,7 @@ class UPalIndividualCharacterParameter : public UObject {
     GENERATED_BODY()
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FWorkSuitabilityChangedDelegate);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateWorkSuitabilityRankDelegate, EPalWorkSuitability, WorkSuitability);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateWorkSuitabilityOptionDelegate, const FPalWorkSuitabilityPreferenceInfo&, NewWorkSuitabilityOption);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateUnusedStatusPointDelegate, int32, UnusedPoint);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FUpdateStatusPointDelegate, FName, StatusName, int32, prevPoint, int32, newPoint);
@@ -50,7 +53,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdateSanityDelegate, float, nowSanity, float, oldSanity);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateReviveTimerDelegate, float, NowReviveTimer);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdateRankUpExpDelegate, int32, nowRankUpExp, int32, oldRankUpExp);
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdateRankDelegate, int32, nowRank, int32, oldRank);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdateRankDelegate, int32, NowRank, int32, OldRank);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdateNickNameWithParameterDelegate, UPalIndividualCharacterParameter*, IndividualParameter, const FString&, NewNickName);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateNickNameDelegate, const FString&, NewNickName);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdateLevelDelegate, int32, addLevel, int32, nowLevel);
@@ -67,6 +70,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FRevivedParameterDelegate, UPalIndividualCharacterParameter*, IndividualParameter);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnRevivedDelegate, UPalIndividualCharacterParameter*, IndividualParameter);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnFavoritePalChangedDelegate);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnChangedAssignedToExpeditionDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FInvaderTargetChangedDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FGotStatusPointListChangedDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FEndMedicalBedDelegate);
@@ -75,7 +79,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FChangeMasteredWazaDelegate, UPalIndividualCharacterParameter*, IndividualParameter, EPalWazaID, WazaID);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FChangeEquipWazaDelegate, UPalIndividualCharacterParameter*, IndividualParameter);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FChangeBuffStatusDelegate);
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FAddExpDelegate, int64, addExp, int64, NowExp);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FAddExpDelegate, int64, addExp, int64, NowExp, EPalExpCalcType, ExpType);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FAddEquipWazaDelegate, EPalWazaID, WazaID);
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -169,7 +173,13 @@ public:
     FOnFavoritePalChangedDelegate OnFavoritePalChangedDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnChangedAssignedToExpeditionDelegate OnChangedAssignedToExpeditionDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FUpdateIndividualIDDelegate OnUpdateIndividualIDDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FUpdateWorkSuitabilityRankDelegate OnUpdateWorkSuitabilityRankDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FEndMedicalBedDelegate OnEndMedicalBedDelegate;
@@ -215,7 +225,13 @@ protected:
     FString WaitingFilterNickName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGuid WaitingFilterNickNameModifierPlayerUid;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString NextFilterNickName;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGuid NextFilterNickNameModifierPlayerUid;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -236,6 +252,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TSoftClassPtr<APalCharacter> SkinClassPtr;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    EPalExpCalcType LastExpUpdateType;
+    
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FString Debug_CurrentAIActionName;
@@ -244,9 +263,6 @@ public:
 
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
-    UFUNCTION(BlueprintCallable)
-    void UseItemInSlot(const FPalItemSlotIdAndNum SlotIdAndNum);
-    
     UFUNCTION(BlueprintCallable)
     bool TryFindEatItem(const FPalContainerId& ContainerId, int32& SlotIndex);
     
@@ -258,6 +274,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void StartRecuperatingInMedicalBed();
+    
+    UFUNCTION(BlueprintCallable)
+    void SetWorkSuitabilityAddRank(EPalWorkSuitability WorkSuitability, int32 addRank);
     
     UFUNCTION(BlueprintCallable)
     void SetStatusPoint(FName StatusName, int32 Point);
@@ -305,6 +324,9 @@ public:
     void ResetLastJumpedLocation();
     
     UFUNCTION(BlueprintCallable)
+    void RemovePassiveSkill(FName SkillId);
+    
+    UFUNCTION(BlueprintCallable)
     void RemoveEquipWaza(EPalWazaID WazaID);
     
     UFUNCTION(BlueprintCallable)
@@ -328,6 +350,9 @@ public:
 protected:
     UFUNCTION(BlueprintCallable)
     void OnReceivedWordFilteringResult(const FString& ResponseBody, bool bResponseOK, int32 ResponseCode);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnChangedBlockedUsers();
     
 public:
     UFUNCTION(BlueprintCallable)
@@ -367,7 +392,16 @@ public:
     bool IsFavoritePal() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsEnablePlayerRespawnInHardcore() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsDead() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsAssignedToExpeditionIn(const FGuid& MapObjectConcreteInstanceId) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsAssignedToExpedition() const;
     
 private:
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -423,6 +457,9 @@ public:
     FGuid GetSkinAppliedCharacterId() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    EPalSizeType GetSizeType() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetShotAttack_withBuff() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -448,7 +485,7 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    float GetRatePassiveSkill(EPalPassiveSkillEffectType EffectType) const;
+    float GetRatePassiveSkillInBaseCamp(EPalPassiveSkillEffectType EffectType, const FPalPassiveSkillEffectKeyOption& EffectOption) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetRatePartnerSkill(EPalPassiveSkillEffectType EffectType) const;
@@ -474,6 +511,12 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetPalSoulRank() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    void GetNickNameWithOnlineID(FString& outName) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    void GetNickNameByCheckBlockedUser(FString& outName) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetNickname(FString& outName) const;
@@ -578,7 +621,7 @@ public:
     int32 GetCraftSpeedByWorkSuitability(const EPalWorkSuitability WorkSuitability) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    float GetCraftSpeedBuffRate() const;
+    float GetCraftSpeedBuffRate(const EPalWorkSuitability WorkSuitability) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetCraftSpeed_withBuff_WorkSuitability(const EPalWorkSuitability Suitability) const;
@@ -600,6 +643,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FGuid GetBaseCampId() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetBaseCampCraftSpeedBuffRate() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetAttackRank() const;

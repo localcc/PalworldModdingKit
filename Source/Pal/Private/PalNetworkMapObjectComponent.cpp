@@ -174,10 +174,22 @@ void UPalNetworkMapObjectComponent::NotifyConcreteModel_Multicast_FPalNetArchive
 void UPalNetworkMapObjectComponent::NotifyConcreteModel_Multicast_bool_Implementation(const FGuid& ConcreteModelInstanceId, const FName FunctionName, bool Value) {
 }
 
+void UPalNetworkMapObjectComponent::Dev_RequestDismantleMapObject_ToServer_Implementation(const FGuid& InstanceId) {
+}
+
 void UPalNetworkMapObjectComponent::Dev_ReceiveMapObjectsTickIntervalInBackground_ToClient_Implementation(const TArray<FPalNetworkMapObjectTickIntervalInBackgroundInfo>& TickIntervalInfoArray) {
 }
 
+void UPalNetworkMapObjectComponent::Dev_ReceiveDismantleMapObjectResult_ToClient_Implementation(const FString& ResultMessage) {
+}
+
 void UPalNetworkMapObjectComponent::Dev_FetchMapObjectsTickIntervalInBackground_ToServer_Implementation() {
+}
+
+void UPalNetworkMapObjectComponent::BroadcastStartTeamMissionLog_ToServer_Implementation(const FGuid& ConcreteModelInstanceId) {
+}
+
+void UPalNetworkMapObjectComponent::AddStartTeamMissionLog_ToServer_Implementation() {
 }
 
 

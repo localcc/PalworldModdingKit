@@ -4,9 +4,6 @@
 UPalShopProduct_PalSaveParameter::UPalShopProduct_PalSaveParameter() {
 }
 
-void UPalShopProduct_PalSaveParameter::OnCreatedBuyPal(FPalInstanceID CreatedPalInstanceID) {
-}
-
 void UPalShopProduct_PalSaveParameter::GetProductPalParameter(FPalIndividualCharacterSaveParameter& outParameter) const {
 }
 

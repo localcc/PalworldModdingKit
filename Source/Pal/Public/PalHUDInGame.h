@@ -4,9 +4,12 @@
 #include "GameFramework/HUD.h"
 #include "GameplayTagContainer.h"
 #include "EPalHUDWidgetPriority.h"
+#include "EPalItemTypeA.h"
+#include "EPalItemTypeB.h"
 #include "EPalWidgetBlueprintType.h"
 #include "EPalWorldHUDWidgetBlueprintType.h"
 #include "FlagContainer.h"
+#include "PalDataTableRowName_ItemData.h"
 #include "PalHUDServiceProviderInterface.h"
 #include "PalWorldHUDParameter.h"
 #include "Templates/SubclassOf.h"
@@ -70,6 +73,24 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<EPalWorldHUDWidgetBlueprintType, TSubclassOf<UPalUserWidgetWorldHUD>> LoadedWorldHUDClassMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FPalDataTableRowName_ItemData, TSoftClassPtr<UPalUserWidgetStackableUI>> UseItemUIClassMap_Unique;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<EPalItemTypeB, TSoftClassPtr<UPalUserWidgetStackableUI>> UseItemUIClassMap_ItemTypeB;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<EPalItemTypeA, TSoftClassPtr<UPalUserWidgetStackableUI>> UseItemUIClassMap_ItemTypeA;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FPalDataTableRowName_ItemData, TSubclassOf<UPalUserWidgetStackableUI>> LoadedUseItemUIClassMap_Unique;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<EPalItemTypeB, TSubclassOf<UPalUserWidgetStackableUI>> LoadedUseItemUIClassMap_ItemTypeB;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<EPalItemTypeA, TSubclassOf<UPalUserWidgetStackableUI>> LoadedUseItemUIClassMap_ItemTypeA;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalSoundPlayer* SoundPlayer;

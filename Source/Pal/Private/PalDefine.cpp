@@ -71,6 +71,10 @@ FName UPalDefine::TextId_UICommon_InteractIndicator_LockedPrivateByNotLocalPlaye
     return NAME_None;
 }
 
+FName UPalDefine::TextId_UICommon_InteractIndicator_LockedElementalTreasure() {
+    return NAME_None;
+}
+
 FName UPalDefine::TextId_UICommon_InteractIndicator_InputPassword_CannotTry() {
     return NAME_None;
 }

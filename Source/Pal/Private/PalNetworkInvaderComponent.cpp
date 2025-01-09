@@ -3,6 +3,9 @@
 UPalNetworkInvaderComponent::UPalNetworkInvaderComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
 
+void UPalNetworkInvaderComponent::RequestRecruitPal_Implementation(APalNPC* NPC) {
+}
+
 void UPalNetworkInvaderComponent::OnInvaderStart_Implementation(const FPalIncidentBroadcastParameter& Parameter) {
 }
 

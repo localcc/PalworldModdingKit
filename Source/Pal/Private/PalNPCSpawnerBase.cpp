@@ -12,6 +12,7 @@ APalNPCSpawnerBase::APalNPCSpawnerBase(const FObjectInitializer& ObjectInitializ
     this->LocationResetDistance_SpawnerToCharacterTooFar = 500000.00f;
     this->LocationResetHeight_SpawnerToCharacterTooLow = 50000.00f;
     this->NavInvokerComponent = NULL;
+    this->IgnoreBaseCampCheck = false;
     this->Squad = NULL;
     this->ImportanceType = EPalSpwnerImportanceType::Undefined;
 }

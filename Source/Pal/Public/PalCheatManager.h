@@ -6,6 +6,8 @@
 #include "GameFramework/CheatManager.h"
 #include "EPalActionType.h"
 #include "EPalBaseCampWorkerEventType.h"
+#include "EPalBaseCampWorkerSickType.h"
+#include "EPalBossBattleDifficulty.h"
 #include "EPalBossType.h"
 #include "EPalEnergyType.h"
 #include "EPalLimitVolumeFlag.h"
@@ -75,6 +77,9 @@ public:
     void UpdateBaseCampLevelMax();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void UnregisterTickFunctionMapObjectNotExistsConcrete();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void UnlockTechnologyByLvCap(int32 Lv);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -96,6 +101,12 @@ public:
     void UNKO();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void TriggerBaseCampWorkerSickServerInternal(const FGuid& InvokerPlayerUId, const EPalBaseCampWorkerSickType SickType);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void TriggerBaseCampWorkerSick(const EPalBaseCampWorkerSickType SickType);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void TriggerBaseCampWorkerEvent(const EPalBaseCampWorkerEventType EventType);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -105,10 +116,16 @@ public:
     void ToggleVisibleStaticMeshImposterChunk();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void ToggleVisibleLevelObject(const FName ClassName);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void ToggleVisibleFoliageChunk();
     
     UFUNCTION(BlueprintCallable, Exec)
     void ToggleUserAchievementDebug();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void ToggleSpawnRandomIncidentLotteryDataOnly();
     
     UFUNCTION(BlueprintCallable, Exec)
     void ToggleShowReticleLocation();
@@ -129,6 +146,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void ToggleLoadingScreen();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void ToggleKillOnPlayerRide();
     
     UFUNCTION(BlueprintCallable, Exec)
     void ToggleHUD();
@@ -214,6 +234,9 @@ protected:
 public:
     UFUNCTION(BlueprintCallable, Exec)
     void StartTraceAllOption();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void StartLabResearchNotConsumeMaterials(const FName ResearchId);
     
     UFUNCTION(BlueprintCallable, Exec)
     void StartDismantlingMode();
@@ -364,6 +387,9 @@ public:
     void SetVoiceID(int32 VoiceID);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SetVisibleLevelObjectAll(const bool bVisible);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetVisibilityMapObject(const FName MapObjectId, const bool bVisible);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -448,6 +474,9 @@ public:
     void SetGameTime_NextDay();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SetFullStomachToBaseCampPal(const float Value);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetFPSForServer(float fps);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -455,6 +484,12 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetForceLocationTeleport(bool bForceLocationTeleport);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetEnablePlayerRespawnInHardcore(bool bEnable);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetEnableInteractLock(bool bEnable);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetDisableInteractReticleTarget(bool bIsEnable);
@@ -499,13 +534,16 @@ public:
     void SetBaseCampWorkerHp(const float Percentage);
     
     UFUNCTION(BlueprintCallable, Exec)
-    void SetAlwaysGrantPassiveSkillMode(bool Flag);
+    void SetAlwaysGrantPassiveSkillMode(bool flag);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetAllowBaseCampBattle(const bool bAllowBaseCampBattle);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetActivity(const FString& ConnStr, int32 maxPlayer, int32 currentPlayer);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SendSaveLogTelemetry(const FString& ErrorType);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SendChatToBroadcast(const FString& Text);
@@ -556,6 +594,9 @@ public:
     void RandomizePassive_PlayerWeapon();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void PrintWorkLog();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void PrintRealTime();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -565,10 +606,19 @@ public:
     void PrintPlatformInventory();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void PrintNetDriverLog();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void PrintLevelObjectClass();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void PrintInventoryDynamicItemLog();
     
     UFUNCTION(BlueprintCallable, Exec)
     void PrintGameTime();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void PrintAllDataLayerIDHash();
     
     UFUNCTION(BlueprintCallable, Exec)
     void Ping(const FString& Address);
@@ -840,6 +890,9 @@ public:
     void ForceDisablePalMeshCollision();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void ForceDetectAroundPlayer(const float Range);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void ForceArenaExitAll();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -853,6 +906,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void FixedSP();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void FixedCannonDebugPrint(bool IsShow);
     
     UFUNCTION(BlueprintCallable, Exec)
     void FixedActionRandomSeed();
@@ -903,6 +959,9 @@ public:
     void DumpMapObjectOctreeStats();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void DumpAkComponent();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void DropSupply();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -918,10 +977,16 @@ public:
     void DrawDebugRangeBaseCamp(const float LifeTime);
     
     UFUNCTION(Exec)
-    void DrawDebugLimitVolume(const EPalLimitVolumeFlag Flag, const float Range, const float Duration);
+    void DrawDebugLimitVolume(const EPalLimitVolumeFlag flag, const float Range, const float Duration);
     
     UFUNCTION(BlueprintCallable, Exec)
     void DisposeGuild(const FString& GuildName);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void DismantleMapObjectFocusAt(const float RaycastLength);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void DismantleMapObject(const FGuid& InstanceId);
     
     UFUNCTION(BlueprintCallable, Exec)
     void DismantleBaseCampFirst();
@@ -954,6 +1019,9 @@ public:
     void DebugWindow();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void DebugSwitchForceDisableAutoSave();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void DebugSaveWorldOptionData(const FString& WorldName);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -978,6 +1046,9 @@ public:
     void DebugAutoRun();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void DamageBaseCampWorkerToOne();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void CreateGuildWithAdmin(const FString& GuildName, const FGuid& AdminPlayerUId);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -999,7 +1070,19 @@ public:
     void CopyPlayerLocation();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void CopyLabResearchCompletedIds();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void ConsumePlatformInventoryItem(int32 ItemId, int32 Num);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void CompleteLabResearches(const TArray<FName> ResearchIds);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void CompleteLabResearchAll();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void CompleteLabResearch(const FName ResearchId);
     
     UFUNCTION(BlueprintCallable, Exec)
     void CommandToServer(const FString& Command);
@@ -1020,6 +1103,9 @@ public:
     void ChangePassive_PlayerWeapon(int32 Index, FName SkillName);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void ChangeModeReplace(const bool bOn);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void ChangeMaxPlayers(int32 Players);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -1027,6 +1113,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void ChangeHUDScale(float Scale);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void ChangeAllowConnectPlatform(const FString& PlatformName);
     
     UFUNCTION(BlueprintCallable, Exec)
     void CauseServerCrash();
@@ -1075,6 +1164,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void AddTechnologyPoints(int32 AddPoints);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void AddRecord_TowerBossDefeat(const EPalBossType BossType, const EPalBossBattleDifficulty Difficulty);
     
     UFUNCTION(BlueprintCallable, Exec)
     void AddPlayerExp(int32 addExp);

@@ -17,7 +17,6 @@ enum class EPalWidgetBlueprintType : uint8 {
     SelectItem_PlayerInventory,
     PlayerStatusOperation,
     PalStatusOperation,
-    CommonReward,
     MapObjectSecuritySetting,
     PasswordSetting,
     BaseCampWorkHard,
@@ -28,5 +27,10 @@ enum class EPalWidgetBlueprintType : uint8 {
     MapObjectCommonCharacterContainer,
     PickingGame,
     ArenaPalSelect,
+    BaseCampItemDispenser,
+    ItemBoothTrade,
+    ItemBoothSale,
+    PalBoothTrade,
+    PalBoothSale,
 };
 

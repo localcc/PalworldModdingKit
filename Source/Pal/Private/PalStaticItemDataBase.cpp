@@ -18,10 +18,6 @@ UPalStaticItemDataBase::UPalStaticItemDataBase() {
     this->FloatValue1 = 0.00f;
 }
 
-bool UPalStaticItemDataBase::UseItem(UPalDynamicItemDataBase* DynamicItemData, const UObject* WorldContextObject) {
-    return false;
-}
-
 bool UPalStaticItemDataBase::IsCorruptible() const {
     return false;
 }
@@ -32,6 +28,10 @@ bool UPalStaticItemDataBase::HasDynamicItemClass() const {
 
 bool UPalStaticItemDataBase::HasActorClass() const {
     return false;
+}
+
+float UPalStaticItemDataBase::GetWorldScaledWeight(const UObject* WorldContextObject) const {
+    return 0.0f;
 }
 
 TSoftClassPtr<AActor> UPalStaticItemDataBase::GetVisualBlueprintClass(const UObject* WorldContextObject) const {
@@ -77,6 +77,10 @@ void UPalStaticItemDataBase::GetAllPassiveSkill(TArray<FName>& OutArray) const {
 
 TSoftClassPtr<AActor> UPalStaticItemDataBase::GetActorClass() const {
     return NULL;
+}
+
+bool UPalStaticItemDataBase::CanUseItemToCharacter(const UObject* WorldContentObject, const FPalInstanceID& TargetCharacterID) {
+    return false;
 }
 
 

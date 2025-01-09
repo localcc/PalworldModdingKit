@@ -12,7 +12,7 @@ void UPalCutsceneComponent::StopCutsceneToServer_Implementation() {
 void UPalCutsceneComponent::StopCutscene() {
 }
 
-void UPalCutsceneComponent::StartFadeOut() {
+void UPalCutsceneComponent::StartFadeIn() {
 }
 
 APalCutsceneActor* UPalCutsceneComponent::SpawnCutsceneActor(TSubclassOf<APalCutsceneActor> CutsceneActorClass, FVector Location, FRotator Rotation, AActor* Owner) {
@@ -28,7 +28,7 @@ void UPalCutsceneComponent::PlayCutscene(APalCutsceneActor* InCutsceneActor, boo
 void UPalCutsceneComponent::OnFinished() {
 }
 
-void UPalCutsceneComponent::OnEndFadeOut() {
+void UPalCutsceneComponent::OnEndFadeIn() {
 }
 
 bool UPalCutsceneComponent::IsPlayingCutscene() const {

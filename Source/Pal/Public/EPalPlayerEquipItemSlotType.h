@@ -12,6 +12,7 @@ enum class EPalPlayerEquipItemSlotType : uint8 {
     Glider,
     Accessory3,
     Accessory4,
+    CaptureItemModifier,
     Max,
 };
 

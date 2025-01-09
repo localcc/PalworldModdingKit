@@ -23,4 +23,7 @@ FPalInstanceID UPalIndividualCharacterHandle::GetIndividualID() const {
     return FPalInstanceID{};
 }
 
+void UPalIndividualCharacterHandle::CallOrRegisterOnReadyIndividualParameter(FIndividualCharacterParameterDelegate Delegate) {
+}
+
 

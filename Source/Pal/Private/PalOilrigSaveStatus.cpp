@@ -5,8 +5,7 @@ FPalOilrigSaveStatus::FPalOilrigSaveStatus() {
     this->Alarm = false;
     this->Clear = false;
     this->ResetTimer = 0.00f;
-    this->IsMachineTimerCountUp = false;
+    this->IsMachineSpawned = false;
     this->IsMachineDestroyed = false;
-    this->MachineStartTimer = 0.00f;
 }
 

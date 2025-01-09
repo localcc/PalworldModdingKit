@@ -13,6 +13,7 @@ enum class EPalWorldHUDWidgetBlueprintType : uint8 {
     LackElectricity,
     RecoverPal,
     HatchingPalEgg,
+    MultiHatchingPalEgg,
     GenerateEnergy,
     HeadupWantFood,
     HeadupPossessItem,
@@ -20,6 +21,10 @@ enum class EPalWorldHUDWidgetBlueprintType : uint8 {
     BossEntryWait,
     BreedFarm,
     MapObjectHP,
+    MapObjectMultiplayModifier,
     CommonWorkRequirement,
+    LabResearch,
+    Expedition,
+    SkillFruitFarm,
 };
 

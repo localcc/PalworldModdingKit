@@ -7,6 +7,7 @@ APalBuildObject::APalBuildObject(const FObjectInitializer& ObjectInitializer) : 
     this->InstallStrategyClass = NULL;
     this->InstallCapacitySlopeAngle = -1.00f;
     this->InstallCapacitySinkRateByHeight = -1.00f;
+    this->DefaultMobility = EComponentMobility::Static;
     this->VisualCtrl = CreateDefaultSubobject<UPalBuildObjectVisualControlComponent>(TEXT("VisualController"));
     this->OverlapCheckCollision = NULL;
     this->SnapCheckBoxCollision = NULL;
@@ -23,7 +24,7 @@ APalBuildObject::APalBuildObject(const FObjectInitializer& ObjectInitializer) : 
 void APalBuildObject::PlayBuildCompleteFX_ToALL_Implementation() {
 }
 
-void APalBuildObject::OnUpdateHp(UPalMapObjectModel* DamagedModel) {
+void APalBuildObject::OnUpdateHP(UPalMapObjectModel* DamagedModel) {
 }
 
 void APalBuildObject::OnUpdateBuildWorkAmount(UPalWorkProgress* WorkProgress) {

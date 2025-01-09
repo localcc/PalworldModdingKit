@@ -9,5 +9,6 @@ enum class EPalMapObjectItemContainerSlotAttribute : uint8 {
     PublicOutput,
     FoodProvidable,
     CannotTransport,
+    MedicineProvidable,
 };
 

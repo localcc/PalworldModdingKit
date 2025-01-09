@@ -101,6 +101,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool IsUseBlurUpdate;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIgnoreUIDelayForNextWeapon;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<EPalWeaponType, UPalShooterAnimeAssetBase*> DefaultWeaponAnimeAssetMap;
@@ -121,13 +124,13 @@ private:
     FVector targetDirection;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bIsAiming;
+    TMap<EPalShooterFlagContainerPriority, bool> IsAimingFlags;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsShooting;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bIsRequestAim;
+    TMap<EPalShooterFlagContainerPriority, bool> IsRequestAimFlags;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsRequestPullTrigger;
@@ -265,6 +268,9 @@ public:
     void SetShootingHold(bool IsHold);
     
     UFUNCTION(BlueprintCallable)
+    void SetRequestAiming(EPalShooterFlagContainerPriority Priority, bool IsRequest);
+    
+    UFUNCTION(BlueprintCallable)
     void SetOverrideWeaponType(EPalWeaponType Type);
     
     UFUNCTION(BlueprintCallable)
@@ -304,6 +310,12 @@ public:
     void SetDisableAimFlag(FName flagName, bool isDisable);
     
     UFUNCTION(BlueprintCallable)
+    void SetAiming(EPalShooterFlagContainerPriority Priority, bool bIsAiming);
+    
+    UFUNCTION(BlueprintCallable)
+    void ResetRequestAiming();
+    
+    UFUNCTION(BlueprintCallable)
     void ResetOverrideWeaponType();
     
 private:
@@ -329,12 +341,6 @@ public:
 private:
     UFUNCTION(BlueprintCallable)
     void OnWeaponNotify(EWeaponNotifyType Type);
-    
-    UFUNCTION()
-    void OnWeaponAnimationNotifyEnd(FName NotifyName, const FBranchingPointNotifyPayload& BranchingPointNotifyPayload);
-    
-    UFUNCTION()
-    void OnWeaponAnimationNotifyBegin(FName NotifyName, const FBranchingPointNotifyPayload& BranchingPointNotifyPayload);
     
     UFUNCTION(BlueprintCallable)
     void OnStartOwnerAction(const UPalActionBase* action);
@@ -368,6 +374,12 @@ public:
     bool IsShooting() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsRequestAiming_Layered(EPalShooterFlagContainerPriority Priority) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsRequestAiming() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsReloading() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -377,6 +389,9 @@ public:
     bool IsHiddenAttachWeapon();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsAiming_Layered(EPalShooterFlagContainerPriority Priority) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsAiming() const;
     
     UFUNCTION(BlueprintCallable)
@@ -384,6 +399,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FVector GetTargetDirection() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    EPalShooterFlagContainerPriority GetRequestAimingPriority() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UWeaponAnimationInfoWrap* GetPrevWeaponAnimationInfo() const;
@@ -409,8 +427,11 @@ public:
     UFUNCTION(BlueprintCallable)
     UPalShooterAnimeAssetBase* GetBowAnimAsset();
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    EPalShooterFlagContainerPriority GetAimingPriority() const;
+    
     UFUNCTION(BlueprintCallable)
-    void EndAim();
+    void EndAim(bool bAllEndAim);
     
 private:
     UFUNCTION(BlueprintCallable)
@@ -428,15 +449,15 @@ private:
     void ChangeIsShooting(bool NewIsShooting);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void ChangeIsAiming_ToServer(int32 ID, bool NewIsAiming);
+    void ChangeIsAiming_ToServer(int32 ID, EPalShooterFlagContainerPriority Priority, bool NewIsAiming);
     
 public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void ChangeIsAiming_ToALL(int32 ID, bool NewIsAiming);
+    void ChangeIsAiming_ToALL(int32 ID, EPalShooterFlagContainerPriority Priority, bool NewIsAiming);
     
 private:
     UFUNCTION(BlueprintCallable)
-    void ChangeIsAiming(bool NewIsAiming);
+    void ChangeIsAiming(EPalShooterFlagContainerPriority Priority, bool NewIsAiming);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)

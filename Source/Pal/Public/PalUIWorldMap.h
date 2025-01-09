@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
 #include "EPalWorldMapType.h"
 #include "PalUserWidgetOverlayUI.h"
 #include "PalUIWorldMap.generated.h"
@@ -12,7 +13,7 @@ public:
     UPalUIWorldMap();
 protected:
     UFUNCTION(BlueprintCallable)
-    void RegisterRespawnLocation(const FVector& RespawnLocation);
+    void RegisterRespawnPoint(const FVector& RespawnLocation, const FQuat& RespawnRotation);
     
     UFUNCTION(BlueprintCallable)
     void Debug_SetLocation(const FVector& Location);

@@ -26,5 +26,6 @@ FPalPassiveSkillDatabaseRow::FPalPassiveSkillDatabaseRow() {
     this->AddMeleeWeapon = false;
     this->AddArmor = false;
     this->AddAccessory = false;
+    this->Category = EPalPassiveCategory::SortDisplayable;
 }
 

@@ -11,9 +11,11 @@
 #include "PalDungeonSaveData.h"
 #include "PalDynamicItemSaveData.h"
 #include "PalEnemyCampSaveData.h"
+#include "PalFixedWeaponDestroySaveData.h"
 #include "PalFoliageGridSaveData.h"
 #include "PalGameTimeSaveData.h"
 #include "PalGroupSaveData.h"
+#include "PalGuildExtraSaveData.h"
 #include "PalIndividualCharacterSaveParameterSaveData.h"
 #include "PalInstanceID.h"
 #include "PalInvaderSaveData.h"
@@ -22,6 +24,7 @@
 #include "PalMapObjectSpawnerInStageSaveData.h"
 #include "PalMapObjectSpawnerSaveData.h"
 #include "PalOilrigSaveData.h"
+#include "PalRandomizerSaveData.h"
 #include "PalStageInstanceId.h"
 #include "PalSupplySaveData.h"
 #include "PalWorkSaveData.h"
@@ -68,6 +71,9 @@ public:
     TMap<FGuid, FPalGroupSaveData> GroupSaveDataMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FGuid, FPalGuildExtraSaveData> GuildExtraSaveDataMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalCharacterParameterStorageSaveData CharacterParameterStorageSaveData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -92,7 +98,13 @@ public:
     FPalOilrigSaveData OilrigSaveData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalFixedWeaponDestroySaveData FixedWeaponDestroySaveData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalSupplySaveData SupplySaveData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalRandomizerSaveData RandomizerSaveData;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     uint32 WorldMetaSaveVersionBitMask;

@@ -17,6 +17,12 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MaxEnergyStorage;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float ObtainExpByGenerateEnergy;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bTeleportWorkLocationOnStart;
+    
     UPalMapObjectGenerateEnergyParameterComponent(const FObjectInitializer& ObjectInitializer);
 
 };

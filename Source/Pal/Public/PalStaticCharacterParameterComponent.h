@@ -19,6 +19,7 @@
 #include "EPalWazaID.h"
 #include "FootStampInfo.h"
 #include "PalRandomRestInfo.h"
+#include "PalStaticCharacterInfo_ElectricAction.h"
 #include "PalStaticCharacterInfo_SpawnItem.h"
 #include "ShooterSpringCameraParameter.h"
 #include "Templates/SubclassOf.h"
@@ -63,6 +64,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<UAnimMontage*> EmoteList;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalStaticCharacterInfo_ElectricAction ElectricActionInfo;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<EPalWazaID, TSoftClassPtr<UPalActionBase>> WazaActionDeclarationMap;
@@ -185,6 +189,9 @@ public:
     float SmallDamageAnimationPlayRate;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float AISideStepCoolTime;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FShooterSpringCameraParameter CameraOffsetInLiftup;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -236,6 +243,9 @@ private:
     bool IsRaidBoss_Database;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool IsPredatorBoss_Database;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     EPalSpawnedCharacterType SpawnedCharacterType;
     
 protected:
@@ -252,16 +262,19 @@ public:
     void LoadWazaActionClass(EPalWazaID WazaID);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool IsTowerBossPal();
+    bool IsTowerBossPal() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSwimPal();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool IsRarePal();
+    bool IsRarePal() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool IsRaidBossPal();
+    bool IsRaidBossPal() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsPredatorBossPal();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsFlyPal();
@@ -279,7 +292,7 @@ public:
     bool IgnoreBlowAway();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    EPalSpawnedCharacterType GetSpawnedCharacterType();
+    EPalSpawnedCharacterType GetSpawnedCharacterType() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FPalRandomRestInfo GetRandomRestInfoWithOption(const TArray<UAnimMontage*>& ExceptMontages) const;

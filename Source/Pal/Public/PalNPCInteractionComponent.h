@@ -36,12 +36,23 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UPalNPCInteractConditionFunctions* ConditionFunctions;
     
+protected:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_DisableTalk, meta=(AllowPrivateAccess=true))
+    bool bDisableTalk;
+    
 public:
     UPalNPCInteractionComponent(const FObjectInitializer& ObjectInitializer);
+
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
     UFUNCTION(BlueprintCallable)
     void OnTriggerInteract(AActor* Other, EPalInteractiveObjectIndicatorType IndicatorType);
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnRep_DisableTalk();
+    
+public:
     UFUNCTION(BlueprintCallable)
     void Initialize();
     

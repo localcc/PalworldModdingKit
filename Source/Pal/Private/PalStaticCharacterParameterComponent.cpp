@@ -31,6 +31,7 @@ UPalStaticCharacterParameterComponent::UPalStaticCharacterParameterComponent(con
     this->IsLookatIKAble = true;
     this->SmallDamageAnimationApplyRate = 0.20f;
     this->SmallDamageAnimationPlayRate = 2.00f;
+    this->AISideStepCoolTime = 0.00f;
     this->IsForcedTurnWhenDamageReaction = false;
     this->DisableNPCDamageRolling = false;
     this->DefenseBuildObjectAssignDistance = 0.00f;
@@ -42,6 +43,7 @@ UPalStaticCharacterParameterComponent::UPalStaticCharacterParameterComponent(con
     this->IsBoss_Database = false;
     this->IsTowerBoss_Database = false;
     this->IsRaidBoss_Database = false;
+    this->IsPredatorBoss_Database = false;
     this->SpawnedCharacterType = EPalSpawnedCharacterType::Common;
     this->IsRaidBoss_BP = false;
 }
@@ -52,7 +54,7 @@ void UPalStaticCharacterParameterComponent::SetSpawnedCharacterType(EPalSpawnedC
 void UPalStaticCharacterParameterComponent::LoadWazaActionClass(EPalWazaID WazaID) {
 }
 
-bool UPalStaticCharacterParameterComponent::IsTowerBossPal() {
+bool UPalStaticCharacterParameterComponent::IsTowerBossPal() const {
     return false;
 }
 
@@ -60,11 +62,15 @@ bool UPalStaticCharacterParameterComponent::IsSwimPal() {
     return false;
 }
 
-bool UPalStaticCharacterParameterComponent::IsRarePal() {
+bool UPalStaticCharacterParameterComponent::IsRarePal() const {
     return false;
 }
 
-bool UPalStaticCharacterParameterComponent::IsRaidBossPal() {
+bool UPalStaticCharacterParameterComponent::IsRaidBossPal() const {
+    return false;
+}
+
+bool UPalStaticCharacterParameterComponent::IsPredatorBossPal() {
     return false;
 }
 
@@ -88,7 +94,7 @@ bool UPalStaticCharacterParameterComponent::IgnoreBlowAway() {
     return false;
 }
 
-EPalSpawnedCharacterType UPalStaticCharacterParameterComponent::GetSpawnedCharacterType() {
+EPalSpawnedCharacterType UPalStaticCharacterParameterComponent::GetSpawnedCharacterType() const {
     return EPalSpawnedCharacterType::Common;
 }
 

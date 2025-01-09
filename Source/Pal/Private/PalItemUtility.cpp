@@ -7,12 +7,6 @@ bool UPalItemUtility::TryGetItemVisualBlueprintClass(const UObject* WorldContext
     return false;
 }
 
-void UPalItemUtility::RestoreWithItem(const UObject* WorldContextObject, FName StaticItemName, UPalIndividualCharacterParameter* TargetParameter) {
-}
-
-void UPalItemUtility::MaterialInfos(const FPalItemRecipe& Recipe, TArray<FPalStaticItemIdAndNum>& NewMaterialInfos) {
-}
-
 bool UPalItemUtility::IsValid(const FPalItemRecipe& Recipe) {
     return false;
 }
@@ -25,12 +19,18 @@ bool UPalItemUtility::IsRepairableItem(UObject* WorldContextObject, const FPalIt
     return false;
 }
 
+bool UPalItemUtility::IsEmptyAllSlots(const TArray<UPalItemSlot*> Slots) {
+    return false;
+}
+
 bool UPalItemUtility::IsEmpty(const FPalItemAndNum& ItemInfo) {
     return false;
 }
 
-int32 UPalItemUtility::GetRecipeMaterialKindCount(const FPalItemRecipe& Recipe) {
-    return 0;
+void UPalItemUtility::GetProductItemRequiredMaterialInfos(const UObject* WorldContextObject, const UPalMapObjectConcreteModelBase* OwnerConcreteModel, const FName RecipeID, TArray<FPalStaticItemIdAndNum>& OutRequiredMaterialInfos) {
+}
+
+void UPalItemUtility::GetProductItemRequiredMaterialInfoMap(const UObject* WorldContextObject, const UPalMapObjectConcreteModelBase* OwnerConcreteModel, const FName RecipeID, TMap<FName, int32>& OutRequiredMaterialInfoMap) {
 }
 
 UPalItemSlot* UPalItemUtility::CreateLocalItemSlot(UObject* WorldContextObject, const FName StaticItemId, const int32 Stack) {
@@ -38,10 +38,6 @@ UPalItemSlot* UPalItemUtility::CreateLocalItemSlot(UObject* WorldContextObject, 
 }
 
 void UPalItemUtility::CollectLocalPlayerControllableItemInfos(const UObject* WorldContextObject, TArray<FName> StaticItemIds, TArray<FPalStaticItemIdAndNum>& OutItemInfos, const bool bIncludeInRangeBaseCamp) {
-}
-
-bool UPalItemUtility::CanUseHealItem(const UObject* WorldContextObject, FName StaticItemName, UPalIndividualCharacterParameter* TargetParameter) {
-    return false;
 }
 
 bool UPalItemUtility::CanItemLevelUp(const UPalStaticItemDataBase* ItemData, UPalIndividualCharacterParameter* TargetParameter) {

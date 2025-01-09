@@ -19,6 +19,8 @@ UPalDatabaseCharacterParameter::UPalDatabaseCharacterParameter() {
     this->PalCombiUniqueDataTable = NULL;
     this->PalTalentUpItemDataTable = NULL;
     this->NPCOtomoWazaDataTable = NULL;
+    this->NPCBossIconDataTable = NULL;
+    this->PalGainWorkSuitabilityRankItemDataTable = NULL;
     this->PettingPressetInstance = NULL;
     this->CombiMonsterParameter = NULL;
 }
@@ -135,6 +137,10 @@ bool UPalDatabaseCharacterParameter::GetIsRaidBoss(FName RowName) {
     return false;
 }
 
+bool UPalDatabaseCharacterParameter::GetIsPredatorBoss(FName RowName) {
+    return false;
+}
+
 bool UPalDatabaseCharacterParameter::GetIsPal(FName RowName) {
     return false;
 }
@@ -161,6 +167,10 @@ EPalGenusCategoryType UPalDatabaseCharacterParameter::GetGenusCategory(FName Row
 
 int32 UPalDatabaseCharacterParameter::GetFoodAmount(FName RowName) {
     return 0;
+}
+
+FName UPalDatabaseCharacterParameter::GetFirstDefeatRewardItemID(const FName& CharacterID) const {
+    return NAME_None;
 }
 
 float UPalDatabaseCharacterParameter::GetExpRatio(FName RowName) {
@@ -219,6 +229,10 @@ FName UPalDatabaseCharacterParameter::GetBPClassName(FName RowName) {
 }
 
 TSoftClassPtr<APalCharacter> UPalDatabaseCharacterParameter::GetBPClass(FName RowName) {
+    return NULL;
+}
+
+TSoftObjectPtr<UTexture2D> UPalDatabaseCharacterParameter::GetBossNPCIconTexture(const FName& SpawnerID) const {
     return NULL;
 }
 

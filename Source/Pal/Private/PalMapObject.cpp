@@ -27,6 +27,7 @@ APalMapObject::APalMapObject(const FObjectInitializer& ObjectInitializer) : Supe
     this->IndicatorWidgetClass = NULL;
     this->ChangeMeshFXType = EPalMapObjectChangeMeshFXType::None;
     this->bWorkLocationGroupRaycastStartOffsetOrigin = false;
+    this->bIgnoreBuildInstallConnection = false;
     this->bShouldPlayDestroyFX = false;
 }
 
@@ -72,6 +73,9 @@ void APalMapObject::CallOrRegisterOnSetConcreteModel(FPalMapObjectConcreteModelD
 }
 
 void APalMapObject::BroadcastShouldPlayDestroyFX_Implementation() {
+}
+
+void APalMapObject::BroadcastShouldNotPlayDestroyFX_Implementation() {
 }
 
 void APalMapObject::BP_OnSetConcreteModel_Implementation(UPalMapObjectConcreteModelBase* ConcreteModel) {

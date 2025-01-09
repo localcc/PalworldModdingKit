@@ -56,10 +56,10 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void OnInactive();
+    void OnInactive(bool NoEffect);
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void OnActive();
+    void OnActive(bool NoEffect);
     
 private:
     UFUNCTION(BlueprintCallable)

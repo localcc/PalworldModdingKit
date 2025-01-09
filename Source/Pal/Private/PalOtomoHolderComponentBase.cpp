@@ -7,6 +7,8 @@ UPalOtomoHolderComponentBase::UPalOtomoHolderComponentBase(const FObjectInitiali
     this->CharacterContainer = NULL;
     this->bIsDisableDespawnCharacter = false;
     this->bDisableDeadReturnOtomo = false;
+    this->bDisableReturnOtomo = false;
+    this->bReleaseContainerOnDestory = false;
 }
 
 UPalIndividualCharacterHandle* UPalOtomoHolderComponentBase::TryGetSpawnedOtomoHandle() const {
@@ -58,6 +60,9 @@ void UPalOtomoHolderComponentBase::SetOtomoOrder_ToServer_Implementation(EPalOto
 void UPalOtomoHolderComponentBase::SetInteractComponent_Implementation(AActor* SpawnPal) {
 }
 
+void UPalOtomoHolderComponentBase::SetDisableReturnOtomo(bool bDisable) {
+}
+
 void UPalOtomoHolderComponentBase::SetDisableDeadReturnOtomo(bool bDisable) {
 }
 
@@ -89,6 +94,9 @@ void UPalOtomoHolderComponentBase::OnChangeOtomoActive(APalCharacter* Otomo, boo
 }
 
 void UPalOtomoHolderComponentBase::LostOtomoByID_ToClient_Implementation(FPalInstanceID ID) const {
+}
+
+void UPalOtomoHolderComponentBase::LostOtomoByID(FPalInstanceID ID) const {
 }
 
 
@@ -212,8 +220,12 @@ void UPalOtomoHolderComponentBase::AddLogOtomoPartnerSkill_Waza_ToClient_Impleme
 void UPalOtomoHolderComponentBase::AddLogOtomoPartnerSkill_ToClient_Implementation(AActor* Otomo, EPalLogType PalLogType, int32 Value, bool AddSkillName) {
 }
 
-void UPalOtomoHolderComponentBase::AddLogOtomoPartnerSkill_Text_ToClient_Implementation(AActor* Otomo, FName textID) {
+void UPalOtomoHolderComponentBase::AddLogOtomoPartnerSkill_Text_ToClient_Implementation(AActor* Otomo, FName TextId) {
 }
+
+void UPalOtomoHolderComponentBase::ActivateCurrentOtomoNearThePlayer_ToServer_Implementation() {
+}
+
 
 
 

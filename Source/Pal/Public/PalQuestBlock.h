@@ -30,7 +30,7 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable)
-    void SetCanComplete(bool Flag);
+    void SetCanComplete(bool flag);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSetup_ForBP();

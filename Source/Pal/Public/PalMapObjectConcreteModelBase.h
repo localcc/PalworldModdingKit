@@ -13,6 +13,8 @@
 
 class AActor;
 class APalMapObject;
+class IPalMapObjectItemContainerAccessInterface;
+class UPalMapObjectItemContainerAccessInterface;
 class UPalBaseCampModel;
 class UPalMapObjectCharacterContainerModule;
 class UPalMapObjectConcreteModelBase;
@@ -59,7 +61,10 @@ public:
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    FName TryGetMapObjectId();
+    FName TryGetMapObjectId() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FText TryGetItemContainerOverrideName() const;
     
 protected:
     UFUNCTION(BlueprintCallable)
@@ -95,6 +100,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalMapObjectItemContainerModule* GetItemContainerModule() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    TScriptInterface<IPalMapObjectItemContainerAccessInterface> GetItemContainerAccess();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FGuid GetInstanceId() const;

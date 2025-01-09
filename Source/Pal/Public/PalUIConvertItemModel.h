@@ -47,8 +47,5 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     EPalUIConvertItemRequestStartResponse CanStartProduction() const;
     
-    UFUNCTION(BlueprintCallable)
-    void CancelProduct();
-    
 };
 

@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "FlagContainer.h"
+#include "PalInstanceID.h"
 #include "PalSkeletalMeshComponent.h"
 #include "PalMapObjectSkeletalMeshComponent.generated.h"
 
@@ -18,6 +19,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bAnimateInWorking;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_bAnimating, meta=(AllowPrivateAccess=true))
+    bool bAnimating;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FFlagContainer TickableFlagContainer;
@@ -25,6 +29,22 @@ private:
 public:
     UPalMapObjectSkeletalMeshComponent(const FObjectInitializer& ObjectInitializer);
 
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnWorkEnded(UPalWorkBase* Work, const FPalInstanceID& IndividualId);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnWorkDisposed(UPalWorkBase* Work);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnUpdateAssignedCharacter(UPalWorkBase* Work);
+    
+protected:
+    UFUNCTION(BlueprintCallable)
+    void OnRep_bAnimating();
+    
 private:
     UFUNCTION(BlueprintCallable)
     void OnReadyWork(UPalMapObjectWorkeeModule* Module, UPalWorkBase* Work);
@@ -33,7 +53,7 @@ private:
     void OnReadyModule_Workee(UPalMapObjectConcreteModelBase* ConcreteModel, UPalMapObjectConcreteModelModuleBase* Module);
     
     UFUNCTION(BlueprintCallable)
-    void OnChangeWorkInProgress(UPalWorkProgress* WorkProgress);
+    void OnChangedInProgress(UPalWorkProgress* WorkProgress);
     
 };
 

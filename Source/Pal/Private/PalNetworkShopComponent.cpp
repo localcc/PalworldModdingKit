@@ -6,22 +6,19 @@ UPalNetworkShopComponent::UPalNetworkShopComponent(const FObjectInitializer& Obj
 void UPalNetworkShopComponent::SetupShopDataForActor_ToServer_Implementation(AActor* VenderActor) {
 }
 
-void UPalNetworkShopComponent::RequestSellPals_ToServer_Implementation(const FGuid& RequestPlayerUId, const FGuid& ShopID, const TArray<FPalCharacterSlotId>& SellPalSlotIDArray) {
+void UPalNetworkShopComponent::RequestSellPals_ToServer_Implementation(const FGuid& ShopID, const TArray<FPalCharacterSlotId>& SellPalSlotIDArray) {
 }
 
-void UPalNetworkShopComponent::RequestSellItems_ToServer_Implementation(const FGuid& RequestPlayerUId, const FGuid& ShopID, const TArray<FPalItemSlotIdAndNum>& SellItemSlotIDArray) {
+void UPalNetworkShopComponent::RequestSellItems_ToServer_Implementation(const FGuid& ShopID, const TArray<FPalItemSlotIdAndNum>& SellItemSlotIDArray) {
 }
 
-void UPalNetworkShopComponent::RequestCollectDroppedPalProductData_Implementation(const FGuid& RequestPlayerUId, const int32 MaxCollectNum) {
+void UPalNetworkShopComponent::RequestCollectDroppedPalProductData_Implementation(const int32 MaxCollectNum) {
 }
 
-void UPalNetworkShopComponent::RequestBuyProduct_ToServer_Implementation(const FPalInstanceID& RequestPlayerInstanceId, const FGuid& ShopID, const FGuid& ProductId, int32 BuyNum) {
+void UPalNetworkShopComponent::RequestBuyProduct_ToServer_Implementation(const FGuid& ShopID, const FGuid& ProductId, int32 BuyNum) {
 }
 
-void UPalNetworkShopComponent::RequestBuyLostPal_ToServer_Implementation(const FGuid& RequestPlayerUId, const FPalCharacterStoredParameterId& StoredParameterId) {
-}
-
-void UPalNetworkShopComponent::RemoveShopData_ToServer_Implementation(const FGuid& RemoveShopID) {
+void UPalNetworkShopComponent::RequestBuyLostPal_ToServer_Implementation(const FPalCharacterStoredParameterId& StoredParameterId) {
 }
 
 void UPalNetworkShopComponent::RecieveBuyResult_ToClient_Implementation(EPalShopBuyResultType resultType) {

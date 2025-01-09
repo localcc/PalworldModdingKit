@@ -3,7 +3,9 @@
 UPalRichTextBlockBase::UPalRichTextBlockBase() {
     this->IsAutoTextSetWhenWidgetRebuilt = false;
     this->IsAutoAdjustScale = false;
+    this->IgnoreFontSizeSetting = false;
     this->MaxWidth = 100;
+    this->JustificationVerticalCenter = false;
 }
 
 void UPalRichTextBlockBase::SetText_GDKInternal(bool IsSuccess, const FString& OutString) {

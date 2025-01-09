@@ -11,6 +11,7 @@ UPalWorkBase::UPalWorkBase() {
     this->CurrentState = EPalWorkProgressState::Init;
     this->Transform = NULL;
     this->bGroupRaycastStartOffsetOrigin = false;
+    this->bAssignWorldSitLocationAtWorkFacing = false;
 }
 
 void UPalWorkBase::OnRep_CurrentState() {

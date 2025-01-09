@@ -67,8 +67,5 @@ public:
     UFUNCTION(BlueprintCallable)
     EPalMapObjectItemCollectableType GetItemCollectableType() const override PURE_VIRTUAL(GetItemCollectableType, return EPalMapObjectItemCollectableType::Pickup;);
     
-    UFUNCTION(BlueprintCallable)
-    void GetCollectableStaticItemIds(TArray<FName>& OutStaticItemIds) override PURE_VIRTUAL(GetCollectableStaticItemIds,);
-    
 };
 

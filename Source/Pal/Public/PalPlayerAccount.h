@@ -63,6 +63,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bShouldSaveOnNextTime;
     
+    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    uint64 PsnAccountId;
+    
 public:
     UPalPlayerAccount();
 

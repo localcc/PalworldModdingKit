@@ -6,6 +6,9 @@
 #include "PalGuildPlayerInfo.h"
 #include "PalGroupGuild.generated.h"
 
+class UPalGuildCharacterTeamMission;
+class UPalGuildItemStorage;
+class UPalGuildLab;
 class UPalIndividualCharacterParameter;
 class UPlGuildPlayerInfoFilteringWaiter;
 
@@ -19,6 +22,19 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FGuid AdminPlayerUId;
+    
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<UPlGuildPlayerInfoFilteringWaiter*> FilteringWaiterArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    UPalGuildItemStorage* ItemStorage;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    UPalGuildCharacterTeamMission* CharacterTeamMission;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    UPalGuildLab* Lab;
     
 public:
     UPalGroupGuild();

@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "EPalPassivePartnerSkillState.h"
 #include "PalPassivePartnerSkillItemParameter.h"
+#include "PalPassiveRegeneParameter.h"
 #include "PalPassivePartnerSkillStatus.generated.h"
 
 USTRUCT(BlueprintType)
@@ -19,6 +20,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalPassivePartnerSkillItemParameter ItemParam;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalPassiveRegeneParameter RegeneParam;
     
     PAL_API FPalPassivePartnerSkillStatus();
 };

@@ -7,6 +7,7 @@
 #include "EPalCharacterCompleteDelegatePriority.h"
 #include "EPalCharacterImportanceType.h"
 #include "FlagContainer.h"
+#include "PalDeadInfo.h"
 #include "PalOnCharacterCompleteInitializeParameterDelegate.h"
 #include "PalCharacter.generated.h"
 
@@ -33,6 +34,7 @@ class UPalSkeletalMeshComponent;
 class UPalStaticCharacterParameterComponent;
 class UPalStatusComponent;
 class UPalVisualEffectComponent;
+class UPrimitiveComponent;
 class USceneComponent;
 class USkeletalMeshComponent;
 class USphereComponent;
@@ -139,6 +141,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_IsPalActiveActor, meta=(AllowPrivateAccess=true))
     bool bIsPalActiveActor;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_IsOtomoCollision, meta=(AllowPrivateAccess=true))
+    bool bIsOtomoCollision;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsLocalInitialized;
     
@@ -154,6 +159,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     EPalCharacterImportanceType ImportanceType;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FVector RideMeshTranslationOffset;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FTimerHandle CheckIndividualParameterReplicateTimerHandle;
     
@@ -163,19 +171,31 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<EPalCharacterCompleteDelegatePriority, UPalCharacterOnCompleteInitializeParameterWrapper*> OnCompleteInitializeParameterDelegateMap;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<UPrimitiveComponent*, TEnumAsByte<ECollisionResponse>> OtomoResponseMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    int32 CurrentAirDashCount;
+    
 public:
     APalCharacter(const FObjectInitializer& ObjectInitializer);
 
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
     UFUNCTION(BlueprintCallable)
-    void UpdateGroundRayCast();
+    void UpdateGroundRayCast(bool bImmediateApply);
     
     UFUNCTION(BlueprintCallable)
     void SetVisibleHandAttachMesh(bool Active);
     
     UFUNCTION(BlueprintCallable)
     void SetVisibleCharacterMesh(bool Active);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetRideMeshTranslationOffset(FVector InNewRideMeshTranslationOffset);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void SetOtomoCollisionProfile(bool IsOtomoCollision);
     
     UFUNCTION(BlueprintCallable)
     void SetDisableChangeIntervalByImportance(FName flagName, bool isDisable);
@@ -199,6 +219,9 @@ public:
     void RequestJump();
     
     UFUNCTION(BlueprintCallable)
+    void RequestExecuteTickNextFrameForAction();
+    
+    UFUNCTION(BlueprintCallable)
     void Play2Montage_WithPlayRate(UAnimMontage* firstMontage, UAnimMontage* nextMontage, float PlayRate);
     
     UFUNCTION(BlueprintCallable)
@@ -215,17 +238,28 @@ private:
     void OnRep_IsPalActiveActor(bool PrevIsActiveActor);
     
     UFUNCTION(BlueprintCallable)
+    void OnRep_IsOtomoCollision(bool PrevbIsOtomoCollision);
+    
+    UFUNCTION(BlueprintCallable)
     void OnOverlapEndByAroundInfo(AActor* OtherActor);
     
     UFUNCTION(BlueprintCallable)
     void OnOverlapBeginByAroundInfo(AActor* OtherActor);
     
+protected:
+    UFUNCTION(BlueprintCallable)
+    void OnDeadCharacter(FPalDeadInfo DeadInfo);
+    
+private:
     UFUNCTION(BlueprintCallable)
     void OnChangeWetnessStatus(bool IsSwim);
     
 public:
     UFUNCTION(BlueprintCallable)
     void LocalInitialized();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsPreCooping() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInitialized() const;
@@ -240,6 +274,9 @@ protected:
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool GetTalkMode() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FVector GetRideMeshTranslationOffset() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalCharacterMovementComponent* GetPalCharacterMovementComponent() const;
@@ -270,6 +307,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalActionComponent* GetActionComponent() const;
+    
+    UFUNCTION(BlueprintCallable)
+    void ForceResetJumpState();
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void ChangeWantFood_ToAll(bool IsWantFood, bool IsExistFood);

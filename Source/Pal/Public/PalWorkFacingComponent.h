@@ -9,8 +9,5 @@ class UPalWorkFacingComponent : public UArrowComponent {
 public:
     UPalWorkFacingComponent(const FObjectInitializer& ObjectInitializer);
 
-public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bReverseDirection;
 };
 

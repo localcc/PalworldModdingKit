@@ -53,7 +53,13 @@ public:
 
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void TalkCustomFunction_VisitorPresentAndReturn(APalPlayerCharacter* TalkPlayer, APalCharacter* TargetNPC, const UDataTable* CunstomFuncParam);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void TalkCustomFunction_AttackToPlayer(APalPlayerCharacter* TalkPlayer, APalCharacter* TargetNPC, const UDataTable* CunstomFuncParam);
+    
+    UFUNCTION(BlueprintCallable)
+    void TalkCustomFunction_AddItemToInventory(APalPlayerCharacter* TalkPlayer, APalCharacter* TargetNPC, const UDataTable* CunstomFuncParam);
     
 public:
     UFUNCTION(BlueprintCallable)

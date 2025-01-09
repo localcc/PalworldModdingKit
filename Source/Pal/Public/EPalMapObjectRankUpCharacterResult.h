@@ -11,5 +11,6 @@ enum class EPalMapObjectRankUpCharacterResult : uint8 {
     FailedNotValidPlayerPalStorage,
     FailedNotExistsResourceCharacterInPalStorage,
     FailedResourcePalIsFavoritePal,
+    FailedResourcePalInExpedition,
 };
 

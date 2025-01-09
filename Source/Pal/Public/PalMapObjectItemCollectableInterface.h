@@ -15,8 +15,5 @@ public:
     UFUNCTION(BlueprintCallable)
     virtual EPalMapObjectItemCollectableType GetItemCollectableType() const PURE_VIRTUAL(GetItemCollectableType, return EPalMapObjectItemCollectableType::Pickup;);
     
-    UFUNCTION(BlueprintCallable)
-    virtual void GetCollectableStaticItemIds(TArray<FName>& OutStaticItemIds) PURE_VIRTUAL(GetCollectableStaticItemIds,);
-    
 };
 

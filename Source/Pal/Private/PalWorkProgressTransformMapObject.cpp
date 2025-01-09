@@ -3,7 +3,7 @@
 
 UPalWorkProgressTransformMapObject::UPalWorkProgressTransformMapObject() {
     this->bCached = false;
-    this->bShouldSearchForFoliage = true;
+    this->bShouldSearchForFoliage = false;
 }
 
 void UPalWorkProgressTransformMapObject::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {

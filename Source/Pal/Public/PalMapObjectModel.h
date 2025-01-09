@@ -39,7 +39,7 @@ public:
     FPalMapObjectDamageDelegate OnDamageDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FMapObjectModelDelegate OnUpdateHp;
+    FMapObjectModelDelegate OnUpdateHP;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FMapObjectModelDelegate OnDestroyDelegate;

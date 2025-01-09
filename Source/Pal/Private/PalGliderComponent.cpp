@@ -4,6 +4,7 @@
 UPalGliderComponent::UPalGliderComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->CurrentGlider = NULL;
     this->CurrentGliderClass = NULL;
+    this->CurrentGliderIndividualParameter = NULL;
     this->bIsGliding = false;
 }
 
@@ -45,6 +46,9 @@ void UPalGliderComponent::OnUpdateIndividualActor(UPalIndividualCharacterHandle*
 }
 
 void UPalGliderComponent::OnUpdateEquipmentSlot(UPalItemSlot* itemSlot, EPalPlayerEquipItemSlotType slotType) {
+}
+
+void UPalGliderComponent::OnUpdateCharacterRank(const int32 NowRank, const int32 OldRank) {
 }
 
 

@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "PocketpairPlatformID.h"
 #include "PalSkinInGameItemData.h"
 #include "PalSkinPlatformItemData.h"
 #include "PalSkinInventoryInfo.generated.h"

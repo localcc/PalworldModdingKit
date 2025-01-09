@@ -8,11 +8,12 @@ UPalBaseCampModel::UPalBaseCampModel() {
     this->MapObjectCollection = NULL;
     this->WorkCollection = NULL;
     this->EnemyObserver = NULL;
+    this->BuildingNum = 0;
     this->Level_InGuildProperty = 1;
     this->ProgressTimeSinceLastTick = 0.00f;
 }
 
-void UPalBaseCampModel::UpdateLevel_ServerInternal(int32 PlayerId, int32 NewLevel) {
+void UPalBaseCampModel::UpdateLevel_ServerInternal(const int32 RequestPlayerId, const int32 NewLevel) {
 }
 
 bool UPalBaseCampModel::TryGetRandomPositionInside(const FVector& Origin, const float Radius, FVector& ToLocation) const {
@@ -20,6 +21,9 @@ bool UPalBaseCampModel::TryGetRandomPositionInside(const FVector& Origin, const 
 }
 
 void UPalBaseCampModel::ReflectLevel_InGuildProperty_Internal(int32 NewLevel) {
+}
+
+void UPalBaseCampModel::OnRep_ModuleArray() {
 }
 
 void UPalBaseCampModel::OnRep_Level_InGuildProperty(int32 OldLevel) {
@@ -77,6 +81,10 @@ UPalBaseCampEnemyObserver* UPalBaseCampModel::GetEnemyObserver() const {
     return NULL;
 }
 
+int32 UPalBaseCampModel::GetBuildingNum() const {
+    return 0;
+}
+
 FString UPalBaseCampModel::GetBaseCampName() const {
     return TEXT("");
 }
@@ -87,6 +95,9 @@ bool UPalBaseCampModel::FindWorkAssignableObject(const UPalIndividualCharacterHa
 
 bool UPalBaseCampModel::FindNearestAssignableObject(const UPalIndividualCharacterHandle* AssignIndividualHandle, const FTransform& Origin, const float Range, const bool bFixedAssign, TScriptInterface<IPalBaseCampAssignableObjectInterface>& FoundObject) {
     return false;
+}
+
+void UPalBaseCampModel::CallOrRegisterOnReadyModule(const EPalBaseCampModuleType ModuleType, FPalBaseCampModuleDelegate Delegate) {
 }
 
 void UPalBaseCampModel::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
@@ -105,6 +116,7 @@ void UPalBaseCampModel::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Ou
     DOREPLIFETIME(UPalBaseCampModel, ModuleArray);
     DOREPLIFETIME(UPalBaseCampModel, PlayerUIdsExistsInsideInServer);
     DOREPLIFETIME(UPalBaseCampModel, OwnerMapObjectInstanceId);
+    DOREPLIFETIME(UPalBaseCampModel, BuildingNum);
     DOREPLIFETIME(UPalBaseCampModel, Level_InGuildProperty);
 }
 

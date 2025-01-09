@@ -31,6 +31,9 @@ float UPalPassiveSkillManager::GetParameterWithSkillEffect(float originalValue, 
     return 0.0f;
 }
 
+void UPalPassiveSkillManager::GetPalAssignablePassiveIDs(TArray<FName>& List) {
+}
+
 FName UPalPassiveSkillManager::GetNameTextId(FName SkillName) {
     return NAME_None;
 }

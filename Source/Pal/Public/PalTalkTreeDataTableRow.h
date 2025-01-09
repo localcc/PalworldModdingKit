@@ -14,7 +14,7 @@ public:
     FName TalkName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FName textID;
+    FName TextId;
     
     PAL_API FPalTalkTreeDataTableRow();
 };

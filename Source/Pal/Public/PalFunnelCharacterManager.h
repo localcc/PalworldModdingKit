@@ -29,7 +29,7 @@ private:
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void SetFunnelCharacterActive(APalFunnelCharacter* FunnelCharacter, bool IsActive);
+    void SetFunnelCharacterActive(APalFunnelCharacter* FunnelCharacter, bool IsActive, bool bNoEffect);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

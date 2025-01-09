@@ -10,10 +10,10 @@ public:
     FName DummyFoliageMapObjectId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FName DropItemMapObjectId;
+    FName DropItem3DMapObjectId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FName DropItem3DMapObjectId;
+    FName DropItem3DSKMapObjectId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName BuildObjectId_PalStorage;

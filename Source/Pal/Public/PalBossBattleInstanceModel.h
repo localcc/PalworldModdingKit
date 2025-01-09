@@ -12,13 +12,13 @@
 #include "PalBossBattleInstanceModel.generated.h"
 
 class ALevelInstance;
+class APalBossBattleEventBase;
 class APalBossBattleLevelInstance;
 class APalBossTower;
 class APalCutsceneActor;
 class APalPlayerCharacter;
 class UAkAudioEvent;
 class UDataLayerAsset;
-class UPalBossBattleEventBase;
 class UPalBossBattleSequencer;
 
 UCLASS(Blueprintable)
@@ -94,7 +94,7 @@ protected:
     TArray<FPalBossBattleSuccessItemInfo> SuccessItemList;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TSoftClassPtr<UPalBossBattleEventBase> BossBattleEvent;
+    TSoftClassPtr<APalBossBattleEventBase> BossBattleEvent;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

@@ -36,5 +36,8 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSameGuildInLocalPlayer() const;
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsOpenForAnyone() const;
+    
 };
 

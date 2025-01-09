@@ -27,6 +27,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FPalMonsterControllerBaseCampHungryParameter HungeryParameter;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bStuckInApproach;
+    
 public:
     UPalAIActionBaseCampRecoverHungry();
 

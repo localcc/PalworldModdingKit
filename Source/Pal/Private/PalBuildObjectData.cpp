@@ -21,5 +21,6 @@ FPalBuildObjectData::FPalBuildObjectData() {
     this->bIsInstallOnlyHubAround = false;
     this->InstallMaxNumInBaseCamp = 0;
     this->bInstallableNoObstacleFromCamera = false;
+    this->BuildExpRate = 0.00f;
 }
 

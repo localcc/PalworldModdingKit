@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "EPalWorldSecurityLawTriggerType.h"
 #include "PalCrimeInstanceCreateParameter.generated.h"
 
 USTRUCT(BlueprintType)
@@ -12,6 +13,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGuid TargetId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalWorldSecurityLawTriggerType TriggerType;
     
     PAL_API FPalCrimeInstanceCreateParameter();
 };

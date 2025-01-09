@@ -1,6 +1,10 @@
 #include "PalSaveGameManager.h"
 
 UPalSaveGameManager::UPalSaveGameManager() {
+    this->DebugAutoSaveDisabler = NULL;
+    this->bIsFoundWorldSaveData = false;
+    this->bIsFoundLocalWorldSaveData = false;
+    this->bIsFoundWorldOptionSaveData = false;
     this->bIsLoadedWorldSaveData = false;
     this->LoadedWorldSaveData = NULL;
     this->bIsLoadedLocalWorldSaveData = false;
@@ -85,6 +89,10 @@ UPalWorldOptionSaveGame* UPalSaveGameManager::GetLoadedWorldOptionSaveData() con
 
 UPalLocalWorldSaveGame* UPalSaveGameManager::GetLoadedLocalWorldSaveData() const {
     return NULL;
+}
+
+bool UPalSaveGameManager::ForceLoadPerformanceChecktWorld() const {
+    return false;
 }
 
 

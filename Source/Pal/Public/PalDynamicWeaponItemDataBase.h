@@ -34,16 +34,22 @@ public:
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
     UFUNCTION(BlueprintCallable)
-    int32 UseBullets(int32 useNum);
+    int32 UseBullets(int32 UseNum);
     
     UFUNCTION(BlueprintCallable)
     bool UseBullet();
+    
+    UFUNCTION(BlueprintCallable)
+    void SetReloadStartRemainingBullets_Local(int32 bulletsNum);
     
     UFUNCTION(BlueprintCallable)
     void SetDurability(float NewDurability);
     
     UFUNCTION(BlueprintCallable)
     void SetBulletsNum(int32 bulletsNum);
+    
+    UFUNCTION(BlueprintCallable)
+    void ResetReloadStartRemainingBullets_Local();
     
 protected:
     UFUNCTION(BlueprintCallable)
@@ -58,6 +64,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetRemainingBulletsNum() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetReloadStartRemainingBullets_Local() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FName> GetPassiveSkillList() const;

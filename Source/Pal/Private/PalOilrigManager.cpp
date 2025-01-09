@@ -17,4 +17,15 @@ APalOilrigController* UPalOilrigManager::FindNearestOilrigController(FVector Loc
     return NULL;
 }
 
+EPalOilrigCombatHeliWeaponType UPalOilrigManager::FindCombatHeliRandomWeza(TArray<FPalOilrigCombatHeliRandomWeaponInfo> InfoList) {
+    return EPalOilrigCombatHeliWeaponType::MachineGun;
+}
+
+AActor* UPalOilrigManager::FindCombatHeliAimTarget(APalCharacter* HeliActor, float Range, FVector OilrigCenter) {
+    return NULL;
+}
+
+void UPalOilrigManager::AddNPCToGroup(UPalIndividualCharacterHandle* Handle) {
+}
+
 

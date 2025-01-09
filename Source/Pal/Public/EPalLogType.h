@@ -76,8 +76,10 @@ enum class EPalLogType : uint8 {
     PartnerSkillExecute_SearchDungeonGoal_Failed,
     ObtainNote,
     OutdoorBedNortice,
+    CannotSkipNightOnDay,
     FullPalBox,
     FireBaseCamp,
     SupplyDropStart,
+    CompleteGuildLabResearch,
 };
 

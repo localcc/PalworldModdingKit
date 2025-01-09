@@ -4,6 +4,9 @@
 #include "UObject/Object.h"
 #include "PalShopProductBase.generated.h"
 
+class UPalShopProductCostTakerBase;
+class UPalShopProductGiverBase;
+
 UCLASS(Blueprintable)
 class PAL_API UPalShopProductBase : public UObject {
     GENERATED_BODY()
@@ -22,28 +25,32 @@ private:
     FGuid MyProductID;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
-    bool IsInfinityStockFlag;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_StockNum, meta=(AllowPrivateAccess=true))
-    int32 StockNum;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_MaxStockNum, meta=(AllowPrivateAccess=true))
-    int32 MaxStockNum;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     bool IsValidProductFlag;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_MyProductCostTaker, meta=(AllowPrivateAccess=true))
+    UPalShopProductCostTakerBase* MyProductCostTaker;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_MyProductGiver, meta=(AllowPrivateAccess=true))
+    UPalShopProductGiverBase* MyProductGiver;
     
 public:
     UPalShopProductBase();
 
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
-private:
+protected:
     UFUNCTION(BlueprintCallable)
-    void OnRep_StockNum();
+    void OnUpdateProductStock(int32 NowStock);
     
     UFUNCTION(BlueprintCallable)
-    void OnRep_MaxStockNum();
+    void OnUpdateProductMaxStock(int32 MaxStock);
+    
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnRep_MyProductGiver();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnRep_MyProductCostTaker();
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)

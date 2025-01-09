@@ -38,11 +38,27 @@ EPalMapObjectOperationResult UPalBuilderComponent::IsEnableBuild() const {
     return EPalMapObjectOperationResult::None;
 }
 
+bool UPalBuilderComponent::IsDismantling() const {
+    return false;
+}
+
+bool UPalBuilderComponent::IsChangedMode() const {
+    return false;
+}
+
 void UPalBuilderComponent::GetSelectedBuildObjectId(FName& OutSelectedBuildObjectId) const {
+}
+
+int32 UPalBuilderComponent::GetMaxBuildingLimitNum() const {
+    return 0;
 }
 
 APalBuildObject* UPalBuilderComponent::GetDismantleTargetObject() {
     return NULL;
+}
+
+int32 UPalBuilderComponent::GetBuildingNum() const {
+    return 0;
 }
 
 void UPalBuilderComponent::CollectItemInfoEnableToUseMaterial(TArray<FName> StaticItemIds, TArray<FPalStaticItemIdAndNum>& OutItemInfos) const {

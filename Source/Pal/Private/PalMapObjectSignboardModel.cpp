@@ -24,6 +24,9 @@ void UPalMapObjectSignboardModel::OnReceivedWordFilteringResult(const FString& R
 void UPalMapObjectSignboardModel::OnOpenEdit() {
 }
 
+void UPalMapObjectSignboardModel::OnChangedBlockedUsers() {
+}
+
 FString UPalMapObjectSignboardModel::GetSignboardText() {
     return TEXT("");
 }
@@ -34,6 +37,7 @@ void UPalMapObjectSignboardModel::GetLifetimeReplicatedProps(TArray<FLifetimePro
     DOREPLIFETIME(UPalMapObjectSignboardModel, MenuUIWidgetClass);
     DOREPLIFETIME(UPalMapObjectSignboardModel, SignboardText);
     DOREPLIFETIME(UPalMapObjectSignboardModel, bIsEditing);
+    DOREPLIFETIME(UPalMapObjectSignboardModel, LastModifiedPlayerUid);
 }
 
 

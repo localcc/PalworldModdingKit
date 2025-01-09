@@ -20,6 +20,8 @@ enum class EPalLocationType : uint8 {
     Area,
     CustomMarker,
     FieldBoss,
+    HumanBoss,
+    Oilrig,
     SupplyMarker,
     PointDungeonGoal,
 };

@@ -76,6 +76,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsCoolTimeFinish(int32 SlotID) const;
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsConditionSatisfy(int32 SlotID) const;
+    
     UFUNCTION(BlueprintCallable)
     void InitObject(AActor* ActorSelf);
     
@@ -96,6 +99,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 FindSlotIndexByWazaID(EPalWazaID WazaID);
+    
+    UFUNCTION(BlueprintCallable)
+    int32 FindSlotIDForWildPal();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 FindMostEffectiveSlotID(AActor* TargetActor) const;

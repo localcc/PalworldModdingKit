@@ -10,6 +10,7 @@ class APalBotBuilderLocationBase;
 class APalNetworkTransmitter;
 class UPalBaseCampReplicator;
 class UPalCharacterManagerReplicator;
+class UPalClientOnlyPlayerInfoReplicator;
 class UPalGameSystemInitManagerComponent;
 class UPalLocationReplicator;
 class UPalOptionReplicator;
@@ -22,6 +23,9 @@ class APalGameStateInGame : public APalGameState {
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnRecievedServerNoticeDelegate, const FString&, NoticeMessage);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnRecievedChatMessageDelegate, const FPalChatMessage&, Message);
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    FDateTime RealProgressDateTime_ForRep;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_CharacterManagerReplicator, meta=(AllowPrivateAccess=true))
@@ -38,6 +42,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_LocationReplicator, meta=(AllowPrivateAccess=true))
     UPalLocationReplicator* LocationReplicator;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_ClientOnlyPlayerInfo, meta=(AllowPrivateAccess=true))
+    UPalClientOnlyPlayerInfoReplicator* ClientOnlyPlayerInfoReplicator;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     APalNetworkTransmitter* DedicatedServerTransmitter;
@@ -157,6 +164,9 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void OnRep_LocationReplicator();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnRep_ClientOnlyPlayerInfo();
     
     UFUNCTION(BlueprintCallable)
     void OnRep_CharacterManagerReplicator();

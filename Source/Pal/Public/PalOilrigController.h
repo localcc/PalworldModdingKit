@@ -24,6 +24,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float CombatEndDistance;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float TrackingDistance;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     AActor* CurrentShootingTower;
@@ -78,6 +81,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsCombatMode() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool InTrackingRange(const AActor* TargetActor);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetResetTimer() const;

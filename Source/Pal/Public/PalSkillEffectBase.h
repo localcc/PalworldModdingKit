@@ -88,7 +88,7 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool IsSelfOwnerCharacterOrRaider(AActor* HitTarget);
+    bool IsSelfOwnerCharacterOrRaider(AActor* hitTarget);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsRidden();

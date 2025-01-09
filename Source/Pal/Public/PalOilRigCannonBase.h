@@ -117,6 +117,11 @@ protected:
     UFUNCTION(BlueprintCallable)
     void OnDestroyedWeapon();
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnDeadByDamage();
+    
+protected:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsShootingGun();
     

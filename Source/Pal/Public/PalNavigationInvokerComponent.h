@@ -32,6 +32,9 @@ public:
     bool IsDisableInvorker() const;
     
     UFUNCTION(BlueprintCallable)
+    void DeactivateInvoker();
+    
+    UFUNCTION(BlueprintCallable)
     void ActivateInvoker();
     
 };

@@ -60,5 +60,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     EPalItemOperationResult CanConsumeBreedItem(FPalItemSlotIdAndNum& ConsumableItem) const;
     
+
+    // Fix for true pure virtual functions not being implemented
 };
 

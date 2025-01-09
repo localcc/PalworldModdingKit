@@ -91,5 +91,11 @@ enum class EPalActionType : uint8 {
     MimicryEncount,
     PlayerSitChair,
     DigOut,
+    RunOnSpot,
+    RunOnSpot_Hard,
+    AirDash_Forward,
+    AirDash_Back,
+    AirDash_Right,
+    AirDash_Left,
 };
 

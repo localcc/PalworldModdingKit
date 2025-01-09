@@ -16,6 +16,10 @@ enum class EPalGeneralMontageType : uint8 {
     GeneralAttackProcessLoop_Far,
     GeneralAttackAfter_Far,
     Rolling,
+    AirDash_Forward,
+    AirDash_Back,
+    AirDash_Right,
+    AirDash_Left,
     Step_Forward,
     Step_Back,
     Step_Right,
@@ -42,5 +46,9 @@ enum class EPalGeneralMontageType : uint8 {
     LargeDown_Start,
     LargeDown_Loop,
     LargeDown_End,
+    SummonStart,
+    SummonLoop,
+    SummonEnd,
+    DyingEnd,
 };
 

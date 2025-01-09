@@ -61,6 +61,9 @@ void UPalLogUtility::AddItemsGetLog(const UObject* WorldContextObject, const TAr
 void UPalLogUtility::AddItemGetLog(const UObject* WorldContextObject, const FPalStaticItemIdAndNum& ItemIDAndNum) {
 }
 
+void UPalLogUtility::AddGuildLabCompleteLog(const UObject* WorldContextObject, const FPalGuildLabCompleteLogDisplayData& DisplayData) {
+}
+
 void UPalLogUtility::AddDropPalLog(const UObject* WorldContextObject, const FPalLogInfo_DropPal& LogInfo) {
 }
 

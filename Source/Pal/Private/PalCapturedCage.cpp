@@ -20,6 +20,10 @@ void APalCapturedCage::SetOverrideKeyName(FName Key) {
 void APalCapturedCage::SetDisableInteractive() {
 }
 
+
+void APalCapturedCage::ResetCage_ToAll_Implementation() {
+}
+
 void APalCapturedCage::RequestInteract(APalPlayerCharacter* Attacker) {
 }
 

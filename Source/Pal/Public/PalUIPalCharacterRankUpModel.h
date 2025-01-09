@@ -68,7 +68,7 @@ private:
     void OnUpdateTargetSlot(UPalIndividualCharacterReferenceSlot* Slot, FPalInstanceID LastIndividualId);
     
     UFUNCTION(BlueprintCallable)
-    void OnUpdateTargetCharacterRank(const int32 nowRank, const int32 oldRank);
+    void OnUpdateTargetCharacterRank(const int32 NowRank, const int32 OldRank);
     
     UFUNCTION(BlueprintCallable)
     void OnUpdateResourceSlot(UPalIndividualCharacterReferenceSlot* Slot, FPalInstanceID LastIndividualId);

@@ -65,9 +65,6 @@ public:
     bool IsAssignedToTarget() const;
     
     UFUNCTION(BlueprintCallable)
-    void ChangeActionWaitForWorkable();
-    
-    UFUNCTION(BlueprintCallable)
     void ChangeActionWait();
     
     UFUNCTION(BlueprintCallable)

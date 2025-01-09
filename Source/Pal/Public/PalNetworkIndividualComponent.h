@@ -7,7 +7,6 @@
 #include "NetworkActorSpawnParameters.h"
 #include "PalIndividualCharacterSaveParameter.h"
 #include "PalInstanceID.h"
-#include "PalItemSlotIdAndNum.h"
 #include "PalNetArchive.h"
 #include "PalNetworkIndividualComponent.generated.h"
 
@@ -20,9 +19,6 @@ class UPalNetworkIndividualComponent : public UActorComponent {
 public:
     UPalNetworkIndividualComponent(const FObjectInitializer& ObjectInitializer);
 
-    UFUNCTION(BlueprintCallable, Reliable, Server)
-    void UseItemInSlotToCharacter_ToServer(const FPalInstanceID& ID, const FPalItemSlotIdAndNum SlotAndNum);
-    
 private:
     UFUNCTION(BlueprintCallable)
     void UpdateCharacterParameter_ServerInternal(const FPalInstanceID& ID, const FPalNetArchive& parameterArchive, FGuid Guid);

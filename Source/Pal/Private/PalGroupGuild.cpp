@@ -2,6 +2,9 @@
 #include "Net/UnrealNetwork.h"
 
 UPalGroupGuild::UPalGroupGuild() {
+    this->ItemStorage = NULL;
+    this->CharacterTeamMission = NULL;
+    this->Lab = NULL;
 }
 
 void UPalGroupGuild::OnFilteredPlayerInfo(UPlGuildPlayerInfoFilteringWaiter* Waiter, const FPalGuildPlayerInfo& FilteredInfo) {
@@ -15,6 +18,9 @@ void UPalGroupGuild::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLi
     
     DOREPLIFETIME(UPalGroupGuild, PlayerInfoRepInfoArray);
     DOREPLIFETIME(UPalGroupGuild, AdminPlayerUId);
+    DOREPLIFETIME(UPalGroupGuild, ItemStorage);
+    DOREPLIFETIME(UPalGroupGuild, CharacterTeamMission);
+    DOREPLIFETIME(UPalGroupGuild, Lab);
 }
 
 

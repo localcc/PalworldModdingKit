@@ -2,16 +2,21 @@
 #include "Net/UnrealNetwork.h"
 
 UPalShopProductBase::UPalShopProductBase() {
-    this->IsInfinityStockFlag = false;
-    this->StockNum = 0;
-    this->MaxStockNum = 0;
     this->IsValidProductFlag = true;
+    this->MyProductCostTaker = NULL;
+    this->MyProductGiver = NULL;
 }
 
-void UPalShopProductBase::OnRep_StockNum() {
+void UPalShopProductBase::OnUpdateProductStock(int32 NowStock) {
 }
 
-void UPalShopProductBase::OnRep_MaxStockNum() {
+void UPalShopProductBase::OnUpdateProductMaxStock(int32 MaxStock) {
+}
+
+void UPalShopProductBase::OnRep_MyProductGiver() {
+}
+
+void UPalShopProductBase::OnRep_MyProductCostTaker() {
 }
 
 bool UPalShopProductBase::IsValidProduct() {
@@ -52,10 +57,9 @@ void UPalShopProductBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(UPalShopProductBase, MyProductID);
-    DOREPLIFETIME(UPalShopProductBase, IsInfinityStockFlag);
-    DOREPLIFETIME(UPalShopProductBase, StockNum);
-    DOREPLIFETIME(UPalShopProductBase, MaxStockNum);
     DOREPLIFETIME(UPalShopProductBase, IsValidProductFlag);
+    DOREPLIFETIME(UPalShopProductBase, MyProductCostTaker);
+    DOREPLIFETIME(UPalShopProductBase, MyProductGiver);
 }
 
 

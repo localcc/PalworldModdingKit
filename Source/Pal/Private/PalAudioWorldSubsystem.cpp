@@ -63,6 +63,9 @@ void UPalAudioWorldSubsystem::InitializeSystem(AActor* AkOwnerActor) {
 void UPalAudioWorldSubsystem::GetSoundPlayerLocation(FVector& OutLocation) const {
 }
 
+void UPalAudioWorldSubsystem::FadeOutByPlayingId_CustomFadeDuration(int32 PlayingID, int32 Duration) {
+}
+
 void UPalAudioWorldSubsystem::FadeOutByPlayingId(int32 PlayingID) {
 }
 

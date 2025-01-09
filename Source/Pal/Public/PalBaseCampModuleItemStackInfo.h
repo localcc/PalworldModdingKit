@@ -5,6 +5,7 @@
 #include "PalMapObjectPasswordLockPlayerInfo.h"
 #include "PalBaseCampModuleItemStackInfo.generated.h"
 
+class UPalBaseCampModuleItemStackInfo;
 class UPalMapObjectConcreteModelBase;
 class UPalMapObjectItemChestModel;
 class UPalMapObjectItemContainerModule;
@@ -14,8 +15,13 @@ UCLASS(Blueprintable)
 class PAL_API UPalBaseCampModuleItemStackInfo : public UPalBaseCampFunctionModuleBase {
     GENERATED_BODY()
 public:
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FReturnSelfDelegate, UPalBaseCampModuleItemStackInfo*, Self);
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FReturnSelfDelegate OnUpdateItemStackRepInfoDelegate;
+    
 private:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_ItemStackRepInfoArray, meta=(AllowPrivateAccess=true))
     FPalFastBaseCampItemStackRepInfoArray ItemStackRepInfoArray;
     
 public:
@@ -33,6 +39,11 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnUpdateItemContainer(UPalMapObjectItemContainerModule* ItemContainerModule);
     
+protected:
+    UFUNCTION(BlueprintCallable)
+    void OnRep_ItemStackRepInfoArray();
+    
+private:
     UFUNCTION(BlueprintCallable)
     void OnNotAvailableConcreteModel(UPalMapObjectConcreteModelBase* ConcreteModel);
     

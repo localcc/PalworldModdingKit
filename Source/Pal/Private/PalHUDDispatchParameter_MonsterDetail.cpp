@@ -2,5 +2,6 @@
 
 UPalHUDDispatchParameter_MonsterDetail::UPalHUDDispatchParameter_MonsterDetail() {
     this->IndividualHandle = NULL;
+    this->IsEditable = true;
 }
 

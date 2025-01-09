@@ -61,6 +61,9 @@ public:
     UPalAIActionBase* SetAIActionClassParameter(TSubclassOf<UPalAIActionBase> NewActionClass, FPalAIActionDynamicParameter Parameter);
     
     UFUNCTION(BlueprintCallable)
+    UPalAIActionBase* PushChildActionByClass(TSubclassOf<UPalAIActionBase> NewActionClass, FPalAIActionDynamicParameter Parameter);
+    
+    UFUNCTION(BlueprintCallable)
     bool PushChildAction(UPawnAction* action);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

@@ -45,7 +45,13 @@ public:
     UPalGroupManager();
 
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool TryGetGuildNameModifierPlayerUId(const FGuid& GroupId, FGuid& GuildNameModifierPlayerUId) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool TryGetGuildName(const FGuid& GroupId, FString& OutGuildName) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool TryGetGuildAdminPlayerUid(const FGuid& GroupId, FGuid& OutGuildAdminPlayerUid) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool TryGetGroupName(const FGuid& GroupId, FString& OutGroupName) const;

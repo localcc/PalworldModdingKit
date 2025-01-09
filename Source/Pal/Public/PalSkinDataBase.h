@@ -37,6 +37,9 @@ public:
     UPalSkinDataBase();
 
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    FName GetTargetPalName(const UObject* WorldContextObject) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     FText GetLocalizedSkinName(const UObject* WorldContextObject) const;
     
 };

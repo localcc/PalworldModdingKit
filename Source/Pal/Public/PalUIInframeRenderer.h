@@ -14,6 +14,9 @@ public:
     APalUIInframeRenderer(const FObjectInitializer& ObjectInitializer);
 
 protected:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsSpiderPal(const TSubclassOf<AActor>& TargetActorClass) const;
+    
     UFUNCTION(BlueprintCallable)
     UPalStaticCharacterParameterComponent* GetStaticParameteComponentFromActorClassr(const TSubclassOf<AActor>& TargetActorClass);
     

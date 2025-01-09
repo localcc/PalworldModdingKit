@@ -8,10 +8,11 @@
 #include "Templates/SubclassOf.h"
 #include "PalBossBattleSequencer.generated.h"
 
+class APalBossBattleEventBase;
 class APalCharacter;
 class APalPlayerCharacter;
 class UAkAudioEvent;
-class UPalBossBattleEventBase;
+class UPalAutoSaveDisabler;
 class UPalBossBattleInstanceModel;
 class UPalBossBattleSequenceBase;
 
@@ -19,7 +20,7 @@ UCLASS(Blueprintable)
 class PAL_API UPalBossBattleSequencer : public UObject {
     GENERATED_BODY()
 public:
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnEventCreated, UPalBossBattleEventBase*, BossBattleEvent);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnEventCreated, APalBossBattleEventBase*, BossBattleEvent);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FBossBattleCombatStart, EPalBossType, BossType);
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -70,7 +71,10 @@ private:
     bool bIsClientOnly;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    UPalBossBattleEventBase* BossBattleEvent;
+    APalBossBattleEventBase* BossBattleEvent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalAutoSaveDisabler* AutoSaveDisabler;
     
 public:
     UPalBossBattleSequencer();
@@ -93,7 +97,7 @@ public:
     void SetBossCharacter(APalCharacter* BossActor);
     
     UFUNCTION(BlueprintCallable)
-    void SetBossBattlEvent(UPalBossBattleEventBase* NewBossBattleEvent);
+    void SetBossBattlEvent(APalBossBattleEventBase* NewBossBattleEvent);
     
     UFUNCTION(BlueprintCallable)
     void SetAllPlayerMoveDisable(bool Disable);
@@ -139,7 +143,7 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable)
-    void LoadAndCreateBossBattleEvent(TSoftClassPtr<UPalBossBattleEventBase> BossBattleEventClass);
+    void LoadAndCreateBossBattleEvent(TSoftClassPtr<APalBossBattleEventBase> BossBattleEventClass);
     
     UFUNCTION(BlueprintCallable)
     void KillAllPlayer();
@@ -175,7 +179,7 @@ public:
     UPalBossBattleInstanceModel* GetBossBattleInstanceModel() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    UPalBossBattleEventBase* GetBossBattleEvent() const;
+    APalBossBattleEventBase* GetBossBattleEvent() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<APalPlayerCharacter*> GetAliveOrDyingPlayers();

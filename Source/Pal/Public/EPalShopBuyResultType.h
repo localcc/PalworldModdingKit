@@ -17,6 +17,10 @@ enum class EPalShopBuyResultType : uint8 {
     Failed_NotFoundProduct,
     Failed_NotFoundShop,
     Failed_NotFoundStoredPal,
+    Failed_NotFoundProductGiver,
+    Failed_NotFoundCostTaker,
+    Failed_NotSupportedCost,
+    Failed_AlreadyHasItem,
     Unknown,
 };
 

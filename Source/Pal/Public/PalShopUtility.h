@@ -10,7 +10,6 @@
 
 class APalPlayerCharacter;
 class UObject;
-class UPalShopBase;
 
 UCLASS(Blueprintable)
 class PAL_API UPalShopUtility : public UBlueprintFunctionLibrary {
@@ -21,20 +20,17 @@ public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void LotteryItemShop(const UObject* WorldContextObject, const FName& ItemShopLotteryName, FName& OutShopName);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool IsSkinShop(const UObject* WorldContextObject, const FName& ShopName);
+    
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool GetPalShopCreateData(const UObject* WorldContextObject, const FName& ShopName, FPalPalShopCreateDataRow& OutData);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool GetItemShopCreateData(const UObject* WorldContextObject, const FName& ShopName, FPalItemShopCreateDataRow& OutData);
     
-    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static bool CreateNewPalShop(const UObject* WorldContextObject, const FPalPalShopCreateDataRow& createShopData, const FName& sharedShopKeyName, UPalShopBase*& outCreatedShop);
-    
-    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static bool CreateNewItemShop(const UObject* WorldContextObject, const FPalItemShopCreateDataRow& createShopData, const FName& sharedShopKeyName, UPalShopBase*& outCreatedShop);
-    
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static bool CanSellFromStaticItemIDAndNum(const UObject* WorldContextObject, const FPalStaticItemIdAndNum& staticItemIDAndNum, float SellRate);
+    static bool CanSellFromStaticItemIDAndNum(const UObject* WorldContextObject, const FPalStaticItemIdAndNum& StaticItemIDAndNum, float SellRate);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool CanSellFromSlotIdAndNum(const UObject* WorldContextObject, const FPalItemSlotIdAndNum& SlotIdAndNum, float SellRate);
@@ -52,7 +48,7 @@ public:
     static float CalcItemSellPriceBuffRate(const UObject* WorldContextObject, const APalPlayerCharacter* OwnerCharacter, FName MoneyItemData);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static int32 CalcItemSellPrice(const UObject* WorldContextObject, const FPalStaticItemIdAndNum& staticItemIDAndNum, float SellRate);
+    static int32 CalcItemSellPrice(const UObject* WorldContextObject, const FPalStaticItemIdAndNum& StaticItemIDAndNum, float SellRate);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static float CalcItemBuyPriceBuffRate(const UObject* WorldContextObject, const APalPlayerCharacter* OwnerCharacter, FName MoneyItemData);

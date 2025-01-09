@@ -4,10 +4,6 @@ UPalUIProductSettingModel::UPalUIProductSettingModel() {
     this->ProductNum = 1;
 }
 
-bool UPalUIProductSettingModel::TryGetEnergyModule(UPalMapObjectEnergyModule*& Module) {
-    return false;
-}
-
 void UPalUIProductSettingModel::SetProductNumByInput(int32 InputNum) {
 }
 
@@ -39,7 +35,7 @@ bool UPalUIProductSettingModel::IsProductNumInfinite() const {
 void UPalUIProductSettingModel::IncreaseProductNum() {
 }
 
-void UPalUIProductSettingModel::GetRequiredMaterialInfos(TArray<FPalStaticItemIdAndNum>& RequiredMaterialInfos) {
+void UPalUIProductSettingModel::GetRequiredMaterialInfos(TArray<FPalStaticItemIdAndNum>& RequiredMaterialInfos, bool OneUnit) {
 }
 
 FName UPalUIProductSettingModel::GetRecipeId() const {

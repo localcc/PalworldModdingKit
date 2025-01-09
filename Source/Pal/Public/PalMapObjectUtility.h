@@ -11,6 +11,7 @@
 class AActor;
 class UMaterialInterface;
 class UPrimitiveComponent;
+class USkeletalMesh;
 class UStaticMesh;
 
 UCLASS(Blueprintable)
@@ -21,6 +22,9 @@ public:
 
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool TryGetItemVisualModelStaticMesh(TSubclassOf<AActor> actorClass, UStaticMesh*& OutStaticMesh, FTransform& OutComponentTransform, FVector& OutCenterOfMass, UMaterialInterface*& OutMaterialInterface);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool TryGetItemVisualModelSkeletalMesh(TSubclassOf<AActor> actorClass, USkeletalMesh*& OutSkeletalMesh, FTransform& OutComponentTransform, FVector& OutCenterOfMass, UMaterialInterface*& OutMaterialInterface);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static EPalMapObjectOperationResult ToMapObjectOperationResult(const int32 ResultIntValue);

@@ -119,6 +119,9 @@ protected:
     void GetSoundPlayerLocation(FVector& OutLocation) const;
     
     UFUNCTION(BlueprintCallable)
+    void FadeOutByPlayingId_CustomFadeDuration(int32 PlayingID, int32 Duration);
+    
+    UFUNCTION(BlueprintCallable)
     void FadeOutByPlayingId(int32 PlayingID);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

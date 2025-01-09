@@ -9,7 +9,7 @@ void UPalPlayerRecordDataUtility::SetRecordData_TribeIdFlag_ForServer(const UObj
 void UPalPlayerRecordDataUtility::SetRecordData_TribeIdCount_ForServer(const UObject* WorldContextObject, FPalPlayerRecordDataRepInfoArray_IntVal& RecordData, const EPalTribeID Key, const int32 Value) {
 }
 
-void UPalPlayerRecordDataUtility::SetRecordData_RankMaxCount_ForServer(const UObject* WorldContextObject, const FGuid RequestPlayerUId, int32 oldRank, int32 ToRank) {
+void UPalPlayerRecordDataUtility::SetRecordData_RankMaxCount_ForServer(const UObject* WorldContextObject, const FGuid RequestPlayerUId, int32 OldRank, int32 ToRank) {
 }
 
 void UPalPlayerRecordDataUtility::SetRecordData_Int_ForServer(const UObject* WorldContextObject, FPalPlayerRecordDataRepInfoArray_IntVal& RecordData, const FName Key, const int32 Value) {

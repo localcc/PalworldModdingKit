@@ -6,6 +6,9 @@ UPalNetworkArenaComponent::UPalNetworkArenaComponent(const FObjectInitializer& O
 void UPalNetworkArenaComponent::UpdateParty_ToClient_Implementation(EPalArenaPlayerIndex PlayerIndex, const FPalArenaPlayerParty& ArenaPlayerParty) {
 }
 
+void UPalNetworkArenaComponent::SyncBattleEndTimeToClient_Implementation(FDateTime BattleEndTime) {
+}
+
 void UPalNetworkArenaComponent::SetParty_ToServer_Implementation(const FGuid& ArenaInstanceId, const FPalArenaPlayerParty& ArenaPlayerParty) {
 }
 

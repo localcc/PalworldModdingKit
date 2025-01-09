@@ -3,7 +3,15 @@
 UPalGroupManager::UPalGroupManager() {
 }
 
+bool UPalGroupManager::TryGetGuildNameModifierPlayerUId(const FGuid& GroupId, FGuid& GuildNameModifierPlayerUId) const {
+    return false;
+}
+
 bool UPalGroupManager::TryGetGuildName(const FGuid& GroupId, FString& OutGuildName) const {
+    return false;
+}
+
+bool UPalGroupManager::TryGetGuildAdminPlayerUid(const FGuid& GroupId, FGuid& OutGuildAdminPlayerUid) const {
     return false;
 }
 

@@ -1,7 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
-#include "UObject/NoExportTypes.h"
+#include "PalCoopSkillSearchEffectParameter.h"
 #include "PalCoopSkillSearchEffectController.generated.h"
 
 UCLASS(Blueprintable)
@@ -13,13 +13,16 @@ public:
     void Tick(float DeltaTime);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void Start(const FVector& Origin, float RadiusFrom, float RadiusTo, float ExtRadiusPerSec);
+    void Start(FPalCoopSkillSearchEffectParameter EffectParam);
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
     bool IsRunning() const;
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
     bool IsFinished() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
+    bool IsFadingOut() const;
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void End();

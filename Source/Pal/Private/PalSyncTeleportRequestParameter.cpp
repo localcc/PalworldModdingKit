@@ -2,6 +2,7 @@
 
 FPalSyncTeleportRequestParameter::FPalSyncTeleportRequestParameter() {
     this->SyncTeleportStartSE = NULL;
-    this->bIsFadeOutSkip = false;
+    this->bIsFadeInSkip = false;
+    this->bIsPlaySyncTeleportStartSE = false;
 }
 

@@ -11,6 +11,7 @@ UPalBossBattleSequencer::UPalBossBattleSequencer() {
     this->PlayingBGMId = 0;
     this->bIsClientOnly = false;
     this->BossBattleEvent = NULL;
+    this->AutoSaveDisabler = NULL;
 }
 
 
@@ -26,7 +27,7 @@ void UPalBossBattleSequencer::SetMutekiAllPlayer(bool bIsMuteki) {
 void UPalBossBattleSequencer::SetBossCharacter(APalCharacter* BossActor) {
 }
 
-void UPalBossBattleSequencer::SetBossBattlEvent(UPalBossBattleEventBase* NewBossBattleEvent) {
+void UPalBossBattleSequencer::SetBossBattlEvent(APalBossBattleEventBase* NewBossBattleEvent) {
 }
 
 void UPalBossBattleSequencer::SetAllPlayerMoveDisable(bool Disable) {
@@ -68,7 +69,7 @@ void UPalBossBattleSequencer::OnCombatEnd(bool Success) {
 void UPalBossBattleSequencer::NoticeClientCombatResult() {
 }
 
-void UPalBossBattleSequencer::LoadAndCreateBossBattleEvent(TSoftClassPtr<UPalBossBattleEventBase> BossBattleEventClass) {
+void UPalBossBattleSequencer::LoadAndCreateBossBattleEvent(TSoftClassPtr<APalBossBattleEventBase> BossBattleEventClass) {
 }
 
 void UPalBossBattleSequencer::KillAllPlayer() {
@@ -114,7 +115,7 @@ UPalBossBattleInstanceModel* UPalBossBattleSequencer::GetBossBattleInstanceModel
     return NULL;
 }
 
-UPalBossBattleEventBase* UPalBossBattleSequencer::GetBossBattleEvent() const {
+APalBossBattleEventBase* UPalBossBattleSequencer::GetBossBattleEvent() const {
     return NULL;
 }
 

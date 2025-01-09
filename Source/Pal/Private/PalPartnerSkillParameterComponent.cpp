@@ -17,6 +17,7 @@ UPalPartnerSkillParameterComponent::UPalPartnerSkillParameterComponent(const FOb
     this->FunnelControllerClass = NULL;
     this->FunnelAttackWazaID = EPalWazaID::None;
     this->PassiveSkill = NULL;
+    this->IsRidingActiveSkillNotWeapon = false;
 }
 
 void UPalPartnerSkillParameterComponent::Stop() {
@@ -44,6 +45,9 @@ void UPalPartnerSkillParameterComponent::Recover() {
 }
 
 void UPalPartnerSkillParameterComponent::OnUpdateInventoryContainer(UPalItemContainer* Container) {
+}
+
+void UPalPartnerSkillParameterComponent::OnUpdateCharacterRank(const int32 NowRank, const int32 OldRank) {
 }
 
 void UPalPartnerSkillParameterComponent::OnRideInactivated() {
@@ -99,6 +103,10 @@ bool UPalPartnerSkillParameterComponent::IsPlayerTrigger() const {
 }
 
 bool UPalPartnerSkillParameterComponent::IsOverheat() const {
+    return false;
+}
+
+bool UPalPartnerSkillParameterComponent::IsExistRidingActiveSkilNotWeapon() const {
     return false;
 }
 

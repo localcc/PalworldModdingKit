@@ -61,6 +61,14 @@ protected:
     UFUNCTION(BlueprintCallable)
     void SetDisableInteractive();
     
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void ResetCageByOutside_BP();
+    
+public:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void ResetCage_ToAll();
+    
+protected:
     UFUNCTION(BlueprintCallable)
     void RequestInteract(APalPlayerCharacter* Attacker);
     

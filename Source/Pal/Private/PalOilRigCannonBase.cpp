@@ -2,6 +2,9 @@
 #include "Net/UnrealNetwork.h"
 
 APalOilRigCannonBase::APalOilRigCannonBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bReplicates = true;
+    const FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
+    (*p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this)) = ROLE_SimulatedProxy;
     this->RangeMin = 100.00f;
     this->RangeMax = 10000.00f;
     this->PitchMin = -45.00f;
@@ -45,6 +48,9 @@ void APalOilRigCannonBase::OnRep_DestroyedFlag() {
 
 
 void APalOilRigCannonBase::OnDestroyedWeapon() {
+}
+
+void APalOilRigCannonBase::OnDeadByDamage() {
 }
 
 bool APalOilRigCannonBase::IsShootingGun() {

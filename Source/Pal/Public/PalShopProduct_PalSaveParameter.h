@@ -2,7 +2,6 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "PalIndividualCharacterSaveParameter.h"
-#include "PalInstanceID.h"
 #include "PalShopProductBase.h"
 #include "PalShopProduct_PalSaveParameter.generated.h"
 
@@ -22,11 +21,6 @@ public:
 
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
-private:
-    UFUNCTION(BlueprintCallable)
-    void OnCreatedBuyPal(FPalInstanceID CreatedPalInstanceID);
-    
-public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetProductPalParameter(FPalIndividualCharacterSaveParameter& outParameter) const;
     

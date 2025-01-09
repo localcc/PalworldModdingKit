@@ -2,6 +2,7 @@
 
 UPalAIActionBaseCampRecoverHungry::UPalAIActionBaseCampRecoverHungry() {
     this->WantFoodHUDClass = NULL;
+    this->bStuckInApproach = false;
 }
 
 

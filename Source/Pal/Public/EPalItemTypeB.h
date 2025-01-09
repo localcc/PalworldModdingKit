@@ -18,6 +18,7 @@ enum class EPalItemTypeB : uint8 {
     WeaponCollectionTool,
     WeaponThrowObject,
     WeaponGrapplingGun,
+    WeaponMetalDetector,
     SPWeaponCaptureBall,
     SPWeaponDamageTrap,
     SPWeaponCaptureTrap,
@@ -45,6 +46,9 @@ enum class EPalItemTypeB : uint8 {
     ConsumePalGainExp,
     ConsumePalTalentUp,
     ConsumePalRankUp,
+    ConsumePalRevive,
+    ConsumePassiveSkillChange,
+    ConsumePalWorkSuitabilityUp,
     FoodMeat,
     FoodVegetable,
     FoodFish,
@@ -54,6 +58,7 @@ enum class EPalItemTypeB : uint8 {
     FoodProcessed,
     Essential,
     Essential_UnlockPlayerFuture,
+    Essential_BossReward,
     Glider,
     Shield,
     Money,
@@ -63,5 +68,7 @@ enum class EPalItemTypeB : uint8 {
     Blueprint,
     ReturnToBaseCamp,
     Essential_PalGear,
+    Essential_AdditionalInventory,
+    CaptureItemModifier,
 };
 

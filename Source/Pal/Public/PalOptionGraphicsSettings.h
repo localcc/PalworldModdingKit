@@ -90,6 +90,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 ScreenPercentage;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bArachnophobiaMode;
+    
     PAL_API FPalOptionGraphicsSettings();
 };
 

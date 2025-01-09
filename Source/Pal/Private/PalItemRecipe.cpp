@@ -11,6 +11,7 @@ FPalItemRecipe::FPalItemRecipe() {
     this->Material5_Count = 0;
     this->EnergyType = EPalEnergyType::None;
     this->EnergyAmount = 0;
+    this->CraftExpRate = 0.00f;
     this->Editor_RowNameHash = 0;
 }
 

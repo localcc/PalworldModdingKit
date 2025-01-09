@@ -6,14 +6,16 @@
 #include "UObject/NoExportTypes.h"
 #include "GameFramework/PlayerState.h"
 #include "Engine/EngineTypes.h"
-#include "GameFramework/OnlineReplStructs.h"
 #include "EPalChatCategory.h"
 #include "EPalMapObjectOperationResult.h"
 #include "EPalPlayerJoinResult.h"
 #include "EPalStageType.h"
 #include "PalBaseCampWorkerMovementLogDisplayData.h"
+#include "PalBuildResultParameter.h"
+#include "PalBuildingCountRepInfo.h"
 #include "PalChatMessage.h"
 #include "PalDebugOtomoPalInfo.h"
+#include "PalGuildLabCompleteLogDisplayData.h"
 #include "PalGuildPlayerInfo.h"
 #include "PalInstanceID.h"
 #include "PalLogInfo_DropPal.h"
@@ -23,8 +25,11 @@
 #include "PalPlayerDataCharacterMakeInfo.h"
 #include "PalPlayerInfoForMap.h"
 #include "PalPlayerInitializeParameter.h"
+#include "PalPlayerReplicationEntity.h"
 #include "PalPlayerSettingsForServer.h"
+#include "PalRandomizerReplicateData.h"
 #include "PalStaticItemIdAndNum.h"
+#include "PalUIBossDefeatRewardDisplayData.h"
 #include "PalUIPalCaptureInfo.h"
 #include "PalPlayerState.generated.h"
 
@@ -54,6 +59,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FReturnSelfDelegate, APalPlayerState*, PlayerState);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FReportCrimeIdsDelegate, UPalIndividualCharacterHandle*, CriminalHandle, const TArray<FName>&, CrimeIds);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FReleaseWantedDelegate, UPalIndividualCharacterHandle*, CriminalHandle);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMultiHatchCompleteDelegate, const TArray<FPalInstanceID>&, HatchedIDs);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnLoadingProgressUpdate, int32, AddStep, int32, MaxStep);
     DECLARE_DYNAMIC_DELEGATE(FOnCompleteLoadWorldPartitionDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnCompleteLoadInitWorldPartitionDelegate);
@@ -62,6 +68,12 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnLoadingProgressUpdate OnLoadingProgressUpdateDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FReturnSelfDelegate OnBoothTradeCompleteDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnMultiHatchCompleteDelegate OnMultiHatchComplete;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FReportCrimeIdsDelegate OnReportCrimeIdsDelegate;
@@ -121,6 +133,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     bool bIsSelectedInitMapPoint;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    TArray<FPalBuildingCountRepInfo> BaseCampBuildingNum;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bDetectedInValidPlayer;
     
@@ -173,6 +188,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString AccountName;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FPalPlayerReplicationEntity ReplicationEntity;
+    
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     int32 ChatCounter;
@@ -194,14 +212,17 @@ public:
     void ShowTowerBossDefeatRewardUI();
     
     UFUNCTION(BlueprintCallable)
-    void ShowBossDefeatRewardUI(int32 TechPoint);
+    void ShowOilRigCrateOpenUI();
+    
+    UFUNCTION(BlueprintCallable)
+    void ShowBossDefeatRewardUI(const FPalUIBossDefeatRewardDisplayData& BossDefeatDisplayData);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void SendRandomizerReplicateData(FPalRandomizerReplicateData InRandomizerReplicateData);
     
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void SendAccountInitData_ForServer(const FPalPlayerAccountInitData& accountInitData);
-    
-    UFUNCTION(BlueprintCallable, Reliable, Server)
-    void RequestUnlockFastTravelPoint_ToServer(const FName UnlockFlagKey);
     
 public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
@@ -209,6 +230,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestRespawn();
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestRandomizerReplicateData();
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestPalBoxSyncPage_ToServer(int32 pageIndex);
@@ -240,7 +264,10 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable, Client, Reliable)
-    void ReceiveBuildResult_ToRequestClient(const EPalMapObjectOperationResult Result);
+    void ReceiveBuildResult_ToRequestClient(const EPalMapObjectOperationResult Result, FPalBuildResultParameter BuildResultParameter);
+    
+    UFUNCTION(Reliable, Server)
+    void OverridePsnAccountId(const uint64& InPsnAccountId);
     
     UFUNCTION(BlueprintCallable)
     void OnUpdatePlayerInfoInGuildBelongTo(const UPalGroupGuildBase* Guild, const FGuid& InPlayerUId, const FPalGuildPlayerInfo& InPlayerInfo);
@@ -266,6 +293,9 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
+    void OnMultiHatchedIndividualHandle_ServerInternal(FPalInstanceID IndividualId);
+    
+    UFUNCTION(BlueprintCallable)
     void OnFinishInitSelectMapTeleport(const FGuid TeleportPlayerUId);
     
     UFUNCTION(BlueprintCallable)
@@ -290,8 +320,17 @@ private:
     void OnChangeOptionCommonSettings(const FPalOptionCommonSettings& PrevSettings, const FPalOptionCommonSettings& NewSettings);
     
 public:
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void NotifyTradeComplete_ToClient();
+    
     UFUNCTION(BlueprintCallable)
     void NotifyRunInitialize_ToClient();
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void NotifyPalBoxOpenInHardcore_ToServer();
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void NotifyMultiHatchComplete_ToClient(const TArray<FPalInstanceID>& HatchedIDs) const;
     
 private:
     UFUNCTION(BlueprintCallable, Client, Reliable)
@@ -469,6 +508,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void AddItemGetLog_ToClient(const FPalStaticItemIdAndNum& ItemAndNum) const;
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void AddGuildLabCompleteLog(const TArray<FPalGuildLabCompleteLogDisplayData>& DisplayDataArray);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void AddFullPalBoxLog_ToClient() const;

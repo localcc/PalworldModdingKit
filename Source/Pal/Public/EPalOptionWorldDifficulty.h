@@ -8,6 +8,7 @@ enum class EPalOptionWorldDifficulty : uint8 {
     Easy,
     Normal,
     Hard,
+    Hardcore,
     Custom,
 };
 

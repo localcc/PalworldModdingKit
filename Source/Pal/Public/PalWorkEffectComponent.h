@@ -11,11 +11,11 @@ class PAL_API UPalWorkEffectComponent : public UNiagaraComponent {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    int32 LocationIndex;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_ActiveFX, meta=(AllowPrivateAccess=true))
     bool bActiveFX;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    bool bWorkFacingChild;
     
 public:
     UPalWorkEffectComponent(const FObjectInitializer& ObjectInitializer);
@@ -28,6 +28,9 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void OnWorkEnded(UPalWorkBase* Work, const FPalInstanceID& IndividualId);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnWorkDisposed(UPalWorkBase* Work);
     
     UFUNCTION(BlueprintCallable)
     void OnRep_ActiveFX();

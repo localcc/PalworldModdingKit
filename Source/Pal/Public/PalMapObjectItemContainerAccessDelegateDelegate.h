@@ -1,0 +1,9 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "PalMapObjectItemContainerAccessDelegateDelegate.generated.h"
+
+class IPalMapObjectItemContainerAccessInterface;
+class UPalMapObjectItemContainerAccessInterface;
+
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FPalMapObjectItemContainerAccessDelegate, TScriptInterface<IPalMapObjectItemContainerAccessInterface>, AccessInterface);
+

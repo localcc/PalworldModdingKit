@@ -27,6 +27,7 @@ class APalBullet;
 class APalCharacter;
 class UCameraShakeBase;
 class UCurveFloat;
+class UForceFeedbackEffect;
 class UMaterialInstanceDynamic;
 class UMaterialInterface;
 class UPalDynamicItemDataBase;
@@ -43,6 +44,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FWeaponNotifyDelegate, EWeaponNotifyType, NotifyType);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUseBulletDelegate, int32, remainingBulletsNum);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FReloadBulletsDelegate, int32, bulletsNum);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPalChangeHiddenWeaponDelegate, bool, bIsHidden);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnShootBulletDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDetachWeaponDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnCoolDownUpdateDelegate, float, RemainingTime, float, CoolDownTime);
@@ -85,6 +87,9 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FWeaponNotifyDelegate OnWeaponNotifyDelegate;
     
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalChangeHiddenWeaponDelegate OnChangedHiddenWeaponDelegate;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float BulletDeleteTime;
     
@@ -105,6 +110,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UCameraShakeBase> ShotCameraShake;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UForceFeedbackEffect* ShotForceFeedbackEffect;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EWeaponCoopType WeaponCoopType;
@@ -260,6 +268,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnWeaponNotify(EWeaponNotifyType Type);
     
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnStopReload();
+    
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnStartAim();
     
@@ -343,6 +354,9 @@ protected:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    TArray<FPalSpecialAttackRateInfo> GetSpecialAttackRateInfos() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetSneakAttackRate();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -391,8 +405,14 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
     FName GetEquipSocketName();
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetDurability() const;
+    
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure)
     float GetDefaultBlurAngle() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
+    FVector GetBulletShootRootLocation();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetBlurModifierValue();
@@ -404,6 +424,9 @@ protected:
 public:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     bool DecrementBullet();
+    
+    UFUNCTION(BlueprintCallable)
+    void DecreaseDurability();
     
     UFUNCTION(BlueprintCallable)
     void ClearWeaponSkill();

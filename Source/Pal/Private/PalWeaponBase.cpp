@@ -8,6 +8,7 @@ APalWeaponBase::APalWeaponBase(const FObjectInitializer& ObjectInitializer) : Su
     this->RecoilPitchTotalMax = 2.00f;
     this->RecoilDecaySpeed = 1.00f;
     this->ShotCameraShake = NULL;
+    this->ShotForceFeedbackEffect = NULL;
     this->WeaponCoopType = EWeaponCoopType::None;
     this->WeaponType = EPalWeaponType::None;
     this->IsRequiredBullet = true;
@@ -159,6 +160,10 @@ AActor* APalWeaponBase::GetWeaponAttacker_Implementation() {
     return NULL;
 }
 
+TArray<FPalSpecialAttackRateInfo> APalWeaponBase::GetSpecialAttackRateInfos() const {
+    return TArray<FPalSpecialAttackRateInfo>();
+}
+
 float APalWeaponBase::GetSneakAttackRate() {
     return 0.0f;
 }
@@ -215,6 +220,14 @@ FName APalWeaponBase::GetEquipSocketName_Implementation() {
     return NAME_None;
 }
 
+float APalWeaponBase::GetDurability() const {
+    return 0.0f;
+}
+
+
+FVector APalWeaponBase::GetBulletShootRootLocation_Implementation() {
+    return FVector{};
+}
 
 float APalWeaponBase::GetBlurModifierValue() {
     return 0.0f;
@@ -226,6 +239,9 @@ int32 APalWeaponBase::DecrementCurrentSelectPalSphere(int32 RequestConsumeNum, F
 
 bool APalWeaponBase::DecrementBullet_Implementation() {
     return false;
+}
+
+void APalWeaponBase::DecreaseDurability() {
 }
 
 void APalWeaponBase::ClearWeaponSkill() {

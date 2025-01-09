@@ -148,6 +148,9 @@ private:
     FName ActiveSkill_MainValue_Overview_EditorOnly;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IsRidingActiveSkillNotWeapon;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<float> ActiveSkill_MainValueByRank;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -189,6 +192,9 @@ public:
 private:
     UFUNCTION(BlueprintCallable)
     void OnUpdateInventoryContainer(UPalItemContainer* Container);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnUpdateCharacterRank(const int32 NowRank, const int32 OldRank);
     
 public:
     UFUNCTION(BlueprintCallable)
@@ -243,6 +249,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsOverheat() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsExistRidingActiveSkilNotWeapon() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsExistActiveSkill() const;

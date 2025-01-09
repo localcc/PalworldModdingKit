@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
+#include "IndividualCharacterParameterDelegateDelegate.h"
 #include "PalInstanceID.h"
 #include "PalIndividualCharacterHandle.generated.h"
 
@@ -37,6 +38,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FPalInstanceID GetIndividualID() const;
+    
+    UFUNCTION(BlueprintCallable)
+    void CallOrRegisterOnReadyIndividualParameter(FIndividualCharacterParameterDelegate Delegate);
     
 };
 

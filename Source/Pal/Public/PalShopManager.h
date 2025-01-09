@@ -10,8 +10,8 @@
 
 class UDataTable;
 class UPalShopBase;
+class UPalShopProductBase;
 class UPalShopProduct_LostPal;
-class UPalShopProduct_TradeItem;
 
 // todo: these probably have params
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FRecievedBuyResultDelegate);
@@ -29,7 +29,7 @@ public:
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<EPalItemShopProductType, TSubclassOf<UPalShopProduct_TradeItem>> ItemShopProductClassMap;
+    TMap<EPalItemShopProductType, TSubclassOf<UPalShopProductBase>> ItemShopProductClassMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* ItemShopSettingDataTable;

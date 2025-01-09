@@ -21,6 +21,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FPalUIActionBindData EscInputHandle;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FPalUIActionBindData TabInputHandle;
+    
 public:
     UPalUserWidgetOverlayUI();
     UFUNCTION(BlueprintCallable)

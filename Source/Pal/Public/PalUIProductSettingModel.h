@@ -6,7 +6,7 @@
 #include "PalUIProductSettingModel.generated.h"
 
 class UPalItemContainerMultiHelper;
-class UPalMapObjectEnergyModule;
+class UPalMapObjectConcreteModelBase;
 class UPalUIProductSettingModel;
 
 UCLASS(Blueprintable)
@@ -38,12 +38,10 @@ protected:
     int32 ProductNum;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TWeakObjectPtr<UPalMapObjectEnergyModule> WeakEnergyModule;
+    TWeakObjectPtr<UPalMapObjectConcreteModelBase> WeakOwnerConcreteModel;
     
 public:
     UPalUIProductSettingModel();
-    UFUNCTION(BlueprintCallable)
-    bool TryGetEnergyModule(UPalMapObjectEnergyModule*& Module);
     
     UFUNCTION(BlueprintCallable)
     void SetProductNumByInput(int32 InputNum);
@@ -78,7 +76,7 @@ public:
     void IncreaseProductNum();
     
     UFUNCTION(BlueprintCallable)
-    void GetRequiredMaterialInfos(TArray<FPalStaticItemIdAndNum>& RequiredMaterialInfos);
+    void GetRequiredMaterialInfos(TArray<FPalStaticItemIdAndNum>& RequiredMaterialInfos, bool OneUnit);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FName GetRecipeId() const;

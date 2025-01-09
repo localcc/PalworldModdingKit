@@ -24,7 +24,7 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FGuid LocationId;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FDateTime CreatedAtRealTime;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
@@ -42,6 +42,12 @@ private:
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSameGuildInLocalPlayer() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsOpenForAnyone() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FDateTime GetCreatedAtRealTime() const;
     
 };
 

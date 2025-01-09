@@ -18,4 +18,13 @@ void UPalNetworkItemComponent::RequestDrop_ToServer_Implementation(const TArray<
 void UPalNetworkItemComponent::RequestDispose_ToServer_Implementation(const FGuid& RequestID, const FPalItemSlotIdAndNum& SlotInfo) {
 }
 
+void UPalNetworkItemComponent::RequestChangeFilter_ToServer_Implementation(const FPalContainerId& ContainerId, const FName FilterName, const bool bIsOn) {
+}
+
+void UPalNetworkItemComponent::RequestChangeAllFilterUncheck_ToServer_Implementation(const FPalContainerId& ContainerId) {
+}
+
+void UPalNetworkItemComponent::RequestChangeAllFilterCheck_ToServer_Implementation(const FPalContainerId& ContainerId) {
+}
+
 

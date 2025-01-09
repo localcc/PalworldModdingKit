@@ -99,6 +99,11 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnChangeDisablePassiveSkill(bool isDisable, bool IsAllReset);
     
+public:
+    UFUNCTION(BlueprintCallable)
+    void OnChangeDayTime();
+    
+private:
     UFUNCTION(BlueprintCallable)
     void OnAddNewWorker(UPalIndividualCharacterHandle* AddCharacterHandle);
     

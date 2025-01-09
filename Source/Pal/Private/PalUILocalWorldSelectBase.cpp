@@ -7,6 +7,10 @@ bool UPalUILocalWorldSelectBase::SelectWorld(const FString& WorldSaveDirectoryNa
     return false;
 }
 
+EPalSaveDataRestoreResultType UPalUILocalWorldSelectBase::RestoreFromLatestBackup(const FString& WorldSaveDirectoryName, FString& OutBackupName) {
+    return EPalSaveDataRestoreResultType::Success_AllSave;
+}
+
 void UPalUILocalWorldSelectBase::GetWorldDisplayInfo(TMap<FString, FPalUILocalWorldDisplayData>& OutDisplayInfo) {
 }
 

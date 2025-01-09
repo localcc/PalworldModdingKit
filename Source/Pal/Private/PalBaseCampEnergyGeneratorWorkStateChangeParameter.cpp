@@ -1,0 +1,5 @@
+#include "PalBaseCampEnergyGeneratorWorkStateChangeParameter.h"
+
+FPalBaseCampEnergyGeneratorWorkStateChangeParameter::FPalBaseCampEnergyGeneratorWorkStateChangeParameter() {
+}
+

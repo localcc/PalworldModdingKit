@@ -22,6 +22,10 @@ bool UPalActiveSkill::IsCoolTimeFinish() const {
     return false;
 }
 
+bool UPalActiveSkill::IsConditionSatisfy(AActor* SelfActor) const {
+    return false;
+}
+
 void UPalActiveSkill::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     

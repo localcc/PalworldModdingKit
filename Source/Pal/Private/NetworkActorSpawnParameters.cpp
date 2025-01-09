@@ -6,5 +6,8 @@ FNetworkActorSpawnParameters::FNetworkActorSpawnParameters() {
     this->ControllerClass = NULL;
     this->SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::Undefined;
     this->bAlwaysRelevant = false;
+    this->bNeedAdjustToFloor = false;
+    this->AdjustUpOffset = 0.00f;
+    this->bAdjustShortRayLength = false;
 }
 

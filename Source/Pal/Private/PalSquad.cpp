@@ -4,6 +4,9 @@ UPalSquad::UPalSquad() {
     this->LeaderBB = NULL;
 }
 
+void UPalSquad::UpdateLeader(FPalInstanceID NextLeader) {
+}
+
 void UPalSquad::RemoveWhenDestoryActor(AActor* DestoryActor) {
 }
 

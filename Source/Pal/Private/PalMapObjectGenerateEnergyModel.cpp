@@ -4,12 +4,16 @@
 UPalMapObjectGenerateEnergyModel::UPalMapObjectGenerateEnergyModel() {
     this->EnergyType = EPalEnergyType::None;
     this->GenerateEnergyRateByWorker = 1.00f;
-    this->MaxEnergyStorage = 1.00f;
+    this->MaxEnergyStorage = 0.00f;
     this->StoredEnergyAmount = 0.00f;
     this->ConsumeEnergySpeed = 0.00f;
+    this->ObtainExpByGenerateEnergy = 0.00f;
 }
 
 void UPalMapObjectGenerateEnergyModel::OnUpdateAssignedCharacter_ServerInternal(UPalWorkBase* Work) {
+}
+
+void UPalMapObjectGenerateEnergyModel::OnTickCharacterWorkWait_ServerInternal(UPalWorkOnlyJoin* Work) {
 }
 
 void UPalMapObjectGenerateEnergyModel::OnRep_StoredEnergyAmount() {

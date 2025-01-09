@@ -5,6 +5,9 @@ UPalAmbientSoundLineObject::UPalAmbientSoundLineObject() {
     this->AkComponent = NULL;
 }
 
+void UPalAmbientSoundLineObject::PlayedSoundCallback(EAkCallbackType CallbackType, UAkCallbackInfo* CallbackInfo) {
+}
+
 void UPalAmbientSoundLineObject::OnActivateTriggerOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) {
 }
 

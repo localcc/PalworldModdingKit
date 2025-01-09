@@ -26,8 +26,11 @@ public:
 
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void SendNewInventoryInfo_ForClient(FGuid Guid, FPalSkinInventoryInfo NewInfo);
+    
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void SendNewInventoryInfo(FPalSkinInventoryInfo NewInfo);
+    void SendNewInventoryInfo(FGuid Guid, FPalSkinInventoryInfo NewInfo);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestRespawnPal(UPalIndividualCharacterParameter* IndividualCharacterParameter);

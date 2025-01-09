@@ -9,7 +9,7 @@ UPalDynamicWeaponItemDataBase::UPalDynamicWeaponItemDataBase() {
     this->ForceUpdateBulletsCounter = 0;
 }
 
-int32 UPalDynamicWeaponItemDataBase::UseBullets(int32 useNum) {
+int32 UPalDynamicWeaponItemDataBase::UseBullets(int32 UseNum) {
     return 0;
 }
 
@@ -17,10 +17,16 @@ bool UPalDynamicWeaponItemDataBase::UseBullet() {
     return false;
 }
 
+void UPalDynamicWeaponItemDataBase::SetReloadStartRemainingBullets_Local(int32 bulletsNum) {
+}
+
 void UPalDynamicWeaponItemDataBase::SetDurability(float NewDurability) {
 }
 
 void UPalDynamicWeaponItemDataBase::SetBulletsNum(int32 bulletsNum) {
+}
+
+void UPalDynamicWeaponItemDataBase::ResetReloadStartRemainingBullets_Local() {
 }
 
 void UPalDynamicWeaponItemDataBase::OnRep_ForceUpdateBulletsCounter() {
@@ -34,6 +40,10 @@ bool UPalDynamicWeaponItemDataBase::IsEmptyMagazine() const {
 }
 
 int32 UPalDynamicWeaponItemDataBase::GetRemainingBulletsNum() const {
+    return 0;
+}
+
+int32 UPalDynamicWeaponItemDataBase::GetReloadStartRemainingBullets_Local() const {
     return 0;
 }
 

@@ -33,6 +33,9 @@ public:
     bool bHiddenCharacterWhenAim;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float bHiddenCharacterWhenLowAngleAim;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bDisableLookAtByRide;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -64,7 +67,13 @@ public:
 
 private:
     UFUNCTION(BlueprintCallable)
+    void UpdateOpacity();
+    
+    UFUNCTION(BlueprintCallable)
     void SyncActiveSkill(UPalIndividualCharacterParameter* IndividualParameter);
+    
+    UFUNCTION(BlueprintCallable)
+    void StartAim();
     
     UFUNCTION(BlueprintCallable)
     void SetVisibleWeapon();
@@ -79,6 +88,11 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsRiding() const;
     
+private:
+    UFUNCTION(BlueprintCallable)
+    bool IsNeedLowAngleOpacity() const;
+    
+public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsAdjustRotation() const;
     
@@ -95,6 +109,9 @@ public:
     UPalActiveSkillSlot* GetActiveSkillSlot();
     
 private:
+    UFUNCTION(BlueprintCallable)
+    void EndAim();
+    
     UFUNCTION(BlueprintCallable)
     void CameraChangeActorActive(bool Active);
     

@@ -2,6 +2,7 @@
 
 APalWorldSettings::APalWorldSettings(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->NetDormancy = DORM_DormantAll;
+    this->StageWorldSubsystemClass = NULL;
     this->DungeonWorldSubsystemClass = NULL;
     this->FieldEnvironmentDataLayerAsset = NULL;
     this->AudioWorldSubsystemClass = NULL;

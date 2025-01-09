@@ -7,5 +7,6 @@ enum class EPalItemShopProductType : uint8 {
     Invalid,
     Normal,
     OnlyPurchaseOne,
+    Skin,
 };
 

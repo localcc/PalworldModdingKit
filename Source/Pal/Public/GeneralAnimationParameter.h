@@ -1,6 +1,8 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "Engine/EngineTypes.h"
+#include "EPalCharacterMovementCustomMode.h"
 #include "EPalFootType.h"
 #include "EPalGeneralAnimSequenceType.h"
 #include "EPalGeneralBlendSpaceType.h"
@@ -69,6 +71,15 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bTransportingObject;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TEnumAsByte<EMovementMode> MovementMode;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    EPalCharacterMovementCustomMode CustomMovementMode;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bForceSprintForNPC;
     
     PAL_API FGeneralAnimationParameter();
 };

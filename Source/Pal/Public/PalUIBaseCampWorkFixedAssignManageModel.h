@@ -9,6 +9,7 @@
 
 class UPalBaseCampWorkCollectionReplicationList;
 class UPalIndividualCharacterContainer;
+class UPalIndividualCharacterParameter;
 class UPalUIBaseCampWorkFixedAssignManageModel;
 
 UCLASS(Blueprintable)
@@ -53,6 +54,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void GetFixedAssignableWorks(TArray<FPalUIBaseCampWorkFixedAssignInfo>& OutWorks);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool CanFixedAssign(const FPalUIBaseCampWorkFixedAssignInfo& TargetInfo, UPalIndividualCharacterParameter* TargetCharacterParameter) const;
     
 };
 

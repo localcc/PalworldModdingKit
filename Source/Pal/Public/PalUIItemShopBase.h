@@ -11,16 +11,21 @@ UCLASS(Blueprintable, EditInlineNew)
 class PAL_API UPalUIItemShopBase : public UPalUserWidgetOverlayUI {
     GENERATED_BODY()
 public:
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UPalShopBase> SoftMyShop;
+    
+public:
     UPalUIItemShopBase();
 protected:
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool TrySteal(const FGuid& buyProductID, const int32 stealNum);
+    bool TrySteal(const FGuid& BuyProductID, const int32 StealNum);
     
     UFUNCTION(BlueprintCallable)
     bool TrySell(const TArray<UPalItemSlot*>& SellItemSlots);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool TryBuy(const FGuid& buyProductID, const int32 BuyNum);
+    bool TryBuy(const FGuid& BuyProductID, const int32 BuyNum);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)

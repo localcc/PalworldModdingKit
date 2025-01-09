@@ -4,6 +4,8 @@
 #include "EPalWazaID.h"
 #include "PalActiveSkill.generated.h"
 
+class AActor;
+
 UCLASS(Blueprintable)
 class UPalActiveSkill : public UObject {
     GENERATED_BODY()
@@ -58,6 +60,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsCoolTimeFinish() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsConditionSatisfy(AActor* SelfActor) const;
     
 };
 

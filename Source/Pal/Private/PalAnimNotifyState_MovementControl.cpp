@@ -9,6 +9,8 @@ UPalAnimNotifyState_MovementControl::UPalAnimNotifyState_MovementControl() {
     this->SlideAlpha = 1.00f;
     this->bIsDisableMovement = false;
     this->bIsDisableJump = false;
+    this->bIsDisableCrouch = false;
+    this->bIsDisablePartnerSkill = false;
 }
 
 

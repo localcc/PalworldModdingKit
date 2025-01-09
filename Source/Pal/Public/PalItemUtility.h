@@ -11,6 +11,7 @@ class AActor;
 class UObject;
 class UPalIndividualCharacterParameter;
 class UPalItemSlot;
+class UPalMapObjectConcreteModelBase;
 class UPalStaticItemDataBase;
 
 UCLASS(Blueprintable)
@@ -22,12 +23,6 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool TryGetItemVisualBlueprintClass(const UObject* WorldContextObject, const FName StaticItemId, TSoftClassPtr<AActor>& VisualBlueprintClass);
     
-    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static void RestoreWithItem(const UObject* WorldContextObject, FName StaticItemName, UPalIndividualCharacterParameter* TargetParameter);
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    static void MaterialInfos(const FPalItemRecipe& Recipe, TArray<FPalStaticItemIdAndNum>& NewMaterialInfos);
-    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsValid(const FPalItemRecipe& Recipe);
     
@@ -38,19 +33,22 @@ public:
     static bool IsRepairableItem(UObject* WorldContextObject, const FPalItemId& TargetItemId);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    static bool IsEmpty(const FPalItemAndNum& ItemInfo);
+    static bool IsEmptyAllSlots(const TArray<UPalItemSlot*> Slots);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    static int32 GetRecipeMaterialKindCount(const FPalItemRecipe& Recipe);
+    static bool IsEmpty(const FPalItemAndNum& ItemInfo);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static void GetProductItemRequiredMaterialInfos(const UObject* WorldContextObject, const UPalMapObjectConcreteModelBase* OwnerConcreteModel, const FName RecipeID, TArray<FPalStaticItemIdAndNum>& OutRequiredMaterialInfos);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static void GetProductItemRequiredMaterialInfoMap(const UObject* WorldContextObject, const UPalMapObjectConcreteModelBase* OwnerConcreteModel, const FName RecipeID, TMap<FName, int32>& OutRequiredMaterialInfoMap);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static UPalItemSlot* CreateLocalItemSlot(UObject* WorldContextObject, const FName StaticItemId, const int32 Stack);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static void CollectLocalPlayerControllableItemInfos(const UObject* WorldContextObject, TArray<FName> StaticItemIds, TArray<FPalStaticItemIdAndNum>& OutItemInfos, const bool bIncludeInRangeBaseCamp);
-    
-    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static bool CanUseHealItem(const UObject* WorldContextObject, FName StaticItemName, UPalIndividualCharacterParameter* TargetParameter);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool CanItemLevelUp(const UPalStaticItemDataBase* ItemData, UPalIndividualCharacterParameter* TargetParameter);

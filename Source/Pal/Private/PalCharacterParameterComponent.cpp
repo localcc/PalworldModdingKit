@@ -34,6 +34,7 @@ UPalCharacterParameterComponent::UPalCharacterParameterComponent(const FObjectIn
     this->IsDisableOtomoReturnEffect = false;
     this->MaxHPRate_ForTowerBoss = 1.00f;
     this->MaxSPBuffRate = 1.00f;
+    this->bIsPreCooping = false;
     this->bIsUseGroundRayCast = true;
     this->BaseCampWorkerOrderType = EPalMapBaseCampWorkerOrderType::Work;
     this->bBaseCampWorkerAttackableFriend = false;
@@ -162,6 +163,10 @@ void UPalCharacterParameterComponent::OnInitialize_AfterSetIndividualParameter(A
 void UPalCharacterParameterComponent::OnDamage(FPalDamageResult DamageResult) {
 }
 
+bool UPalCharacterParameterComponent::IsPlayersOtomo() const {
+    return false;
+}
+
 bool UPalCharacterParameterComponent::IsOtomo() const {
     return false;
 }
@@ -262,6 +267,12 @@ UPalOtomoAttackStopJudgeByBallList* UPalCharacterParameterComponent::GetOtomoAtt
     return NULL;
 }
 
+void UPalCharacterParameterComponent::GetNickNameWithOnlineID(FString& outName) {
+}
+
+void UPalCharacterParameterComponent::GetNickNamebyByCheckBlockedUser(FString& outName) {
+}
+
 void UPalCharacterParameterComponent::GetNickname(FString& outName) {
 }
 
@@ -347,6 +358,10 @@ int32 UPalCharacterParameterComponent::GetCraftSpeed_WorkSuitability(const EPalW
 
 int32 UPalCharacterParameterComponent::GetCraftSpeed() {
     return 0;
+}
+
+float UPalCharacterParameterComponent::GetCapsuleRadius() const {
+    return 0.0f;
 }
 
 FGuid UPalCharacterParameterComponent::GetBaseCampId() const {

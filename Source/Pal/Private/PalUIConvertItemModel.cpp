@@ -26,7 +26,4 @@ EPalUIConvertItemRequestStartResponse UPalUIConvertItemModel::CanStartProduction
     return EPalUIConvertItemRequestStartResponse::Enable;
 }
 
-void UPalUIConvertItemModel::CancelProduct() {
-}
-
 

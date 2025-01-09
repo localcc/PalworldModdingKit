@@ -13,6 +13,10 @@ void UPalMapObjectPickableCharacterModelBase::RequestPickup() {
 void UPalMapObjectPickableCharacterModelBase::OnRemovedStoredCharacter_ServerInternal(const FPalCharacterStoredParameterId& RemovedID) {
 }
 
+FDateTime UPalMapObjectPickableCharacterModelBase::GetCreatedAtRealTime() const {
+    return FDateTime{};
+}
+
 FPalIndividualCharacterSaveParameter UPalMapObjectPickableCharacterModelBase::GetCharacterSaveParameter() const {
     return FPalIndividualCharacterSaveParameter{};
 }
@@ -22,6 +26,7 @@ void UPalMapObjectPickableCharacterModelBase::GetLifetimeReplicatedProps(TArray<
     
     DOREPLIFETIME(UPalMapObjectPickableCharacterModelBase, ForRead_CharacterSaveParameter);
     DOREPLIFETIME(UPalMapObjectPickableCharacterModelBase, LocationId);
+    DOREPLIFETIME(UPalMapObjectPickableCharacterModelBase, CreatedAtRealTime);
 }
 
 

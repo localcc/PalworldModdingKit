@@ -22,6 +22,18 @@ public:
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     int64 PalTotalEXP;
     
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    int64 BuildEXP;
+    
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    int64 CraftEXP;
+    
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    int64 PalBuildEXP;
+    
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    int64 PalCraftEXP;
+    
     PAL_API FPalExpDatabaseRaw();
 };
 

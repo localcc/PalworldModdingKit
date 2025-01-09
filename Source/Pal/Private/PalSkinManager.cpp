@@ -4,6 +4,14 @@ UPalSkinManager::UPalSkinManager() {
     this->SkinDataAsset = NULL;
 }
 
+bool UPalSkinManager::HasSkin(FGuid InPlayerUId, const FName& CheckSkinName) {
+    return false;
+}
+
+FName UPalSkinManager::GetTargetPalName(const FName& SkinName) {
+    return NAME_None;
+}
+
 bool UPalSkinManager::GetPalCharacterClass(FName SkinName, bool bIsBoss, TSoftClassPtr<APalCharacter>& OutCharacterClass) {
     return false;
 }

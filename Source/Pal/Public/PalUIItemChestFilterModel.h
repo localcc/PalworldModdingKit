@@ -4,6 +4,9 @@
 #include "PalUIItemChestFilterMulticastDelegateDelegate.h"
 #include "PalUIItemChestFilterModel.generated.h"
 
+class IPalMapObjectItemContainerAccessInterface;
+class UPalMapObjectItemContainerAccessInterface;
+class UPalItemContainer;
 class UPalMapObjectConcreteModelBase;
 class UPalMapObjectItemContainerModule;
 
@@ -35,11 +38,17 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
-    void OnUpdateFilterPreference(UPalMapObjectItemContainerModule* Module);
+    void OnUpdateFilterPreference(UPalItemContainer* Container);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalMapObjectItemContainerModule* GetItemContainerModule() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    TScriptInterface<IPalMapObjectItemContainerAccessInterface> GetItemContainerAccess() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPalItemContainer* GetItemContainer() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TMap<FName, FName> GetFilterIdAndDisplayTextId() const;

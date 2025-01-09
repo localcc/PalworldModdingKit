@@ -48,6 +48,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TSubclassOf<APalGliderObject> CurrentGliderClass;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalIndividualCharacterParameter* CurrentGliderIndividualParameter;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_IsGliding, meta=(AllowPrivateAccess=true))
     bool bIsGliding;
     
@@ -99,6 +102,9 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void OnUpdateEquipmentSlot(UPalItemSlot* itemSlot, EPalPlayerEquipItemSlotType slotType);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnUpdateCharacterRank(const int32 NowRank, const int32 OldRank);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

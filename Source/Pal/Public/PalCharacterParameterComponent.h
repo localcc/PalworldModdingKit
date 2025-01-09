@@ -71,10 +71,10 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsDebugMuteki;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     EPalElementType ElementType1;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     EPalElementType ElementType2;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -160,6 +160,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float MaxSPBuffRate;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsPreCooping;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -404,6 +407,9 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsPlayersOtomo() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsOtomo() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -479,6 +485,12 @@ public:
     UPalOtomoAttackStopJudgeByBallList* GetOtomoAttackStopJudge();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    void GetNickNameWithOnlineID(FString& outName);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    void GetNickNamebyByCheckBlockedUser(FString& outName);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetNickname(FString& outName);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -543,6 +555,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetCraftSpeed();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetCapsuleRadius() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FGuid GetBaseCampId() const;

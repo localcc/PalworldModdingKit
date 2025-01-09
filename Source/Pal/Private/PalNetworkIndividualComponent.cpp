@@ -3,9 +3,6 @@
 UPalNetworkIndividualComponent::UPalNetworkIndividualComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
 
-void UPalNetworkIndividualComponent::UseItemInSlotToCharacter_ToServer_Implementation(const FPalInstanceID& ID, const FPalItemSlotIdAndNum SlotAndNum) {
-}
-
 void UPalNetworkIndividualComponent::UpdateCharacterParameter_ServerInternal(const FPalInstanceID& ID, const FPalNetArchive& parameterArchive, FGuid Guid) {
 }
 

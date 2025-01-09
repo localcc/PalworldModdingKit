@@ -11,10 +11,10 @@ class APalCutsceneActor : public ALevelSequenceActor {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float OpeningFadeOutDelay;
+    float OpeningFadeInDelay;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float OpeningFadeOutTime;
+    float OpeningFadeInTime;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bCanSkip;

@@ -27,6 +27,9 @@ int32 UPalGroupGuildBase::GetWorkerCapacityNum(int32 InLevel) const {
     return 0;
 }
 
+void UPalGroupGuildBase::GetGuildNameByCheckBlockedUser(FString& outName) const {
+}
+
 FString UPalGroupGuildBase::GetGuildName() const {
     return TEXT("");
 }
@@ -49,6 +52,7 @@ void UPalGroupGuildBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& O
     DOREPLIFETIME(UPalGroupGuildBase, MapObjectInstanceIds_BaseCampPoint);
     DOREPLIFETIME(UPalGroupGuildBase, BaseCampLevel);
     DOREPLIFETIME(UPalGroupGuildBase, GuildName);
+    DOREPLIFETIME(UPalGroupGuildBase, LastGuildNameModifierPlayerUid);
 }
 
 

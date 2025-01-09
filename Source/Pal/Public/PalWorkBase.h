@@ -114,6 +114,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bGroupRaycastStartOffsetOrigin;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bAssignWorldSitLocationAtWorkFacing;
+    
 public:
     UPalWorkBase();
 
