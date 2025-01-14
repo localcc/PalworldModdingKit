@@ -7,7 +7,7 @@ USTRUCT(BlueprintType)
 struct FPalLocalizedTextData : public FTableRowBase {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true, MultiLine=true))
     FText TextData;
     
     PAL_API FPalLocalizedTextData();
