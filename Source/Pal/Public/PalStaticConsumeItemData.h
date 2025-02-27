@@ -21,12 +21,13 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 RestoreSanity;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalWazaID WazaID;
     
 public:
     UPalStaticConsumeItemData();
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+
+    UFUNCTION(BlueprintPure)
     EPalWazaID GetWazaID() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

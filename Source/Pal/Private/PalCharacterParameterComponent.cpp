@@ -49,6 +49,7 @@ UPalCharacterParameterComponent::UPalCharacterParameterComponent(const FObjectIn
     this->CanDropItem = false;
     this->IsImmortality = false;
     this->IsMimicryMode = false;
+    this->bIsAttackNonCriminal = false;
     this->OtomoAttackStopJudge = NULL;
 }
 

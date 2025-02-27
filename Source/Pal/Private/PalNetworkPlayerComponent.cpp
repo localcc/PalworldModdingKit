@@ -103,6 +103,9 @@ void UPalNetworkPlayerComponent::LoadoutSelectorRemoveEquipItem_Implementation(U
 void UPalNetworkPlayerComponent::LoadoutSelectorEquipItem_Implementation(UPalLoadoutSelectorComponent* LoadoutSelector, EPalPlayerInventoryType inventoryType, int32 Index) {
 }
 
+void UPalNetworkPlayerComponent::Dev_SetOverridePlayerUID_ToServer_Implementation(const FGuid& PlayerUId) {
+}
+
 void UPalNetworkPlayerComponent::Dev_SetEnablePlayerRespawnInHardcore_Implementation(bool bEnable) {
 }
 
@@ -119,6 +122,9 @@ void UPalNetworkPlayerComponent::Dev_RequestTeleportToCurrentDungeonGoal_ToServe
 }
 
 void UPalNetworkPlayerComponent::Dev_RequestTeleportToBossTower_ToServer_Implementation(EPalBossType BossType) {
+}
+
+void UPalNetworkPlayerComponent::Dev_RequestEnterPlayerGuildBaseCampBelongTo_ToServer_Implementation(const FGuid& BaseCampId) {
 }
 
 

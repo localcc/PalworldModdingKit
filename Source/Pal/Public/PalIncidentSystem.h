@@ -56,6 +56,9 @@ protected:
     void TalkCustomFunction_VisitorPresentAndReturn(APalPlayerCharacter* TalkPlayer, APalCharacter* TargetNPC, const UDataTable* CunstomFuncParam);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void TalkCustomFunction_Duel(APalPlayerCharacter* TalkPlayer, APalCharacter* TargetNPC, const UDataTable* CunstomFuncParam);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void TalkCustomFunction_AttackToPlayer(APalPlayerCharacter* TalkPlayer, APalCharacter* TargetNPC, const UDataTable* CunstomFuncParam);
     
     UFUNCTION(BlueprintCallable)

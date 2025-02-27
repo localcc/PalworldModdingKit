@@ -138,6 +138,9 @@ public:
     void LoadoutSelectorEquipItem(UPalLoadoutSelectorComponent* LoadoutSelector, EPalPlayerInventoryType inventoryType, int32 Index);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Dev_SetOverridePlayerUID_ToServer(const FGuid& PlayerUId);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Dev_SetEnablePlayerRespawnInHardcore(bool bEnable);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
@@ -154,6 +157,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Dev_RequestTeleportToBossTower_ToServer(EPalBossType BossType);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Dev_RequestEnterPlayerGuildBaseCampBelongTo_ToServer(const FGuid& BaseCampId);
     
 };
 

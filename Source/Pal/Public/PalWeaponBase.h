@@ -309,6 +309,12 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnAttachWeapon(AActor* attachActor);
     
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnAnimNotifyEnd(FName NotifyName);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnAnimNotifyBegin(FName NotifyName);
+    
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
     bool IsUseLeftHandAttach() const;
     

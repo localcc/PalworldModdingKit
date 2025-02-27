@@ -94,6 +94,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_PlayerUId, meta=(AllowPrivateAccess=true))
     FGuid PlayerUId;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGuid OverridePlayerUIdFromClient;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     FPalInstanceID IndividualHandleId;
     
@@ -170,6 +173,11 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FGuid LoginTryingPlayerUId_InServer;
     
+public:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsCompleteLoadInitWorldPartition_InServer;
+    
+private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsCompleteSyncPlayerFromServer_InClient;
     
@@ -430,6 +438,9 @@ private:
     void Debug_ShutdownToClient();
     
 public:
+    UFUNCTION(BlueprintCallable)
+    void Debug_SetOverridePlayerUID(FGuid NewPlayerUId);
+    
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Debug_SetDestructionByCompleteBuiltFlag_ToServer();
     

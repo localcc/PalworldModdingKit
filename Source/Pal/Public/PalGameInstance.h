@@ -45,6 +45,7 @@ class UPalMapObjectManager;
 class UPalMasterDataTables;
 class UPalNPCManager;
 class UPalObjectCollector;
+class UPalObjectPoolManager;
 class UPalOilrigManager;
 class UPalPassiveSkillManager;
 class UPalPersistentSoundPlayer;
@@ -307,6 +308,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalShopManager> ShopManagerSubsystemClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UPalObjectPoolManager> ObjectPoolClass;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 revisionNum;

@@ -13,6 +13,7 @@ UPalMapObjectModel::UPalMapObjectModel() {
     this->DeteriorationDamage = 0.00f;
     this->DeteriorationTotalDamage = 0.00f;
     this->bIgnoredSave = false;
+    this->bIgnoredSaveWhenNotDamaged = false;
 }
 
 void UPalMapObjectModel::RequestRepairByPlayer_ToServer_ServerInternal(const FGuid& RequestPlayerUId) {

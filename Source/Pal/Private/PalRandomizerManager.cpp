@@ -8,6 +8,10 @@ UPalRandomizerManager::UPalRandomizerManager() {
 void UPalRandomizerManager::OnChangeWorldSettings_ForClient(const FPalOptionWorldSettings& PrevSettings, const FPalOptionWorldSettings& NewSettings) {
 }
 
+bool UPalRandomizerManager::IsRandomizerPalLevelRandom() const {
+    return false;
+}
+
 bool UPalRandomizerManager::IsInitializedRandomizer() const {
     return false;
 }

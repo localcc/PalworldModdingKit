@@ -40,6 +40,9 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable)
+    void OnCompleteAuth(const FString& ResponseBody, bool bResponseOK, int32 ResponseCode);
+    
+    UFUNCTION(BlueprintCallable)
     void InitDedicatedServer();
     
 protected:

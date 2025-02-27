@@ -5,7 +5,7 @@ FPalOptionGraphicsSettings::FPalOptionGraphicsSettings() {
     this->WindowMode = EWindowMode::Fullscreen;
     this->bEnableVSync = false;
     this->bEnableMotionBlur = false;
-    this->AntiAliasingType = AAM_None;
+    this->AntiAliasingType = EAntiAliasingMethod::AAM_None;
     this->bEnableCameraShake = false;
     this->bEnableCameraRecoil = false;
     this->FOV = 0.00f;

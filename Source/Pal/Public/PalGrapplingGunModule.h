@@ -7,6 +7,7 @@
 #include "PalGrapplingGunModule.generated.h"
 
 class APalCharacter;
+class UPalActionBase;
 
 UCLASS(Blueprintable)
 class PAL_API UPalGrapplingGunModule : public UObject {
@@ -55,6 +56,14 @@ public:
     UFUNCTION(BlueprintCallable)
     void OnStartGrapplingAction(const FVector& HitLocation);
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnStartAction(const UPalActionBase* action);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnEndGrapplingAction();
+    
+public:
     UFUNCTION(BlueprintCallable)
     void OnDetachWeapon();
     

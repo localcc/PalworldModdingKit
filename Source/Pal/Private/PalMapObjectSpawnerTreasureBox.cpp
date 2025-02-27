@@ -4,6 +4,7 @@ APalMapObjectSpawnerTreasureBox::APalMapObjectSpawnerTreasureBox(const FObjectIn
     this->bLotteryByMultiTreasureBoxLotteryParameters = false;
     this->RespawnTimeMinutesObtained = 300.00f;
     this->bRespawnableMulti = true;
+    this->bAllowOverlapForMapObject = false;
 }
 
 void APalMapObjectSpawnerTreasureBox::OnFinishedSpawningMapObjectModel(FGuid InstanceId, const EPalMapObjectOperationResult Result) {

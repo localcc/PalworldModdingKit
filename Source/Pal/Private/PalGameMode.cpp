@@ -22,6 +22,9 @@ void APalGameMode::OnEOSLoginDedicatedServerComplete(const UPocketpairUserInfo* 
 void APalGameMode::OnCompleteCreateSession(const FString& ResponseBody, bool bResponseOK, int32 ResponseCode) {
 }
 
+void APalGameMode::OnCompleteAuth(const FString& ResponseBody, bool bResponseOK, int32 ResponseCode) {
+}
+
 void APalGameMode::InitDedicatedServer() {
 }
 

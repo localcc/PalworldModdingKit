@@ -9,11 +9,13 @@ class UPalBaseCampPassiveEffect_AllWorkSpeed : public UPalBaseCampPassiveEffectB
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     float WorkSpeedAdditionalRate;
     
 public:
     UPalBaseCampPassiveEffect_AllWorkSpeed();
+
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
 
     // Fix for true pure virtual functions not being implemented

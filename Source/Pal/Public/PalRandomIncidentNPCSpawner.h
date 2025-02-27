@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "EPalOrganizationType.h"
 #include "UObject/NoExportTypes.h"
 #include "PalNPCSpawnerBase.h"
 #include "PalRandomIncidentSpawnMonsterData.h"
@@ -27,6 +28,12 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<int32, FGuid> GroupMap;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<EPalOrganizationType, FGuid> OrganizationGroupMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<int32, EPalOrganizationType> GrouplOrganizationMap;
+    
 public:
     APalRandomIncidentNPCSpawner(const FObjectInitializer& ObjectInitializer);
 
@@ -37,7 +44,7 @@ public:
     void SpawnMonster(const FName& RowName, const FPalRandomIncidentSpawnMonsterData& SpawnData, int32 SpawnPointIndex, int32 SpawnPointCount);
     
     UFUNCTION(BlueprintCallable)
-    void RequestCreateGroups(TArray<int32> Groups);
+    void RequestCreateGroups(const TArray<FPalRandomIncidentGroupRequestParameter>& RequestParams);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     bool IsSpawnedCharacter(const UPalIndividualCharacterHandle* Handle);

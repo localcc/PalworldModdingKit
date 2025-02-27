@@ -9,6 +9,9 @@ UPalOptionSubsystem::UPalOptionSubsystem() {
     this->PalPlayerCharacterClass = NULL;
 }
 
+void UPalOptionSubsystem::SetupForSteamDeck() {
+}
+
 void UPalOptionSubsystem::SetUISettings(const FPalOptionUISettings& InUISettings) {
 }
 

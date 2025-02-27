@@ -14,7 +14,7 @@ public:
     void OnBattleFinish_forDelegate(AActor* Actor);
     
     UFUNCTION(BlueprintCallable)
-    bool JudgeReturnCombatStartPosition();
+    bool JudgeReturnCombatStartPosition(float Rate);
     
 };
 

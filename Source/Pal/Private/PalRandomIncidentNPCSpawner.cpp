@@ -5,7 +5,7 @@ APalRandomIncidentNPCSpawner::APalRandomIncidentNPCSpawner(const FObjectInitiali
 
 
 
-void APalRandomIncidentNPCSpawner::RequestCreateGroups(TArray<int32> Groups) {
+void APalRandomIncidentNPCSpawner::RequestCreateGroups(const TArray<FPalRandomIncidentGroupRequestParameter>& RequestParams) {
 }
 
 

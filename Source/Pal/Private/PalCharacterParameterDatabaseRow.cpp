@@ -37,6 +37,7 @@ FPalCharacterParameterDatabaseRow::FPalCharacterParameterDatabaseRow() {
     this->BattleBGM = EPalBattleBGMType::None;
     this->IgnoreLeanBack = false;
     this->IgnoreBlowAway = false;
+    this->IgnoreStun = false;
     this->MaxFullStomach = 0;
     this->FullStomachDecreaseRate = 0.00f;
     this->FoodAmount = 0;

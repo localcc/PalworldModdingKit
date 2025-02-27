@@ -90,6 +90,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->RandomizerType_Override = EPalRandomizerType::None;
     this->bIsRandomizerSeed_Override = false;
     this->bIsRandomizerSeed_Override_Random = false;
+    this->bIsRandomizerPalLevelRandom_Override = false;
     this->OverrideSpawnRadius = -1.00f;
     this->OverrideDespawnRadius = -1.00f;
     this->bIsPlayerCompleteSTEALTH = false;
@@ -302,6 +303,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bUnlockAllTeamMission = false;
     this->bKillOnPlayerRide = false;
     this->bDisableInteractLockComponent = false;
+    this->bShowOtomoReturnFarDistance = false;
 }
 
 TArray<FString> UPalDebugSetting::GetDataLayerRuntimeSettingsNames() const {
