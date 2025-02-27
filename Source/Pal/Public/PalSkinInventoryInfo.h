@@ -16,6 +16,9 @@ public:
     TArray<FPalSkinPlatformItemData> PlatformData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FPocketpairPlatformID PlatformID;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bInitialize;
     
     PAL_API FPalSkinInventoryInfo();

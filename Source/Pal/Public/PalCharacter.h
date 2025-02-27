@@ -7,6 +7,7 @@
 #include "EPalCharacterCompleteDelegatePriority.h"
 #include "EPalCharacterImportanceType.h"
 #include "FlagContainer.h"
+#include "PalCharacterCapsuleRootSettings.h"
 #include "PalDeadInfo.h"
 #include "PalOnCharacterCompleteInitializeParameterDelegate.h"
 #include "PalCharacter.generated.h"
@@ -177,6 +178,12 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 CurrentAirDashCount;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_CapsuleRootSettings, meta=(AllowPrivateAccess=true))
+    FPalCharacterCapsuleRootSettings CapsuleRootSettings;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_bUseBodyPartsCollisionProfileNameBaseCamp, meta=(AllowPrivateAccess=true))
+    bool bUseBodyPartsCollisionProfileNameBaseCamp;
+    
 public:
     APalCharacter(const FObjectInitializer& ObjectInitializer);
 
@@ -239,6 +246,14 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void OnRep_IsOtomoCollision(bool PrevbIsOtomoCollision);
+    
+protected:
+    UFUNCTION(BlueprintCallable)
+    void OnRep_CapsuleRootSettings();
+    
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnRep_bUseBodyPartsCollisionProfileNameBaseCamp();
     
     UFUNCTION(BlueprintCallable)
     void OnOverlapEndByAroundInfo(AActor* OtherActor);

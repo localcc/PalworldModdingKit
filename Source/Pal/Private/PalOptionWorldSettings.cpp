@@ -3,6 +3,7 @@
 FPalOptionWorldSettings::FPalOptionWorldSettings() {
     this->Difficulty = EPalOptionWorldDifficulty::None;
     this->RandomizerType = EPalRandomizerType::None;
+    this->bIsRandomizerPalLevelRandom = false;
     this->DayTimeSpeedRate = 0.00f;
     this->NightTimeSpeedRate = 0.00f;
     this->ExpRate = 0.00f;
@@ -76,5 +77,6 @@ FPalOptionWorldSettings::FPalOptionWorldSettings() {
     this->EnablePredatorBossPal = false;
     this->MaxBuildingLimitNum = 0;
     this->ServerReplicatePawnCullDistance = 0.00f;
+    this->bIsForceEnableRandomizerPalLevelRandom_ForUI = false;
 }
 

@@ -9,6 +9,7 @@
 #include "EPalDamageAnimationReactionType.h"
 #include "EPalPassiveSkillEffectType.h"
 #include "EPalPlayerDamageCameraShakeCategory.h"
+#include "PalObjectPoolable.h"
 #include "PalPassiveSkillEffect.h"
 #include "PalBullet.generated.h"
 
@@ -18,7 +19,7 @@ class UProjectileMovementComponent;
 class USphereComponent;
 
 UCLASS(Blueprintable)
-class APalBullet : public AActor {
+class APalBullet : public AActor, public IPalObjectPoolable {
     GENERATED_BODY()
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FDestroyBulletDelegate, UPrimitiveComponent*, HitComp, AActor*, OtherCharacter, UPrimitiveComponent*, OtherComp, const FHitResult&, Hi);
@@ -76,6 +77,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FBulletHoleDecalInfo DefaultBulletHoleDecals;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bUsePool;
     
     APalBullet(const FObjectInitializer& ObjectInitializer);
 

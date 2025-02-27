@@ -2,8 +2,8 @@
 #include "CoreMinimal.h"
 #include "EPalTribeID.generated.h"
 
-UENUM(BlueprintType)
-enum class EPalTribeID : uint8 {
+UENUM()
+enum class EPalTribeID : uint16 {
     None,
     Anubis,
     Baphomet,

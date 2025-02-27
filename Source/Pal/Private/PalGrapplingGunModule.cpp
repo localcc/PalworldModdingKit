@@ -23,6 +23,12 @@ void UPalGrapplingGunModule::ShotCable() {
 void UPalGrapplingGunModule::OnStartGrapplingAction(const FVector& HitLocation) {
 }
 
+void UPalGrapplingGunModule::OnStartAction(const UPalActionBase* action) {
+}
+
+void UPalGrapplingGunModule::OnEndGrapplingAction() {
+}
+
 void UPalGrapplingGunModule::OnDetachWeapon() {
 }
 

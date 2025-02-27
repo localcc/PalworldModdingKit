@@ -11,6 +11,8 @@ UPalGameSetting::UPalGameSetting() {
     this->OtomoSlotNum = 5;
     this->OtomoWazaCoolDownSpeedRate = 2.00f;
     this->BerserkerOtomoSerchRadius_FromPlayer = 1500.00f;
+    this->OtomoWarpFarDistance = 3000.00f;
+    this->OtomoReturnFarDistance = 3000.00f;
     this->PlayerHPRateFromRespawn = 1.00f;
     this->PlayerStomachRateFromRespawn = 1.00f;
     this->RarePal_AppearanceProbability = 1.00f;
@@ -204,6 +206,7 @@ UPalGameSetting::UPalGameSetting() {
     this->SnapBuildObjectTraceDistance = 2000.00f;
     this->SnapBuildObjectInstallReticleDistance = 1000.00f;
     this->SnapBuildObjectAttachDistance = 100.00f;
+    this->SnapBuildObjectMinBoxExtentZ = 50.00f;
     this->InBuildProcessObjectExpireRealHours = 24.00f;
     this->BuildObj_HatchedPalCharacterLevel = 1;
     this->BuildObj_DamageScarecrowStartRecoveryTime = 3.00f;
@@ -286,8 +289,10 @@ UPalGameSetting::UPalGameSetting() {
     this->otomoExpGaugeUIDisplayTime = 5.00f;
     this->npcGaugeDisplayDistance = 6000.00f;
     this->npcGaugeDisplayDistance_PVP = 6000.00f;
+    this->OtherOtomoGaugeDisplayDistance_PVP = 6000.00f;
     this->npcGaugeDisplayRange_CameraSight = 12000.00f;
     this->npcGaugeDisplayRange_CameraSight_PVP = 12000.00f;
+    this->OtherOtomoGaugeDisplayRange_CameraSight_PVP = 12000.00f;
     this->GuildMemberGaugeDisplayDIstance = 20000.00f;
     this->downPlayerLoupeDisplayDistance = 5000.00f;
     this->downPlayerGaugeDisplayRange_CameraSight = 2000.00f;

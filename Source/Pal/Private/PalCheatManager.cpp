@@ -542,6 +542,9 @@ void UPalCheatManager::PrintRandomizerInfo() {
 void UPalCheatManager::PrintPlatformInventory() {
 }
 
+void UPalCheatManager::PrintPakFiles() {
+}
+
 void UPalCheatManager::PrintNetDriverLog() {
 }
 
@@ -863,6 +866,9 @@ void UPalCheatManager::EnterGuildPlayer(const FString& GuildName, APalPlayerChar
 void UPalCheatManager::EnterGuildOtherPlayerBelongTo(const FGuid& TargetPlayerUId) {
 }
 
+void UPalCheatManager::EnterGuildLocalPlayerToCurrentBaseCampBelongTo() {
+}
+
 void UPalCheatManager::EnterGuildLocalPlayer(const FString& GuildName) {
 }
 
@@ -1008,6 +1014,9 @@ void UPalCheatManager::CopyLabResearchCompletedIds() {
 }
 
 void UPalCheatManager::ConsumePlatformInventoryItem(int32 ItemId, int32 Num) {
+}
+
+void UPalCheatManager::ConnectServer(const FString& Address, const FString& Port, const FString& ServerPassword) {
 }
 
 void UPalCheatManager::CompleteLabResearches(const TArray<FName> ResearchIds) {

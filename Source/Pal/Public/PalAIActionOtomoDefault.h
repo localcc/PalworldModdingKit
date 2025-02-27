@@ -35,5 +35,8 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSameTargetAsTrainerCommand() const;
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    AActor* FindNearestAttackTarget(const TArray<AActor*>& Actors);
+    
 };
 

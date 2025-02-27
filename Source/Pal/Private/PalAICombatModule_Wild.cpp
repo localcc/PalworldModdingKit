@@ -6,7 +6,7 @@ UPalAICombatModule_Wild::UPalAICombatModule_Wild() {
 void UPalAICombatModule_Wild::OnBattleFinish_forDelegate(AActor* Actor) {
 }
 
-bool UPalAICombatModule_Wild::JudgeReturnCombatStartPosition() {
+bool UPalAICombatModule_Wild::JudgeReturnCombatStartPosition(float Rate) {
     return false;
 }
 

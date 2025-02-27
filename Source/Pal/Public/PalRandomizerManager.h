@@ -46,6 +46,9 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsRandomizerPalLevelRandom() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInitializedRandomizer() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

@@ -414,7 +414,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasWorkSuitability(const EPalWorkSuitability InWorkSuitability) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool HasMasteredWaza(EPalWazaID WazaID);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -438,7 +438,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetUnusedStatusPoint() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     EPalTribeID GetTribeID() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -539,7 +539,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetMaxFullStomach() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TArray<EPalWazaID> GetMasteredWaza() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -584,7 +584,7 @@ public:
     UFUNCTION(BlueprintPure)
     int64 GetExp() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TArray<EPalWazaID> GetEquipWaza() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -593,7 +593,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FPalIndividualCharacterEquipItemContainerHandler GetEquipItemContainerHandler() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TArray<EPalWazaID> GetEquipableWaza() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

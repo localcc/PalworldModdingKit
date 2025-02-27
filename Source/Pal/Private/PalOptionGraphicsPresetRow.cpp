@@ -2,7 +2,7 @@
 
 FPalOptionGraphicsPresetRow::FPalOptionGraphicsPresetRow() {
     this->GraphicsLevel = EPalOptionGraphicsLevel::None;
-    this->AntiAliasingType = AAM_None;
+    this->AntiAliasingType = EAntiAliasingMethod::AAM_None;
     this->CommonQuality = 0;
     this->ViewDistanceQuality = 0;
     this->MapObjectDrawDistanceType = EPalOptionMapObjectDrawDistanceType::Invalid;

@@ -31,6 +31,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bRespawnableMulti;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bAllowOverlapForMapObject;
+    
 public:
     APalMapObjectSpawnerTreasureBox(const FObjectInitializer& ObjectInitializer);
 

@@ -22,6 +22,7 @@ APalPlayerState::APalPlayerState(const FObjectInitializer& ObjectInitializer) : 
     this->UserAchievementChecker = NULL;
     this->bIsNewCharacter = false;
     this->TryCreateIndividualHandleTemporarily = NULL;
+    this->bIsCompleteLoadInitWorldPartition_InServer = true;
     this->bIsCompleteSyncPlayerFromServer_InClient = false;
     this->ChatCounter = 0;
     this->DisableGuildJoin = false;
@@ -256,6 +257,9 @@ bool APalPlayerState::EnterChat(FText Msg, EPalChatCategory Category) {
 void APalPlayerState::Debug_ShutdownToClient_Implementation() {
 }
 
+void APalPlayerState::Debug_SetOverridePlayerUID(FGuid NewPlayerUId) {
+}
+
 void APalPlayerState::Debug_SetDestructionByCompleteBuiltFlag_ToServer_Implementation() {
 }
 
@@ -354,6 +358,7 @@ void APalPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     DOREPLIFETIME(APalPlayerState, bIsSelectedInitMapPoint);
     DOREPLIFETIME(APalPlayerState, BaseCampBuildingNum);
     DOREPLIFETIME(APalPlayerState, GuildBelongTo);
+    DOREPLIFETIME(APalPlayerState, bIsCompleteLoadInitWorldPartition_InServer);
     DOREPLIFETIME(APalPlayerState, ChatCounter);
     DOREPLIFETIME(APalPlayerState, DisableGuildJoin);
 }

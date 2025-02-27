@@ -116,6 +116,9 @@ public:
     UPalOptionSubsystem();
 
     UFUNCTION(BlueprintCallable)
+    void SetupForSteamDeck();
+    
+    UFUNCTION(BlueprintCallable)
     void SetUISettings(const FPalOptionUISettings& InUISettings);
     
     UFUNCTION(BlueprintCallable)

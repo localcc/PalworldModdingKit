@@ -192,6 +192,9 @@ private:
     bool bRequestCrouch;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bRequestGliding;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bRequestSprint;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -449,6 +452,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsRequestSliding() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsRequestGliding() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPysicsAcceleration() const;

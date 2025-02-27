@@ -154,6 +154,9 @@ void UPalUtility::SetCharacterLocationAtMainMeshFoot(APalCharacter* Character, c
 void UPalUtility::SetBodyPartsGenerateOverlapEvents(APalCharacter* Character, bool IsEnable) {
 }
 
+void UPalUtility::SetBodyPartsCollisionProfileNotChangeEnabled(APalCharacter* Character, const FName ProfileName) {
+}
+
 void UPalUtility::SetBodyPartsCollisionProfile(APalCharacter* Character, const FName ProfileName) {
 }
 
@@ -397,6 +400,10 @@ bool UPalUtility::IsPIEUsingPlayerStart() {
 }
 
 bool UPalUtility::IsPalMonster(const AActor* Actor) {
+    return false;
+}
+
+bool UPalUtility::IsPalmi(const AActor* Actor) {
     return false;
 }
 
@@ -850,6 +857,10 @@ UPalRaidBossManager* UPalUtility::GetRaidBossManager(const UObject* WorldContext
     return NULL;
 }
 
+FString UPalUtility::GetPocketpairAuthBaseURL(const UObject* WorldContextObject) {
+    return TEXT("");
+}
+
 FString UPalUtility::GetPlayerUniqueIdToString(const FUniqueNetIdRepl& UserId) {
     return TEXT("");
 }
@@ -1081,6 +1092,10 @@ bool UPalUtility::GetOffFromPal(AActor* RiderActor, bool bIsSkipAnimation, bool 
     return false;
 }
 
+UPalObjectPoolManager* UPalUtility::GetObjectPoolManager(const UObject* WorldContextObject) {
+    return NULL;
+}
+
 int32 UPalUtility::GetNumPlayers(const UObject* WorldContextObject) {
     return 0;
 }
@@ -1209,6 +1224,10 @@ UPalMoneyData* UPalUtility::GetLocalMoneyData(const UObject* WorldContextObject)
 
 UPalPlayerInventoryData* UPalUtility::GetLocalInventoryData(const UObject* WorldContextObject) {
     return NULL;
+}
+
+TArray<FString> UPalUtility::GetLoadedPakFiles() {
+    return TArray<FString>();
 }
 
 UPalItemIDManager* UPalUtility::GetItemIDManager(const UObject* WorldContextObject) {

@@ -134,6 +134,7 @@ class UPalMasterDataTables;
 class UPalMoneyData;
 class UPalNPCManager;
 class UPalObjectCollector;
+class UPalObjectPoolManager;
 class UPalOilrigManager;
 class UPalOptionSubsystem;
 class UPalOtomoHolderComponentBase;
@@ -318,6 +319,9 @@ public:
     static void SetBodyPartsGenerateOverlapEvents(APalCharacter* Character, bool IsEnable);
     
     UFUNCTION(BlueprintCallable)
+    static void SetBodyPartsCollisionProfileNotChangeEnabled(APalCharacter* Character, const FName ProfileName);
+    
+    UFUNCTION(BlueprintCallable)
     static void SetBodyPartsCollisionProfile(APalCharacter* Character, const FName ProfileName);
     
     UFUNCTION(BlueprintCallable)
@@ -410,7 +414,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FFixedPoint64 NextPointCalculate(FFixedPoint64 CurrentPoint, FFixedPoint64 CurrentMax, FFixedPoint64 NextMax);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     static FPalDamageInfo MakeDamageInfoByWazaType(AActor* Attacker, AActor* Defencer, const USceneComponent* AttackerHitComponent, const USceneComponent* DefenderHitComponent, const FVector& HitLocation, TArray<int32> FoliageIndex, EPalWazaID WazaType, EPalBlowVelocityOwner BlowOwner, FVector NativeBlowVelocity, int32 referenceIndex, float DamageRatePerCollision);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -517,6 +521,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsPalMonster(const AActor* Actor);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool IsPalmi(const AActor* Actor);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsPalCharacter(AActor* Actor);
@@ -686,7 +693,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsAIAttackAbleByPlayerCamera(const AActor* SelfActor, const AActor* TargetActor);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     static bool InWazaMaxRange(APalCharacter* Attacker, EPalWazaID Waza, FVector TargetLocation, float TargetRadius);
     
     UFUNCTION(BlueprintCallable)
@@ -782,7 +789,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static void GetTribeIDNameFromCharacterID(const UObject* WorldContextObject, const FName& CharacterID, FName& outTribeIDName);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static EPalTribeID GetTribeIDFromCharacterID(const UObject* WorldContextObject, const FName& CharacterID);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -862,6 +869,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalRaidBossManager* GetRaidBossManager(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static FString GetPocketpairAuthBaseURL(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FString GetPlayerUniqueIdToString(const FUniqueNetIdRepl& UserId);
@@ -1041,6 +1051,9 @@ public:
     static bool GetOffFromPal(AActor* RiderActor, bool bIsSkipAnimation, bool bNoAnimCancel);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UPalObjectPoolManager* GetObjectPoolManager(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static int32 GetNumPlayers(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
@@ -1138,6 +1151,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalPlayerInventoryData* GetLocalInventoryData(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static TArray<FString> GetLoadedPakFiles();
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static UPalItemIDManager* GetItemIDManager(const UObject* WorldContextObject);
@@ -1322,7 +1338,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName GetCharacterIDReplacedName(FName originalID);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     static FName GetCharacterIDFromTribeID(const EPalTribeID TribeId);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

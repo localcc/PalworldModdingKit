@@ -2,5 +2,6 @@
 
 FPalRandomizerReplicateData::FPalRandomizerReplicateData() {
     this->RandomizerType = EPalRandomizerType::None;
+    this->bIsRandomizerPalLevelRandom = false;
 }
 

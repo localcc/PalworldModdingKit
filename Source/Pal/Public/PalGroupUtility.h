@@ -14,6 +14,10 @@ class UPalGroupUtility : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UPalGroupUtility();
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool IsEnemyOrganization(EPalOrganizationType OrganizationType);
+    
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static EPalOrganizationType GetOrganizationTypeByIndividualId(const UObject* WorldContextObject, const FPalInstanceID& IndividualId);
     

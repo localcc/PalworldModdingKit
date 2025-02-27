@@ -411,10 +411,10 @@ public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestBanPlayerFromGuild_ToServer(const FGuid& TargetPlayerUId);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void ReplaceEquipWaza_ToServer(const FPalInstanceID& InstanceId, const EPalWazaID OldWaza, const EPalWazaID NewWaza);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void RemoveEquipWaza_ToServer(const FPalInstanceID& InstanceId, const EPalWazaID TargetWaza);
     
 private:
@@ -818,7 +818,7 @@ public:
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void AddHardcorePlayerDeathLog_Client(const FPalKillLogDisplayData& DeathLogData);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void AddEquipWaza_ToServer(const FPalInstanceID& InstanceId, const EPalWazaID NewWaza);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)

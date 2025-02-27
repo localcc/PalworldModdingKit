@@ -11,6 +11,7 @@ APalMapObject::APalMapObject(const FObjectInitializer& ObjectInitializer) : Supe
     this->DamageReaction = CreateDefaultSubobject<UPalMapObjectDamageReactionComponent>(TEXT("DamageReaction"));
     this->VisualEffect = CreateDefaultSubobject<UPalMapObjectVisualEffectComponent>(TEXT("VisualEffect"));
     this->bSpawnableIfOverlapped = false;
+    this->bNotSpawnableIfOverlapMapObject = false;
     this->bLevelSpawnObject = false;
     this->bSpawnSlipAboveIfAnyOverlap = false;
     this->bShakeOnDamaged = false;

@@ -15,6 +15,9 @@ public:
     EPalRandomizerType RandomizerType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, NotReplicated, meta=(AllowPrivateAccess=true))
+    bool bIsRandomizerPalLevelRandom;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, NotReplicated, meta=(AllowPrivateAccess=true))
     TArray<FPalRandomizerSpawnInfoSaveData> RandomizerSpawnerRegionHashList;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, NotReplicated, meta=(AllowPrivateAccess=true))

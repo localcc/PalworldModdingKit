@@ -606,6 +606,9 @@ public:
     void PrintPlatformInventory();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void PrintPakFiles();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void PrintNetDriverLog();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -929,6 +932,9 @@ public:
     void EnterGuildOtherPlayerBelongTo(const FGuid& TargetPlayerUId);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void EnterGuildLocalPlayerToCurrentBaseCampBelongTo();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void EnterGuildLocalPlayer(const FString& GuildName);
     
     UFUNCTION(BlueprintCallable)
@@ -1074,6 +1080,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void ConsumePlatformInventoryItem(int32 ItemId, int32 Num);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void ConnectServer(const FString& Address, const FString& Port, const FString& ServerPassword);
     
     UFUNCTION(BlueprintCallable, Exec)
     void CompleteLabResearches(const TArray<FName> ResearchIds);

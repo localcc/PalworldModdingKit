@@ -16,6 +16,7 @@ APalBullet::APalBullet(const FObjectInitializer& ObjectInitializer) : Super(Obje
     this->DamageDecayStartRate = -1.00f;
     this->LifeTimer = 0.00f;
     this->weaponBulletDamageReactionType = EPalDamageAnimationReactionType::Big;
+    this->bUsePool = false;
 }
 
 void APalBullet::SetWeaponDamage(int32 Damage) {

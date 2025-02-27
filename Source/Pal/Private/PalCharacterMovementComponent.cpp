@@ -27,6 +27,7 @@ UPalCharacterMovementComponent::UPalCharacterMovementComponent(const FObjectInit
     this->OverrideFlySprintSpeed = -1.00f;
     this->SearchAgentRadiusFactor = 1.00f;
     this->bRequestCrouch = false;
+    this->bRequestGliding = false;
     this->bRequestSprint = false;
     this->SlowWalkSpeed_Default = 0.00f;
     this->WalkSpeed_Default = 0.00f;
@@ -207,6 +208,10 @@ bool UPalCharacterMovementComponent::IsRolling() const {
 }
 
 bool UPalCharacterMovementComponent::IsRequestSliding() const {
+    return false;
+}
+
+bool UPalCharacterMovementComponent::IsRequestGliding() const {
     return false;
 }
 

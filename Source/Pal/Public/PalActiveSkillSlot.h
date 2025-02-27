@@ -82,7 +82,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void InitObject(AActor* ActorSelf);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     EPalWazaID GetWazaType(int32 SlotID) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -97,7 +97,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetCoolTime(int32 SlotID) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     int32 FindSlotIndexByWazaID(EPalWazaID WazaID);
     
     UFUNCTION(BlueprintCallable)

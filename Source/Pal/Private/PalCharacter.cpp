@@ -43,11 +43,13 @@ APalCharacter::APalCharacter(const FObjectInitializer& ObjectInitializer) : Supe
     this->bIsLocalInitialized = false;
     this->bIsDisable_ChangeTickInterval_ByImportance = false;
     this->ImportanceType = EPalCharacterImportanceType::Near;
-    const FProperty* p_Mesh = GetClass()->FindPropertyByName("Mesh");
-    (*p_Mesh->ContainerPtrToValuePtr<USkeletalMeshComponent*>(this))->SetupAttachment(RootComponent);
+    this->CurrentAirDashCount = 0;
+    this->bUseBodyPartsCollisionProfileNameBaseCamp = false;
+    this->AroundInfoCollectorComponent->SetupAttachment(RootComponent);
     this->CameraBoom->SetupAttachment(RootComponent);
     this->FollowCamera->SetupAttachment(CameraBoom);
-    this->AroundInfoCollectorComponent->SetupAttachment(RootComponent);
+    const FProperty* p_Mesh = GetClass()->FindPropertyByName("Mesh");
+    (*p_Mesh->ContainerPtrToValuePtr<USkeletalMeshComponent*>(this))->SetupAttachment(RootComponent);
     this->RagdollInteractiveSphere->SetupAttachment(RootComponent);
 }
 
@@ -106,6 +108,12 @@ void APalCharacter::OnRep_IsPalActiveActor(bool PrevIsActiveActor) {
 }
 
 void APalCharacter::OnRep_IsOtomoCollision(bool PrevbIsOtomoCollision) {
+}
+
+void APalCharacter::OnRep_CapsuleRootSettings() {
+}
+
+void APalCharacter::OnRep_bUseBodyPartsCollisionProfileNameBaseCamp() {
 }
 
 void APalCharacter::OnOverlapEndByAroundInfo(AActor* OtherActor) {
@@ -205,6 +213,8 @@ void APalCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
     DOREPLIFETIME(APalCharacter, bIsPalActiveActor);
     DOREPLIFETIME(APalCharacter, bIsOtomoCollision);
     DOREPLIFETIME(APalCharacter, RootCollisionProfileName);
+    DOREPLIFETIME(APalCharacter, CapsuleRootSettings);
+    DOREPLIFETIME(APalCharacter, bUseBodyPartsCollisionProfileNameBaseCamp);
 }
 
 

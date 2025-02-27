@@ -68,10 +68,10 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalStaticCharacterInfo_ElectricAction ElectricActionInfo;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<EPalWazaID, TSoftClassPtr<UPalActionBase>> WazaActionDeclarationMap;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<EPalWazaID, TSubclassOf<UPalActionBase>> WazaActionInstancedMap;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -258,7 +258,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetSpawnedCharacterType(EPalSpawnedCharacterType SpawnedType);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void LoadWazaActionClass(EPalWazaID WazaID);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
