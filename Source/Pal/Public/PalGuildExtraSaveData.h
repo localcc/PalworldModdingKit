@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "PalBinaryMemory.h"
+#include "PalGuildExpeditionSaveData.h"
 #include "PalGuildItemStorageSaveData.h"
 #include "PalGuildLabSaveData.h"
 #include "PalGuildExtraSaveData.generated.h"
@@ -14,6 +15,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalGuildLabSaveData Lab;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalGuildExpeditionSaveData Expedition;
     
     PAL_API FPalGuildExtraSaveData();
 };

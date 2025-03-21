@@ -51,10 +51,10 @@ public:
     UPalUILiftSlotModel();
 
     UFUNCTION(BlueprintCallable)
-    void SelectItemSlot(const FPalItemSlotId SlotID, const EPalItemSlotPressType Type);
+    void SelectItemSlot(const FPalItemSlotId SlotId, const EPalItemSlotPressType Type);
     
     UFUNCTION(BlueprintCallable)
-    void SelectCharacterSlot(const FPalCharacterSlotId SlotID, const EPalItemSlotPressType Type);
+    void SelectCharacterSlot(const FPalCharacterSlotId SlotId, const EPalItemSlotPressType Type);
     
     UFUNCTION(BlueprintCallable)
     void ResetLiftItem();

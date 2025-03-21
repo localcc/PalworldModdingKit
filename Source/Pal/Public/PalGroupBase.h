@@ -2,7 +2,6 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/Object.h"
-#include "FastPalIndividualCharacterHandleIdArray.h"
 #include "PalGroupBase.generated.h"
 
 class UPalGroupIndividualCharacterHandleIdArray;

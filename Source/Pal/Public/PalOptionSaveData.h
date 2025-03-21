@@ -5,6 +5,7 @@
 #include "PalOptionCommonSettings.h"
 #include "PalOptionGraphicsSettings.h"
 #include "PalOptionKeyboardSettings.h"
+#include "PalOptionOnlineUserSettings.h"
 #include "PalOptionPadSettings.h"
 #include "PalOptionUISettings.h"
 #include "PalOptionSaveData.generated.h"
@@ -24,6 +25,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalOptionUISettings UISettings;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalOptionOnlineUserSettings OnlineUserSettings;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalOptionCommonSettings CommonSettings;

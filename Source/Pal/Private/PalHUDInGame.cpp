@@ -34,6 +34,13 @@ FGuid APalHUDInGame::PushWidgetStackableUI(TSubclassOf<UPalUserWidgetStackableUI
 void APalHUDInGame::OnApplicationActivationStateChanged(bool bIsFocused) {
 }
 
+void APalHUDInGame::OnActiveInputModeChanged(ECommonInputMode InputMode) {
+}
+
+bool APalHUDInGame::IsAnyOverlayUIActive() {
+    return false;
+}
+
 
 void APalHUDInGame::HideLiftIcon() {
 }

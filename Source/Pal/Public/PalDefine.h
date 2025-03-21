@@ -41,6 +41,9 @@ public:
     static FGameplayTag UILayerTag_Game();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FName TribeIDName_Human();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName TextId_UICommon_SystemMessageUnlockFastTravel();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -126,6 +129,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName StaticItemID_Money();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FName StaticItemID_ButcheringImportedPal();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName Socket_Mouth();

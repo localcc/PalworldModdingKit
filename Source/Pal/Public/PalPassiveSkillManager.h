@@ -16,11 +16,6 @@ UCLASS(Blueprintable)
 class PAL_API UPalPassiveSkillManager : public UObject {
     GENERATED_BODY()
 public:
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangeBuildObjectSkillEffect, const FGuid&, BaseCampId);
-    
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FOnChangeBuildObjectSkillEffect OnChangeBuildObjectSkillEffect;
-    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* PassiveSkillDataTable;

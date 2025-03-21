@@ -38,10 +38,10 @@ public:
     void UnregisterOnReadyItemContainerEvent(FPalMapObjectItemContainerAccessDelegate Delegate) override PURE_VIRTUAL(UnregisterOnReadyItemContainerEvent,);
     
     UFUNCTION(BlueprintCallable)
-    void RequestStopItemContainerReplication() const override PURE_VIRTUAL(RequestStopItemContainerReplication,);
+    void RequestStopItemContainerReplication() override PURE_VIRTUAL(RequestStopItemContainerReplication,);
     
     UFUNCTION(BlueprintCallable)
-    void RequestStartItemContainerReplication() const override PURE_VIRTUAL(RequestStartItemContainerReplication,);
+    void RequestStartItemContainerReplication() override PURE_VIRTUAL(RequestStartItemContainerReplication,);
     
     UFUNCTION(BlueprintCallable)
     void RequestSortContainer_ItemContainerAccessInterface() override PURE_VIRTUAL(RequestSortContainer_ItemContainerAccessInterface,);

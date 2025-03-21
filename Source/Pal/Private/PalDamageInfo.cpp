@@ -30,5 +30,6 @@ FPalDamageInfo::FPalDamageInfo() {
     this->ForceRagdollSize = EPalSizeType::None;
     this->bApplyNativeDamageValue = false;
     this->IgnorePlayerEquipItemDamage = false;
+    this->IgnoreCheckGroupForStun = false;
 }
 

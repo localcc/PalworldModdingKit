@@ -41,6 +41,10 @@ FGuid UPalIndividualCharacterSlot::GetLockPlayerUId() const {
     return FGuid{};
 }
 
+UPalIndividualCharacterHandle* UPalIndividualCharacterSlot::GetLastHandleForClient() const {
+    return NULL;
+}
+
 UPalIndividualCharacterHandle* UPalIndividualCharacterSlot::GetHandle() const {
     return NULL;
 }

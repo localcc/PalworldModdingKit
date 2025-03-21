@@ -9,6 +9,7 @@
 #include "Engine/HitResult.h"
 #include "ActionDynamicParameter.h"
 #include "DelegateTickFunction.h"
+#include "EPalGlobalStorageImportResult.h"
 #include "EPalGuildJoinRequestConfirm.h"
 #include "EPalGuildJoinRequestResult.h"
 #include "EPalLiftupRequestResult.h"
@@ -17,8 +18,12 @@
 #include "EPalStepAxisType.h"
 #include "EPalWazaID.h"
 #include "EWeaponNotifyType.h"
+#include "PalCharacterContainerSortInfo.h"
 #include "PalDamageInfo.h"
 #include "PalDamageResult.h"
+#include "PalGlobalPalStorageImportOption.h"
+#include "PalGlobalPalStorageImportResultAdditionalData.h"
+#include "PalGlobalPalStorageSaveParameter.h"
 #include "PalGotStatusPoint.h"
 #include "PalInstanceID.h"
 #include "PalItemId.h"
@@ -52,11 +57,13 @@ class UPalCharacterMovementComponent;
 class UPalCutsceneComponent;
 class UPalDamageExplodeComponent;
 class UPalIndividualCharacterHandle;
+class UPalKillLogFilteringWaiter;
 class UPalLoadoutSelectorComponent;
 class UPalLongPressObject;
 class UPalPlayerDamageCamShakeRegulator;
 class UPalPlayerInputOneFlameCommandList;
 class UPalShooterComponent;
+class UPalSpectateComponent;
 class UPalStageEnterParameterRoom;
 class UPalUserWidgetTimerGaugeBase;
 
@@ -66,11 +73,14 @@ class APalPlayerController : public ACommonPlayerController {
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnReleasedThrowPalButtonDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnReleasedSpawnPalButtonDelegate);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnReleasedFishingButtonDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPressedThrowPalButtonDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPressedSpawnPalButtonDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPressedPartnerInstructionsButtonDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnPressedMoveForwardDelegate, float, InputValue, bool, IsController);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPressedJumpDelegate);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPressedFishingCancelDelegate);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPressedFishingButtonDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPressConstructionMenuButtonDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNotifyUnableToPlaySkillDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNotifyRideWallStopDelegate);
@@ -128,6 +138,15 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnAntiAirMissleAttackDelegate OnAntiAirMissleAttack;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnPressedFishingButtonDelegate OnPressedFishingButtonDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnReleasedFishingButtonDelegate OnReleasedFishingButtonDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnPressedFishingCancelDelegate OnPressedFishingCancelButtonDelegate;
     
 private:
     UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -210,6 +229,12 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FRotator CacheActorRotator;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<UPalKillLogFilteringWaiter*> FilteringWaiterArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FPalInstanceID, int32> ImportGPSDataContainerIndexMap;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalPlayerInputOneFlameCommandList* PlayerInputOneFlameCommandList;
     
@@ -218,6 +243,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool IsBuldingActiveFlag_ForServer;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UPalSpectateComponent* SpectateComponent;
     
 public:
     APalPlayerController(const FObjectInitializer& ObjectInitializer);
@@ -249,6 +277,12 @@ private:
     void StartFlyToServer();
     
 public:
+    UFUNCTION(BlueprintCallable)
+    void SpectateNextPlayer(int32 Direction);
+    
+    UFUNCTION(BlueprintCallable)
+    void SpectateFreely();
+    
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void ShooterComponent_StopReload_ToServer(UPalShooterComponent* Shooter, int32 ID);
     
@@ -290,20 +324,20 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void SetOtomoSlot(int32 SlotID);
+    void SetOtomoSlot(int32 SlotId);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetHoldOtomo(int32 HoldID, UPalIndividualCharacterHandle* OtomoHandle);
     
 public:
-    UFUNCTION(BlueprintCallable, Reliable, Server)
-    void SetFavoraitePal_ToServer(const FPalInstanceID& InstanceId, const bool IsFavorite);
-    
     UFUNCTION(BlueprintCallable)
     void SetDisableThrowPalFlag(FName flagName, bool isDisable);
     
     UFUNCTION(BlueprintCallable)
     void SetDisableSwitchPalFlag(FName flagName, bool isDisable);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetDisableSetViewTargetFlag(FName flagName, bool isDisable);
     
     UFUNCTION(BlueprintCallable)
     void SetDisableInputFlag(FName flagName, bool isDisable);
@@ -363,6 +397,24 @@ public:
     void RequestSyncOilrigDestroyObject_ToServer(FGuid ObjectID);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestSwapDimensionStorageData_ToServer(int32 IndexA, int32 IndexB);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestSwapBetweenDimensionStorageAndPalStorage_ToServer(int32 DimensionStorageDataIndex, int32 PalStorageDataIndex);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestSortDimensionStorage_ToServer(const FPalCharacterContainerSortInfo& SortInfo);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestSendAllDimensionStorage_ToServer();
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestRestoreDimensionStorage_ToServer(int32 OriginalLockerDataIndex, int32 TargetRestorePalStorageSlotIndex);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestOpenDimensionStorage_ToServer(const FGuid& LockerMapObjectId);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestOilrigGoalCrateInteract();
     
 private:
@@ -375,6 +427,11 @@ private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestLiftup_ToServer(APalCharacter* TargetCharacter);
     
+public:
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestImportGlobalPalStorageData_ToServer(const FPalGlobalPalStorageSaveParameter& ImportParameter, const int32 TargetSlotIndex, const FPalGlobalPalStorageImportOption& ImportOption);
+    
+private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestFastTravel_ToServer(const FGuid& LocationId);
     
@@ -400,7 +457,13 @@ public:
     void RequestDecreaseWeaponDurability_ToServer(FPalItemId ItemId);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestCloseDimensionStorage_ToServer();
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestChangeGuildName_ToServer(const FString& NewGuildName);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestChangeDimensionStoragePage_ToServer(int32 NewPageNum);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestChangeCharacterMakeInfo_ToServer(const FPalPlayerDataCharacterMakeInfo& NewMakeInfo);
@@ -410,6 +473,12 @@ public:
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestBanPlayerFromGuild_ToServer(const FGuid& TargetPlayerUId);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestAddDimensionStorageDataFixedDataIndex_ToServer(int32 TargetLockerDataIndex, int32 OriginalPalStorageDataSlotIndex);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestAddDimensionStorageData_ToServer(const TArray<int32>& OriginalPalStorageDataIndexArray, int32 RootPageIndex);
     
     UFUNCTION(Reliable, Server)
     void ReplaceEquipWaza_ToServer(const FPalInstanceID& InstanceId, const EPalWazaID OldWaza, const EPalWazaID NewWaza);
@@ -444,7 +513,7 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable)
-    bool PlaySkill(int32 SlotID);
+    bool PlaySkill(int32 SlotId);
     
     UFUNCTION(BlueprintCallable)
     void PalDeprojectScreenPositionToWorld(FVector& StartLocation, FVector& RayDirection);
@@ -544,6 +613,11 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnFixedWeightInventory(float Weight);
     
+protected:
+    UFUNCTION(BlueprintCallable)
+    void OnFilteredKillLog(UPalKillLogFilteringWaiter* Waiter, const FPalKillLogDisplayData& KillLogData);
+    
+private:
     UFUNCTION(BlueprintCallable)
     void OnEndRolling();
     
@@ -561,6 +635,11 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnDamage(FPalDamageResult DamageResult);
     
+public:
+    UFUNCTION(BlueprintCallable)
+    void OnCreatedGPSPalData(FPalInstanceID IndividualId);
+    
+private:
     UFUNCTION(BlueprintCallable)
     void OnChangeSwimming(bool IsInSwimming);
     
@@ -588,6 +667,9 @@ public:
     void NotifyWarningSignByAntiAirMissileLauncher_ToClient(bool IsShow, FGuid CannonID, FVector AttaclerLocation);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
+    void NotifyTimeoutDimensionLocker();
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void NotifyRideWallStop_ToClient();
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
@@ -597,15 +679,28 @@ private:
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void NotifyLiftupCampPal_ToClient(APalCharacter* TargetCharacter);
     
+public:
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void NotifyImportGlobalPalStorageDataResult_ToClient(EPalGlobalStorageImportResult ImportResult, const FPalGlobalPalStorageImportResultAdditionalData& AdditionalData);
+    
+private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void NotifyConfirmRequestGuild_ToServer(const FGuid& FlowUniqueId, const bool bResponse);
     
+public:
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void LostOtomoByInstacneID_ToServer(const FPalInstanceID& InstanceId);
+    
+private:
     UFUNCTION(BlueprintCallable)
     void JumpCancelPalThrow(UPalCharacterMovementComponent* MovementComponent);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSwimming() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsSpectating() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsRidingFlyPal() const;
@@ -621,6 +716,15 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsBuldingActiveFlagForServer() const;
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void IncrementNPCTalkCount(const FName& TalkID);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void IncrementFavoriteIndexPal_ToServer(const FPalInstanceID& InstanceId);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void IncrementDimensionStoragePalFavoriteIndex_ToServer(int32 TargetLockerDataIndex);
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
@@ -653,24 +757,31 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalLoadoutSelectorComponent* GetLoadoutSelectorComponent() const;
     
-private:
+public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FVector2D GetKeyboardMoveValue() const;
     
-public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     APalCharacter* GetDefaultPlayerCharacter() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     APalCharacter* GetControlPalCharacter() const;
     
-private:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FVector2D GetControllerRightStickValue() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FVector2D GetControllerLeftStickValue() const;
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void FlushCoopActionLongPressInput();
+    
+public:
+    UFUNCTION(BlueprintCallable)
+    void EndSpectate();
+    
+private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void EndFlyToServer();
     
@@ -705,6 +816,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Debug_ShowInvaderDebugLog();
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Debug_SetStatusPoint_ToServer(FName StatusPointName, int32 StatusLevel);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Debug_SetPalWorldTimeScale(float Rate);
@@ -789,6 +903,9 @@ public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void DamageReactionComponent_ProcessDamage_ToServer_ToNPC(const FPalDamageInfo& Info, const AActor* Defender);
     
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void DamageReactionComponent_ProcessDamage_ToServer_ToEnemyPlayer(const FPalDamageInfo& Info, const AActor* Defender);
+    
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void ConfirmRequestGuild_ToClient(const FGuid& FlowUniqueId, const EPalGuildJoinRequestConfirm ConfirmType);
     
@@ -797,6 +914,12 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void ClientPlayForceFeedbackForPal(UForceFeedbackEffect* ForceFeedbackEffect, FName Tag, bool bLooping, bool bIgnoreTimeDilation, bool bPlayWhilePaused);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void ClientBeginSpectate(bool bAdminMode);
+    
+    UFUNCTION(BlueprintCallable)
+    void ChangeSpectateMoveSpeed(int32 Direction);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void CannonDamageReactionComponent_ProcessDamage_ToServer(UPalCannonDamageReactionComponent* CannonDamage, const FPalDamageInfo& Info);
@@ -809,6 +932,9 @@ private:
     void CallOnCoopReleaseDelegate_ToServer();
     
 public:
+    UFUNCTION(BlueprintCallable)
+    void BeginSpectate(bool bAdminMode);
+    
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void AddPlayerStatusPoint_ToServer(const TArray<FPalGotStatusPoint>& AddStatusPointArray);
     

@@ -28,6 +28,7 @@ UPalCharacterMovementComponent::UPalCharacterMovementComponent(const FObjectInit
     this->SearchAgentRadiusFactor = 1.00f;
     this->bRequestCrouch = false;
     this->bRequestGliding = false;
+    this->bRequestEndRolling = false;
     this->bRequestSprint = false;
     this->SlowWalkSpeed_Default = 0.00f;
     this->WalkSpeed_Default = 0.00f;
@@ -156,6 +157,9 @@ void UPalCharacterMovementComponent::ResetLastLandingLocationCache() {
 void UPalCharacterMovementComponent::RequestTemporaryAcceleration() {
 }
 
+void UPalCharacterMovementComponent::RequestEndRolling(bool bEndRolling) {
+}
+
 void UPalCharacterMovementComponent::RemoveWalkableFloorAngleOverrides(EPalWalkableFloorAnglePriority Priority) {
 }
 
@@ -212,6 +216,10 @@ bool UPalCharacterMovementComponent::IsRequestSliding() const {
 }
 
 bool UPalCharacterMovementComponent::IsRequestGliding() const {
+    return false;
+}
+
+bool UPalCharacterMovementComponent::IsRequestEndRolling() const {
     return false;
 }
 
@@ -299,6 +307,10 @@ float UPalCharacterMovementComponent::GetSlideAlphaMultiplier() const {
     return 0.0f;
 }
 
+EPalMovementSpeedType UPalCharacterMovementComponent::GetMovementSpeedTypeLesserThan(const float Speed) const {
+    return EPalMovementSpeedType::SlowWalk;
+}
+
 float UPalCharacterMovementComponent::GetMaxAccelerationMultiplier() const {
     return 0.0f;
 }
@@ -331,6 +343,10 @@ FVector UPalCharacterMovementComponent::GetGrapplingHitNormal() const {
     return FVector{};
 }
 
+float UPalCharacterMovementComponent::GetDefaultWalkSpeedByType(EPalMovementSpeedType MoveSpeedType) const {
+    return 0.0f;
+}
+
 float UPalCharacterMovementComponent::GetDefaultRunSpeed() {
     return 0.0f;
 }
@@ -341,6 +357,9 @@ EPalCharacterMovementCustomMode UPalCharacterMovementComponent::GetCustomMovemen
 
 float UPalCharacterMovementComponent::GetAirControlXYMultiplier() const {
     return 0.0f;
+}
+
+void UPalCharacterMovementComponent::Debug_SetEnableBuoyancyTestMode(bool IsEnable) {
 }
 
 void UPalCharacterMovementComponent::CheckReturnToNavWakl() {

@@ -17,5 +17,8 @@ protected:
     UFUNCTION(BlueprintCallable)
     void OpenOtomoFeedInventory();
     
+    UFUNCTION(BlueprintCallable)
+    void LaunchPhotoMode();
+    
 };
 

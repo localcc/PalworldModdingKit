@@ -21,6 +21,7 @@ UPalShooterSpringArmComponent::UPalShooterSpringArmComponent(const FObjectInitia
     this->SlidingHipShootCameraArmLength = 300.00f;
     this->SlidingAimCameraArmLength = 100.00f;
     this->DeadCameraArmLength = 0.00f;
+    this->ClimbCameraTargetOffset = 10.00f;
     this->DefaultCameraLagSpeed = 0.00f;
     this->ShooterComponent = NULL;
     this->MoveComponent = NULL;

@@ -572,6 +572,9 @@ public:
     void AddTrapLegHold(AActor* TrapActor);
     
     UFUNCTION(BlueprintCallable)
+    void AddHPByRate(float Rate);
+    
+    UFUNCTION(BlueprintCallable)
     void AddDyingHP(float AddHP);
     
 };

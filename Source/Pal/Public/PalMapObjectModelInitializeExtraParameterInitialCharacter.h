@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "PalIndividualCharacterSaveParameter.h"
+#include "PalInstanceID.h"
 #include "PalMapObjectModelInitializeExtraParameterBase.h"
 #include "PalMapObjectModelInitializeExtraParameterInitialCharacter.generated.h"
 
@@ -10,6 +11,9 @@ class UPalMapObjectModelInitializeExtraParameterInitialCharacter : public UPalMa
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalIndividualCharacterSaveParameter CharacterSaveParameter;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalInstanceID InstanceId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool CreateLocationPoint;

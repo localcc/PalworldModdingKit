@@ -30,6 +30,7 @@ APalMapObject::APalMapObject(const FObjectInitializer& ObjectInitializer) : Supe
     this->bWorkLocationGroupRaycastStartOffsetOrigin = false;
     this->bIgnoreBuildInstallConnection = false;
     this->bShouldPlayDestroyFX = false;
+    this->bShouldPlayBuildCancelDestroyFX = false;
 }
 
 void APalMapObject::TryGetConcreteModel(EPalMapObjectGetModelOutPinType& OutputPin, UPalMapObjectConcreteModelBase*& ConcreteModel) {
@@ -76,7 +77,13 @@ void APalMapObject::CallOrRegisterOnSetConcreteModel(FPalMapObjectConcreteModelD
 void APalMapObject::BroadcastShouldPlayDestroyFX_Implementation() {
 }
 
+void APalMapObject::BroadcastShouldPlayBuildCancelDestroyFX_Implementation() {
+}
+
 void APalMapObject::BroadcastShouldNotPlayDestroyFX_Implementation() {
+}
+
+void APalMapObject::BroadcastShouldNotPlayBuildCancelDestroyFX_Implementation() {
 }
 
 void APalMapObject::BP_OnSetConcreteModel_Implementation(UPalMapObjectConcreteModelBase* ConcreteModel) {

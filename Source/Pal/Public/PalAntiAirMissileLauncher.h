@@ -115,10 +115,11 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnDeadByDamage();
     
-protected:
+public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsDestroyedWeapon() const;
     
+protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     USceneComponent* GetYawMesh() const;
     

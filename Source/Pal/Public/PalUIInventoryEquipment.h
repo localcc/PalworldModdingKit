@@ -14,7 +14,13 @@ public:
 
 protected:
     UFUNCTION(BlueprintCallable)
-    void ToggleHeadEquipVisible();
+    void ToggleHeadDressingVisible();
+    
+    UFUNCTION(BlueprintCallable)
+    void ToggleGliderDressingVisible();
+    
+    UFUNCTION(BlueprintCallable)
+    void ToggleBodyDressingVisible();
     
 private:
     UFUNCTION(BlueprintCallable)

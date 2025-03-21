@@ -5,12 +5,17 @@
 #include "PalMasterDataTableAccessBase.h"
 #include "PalMasterDataTableAccess_BuildObjectData.generated.h"
 
+class UDataTable;
+
 UCLASS(Blueprintable)
 class UPalMasterDataTableAccess_BuildObjectData : public UPalMasterDataTableAccessBase {
     GENERATED_BODY()
 public:
     UPalMasterDataTableAccess_BuildObjectData();
 private:
+    UFUNCTION(BlueprintCallable)
+    void Editor_ResetBuildObjectMasterData(UDataTable* InDataTable);
+    
     UFUNCTION(BlueprintCallable)
     void BPExec_FindRowByMapObjectId(FName MapObjectId, EPalMasterDataExecPinType& ExecType, FPalBuildObjectData& OutData);
     

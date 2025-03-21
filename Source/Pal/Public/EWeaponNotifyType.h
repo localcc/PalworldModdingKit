@@ -9,5 +9,6 @@ enum class EWeaponNotifyType : uint8 {
     ThrowRequest,
     RequestReload,
     ShootComplated,
+    OverheatMotionComplated,
 };
 

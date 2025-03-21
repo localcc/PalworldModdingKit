@@ -12,7 +12,7 @@ public:
     FPalInstanceID IndividualId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FPalCharacterSlotId SlotID;
+    FPalCharacterSlotId SlotId;
     
     PAL_API FPalCharacterContainerSlotInfo();
 };

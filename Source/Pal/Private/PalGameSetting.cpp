@@ -76,6 +76,8 @@ UPalGameSetting::UPalGameSetting() {
     this->BreakedWeaponDamageRate = 0.20f;
     this->BreakedArmorDefenseRate = 0.20f;
     this->ArmorDurabilityDamageDivide = 16.00f;
+    this->PalEnhancement_AttackRate = 1.10f;
+    this->PalEnhancement_DefenseRate = 1.10f;
     this->ClimbingStamina_Move = 10.00f;
     this->ClimbingStamina_Jump = 10.00f;
     this->RideWazaStaminaRate = 0.50f;
@@ -93,6 +95,7 @@ UPalGameSetting::UPalGameSetting() {
     this->MeleeAttackSP = 5;
     this->SprintSP = 20.00f;
     this->GliderSP = 10.00f;
+    this->FishingSP = 10.00f;
     this->SwimmingFallWaitTimeSec = 0.25f;
     this->Swimming_SP_Idle = 0.50f;
     this->Swimming_SP_Swim = 2.00f;
@@ -185,6 +188,8 @@ UPalGameSetting::UPalGameSetting() {
     this->SaveDataName_PlayerDirectory = TEXT("Players");
     this->SaveDataName_LocalData = TEXT("LocalData");
     this->SaveDataName_WorldOption = TEXT("WorldOption");
+    this->SaveDataName_GlobalPalStorage = TEXT("GlobalPalStorage");
+    this->SaveDataName_DimensionPalStorageSuffix = TEXT("dps");
     this->SaveData_BackupIntrerval = 5;
     this->PalWorldTime_GameStartHour = 8;
     this->PalWorldMinutes_RealOneMinute = 20;
@@ -240,6 +245,7 @@ UPalGameSetting::UPalGameSetting() {
     this->BaseCampWorkerDirectorTickForAssignWorkByCount = 3;
     this->BaseCampWorkerTimeDetectContinuousStuck = 10.00f;
     this->BaseCampWorkerMaxTimeReturnBack = 10.00f;
+    this->BaseCampWorkerWanderingSpeedMax = 200.00f;
     this->BaseCampWorkerLookToTargetWork = 10.00f;
     this->ReviveWorkAdditionalRange = 100.00f;
     this->WorkAroundRangeDefault = 1000.00f;
@@ -373,6 +379,7 @@ UPalGameSetting::UPalGameSetting() {
     this->CharacterHairMeshDataTable = NULL;
     this->CharacterEquipmentArmorMeshDataTable = NULL;
     this->CharacterEyeMaterialDataTable = NULL;
+    this->GliderMeshDataTable = NULL;
     this->CharacterMakeColorLimit_SV = 1.00f;
     this->IsAutoEquipMasteredWaza = true;
     this->ActiveUNKO = false;
@@ -390,6 +397,7 @@ UPalGameSetting::UPalGameSetting() {
     this->MapObjectMultiplayModifierDisplayTime = 3.00f;
     this->MapObjectGateLockTime = 5.00f;
     this->bDirectObtainFromTreasureBox = false;
+    this->NoDropItemDamageRateFromFoliageMaxHp = 1.00f;
     this->MapObjectEffectTriggerAccumulate_Burn = 100.00f;
     this->MapObjectEffect_Burn_DamageHpRate = 0.03f;
     this->MapObjectEffect_Burn_DamageAroundInterval = 1.00f;
@@ -443,6 +451,7 @@ UPalGameSetting::UPalGameSetting() {
     this->DoctorMaxSurgiCountInDay = 3;
     this->IceTypeOtomoCorruptionDecreace = 20;
     this->MapIconSize = 64;
+    this->DimensionLockerTimeoutSec = 300.00f;
     this->SoundSourceDataTable = NULL;
 }
 

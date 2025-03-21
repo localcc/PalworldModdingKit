@@ -47,7 +47,13 @@ public:
     FPalPlayerRecordDataRepInfoArray_IntVal RaidBossDefeatCount;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    FPalPlayerRecordDataRepInfoArray_IntVal SpecificBossDefeatFlag;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     int32 BossDefeatCount;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    int32 PredatorDefeatCount;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     int32 TribeCaptureCount;
@@ -114,6 +120,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     TArray<FGuid> CompletedEmoteNPCIDArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    FPalPlayerRecordDataRepInfoArray_IntVal NPCTalkCountMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FString Debug_EnteringStageDataLayerName;

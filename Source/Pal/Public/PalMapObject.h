@@ -148,6 +148,9 @@ private:
     bool bShouldPlayDestroyFX;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bShouldPlayBuildCancelDestroyFX;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FPalMapObjectComponentInfo> TickableComponentInfos;
     
 public:
@@ -203,7 +206,13 @@ private:
     void BroadcastShouldPlayDestroyFX();
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void BroadcastShouldPlayBuildCancelDestroyFX();
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void BroadcastShouldNotPlayDestroyFX();
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void BroadcastShouldNotPlayBuildCancelDestroyFX();
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)

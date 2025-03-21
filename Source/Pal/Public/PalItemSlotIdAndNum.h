@@ -8,7 +8,7 @@ struct FPalItemSlotIdAndNum {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FPalItemSlotId SlotID;
+    FPalItemSlotId SlotId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 Num;

@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "PalHUDDispatchParameterBase.h"
+#include "PalOptionWorldSettings.h"
 #include "PalHUDDispatchParameter_WorldSetting.generated.h"
 
 UCLASS(Blueprintable)
@@ -17,7 +18,7 @@ public:
     FString WorldName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool CanMultiplay;
+    FPalOptionWorldSettings CachedWorldSetting;
     
     UPalHUDDispatchParameter_WorldSetting();
 };

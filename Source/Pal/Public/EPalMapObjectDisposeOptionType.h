@@ -13,5 +13,6 @@ enum class EPalMapObjectDisposeOptionType : uint8 {
     DropBuildMaterials,
     RequireRespawnImmediately,
     Replace,
+    BuildCancel,
 };
 

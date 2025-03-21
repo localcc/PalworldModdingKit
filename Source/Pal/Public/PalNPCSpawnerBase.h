@@ -147,10 +147,10 @@ private:
     
 protected:
     UFUNCTION(BlueprintCallable)
-    bool RandomSpawnLocationByRadiusLineTraceWithWorldLocation(FVector& OutLocation, float Radius, float RayStartUpOffset, float RayEndDownOffset, const FVector& WorldPos, int32 SumSpawnNum, int32 SelfIndexInAll);
+    bool RandomSpawnLocationByRadiusLineTraceWithWorldLocation(FVector& OutLocation, float Radius, float RayStartUpOffset, float RayEndDownOffset, const FVector& WorldPos, int32 SumSpawnNum, int32 SelfIndexInAll, bool IgnoreRaycast);
     
     UFUNCTION(BlueprintCallable)
-    bool RandomSpawnLocationByRadiusLineTrace(FVector& OutLocation, float Radius, float RayStartUpOffset, float RayEndDownOffset, int32 SumSpawnNum, int32 SelfIndexInAll);
+    bool RandomSpawnLocationByRadiusLineTrace(FVector& OutLocation, float Radius, float RayStartUpOffset, float RayEndDownOffset, int32 SumSpawnNum, int32 SelfIndexInAll, bool IgnoreRaycast);
     
     UFUNCTION(BlueprintCallable)
     void ProcessBossDefeatInfo_ServerInternal(AActor* BossActor, FName SpawnerName);

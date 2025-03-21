@@ -2,6 +2,7 @@
 
 FPalFoliagePresetData::FPalFoliagePresetData() {
     this->Hp = 0;
+    this->bNotDropItemIfDamagedOverMaxHp = false;
     this->DropItemNum = 0;
     this->DropEXP = 0;
     this->DestroyFXType = EPalMapObjectDestroyFXType::None;

@@ -8,6 +8,7 @@ UPalActionBase::UPalActionBase() {
     this->bIsChangeWalkableFloorAngle = true;
     this->ActionWalkableFloorAngle = 45.00f;
     this->bIsDisableNavWalk = false;
+    this->bIsEnableAutoBlink = false;
     this->bIsReflectForClient = false;
 }
 
@@ -87,6 +88,10 @@ AActor* UPalActionBase::GetActionTarget() const {
 
 UPalIndividualCharacterParameter* UPalActionBase::GetActionIndividualCharacterParameter() const {
     return NULL;
+}
+
+FGuid UPalActionBase::GetActionID() const {
+    return FGuid{};
 }
 
 APalCharacter* UPalActionBase::GetActionCharacter() const {

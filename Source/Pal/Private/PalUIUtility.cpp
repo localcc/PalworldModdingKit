@@ -188,6 +188,9 @@ void UPalUIUtility::GetInventoryCategoryName(const UObject* WorldContextObject, 
 void UPalUIUtility::GetFormatedFirstActivatedInfoText(const UObject* WorldContextObject, APalCharacter* Character, FText& outFormatedText) {
 }
 
+void UPalUIUtility::GetDisplayNickName(const UObject* WorldContextObject, const FName CharacterID, const FName UniqueNPCID, FString& OutNickName) {
+}
+
 void UPalUIUtility::GetBuildObjectDesc(const UObject* WorldContextObject, const FName& buildObjectName, FText& outDesc) {
 }
 

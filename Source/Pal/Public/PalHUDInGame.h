@@ -129,7 +129,13 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnApplicationActivationStateChanged(bool bIsFocused);
     
+    UFUNCTION(BlueprintCallable)
+    void OnActiveInputModeChanged(ECommonInputMode InputMode);
+    
 public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsAnyOverlayUIActive();
+    
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void Initialize();
     

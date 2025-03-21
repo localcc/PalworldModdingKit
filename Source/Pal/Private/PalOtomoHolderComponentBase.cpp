@@ -40,7 +40,7 @@ bool UPalOtomoHolderComponentBase::TryGetContainer(UPalIndividualCharacterContai
 }
 
 
-void UPalOtomoHolderComponentBase::Tmp_EmptySlot(const FPalCharacterSlotId& SlotID) {
+void UPalOtomoHolderComponentBase::Tmp_EmptySlot(const FPalCharacterSlotId& SlotId) {
 }
 
 

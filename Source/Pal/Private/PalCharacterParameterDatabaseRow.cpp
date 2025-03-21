@@ -52,6 +52,7 @@ FPalCharacterParameterDatabaseRow::FPalCharacterParameterDatabaseRow() {
     this->Stamina = 0;
     this->MaleProbability = 0;
     this->CombiRank = 0;
+    this->CombiDuplicatePriority = 0;
     this->IgnoreCombi = false;
     this->WorkSuitability_EmitFlame = 0;
     this->WorkSuitability_Watering = 0;

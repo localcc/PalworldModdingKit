@@ -42,6 +42,9 @@ public:
     void ShowCommunicatonRestrictionSystemDialog() const;
     
     UFUNCTION(BlueprintCallable)
+    void SetCrossPlayPremiumFeature(bool bFlag);
+    
+    UFUNCTION(BlueprintCallable)
     void SetCompleteSetupInGame(bool flag);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -61,9 +64,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetEULALanguageCode(FString& LanguageCode) const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool CanShowUGC(const UPalIndividualCharacterParameter* InParameter) const;
     
     UFUNCTION(BlueprintCallable)
     void AgreeEULA();

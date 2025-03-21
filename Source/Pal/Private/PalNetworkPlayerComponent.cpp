@@ -106,6 +106,9 @@ void UPalNetworkPlayerComponent::LoadoutSelectorEquipItem_Implementation(UPalLoa
 void UPalNetworkPlayerComponent::Dev_SetOverridePlayerUID_ToServer_Implementation(const FGuid& PlayerUId) {
 }
 
+void UPalNetworkPlayerComponent::Dev_SetOverridePlayerUID_ToClient_Implementation(const FGuid& PlayerUId) {
+}
+
 void UPalNetworkPlayerComponent::Dev_SetEnablePlayerRespawnInHardcore_Implementation(bool bEnable) {
 }
 

@@ -1,8 +1,9 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "EPalOrganizationType.h"
 #include "UObject/NoExportTypes.h"
+#include "EPalOrganizationType.h"
 #include "PalNPCSpawnerBase.h"
+#include "PalRandomIncidentGroupRequestParameter.h"
 #include "PalRandomIncidentSpawnMonsterData.h"
 #include "PalRandomIncidentSpawnNPCData.h"
 #include "PalRandomIncidentNPCSpawner.generated.h"

@@ -79,6 +79,9 @@ protected:
     UDataTable* MapObjectAssignTable;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* MapObjectDataTableForEnemyCamp;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FBuildingSurfaceMaterialSet BuildingSurfaceMaterialSet;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -301,7 +304,7 @@ public:
     UFUNCTION(BlueprintCallable)
     UPalMapObjectFoliage* GetFoliage() const;
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalBuildOperator* GetBuildOperator() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

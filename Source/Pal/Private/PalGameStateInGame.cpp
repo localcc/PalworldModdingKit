@@ -36,6 +36,9 @@ APalGameStateInGame::APalGameStateInGame(const FObjectInitializer& ObjectInitial
 void APalGameStateInGame::SetWorldOceanPlaneZ(const float InZ) {
 }
 
+void APalGameStateInGame::OnRep_WorldTime() {
+}
+
 void APalGameStateInGame::OnRep_WorldSaveDirectoryName() {
 }
 

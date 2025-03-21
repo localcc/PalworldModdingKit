@@ -7,6 +7,7 @@
 #include "EPalStatusHungerType.h"
 #include "EPalStatusPhysicalHealthType.h"
 #include "EPalWazaID.h"
+#include "EPalWorkSuitability.h"
 #include "FixedPoint64.h"
 #include "PalIndividualCharacterSaveParameter.h"
 #include "PalWorkSuitabilityPreferenceInfo.h"
@@ -22,6 +23,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FPalWorkSuitabilityPreferenceInfo GetSaveParameterValue_WorkSuitabilityOptionInfo(const FPalIndividualCharacterSaveParameter& SaveParameter);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static TMap<EPalWorkSuitability, int32> GetSaveParameterValue_WorkSuitabilityBonusRank(const FPalIndividualCharacterSaveParameter& SaveParameter);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static EPalBaseCampWorkerSickType GetSaveParameterValue_WorkerSick(const FPalIndividualCharacterSaveParameter& SaveParameter);
@@ -113,6 +117,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static float GetSaveParameterValue_FullStomach(const FPalIndividualCharacterSaveParameter& SaveParameter);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static int32 GetSaveParameterValue_FavoriteIndexl(const FPalIndividualCharacterSaveParameter& SaveParameter);
+    
     UFUNCTION(BlueprintPure)
     static int64 GetSaveParameterValue_Exp(const FPalIndividualCharacterSaveParameter& SaveParameter);
     
@@ -124,6 +131,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName GetSaveParameterValue_CharacterID(const FPalIndividualCharacterSaveParameter& SaveParameter);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool GetSaveParameterValue_bImportedCharacter(const FPalIndividualCharacterSaveParameter& SaveParameter);
     
 };
 

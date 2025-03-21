@@ -67,7 +67,7 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     int32 MaxPlayerNum;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_WorldTime, meta=(AllowPrivateAccess=true))
     FGameDateTime WorldTime;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
@@ -153,6 +153,9 @@ public:
     void SetWorldOceanPlaneZ(const float InZ);
     
 private:
+    UFUNCTION(BlueprintCallable)
+    void OnRep_WorldTime();
+    
     UFUNCTION(BlueprintCallable)
     void OnRep_WorldSaveDirectoryName();
     

@@ -3,6 +3,7 @@
 
 UPalMapObjectItemBoothModel::UPalMapObjectItemBoothModel() {
     this->StoreContainer = NULL;
+    this->WorkAffection = NULL;
 }
 
 void UPalMapObjectItemBoothModel::RequestTrade_ServerInternal(const int32 RequestPlayerId, const FPalNetArchive& Archive) {

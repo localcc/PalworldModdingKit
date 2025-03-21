@@ -10,6 +10,7 @@
 #include "PalOptionGraphicsSettings.h"
 #include "PalOptionKeyboardSettings.h"
 #include "PalOptionLocalStaticSettings.h"
+#include "PalOptionOnlineUserSettings.h"
 #include "PalOptionPadSettings.h"
 #include "PalOptionUISettings.h"
 #include "PalOptionWorldSettings.h"
@@ -29,6 +30,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnChangeUISettingDelegate, const FPalOptionUISettings&, PrevSettings, const FPalOptionUISettings&, NewSettings);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangeScreenRatioDelegate, float, newRatio);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnChangePadDelegate, const FPalOptionPadSettings&, PrevSettings, const FPalOptionPadSettings&, NewSettings);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnChangeOnlineUserSettingsDelegate, const FPalOptionOnlineUserSettings&, PrevSettings, const FPalOptionOnlineUserSettings&, NewSettings);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnChangeKeyConfigDelegate, const FPalKeyConfigSettings&, PrevSettings, const FPalKeyConfigSettings&, NewSettings);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnChangeKeyboardDelegate, const FPalOptionKeyboardSettings&, PrevSettings, const FPalOptionKeyboardSettings&, NewSettings);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnChangeGraphicsDelegate, const FPalOptionGraphicsSettings&, PrevSettings, const FPalOptionGraphicsSettings&, NewSettings);
@@ -51,6 +53,9 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnChangeUISettingDelegate OnChangeUISettingDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnChangeOnlineUserSettingsDelegate OnChangeOnlineUserSettingsDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnChangeScreenRatioDelegate OnChangeScreenRatioDelegate;
@@ -92,6 +97,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalOptionUISettings UISettings;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalOptionOnlineUserSettings OnlineUserSettings;
+    
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float BaseFov;
@@ -128,6 +136,9 @@ public:
     void SetOptionWorldSettings(const FPalOptionWorldSettings& InOptionWorldSettings);
     
     UFUNCTION(BlueprintCallable)
+    void SetOnlineUserSettings(const FPalOptionOnlineUserSettings& InOnlineUserSettings);
+    
+    UFUNCTION(BlueprintCallable)
     void SetKeyConfigSettings(const FPalKeyConfigSettings& InKeyConfigSettings);
     
     UFUNCTION(BlueprintCallable)
@@ -154,6 +165,9 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsCrossPlayAllowConnectPlatform() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FPalOptionUISettings GetUISettings() const;
     
     UFUNCTION(BlueprintCallable)
@@ -170,6 +184,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FPalOptionLocalStaticSettings GetOptionLocalStaticSettings() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FPalOptionOnlineUserSettings GetOnlineUserSettings() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FPalKeyConfigSettings GetKeyConfigSettings() const;

@@ -8,6 +8,7 @@
 #include "PalMapObjectPalBoothModel.generated.h"
 
 class UPalIndividualCharacterSlot;
+class UPalMapObjectFunctionAffectedByWorkStatusBase;
 
 UCLASS(Blueprintable)
 class PAL_API UPalMapObjectPalBoothModel : public UPalMapObjectConcreteModelBase {
@@ -25,6 +26,9 @@ public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_TradeInfos, meta=(AllowPrivateAccess=true))
     TArray<FPalPalBoothTradeInfo> TradeInfos;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalMapObjectFunctionAffectedByWorkStatusBase* WorkAffection;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_PrivateLockPlayerUId, meta=(AllowPrivateAccess=true))
     FGuid PrivateLockPlayerUId;

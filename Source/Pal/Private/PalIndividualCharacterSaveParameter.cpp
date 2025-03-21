@@ -37,6 +37,8 @@ FPalIndividualCharacterSaveParameter::FPalIndividualCharacterSaveParameter() {
     this->PalReviveTimer = 0.00f;
     this->VoiceID = 0;
     this->IsFavoritePal = false;
+    this->FavoriteIndex = 0;
     this->bIsChangedPassiveSkill = 0;
+    this->bImportedCharacter = false;
 }
 

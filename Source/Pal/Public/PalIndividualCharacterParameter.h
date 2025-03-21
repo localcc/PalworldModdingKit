@@ -69,7 +69,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FShieldDamageDelegate, int32, Damage, bool, IsShieldBroken);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FRevivedParameterDelegate, UPalIndividualCharacterParameter*, IndividualParameter);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnRevivedDelegate, UPalIndividualCharacterParameter*, IndividualParameter);
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnFavoritePalChangedDelegate);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangedFavoriteIndexDelegate, const int32, NewIndex);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnChangedAssignedToExpeditionDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FInvaderTargetChangedDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FGotStatusPointListChangedDelegate);
@@ -170,7 +170,7 @@ public:
     FUpdateBaseCampIdDelegate OnUpdateBaseCampIdDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FOnFavoritePalChangedDelegate OnFavoritePalChangedDelegate;
+    FOnChangedFavoriteIndexDelegate OnChangedFavoriteIndexDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnChangedAssignedToExpeditionDelegate OnChangedAssignedToExpeditionDelegate;
@@ -351,6 +351,11 @@ protected:
     UFUNCTION(BlueprintCallable)
     void OnReceivedWordFilteringResult(const FString& ResponseBody, bool bResponseOK, int32 ResponseCode);
     
+public:
+    UFUNCTION(BlueprintCallable)
+    void OnChangedBlockedUsersByUserId(const FString& UserId);
+    
+protected:
     UFUNCTION(BlueprintCallable)
     void OnChangedBlockedUsers();
     
@@ -384,6 +389,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInArena() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsImportedCharacter() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsHPFullRecovered();
@@ -577,6 +585,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetFoodStatusRate(EPalFoodStatusEffectType EffectType) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetFavoriteIndex() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetExStatusPoint(FName StatusName) const;

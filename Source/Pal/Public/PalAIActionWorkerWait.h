@@ -25,12 +25,6 @@ protected:
     UFUNCTION(BlueprintCallable)
     void TickForWalkAround(float DeltaTime);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void ReturnToDefaultPosition();
-    
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void OnTickForWait(float DeltaTime);
-    
     UFUNCTION(BlueprintCallable)
     TEnumAsByte<EPathFollowingRequestResult::Type> MoveToLocationInBaseCamp(const FVector& ToLocation, float DeltaTime);
     

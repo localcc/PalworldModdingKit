@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
 #include "EPalNPCTalkUIType.h"
+#include "PalDataTableRowName_NPCAppearFlagData.h"
 #include "PalEnemyCampStatus.h"
 #include "PalGameWorldDataSaveInterface.h"
 #include "PalInstanceID.h"
@@ -40,6 +41,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FName, bool> RespawnDisableFlag;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FName> NPCAppearFlagName;
+    
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<APalAIController> NPCAIControllerBaseClass;
@@ -71,6 +75,9 @@ public:
     UPalIndividualCharacterHandle* SpawnNPCForServer(FPalNPCSpawnInfo SpawnInfo, UPalNPCManager::FNPCSpawnCallback spawnCallback);
     
     UFUNCTION(BlueprintCallable)
+    void SetTrueNPCAppearFlag(FPalDataTableRowName_NPCAppearFlagData flagName);
+    
+    UFUNCTION(BlueprintCallable)
     void SetEnemyCampStatus(FName KeyName, FPalEnemyCampStatus EnemyCampStatus);
     
 private:
@@ -91,13 +98,13 @@ public:
     UDataTable* GetNPCTalkDTFromTalkUIType(EPalNPCTalkUIType TalkUIType);
     
     UFUNCTION(BlueprintCallable)
-    UDataTable* GetNPCOneTalkDTFromTalkId(FName TalkId);
+    UDataTable* GetNPCOneTalkDTFromTalkId(FName TalkID);
     
     UFUNCTION(BlueprintCallable)
     UDataTable* GetNPCOneTalkDTFromCharacter(APalCharacter* Character);
     
     UFUNCTION(BlueprintCallable)
-    TSubclassOf<UPalNPCMultiTalkHandle> GetNPCMultiTalkClassFromTalkId(FName TalkId);
+    TSubclassOf<UPalNPCMultiTalkHandle> GetNPCMultiTalkClassFromTalkId(FName TalkID);
     
     UFUNCTION(BlueprintCallable)
     TSubclassOf<UPalNPCMultiTalkHandle> GetNPCMultiTalkClass(APalCharacter* Character);
@@ -116,6 +123,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FName GetCharacterIDFromCharacterIDAndUniqueNPCID(FName CharacterID, FName UniqueNPCID);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool GetCanSpawnByNPCAppearFlag(FPalDataTableRowName_NPCAppearFlagData flagName, bool FlagCondition);
     
 private:
     UFUNCTION(BlueprintCallable)

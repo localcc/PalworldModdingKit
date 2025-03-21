@@ -164,6 +164,18 @@ void UPalCheatManager::TeleportToBossTower(EPalBossType BossType) {
 void UPalCheatManager::TeleportNearestPlayerToMe() const {
 }
 
+void UPalCheatManager::TeleportBaseCampWorkerToFoodBox() {
+}
+
+void UPalCheatManager::SwapUserPrivilege(EPalUserPrivilege Privilege) {
+}
+
+void UPalCheatManager::SwapForceMuteBlockForMyself() {
+}
+
+void UPalCheatManager::StunPlayer() {
+}
+
 void UPalCheatManager::StringToPlayerUID(const FString& Str) {
 }
 
@@ -428,6 +440,9 @@ void UPalCheatManager::SetEnablePlayerRespawnInHardcore(bool bEnable) {
 void UPalCheatManager::SetEnableInteractLock(bool bEnable) {
 }
 
+void UPalCheatManager::SetDummyPlayerList(bool bEnable) {
+}
+
 void UPalCheatManager::SetDisableInteractReticleTarget(bool bIsEnable) {
 }
 
@@ -479,6 +494,9 @@ void UPalCheatManager::SetAllowBaseCampBattle(const bool bAllowBaseCampBattle) {
 void UPalCheatManager::SetActivity(const FString& ConnStr, int32 maxPlayer, int32 currentPlayer) {
 }
 
+void UPalCheatManager::SessionMemberInfoDump() {
+}
+
 void UPalCheatManager::SendSaveLogTelemetry(const FString& ErrorType) {
 }
 
@@ -498,6 +516,9 @@ void UPalCheatManager::RespawnPlayer() {
 }
 
 void UPalCheatManager::ResetOilrig() {
+}
+
+void UPalCheatManager::ResetDisplayTermsOfService() {
 }
 
 void UPalCheatManager::RerollCharacterMake() {
@@ -600,6 +621,15 @@ void UPalCheatManager::NotConsumeMaterialsInCraft() {
 }
 
 void UPalCheatManager::NotConsumeMaterialsInBuild() {
+}
+
+void UPalCheatManager::MuteListRemoveAll() {
+}
+
+void UPalCheatManager::MuteListDump() {
+}
+
+void UPalCheatManager::MuteListAllUser() {
 }
 
 void UPalCheatManager::MutekiForPlayer() {
@@ -821,6 +851,9 @@ void UPalCheatManager::ForceExitStageAllPlayer() {
 void UPalCheatManager::ForceExitStage() {
 }
 
+void UPalCheatManager::ForceDisplayTermsOfService() {
+}
+
 void UPalCheatManager::ForceDisableTimerLight() {
 }
 
@@ -914,6 +947,12 @@ void UPalCheatManager::DropItemByTimer(const FName StaticItemId, const int32 Num
 void UPalCheatManager::DropItem(const FName StaticItemId, const int32 Num) {
 }
 
+void UPalCheatManager::DropBaseCampWorkerAll(const bool bOnPlace) {
+}
+
+void UPalCheatManager::DropBaseCampWorker(const FGuid& BaseCampId, const bool bOnPlace) {
+}
+
 void UPalCheatManager::DrawDebugRangeBaseCamp(const float LifeTime) {
 }
 
@@ -941,10 +980,19 @@ void UPalCheatManager::DisableScreenMessage() {
 void UPalCheatManager::DisableEnemyEyeSight() {
 }
 
+void UPalCheatManager::DestroyAllAntiAirMissileLaunchers() {
+}
+
+void UPalCheatManager::DenyCommunicationAllUser() {
+}
+
 void UPalCheatManager::DeleteWorldAndShutdownRemoteServer() {
 }
 
 void UPalCheatManager::DeletePlayerSkin(FName SkinName) {
+}
+
+void UPalCheatManager::DeletePlayerInHardcore() {
 }
 
 void UPalCheatManager::DeletePlayerAndQuitGame() {
@@ -954,6 +1002,9 @@ void UPalCheatManager::DeleteAllMapObjectSpawner() {
 }
 
 void UPalCheatManager::DeleteAllMapObject() {
+}
+
+void UPalCheatManager::DelayCommand(const FString& Command, const float DelayTime) {
 }
 
 void UPalCheatManager::DebugWindow() {
@@ -1058,6 +1109,9 @@ void UPalCheatManager::ChangeMaxDrawDistanceStaticMeshImposter(const float Dista
 void UPalCheatManager::ChangeHUDScale(float Scale) {
 }
 
+void UPalCheatManager::ChangeCrossplayPlatforms(const FString& Command, const FString& PlatformName) {
+}
+
 void UPalCheatManager::ChangeAllowConnectPlatform(const FString& PlatformName) {
 }
 
@@ -1088,6 +1142,9 @@ void UPalCheatManager::CaptureAllEnemy() {
 void UPalCheatManager::CancelPlayerAction(const EPalActionType ActionType) {
 }
 
+void UPalCheatManager::CancelConvertItemWork() {
+}
+
 void UPalCheatManager::BuildNotConsumeMaterials() {
 }
 
@@ -1098,6 +1155,18 @@ void UPalCheatManager::BotOn() {
 }
 
 void UPalCheatManager::BotOff() {
+}
+
+void UPalCheatManager::BlockListRemoveAll() {
+}
+
+void UPalCheatManager::BlockListDump() {
+}
+
+void UPalCheatManager::BlockListAllUser() {
+}
+
+void UPalCheatManager::BeginSpectate(bool bAdminMode) {
 }
 
 void UPalCheatManager::BanPlayerFromGuildLocalPlayerBelongTo(const FGuid& TargetPlayerUId) {

@@ -23,6 +23,7 @@
 #include "PalMapObjectSaveData.h"
 #include "PalMapObjectSpawnerInStageSaveData.h"
 #include "PalMapObjectSpawnerSaveData.h"
+#include "PalNPCAppearFlagSaveData.h"
 #include "PalOilrigSaveData.h"
 #include "PalRandomizerSaveData.h"
 #include "PalStageInstanceId.h"
@@ -86,6 +87,9 @@ public:
     FPalEnemyCampSaveData EnemyCampSaveData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalNPCAppearFlagSaveData NPCAppearFlagSaveData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FPalDungeonPointMarkerSaveData> DungeonPointMarkerSaveData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -108,6 +112,9 @@ public:
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     uint32 WorldMetaSaveVersionBitMask;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSet<FPalInstanceID> InLockerCharacterInstanceIDArray;
     
     PAL_API FPalWorldSaveData();
 };

@@ -5,6 +5,7 @@ UPalGroupGuildBase::UPalGroupGuildBase() {
     this->PalStorage = NULL;
     this->BaseCampLevel = 1;
     this->bAllPlayerNotOnlineAndAlreadyReset = false;
+    this->EnableResetPropertiesWhenPlayerDelete = false;
 }
 
 void UPalGroupGuildBase::OnRep_Guildname() {

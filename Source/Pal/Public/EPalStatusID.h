@@ -36,5 +36,7 @@ enum class EPalStatusID : uint8 {
     LifeSteal,
     RaidBossStatusChange,
     RarePalEffect,
+    MorphChange,
+    PalEnhancement,
 };
 

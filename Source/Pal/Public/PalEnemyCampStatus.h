@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "PalEnemyCampTreasureBoxItemInfo.h"
 #include "PalEnemyCampStatus.generated.h"
 
 USTRUCT(BlueprintType)
@@ -33,6 +34,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FDateTime LastCalcDate;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FName, FPalEnemyCampTreasureBoxItemInfo> TreasureBoxInfoMapBySpawnerName;
     
     PAL_API FPalEnemyCampStatus();
 };

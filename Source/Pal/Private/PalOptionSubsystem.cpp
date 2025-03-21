@@ -21,6 +21,9 @@ void UPalOptionSubsystem::SetPadSettings(const FPalOptionPadSettings& InPadSetti
 void UPalOptionSubsystem::SetOptionWorldSettings(const FPalOptionWorldSettings& InOptionWorldSettings) {
 }
 
+void UPalOptionSubsystem::SetOnlineUserSettings(const FPalOptionOnlineUserSettings& InOnlineUserSettings) {
+}
+
 void UPalOptionSubsystem::SetKeyConfigSettings(const FPalKeyConfigSettings& InKeyConfigSettings) {
 }
 
@@ -45,6 +48,10 @@ void UPalOptionSubsystem::RefreshBanList() {
 void UPalOptionSubsystem::OnCompletedGetBanlist(const FString& ResponseBody, bool bResponseOK, int32 ResponseCode) {
 }
 
+bool UPalOptionSubsystem::IsCrossPlayAllowConnectPlatform() const {
+    return false;
+}
+
 FPalOptionUISettings UPalOptionSubsystem::GetUISettings() const {
     return FPalOptionUISettings{};
 }
@@ -66,6 +73,10 @@ FPalOptionWorldSettings UPalOptionSubsystem::GetOptionWorldSettings() const {
 
 FPalOptionLocalStaticSettings UPalOptionSubsystem::GetOptionLocalStaticSettings() const {
     return FPalOptionLocalStaticSettings{};
+}
+
+FPalOptionOnlineUserSettings UPalOptionSubsystem::GetOnlineUserSettings() const {
+    return FPalOptionOnlineUserSettings{};
 }
 
 FPalKeyConfigSettings UPalOptionSubsystem::GetKeyConfigSettings() const {

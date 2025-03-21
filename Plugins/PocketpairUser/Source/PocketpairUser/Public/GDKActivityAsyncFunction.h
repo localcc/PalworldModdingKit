@@ -17,7 +17,7 @@ public:
     UGDKActivityAsyncFunction();
 
     UFUNCTION(BlueprintCallable)
-    static UGDKActivityAsyncFunction* GDKActivityAsyncFunction(UPocketpairUserSubsystem* Target, const FString& ConnectionString, int32 MaxPlayerNum, int32 CurrentPlayerNum);
+    static UGDKActivityAsyncFunction* GDKActivityAsyncFunction(UPocketpairUserSubsystem* Target, const FString& ConnectionString, int32 MaxPlayerNum, int32 CurrentPlayerNum, bool bPublicSession);
     
 };
 

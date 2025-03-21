@@ -10,6 +10,14 @@ UCLASS(Blueprintable)
 class PAL_API APalRandomIncidentObjectPlacement : public AActor {
     GENERATED_BODY()
 public:
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    TArray<UPalRandomIncidentPlacementEggDataComponent*> Eggs;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    TArray<UPalRandomIncidentPlacementDropItemDataComponent*> DropItems;
+    
+public:
     APalRandomIncidentObjectPlacement(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable, BlueprintPure)

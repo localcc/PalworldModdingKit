@@ -1,0 +1,8 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "GDKPrivacyPermissionForAnonymousUserAsyncFunctionDelegate.generated.h"
+
+class UGDKPrivacyPermissionForAnonymousUserAsyncFunction;
+
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FGDKPrivacyPermissionForAnonymousUserAsyncFunction, UGDKPrivacyPermissionForAnonymousUserAsyncFunction*, PrivacyPermission);
+

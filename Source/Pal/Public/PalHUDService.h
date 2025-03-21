@@ -105,6 +105,9 @@ public:
     UFUNCTION(BlueprintCallable)
     void PlayAkSound(UAkAudioEvent* AkEvent);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsAnyOverlayUIActive();
+    
     UFUNCTION(BlueprintCallable)
     void InvokeFunction_Int32(const FName FunctionName, int32 Value);
     

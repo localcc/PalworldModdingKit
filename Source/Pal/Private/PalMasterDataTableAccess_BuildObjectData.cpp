@@ -3,6 +3,9 @@
 UPalMasterDataTableAccess_BuildObjectData::UPalMasterDataTableAccess_BuildObjectData() {
 }
 
+void UPalMasterDataTableAccess_BuildObjectData::Editor_ResetBuildObjectMasterData(UDataTable* InDataTable) {
+}
+
 void UPalMasterDataTableAccess_BuildObjectData::BPExec_FindRowByMapObjectId(FName MapObjectId, EPalMasterDataExecPinType& ExecType, FPalBuildObjectData& OutData) {
 }
 

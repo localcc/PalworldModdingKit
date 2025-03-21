@@ -98,12 +98,20 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bShouldCheckStuckByTick;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FTimerHandle InactiveAIEventTimer;
+    
 public:
     APalAIController(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable)
     void WaitForSeconds(float Time);
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void SkillCoolDownByTimerEvent();
+    
+public:
     UFUNCTION(BlueprintCallable)
     void SimpleMoveToActorWithLineTraceGround(const AActor* GoalActor);
     
@@ -169,6 +177,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsActiveAI() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    FGuid GetTargetBaseCampIDForRaidBoss();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     APalCharacter* GetSquadLeader();

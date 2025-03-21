@@ -4,10 +4,10 @@ UPalUILiftSlotModel::UPalUILiftSlotModel() {
     this->CharacterSlot = NULL;
 }
 
-void UPalUILiftSlotModel::SelectItemSlot(const FPalItemSlotId SlotID, const EPalItemSlotPressType Type) {
+void UPalUILiftSlotModel::SelectItemSlot(const FPalItemSlotId SlotId, const EPalItemSlotPressType Type) {
 }
 
-void UPalUILiftSlotModel::SelectCharacterSlot(const FPalCharacterSlotId SlotID, const EPalItemSlotPressType Type) {
+void UPalUILiftSlotModel::SelectCharacterSlot(const FPalCharacterSlotId SlotId, const EPalItemSlotPressType Type) {
 }
 
 void UPalUILiftSlotModel::ResetLiftItem() {

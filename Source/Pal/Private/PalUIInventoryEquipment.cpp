@@ -3,7 +3,13 @@
 UPalUIInventoryEquipment::UPalUIInventoryEquipment() {
 }
 
-void UPalUIInventoryEquipment::ToggleHeadEquipVisible() {
+void UPalUIInventoryEquipment::ToggleHeadDressingVisible() {
+}
+
+void UPalUIInventoryEquipment::ToggleGliderDressingVisible() {
+}
+
+void UPalUIInventoryEquipment::ToggleBodyDressingVisible() {
 }
 
 void UPalUIInventoryEquipment::SwapItemSlot(UPalItemSlot* SlotA, UPalItemSlot* SlotB) {

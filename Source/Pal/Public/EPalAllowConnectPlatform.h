@@ -7,6 +7,6 @@ enum class EPalAllowConnectPlatform : uint8 {
     Steam,
     Xbox,
     Mac,
-    SteamAndXbox,
+    PS5,
 };
 

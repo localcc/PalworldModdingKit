@@ -14,9 +14,6 @@ protected:
     void RequestChangePlayerName(const FString& NewPlayerName);
     
     UFUNCTION(BlueprintCallable)
-    bool GetPlayerMakeInfo(FPalPlayerDataCharacterMakeInfo& OutMakeInfo);
-    
-    UFUNCTION(BlueprintCallable)
     void ApplyMakeInfoToPlayerData(const FPalPlayerDataCharacterMakeInfo& MakeInfo);
     
 };

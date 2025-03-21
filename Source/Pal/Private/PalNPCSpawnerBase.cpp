@@ -64,11 +64,11 @@ void APalNPCSpawnerBase::RemoveGroupWhenDestoryActor(AActor* DestoryActor) {
 void APalNPCSpawnerBase::RemoveGroupCharacter(UPalIndividualCharacterHandle* RemoveIndividualHandle) {
 }
 
-bool APalNPCSpawnerBase::RandomSpawnLocationByRadiusLineTraceWithWorldLocation(FVector& OutLocation, float Radius, float RayStartUpOffset, float RayEndDownOffset, const FVector& WorldPos, int32 SumSpawnNum, int32 SelfIndexInAll) {
+bool APalNPCSpawnerBase::RandomSpawnLocationByRadiusLineTraceWithWorldLocation(FVector& OutLocation, float Radius, float RayStartUpOffset, float RayEndDownOffset, const FVector& WorldPos, int32 SumSpawnNum, int32 SelfIndexInAll, bool IgnoreRaycast) {
     return false;
 }
 
-bool APalNPCSpawnerBase::RandomSpawnLocationByRadiusLineTrace(FVector& OutLocation, float Radius, float RayStartUpOffset, float RayEndDownOffset, int32 SumSpawnNum, int32 SelfIndexInAll) {
+bool APalNPCSpawnerBase::RandomSpawnLocationByRadiusLineTrace(FVector& OutLocation, float Radius, float RayStartUpOffset, float RayEndDownOffset, int32 SumSpawnNum, int32 SelfIndexInAll, bool IgnoreRaycast) {
     return false;
 }
 

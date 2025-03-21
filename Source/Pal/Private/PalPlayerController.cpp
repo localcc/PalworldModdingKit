@@ -2,6 +2,7 @@
 #include "Net/UnrealNetwork.h"
 #include "PalAIActionComponent.h"
 #include "PalCutsceneComponent.h"
+#include "PalSpectateComponent.h"
 #include "Templates/SubclassOf.h"
 
 APalPlayerController::APalPlayerController(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
@@ -23,6 +24,7 @@ APalPlayerController::APalPlayerController(const FObjectInitializer& ObjectIniti
     this->AutoAimTarget = NULL;
     this->PlayerInputOneFlameCommandList = NULL;
     this->IsBuldingActiveFlag_ForServer = false;
+    this->SpectateComponent = CreateDefaultSubobject<UPalSpectateComponent>(TEXT("SpectateComponent"));
 }
 
 void APalPlayerController::UpdateCharacterNickName_ToServer_Implementation(const FPalInstanceID& InstanceId, const FString& NewNickName) {
@@ -46,6 +48,12 @@ void APalPlayerController::StartStepCoolDownCoolTimer() {
 }
 
 void APalPlayerController::StartFlyToServer_Implementation() {
+}
+
+void APalPlayerController::SpectateNextPlayer(int32 Direction) {
+}
+
+void APalPlayerController::SpectateFreely() {
 }
 
 void APalPlayerController::ShooterComponent_StopReload_ToServer_Implementation(UPalShooterComponent* Shooter, int32 ID) {
@@ -89,13 +97,13 @@ void APalPlayerController::SetRiderRelativeRotation_ToServer_Implementation(FRot
 
 
 
-void APalPlayerController::SetFavoraitePal_ToServer_Implementation(const FPalInstanceID& InstanceId, const bool IsFavorite) {
-}
-
 void APalPlayerController::SetDisableThrowPalFlag(FName flagName, bool isDisable) {
 }
 
 void APalPlayerController::SetDisableSwitchPalFlag(FName flagName, bool isDisable) {
+}
+
+void APalPlayerController::SetDisableSetViewTargetFlag(FName flagName, bool isDisable) {
 }
 
 void APalPlayerController::SetDisableInputFlag(FName flagName, bool isDisable) {
@@ -149,6 +157,24 @@ void APalPlayerController::RequestUseItemToCharacter(const FPalItemSlotIdAndNum&
 void APalPlayerController::RequestSyncOilrigDestroyObject_ToServer_Implementation(FGuid ObjectID) {
 }
 
+void APalPlayerController::RequestSwapDimensionStorageData_ToServer_Implementation(int32 IndexA, int32 IndexB) {
+}
+
+void APalPlayerController::RequestSwapBetweenDimensionStorageAndPalStorage_ToServer_Implementation(int32 DimensionStorageDataIndex, int32 PalStorageDataIndex) {
+}
+
+void APalPlayerController::RequestSortDimensionStorage_ToServer_Implementation(const FPalCharacterContainerSortInfo& SortInfo) {
+}
+
+void APalPlayerController::RequestSendAllDimensionStorage_ToServer_Implementation() {
+}
+
+void APalPlayerController::RequestRestoreDimensionStorage_ToServer_Implementation(int32 OriginalLockerDataIndex, int32 TargetRestorePalStorageSlotIndex) {
+}
+
+void APalPlayerController::RequestOpenDimensionStorage_ToServer_Implementation(const FGuid& LockerMapObjectId) {
+}
+
 void APalPlayerController::RequestOilrigGoalCrateInteract_Implementation() {
 }
 
@@ -159,6 +185,9 @@ void APalPlayerController::RequestLiftupThrow_ToServer_Implementation(AActor* Ta
 }
 
 void APalPlayerController::RequestLiftup_ToServer_Implementation(APalCharacter* TargetCharacter) {
+}
+
+void APalPlayerController::RequestImportGlobalPalStorageData_ToServer_Implementation(const FPalGlobalPalStorageSaveParameter& ImportParameter, const int32 TargetSlotIndex, const FPalGlobalPalStorageImportOption& ImportOption) {
 }
 
 void APalPlayerController::RequestFastTravel_ToServer_Implementation(const FGuid& LocationId) {
@@ -182,7 +211,13 @@ void APalPlayerController::RequestDestroyAntiAirLauncher_Implementation(APalAnti
 void APalPlayerController::RequestDecreaseWeaponDurability_ToServer_Implementation(FPalItemId ItemId) {
 }
 
+void APalPlayerController::RequestCloseDimensionStorage_ToServer_Implementation() {
+}
+
 void APalPlayerController::RequestChangeGuildName_ToServer_Implementation(const FString& NewGuildName) {
+}
+
+void APalPlayerController::RequestChangeDimensionStoragePage_ToServer_Implementation(int32 NewPageNum) {
 }
 
 void APalPlayerController::RequestChangeCharacterMakeInfo_ToServer_Implementation(const FPalPlayerDataCharacterMakeInfo& NewMakeInfo) {
@@ -192,6 +227,12 @@ void APalPlayerController::RequestChangeAdminGuild_ToServer_Implementation(const
 }
 
 void APalPlayerController::RequestBanPlayerFromGuild_ToServer_Implementation(const FGuid& TargetPlayerUId) {
+}
+
+void APalPlayerController::RequestAddDimensionStorageDataFixedDataIndex_ToServer_Implementation(int32 TargetLockerDataIndex, int32 OriginalPalStorageDataSlotIndex) {
+}
+
+void APalPlayerController::RequestAddDimensionStorageData_ToServer_Implementation(const TArray<int32>& OriginalPalStorageDataIndexArray, int32 RootPageIndex) {
 }
 
 void APalPlayerController::ReplaceEquipWaza_ToServer_Implementation(const FPalInstanceID& InstanceId, const EPalWazaID OldWaza, const EPalWazaID NewWaza) {
@@ -221,7 +262,7 @@ void APalPlayerController::ReceiveFailedRequestGuildWithAlert_ToClient_Implement
 void APalPlayerController::ReauestDamageExplode_ToServer_Implementation(UPalDamageExplodeComponent* ExplodeComponent, const FPalDamageInfo DamageInfo) {
 }
 
-bool APalPlayerController::PlaySkill(int32 SlotID) {
+bool APalPlayerController::PlaySkill(int32 SlotId) {
     return false;
 }
 
@@ -283,6 +324,9 @@ void APalPlayerController::OnJump(UPalCharacterMovementComponent* MovementCompon
 void APalPlayerController::OnFixedWeightInventory(float Weight) {
 }
 
+void APalPlayerController::OnFilteredKillLog(UPalKillLogFilteringWaiter* Waiter, const FPalKillLogDisplayData& KillLogData) {
+}
+
 void APalPlayerController::OnEndRolling() {
 }
 
@@ -294,6 +338,9 @@ void APalPlayerController::OnDestroyPawn(AActor* DestroyedActor) {
 }
 
 void APalPlayerController::OnDamage(FPalDamageResult DamageResult) {
+}
+
+void APalPlayerController::OnCreatedGPSPalData(FPalInstanceID IndividualId) {
 }
 
 void APalPlayerController::OnChangeSwimming(bool IsInSwimming) {
@@ -313,6 +360,9 @@ void APalPlayerController::OnActionBegin(const UPalActionBase* ActionBase) {
 void APalPlayerController::NotifyWarningSignByAntiAirMissileLauncher_ToClient_Implementation(bool IsShow, FGuid CannonID, FVector AttaclerLocation) {
 }
 
+void APalPlayerController::NotifyTimeoutDimensionLocker_Implementation() {
+}
+
 void APalPlayerController::NotifyRideWallStop_ToClient_Implementation() {
 }
 
@@ -322,13 +372,23 @@ void APalPlayerController::NotifyOilrigGoalCrateOpen_ToClient_Implementation() {
 void APalPlayerController::NotifyLiftupCampPal_ToClient_Implementation(APalCharacter* TargetCharacter) {
 }
 
+void APalPlayerController::NotifyImportGlobalPalStorageDataResult_ToClient_Implementation(EPalGlobalStorageImportResult ImportResult, const FPalGlobalPalStorageImportResultAdditionalData& AdditionalData) {
+}
+
 void APalPlayerController::NotifyConfirmRequestGuild_ToServer_Implementation(const FGuid& FlowUniqueId, const bool bResponse) {
+}
+
+void APalPlayerController::LostOtomoByInstacneID_ToServer_Implementation(const FPalInstanceID& InstanceId) {
 }
 
 void APalPlayerController::JumpCancelPalThrow(UPalCharacterMovementComponent* MovementComponent) {
 }
 
 bool APalPlayerController::IsSwimming() const {
+    return false;
+}
+
+bool APalPlayerController::IsSpectating() const {
     return false;
 }
 
@@ -350,6 +410,15 @@ bool APalPlayerController::IsCooping() const {
 
 bool APalPlayerController::IsBuldingActiveFlagForServer() const {
     return false;
+}
+
+void APalPlayerController::IncrementNPCTalkCount_Implementation(const FName& TalkID) {
+}
+
+void APalPlayerController::IncrementFavoriteIndexPal_ToServer_Implementation(const FPalInstanceID& InstanceId) {
+}
+
+void APalPlayerController::IncrementDimensionStoragePalFavoriteIndex_ToServer_Implementation(int32 TargetLockerDataIndex) {
 }
 
 
@@ -401,6 +470,12 @@ FVector2D APalPlayerController::GetControllerLeftStickValue() const {
     return FVector2D{};
 }
 
+void APalPlayerController::FlushCoopActionLongPressInput() {
+}
+
+void APalPlayerController::EndSpectate() {
+}
+
 void APalPlayerController::EndFlyToServer_Implementation() {
 }
 
@@ -427,6 +502,9 @@ void APalPlayerController::Debug_Teleport2D_Implementation(const FVector& Locati
 }
 
 void APalPlayerController::Debug_ShowInvaderDebugLog_Implementation() {
+}
+
+void APalPlayerController::Debug_SetStatusPoint_ToServer_Implementation(FName StatusPointName, int32 StatusLevel) {
 }
 
 void APalPlayerController::Debug_SetPalWorldTimeScale_Implementation(float Rate) {
@@ -510,6 +588,9 @@ void APalPlayerController::DamageReactionComponent_ProcessDamage_ToServer_ToSelf
 void APalPlayerController::DamageReactionComponent_ProcessDamage_ToServer_ToNPC_Implementation(const FPalDamageInfo& Info, const AActor* Defender) {
 }
 
+void APalPlayerController::DamageReactionComponent_ProcessDamage_ToServer_ToEnemyPlayer_Implementation(const FPalDamageInfo& Info, const AActor* Defender) {
+}
+
 void APalPlayerController::ConfirmRequestGuild_ToClient_Implementation(const FGuid& FlowUniqueId, const EPalGuildJoinRequestConfirm ConfirmType) {
 }
 
@@ -517,6 +598,12 @@ void APalPlayerController::ClientPlayForceFeedbackForPal_Internal_Implementation
 }
 
 void APalPlayerController::ClientPlayForceFeedbackForPal(UForceFeedbackEffect* ForceFeedbackEffect, FName Tag, bool bLooping, bool bIgnoreTimeDilation, bool bPlayWhilePaused) {
+}
+
+void APalPlayerController::ClientBeginSpectate_Implementation(bool bAdminMode) {
+}
+
+void APalPlayerController::ChangeSpectateMoveSpeed(int32 Direction) {
 }
 
 void APalPlayerController::CannonDamageReactionComponent_ProcessDamage_ToServer_Implementation(UPalCannonDamageReactionComponent* CannonDamage, const FPalDamageInfo& Info) {
@@ -527,6 +614,9 @@ bool APalPlayerController::CanCooping() const {
 }
 
 void APalPlayerController::CallOnCoopReleaseDelegate_ToServer_Implementation() {
+}
+
+void APalPlayerController::BeginSpectate(bool bAdminMode) {
 }
 
 void APalPlayerController::AddPlayerStatusPoint_ToServer_Implementation(const TArray<FPalGotStatusPoint>& AddStatusPointArray) {

@@ -42,6 +42,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bIsCaptureFailAlways_BounceBall = false;
     this->bIsShowActionName = false;
     this->bIsShowCharacterStatus = false;
+    this->bNotAlertNotValidActionType = false;
     this->bIsShowSkillCoolTime = false;
     this->bIsShowCharacterTickInfo = false;
     this->bIsWazaCoolTimeFast = false;
@@ -58,7 +59,9 @@ UPalDebugSetting::UPalDebugSetting() {
     this->ConfirmTransportItemSpeedMultipleRate = 1.00f;
     this->bPrintLogMergeDropItemInBaseCamp = false;
     this->bNotConsumeMaterialsInBuild = false;
+    this->bNoDropInDisposeBuild = false;
     this->BuildRequiredWorkAmount = 0.00f;
+    this->bForceConstructConnector = false;
     this->bIsDisableEnemyEyeSight = false;
     this->bIsEnableNPCDrawRaycastDebug = false;
     this->bIsHideScreenMessage = false;
@@ -125,6 +128,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->PartnerSkill_CooldownSpeedRate = 1.00f;
     this->PartnerSkill_IgnoreRestrictedByItems = false;
     this->bNotConsumeMaterialsInCraft = false;
+    this->bResearchNotRequireMaterials = false;
     this->bSelectableRecipeWhenNothingMaterials = false;
     this->bIgnoreWorkableElementType = false;
     this->bIgnoreWorkableGenusCategories = false;
@@ -210,6 +214,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bForceDisableLamp = false;
     this->bForceDisableTimerLight = false;
     this->bForceDisableTickOptimization = false;
+    this->bForceDisableDamageRandom = false;
     this->bForceDisableDamagePopup = false;
     this->bIsShowTickOptimizationType = false;
     this->bForceDisableAsyncMovement = false;
@@ -255,6 +260,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bIsEnableAirRolling = false;
     this->bIsEnablePalWarp = false;
     this->bDungeonDevelopFlag = false;
+    this->bDungeonGimmickVisualize = false;
     this->bIsDisableOptionWorldLoadConfig = false;
     this->bIsShowNightSkipLog = false;
     this->bIsApplyOptionWorldModePreset = true;
@@ -269,6 +275,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bDisableGrapplingCoolDown = false;
     this->bDrawGrapplingLine = false;
     this->bDrawGrapplingHitPoint = false;
+    this->bDrawFishingLine = false;
     this->bDrawAmbientSoundLinePlayLocation = false;
     this->bDrawAmbientSoundActivateTrigger = false;
     this->bDrawDefenseAttackableRange = false;
@@ -304,6 +311,14 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bKillOnPlayerRide = false;
     this->bDisableInteractLockComponent = false;
     this->bShowOtomoReturnFarDistance = false;
+    this->bMuteAllUser = false;
+    this->bBlockAllUser = false;
+    this->bDenyCommunicationAllUser = false;
+    this->bDisablePrivilegeCrossPlay = false;
+    this->bDisablePrivilegeUserGeneratedContent = false;
+    this->bForceMuteBlockForMyself = false;
+    this->bForceDisplayTermsOfService = false;
+    this->bDummyPlayerList = false;
 }
 
 TArray<FString> UPalDebugSetting::GetDataLayerRuntimeSettingsNames() const {

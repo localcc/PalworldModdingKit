@@ -12,7 +12,7 @@ public:
     FPalStaticItemIdAndNum ItemInfo;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FPalItemSlotId SlotID;
+    FPalItemSlotId SlotId;
     
     PAL_API FPalStaticItemAndSlot();
 };

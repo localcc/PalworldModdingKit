@@ -12,7 +12,7 @@ public:
     FPalSlotOpItemInfo ItemInfo;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FPalItemSlotId SlotID;
+    FPalItemSlotId SlotId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalItemSlotId FromSlotId;

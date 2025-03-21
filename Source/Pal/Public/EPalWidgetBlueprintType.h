@@ -32,5 +32,6 @@ enum class EPalWidgetBlueprintType : uint8 {
     ItemBoothSale,
     PalBoothTrade,
     PalBoothSale,
+    Spectator,
 };
 

@@ -40,5 +40,7 @@ FPalOptionWorldPresetRow::FPalOptionWorldPresetRow() {
     this->SupplyDropSpan = 0;
     this->bHardcore = false;
     this->bPalLost = false;
+    this->bAllowGlobalPalboxExport = false;
+    this->bAllowGlobalPalboxImport = false;
 }
 

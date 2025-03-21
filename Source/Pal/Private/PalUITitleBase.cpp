@@ -3,3 +3,8 @@
 UPalUITitleBase::UPalUITitleBase() {
 }
 
+bool UPalUITitleBase::ShouldShowGlobalPalStorageNewMark() const {
+    return false;
+}
+
+

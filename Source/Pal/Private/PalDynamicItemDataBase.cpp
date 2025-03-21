@@ -2,6 +2,7 @@
 #include "Net/UnrealNetwork.h"
 
 UPalDynamicItemDataBase::UPalDynamicItemDataBase() {
+    this->bIgnoreOnSave = false;
 }
 
 FName UPalDynamicItemDataBase::GetStaticId() const {
