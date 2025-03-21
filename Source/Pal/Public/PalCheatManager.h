@@ -14,6 +14,7 @@
 #include "EPalMapBaseCampWorkerOrderType.h"
 #include "EPalMapObjectVisualEffectType.h"
 #include "EPalSkinType.h"
+#include "EPalUserPrivilege.h"
 #include "PalInstanceID.h"
 #include "Templates/SubclassOf.h"
 #include "PalCheatManager.generated.h"
@@ -214,6 +215,18 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void TeleportNearestPlayerToMe() const;
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void TeleportBaseCampWorkerToFoodBox();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SwapUserPrivilege(EPalUserPrivilege Privilege);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SwapForceMuteBlockForMyself();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void StunPlayer();
     
     UFUNCTION(BlueprintCallable, Exec)
     void StringToPlayerUID(const FString& Str);
@@ -492,6 +505,9 @@ public:
     void SetEnableInteractLock(bool bEnable);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SetDummyPlayerList(bool bEnable);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetDisableInteractReticleTarget(bool bIsEnable);
     
     UFUNCTION(BlueprintCallable)
@@ -543,6 +559,9 @@ public:
     void SetActivity(const FString& ConnStr, int32 maxPlayer, int32 currentPlayer);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SessionMemberInfoDump();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SendSaveLogTelemetry(const FString& ErrorType);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -562,6 +581,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void ResetOilrig();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void ResetDisplayTermsOfService();
     
     UFUNCTION(BlueprintCallable, Exec)
     void RerollCharacterMake();
@@ -676,6 +698,15 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void NotConsumeMaterialsInBuild();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void MuteListRemoveAll();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void MuteListDump();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void MuteListAllUser();
     
     UFUNCTION(BlueprintCallable, Exec)
     void MutekiForPlayer();
@@ -887,6 +918,9 @@ public:
     void ForceExitStage();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void ForceDisplayTermsOfService();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void ForceDisableTimerLight();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -980,6 +1014,12 @@ public:
     void DropItem(const FName StaticItemId, const int32 Num);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void DropBaseCampWorkerAll(const bool bOnPlace);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void DropBaseCampWorker(const FGuid& BaseCampId, const bool bOnPlace);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void DrawDebugRangeBaseCamp(const float LifeTime);
     
     UFUNCTION(Exec)
@@ -1007,10 +1047,19 @@ public:
     void DisableEnemyEyeSight();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void DestroyAllAntiAirMissileLaunchers();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void DenyCommunicationAllUser();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void DeleteWorldAndShutdownRemoteServer();
     
     UFUNCTION(BlueprintCallable, Exec)
     void DeletePlayerSkin(FName SkinName);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void DeletePlayerInHardcore();
     
     UFUNCTION(BlueprintCallable, Exec)
     void DeletePlayerAndQuitGame();
@@ -1020,6 +1069,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void DeleteAllMapObject();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void DelayCommand(const FString& Command, const float DelayTime);
     
     UFUNCTION(BlueprintCallable, Exec)
     void DebugWindow();
@@ -1124,6 +1176,9 @@ public:
     void ChangeHUDScale(float Scale);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void ChangeCrossplayPlatforms(const FString& Command, const FString& PlatformName);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void ChangeAllowConnectPlatform(const FString& PlatformName);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -1154,6 +1209,9 @@ public:
     void CancelPlayerAction(const EPalActionType ActionType);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void CancelConvertItemWork();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void BuildNotConsumeMaterials();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -1164,6 +1222,18 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void BotOff();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void BlockListRemoveAll();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void BlockListDump();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void BlockListAllUser();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void BeginSpectate(bool bAdminMode);
     
     UFUNCTION(BlueprintCallable, Exec)
     void BanPlayerFromGuildLocalPlayerBelongTo(const FGuid& TargetPlayerUId);

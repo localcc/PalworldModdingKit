@@ -24,6 +24,9 @@ void UPalMapObjectSignboardModel::OnReceivedWordFilteringResult(const FString& R
 void UPalMapObjectSignboardModel::OnOpenEdit() {
 }
 
+void UPalMapObjectSignboardModel::OnChangedBlockedUsersByUserId(const FString& UserId) {
+}
+
 void UPalMapObjectSignboardModel::OnChangedBlockedUsers() {
 }
 

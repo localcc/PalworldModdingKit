@@ -33,7 +33,7 @@ protected:
     
 public:
     UFUNCTION(BlueprintCallable)
-    void SetPagePalBoxList(int32 newPage);
+    void SetPagePalBoxList(int32 NewPage);
     
     UFUNCTION(BlueprintCallable)
     void SetBaseCampId(const FGuid& BaseCampId);
@@ -51,12 +51,15 @@ private:
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnUpdatePageWorkerList(const TArray<UPalIndividualCharacterSlot*>& slotList);
+    void OnUpdatePageWorkerList(const TArray<UPalIndividualCharacterSlot*>& SlotList);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnUpdatePagePalBoxList(int32 nowPage, const TArray<UPalIndividualCharacterSlot*>& slotList);
+    void OnUpdatePagePalBoxList(int32 NowPage, const TArray<UPalIndividualCharacterSlot*>& SlotList);
     
 public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool GetNowDisplayWorkerList(TArray<UPalIndividualCharacterSlot*>& OutSlots);
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetBoxMaxPageNum();
     

@@ -156,6 +156,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool IsTriggerOnlyFireWeapon;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IsInfinityMagazine;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UMaterialInstanceDynamic* ShootBlurMaterialDynamic;
@@ -407,6 +410,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FPalItemId GetItemId() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetInventoryBulletCount() const;
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
     FName GetEquipSocketName();

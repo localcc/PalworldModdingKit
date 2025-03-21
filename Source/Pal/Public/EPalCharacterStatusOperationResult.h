@@ -22,5 +22,6 @@ enum class EPalCharacterStatusOperationResult : uint8 {
     FailedLackUpgradeItemNum,
     FailedLackMoneyNum,
     FailedItemOperation,
+    FailedImportedPal,
 };
 

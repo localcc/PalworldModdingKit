@@ -7,6 +7,7 @@
 #include "PalMapObjectItemBoothModel.generated.h"
 
 class UPalItemContainer;
+class UPalMapObjectFunctionAffectedByWorkStatusBase;
 
 UCLASS(Blueprintable)
 class PAL_API UPalMapObjectItemBoothModel : public UPalMapObjectConcreteModelBase {
@@ -31,6 +32,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_TradeInfos, meta=(AllowPrivateAccess=true))
     TArray<FPalItemBoothTradeInfo> TradeInfos;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalMapObjectFunctionAffectedByWorkStatusBase* WorkAffection;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_PrivateLockPlayerUId, meta=(AllowPrivateAccess=true))
     FGuid PrivateLockPlayerUId;

@@ -13,7 +13,7 @@ public:
     EPalCharacterContainerSortType SortType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bPrioritizeFavorite;
+    TArray<uint8> PrioritizeFavoriteIndexArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<EPalElementType> FilteringElementType;
@@ -26,6 +26,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bPrioritizeFemael;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bPrioritizeImportedPal;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName FilteringPassiveId;

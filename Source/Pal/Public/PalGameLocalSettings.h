@@ -38,6 +38,9 @@ public:
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 GraphicsCommonQuality;
     
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bAppliedSteamDeckSettings;
+    
     UPalGameLocalSettings();
     UFUNCTION(BlueprintCallable)
     bool RequireBenchMarkScalaBility();

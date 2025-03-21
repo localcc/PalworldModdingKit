@@ -11,6 +11,10 @@ FPalWorkSuitabilityPreferenceInfo UPalIndividualCharacterSaveParameterUtility::G
     return FPalWorkSuitabilityPreferenceInfo{};
 }
 
+TMap<EPalWorkSuitability, int32> UPalIndividualCharacterSaveParameterUtility::GetSaveParameterValue_WorkSuitabilityBonusRank(const FPalIndividualCharacterSaveParameter& SaveParameter) {
+    return TMap<EPalWorkSuitability, int32>();
+}
+
 EPalBaseCampWorkerSickType UPalIndividualCharacterSaveParameterUtility::GetSaveParameterValue_WorkerSick(const FPalIndividualCharacterSaveParameter& SaveParameter) {
     return EPalBaseCampWorkerSickType::None;
 }
@@ -131,6 +135,10 @@ float UPalIndividualCharacterSaveParameterUtility::GetSaveParameterValue_FullSto
     return 0.0f;
 }
 
+int32 UPalIndividualCharacterSaveParameterUtility::GetSaveParameterValue_FavoriteIndexl(const FPalIndividualCharacterSaveParameter& SaveParameter) {
+    return 0;
+}
+
 int64 UPalIndividualCharacterSaveParameterUtility::GetSaveParameterValue_Exp(const FPalIndividualCharacterSaveParameter& SaveParameter) {
     return 0;
 }
@@ -145,6 +153,10 @@ int32 UPalIndividualCharacterSaveParameterUtility::GetSaveParameterValue_CraftSp
 
 FName UPalIndividualCharacterSaveParameterUtility::GetSaveParameterValue_CharacterID(const FPalIndividualCharacterSaveParameter& SaveParameter) {
     return NAME_None;
+}
+
+bool UPalIndividualCharacterSaveParameterUtility::GetSaveParameterValue_bImportedCharacter(const FPalIndividualCharacterSaveParameter& SaveParameter) {
+    return false;
 }
 
 

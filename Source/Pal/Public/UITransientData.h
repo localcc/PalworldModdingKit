@@ -37,6 +37,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool LoadingScreenLiving;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FName, FName> TransientRecipeProductMap;
+    
     PAL_API FUITransientData();
 };
 

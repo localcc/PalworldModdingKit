@@ -8,6 +8,7 @@
 #include "PalSyncTeleportComponent.generated.h"
 
 class UAkAudioEvent;
+class UPalAutoSaveDisabler;
 class UPalHUDDispatchParameter_FadeWidget;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
@@ -32,6 +33,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FTimerHandle TeleportMutekiTimerHandle;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalAutoSaveDisabler* AutoSaveDisabler;
     
 public:
     UPalSyncTeleportComponent(const FObjectInitializer& ObjectInitializer);

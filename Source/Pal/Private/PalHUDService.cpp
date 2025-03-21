@@ -47,6 +47,10 @@ FGuid UPalHUDService::Push(TSubclassOf<UPalUserWidgetStackableUI> WidgetClass, U
 void UPalHUDService::PlayAkSound(UAkAudioEvent* AkEvent) {
 }
 
+bool UPalHUDService::IsAnyOverlayUIActive() {
+    return false;
+}
+
 void UPalHUDService::InvokeFunction_Int32(const FName FunctionName, int32 Value) {
 }
 

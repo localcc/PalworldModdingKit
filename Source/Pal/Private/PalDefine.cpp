@@ -43,6 +43,10 @@ FGameplayTag UPalDefine::UILayerTag_Game() {
     return FGameplayTag{};
 }
 
+FName UPalDefine::TribeIDName_Human() {
+    return NAME_None;
+}
+
 FName UPalDefine::TextId_UICommon_SystemMessageUnlockFastTravel() {
     return NAME_None;
 }
@@ -156,6 +160,10 @@ FName UPalDefine::StaticItemID_UnlockAccessorySlot_01() {
 }
 
 FName UPalDefine::StaticItemID_Money() {
+    return NAME_None;
+}
+
+FName UPalDefine::StaticItemID_ButcheringImportedPal() {
     return NAME_None;
 }
 

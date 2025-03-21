@@ -18,7 +18,7 @@ void UPalUIPalBoxBase::TryLoosePal(UPalIndividualCharacterSlot* TargetSlot) {
 void UPalUIPalBoxBase::ToggleFavorite(UPalIndividualCharacterSlot* TargetSlot) {
 }
 
-void UPalUIPalBoxBase::SetPagePalBoxList(int32 newPage) {
+void UPalUIPalBoxBase::SetPagePalBoxList(int32 NewPage) {
 }
 
 void UPalUIPalBoxBase::SetBaseCampId(const FGuid& BaseCampId) {
@@ -34,6 +34,10 @@ void UPalUIPalBoxBase::OnUpdateWorkerCapacity(UPalIndividualCharacterContainer* 
 }
 
 
+
+bool UPalUIPalBoxBase::GetNowDisplayWorkerList(TArray<UPalIndividualCharacterSlot*>& OutSlots) {
+    return false;
+}
 
 int32 UPalUIPalBoxBase::GetBoxMaxPageNum() {
     return 0;

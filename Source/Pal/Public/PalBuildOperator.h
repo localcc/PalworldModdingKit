@@ -4,7 +4,9 @@
 #include "BuildingSurfaceMaterialSet.h"
 #include "PalBuildOperator.generated.h"
 
+class UDataTable;
 class UPalBuildObjectDataMap;
+class UPalMapObjectModel;
 
 UCLASS(Blueprintable)
 class UPalBuildOperator : public UObject {
@@ -25,5 +27,8 @@ protected:
 public:
     UPalBuildOperator();
 
+    UFUNCTION(BlueprintCallable)
+    void Editor_ResetDataTable(UDataTable* InBuildObjectDataTable, UDataTable* InBuildObjectNameTable, UDataTable* InBuildObjectDescTable);
+    
 };
 

@@ -7,6 +7,9 @@ UPalAIActionBase::UPalAIActionBase() {
     this->DefaultPriority = EAIRequestPriority::SoftScript;
 }
 
+void UPalAIActionBase::SetWalkSpeedByMaxSpeed_ForAIAction(const float MaxSpeed, const EPalMovementSpeedType DefaultMoveSpeedType) {
+}
+
 void UPalAIActionBase::SetWalkSpeed_ForAIAction(EPalMovementSpeedType MoveSpeedType) {
 }
 

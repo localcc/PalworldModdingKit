@@ -7,4 +7,12 @@ UPalBuildObjectVisualControlComponent::UPalBuildObjectVisualControlComponent(con
 void UPalBuildObjectVisualControlComponent::OnReplicatedChildActor(UChildActorComponent* ChildActorComponent) {
 }
 
+UMaterialInstance* UPalBuildObjectVisualControlComponent::GetMaterialInstanceNormal(UMeshComponent* MeshComponent, const int32 MaterialIndex) {
+    return NULL;
+}
+
+UMaterialInstanceDynamic* UPalBuildObjectVisualControlComponent::GetMaterialInstanceDynamic(UMeshComponent* MeshComponent, const int32 MaterialIndex) {
+    return NULL;
+}
+
 

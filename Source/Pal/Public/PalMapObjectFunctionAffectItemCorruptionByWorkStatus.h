@@ -9,6 +9,11 @@ UCLASS(Blueprintable)
 class PAL_API UPalMapObjectFunctionAffectItemCorruptionByWorkStatus : public UPalMapObjectFunctionAffectedByWorkStatusBase {
     GENERATED_BODY()
 public:
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bWorkableOnlyExistsCorruptibleItem;
+    
+public:
     UPalMapObjectFunctionAffectItemCorruptionByWorkStatus();
 
 private:

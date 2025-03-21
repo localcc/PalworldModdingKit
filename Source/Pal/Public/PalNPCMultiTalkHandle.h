@@ -5,7 +5,7 @@
 
 class UDataTable;
 class UPalPlayerDataStorage;
-class UPalPlayerLocalRecordData;
+class UPalPlayerRecordData;
 
 UCLASS(Blueprintable)
 class PAL_API UPalNPCMultiTalkHandle : public UObject {
@@ -13,7 +13,7 @@ class PAL_API UPalNPCMultiTalkHandle : public UObject {
 public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FName TalkId;
+    FName TalkID;
     
 public:
     UPalNPCMultiTalkHandle();
@@ -36,10 +36,10 @@ public:
     UDataTable* GetTalkData(const FName& inTalkID);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    UPalPlayerDataStorage* GetPlayerDataStorage() const;
+    UPalPlayerRecordData* GetRecordData() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    UPalPlayerLocalRecordData* GetLocalRecordData() const;
+    UPalPlayerDataStorage* GetPlayerDataStorage() const;
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintPure)

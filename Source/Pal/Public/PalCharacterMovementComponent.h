@@ -28,6 +28,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnFlyDelegate, UPalCharacterMovementComponent*, Component);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnExitWater);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnEnterWater);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnEndRolling);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangeSwimming, bool, IsInSwimming);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnChangeSprint, UPalCharacterMovementComponent*, Component, bool, IsInSprint);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnChangeSliding, UPalCharacterMovementComponent*, Component, bool, IsInSliding);
@@ -66,6 +67,9 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnJumpDisable OnJumpDisableDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnEndRolling OnEndRollingDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnChangeGroundType OnChangeGroundTypeDelegate;
@@ -195,6 +199,9 @@ private:
     bool bRequestGliding;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bRequestEndRolling;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bRequestSprint;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -253,6 +260,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TEnumAsByte<ENetRole> LastNetRole;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FVector ResolvePenetrationTotalAdjustment;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_CustomMovementMode_ForReplicate, meta=(AllowPrivateAccess=true))
     EPalCharacterMovementCustomMode CustomMovementMode_ForReplicate;
@@ -402,6 +412,9 @@ public:
     void RequestTemporaryAcceleration();
     
     UFUNCTION(BlueprintCallable)
+    void RequestEndRolling(bool bEndRolling);
+    
+    UFUNCTION(BlueprintCallable)
     void RemoveWalkableFloorAngleOverrides(EPalWalkableFloorAnglePriority Priority);
     
 private:
@@ -455,6 +468,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsRequestGliding() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsRequestEndRolling() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPysicsAcceleration() const;
@@ -520,6 +536,9 @@ public:
     float GetSlideAlphaMultiplier() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    EPalMovementSpeedType GetMovementSpeedTypeLesserThan(const float Speed) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetMaxAccelerationMultiplier() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -544,6 +563,9 @@ public:
     FVector GetGrapplingHitNormal() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetDefaultWalkSpeedByType(EPalMovementSpeedType MoveSpeedType) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetDefaultRunSpeed();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -551,6 +573,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetAirControlXYMultiplier() const;
+    
+    UFUNCTION(BlueprintCallable)
+    void Debug_SetEnableBuoyancyTestMode(bool IsEnable);
     
 private:
     UFUNCTION(BlueprintCallable)

@@ -68,6 +68,9 @@ public:
     FSoftObjectPath NoteDataTableAssetPath;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSoftObjectPath NPCAppearFlagDataTableAssetPath;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSoftObjectPath WorldMapAreaDataTableAssetPath;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))

@@ -3,6 +3,7 @@
 #include "UObject/NoExportTypes.h"
 #include "GameDateTime.h"
 #include "PalIndividualCharacterSaveParameter.h"
+#include "PalInstanceID.h"
 #include "PalCharacterStoredParameterInfo.generated.h"
 
 USTRUCT(BlueprintType)
@@ -17,6 +18,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGuid LostPlayerUId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalInstanceID InstanceId;
     
     PAL_API FPalCharacterStoredParameterInfo();
 };

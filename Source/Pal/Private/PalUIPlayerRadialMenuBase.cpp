@@ -9,4 +9,7 @@ void UPalUIPlayerRadialMenuBase::SelectedFeed(const FPalItemSlotId& itemSlotId, 
 void UPalUIPlayerRadialMenuBase::OpenOtomoFeedInventory() {
 }
 
+void UPalUIPlayerRadialMenuBase::LaunchPhotoMode() {
+}
+
 

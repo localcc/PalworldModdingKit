@@ -3,6 +3,7 @@
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "PalCharacterStoredParameterId.h"
+#include "PalCharacterStoredParameterInfo.h"
 #include "PalIndividualCharacterSaveParameter.h"
 #include "PalMapObjectConcreteModelBase.h"
 #include "PalMapObjectPickableCharacterModelBase.generated.h"
@@ -16,7 +17,7 @@ private:
     FPalCharacterStoredParameterId StoredParameterId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
-    FPalIndividualCharacterSaveParameter ForRead_CharacterSaveParameter;
+    FPalCharacterStoredParameterInfo ForRead_StoredParameter;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FGuid LocationId;

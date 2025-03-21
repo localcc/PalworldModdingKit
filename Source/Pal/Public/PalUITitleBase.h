@@ -8,5 +8,10 @@ class PAL_API UPalUITitleBase : public UPalUserWidgetStackableUI {
     GENERATED_BODY()
 public:
     UPalUITitleBase();
+
+protected:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool ShouldShowGlobalPalStorageNewMark() const;
+    
 };
 

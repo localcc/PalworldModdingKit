@@ -12,7 +12,7 @@ public:
     EPalIncidentTalkType TalkType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FName TalkId;
+    FName TalkID;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName RequestItem;

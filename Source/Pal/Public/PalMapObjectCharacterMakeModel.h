@@ -14,6 +14,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalUserWidgetOverlayUI> CharacterMakeWidget;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UPalUserWidgetOverlayUI> CharacterDressingWidget;
+    
     UPalMapObjectCharacterMakeModel();
 
 protected:

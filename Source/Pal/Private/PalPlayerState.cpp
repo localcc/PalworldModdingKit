@@ -22,10 +22,13 @@ APalPlayerState::APalPlayerState(const FObjectInitializer& ObjectInitializer) : 
     this->UserAchievementChecker = NULL;
     this->bIsNewCharacter = false;
     this->TryCreateIndividualHandleTemporarily = NULL;
-    this->bIsCompleteLoadInitWorldPartition_InServer = true;
+    this->bIsCompleteLoadInitWorldPartition_InServer = false;
     this->bIsCompleteSyncPlayerFromServer_InClient = false;
     this->ChatCounter = 0;
     this->DisableGuildJoin = false;
+}
+
+void APalPlayerState::WaitWorldPartitionDelegateFromAction(FGuid InGuid, FTimerHandle& OutTimerHandle, APalPlayerState::FOnCompleteLoadWorldPartitionDelegate Delegate) {
 }
 
 void APalPlayerState::WaitWorldPartitionDelegate(FTimerHandle& OutTimerHandle, APalPlayerState::FOnCompleteLoadWorldPartitionDelegate Delegate) {
@@ -44,6 +47,9 @@ void APalPlayerState::ShowBossDefeatRewardUI(const FPalUIBossDefeatRewardDisplay
 }
 
 void APalPlayerState::SendRandomizerReplicateData_Implementation(FPalRandomizerReplicateData InRandomizerReplicateData) {
+}
+
+void APalPlayerState::SendCompleteLoadWorldPartition_InServer_Implementation(FGuid InGuid, bool bIsComplete) {
 }
 
 void APalPlayerState::SendAccountInitData_ForServer_Implementation(const FPalPlayerAccountInitData& accountInitData) {
@@ -67,19 +73,29 @@ void APalPlayerState::RequestJoinPlayer_ToServer_Implementation(const FGuid& Joi
 void APalPlayerState::RequestForceSyncPalBoxSlot_ToServer_Implementation(bool isForceSync) {
 }
 
+void APalPlayerState::RequestDeletePlayerSelf_ToServer_Implementation() {
+}
+
+bool APalPlayerState::RequestDeletePlayerSelf() {
+    return false;
+}
+
 void APalPlayerState::RequestBotLocation_Implementation() {
 }
 
 void APalPlayerState::RequestAccountInitData_ForClient_Implementation() {
 }
 
-void APalPlayerState::RegisterForPalDex_ToClient_Implementation(const FPalUIPalCaptureInfo& CaptureInfo) {
+void APalPlayerState::RegisterForPalDex_ToClient_Implementation(const FPalUIPalCaptureInfo& CaptureInfo, bool bDisplayHUD) {
 }
 
-void APalPlayerState::RegisterForPalDex_ServerInternal(FPalInstanceID IndividualId) {
+void APalPlayerState::RegisterForPalDex_ServerInternal(FPalInstanceID IndividualId, bool bDisplayHUD) {
 }
 
 void APalPlayerState::ReceiveNotifyLoginComplete_Implementation() {
+}
+
+void APalPlayerState::ReceiveDeletePlayerSelf_ToRequestClient_Implementation(bool bIsSuccess) {
 }
 
 void APalPlayerState::ReceiveBuildResult_ToRequestClient_Implementation(const EPalMapObjectOperationResult Result, FPalBuildResultParameter BuildResultParameter) {
@@ -113,6 +129,9 @@ void APalPlayerState::OnMultiHatchedIndividualHandle_ServerInternal(FPalInstance
 }
 
 void APalPlayerState::OnFinishInitSelectMapTeleport(const FGuid TeleportPlayerUId) {
+}
+
+void APalPlayerState::OnEndLocalWorldAutoSave(bool bIsSuccess) {
 }
 
 void APalPlayerState::OnCreatePlayerIndividualHandle_InServer(FPalInstanceID ID) {
@@ -182,6 +201,10 @@ bool APalPlayerState::IsInStateByStageType(EPalStageType StageType) const {
 }
 
 bool APalPlayerState::IsInStage() const {
+    return false;
+}
+
+bool APalPlayerState::IsCompleteLoadWorldPartition_InServer(FGuid InGuid) const {
     return false;
 }
 
@@ -260,6 +283,9 @@ void APalPlayerState::Debug_ShutdownToClient_Implementation() {
 void APalPlayerState::Debug_SetOverridePlayerUID(FGuid NewPlayerUId) {
 }
 
+void APalPlayerState::Debug_SetIsOverridePlayerUIDToClient_Implementation(bool bIsOverride) {
+}
+
 void APalPlayerState::Debug_SetDestructionByCompleteBuiltFlag_ToServer_Implementation() {
 }
 
@@ -317,6 +343,9 @@ void APalPlayerState::Debug_BuildDebugBaseCamp_ToServer_Implementation(FName Cam
 void APalPlayerState::Debug_BotEnterDungeon_ToServer_Implementation() {
 }
 
+void APalPlayerState::ClearCompleteLoadWorldPartition_InServer(FGuid InGuid) {
+}
+
 void APalPlayerState::CallOrRegisterOnCompleteSyncPlayerFromServer_InClient(APalPlayerState::FReturnSelfSingleDelegate Delegate) {
 }
 
@@ -339,6 +368,9 @@ void APalPlayerState::AddFullInventoryLog_ToClient_Implementation() const {
 }
 
 void APalPlayerState::AddBaseCampWorkerMovementLog_Implementation(const TArray<FPalBaseCampWorkerMovementLogDisplayData>& DisplayDataArray) {
+}
+
+void APalPlayerState::AchivementUnlockCheck() {
 }
 
 void APalPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {

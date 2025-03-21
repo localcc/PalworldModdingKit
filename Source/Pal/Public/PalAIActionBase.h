@@ -55,6 +55,9 @@ public:
     UPalAIActionBase();
 
     UFUNCTION(BlueprintCallable)
+    void SetWalkSpeedByMaxSpeed_ForAIAction(const float MaxSpeed, const EPalMovementSpeedType DefaultMoveSpeedType);
+    
+    UFUNCTION(BlueprintCallable)
     void SetWalkSpeed_ForAIAction(EPalMovementSpeedType MoveSpeedType);
     
     UFUNCTION(BlueprintCallable)

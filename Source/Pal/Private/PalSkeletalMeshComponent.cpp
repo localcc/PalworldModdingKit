@@ -8,6 +8,7 @@ UPalSkeletalMeshComponent::UPalSkeletalMeshComponent(const FObjectInitializer& O
     this->PitchAngle = 0.00f;
     this->RollAngle = 0.00f;
     this->TiltingInterpTime = 0.25f;
+    this->bEnableCCDForRootOnlyInRagdoll = false;
     this->TiltTimer = 0.00f;
     this->UpdateRate = 0.00f;
     this->EvaluationRate = 0.00f;

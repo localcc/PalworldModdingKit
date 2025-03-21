@@ -375,6 +375,9 @@ void UPalCharacterParameterComponent::AddTrapMovingPanel(AActor* TrapActor) {
 void UPalCharacterParameterComponent::AddTrapLegHold(AActor* TrapActor) {
 }
 
+void UPalCharacterParameterComponent::AddHPByRate(float Rate) {
+}
+
 void UPalCharacterParameterComponent::AddDyingHP(float AddHP) {
 }
 

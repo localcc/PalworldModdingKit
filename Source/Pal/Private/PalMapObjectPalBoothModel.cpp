@@ -2,6 +2,7 @@
 #include "Net/UnrealNetwork.h"
 
 UPalMapObjectPalBoothModel::UPalMapObjectPalBoothModel() {
+    this->WorkAffection = NULL;
 }
 
 void UPalMapObjectPalBoothModel::RequestTrade_ServerInternal(const int32 RequestPlayerId, const FPalNetArchive& Archive) {

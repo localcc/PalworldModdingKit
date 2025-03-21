@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "EPalPlayerPlatform.h"
 #include "PlayerListItem.generated.h"
 
 USTRUCT(BlueprintType)
@@ -14,6 +15,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString UserId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString NickName;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalPlayerPlatform PlayerPlatform;
     
     PAL_API FPlayerListItem();
 };

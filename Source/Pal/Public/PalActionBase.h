@@ -42,6 +42,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsDisableNavWalk;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsEnableAutoBlink;
+    
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsReflectForClient;
@@ -124,6 +127,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalIndividualCharacterParameter* GetActionIndividualCharacterParameter() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FGuid GetActionID() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     APalCharacter* GetActionCharacter() const;

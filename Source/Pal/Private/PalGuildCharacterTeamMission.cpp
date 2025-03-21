@@ -2,6 +2,7 @@
 #include "Net/UnrealNetwork.h"
 
 UPalGuildCharacterTeamMission::UPalGuildCharacterTeamMission() {
+    this->GuildExpedtionCount = 0;
 }
 
 void UPalGuildCharacterTeamMission::OnUpdatePlayerTowerBossDefeatFlag_ServerInternal(FName Key, bool NewValue) {
@@ -22,6 +23,7 @@ void UPalGuildCharacterTeamMission::OnFinishedApplyWorldSaveData_ServerInternal(
 void UPalGuildCharacterTeamMission::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
+    DOREPLIFETIME(UPalGuildCharacterTeamMission, GuildExpedtionCount);
     DOREPLIFETIME(UPalGuildCharacterTeamMission, ReleasedMissionInfos);
 }
 

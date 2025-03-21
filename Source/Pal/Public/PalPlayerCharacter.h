@@ -21,6 +21,7 @@
 class AActor;
 class APalPlayerCharacter;
 class APalPlayerController;
+class APalPlayerState;
 class UAnimMontage;
 class UPalActionBase;
 class UPalArenaSequencer;
@@ -163,6 +164,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     bool IsAdjustedLocationByLoad;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsLogoutPlayer;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UAnimMontage* IdleAnimMontage;
     
@@ -174,6 +178,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsSetRespawnTelemetry;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    APalPlayerState* CachedPlayerState;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalPlayerGenderChanger> GenderChangerClass;
@@ -206,6 +213,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetDisablePlayerInput(FName flagName, bool Disable);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetDisableCollisionBlockCharacter(bool bDisable);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void SetCharacterMakeInfo_ToAll(FPalPlayerDataCharacterMakeInfo NextInfo);
@@ -331,6 +341,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FRotator GetCameraRotator() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    APalPlayerState* GetCachedPlayerState() const;
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void CreateLantern();

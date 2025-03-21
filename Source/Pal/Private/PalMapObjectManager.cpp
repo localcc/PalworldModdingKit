@@ -5,6 +5,7 @@ UPalMapObjectManager::UPalMapObjectManager() {
     this->BuildObjectNameTable = NULL;
     this->BuildObjectDescTable = NULL;
     this->MapObjectAssignTable = NULL;
+    this->MapObjectDataTableForEnemyCamp = NULL;
     this->FoliagePresetDataSet = NULL;
     this->FoliageModelChunkClass = NULL;
     this->FoliageGridSize = 25600;

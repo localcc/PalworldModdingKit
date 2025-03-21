@@ -22,7 +22,7 @@ public:
 
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void RequestUnlockSlot_ToServer(const FGuid& RequestID, const FPalCharacterSlotId& SlotID);
+    void RequestUnlockSlot_ToServer(const FGuid& RequestID, const FPalCharacterSlotId& SlotId);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestSwap_ToServer_Rep(const FPalCharacterSlotId& SlotIdA, const FPalCharacterSlotId& SlotIdB);
@@ -31,13 +31,19 @@ private:
     void RequestSortContainer_ToServer(const FPalContainerId& ContainerId, const FPalCharacterContainerSortInfo& SortInfo);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void RequestEmptySlot_ToServer_Rep(const FPalCharacterSlotId& SlotID);
+    void RequestMoveToPalBox_ToServer_Rep(const FPalCharacterSlotId& SlotId, const FPalContainerId& ContainerId, const int32 CurrentPage);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestMove_ToServer_Rep(const FPalCharacterSlotId& SlotId, const FPalContainerId& ContainerId);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestEmptySlot_ToServer_Rep(const FPalCharacterSlotId& SlotId);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void RecieveUnlockSlot_ToRequestClient(const FGuid& RequestID, const EPalCharacterContainerOperationResult Result);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
-    void RecieveUnlockSlot_ToClient(const FPalCharacterSlotId& SlotID);
+    void RecieveUnlockSlot_ToClient(const FPalCharacterSlotId& SlotId);
     
 };
 

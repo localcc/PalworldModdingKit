@@ -3,7 +3,7 @@
 UPalItemContainerManager::UPalItemContainerManager() {
 }
 
-bool UPalItemContainerManager::TryGetSlot(const FPalItemSlotId& SlotID, UPalItemSlot*& Slot) const {
+bool UPalItemContainerManager::TryGetSlot(const FPalItemSlotId& SlotId, UPalItemSlot*& Slot) const {
     return false;
 }
 
@@ -11,7 +11,7 @@ bool UPalItemContainerManager::TryGetContainer(const FPalContainerId& ContainerI
     return false;
 }
 
-FGuid UPalItemContainerManager::GetGroupIdByItemSlotId(const UObject* WorldContextObject, const FPalItemSlotId& SlotID) {
+FGuid UPalItemContainerManager::GetGroupIdByItemSlotId(const UObject* WorldContextObject, const FPalItemSlotId& SlotId) {
     return FGuid{};
 }
 

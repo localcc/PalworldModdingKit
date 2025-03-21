@@ -140,6 +140,9 @@ public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Dev_SetOverridePlayerUID_ToServer(const FGuid& PlayerUId);
     
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void Dev_SetOverridePlayerUID_ToClient(const FGuid& PlayerUId);
+    
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Dev_SetEnablePlayerRespawnInHardcore(bool bEnable);
     

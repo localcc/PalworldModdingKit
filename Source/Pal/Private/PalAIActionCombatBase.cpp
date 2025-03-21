@@ -8,6 +8,7 @@ UPalAIActionCombatBase::UPalAIActionCombatBase() {
     this->NextIsWaza = false;
     this->NextWazaSlotIndex = 0;
     this->NextActionClass = NULL;
+    this->bForcePartnerSkill = false;
     this->InterruptSkillSlotID = -1;
     this->bInterruptSkill = false;
     this->bInterruptSkillWaiting = false;

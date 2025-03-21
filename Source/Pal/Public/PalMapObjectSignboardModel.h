@@ -57,6 +57,9 @@ private:
     void OnOpenEdit();
     
     UFUNCTION(BlueprintCallable)
+    void OnChangedBlockedUsersByUserId(const FString& UserId);
+    
+    UFUNCTION(BlueprintCallable)
     void OnChangedBlockedUsers();
     
 public:

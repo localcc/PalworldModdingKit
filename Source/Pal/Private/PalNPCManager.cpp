@@ -17,6 +17,9 @@ UPalIndividualCharacterHandle* UPalNPCManager::SpawnNPCForServer(FPalNPCSpawnInf
     return NULL;
 }
 
+void UPalNPCManager::SetTrueNPCAppearFlag(FPalDataTableRowName_NPCAppearFlagData flagName) {
+}
+
 void UPalNPCManager::SetEnemyCampStatus(FName KeyName, FPalEnemyCampStatus EnemyCampStatus) {
 }
 
@@ -39,7 +42,7 @@ UDataTable* UPalNPCManager::GetNPCTalkDTFromTalkUIType(EPalNPCTalkUIType TalkUIT
     return NULL;
 }
 
-UDataTable* UPalNPCManager::GetNPCOneTalkDTFromTalkId(FName TalkId) {
+UDataTable* UPalNPCManager::GetNPCOneTalkDTFromTalkId(FName TalkID) {
     return NULL;
 }
 
@@ -47,7 +50,7 @@ UDataTable* UPalNPCManager::GetNPCOneTalkDTFromCharacter(APalCharacter* Characte
     return NULL;
 }
 
-TSubclassOf<UPalNPCMultiTalkHandle> UPalNPCManager::GetNPCMultiTalkClassFromTalkId(FName TalkId) {
+TSubclassOf<UPalNPCMultiTalkHandle> UPalNPCManager::GetNPCMultiTalkClassFromTalkId(FName TalkID) {
     return NULL;
 }
 
@@ -73,6 +76,10 @@ FName UPalNPCManager::GetCharacterIDFromUniqueNPCID(FName UniqueNPCID) {
 
 FName UPalNPCManager::GetCharacterIDFromCharacterIDAndUniqueNPCID(FName CharacterID, FName UniqueNPCID) {
     return NAME_None;
+}
+
+bool UPalNPCManager::GetCanSpawnByNPCAppearFlag(FPalDataTableRowName_NPCAppearFlagData flagName, bool FlagCondition) {
+    return false;
 }
 
 void UPalNPCManager::AllResetBossRespawnFlag() {

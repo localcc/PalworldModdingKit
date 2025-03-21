@@ -12,6 +12,7 @@
 #include "PalDatabaseCharacterParameter.h"
 #include "PalDeadBodyManager.h"
 #include "PalDeathPenaltyManager.h"
+#include "PalDimensionLockerControlSubsystem.h"
 #include "PalEventNotifySystem.h"
 #include "PalExpDatabase.h"
 #include "PalGameSetting.h"
@@ -43,6 +44,8 @@ UPalGameInstance::UPalGameInstance() {
     this->LoginManager = NULL;
     this->GameSettingClass = UPalGameSetting::StaticClass();
     this->GameSetting = NULL;
+    this->OnlineManager = NULL;
+    this->GdkManager = NULL;
     this->PsnManager = NULL;
     this->MasterDataTablesClass = UPalMasterDataTables::StaticClass();
     this->MasterDataTables = NULL;
@@ -111,8 +114,10 @@ UPalGameInstance::UPalGameInstance() {
     this->SupplyManagerClass = UPalSupplyManager::StaticClass();
     this->ShopManagerSubsystemClass = UPalShopManager::StaticClass();
     this->ObjectPoolClass = NULL;
-    this->revisionNum = 66880;
+    this->FishingSystemClass = NULL;
+    this->revisionNum = 67935;
     this->bUseAsyncMovement = true;
+    this->DimensionLockerControlSubsystemClass = UPalDimensionLockerControlSubsystem::StaticClass();
     this->DisplaySafeAreaDebugger = NULL;
     this->TitleBGMPlayerClass = UPalPersistentSoundPlayer::StaticClass();
     this->TitleBGMPlayer = NULL;
@@ -179,6 +184,14 @@ FString UPalGameInstance::GetSelectedWorldName() const {
 }
 
 UPalPsnManager* UPalGameInstance::GetPsnManager() const {
+    return NULL;
+}
+
+UPalOnlineManager* UPalGameInstance::GetOnlineManager() const {
+    return NULL;
+}
+
+UPalGdkManager* UPalGameInstance::GetGdkManager() const {
     return NULL;
 }
 

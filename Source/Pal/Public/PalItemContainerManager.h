@@ -36,13 +36,13 @@ public:
     UPalItemContainerManager();
 
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool TryGetSlot(const FPalItemSlotId& SlotID, UPalItemSlot*& Slot) const;
+    bool TryGetSlot(const FPalItemSlotId& SlotId, UPalItemSlot*& Slot) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool TryGetContainer(const FPalContainerId& ContainerId, UPalItemContainer*& Container) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static FGuid GetGroupIdByItemSlotId(const UObject* WorldContextObject, const FPalItemSlotId& SlotID);
+    static FGuid GetGroupIdByItemSlotId(const UObject* WorldContextObject, const FPalItemSlotId& SlotId);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FGuid GetGroupIdByItemContainerId(const UObject* WorldContextObject, const FPalContainerId& ContainerId);

@@ -19,5 +19,11 @@ enum class EPalMapObjectDestroyFXType : uint8 {
     FoliageTree_CherryBlossom,
     Mushroom,
     Glass,
+    FoliageTree_Red,
+    FoliageTree_Yellow,
+    FoliageTree_Pink,
+    FoliageTree_Dead,
+    FoliageTree_Snow,
+    Blueprint_BuildCancel,
 };
 

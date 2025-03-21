@@ -18,11 +18,11 @@ UDataTable* UPalNPCMultiTalkHandle::GetTalkData_Implementation(const FName& inTa
     return NULL;
 }
 
-UPalPlayerDataStorage* UPalNPCMultiTalkHandle::GetPlayerDataStorage() const {
+UPalPlayerRecordData* UPalNPCMultiTalkHandle::GetRecordData() const {
     return NULL;
 }
 
-UPalPlayerLocalRecordData* UPalNPCMultiTalkHandle::GetLocalRecordData() const {
+UPalPlayerDataStorage* UPalNPCMultiTalkHandle::GetPlayerDataStorage() const {
     return NULL;
 }
 

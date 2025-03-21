@@ -3,7 +3,7 @@
 UGDKActivityAsyncFunction::UGDKActivityAsyncFunction() {
 }
 
-UGDKActivityAsyncFunction* UGDKActivityAsyncFunction::GDKActivityAsyncFunction(UPocketpairUserSubsystem* Target, const FString& ConnectionString, int32 MaxPlayerNum, int32 CurrentPlayerNum) {
+UGDKActivityAsyncFunction* UGDKActivityAsyncFunction::GDKActivityAsyncFunction(UPocketpairUserSubsystem* Target, const FString& ConnectionString, int32 MaxPlayerNum, int32 CurrentPlayerNum, bool bPublicSession) {
     return NULL;
 }
 

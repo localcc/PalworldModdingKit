@@ -16,7 +16,7 @@ public:
     FPalIndividualCharacterSaveParameter CharacterSaveParameter;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FPalCharacterSlotId SlotID;
+    FPalCharacterSlotId SlotId;
     
     PAL_API FPalPlayerDataPalStorageSlotSaveData();
 };

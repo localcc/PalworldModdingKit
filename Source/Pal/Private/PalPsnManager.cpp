@@ -22,6 +22,9 @@ void UPalPsnManager::ShowPlayerProfile(const FString& UserId) {
 void UPalPsnManager::ShowCommunicatonRestrictionSystemDialog() const {
 }
 
+void UPalPsnManager::SetCrossPlayPremiumFeature(bool bFlag) {
+}
+
 void UPalPsnManager::SetCompleteSetupInGame(bool flag) {
 }
 
@@ -44,10 +47,6 @@ void UPalPsnManager::GetLoggedInPlayerNames(TArray<FString>& OutNames) {
 }
 
 void UPalPsnManager::GetEULALanguageCode(FString& LanguageCode) const {
-}
-
-bool UPalPsnManager::CanShowUGC(const UPalIndividualCharacterParameter* InParameter) const {
-    return false;
 }
 
 void UPalPsnManager::AgreeEULA() {

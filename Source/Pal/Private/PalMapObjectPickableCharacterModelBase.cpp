@@ -24,7 +24,7 @@ FPalIndividualCharacterSaveParameter UPalMapObjectPickableCharacterModelBase::Ge
 void UPalMapObjectPickableCharacterModelBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
-    DOREPLIFETIME(UPalMapObjectPickableCharacterModelBase, ForRead_CharacterSaveParameter);
+    DOREPLIFETIME(UPalMapObjectPickableCharacterModelBase, ForRead_StoredParameter);
     DOREPLIFETIME(UPalMapObjectPickableCharacterModelBase, LocationId);
     DOREPLIFETIME(UPalMapObjectPickableCharacterModelBase, CreatedAtRealTime);
 }

@@ -9,6 +9,7 @@
 class UPalIndividualCharacterContainer;
 class UPalIndividualCharacterSlot;
 class UPalIndividualCharacterSlotsObserver;
+class UPalPlayerDataPalDimensionStorage;
 
 UCLASS(Blueprintable)
 class UPalPlayerDataPalStorage : public UObject {
@@ -39,6 +40,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FPalInstanceID, FFlagContainer> RequiredReplicatesFlagMapInServer;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    UPalPlayerDataPalDimensionStorage* PalDimensionStorage;
+    
 public:
     UPalPlayerDataPalStorage();
 
@@ -57,10 +61,16 @@ public:
     void GetSlotsInPage(const int32 pageIndex, TArray<UPalIndividualCharacterSlot*>& Slots) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPalIndividualCharacterSlot* GetSlotBySlotIndex(const int32 SlotIndex) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalIndividualCharacterSlot* GetSlot(const int32 pageIndex, const int32 SlotIndex) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetPageNum() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPalPlayerDataPalDimensionStorage* GetDimensionStorage() const;
     
 };
 

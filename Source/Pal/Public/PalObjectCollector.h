@@ -33,7 +33,7 @@ private:
     FPalCharacterSpatialGrid PalCharacterGrid_Player;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<APalMapObjectSpawnerBase*> MapObject_SpawnerBase;
+    TMap<FGuid, APalMapObjectSpawnerBase*> MapObjectSpawnerMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<APalCharacter*, FPalCharacterList> NearestCharacter_FromPlayer;
@@ -68,5 +68,12 @@ private:
 public:
     UPalObjectCollector();
 
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnRemoveBaseCampModel_ServerInternal(const FGuid BaseCampId);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnCreateBaseCampModel_ServerInternal(const FGuid BaseCampId);
+    
 };
 

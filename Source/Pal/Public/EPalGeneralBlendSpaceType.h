@@ -10,5 +10,6 @@ enum class EPalGeneralBlendSpaceType : uint8 {
     FlyingMove,
     FlyingRidingMove,
     TransportingObjectMove,
+    Swim,
 };
 

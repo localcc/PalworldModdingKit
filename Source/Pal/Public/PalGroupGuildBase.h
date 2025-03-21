@@ -44,6 +44,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FGuid LastGuildNameModifierPlayerUid;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool EnableResetPropertiesWhenPlayerDelete;
+    
 public:
     UPalGroupGuildBase();
 

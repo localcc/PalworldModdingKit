@@ -3,6 +3,7 @@
 UPalRichTextBlockBase::UPalRichTextBlockBase() {
     this->IsAutoTextSetWhenWidgetRebuilt = false;
     this->IsAutoAdjustScale = false;
+    this->FontSizeOverride_VeryLarge = 16;
     this->IgnoreFontSizeSetting = false;
     this->MaxWidth = 100;
     this->JustificationVerticalCenter = false;

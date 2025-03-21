@@ -70,7 +70,7 @@ public:
     void Setup();
     
     UFUNCTION(BlueprintCallable)
-    void SelectItemSlot(const FPalItemSlotId SlotID, const EPalItemSlotPressType PressType);
+    void SelectItemSlot(const FPalItemSlotId SlotId, const EPalItemSlotPressType PressType);
     
     UFUNCTION(BlueprintCallable)
     void ResetLiftItem();

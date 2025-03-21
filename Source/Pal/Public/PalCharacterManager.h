@@ -65,6 +65,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TSet<FPalInstanceID> LoadedCharacterIDs;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSet<FPalInstanceID> InLockerCharacterIDs;
+    
 public:
     UPalCharacterManager();
 

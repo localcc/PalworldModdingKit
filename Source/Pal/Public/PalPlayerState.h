@@ -63,6 +63,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnLoadingProgressUpdate, int32, AddStep, int32, MaxStep);
     DECLARE_DYNAMIC_DELEGATE(FOnCompleteLoadWorldPartitionDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnCompleteLoadInitWorldPartitionDelegate);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangedPlayerUId, APalPlayerState*, PlayerState);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FEndCrimeDelegate, FGuid, CrimeInstanceId);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCapturePalDelegate, const FPalUIPalCaptureInfo&, CaptureInfo);
     
@@ -174,6 +175,9 @@ private:
     FGuid LoginTryingPlayerUId_InServer;
     
 public:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FGuid, bool> CompleteLoadWorldPartitionMap_InServer;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     bool bIsCompleteLoadInitWorldPartition_InServer;
     
@@ -211,6 +215,9 @@ public:
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
     UFUNCTION(BlueprintCallable)
+    void WaitWorldPartitionDelegateFromAction(FGuid InGuid, FTimerHandle& OutTimerHandle, APalPlayerState::FOnCompleteLoadWorldPartitionDelegate Delegate);
+    
+    UFUNCTION(BlueprintCallable)
     void WaitWorldPartitionDelegate(FTimerHandle& OutTimerHandle, APalPlayerState::FOnCompleteLoadWorldPartitionDelegate Delegate);
     
     UFUNCTION(BlueprintCallable)
@@ -227,6 +234,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void SendRandomizerReplicateData(FPalRandomizerReplicateData InRandomizerReplicateData);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void SendCompleteLoadWorldPartition_InServer(FGuid InGuid, bool bIsComplete);
     
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
@@ -253,6 +263,12 @@ public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestForceSyncPalBoxSlot_ToServer(bool isForceSync);
     
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestDeletePlayerSelf_ToServer();
+    
+    UFUNCTION(BlueprintCallable)
+    bool RequestDeletePlayerSelf();
+    
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestBotLocation();
@@ -262,13 +278,16 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, Client, Reliable)
-    void RegisterForPalDex_ToClient(const FPalUIPalCaptureInfo& CaptureInfo);
+    void RegisterForPalDex_ToClient(const FPalUIPalCaptureInfo& CaptureInfo, bool bDisplayHUD);
     
     UFUNCTION(BlueprintCallable)
-    void RegisterForPalDex_ServerInternal(FPalInstanceID IndividualId);
+    void RegisterForPalDex_ServerInternal(FPalInstanceID IndividualId, bool bDisplayHUD);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void ReceiveNotifyLoginComplete();
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void ReceiveDeletePlayerSelf_ToRequestClient(bool bIsSuccess);
     
 private:
     UFUNCTION(BlueprintCallable, Client, Reliable)
@@ -306,6 +325,11 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnFinishInitSelectMapTeleport(const FGuid TeleportPlayerUId);
     
+public:
+    UFUNCTION(BlueprintCallable)
+    void OnEndLocalWorldAutoSave(bool bIsSuccess);
+    
+private:
     UFUNCTION(BlueprintCallable)
     void OnCreatePlayerIndividualHandle_InServer(FPalInstanceID ID);
     
@@ -352,10 +376,10 @@ private:
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void NotifyFailedJoin_ToClient(const EPalPlayerJoinResult Result);
     
+public:
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void NotifyDropOtomoInfo(const TArray<FPalLogInfo_DropPal>& InDropPalInfo);
     
-public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void LoadTitleLevel(bool bIsSaveSuccess);
     
@@ -376,6 +400,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInStage() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsCompleteLoadWorldPartition_InServer(FGuid InGuid) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsCompleteLoadInitWorldPartition();
@@ -441,6 +468,11 @@ public:
     UFUNCTION(BlueprintCallable)
     void Debug_SetOverridePlayerUID(FGuid NewPlayerUId);
     
+private:
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void Debug_SetIsOverridePlayerUIDToClient(bool bIsOverride);
+    
+public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Debug_SetDestructionByCompleteBuiltFlag_ToServer();
     
@@ -509,6 +541,9 @@ public:
     void Debug_BotEnterDungeon_ToServer();
     
     UFUNCTION(BlueprintCallable)
+    void ClearCompleteLoadWorldPartition_InServer(FGuid InGuid);
+    
+    UFUNCTION(BlueprintCallable)
     void CallOrRegisterOnCompleteSyncPlayerFromServer_InClient(APalPlayerState::FReturnSelfSingleDelegate Delegate);
     
     UFUNCTION(BlueprintCallable)
@@ -531,6 +566,10 @@ public:
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void AddBaseCampWorkerMovementLog(const TArray<FPalBaseCampWorkerMovementLogDisplayData>& DisplayDataArray);
+    
+private:
+    UFUNCTION(BlueprintCallable)
+    void AchivementUnlockCheck();
     
 };
 

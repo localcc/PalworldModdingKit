@@ -69,6 +69,9 @@ public:
     FString NickName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString FilteredNickName;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool IsRarePal;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -165,7 +168,7 @@ public:
     FPalContainerId EquipItemContainerId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FPalCharacterSlotId SlotID;
+    FPalCharacterSlotId SlotId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float MaxFullStomach;
@@ -231,6 +234,9 @@ public:
     bool IsFavoritePal;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint8 FavoriteIndex;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGuid MapObjectConcreteInstanceIdAssignedToExpedition;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -244,6 +250,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGuid LastNickNameModifierPlayerUid;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bImportedCharacter;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FPalIndividualCharacterCacheParameter Dynamic;

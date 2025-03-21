@@ -27,6 +27,9 @@ APalAIController::APalAIController(const FObjectInitializer& ObjectInitializer) 
 void APalAIController::WaitForSeconds(float Time) {
 }
 
+void APalAIController::SkillCoolDownByTimerEvent() {
+}
+
 void APalAIController::SimpleMoveToActorWithLineTraceGround(const AActor* GoalActor) {
 }
 

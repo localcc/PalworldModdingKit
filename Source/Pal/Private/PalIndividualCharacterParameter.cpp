@@ -96,6 +96,9 @@ void UPalIndividualCharacterParameter::OnRep_IndividualActor() {
 void UPalIndividualCharacterParameter::OnReceivedWordFilteringResult(const FString& ResponseBody, bool bResponseOK, int32 ResponseCode) {
 }
 
+void UPalIndividualCharacterParameter::OnChangedBlockedUsersByUserId(const FString& UserId) {
+}
+
 void UPalIndividualCharacterParameter::OnChangedBlockedUsers() {
 }
 
@@ -135,6 +138,10 @@ bool UPalIndividualCharacterParameter::IsLevelMax() const {
 }
 
 bool UPalIndividualCharacterParameter::IsInArena() const {
+    return false;
+}
+
+bool UPalIndividualCharacterParameter::IsImportedCharacter() const {
     return false;
 }
 
@@ -384,6 +391,10 @@ float UPalIndividualCharacterParameter::GetFullStomach() const {
 
 float UPalIndividualCharacterParameter::GetFoodStatusRate(EPalFoodStatusEffectType EffectType) const {
     return 0.0f;
+}
+
+int32 UPalIndividualCharacterParameter::GetFavoriteIndex() const {
+    return 0;
 }
 
 int32 UPalIndividualCharacterParameter::GetExStatusPoint(FName StatusName) const {

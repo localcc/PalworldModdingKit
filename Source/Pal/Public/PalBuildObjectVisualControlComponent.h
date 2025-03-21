@@ -2,10 +2,13 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "PalBuildObjectMaterialArray.h"
+#include "PalBuildObjectMaterialInstanceDynamicArray.h"
 #include "PalBuildObjectVisualControlComponent.generated.h"
 
 class UChildActorComponent;
 class UDecalComponent;
+class UMaterialInstance;
+class UMaterialInstanceDynamic;
 class UMaterialInterface;
 class UMeshComponent;
 class UNiagaraComponent;
@@ -19,6 +22,9 @@ private:
     TMap<UMeshComponent*, FPalBuildObjectMaterialArray> NormalMaterialMapCache;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<UMeshComponent*, FPalBuildObjectMaterialInstanceDynamicArray> MaterialInstanceDynamicMapCache;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<UDecalComponent*, UMaterialInterface*> DecalNormalMaterialMapCache;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
@@ -30,6 +36,13 @@ public:
 private:
     UFUNCTION(BlueprintCallable)
     void OnReplicatedChildActor(UChildActorComponent* ChildActorComponent);
+    
+public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UMaterialInstance* GetMaterialInstanceNormal(UMeshComponent* MeshComponent, const int32 MaterialIndex);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UMaterialInstanceDynamic* GetMaterialInstanceDynamic(UMeshComponent* MeshComponent, const int32 MaterialIndex);
     
 };
 

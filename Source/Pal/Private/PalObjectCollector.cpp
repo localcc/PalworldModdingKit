@@ -8,4 +8,10 @@ UPalObjectCollector::UPalObjectCollector() {
     this->NearDistanceForSpawnerBaseFromBaseCamp = 5000.00f;
 }
 
+void UPalObjectCollector::OnRemoveBaseCampModel_ServerInternal(const FGuid BaseCampId) {
+}
+
+void UPalObjectCollector::OnCreateBaseCampModel_ServerInternal(const FGuid BaseCampId) {
+}
+
 

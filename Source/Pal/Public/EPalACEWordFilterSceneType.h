@@ -10,5 +10,6 @@ enum class EPalACEWordFilterSceneType : uint8 {
     GuildName,
     SignBoard,
     TextChat,
+    KillLog,
 };
 

@@ -3,6 +3,7 @@
 
 UPalPlayerRecordData::UPalPlayerRecordData() {
     this->BossDefeatCount = 0;
+    this->PredatorDefeatCount = 0;
     this->TribeCaptureCount = 0;
     this->PalCaptureBonusExpTableIndex = 0;
     this->NpcBonusExpTableIndex = 0;
@@ -39,7 +40,9 @@ void UPalPlayerRecordData::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
     DOREPLIFETIME(UPalPlayerRecordData, TowerBossDefeatCount);
     DOREPLIFETIME(UPalPlayerRecordData, NormalBossDefeatFlag);
     DOREPLIFETIME(UPalPlayerRecordData, RaidBossDefeatCount);
+    DOREPLIFETIME(UPalPlayerRecordData, SpecificBossDefeatFlag);
     DOREPLIFETIME(UPalPlayerRecordData, BossDefeatCount);
+    DOREPLIFETIME(UPalPlayerRecordData, PredatorDefeatCount);
     DOREPLIFETIME(UPalPlayerRecordData, TribeCaptureCount);
     DOREPLIFETIME(UPalPlayerRecordData, PalCaptureCount);
     DOREPLIFETIME(UPalPlayerRecordData, PalCaptureBonusCount);
@@ -61,6 +64,7 @@ void UPalPlayerRecordData::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
     DOREPLIFETIME(UPalPlayerRecordData, OilrigClearCount);
     DOREPLIFETIME(UPalPlayerRecordData, PalRankupCount);
     DOREPLIFETIME(UPalPlayerRecordData, CompletedEmoteNPCIDArray);
+    DOREPLIFETIME(UPalPlayerRecordData, NPCTalkCountMap);
     DOREPLIFETIME(UPalPlayerRecordData, Debug_EnteringStageDataLayerName);
     DOREPLIFETIME(UPalPlayerRecordData, Debug_LastEnteredStageDataLayerName);
 }

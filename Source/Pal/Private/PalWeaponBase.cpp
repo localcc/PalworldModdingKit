@@ -18,6 +18,7 @@ APalWeaponBase::APalWeaponBase(const FObjectInitializer& ObjectInitializer) : Su
     this->IsEmptyOtomoPal = false;
     this->CoolDownTime = 0.00f;
     this->IsTriggerOnlyFireWeapon = false;
+    this->IsInfinityMagazine = false;
     this->ShootBlurMaterialDynamic = NULL;
     this->ownWeaponStaticData = NULL;
     this->ownWeaponDynamicData = NULL;
@@ -214,6 +215,10 @@ FTransform APalWeaponBase::GetLeftHandTransform_Implementation() const {
 
 FPalItemId APalWeaponBase::GetItemId() const {
     return FPalItemId{};
+}
+
+int32 APalWeaponBase::GetInventoryBulletCount() const {
+    return 0;
 }
 
 FName APalWeaponBase::GetEquipSocketName_Implementation() {

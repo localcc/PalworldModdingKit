@@ -18,12 +18,16 @@ class UPalIndividualCharacterSlot : public UObject {
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateSlotLockDelegate, UPalIndividualCharacterSlot*, Slot);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdateSlotHandleDelegate, UPalIndividualCharacterSlot*, Slot, UPalIndividualCharacterHandle*, LastHandle);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FReplicatedParameterDelegate, UPalIndividualCharacterParameter*, Parameter);
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FUpdateSlotHandleDelegate OnUpdateSlotHandleDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FUpdateSlotLockDelegate OnUpdateSlotLockDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FReplicatedParameterDelegate OnReplicatedParameterDelegate;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -83,6 +87,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FGuid GetLockPlayerUId() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPalIndividualCharacterHandle* GetLastHandleForClient() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalIndividualCharacterHandle* GetHandle() const;

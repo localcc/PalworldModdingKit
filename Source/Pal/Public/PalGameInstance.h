@@ -29,11 +29,14 @@ class UPalDataTableRowIdMapper;
 class UPalDatabaseCharacterParameter;
 class UPalDeadBodyManager;
 class UPalDeathPenaltyManager;
+class UPalDimensionLockerControlSubsystem;
 class UPalDisplaySafeAreaDebugger;
 class UPalEventNotifySystem;
 class UPalExpDatabase;
+class UPalFishingSystem;
 class UPalGameSetting;
 class UPalGamepadButtonImageDatabase;
+class UPalGdkManager;
 class UPalGroupManager;
 class UPalHUDService;
 class UPalItemContainerManager;
@@ -47,6 +50,7 @@ class UPalNPCManager;
 class UPalObjectCollector;
 class UPalObjectPoolManager;
 class UPalOilrigManager;
+class UPalOnlineManager;
 class UPalPassiveSkillManager;
 class UPalPersistentSoundPlayer;
 class UPalPlayerDataStorage;
@@ -107,6 +111,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalGameSetting* GameSetting;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalOnlineManager* OnlineManager;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalGdkManager* GdkManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalPsnManager* PsnManager;
@@ -312,11 +322,17 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalObjectPoolManager> ObjectPoolClass;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UPalFishingSystem> FishingSystemClass;
+    
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 revisionNum;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bUseAsyncMovement;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UPalDimensionLockerControlSubsystem> DimensionLockerControlSubsystemClass;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FFxiedCharacterMakeData FxiedCharacterMakeDataDelegate;
@@ -417,6 +433,12 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalPsnManager* GetPsnManager() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPalOnlineManager* GetOnlineManager() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPalGdkManager* GetGdkManager() const;
     
     UFUNCTION(BlueprintCallable)
     void CompleteInitCharacterMakeData();

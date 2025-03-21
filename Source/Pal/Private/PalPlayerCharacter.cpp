@@ -20,10 +20,12 @@ APalPlayerCharacter::APalPlayerCharacter(const FObjectInitializer& ObjectInitial
     this->PlayerCameraYaw = 0.00f;
     this->PlayerCameraPitch = 0.00f;
     this->IsAdjustedLocationByLoad = false;
+    this->bIsLogoutPlayer = false;
     this->IdleAnimMontage = NULL;
     this->PlayerBattleSituation = NULL;
     this->IsNearCommonEnemyFlag = false;
     this->bIsSetRespawnTelemetry = false;
+    this->CachedPlayerState = NULL;
     this->GenderChangerClass = NULL;
     this->GenderChanger = NULL;
     this->bSpectatorMode = false;
@@ -42,6 +44,9 @@ void APalPlayerCharacter::SetNearCommonEnemy(bool IsExistNearEnemy) {
 }
 
 void APalPlayerCharacter::SetDisablePlayerInput(FName flagName, bool Disable) {
+}
+
+void APalPlayerCharacter::SetDisableCollisionBlockCharacter(bool bDisable) {
 }
 
 void APalPlayerCharacter::SetCharacterMakeInfo_ToAll_Implementation(FPalPlayerDataCharacterMakeInfo NextInfo) {
@@ -159,6 +164,10 @@ FRotator APalPlayerCharacter::GetCameraRotator() const {
     return FRotator{};
 }
 
+APalPlayerState* APalPlayerCharacter::GetCachedPlayerState() const {
+    return NULL;
+}
+
 
 
 void APalPlayerCharacter::ChangeToMale() {
@@ -185,6 +194,7 @@ void APalPlayerCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
     DOREPLIFETIME(APalPlayerCharacter, PlayerCameraYaw);
     DOREPLIFETIME(APalPlayerCharacter, PlayerCameraPitch);
     DOREPLIFETIME(APalPlayerCharacter, IsAdjustedLocationByLoad);
+    DOREPLIFETIME(APalPlayerCharacter, bIsLogoutPlayer);
     DOREPLIFETIME(APalPlayerCharacter, bSpectatorMode);
     DOREPLIFETIME(APalPlayerCharacter, CharacterMakeInfo);
 }

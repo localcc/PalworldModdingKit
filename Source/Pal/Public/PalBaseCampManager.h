@@ -25,6 +25,14 @@ UCLASS(Blueprintable, Config=Game)
 class UPalBaseCampManager : public UPalWorldSubsystem, public IPalBuildObjectSpawnValidationCheckInterface, public IPalGameWorldDataSaveInterface, public IPalSystemInitializeInterface {
     GENERATED_BODY()
 public:
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FReturnBaseCampIdDelegate, const FGuid, BaseCampId);
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FReturnBaseCampIdDelegate OnCreateBaseCampModelInServerDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FReturnBaseCampIdDelegate OnRemoveBaseCampModelInServerDelegate;
+    
 protected:
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName WorkerEventClassDirectoryPath;

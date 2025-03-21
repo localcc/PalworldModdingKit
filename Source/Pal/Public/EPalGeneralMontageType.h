@@ -50,5 +50,11 @@ enum class EPalGeneralMontageType : uint8 {
     SummonLoop,
     SummonEnd,
     DyingEnd,
+    Fishing_Aim,
+    Fishing_Start,
+    Fishing_Idle,
+    Fishing_End,
+    Fishing_Success,
+    Fishing_Fail,
 };
 

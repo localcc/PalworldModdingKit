@@ -10,7 +10,7 @@ struct FPalDynamicItemInfo {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FPalItemSlotId SlotID;
+    FPalItemSlotId SlotId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UPalDynamicItemDataBase* DynamicItemData;

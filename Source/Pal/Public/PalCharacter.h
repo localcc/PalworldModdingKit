@@ -8,6 +8,7 @@
 #include "EPalCharacterImportanceType.h"
 #include "FlagContainer.h"
 #include "PalCharacterCapsuleRootSettings.h"
+#include "PalDamageRactionInfo.h"
 #include "PalDeadInfo.h"
 #include "PalOnCharacterCompleteInitializeParameterDelegate.h"
 #include "PalCharacter.generated.h"
@@ -264,6 +265,9 @@ private:
 protected:
     UFUNCTION(BlueprintCallable)
     void OnDeadCharacter(FPalDeadInfo DeadInfo);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnDamageReaction(FPalDamageRactionInfo ReactionInfo);
     
 private:
     UFUNCTION(BlueprintCallable)

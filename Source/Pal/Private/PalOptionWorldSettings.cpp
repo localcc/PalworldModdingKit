@@ -51,6 +51,7 @@ FPalOptionWorldSettings::FPalOptionWorldSettings() {
     this->bIsPvP = false;
     this->bHardcore = false;
     this->bPalLost = false;
+    this->bCharacterRecreateInHardcore = false;
     this->bCanPickupOtherGuildDeathPenaltyDrop = false;
     this->bEnableNonLoginPenalty = false;
     this->bEnableFastTravel = false;
@@ -70,13 +71,14 @@ FPalOptionWorldSettings::FPalOptionWorldSettings() {
     this->RESTAPIPort = 0;
     this->bShowPlayerList = false;
     this->ChatPostLimitPerMinute = 0;
-    this->AllowConnectPlatform = EPalAllowConnectPlatform::Steam;
     this->bIsUseBackupSaveData = false;
     this->LogFormatType = EPalLogFormatType::Text;
     this->SupplyDropSpan = 0;
     this->EnablePredatorBossPal = false;
     this->MaxBuildingLimitNum = 0;
     this->ServerReplicatePawnCullDistance = 0.00f;
+    this->bAllowGlobalPalboxExport = false;
+    this->bAllowGlobalPalboxImport = false;
     this->bIsForceEnableRandomizerPalLevelRandom_ForUI = false;
 }
 

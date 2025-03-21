@@ -125,6 +125,9 @@ void APalCharacter::OnOverlapBeginByAroundInfo(AActor* OtherActor) {
 void APalCharacter::OnDeadCharacter(FPalDeadInfo DeadInfo) {
 }
 
+void APalCharacter::OnDamageReaction(FPalDamageRactionInfo ReactionInfo) {
+}
+
 void APalCharacter::OnChangeWetnessStatus(bool IsSwim) {
 }
 

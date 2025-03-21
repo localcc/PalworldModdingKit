@@ -106,7 +106,7 @@ public:
     void TryFixAssignNearestWorkSelectedOtomo(const AActor* HitActor);
     
     UFUNCTION(BlueprintCallable)
-    void Tmp_EmptySlot(const FPalCharacterSlotId& SlotID);
+    void Tmp_EmptySlot(const FPalCharacterSlotId& SlotId);
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

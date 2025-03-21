@@ -126,6 +126,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool IgnorePlayerEquipItemDamage;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IgnoreCheckGroupForStun;
+    
     PAL_API FPalDamageInfo();
 };
 

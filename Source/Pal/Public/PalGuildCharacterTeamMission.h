@@ -15,6 +15,10 @@ class PAL_API UPalGuildCharacterTeamMission : public UObject {
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnUpdateReleasedMissionInfoDelegate, UPalGuildCharacterTeamMission*, Mission);
     
+protected:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    int32 GuildExpedtionCount;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_ReleasedMissionInfos, meta=(AllowPrivateAccess=true))
     TArray<FPalGuildCharacterTeamMissionInfo> ReleasedMissionInfos;
