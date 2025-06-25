@@ -15,7 +15,8 @@
 				"UMG",
 				"NiagaraAnimNotifies",
 				"CommonUI",
-				"CommonGame"
+				"CommonGame",
+				"Flow"
 			]
 		}
 	],
