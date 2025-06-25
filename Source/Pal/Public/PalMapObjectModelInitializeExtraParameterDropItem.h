@@ -18,6 +18,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bAutoPickup;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGuid PickupablePlayerUid;
+    
     UPalMapObjectModelInitializeExtraParameterDropItem();
 };
 

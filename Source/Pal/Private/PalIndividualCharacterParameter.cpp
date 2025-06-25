@@ -3,6 +3,10 @@
 
 UPalIndividualCharacterParameter::UPalIndividualCharacterParameter() {
     this->IndividualActor = NULL;
+    this->bIsParts = false;
+    this->ParentParameter = NULL;
+    this->bRedirectDamage = false;
+    this->bCanTargetFromAI = true;
     this->IsWaitResponseWordFiltering = false;
     this->EquipItemContainer = NULL;
     this->LastExpUpdateType = EPalExpCalcType::None;
@@ -45,6 +49,12 @@ void UPalIndividualCharacterParameter::SetShieldHP(FFixedPoint64 NextSheildHP) {
 void UPalIndividualCharacterParameter::SetPhysicalHealth(EPalStatusPhysicalHealthType PhysicalHealth) {
 }
 
+void UPalIndividualCharacterParameter::SetParts(UPalIndividualCharacterParameter* InParentParameter, bool InRedirectDamage) {
+}
+
+void UPalIndividualCharacterParameter::SetOverrideLevel(int32 OverrideLevel) {
+}
+
 void UPalIndividualCharacterParameter::SetNoFallDamageHeightLastJumpedLocation() {
 }
 
@@ -57,13 +67,22 @@ void UPalIndividualCharacterParameter::SetInvaderData(EPalInvaderType InvaderTyp
 void UPalIndividualCharacterParameter::SetInArena(bool InArena) {
 }
 
+void UPalIndividualCharacterParameter::SetForcePartBreak() {
+}
+
 void UPalIndividualCharacterParameter::SetExStatusPoint(FName StatusName, int32 Point) {
+}
+
+void UPalIndividualCharacterParameter::SetDisableNaturalUpdate(FName Key, bool Disable) {
 }
 
 void UPalIndividualCharacterParameter::SetDisableNaturalHealing(FName Key, bool Disable) {
 }
 
 void UPalIndividualCharacterParameter::SetDecreaseFullStomachRates(const FName Name, float Rate) {
+}
+
+void UPalIndividualCharacterParameter::SetCanTargetFromAI(bool bInCanTargetFromAI) {
 }
 
 void UPalIndividualCharacterParameter::ResetLastJumpedLocation() {
@@ -76,6 +95,9 @@ void UPalIndividualCharacterParameter::RemoveEquipWaza(EPalWazaID WazaID) {
 }
 
 void UPalIndividualCharacterParameter::RemoveDecreaseFullStomachRates(const FName Name) {
+}
+
+void UPalIndividualCharacterParameter::RecuperateInMedicalBed() {
 }
 
 void UPalIndividualCharacterParameter::PartyPalMealInventoryFood() {
@@ -121,7 +143,23 @@ bool UPalIndividualCharacterParameter::IsSkinApplied() const {
     return false;
 }
 
+bool UPalIndividualCharacterParameter::IsRedirectDamage() const {
+    return false;
+}
+
 bool UPalIndividualCharacterParameter::IsRarePal() const {
+    return false;
+}
+
+bool UPalIndividualCharacterParameter::IsParts() const {
+    return false;
+}
+
+bool UPalIndividualCharacterParameter::IsPartBroken() const {
+    return false;
+}
+
+bool UPalIndividualCharacterParameter::IsOverrideLevel() const {
     return false;
 }
 
@@ -211,6 +249,10 @@ EPalBaseCampWorkerSickType UPalIndividualCharacterParameter::GetWorkerSick() con
 
 int32 UPalIndividualCharacterParameter::GetUnusedStatusPoint() const {
     return 0;
+}
+
+FName UPalIndividualCharacterParameter::GetUniqueNPCID() const {
+    return NAME_None;
 }
 
 EPalTribeID UPalIndividualCharacterParameter::GetTribeID() const {
@@ -304,7 +346,27 @@ float UPalIndividualCharacterParameter::GetPassiveRateByEquipment(EPalPassiveSki
     return 0.0f;
 }
 
+UPalIndividualCharacterParameter* UPalIndividualCharacterParameter::GetParentParameter() const {
+    return NULL;
+}
+
 int32 UPalIndividualCharacterParameter::GetPalSoulRank() const {
+    return 0;
+}
+
+FPalInstanceID UPalIndividualCharacterParameter::GetPalId() const {
+    return FPalInstanceID{};
+}
+
+float UPalIndividualCharacterParameter::GetPalEnhancementStatusRate_Defense() const {
+    return 0.0f;
+}
+
+float UPalIndividualCharacterParameter::GetPalEnhancementStatusRate_Attack() const {
+    return 0.0f;
+}
+
+int32 UPalIndividualCharacterParameter::GetOverrideLevel() const {
     return 0;
 }
 
@@ -369,6 +431,10 @@ FFixedPoint64 UPalIndividualCharacterParameter::GetHP() const {
     return FFixedPoint64{};
 }
 
+EPalGroupType UPalIndividualCharacterParameter::GetGroupType() const {
+    return EPalGroupType::Undefined;
+}
+
 FGuid UPalIndividualCharacterParameter::GetGroupId() const {
     return FGuid{};
 }
@@ -387,6 +453,14 @@ float UPalIndividualCharacterParameter::GetFullStomachDecreasingRate() const {
 
 float UPalIndividualCharacterParameter::GetFullStomach() const {
     return 0.0f;
+}
+
+int32 UPalIndividualCharacterParameter::GetFriendshipRank() const {
+    return 0;
+}
+
+int32 UPalIndividualCharacterParameter::GetFriendshipPoint() const {
+    return 0;
 }
 
 float UPalIndividualCharacterParameter::GetFoodStatusRate(EPalFoodStatusEffectType EffectType) const {
@@ -427,6 +501,10 @@ float UPalIndividualCharacterParameter::GetEffectFoodTimeRate() const {
 
 FName UPalIndividualCharacterParameter::GetEffectFoodName() const {
     return NAME_None;
+}
+
+bool UPalIndividualCharacterParameter::GetDisableNaturalUpdate() {
+    return false;
 }
 
 int32 UPalIndividualCharacterParameter::GetDefense_withBuff() const {
@@ -493,6 +571,14 @@ int32 UPalIndividualCharacterParameter::GetAttackRank() const {
     return 0;
 }
 
+int32 UPalIndividualCharacterParameter::GetArenaRankPoint() const {
+    return 0;
+}
+
+EPalArenaRank UPalIndividualCharacterParameter::GetArenaRank() const {
+    return EPalArenaRank::Bronze;
+}
+
 float UPalIndividualCharacterParameter::GetAffectSanityValue() const {
     return 0.0f;
 }
@@ -512,6 +598,10 @@ void UPalIndividualCharacterParameter::DecreaseShieldHPByDamage(int32 Damage) {
 void UPalIndividualCharacterParameter::ClearEquipWaza() {
 }
 
+bool UPalIndividualCharacterParameter::CanTargetFromAI() const {
+    return false;
+}
+
 bool UPalIndividualCharacterParameter::CanAddTalentByItem(FName ItemName) const {
     return false;
 }
@@ -520,6 +610,9 @@ void UPalIndividualCharacterParameter::AddPassiveSkill(FName AddSkill, FName Ove
 }
 
 void UPalIndividualCharacterParameter::AddHP(FFixedPoint64 PlusHP) {
+}
+
+void UPalIndividualCharacterParameter::AddFriendShip(int32 Value) {
 }
 
 void UPalIndividualCharacterParameter::AddEquipWaza(EPalWazaID WazaID) {
@@ -531,6 +624,10 @@ void UPalIndividualCharacterParameter::GetLifetimeReplicatedProps(TArray<FLifeti
     DOREPLIFETIME(UPalIndividualCharacterParameter, IndividualActor);
     DOREPLIFETIME(UPalIndividualCharacterParameter, IndividualId);
     DOREPLIFETIME(UPalIndividualCharacterParameter, PhantomActorReplicateArray);
+    DOREPLIFETIME(UPalIndividualCharacterParameter, bIsParts);
+    DOREPLIFETIME(UPalIndividualCharacterParameter, ParentParameter);
+    DOREPLIFETIME(UPalIndividualCharacterParameter, bRedirectDamage);
+    DOREPLIFETIME(UPalIndividualCharacterParameter, bCanTargetFromAI);
     DOREPLIFETIME(UPalIndividualCharacterParameter, SaveParameter);
     DOREPLIFETIME(UPalIndividualCharacterParameter, EquipItemContainer);
     DOREPLIFETIME(UPalIndividualCharacterParameter, BaseCampId);

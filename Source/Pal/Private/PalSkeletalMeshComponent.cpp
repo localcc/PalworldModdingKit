@@ -9,6 +9,7 @@ UPalSkeletalMeshComponent::UPalSkeletalMeshComponent(const FObjectInitializer& O
     this->RollAngle = 0.00f;
     this->TiltingInterpTime = 0.25f;
     this->bEnableCCDForRootOnlyInRagdoll = false;
+    this->bEnableCCDForRagdoll = false;
     this->TiltTimer = 0.00f;
     this->UpdateRate = 0.00f;
     this->EvaluationRate = 0.00f;
@@ -40,7 +41,7 @@ void UPalSkeletalMeshComponent::SetRuntimeAnimRateScale(FName flagName, float Ra
 void UPalSkeletalMeshComponent::SetEvaluationRate(float InRate, bool bResetCurrentInterval) {
 }
 
-void UPalSkeletalMeshComponent::SetEnableRagdollCCD(bool IsActive) {
+void UPalSkeletalMeshComponent::SetEnableRagdollCCD(bool IsActive, bool bRootOnly) {
 }
 
 void UPalSkeletalMeshComponent::SetDisableChangeMesh(bool Disable) {

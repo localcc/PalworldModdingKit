@@ -2,9 +2,12 @@
 #include "CoreMinimal.h"
 #include "EPalPlayerInventoryType.h"
 #include "EPalTribeID.h"
+#include "PalArenaRule.h"
 #include "PalCompletedQuestSaveData.h"
 #include "PalCustomMarkerSaveData.h"
+#include "PalInstanceID.h"
 #include "PalOrderedQuestSaveData.h"
+#include "PalOtomoLoadoutData.h"
 #include "PalTutorialTriggerSaveData.h"
 #include "PalLocalSaveData.generated.h"
 
@@ -83,6 +86,24 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FPalOrderedQuestSaveData> Local_OrderedTutorialQuestSaveData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalArenaRule Local_ArenaRule;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FName> Local_ItemQuickMoveExceptionIDList;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FPalOtomoLoadoutData> Local_OtomoLoadoutSaveData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName TrackingQuestId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FPalInstanceID, int32> Local_MaxFriendshipPalIds;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bUnlockedBlueprintCategoryInBuildMenu;
     
     PAL_API FPalLocalSaveData();
 };

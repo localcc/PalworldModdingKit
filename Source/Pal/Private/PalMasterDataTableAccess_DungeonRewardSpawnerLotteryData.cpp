@@ -1,0 +1,6 @@
+#include "PalMasterDataTableAccess_DungeonRewardSpawnerLotteryData.h"
+
+UPalMasterDataTableAccess_DungeonRewardSpawnerLotteryData::UPalMasterDataTableAccess_DungeonRewardSpawnerLotteryData() {
+}
+
+

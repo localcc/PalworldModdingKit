@@ -8,6 +8,7 @@ APalCapturedCage::APalCapturedCage(const FObjectInitializer& ObjectInitializer) 
     this->IsRequestedInteract = false;
     this->IsDisableInteractive = false;
     this->IsInSpawnedRange = false;
+    this->bDisabledLottery = false;
     this->SpawnedPalHandle = NULL;
 }
 

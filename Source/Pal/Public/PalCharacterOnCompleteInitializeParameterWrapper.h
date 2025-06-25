@@ -6,14 +6,15 @@
 
 class APalCharacter;
 
-UCLASS(Blueprintable)
-class UPalCharacterOnCompleteInitializeParameterWrapper : public UObject {
+UCLASS(Blueprintable, Deprecated, NotPlaceable)
+class UDEPRECATED_PalCharacterOnCompleteInitializeParameterWrapper : public UObject {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     APalCharacter::FOnCompleteInitializeParameter OnCompleteInitializeParameterDelegate;
     
-    UPalCharacterOnCompleteInitializeParameterWrapper();
+    UDEPRECATED_PalCharacterOnCompleteInitializeParameterWrapper();
+
     UFUNCTION(BlueprintCallable)
     void Broadcast(APalCharacter* Character) const;
     

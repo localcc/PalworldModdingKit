@@ -120,6 +120,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalOptionValueFloat ServerReplicatePawnCullDistance;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalOptionValueFloat EquipmentDurabilityDamageRate;
+    
     PAL_API FPalOptionWorldStaticSettings();
 };
 

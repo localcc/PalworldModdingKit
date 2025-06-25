@@ -18,6 +18,15 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     FPalIndividualCharacterSaveParameter PalSaveParameter;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    FName CarreerTextId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    TArray<FName> AppealTextIds;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    int32 ContractFee;
+    
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnPalRecruited OnRecruited;
     
@@ -34,7 +43,7 @@ public:
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
     UFUNCTION(BlueprintCallable)
-    void SetupPal(int32 BaseCampLevel, const UDataTable* Table);
+    void SetupPal(int32 BaseCampLevel, const UDataTable* RecruitTable, const UDataTable* AppealTable);
     
     UFUNCTION(BlueprintCallable)
     void RecruitPal(const FGuid& RequestPlayerUId);

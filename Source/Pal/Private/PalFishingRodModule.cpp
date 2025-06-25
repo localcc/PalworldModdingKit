@@ -2,20 +2,24 @@
 
 UPalFishingRodModule::UPalFishingRodModule() {
     this->ActionCharacter = NULL;
-    this->CableShootSpeed = 8000.00f;
-    this->CableReturnSpeed = 12000.00f;
-    this->CableMaxLength = 2100.00f;
-    this->CharacterMoveSpeed = 4000.00f;
     this->FishingRodState = EPalFishingRodState::None;
+    this->TargetSpot = NULL;
+    this->PreTargetFishShadow = NULL;
+    this->TargetFishShadow = NULL;
+    this->ReticleTargetActor = NULL;
+    this->bIsHitReticleWaterPlane = false;
 }
 
 void UPalFishingRodModule::TickModule(float DeltaTime) {
 }
 
-void UPalFishingRodModule::ShowLine() {
+void UPalFishingRodModule::ShotCable() {
 }
 
-void UPalFishingRodModule::ShotCable() {
+void UPalFishingRodModule::SetFloatLocation(const FVector& InLocation) {
+}
+
+void UPalFishingRodModule::OnStartWaitPick() {
 }
 
 void UPalFishingRodModule::OnStartFishingAction() {
@@ -25,6 +29,9 @@ void UPalFishingRodModule::OnStartAim() {
 }
 
 void UPalFishingRodModule::OnStartAction(const UPalActionBase* action) {
+}
+
+void UPalFishingRodModule::OnPickStart() {
 }
 
 void UPalFishingRodModule::OnEndFishingAction() {
@@ -46,10 +53,21 @@ bool UPalFishingRodModule::IsFishingAction() const {
     return false;
 }
 
-void UPalFishingRodModule::Initialize(const FPalFishingRodInitParameter& Parameter) {
+void UPalFishingRodModule::Initialize(const FPalFishingRodInitParameter& Parameter, APalCharacter* InActionCharacter) {
 }
 
-bool UPalFishingRodModule::CanHitFishingTarget() const {
+APalFishShadow* UPalFishingRodModule::GetTargetFishShadow() const {
+    return NULL;
+}
+
+FVector UPalFishingRodModule::GetFloatLocation() const {
+    return FVector{};
+}
+
+void UPalFishingRodModule::DebugShowLine() {
+}
+
+bool UPalFishingRodModule::CanHitFishingTarget() {
     return false;
 }
 

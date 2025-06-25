@@ -1,0 +1,6 @@
+#include "PalDungeonRewardSpawnerPointBehaviour_MapObjectSpawner.h"
+
+UPalDungeonRewardSpawnerPointBehaviour_MapObjectSpawner::UPalDungeonRewardSpawnerPointBehaviour_MapObjectSpawner() {
+}
+
+

@@ -6,6 +6,9 @@ UPalMapObjectMedicalPalBedModel::UPalMapObjectMedicalPalBedModel() {
     this->AffectSanityRate = 1.00f;
 }
 
+void UPalMapObjectMedicalPalBedModel::OnNightSkip() {
+}
+
 void UPalMapObjectMedicalPalBedModel::OnInteractBegin(AActor* Other, TScriptInterface<IPalInteractiveObjectComponentInterface> Component) {
 }
 
@@ -17,6 +20,9 @@ UPalIndividualCharacterHandle* UPalMapObjectMedicalPalBedModel::GetSleepingHandl
 }
 
 void UPalMapObjectMedicalPalBedModel::ClearSleepingCharacterHandle() {
+}
+
+void UPalMapObjectMedicalPalBedModel::CalcCharacterLocationAndRotationOffset(const FName CharacterID, const APalCharacter* Character, const FName MapObjectId, const UPalMapObjectMedicalPalBedSleepOnSideLocationOffsetComponent* LocationOffsetComponent, FVector& OutLocationOffset, FQuat& OutRotationOffset) {
 }
 
 

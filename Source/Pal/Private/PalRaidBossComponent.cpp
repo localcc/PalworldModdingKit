@@ -31,7 +31,7 @@ float UPalRaidBossComponent::GetRemainTimer() {
     return 0.0f;
 }
 
-FGuid UPalRaidBossComponent::GetCampID() {
+FGuid UPalRaidBossComponent::GetCampID() const {
     return FGuid{};
 }
 

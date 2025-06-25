@@ -13,6 +13,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsEnableFastTravel() const;
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsDistanceXY() const;
+    
     UFUNCTION(BlueprintCallable)
     void InvokeFastTravel();
     

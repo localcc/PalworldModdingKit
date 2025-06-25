@@ -8,14 +8,11 @@ UPalTimeManager::UPalTimeManager() {
 void UPalTimeManager::SetGameTime_FixDay(const int32 NextHour) {
 }
 
-void UPalTimeManager::RemoveSleepPlayer(APalPlayerCharacter* Player) {
-}
-
 FString UPalTimeManager::PalTimeSecondsToString(float InSeconds) {
     return TEXT("");
 }
 
-int32 UPalTimeManager::GetSleepingPlayerCount() const {
+int32 UPalTimeManager::GetSleepingPlayerCount(const bool bForceLocalPlayerSleep) const {
     return 0;
 }
 
@@ -60,9 +57,6 @@ void UPalTimeManager::ClearTimer(const UObject* WorldContextObject, const FPalTi
 
 FPalTimerHandle UPalTimeManager::AddTimerEventBySpan(const UPalTimeManager::FTimerEventDelegate& Delegate, const float Hours, const float Minutes, const float Seconds) {
     return FPalTimerHandle{};
-}
-
-void UPalTimeManager::AddSleepPlayer(APalPlayerCharacter* Player) {
 }
 
 

@@ -47,6 +47,9 @@ public:
 
 private:
     UFUNCTION(BlueprintCallable)
+    void OnWorldMapObjectSpawnable_ServerInternal();
+    
+    UFUNCTION(BlueprintCallable)
     void OnOpenTreasureBox();
     
     UFUNCTION(BlueprintCallable)

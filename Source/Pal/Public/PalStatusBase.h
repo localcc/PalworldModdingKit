@@ -18,7 +18,7 @@ public:
     FStatusDynamicParameter DynamicParameter;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
-    EPalStatusID StatusId;
+    EPalStatusID statusID;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

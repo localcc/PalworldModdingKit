@@ -71,6 +71,9 @@ public:
     bool IsEnableLookAt() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    AActor* GetLookAtTargetActor() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FVector GetLookAtTarget() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

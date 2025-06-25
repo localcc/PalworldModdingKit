@@ -1,7 +1,7 @@
 #include "PalMapObjectModelEffectRepInfo.h"
 
 FPalMapObjectModelEffectRepInfo::FPalMapObjectModelEffectRepInfo() {
-    this->StatusId = EPalStatusID::None;
+    this->statusID = EPalStatusID::None;
     this->Effect = NULL;
 }
 

@@ -27,6 +27,7 @@ void UPalMapObjectPickableCharacterModelBase::GetLifetimeReplicatedProps(TArray<
     DOREPLIFETIME(UPalMapObjectPickableCharacterModelBase, ForRead_StoredParameter);
     DOREPLIFETIME(UPalMapObjectPickableCharacterModelBase, LocationId);
     DOREPLIFETIME(UPalMapObjectPickableCharacterModelBase, CreatedAtRealTime);
+    DOREPLIFETIME(UPalMapObjectPickableCharacterModelBase, PickupablePlayerUid);
 }
 
 

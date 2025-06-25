@@ -78,5 +78,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalItemSlot* Get(const int32 Index) const;
     
+protected:
+    UFUNCTION(BlueprintCallable)
+    void ForceMarkSlotDirty_ServerInternal();
+    
 };
 

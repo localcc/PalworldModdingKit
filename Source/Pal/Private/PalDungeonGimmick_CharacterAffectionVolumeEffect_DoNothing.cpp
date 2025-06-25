@@ -1,0 +1,6 @@
+#include "PalDungeonGimmick_CharacterAffectionVolumeEffect_DoNothing.h"
+
+UPalDungeonGimmick_CharacterAffectionVolumeEffect_DoNothing::UPalDungeonGimmick_CharacterAffectionVolumeEffect_DoNothing() {
+}
+
+

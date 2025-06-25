@@ -44,6 +44,7 @@ class UPalPlayerLocalRecordData;
 class UPalPlayerOtomoData;
 class UPalPlayerRecordData;
 class UPalPlayerSkinData;
+class UPalPlayerTreasureMapPointData;
 class UPalQuestManager;
 class UPalSyncTeleportComponent;
 class UPalTechnologyData;
@@ -59,12 +60,15 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FReturnSelfDelegate, APalPlayerState*, PlayerState);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FReportCrimeIdsDelegate, UPalIndividualCharacterHandle*, CriminalHandle, const TArray<FName>&, CrimeIds);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FReleaseWantedDelegate, UPalIndividualCharacterHandle*, CriminalHandle);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnOperatingResultNotifiedDelegate, const bool, IsSuccess);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMultiHatchCompleteDelegate, const TArray<FPalInstanceID>&, HatchedIDs);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnLoadingProgressUpdate, int32, AddStep, int32, MaxStep);
     DECLARE_DYNAMIC_DELEGATE(FOnCompleteLoadWorldPartitionDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnCompleteLoadInitWorldPartitionDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangedPlayerUId, APalPlayerState*, PlayerState);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FKillPalDelegate, UPalIndividualCharacterHandle*, DeadEnemyHandle);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FEndCrimeDelegate, FGuid, CrimeInstanceId);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCapturePalInServerDelegate, UPalIndividualCharacterHandle*, CaptureCharacterHandle);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCapturePalDelegate, const FPalUIPalCaptureInfo&, CaptureInfo);
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -75,6 +79,12 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnMultiHatchCompleteDelegate OnMultiHatchComplete;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnOperatingResultNotifiedDelegate OnOperatingPassiveComplete;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnOperatingResultNotifiedDelegate OnOperatingGenderComplete;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FReportCrimeIdsDelegate OnReportCrimeIdsDelegate;
@@ -135,6 +145,9 @@ protected:
     UPalPlayerSkinData* PlayerSkinData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    UPalPlayerTreasureMapPointData* TreasureMapPointData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     bool bIsSelectedInitMapPoint;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
@@ -149,7 +162,7 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UPalWorldMapUIData* WorldMapData;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     UPalQuestManager* QuestManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_GuildBelongTo, meta=(AllowPrivateAccess=true))
@@ -202,6 +215,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FPalPlayerReplicationEntity ReplicationEntity;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_AllowSkipNight, meta=(AllowPrivateAccess=true))
+    bool bAllowSkipNight;
     
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
@@ -273,6 +289,14 @@ private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestBotLocation();
     
+public:
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestAllowSkipNight_ToServer();
+    
+    UFUNCTION(BlueprintCallable)
+    void RequestAllowSkipNight();
+    
+private:
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void RequestAccountInitData_ForClient();
     
@@ -286,7 +310,7 @@ public:
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void ReceiveNotifyLoginComplete();
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ReceiveDeletePlayerSelf_ToRequestClient(bool bIsSuccess);
     
 private:
@@ -304,6 +328,9 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void OnRep_GuildBelongTo(UPalGroupGuildBase* OldValue);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnRep_AllowSkipNight();
     
 public:
     UFUNCTION(BlueprintCallable)
@@ -348,6 +375,11 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnCompleteLoadInitWorldPartition_InClient(APalPlayerState* PlayerState);
     
+public:
+    UFUNCTION(BlueprintCallable)
+    void OnClosedDeletePlayerSelfNotifyDialog(bool bYes);
+    
+private:
     UFUNCTION(BlueprintCallable)
     void OnChangeOptionCommonSettings(const FPalOptionCommonSettings& PrevSettings, const FPalOptionCommonSettings& NewSettings);
     
@@ -360,6 +392,12 @@ public:
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void NotifyPalBoxOpenInHardcore_ToServer();
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void NotifyOperatingPassiveComplete_ToClient(bool IsSuccess);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void NotifyOperatingGenderComplete_ToClient(bool IsSuccess);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void NotifyMultiHatchComplete_ToClient(const TArray<FPalInstanceID>& HatchedIDs) const;
@@ -408,7 +446,13 @@ public:
     bool IsCompleteLoadInitWorldPartition();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsAllowSkipNight() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalWorldMapUIData* GetWorldMapData() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPalPlayerTreasureMapPointData* GetTreasureMapPointData() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalTechnologyData* GetTechnologyData() const;
@@ -553,7 +597,7 @@ public:
     void AddMealLog(const TArray<FPalMealLogDisplayData>& DisplayDataArray);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
-    void AddItemGetLog_ToClient(const FPalStaticItemIdAndNum& ItemAndNum) const;
+    void AddItemGetLog_ToClient(const FPalStaticItemIdAndNum& ItemAndNum, const float DelayTime) const;
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void AddGuildLabCompleteLog(const TArray<FPalGuildLabCompleteLogDisplayData>& DisplayDataArray);

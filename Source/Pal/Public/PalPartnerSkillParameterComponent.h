@@ -3,6 +3,7 @@
 #include "UObject/NoExportTypes.h"
 #include "Components/ActorComponent.h"
 #include "EPalMapObjectTreasureGradeType.h"
+#include "EPalRidingActiveSkillNotWeaponCondition.h"
 #include "EPalWazaID.h"
 #include "FixedPoint.h"
 #include "FlagContainer.h"
@@ -11,6 +12,7 @@
 #include "PalInstanceID.h"
 #include "PalPartnerSkillParameterRide.h"
 #include "PalPassivePartnerSkillIdAndParameters.h"
+#include "PalResidentSkillNotifyParameter.h"
 #include "Templates/SubclassOf.h"
 #include "PalPartnerSkillParameterComponent.generated.h"
 
@@ -21,6 +23,7 @@ class APalFunnelCharacter;
 class UPalCoopSkillModuleBase;
 class UPalItemContainer;
 class UPalPartnerSkillPassiveSkill;
+class UPalResidentSkillModuleBase;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalPartnerSkillParameterComponent : public UActorComponent {
@@ -124,6 +127,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UPalCoopSkillModuleBase* SkillModule;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    UPalResidentSkillModuleBase* ResidentSkillModule;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FPalPassivePartnerSkillIdAndParameters> PassiveSkills;
     
@@ -140,15 +146,27 @@ protected:
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalWazaID FunnelAttackWazaID;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UPalResidentSkillModuleBase> ResidentModuleClass;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UPalPartnerSkillPassiveSkill* PassiveSkill;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    TArray<FName> CachedPassiveSkillList;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName ActiveSkill_MainValue_Overview_EditorOnly;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool IsRidingActiveSkillNotWeapon;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalRidingActiveSkillNotWeaponCondition RidingActiveSkillNotWeaponCondition;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsToggleRidingActiveSkillNotWeapon;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<float> ActiveSkill_MainValueByRank;
@@ -162,8 +180,16 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FFlagContainer GliderDisableFlag;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<float> ResidentSkill_MainValueByRank;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FFlagContainer ResidentSkillDisableFlag;
+    
 public:
     UPalPartnerSkillParameterComponent(const FObjectInitializer& ObjectInitializer);
+
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
     UFUNCTION(BlueprintCallable)
     void Stop();
@@ -173,6 +199,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetName(FName Name);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetDisableResidentSkill(FName flagName, bool isDisable);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void SetDisableGlider_ToAll(FName flagName, bool isDisable);
@@ -227,6 +256,9 @@ public:
     void OnComplated();
     
     UFUNCTION(BlueprintCallable)
+    void OnCachedPassiveSkillListDelegate(const FString& InOperation, const FName& InSkillName);
+    
+    UFUNCTION(BlueprintCallable)
     void OnActivatedAsWorker();
     
     UFUNCTION(BlueprintCallable)
@@ -234,6 +266,12 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void OnActivatedAsOtomoHolder();
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void NotifyResidentSkill_ToAll(const FName& NotifyName, const FPalResidentSkillNotifyParameter& NotifyParameter);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsToggleRidingActiveSkillNotWeapon() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsToggleKey() const;
@@ -248,6 +286,9 @@ public:
     bool IsPlayerTrigger() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsPlayerReviveTrigger() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsOverheat() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -255,6 +296,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsExistActiveSkill() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsDisableResidentSkill() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsDisableGlider() const;
@@ -280,6 +324,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FPalDataTableRowName_ItemData> GetRestrictionItems() const;
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetResidentSkillMainValueByRank() const;
+    
 private:
     UFUNCTION(BlueprintCallable)
     FFixedPoint GetMainDamage() const;
@@ -302,6 +349,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FFixedPoint GetCoolDownTime() const;
+    
+    UFUNCTION(BlueprintCallable)
+    TArray<FName> GetCachedPassiveSkillList() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetActiveSkillMainValueByRank() const;

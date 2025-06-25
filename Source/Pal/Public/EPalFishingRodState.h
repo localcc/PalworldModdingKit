@@ -6,10 +6,11 @@ UENUM(BlueprintType)
 enum class EPalFishingRodState : uint8 {
     None,
     Idle,
+    WaitThrowing,
     Throwing,
-    Fishing,
+    WaitPick,
     Pick,
-    Hit,
+    WaitHit,
     CatchBattle,
     Return,
 };

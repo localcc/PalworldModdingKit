@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
+#include "EPalArenaRank.h"
 #include "EPalBossBattleDifficulty.h"
 #include "EPalBossType.h"
 #include "EPalTribeID.h"
@@ -38,6 +39,9 @@ public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetRecordData_Bool_ForServer(const UObject* WorldContextObject, UPARAM(Ref) FPalPlayerRecordDataRepInfoArray_BoolVal& RecordData, const FName Key, const bool bValue);
     
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void SetRecordData_ArenaSoloClearCount_ForServer(const UObject* WorldContextObject, FPalPlayerRecordDataRepInfoArray_IntVal& RecordData, const EPalArenaRank Rank, const int32 Value);
+    
     UFUNCTION(BlueprintPure)
     static bool GetRecordData_TribeIdFlag(const FPalPlayerRecordDataRepInfoArray_BoolVal& RecordData, const EPalTribeID Key);
     
@@ -58,6 +62,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool GetRecordData_Bool(const FPalPlayerRecordDataRepInfoArray_BoolVal& RecordData, const FName Key);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static int32 GetRecordData_ArenaSoloClearCount(const FPalPlayerRecordDataRepInfoArray_IntVal& RecordData, const EPalArenaRank Rank);
     
     UFUNCTION(BlueprintPure)
     static bool ContainsRecordData_TribeIdCount(const FPalPlayerRecordDataRepInfoArray_IntVal& RecordData, const EPalTribeID Key);

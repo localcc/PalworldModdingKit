@@ -22,7 +22,6 @@ class UPalAnimNotifyParameterComponent;
 class UPalCharacterAroundInfoCollectorComponent;
 class UPalCharacterCameraComponent;
 class UPalCharacterMovementComponent;
-class UPalCharacterOnCompleteInitializeParameterWrapper;
 class UPalCharacterParameterComponent;
 class UPalDamageReactionComponent;
 class UPalFlyMeshHeightCtrlComponent;
@@ -46,6 +45,7 @@ class APalCharacter : public ACharacter {
     GENERATED_BODY()
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FRollingDelegate);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnStillInWorldTriggered);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnCompleteSyncPlayerFromServer_InClient);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCompleteInitializeParameter, APalCharacter*, InCharacter);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangeImportance, EPalCharacterImportanceType, NextType);
@@ -118,6 +118,9 @@ public:
     FOnCompleteSyncPlayerFromServer_InClient OnCompleteSyncPlayerFromServer_InClient;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnStillInWorldTriggered OnStillInWorldTriggered;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnChangeBattleMode OnChangeBattleModeDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -128,6 +131,12 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnCaptured OnCapturedDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnCaptured OnCapturedCharacterParameterChangedDelegate;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsNeutralGroup;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -152,6 +161,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsDisable_ChangeTickInterval_ByImportance;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsPart;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FVector SpawnLocation_ForServer;
     
@@ -170,8 +182,8 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_RootCollisionProfileName, meta=(AllowPrivateAccess=true))
     FName RootCollisionProfileName;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TMap<EPalCharacterCompleteDelegatePriority, UPalCharacterOnCompleteInitializeParameterWrapper*> OnCompleteInitializeParameterDelegateMap;
+    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<EPalCharacterCompleteDelegatePriority, FOnCompleteInitializeParameter> OnCompleteInitializeParameterDelegateMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<UPrimitiveComponent*, TEnumAsByte<ECollisionResponse>> OtomoResponseMap;
@@ -192,6 +204,9 @@ public:
 
     UFUNCTION(BlueprintCallable)
     void UpdateGroundRayCast(bool bImmediateApply);
+    
+    UFUNCTION(BlueprintCallable)
+    void UnbindOnCompleteInitializeParameterDelegate(EPalCharacterCompleteDelegatePriority Priority, const FPalOnCharacterCompleteInitializeParameter& Event);
     
     UFUNCTION(BlueprintCallable)
     void SetVisibleHandAttachMesh(bool Active);
@@ -228,6 +243,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void RequestExecuteTickNextFrameForAction();
+    
+    UFUNCTION(BlueprintCallable)
+    void ReplaceCurrentReservedMontage_WithPlayRate(UAnimMontage* ReservedMontage, UAnimMontage* NewMontage, float PlayRate);
     
     UFUNCTION(BlueprintCallable)
     void Play2Montage_WithPlayRate(UAnimMontage* firstMontage, UAnimMontage* nextMontage, float PlayRate);
@@ -281,6 +299,9 @@ public:
     bool IsPreCooping() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsPart() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInitialized() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -306,14 +327,17 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     USkeletalMeshComponent* GetOverrideFaceMesh();
     
-    UFUNCTION(BlueprintCallable)
-    UPalCharacterOnCompleteInitializeParameterWrapper* GetOnCompleteInitializeParameterDelegate(EPalCharacterCompleteDelegatePriority Priority);
-    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalSkeletalMeshComponent* GetMainMesh() const;
     
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
+    FVector GetHPGaugeLocation() const;
+    
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure)
     USkeletalMeshComponent* GetHandAttachMesh();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UAnimMontage* GetCurrentReservedMontage() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalCharacterParameterComponent* GetCharacterParameterComponent() const;
@@ -348,7 +372,7 @@ public:
     void BroadcastOnCompleteInitializeParameter();
     
     UFUNCTION(BlueprintCallable)
-    void BindFonctionToOnCompleteInitializeParameter(EPalCharacterCompleteDelegatePriority Priority, FPalOnCharacterCompleteInitializeParameter Callback);
+    void BindOnCompleteInitializeParameterDelegate(EPalCharacterCompleteDelegatePriority Priority, const FPalOnCharacterCompleteInitializeParameter& Event);
     
 };
 

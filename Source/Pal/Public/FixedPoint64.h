@@ -6,7 +6,7 @@ USTRUCT(BlueprintType)
 struct FFixedPoint64 {
     GENERATED_BODY()
 public:
-private:
+protected:
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     int64 Value;
     

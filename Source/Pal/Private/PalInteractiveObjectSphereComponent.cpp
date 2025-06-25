@@ -2,12 +2,11 @@
 
 UPalInteractiveObjectSphereComponent::UPalInteractiveObjectSphereComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->bCanEverAffectNavigation = false;
-    this->ShapeBodySetup = NULL;
-    this->InteractDelegates = NULL;
     this->bIsEnableTriggerInteract = false;
     this->bIsImplementedTriggerInteract = false;
     this->bIsEnableInteractingTick = false;
     this->bIsEnableInteractingTickInClientOnly = false;
+    this->bNeedTraceToPlayer = false;
 }
 
 void UPalInteractiveObjectSphereComponent::SetIndicatorInterface(TScriptInterface<IPalInteractiveObjectIndicatorInterface> InIndicatorInterface) {
@@ -26,11 +25,7 @@ FVector UPalInteractiveObjectSphereComponent::GetIndicatorLocation(bool bNoShape
 void UPalInteractiveObjectSphereComponent::EnableTriggerInteract() {
 }
 
-UPalInteractDelegates* UPalInteractiveObjectSphereComponent::Delegates() const {
-    return NULL;
-}
-
-void UPalInteractiveObjectSphereComponent::CallOrRegisterOnCreateInteractDelegates(UPalInteractiveObjectSphereComponent::FOnCreateInteractsDelegates Delegate) {
+void UPalInteractiveObjectSphereComponent::CallOrRegisterOnCreateInteractDelegates(FOnCreateInteractDelegates Delegate) {
 }
 
 

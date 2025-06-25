@@ -21,6 +21,9 @@ void UPalUIPalBoxBase::ToggleFavorite(UPalIndividualCharacterSlot* TargetSlot) {
 void UPalUIPalBoxBase::SetPagePalBoxList(int32 NewPage) {
 }
 
+void UPalUIPalBoxBase::SetByMapObjectInstanceId(const FGuid& ByMapObjectInstanceId) {
+}
+
 void UPalUIPalBoxBase::SetBaseCampId(const FGuid& BaseCampId) {
 }
 

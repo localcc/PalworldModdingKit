@@ -1,5 +1,4 @@
 #include "PalNetworkPlayerComponent.h"
-#include "Templates/SubclassOf.h"
 
 UPalNetworkPlayerComponent::UPalNetworkPlayerComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
@@ -28,6 +27,9 @@ void UPalNetworkPlayerComponent::RequestSortInventory_ToServer_Implementation() 
 void UPalNetworkPlayerComponent::RequestSetReplicationEntity_ToServer_Implementation(const EPalPlayerReplicationEntityType EntityType, const bool bReplicate) {
 }
 
+void UPalNetworkPlayerComponent::RequestPickupTreasureMapPoint_ToServer_Implementation(const FGuid& TargetLevelInstanceId) {
+}
+
 void UPalNetworkPlayerComponent::RequestPalStorageReplicates_ToServer_Implementation(const FPalInstanceID& IndividualId, const FName Key, const bool bReplicate) {
 }
 
@@ -43,7 +45,7 @@ void UPalNetworkPlayerComponent::RequestMoveItemToInventoryFromSlot_Implementati
 void UPalNetworkPlayerComponent::RequestMoveItemToInventoryFromContainer_Implementation(UPalItemContainer* fromContainer, bool IsTryEquip) {
 }
 
-void UPalNetworkPlayerComponent::RequestExitStage_ToServer_Implementation() {
+void UPalNetworkPlayerComponent::RequestExitStage_ToServer_Implementation(const FPalStageExitParameter Parameter) {
 }
 
 void UPalNetworkPlayerComponent::RequestEnterStage_ToServer_Implementation(const FPalStageInstanceId& StageInstanceId) {
@@ -55,10 +57,16 @@ void UPalNetworkPlayerComponent::RequestDropOtomoPal_ToServer_Implementation(con
 void UPalNetworkPlayerComponent::RequestChangeVoiceID_ToServer_Implementation(int32 NewVoiceID) {
 }
 
+void UPalNetworkPlayerComponent::RequestCancelSalvageAction_ToServer_Implementation() {
+}
+
 void UPalNetworkPlayerComponent::RequestBuild_ToServer_Implementation(const FName BuildObjectId, const FVector& Location, const FQuat& Rotation, const TArray<FPalNetArchive>& ExtraParameterArchives, FPalBuildRequestDebugParameter DebugParameter) {
 }
 
 void UPalNetworkPlayerComponent::RequestAddTechnolgyPointByItem_ToServer_Implementation(const FPalItemSlotId& ConsumeItemSlotID) {
+}
+
+void UPalNetworkPlayerComponent::RequestAddRecord_NormalBossDefeatAll_ToServer_Implementation() {
 }
 
 void UPalNetworkPlayerComponent::RequestAddItem_ToServer_Implementation(const FName StaticItemId, const int32 Count, bool IsAssignPassive) {
@@ -68,6 +76,9 @@ void UPalNetworkPlayerComponent::RequestAddBossTechnolgyPointByItem_ToServer_Imp
 }
 
 void UPalNetworkPlayerComponent::RegisterRespawnPoint_ToServer_Implementation(const FGuid& PlayerUId, const FVector& Location, const FQuat& Rotation) {
+}
+
+void UPalNetworkPlayerComponent::ReceiveSuccessPickupTreasureMapPoint_ToClient_Implementation(APalTreasureMapInteractivePoint* TargetInteractivePoint) {
 }
 
 void UPalNetworkPlayerComponent::ReceiveExitStageRequestResult_ToRequestClient_Implementation(const EPalStageRequestResult Result) {
@@ -88,9 +99,6 @@ void UPalNetworkPlayerComponent::NotifyReportCriminal_ToClient_Implementation(UP
 void UPalNetworkPlayerComponent::NotifyReleaseWanted_ToClient_Implementation(UPalIndividualCharacterHandle* CriminalHandle) {
 }
 
-void UPalNetworkPlayerComponent::NotifyQuestCompleted_Implementation(TSubclassOf<UPalQuestData> CompletedQuestDataClass) {
-}
-
 void UPalNetworkPlayerComponent::NotifyEndCrime_ToClient_Implementation(FGuid CrimeInstanceId) {
 }
 
@@ -101,6 +109,9 @@ void UPalNetworkPlayerComponent::LoadoutSelectorRemoveEquipItem_Implementation(U
 }
 
 void UPalNetworkPlayerComponent::LoadoutSelectorEquipItem_Implementation(UPalLoadoutSelectorComponent* LoadoutSelector, EPalPlayerInventoryType inventoryType, int32 Index) {
+}
+
+void UPalNetworkPlayerComponent::Dev_TeleportToRelativeLocationInStageLevel_ToServer_Implementation(const FVector RelativeLocation) {
 }
 
 void UPalNetworkPlayerComponent::Dev_SetOverridePlayerUID_ToServer_Implementation(const FGuid& PlayerUId) {
@@ -128,6 +139,12 @@ void UPalNetworkPlayerComponent::Dev_RequestTeleportToBossTower_ToServer_Impleme
 }
 
 void UPalNetworkPlayerComponent::Dev_RequestEnterPlayerGuildBaseCampBelongTo_ToServer_Implementation(const FGuid& BaseCampId) {
+}
+
+void UPalNetworkPlayerComponent::Dev_RequestEnterDungeonByDataLayer_ToServer_Implementation(const FName DataLayerName) {
+}
+
+void UPalNetworkPlayerComponent::Dev_ForceFoundNearestTreasureMapPoint_ToServer_Implementation(const int32 Rarity) {
 }
 
 

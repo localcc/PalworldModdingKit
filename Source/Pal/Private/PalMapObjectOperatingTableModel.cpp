@@ -12,7 +12,7 @@ void UPalMapObjectOperatingTableModel::RequestReverseGender(const UPalIndividual
 void UPalMapObjectOperatingTableModel::RequestRequestChangePassiveSkill_ServerInternal(const int32 RequestPlayerId, const FPalNetArchive& Archive) {
 }
 
-void UPalMapObjectOperatingTableModel::RequestChangePassiveSkill(const UPalIndividualCharacterHandle* targetHandle, int32 skillIndex, FName ItemName) {
+void UPalMapObjectOperatingTableModel::RequestChangePassiveSkill(const UPalIndividualCharacterHandle* targetHandle, int32 skillIndex, FName PassiveSkill) {
 }
 
 

@@ -3,6 +3,7 @@
 #include "UObject/NoExportTypes.h"
 #include "EPalActionType.h"
 #include "EPalMapObjectTreasureGradeType.h"
+#include "EPalMapObjectTreasureSpecialType.h"
 #include "PalBaseCampAssignableObjectInterface.h"
 #include "PalItemAndNum.h"
 #include "PalMapObjectConcreteModelBase.h"
@@ -18,6 +19,9 @@ private:
     EPalMapObjectTreasureGradeType TreasureGradeType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    EPalMapObjectTreasureSpecialType TreasureSpecialType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FVector DropItemLocalLocation;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -31,6 +35,12 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsLockRiding;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsEnemyCampGoal;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FGuid SalvageGameUIWidgetId;
     
 public:
     UPalMapObjectTreasureBoxModel();
@@ -53,6 +63,9 @@ private:
     UFUNCTION(BlueprintCallable)
     void OpenPickingGame_ClientInternal();
     
+    UFUNCTION(BlueprintCallable)
+    void OnReceiveSalvageResult(const bool bResult);
+    
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnOpenElementalLock();
@@ -66,6 +79,9 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void NotifyPickingGameResult_ServerInternal(const int32 RequestPlayerId, bool IsSuccess);
+    
+    UFUNCTION(BlueprintCallable)
+    void NotifyFinishGameToServer(const int32 RequestPlayerId);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)

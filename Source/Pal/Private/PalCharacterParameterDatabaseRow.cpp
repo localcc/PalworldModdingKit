@@ -18,6 +18,10 @@ FPalCharacterParameterDatabaseRow::FPalCharacterParameterDatabaseRow() {
     this->Defense = 0;
     this->Support = 0;
     this->CraftSpeed = 0;
+    this->Friendship_HP = 0.00f;
+    this->Friendship_ShotAttack = 0.00f;
+    this->Friendship_Defense = 0.00f;
+    this->Friendship_CraftSpeed = 0.00f;
     this->EnemyMaxHPRate = 0.00f;
     this->EnemyReceiveDamageRate = 0.00f;
     this->EnemyInflictDamageRate = 0.00f;
@@ -30,6 +34,8 @@ FPalCharacterParameterDatabaseRow::FPalCharacterParameterDatabaseRow() {
     this->RunSpeed = 0;
     this->RideSprintSpeed = 0;
     this->TransportSpeed = 0;
+    this->SwimSpeed = 0;
+    this->SwimDashSpeed = 0;
     this->IsBoss = false;
     this->IsTowerBoss = false;
     this->IsRaidBoss = false;
@@ -54,6 +60,8 @@ FPalCharacterParameterDatabaseRow::FPalCharacterParameterDatabaseRow() {
     this->CombiRank = 0;
     this->CombiDuplicatePriority = 0;
     this->IgnoreCombi = false;
+    this->MeshCapsuleHalfHeight = 0.00f;
+    this->MeshCapsuleRadius = 0.00f;
     this->WorkSuitability_EmitFlame = 0;
     this->WorkSuitability_Watering = 0;
     this->WorkSuitability_Seeding = 0;

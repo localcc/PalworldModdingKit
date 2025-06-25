@@ -22,6 +22,11 @@ UCLASS(Blueprintable)
 class UPalGroupManager : public UPalWorldSubsystem, public IPalGameWorldDataSaveInterface {
     GENERATED_BODY()
 public:
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnChangeGuildPlayerDelegate, const FGuid&, PlayerUId, UPalGroupGuildBase*, PrevGuild, UPalGroupGuildBase*, AfterGuild);
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnChangeGuildPlayerDelegate OnChangeGuildPlayerDelegate;
+    
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FGuid, UPalGroupBase*> GroupMap;

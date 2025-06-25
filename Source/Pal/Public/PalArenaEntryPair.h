@@ -13,6 +13,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGuid PlayerUId2;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IsSoloMode;
+    
     PAL_API FPalArenaEntryPair();
 };
 

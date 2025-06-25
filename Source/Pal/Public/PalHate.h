@@ -28,7 +28,7 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable)
-    void ForceHateUp_ForActiveAndAttackOtomoPal(const AActor* OtomoPal);
+    void ForceHateUp_ForActiveAndAttackOtomoPal(AActor* OtomoPal);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     AActor* FindMostHateTarget();
@@ -39,7 +39,7 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable)
-    void ChangeHate(const AActor* Attacker, float PlusHateValue);
+    void ChangeHate(AActor* Attacker, float PlusHateValue);
     
 private:
     UFUNCTION(BlueprintCallable)

@@ -100,6 +100,11 @@ enum class EPalActionType : uint8 {
     AirDash_Left,
     Fishing,
     FishingCaught,
+    FishingSuccess,
+    FishingSalvage,
+    FishPond,
     PlayerLogout,
+    PlayerReviveByPartner,
+    DigOut_TreasureMapPoint,
 };
 

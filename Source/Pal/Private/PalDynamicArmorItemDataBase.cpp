@@ -7,7 +7,7 @@ UPalDynamicArmorItemDataBase::UPalDynamicArmorItemDataBase() {
     this->OldDurability = -1.00f;
 }
 
-void UPalDynamicArmorItemDataBase::SetDurability(float NewDurability) {
+void UPalDynamicArmorItemDataBase::SetDurabilityInternal(float NewDurability) {
 }
 
 void UPalDynamicArmorItemDataBase::OnRep_Durability() {

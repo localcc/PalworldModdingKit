@@ -6,11 +6,13 @@
 #include "PalNetworkCharacterComponent.h"
 #include "PalNetworkCharacterContainerComponent.h"
 #include "PalNetworkCharacterStatusOperationComponent.h"
+#include "PalNetworkFishingComponent.h"
 #include "PalNetworkIndividualComponent.h"
 #include "PalNetworkInvaderComponent.h"
 #include "PalNetworkItemComponent.h"
 #include "PalNetworkMapObjectComponent.h"
 #include "PalNetworkPlayerComponent.h"
+#include "PalNetworkQuestComponent.h"
 #include "PalNetworkRaidBossComponent.h"
 #include "PalNetworkShopComponent.h"
 #include "PalNetworkTimeComponent.h"
@@ -39,6 +41,8 @@ APalNetworkTransmitter::APalNetworkTransmitter(const FObjectInitializer& ObjectI
     this->CharacterStatusOperation = CreateDefaultSubobject<UPalNetworkCharacterStatusOperationComponent>(TEXT("CharacterStatusOperation"));
     this->RaidBoss = CreateDefaultSubobject<UPalNetworkRaidBossComponent>(TEXT("RaidBoss"));
     this->Arena = CreateDefaultSubobject<UPalNetworkArenaComponent>(TEXT("Arena"));
+    this->Fishing = CreateDefaultSubobject<UPalNetworkFishingComponent>(TEXT("Fishing"));
+    this->Quest = CreateDefaultSubobject<UPalNetworkQuestComponent>(TEXT("Quest"));
     this->NetworkIndividualComponent = CreateDefaultSubobject<UPalNetworkIndividualComponent>(TEXT("NetworkIndividualComponent"));
 }
 
@@ -82,6 +86,10 @@ UPalNetworkTimeComponent* APalNetworkTransmitter::GetTime() const {
 }
 
 UPalNetworkShopComponent* APalNetworkTransmitter::GetShop() const {
+    return NULL;
+}
+
+UPalNetworkQuestComponent* APalNetworkTransmitter::GetQuest() const {
     return NULL;
 }
 

@@ -58,7 +58,19 @@ bool UPalActionBase::IsEndAction_Implementation() {
     return false;
 }
 
-FVector UPalActionBase::GetTargetLocation() const {
+UPalMapObjectModel* UPalActionBase::GetTargetMapObjectModel() const {
+    return NULL;
+}
+
+FGuid UPalActionBase::GetTargetMapObjectInstanceId() const {
+    return FGuid{};
+}
+
+APalMapObject* UPalActionBase::GetTargetMapObject() const {
+    return NULL;
+}
+
+FVector UPalActionBase::GetTargetLocation(bool bUseAttackerOverride) const {
     return FVector{};
 }
 
@@ -68,6 +80,10 @@ FString UPalActionBase::GetSimpleName() const {
 
 FRandomStream UPalActionBase::GetRandomStream() const {
     return FRandomStream{};
+}
+
+TArray<AActor*> UPalActionBase::GetOtherActionTargets() const {
+    return TArray<AActor*>();
 }
 
 int32 UPalActionBase::GetGeneralPurposeIndex() const {

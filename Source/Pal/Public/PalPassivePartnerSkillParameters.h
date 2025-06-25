@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "EPalElementType.h"
+#include "EPalTribeID.h"
 #include "EPalWorkType.h"
 #include "PalDataTableRowName_ItemData.h"
 #include "PalDataTableRowName_MapObjectData.h"
@@ -36,6 +37,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FPalDataTableRowName_PalMonsterData> PalIds;
+    
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<EPalTribeID> PalTribeIds;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bNotAssignSelf;

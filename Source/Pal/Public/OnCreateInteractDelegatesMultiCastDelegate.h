@@ -1,0 +1,9 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "OnCreateInteractDelegatesMultiCastDelegate.generated.h"
+
+class IPalInteractiveObjectComponentInterface;
+class UPalInteractiveObjectComponentInterface;
+
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCreateInteractDelegatesMultiCast, TScriptInterface<IPalInteractiveObjectComponentInterface>, InteractDelegatesInterface);
+

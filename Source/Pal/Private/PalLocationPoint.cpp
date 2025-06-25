@@ -7,6 +7,10 @@ bool UPalLocationPoint::IsEnableFastTravel() const {
     return false;
 }
 
+bool UPalLocationPoint::IsDistanceXY() const {
+    return false;
+}
+
 void UPalLocationPoint::InvokeFastTravel() {
 }
 

@@ -1,22 +1,34 @@
 #include "PalFishingCatchBattle.h"
 
 UPalFishingCatchBattle::UPalFishingCatchBattle() {
+    this->ActionCharacter = NULL;
 }
 
-bool UPalFishingCatchBattle::IsQTEActive() const {
+void UPalFishingCatchBattle::Tick_Implementation(float DeltaTime) {
+}
+
+void UPalFishingCatchBattle::SetFishPosX(float PosX) {
+}
+
+
+bool UPalFishingCatchBattle::IsStarted() {
     return false;
 }
 
-int32 UPalFishingCatchBattle::GetCurrentQTECursorLocation() const {
-    return 0;
+float UPalFishingCatchBattle::GetCurrentFishPosX() const {
+    return 0.0f;
 }
 
-int32 UPalFishingCatchBattle::GetCurrentFishDirection() const {
-    return 0;
+float UPalFishingCatchBattle::GetCurrentCatchAmount() const {
+    return 0.0f;
 }
 
-int32 UPalFishingCatchBattle::GetCurrentCatchAmount() const {
-    return 0;
+float UPalFishingCatchBattle::GetCurrentBarPosX() const {
+    return 0.0f;
+}
+
+float UPalFishingCatchBattle::GetBarSize() {
+    return 0.0f;
 }
 
 

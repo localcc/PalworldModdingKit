@@ -18,7 +18,10 @@ APalWeaponBase::APalWeaponBase(const FObjectInitializer& ObjectInitializer) : Su
     this->IsEmptyOtomoPal = false;
     this->CoolDownTime = 0.00f;
     this->IsTriggerOnlyFireWeapon = false;
+    this->PvPDamageRate = 1.00f;
     this->IsInfinityMagazine = false;
+    this->IsOverrideAnimRateScale = false;
+    this->OverrideAnimRateScale = 1.00f;
     this->ShootBlurMaterialDynamic = NULL;
     this->ownWeaponStaticData = NULL;
     this->ownWeaponDynamicData = NULL;
@@ -70,6 +73,9 @@ bool APalWeaponBase::SeekLeftHandOpen_Implementation() const {
 void APalWeaponBase::RPCDummy_Implementation() {
 }
 
+void APalWeaponBase::ReserveSummonWeapon() {
+}
+
 void APalWeaponBase::RequestConsumeItem_ForThrowWeapon(const FName& StaticItemId, int32 ConsumeNum) {
 }
 
@@ -78,6 +84,9 @@ void APalWeaponBase::RequestConsumeItem(const FName& StaticItemId, int32 Consume
 
 bool APalWeaponBase::ReloadBullets() {
     return false;
+}
+
+void APalWeaponBase::ReleaseSummonWeapon() {
 }
 
 void APalWeaponBase::PlaySoundWithOption(const FPalDataTableRowName_SoundID& ID, const FPalSoundOptions& Arg) {
@@ -123,7 +132,7 @@ bool APalWeaponBase::IsFullMagazine() const {
     return false;
 }
 
-bool APalWeaponBase::IsExistBulletInPlayerInventory() {
+bool APalWeaponBase::IsExistBulletInPlayerInventory() const {
     return false;
 }
 
@@ -201,6 +210,14 @@ APalCharacter* APalWeaponBase::GetOwnerCharacter_Implementation() {
 }
 
 
+int32 APalWeaponBase::GetNeedSpawnSummonWeaponCount() {
+    return 0;
+}
+
+int32 APalWeaponBase::GetMaxSummonCount() {
+    return 0;
+}
+
 USceneComponent* APalWeaponBase::GetMainMesh_Implementation() {
     return NULL;
 }
@@ -246,10 +263,24 @@ bool APalWeaponBase::DecrementBullet_Implementation() {
     return false;
 }
 
+void APalWeaponBase::DecreaseDurabilityWithValue(float Durability) {
+}
+
 void APalWeaponBase::DecreaseDurability() {
 }
 
 void APalWeaponBase::ClearWeaponSkill() {
+}
+
+void APalWeaponBase::ClearSummonWeapon() {
+}
+
+bool APalWeaponBase::CanReserveSummonWeapon() {
+    return false;
+}
+
+bool APalWeaponBase::CanDealDamageWeapon_Implementation() const {
+    return false;
 }
 
 float APalWeaponBase::CalcStability_Implementation() {
@@ -266,6 +297,9 @@ float APalWeaponBase::CalcDPS_Implementation() {
 
 float APalWeaponBase::CalcAccuracy_Implementation() {
     return 0.0f;
+}
+
+void APalWeaponBase::ApplyOverrideMaterial_ForUI() {
 }
 
 

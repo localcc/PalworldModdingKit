@@ -10,6 +10,7 @@
 class UPalIndividualCharacterHandle;
 class UPalIndividualCharacterSlot;
 class UPalItemSlot;
+class UPalUILiftSlotModelBehaviourBase;
 class UTexture2D;
 
 UCLASS(Blueprintable)
@@ -46,6 +47,10 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalIndividualCharacterSlot* CharacterSlot;
+    
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalUILiftSlotModelBehaviourBase* Behaviour;
     
 public:
     UPalUILiftSlotModel();

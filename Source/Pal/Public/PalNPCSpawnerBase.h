@@ -4,23 +4,28 @@
 #include "UObject/NoExportTypes.h"
 #include "GameFramework/Actor.h"
 #include "EPalCheckSpawnResultType.h"
+#include "EPalOrganizationType.h"
 #include "EPalSpawnRadiusType.h"
 #include "EPalSpawnedCharacterType.h"
 #include "EPalSpwnerImportanceType.h"
 #include "FlagContainer.h"
 #include "PalSpawnerGroupInfo.h"
 #include "PalSpawnerOneTribeInfo.h"
+#include "Templates/SubclassOf.h"
 #include "PalNPCSpawnerBase.generated.h"
 
+class APalNPCSpawnerBase;
 class UObject;
 class UPalIndividualCharacterHandle;
 class UPalNavigationInvokerComponent;
+class UPalSpawnerRuleObjectBase;
 class UPalSquad;
 
 UCLASS(Blueprintable)
 class PAL_API APalNPCSpawnerBase : public AActor {
     GENERATED_BODY()
 public:
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCreatedGroupWithSelfDelegate, APalNPCSpawnerBase*, Spawner);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FCreatedGroupDelegate);
     
 protected:
@@ -70,6 +75,9 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FCreatedGroupDelegate OnCreatedGroupDelegate;
     
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FCreatedGroupWithSelfDelegate OnCreatedGroupWithSelfDelegate;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FPalSpawnerGroupInfo> RandomizeSpawnerGroupInfos;
     
@@ -85,6 +93,12 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     EPalSpwnerImportanceType ImportanceType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UPalSpawnerRuleObjectBase> SpawnerRuleClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalSpawnerRuleObjectBase* SpawnerRuleObjectInServer;
     
 public:
     APalNPCSpawnerBase(const FObjectInitializer& ObjectInitializer);
@@ -123,7 +137,13 @@ protected:
     void SetAllNPCLocation();
     
     UFUNCTION(BlueprintCallable)
+    void RequestDespawn();
+    
+    UFUNCTION(BlueprintCallable)
     void RequestDeleteGroup();
+    
+    UFUNCTION(BlueprintCallable)
+    void RequestCreateGroupOrganizationType(EPalOrganizationType OrganizationType);
     
     UFUNCTION(BlueprintCallable)
     void RequestCreateGroup(TArray<FName> CharacterIDList);

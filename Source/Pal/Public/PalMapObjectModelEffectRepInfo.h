@@ -11,7 +11,7 @@ struct FPalMapObjectModelEffectRepInfo : public FFastArraySerializerItem {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    EPalStatusID StatusId;
+    EPalStatusID statusID;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalMapObjectModelEffectBase* Effect;

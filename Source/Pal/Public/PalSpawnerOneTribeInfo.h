@@ -9,7 +9,7 @@ struct FPalSpawnerOneTribeInfo {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FPalDataTableRowName_PalMonsterData PalID;
+    FPalDataTableRowName_PalMonsterData PalId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalDataTableRowName_PalHumanData NPCID;

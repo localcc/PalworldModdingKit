@@ -8,13 +8,16 @@
 #include "EPalCharacterMovementCustomMode.h"
 #include "EPalInteractiveObjectIndicatorType.h"
 #include "EPalPlayerBattleFinishType.h"
+#include "EPalPlayerEquipLantern.h"
 #include "PalArenaEntryPair.h"
 #include "PalCharacter.h"
 #include "PalDamageResult.h"
 #include "PalDeadInfo.h"
 #include "PalDyingEndInfo.h"
+#include "PalInstanceID.h"
 #include "PalInteractiveObjectIndicatorInterface.h"
 #include "PalPlayerDataCharacterMakeInfo.h"
+#include "PalPlayerDataEquipLanternData.h"
 #include "Templates/SubclassOf.h"
 #include "PalPlayerCharacter.generated.h"
 
@@ -30,7 +33,6 @@ class UPalBuilderComponent;
 class UPalCharacterMovementComponent;
 class UPalInsideBaseCampCheckComponent;
 class UPalInteractComponent;
-class UPalItemContainer;
 class UPalLoadoutSelectorComponent;
 class UPalObjectReplicatorComponent;
 class UPalPlayerBattleSituation;
@@ -51,6 +53,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNoArenaEntryDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnLiftupCampPalDelegate, APalCharacter*, LiftingPal);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnInsufficientPalStaminaDelegate);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnForceUpdataWarningLoupeDelegate, APalCharacter*, TargetCharacter, bool, AlwaysDisplay);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnForceUpdataHPGaugeUIDelegate, APalCharacter*, TargetCharacter);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnEndLiftCampPalDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnCombatStartUIActionDelegate);
@@ -151,6 +154,15 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnForceUpdataHPGaugeUIDelegate OnForceRemoveHPGaugeUI;
     
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnForceUpdataWarningLoupeDelegate OnForceAddWarningLoupe;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnForceUpdataWarningLoupeDelegate OnForceRemoveWarningLoupe;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnForceUpdataWarningLoupeDelegate OnWarningLoupeActWarning;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FName LastInsideRegionNameID;
     
@@ -170,7 +182,7 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UAnimMontage* IdleAnimMontage;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     UPalPlayerBattleSituation* PlayerBattleSituation;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -194,11 +206,20 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_CharacterMakeInfo, meta=(AllowPrivateAccess=true))
     FPalPlayerDataCharacterMakeInfo CharacterMakeInfo;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FPalInstanceID> ReceivedHateIDs;
+    
 public:
     APalPlayerCharacter(const FObjectInitializer& ObjectInitializer);
 
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void UpdateLanternSetting(EPalPlayerEquipLantern NewEquipType);
+    
+    UFUNCTION(BlueprintCallable)
+    void UpdateForceWarningLoupeList(APalCharacter* TargetCharacter, bool IsAdd, bool AlwaysDisplay);
+    
     UFUNCTION(BlueprintCallable)
     void UpdateForceHPGaugeList(APalCharacter* TargetCharacter, bool IsAdd);
     
@@ -227,7 +248,7 @@ public:
     void PlayEatAnimation();
     
     UFUNCTION(BlueprintCallable)
-    void OnUpdateEssentialItemContainer(UPalItemContainer* Container);
+    void OnUpdateLanternEquipSetting(const FPalPlayerDataEquipLanternData& NewLanternSetting);
     
 protected:
     UFUNCTION(BlueprintCallable)
@@ -332,6 +353,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure)
     USkeletalMeshComponent* GetHeadMesh();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    void GetForceWarningLoupeList(TArray<APalCharacter*>& List) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetForceHPGaugeList(TArray<APalCharacter*>& List) const;

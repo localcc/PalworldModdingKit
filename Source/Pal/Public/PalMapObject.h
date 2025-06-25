@@ -190,10 +190,19 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsExistsWorkingAnyWorker() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsExistsAssignedAnyWorker() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalMapObjectModel* GetModel() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FGuid GetGroupIdBelongTo() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FGuid GetBaseCampIdBelongTo() const;
     
     UFUNCTION(BlueprintCallable)
     void DisposeSelf_ServerInternal();

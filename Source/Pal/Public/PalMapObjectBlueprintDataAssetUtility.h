@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
+#include "PalMapObjectBlueprintDataAssetResetParameter.h"
 #include "PalMapObjectBlueprintDataAssetUtility.generated.h"
 
 class UDataTable;
@@ -14,7 +15,7 @@ public:
     UPalMapObjectBlueprintDataAssetUtility();
 
     UFUNCTION(BlueprintCallable)
-    static void ResetBlueprintComponentByMapObjectBlueprintAsset(UObject* AssetObject, UPalMapObjectBlueprintDataAsset* BlueprintAsset, UDataTable* EnemyCampMapObjectMasterDataTable);
+    static void ResetBlueprintComponentByMapObjectBlueprintAsset(UObject* AssetObject, UPalMapObjectBlueprintDataAsset* BlueprintAsset, UDataTable* EnemyCampMapObjectMasterDataTable, const FPalMapObjectBlueprintDataAssetResetParameter& ResetParameter);
     
 };
 

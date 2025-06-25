@@ -79,6 +79,8 @@ FPalOptionWorldSettings::FPalOptionWorldSettings() {
     this->ServerReplicatePawnCullDistance = 0.00f;
     this->bAllowGlobalPalboxExport = false;
     this->bAllowGlobalPalboxImport = false;
+    this->EquipmentDurabilityDamageRate = 0.00f;
+    this->ItemContainerForceMarkDirtyInterval = 0.00f;
     this->bIsForceEnableRandomizerPalLevelRandom_ForUI = false;
 }
 

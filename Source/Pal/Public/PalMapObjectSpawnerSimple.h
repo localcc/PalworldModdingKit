@@ -3,6 +3,7 @@
 #include "UObject/NoExportTypes.h"
 #include "EPalMapObjectOperationResult.h"
 #include "PalDataTableRowName_MapObjectData.h"
+#include "PalMapObjectSpawnerSimpleLotteryParameter.h"
 #include "PalMapObjectSpawnerSingleBase.h"
 #include "PalMapObjectSpawnerSimple.generated.h"
 
@@ -13,6 +14,18 @@ public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalDataTableRowName_MapObjectData MapObjectId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bLotteryByMultiLotteryParameters;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FPalMapObjectSpawnerSimpleLotteryParameter> MultiLotteryParameters;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bAllowOverlapForMapObject;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bRespawnableMulti;
     
 public:
     APalMapObjectSpawnerSimple(const FObjectInitializer& ObjectInitializer);

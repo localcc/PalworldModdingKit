@@ -2,9 +2,11 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "LevelSequenceActor.h"
+#include "Templates/SubclassOf.h"
 #include "PalCutsceneActor.generated.h"
 
 class UPalCutsceneBindParameter;
+class UPalUserWidgetOverlayUI;
 
 UCLASS(Blueprintable)
 class APalCutsceneActor : public ALevelSequenceActor {
@@ -18,6 +20,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bCanSkip;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bMuteSE;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UPalUserWidgetOverlayUI> CustomUIClass;
     
     APalCutsceneActor(const FObjectInitializer& ObjectInitializer);
 

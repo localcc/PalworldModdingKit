@@ -19,17 +19,26 @@ class UPalMasterDataTableAccess_CharacterUpgradeData;
 class UPalMasterDataTableAccess_DungeonEnemySpawnerData;
 class UPalMasterDataTableAccess_DungeonItemLotteryData;
 class UPalMasterDataTableAccess_DungeonLevelData;
+class UPalMasterDataTableAccess_DungeonRewardSpawnerLotteryData;
 class UPalMasterDataTableAccess_DungeonSpawnAreaData;
 class UPalMasterDataTableAccess_FarmCropData;
 class UPalMasterDataTableAccess_FarmSkillFruitsLotteryData;
 class UPalMasterDataTableAccess_FieldLotteryNameData;
+class UPalMasterDataTableAccess_FishPondLotteryData;
+class UPalMasterDataTableAccess_FishPondLotteryNameData;
+class UPalMasterDataTableAccess_FishShadowData;
+class UPalMasterDataTableAccess_FishingSpotLotteryData;
+class UPalMasterDataTableAccess_FishingSpotLotteryNameData;
 class UPalMasterDataTableAccess_ItemLotteryData;
 class UPalMasterDataTableAccess_ItemRecipe;
 class UPalMasterDataTableAccess_ItemShop;
 class UPalMasterDataTableAccess_ItemShopLottery;
 class UPalMasterDataTableAccess_LabResearch;
+class UPalMasterDataTableAccess_MapObjectLotteryData;
 class UPalMasterDataTableAccess_MapObjectMasterData;
+class UPalMasterDataTableAccess_MapObjectSpawnerBlueprintData;
 class UPalMasterDataTableAccess_NPCEmoteLotteryData;
+class UPalMasterDataTableAccess_OperatingTablePassiveSkillData;
 class UPalMasterDataTableAccess_PalRandomizerData;
 class UPalMasterDataTableAccess_PalShop;
 class UPalMasterDataTableAccess_PlayerStatusRankData;
@@ -91,7 +100,25 @@ public:
     static UPalDisplayRequestDataAsset* GetPalDisplayNPCDataAsset(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UPalMasterDataTableAccess_OperatingTablePassiveSkillData* GetOperatingTablePassiveSkillDataTableAccess(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UDataTable* GetOperatingTablePassiveSkillDataTable(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalNoteDataAsset* GetNoteDataAsset(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UPalMasterDataTableAccess_MapObjectSpawnerBlueprintData* GetMapObjectSpawnerDataTableAccess(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UDataTable* GetMapObjectSpawnerDataTable(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UPalMasterDataTableAccess_MapObjectLotteryData* GetMapObjectLotteryDataTableAccess(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UDataTable* GetMapObjectLotteryDataTable(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalMasterDataTableAccess_MapObjectMasterData* GetMapObjectDataTableAccess(const UObject* WorldContextObject);
@@ -139,6 +166,36 @@ public:
     static UPalNoteDataAsset* GetHelpGuideDataAsset(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UPalMasterDataTableAccess_FishShadowData* GetFishShadowDataTableAccess(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UDataTable* GetFishShadowDataTable(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UPalMasterDataTableAccess_FishPondLotteryNameData* GetFishPondLotteryNameDataTableAccess(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UDataTable* GetFishPondLotteryNameDataTable(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UPalMasterDataTableAccess_FishPondLotteryData* GetFishPondLotteryDataTableAccess(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UDataTable* GetFishPondLotteryDataTable(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UPalMasterDataTableAccess_FishingSpotLotteryNameData* GetFishingSpotLotteryNameDataTableAccess(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UDataTable* GetFishingSpotLotteryNameDataTable(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UPalMasterDataTableAccess_FishingSpotLotteryData* GetFishingSpotLotteryDataTableAccess(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UDataTable* GetFishingSpotLotteryDataTable(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalMasterDataTableAccess_FieldLotteryNameData* GetFieldLotteryNameDataTableAccess(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
@@ -167,6 +224,12 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UDataTable* GetDungeonSpawnAreaDataTable(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UPalMasterDataTableAccess_DungeonRewardSpawnerLotteryData* GetDungeonRewardSpawnerLotteryDataTableAccess(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UDataTable* GetDungeonRewardSpawnerLotteryDataTable(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalMasterDataTableAccess_DungeonLevelData* GetDungeonLevelDataTableAccess(const UObject* WorldContextObject);

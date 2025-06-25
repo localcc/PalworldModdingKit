@@ -8,6 +8,7 @@ UPalNPCManager::UPalNPCManager() {
     this->UniqueNPCDataTable = NULL;
     this->NPCOneTalkDataTable = NULL;
     this->NPCMultiTalkDataTable = NULL;
+    this->NPCTalkFlowDataTable = NULL;
 }
 
 void UPalNPCManager::SpawNPCCallback(FPalInstanceID ID) {
@@ -38,11 +39,15 @@ EPalNPCTalkUIType UPalNPCManager::GetTalkUIType(APalCharacter* Character) {
     return EPalNPCTalkUIType::None;
 }
 
+UPalNPCTalkFlowAssetBase* UPalNPCManager::GetNPCTalkFlowAsset(APalCharacter* Character) const {
+    return NULL;
+}
+
 UDataTable* UPalNPCManager::GetNPCTalkDTFromTalkUIType(EPalNPCTalkUIType TalkUIType) {
     return NULL;
 }
 
-UDataTable* UPalNPCManager::GetNPCOneTalkDTFromTalkId(FName TalkID) {
+UDataTable* UPalNPCManager::GetNPCOneTalkDTFromTalkId(FName TalkId) {
     return NULL;
 }
 
@@ -50,7 +55,7 @@ UDataTable* UPalNPCManager::GetNPCOneTalkDTFromCharacter(APalCharacter* Characte
     return NULL;
 }
 
-TSubclassOf<UPalNPCMultiTalkHandle> UPalNPCManager::GetNPCMultiTalkClassFromTalkId(FName TalkID) {
+TSubclassOf<UPalNPCMultiTalkHandle> UPalNPCManager::GetNPCMultiTalkClassFromTalkId(FName TalkId) {
     return NULL;
 }
 

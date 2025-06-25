@@ -15,10 +15,10 @@ class PAL_API UPalCharacterImportanceManager : public UObject {
 public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<APalPlayerCharacter*> PlayerList;
+    TSet<APalPlayerCharacter*> PlayerList;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<APalPlayerCharacter*> PlayerList_ForOutsideGet;
+    TSet<APalPlayerCharacter*> PlayerList_ForOutsideGet;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<EPalCharacterImportanceType, FCharacterListForImportanceManager> CharacterMap;

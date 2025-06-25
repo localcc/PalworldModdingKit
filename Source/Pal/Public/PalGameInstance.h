@@ -31,6 +31,7 @@ class UPalDeadBodyManager;
 class UPalDeathPenaltyManager;
 class UPalDimensionLockerControlSubsystem;
 class UPalDisplaySafeAreaDebugger;
+class UPalDistributeTickManager;
 class UPalEventNotifySystem;
 class UPalExpDatabase;
 class UPalFishingSystem;
@@ -61,6 +62,7 @@ class UPalSaveGameManager;
 class UPalShopManager;
 class UPalSkinManager;
 class UPalSupplyManager;
+class UPalTreasureMapWorldSubsystem;
 class UPalTutorialManager;
 class UPalVisualEffectDataBase;
 class UPalWazaDatabase;
@@ -215,6 +217,12 @@ public:
     UPalAssetStreamableManager* AssetStreamableManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UPalDistributeTickManager> DistributeTickManagerClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalDistributeTickManager* DistributeTickManager;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalPassiveSkillManager> PassiveSkillManagerClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -315,6 +323,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalSupplyManager> SupplyManagerClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UPalTreasureMapWorldSubsystem> TreasureMapWorldSubsystemClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalShopManager> ShopManagerSubsystemClass;

@@ -39,22 +39,22 @@ private:
     TMap<APalCharacter*, FPalCharacterList> NearestCharacter_FromPlayer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<APalMapObjectSpawnerBase*> NearestSpawnerBase;
+    TSet<APalMapObjectSpawnerBase*> NearestSpawnerBase;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<APalCharacter*, FPalCharacterList> CalculationNearestCharacter_FromPlayer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<APalMapObjectSpawnerBase*> CalculationNearSpawnerBase_FromPlayer;
+    TSet<APalMapObjectSpawnerBase*> CalculationNearSpawnerBase_FromPlayer;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSet<APalMapObjectSpawnerBase*> CalculationNearSpawnerBase_FromBaseCamp;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FVector> BaseCampLocationList;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsUpdateBaseCamp;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<APalMapObjectSpawnerBase*> CalculationNearSpawnerBase_FromBaseCamp;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     float NearStartDistanceForSpawnerBase;

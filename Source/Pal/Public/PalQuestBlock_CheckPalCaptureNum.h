@@ -16,7 +16,7 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalDataTableRowName_PalMonsterData CountPalName;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=NotifyUpdateQuest_Client, meta=(AllowPrivateAccess=true))
     int32 NowCaptureCount;
     
 private:
@@ -25,6 +25,9 @@ private:
     
 public:
     UPalQuestBlock_CheckPalCaptureNum();
+
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
 private:
     UFUNCTION(BlueprintCallable)
     void CheckCount();

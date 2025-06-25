@@ -81,5 +81,13 @@ public:
     UFUNCTION(BlueprintCallable)
     FVector GetTeleportLocation() const;
     
+private:
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void ForceReset_ToClient();
+    
+public:
+    UFUNCTION(BlueprintCallable)
+    void ForceReset_ServerInternal();
+    
 };
 

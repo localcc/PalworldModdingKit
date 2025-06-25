@@ -35,6 +35,7 @@ APalCharacter::APalCharacter(const FObjectInitializer& ObjectInitializer) : Supe
     this->AnimNotifyComponent = CreateDefaultSubobject<UPalAnimNotifyParameterComponent>(TEXT("AnimNotifyComponent"));
     this->AroundInfoCollectorComponent = CreateDefaultSubobject<UPalCharacterAroundInfoCollectorComponent>(TEXT("AroundInfoCollectorComponent"));
     this->RagdollInteractiveSphere = CreateDefaultSubobject<USphereComponent>(TEXT("RagdollInteractiveSphere"));
+    this->bIsNeutralGroup = false;
     this->bIsBattleMode = false;
     this->bIsTalkMode = false;
     this->FlyMeshHeightCtrlComponent = NULL;
@@ -42,6 +43,7 @@ APalCharacter::APalCharacter(const FObjectInitializer& ObjectInitializer) : Supe
     this->bIsOtomoCollision = false;
     this->bIsLocalInitialized = false;
     this->bIsDisable_ChangeTickInterval_ByImportance = false;
+    this->bIsPart = false;
     this->ImportanceType = EPalCharacterImportanceType::Near;
     this->CurrentAirDashCount = 0;
     this->bUseBodyPartsCollisionProfileNameBaseCamp = false;
@@ -54,6 +56,9 @@ APalCharacter::APalCharacter(const FObjectInitializer& ObjectInitializer) : Supe
 }
 
 void APalCharacter::UpdateGroundRayCast(bool bImmediateApply) {
+}
+
+void APalCharacter::UnbindOnCompleteInitializeParameterDelegate(EPalCharacterCompleteDelegatePriority Priority, const FPalOnCharacterCompleteInitializeParameter& Event) {
 }
 
 void APalCharacter::SetVisibleHandAttachMesh(bool Active) {
@@ -90,6 +95,9 @@ void APalCharacter::RequestJump() {
 }
 
 void APalCharacter::RequestExecuteTickNextFrameForAction() {
+}
+
+void APalCharacter::ReplaceCurrentReservedMontage_WithPlayRate(UAnimMontage* ReservedMontage, UAnimMontage* NewMontage, float PlayRate) {
 }
 
 void APalCharacter::Play2Montage_WithPlayRate(UAnimMontage* firstMontage, UAnimMontage* nextMontage, float PlayRate) {
@@ -138,6 +146,10 @@ bool APalCharacter::IsPreCooping() const {
     return false;
 }
 
+bool APalCharacter::IsPart() const {
+    return false;
+}
+
 bool APalCharacter::IsInitialized() const {
     return false;
 }
@@ -164,14 +176,18 @@ TSoftObjectPtr<UNiagaraSystem> APalCharacter::GetOverrideSleepFX() const {
 }
 
 
-UPalCharacterOnCompleteInitializeParameterWrapper* APalCharacter::GetOnCompleteInitializeParameterDelegate(EPalCharacterCompleteDelegatePriority Priority) {
-    return NULL;
-}
-
 UPalSkeletalMeshComponent* APalCharacter::GetMainMesh() const {
     return NULL;
 }
 
+FVector APalCharacter::GetHPGaugeLocation_Implementation() const {
+    return FVector{};
+}
+
+
+UAnimMontage* APalCharacter::GetCurrentReservedMontage() const {
+    return NULL;
+}
 
 UPalCharacterParameterComponent* APalCharacter::GetCharacterParameterComponent() const {
     return NULL;
@@ -207,12 +223,13 @@ void APalCharacter::ChangeBattleModeFlag(bool IsBattle) {
 void APalCharacter::BroadcastOnCompleteInitializeParameter() {
 }
 
-void APalCharacter::BindFonctionToOnCompleteInitializeParameter(EPalCharacterCompleteDelegatePriority Priority, FPalOnCharacterCompleteInitializeParameter Callback) {
+void APalCharacter::BindOnCompleteInitializeParameterDelegate(EPalCharacterCompleteDelegatePriority Priority, const FPalOnCharacterCompleteInitializeParameter& Event) {
 }
 
 void APalCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
+    DOREPLIFETIME(APalCharacter, bIsNeutralGroup);
     DOREPLIFETIME(APalCharacter, bIsPalActiveActor);
     DOREPLIFETIME(APalCharacter, bIsOtomoCollision);
     DOREPLIFETIME(APalCharacter, RootCollisionProfileName);

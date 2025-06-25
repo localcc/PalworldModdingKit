@@ -15,6 +15,7 @@
 #include "LayeredFlagContainer.h"
 #include "PalDeadInfo.h"
 #include "RidingAnimationInfo.h"
+#include "WeaponAnimationInfo.h"
 #include "WeaponNotifyAnimationInfo.h"
 #include "PalShooterComponent.generated.h"
 
@@ -24,7 +25,6 @@ class UInputComponent;
 class UPalActionBase;
 class UPalCharacterMovementComponent;
 class UPalShooterAnimeAssetBase;
-class UWeaponAnimationInfoWrap;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalShooterComponent : public UActorComponent {
@@ -35,6 +35,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FPullTriggerDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnWeaponNotifyDelegate, EWeaponNotifyType, Type);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnUpdatedUsableHandFlag, bool, CanUseLeftHandFlag, bool, CanUseRightHandFlag);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnShootBulletDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnReloadStart);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnReloadBullet);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnEndShootingAnimation, UAnimMontage*, Montage);
@@ -78,6 +79,9 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnUpdatedUsableHandFlag OnUpdatedUsableHandFlagDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnShootBulletDelegate OnShootBulletDelegate;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float WalkSpeedMultiplierInAim;
@@ -148,7 +152,7 @@ private:
     APalWeaponBase* CacheNextWeapon;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    UWeaponAnimationInfoWrap* PrevWeaponAnimationInfo;
+    FWeaponAnimationInfo PrevWeaponAnimationInfo;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsDisableShootingTemporarily;
@@ -346,6 +350,9 @@ private:
     void OnStartOwnerAction(const UPalActionBase* action);
     
     UFUNCTION(BlueprintCallable)
+    void OnShootBullet();
+    
+    UFUNCTION(BlueprintCallable)
     void OnOwnerAnimInitialized();
     
     UFUNCTION(BlueprintCallable)
@@ -404,7 +411,7 @@ public:
     EPalShooterFlagContainerPriority GetRequestAimingPriority() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    UWeaponAnimationInfoWrap* GetPrevWeaponAnimationInfo() const;
+    FWeaponAnimationInfo GetPreviousWeaponAnimationInfo() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     APalWeaponBase* GetHasWeapon() const;
@@ -413,7 +420,7 @@ public:
     FTransform GetCurrentWeaponTransformLeftHandIK() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    UWeaponAnimationInfoWrap* GetCurrentWeaponAnimationInfo() const;
+    FWeaponAnimationInfo GetCurrentWeaponAnimationInfo() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FRidingAnimationInfo GetCurrentRidingAnimationInfo() const;

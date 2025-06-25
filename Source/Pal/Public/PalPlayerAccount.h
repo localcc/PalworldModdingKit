@@ -14,6 +14,7 @@ class UPalPlayerInventoryData;
 class UPalPlayerOtomoData;
 class UPalPlayerRecordData;
 class UPalPlayerSkinData;
+class UPalQuestManager;
 class UPalTechnologyData;
 
 UCLASS(Blueprintable)
@@ -56,6 +57,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalPlayerSkinData* PlayerSkinData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalQuestManager* QuestManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsSelectedInitMapPoint;

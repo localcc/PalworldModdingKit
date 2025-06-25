@@ -28,7 +28,23 @@ void UPalSaveGameManager::StartWorldDataAutoSave() {
 void UPalSaveGameManager::StartLocalWorldDataAutoSave() {
 }
 
+bool UPalSaveGameManager::OnFinishedWorldOptionAsyncSaveGamePreInternal(const FString& SlotName, const int32 UserIndex, bool bSuccess, const FString& WorldName, const FString& Timestamp) {
+    return false;
+}
+
+bool UPalSaveGameManager::OnFinishedWorldAsyncSaveGamePreInternal(const FString& SlotName, const int32 UserIndex, bool bSuccess, const FString& WorldName, const FString& Timestamp) {
+    return false;
+}
+
 void UPalSaveGameManager::OnFinishedWorldAsyncSaveGameInternal(const FString& SlotName, const int32 UserIndex, bool bSuccess, const FString& WorldName, const FString& Timestamp) {
+}
+
+bool UPalSaveGameManager::OnFinishedGlobalPalStorageAsyncSaveGamePreInternal(const FString& SlotName, const int32 UserIndex, bool bSuccess, const FString& SaveDataName, const FString& Timestamp) {
+    return false;
+}
+
+bool UPalSaveGameManager::IsWorldAutoSaving() const {
+    return false;
 }
 
 bool UPalSaveGameManager::IsValidWorldSaveDirectoryName_LocalData(const FString& WorldSaveDirectoryName) const {
@@ -47,6 +63,10 @@ bool UPalSaveGameManager::IsValidLocalWorldData(const FString& WorldName) const 
     return false;
 }
 
+bool UPalSaveGameManager::IsLocalWorldAutoSaving() const {
+    return false;
+}
+
 bool UPalSaveGameManager::IsLoadedWorldOptionData() const {
     return false;
 }
@@ -61,6 +81,9 @@ bool UPalSaveGameManager::IsLoadedLocalWorldData() const {
 
 bool UPalSaveGameManager::IsExistSocialId(FSocialId ID) {
     return false;
+}
+
+void UPalSaveGameManager::IsAutoSaving(bool& OutValue) const {
 }
 
 bool UPalSaveGameManager::IsAppliedPlayerData() {
@@ -93,6 +116,9 @@ UPalLocalWorldSaveGame* UPalSaveGameManager::GetLoadedLocalWorldSaveData() const
 
 bool UPalSaveGameManager::ForceLoadPerformanceChecktWorld() const {
     return false;
+}
+
+void UPalSaveGameManager::ClearAutoSaveEvents() {
 }
 
 

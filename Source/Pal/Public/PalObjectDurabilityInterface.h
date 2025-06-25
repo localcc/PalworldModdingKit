@@ -11,9 +11,11 @@ class UPalObjectDurabilityInterface : public UInterface {
 class IPalObjectDurabilityInterface : public IInterface {
     GENERATED_BODY()
 public:
+protected:
     UFUNCTION()
-    virtual void SetDurability(float NewDurability) PURE_VIRTUAL(SetDurability,);
+    virtual void SetDurabilityInternal(float NewDurability) PURE_VIRTUAL(SetDurabilityInternal,);
     
+public:
     UFUNCTION(BlueprintCallable)
     virtual float GetMaxDurability() const PURE_VIRTUAL(GetMaxDurability, return 0.0f;);
     

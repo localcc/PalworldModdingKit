@@ -19,6 +19,12 @@ private:
 public:
     UPalQuestBlock_DefeatWildBoss();
 
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FName GetTargetBossCharacterId() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FName GetRemappedSpawnerName() const;
+    
 private:
     UFUNCTION(BlueprintCallable)
     void CheckFlag();

@@ -18,6 +18,7 @@ enum class EPalBuildObjectInstallStrategy : uint8 {
     PlaceOnItemProvider,
     Pillar,
     StandVerticalNotOverlap,
+    Fence,
     PalStorage,
     Floor,
     Wall,

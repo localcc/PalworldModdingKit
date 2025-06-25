@@ -63,7 +63,7 @@ protected:
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_DynamicItemData, meta=(AllowPrivateAccess=true))
-    UPalDynamicItemDataBase* DynamicItemData;
+    TWeakObjectPtr<UPalDynamicItemDataBase> DynamicItemData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FPalItemId LastItemId_Client;
@@ -74,7 +74,7 @@ public:
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool TryGetStaticItemData(UPalStaticItemDataBase*& OutStaticItemData);
+    bool TryGetStaticItemData(UPalStaticItemDataBase*& OutStaticItemData) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool TryGetDynamicItemData(UPalDynamicItemDataBase*& OutDynamicItemData);

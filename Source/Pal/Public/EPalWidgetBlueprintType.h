@@ -33,5 +33,10 @@ enum class EPalWidgetBlueprintType : uint8 {
     PalBoothTrade,
     PalBoothSale,
     Spectator,
+    OperatingTable,
+    ArenaMenu,
+    ArenaRule,
+    ArenaRanking,
+    ArenaSpectator,
 };
 

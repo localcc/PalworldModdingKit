@@ -10,11 +10,14 @@ UCLASS(Blueprintable)
 class UPalHUDDispatchParameter_ArenaPalSelect : public UPalHUDDispatchParameterBase {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalArenaSequencer* ArenaSequencer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FOnPalSelectedDelegate OnPalSelected;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool IsSoloMode;
     
     UPalHUDDispatchParameter_ArenaPalSelect();
 

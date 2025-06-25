@@ -7,13 +7,17 @@
 #include "UObject/NoExportTypes.h"
 #include "Engine/NetSerialization.h"
 #include "EPalArenaInstanceState.h"
+#include "EPalArenaRank.h"
+#include "PalArenaRule.h"
 #include "PalStageInstanceId.h"
 #include "PalArenaInstanceModel.generated.h"
 
 class APalArenaLevelInstance;
+class APalArenaSoloNPCSpawner;
 class APalPlayerCharacter;
 class UDataLayerAsset;
 class UPalArenaSequencer;
+class UPalIndividualCharacterParameter;
 
 UCLASS(Blueprintable)
 class PAL_API UPalArenaInstanceModel : public UObject {
@@ -35,7 +39,7 @@ protected:
     FTransform StartPointTransform;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    FTransform DeadItemDropTransform;
+    FTransform ItemDropTransform;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     FPalStageInstanceId StageInstanceId;
@@ -49,11 +53,32 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalArenaSequencer* LocalArenaSequencer;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalArenaSequencer* LocalArenaSpectateSequencer;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     TWeakObjectPtr<APalArenaLevelInstance> WeakArenaLevelInstance;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<APalPlayerCharacter*> EntryPlayers;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<APalPlayerCharacter*> Spectators;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalArenaRank SoloModeRank;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    APalArenaSoloNPCSpawner* SoloNPCSpawner;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    FPalArenaRule Rule;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGuid ArenaRoomId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_AllIndividualCharacterParameters, meta=(AllowPrivateAccess=true))
+    TArray<UPalIndividualCharacterParameter*> AllIndividualCharacterParameters;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -70,6 +95,11 @@ public:
     UFUNCTION(BlueprintCallable)
     void StartInBattleTimer_ServerInternal();
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnRep_AllIndividualCharacterParameters();
+    
+public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsLoaded_ForClient() const;
     
@@ -77,10 +107,19 @@ public:
     FVector GetFieldWarpPointLocation() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    FPalArenaRule GetArenaRule() const;
+    
+    UFUNCTION(BlueprintCallable)
+    FGuid GetArenaRoomId() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     APalArenaLevelInstance* GetArenaLevelInstance() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     EPalArenaInstanceState GetArenaInstanceState() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FGuid GetArenaInstanceId() const;
     
 };
 

@@ -44,13 +44,16 @@
 #include "EPalWidgetBlueprintType.h"
 #include "EPalWorkSuitability.h"
 #include "FixedPoint64.h"
+#include "GameDateTime.h"
 #include "NetworkSpawnActorDelegateDelegate.h"
 #include "PalCalcCharacterDamageInfo.h"
+#include "PalCharacterStatusRank.h"
 #include "PalDamageInfo.h"
 #include "PalDataTableRowName_PalMonsterData.h"
-#include "PalDebugCharacterStatusRank.h"
 #include "PalDialogBoolCallbackDelegate.h"
 #include "PalDropCharacterExtraParameter.h"
+#include "PalDropCharacterSaveParameterInfo.h"
+#include "PalFindEnemyOption.h"
 #include "PalIndividualCharacterSaveParameter.h"
 #include "PalInstanceID.h"
 #include "PalKeyAction.h"
@@ -69,6 +72,7 @@ class AActor;
 class ACharacter;
 class AController;
 class APalAIController;
+class APalBuildObject;
 class APalBullet;
 class APalCharacter;
 class APalGameMode;
@@ -86,6 +90,7 @@ class UActorComponent;
 class UAnimMontage;
 class UAnimNotify;
 class UAnimNotifyState;
+class UAssetUserData;
 class UCameraShakeBase;
 class UDataLayerInstance;
 class UImage;
@@ -111,6 +116,7 @@ class UPalDeathPenaltyManager;
 class UPalDebugSetting;
 class UPalDialogParameterDialog;
 class UPalDimensionLockerControlSubsystem;
+class UPalDistributeTickManager;
 class UPalEventNotifySystem;
 class UPalExpDatabase;
 class UPalFishingSystem;
@@ -151,6 +157,7 @@ class UPalPlayerInventoryData;
 class UPalPlayerManager;
 class UPalPlayerRecordData;
 class UPalPlayerSkinData;
+class UPalQuestManager;
 class UPalRCONSubsystem;
 class UPalRESTAPISubsystem;
 class UPalRaidBossManager;
@@ -340,6 +347,9 @@ public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SendSystemAnnounce(const UObject* WorldContextObject, const FString& Message);
     
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void SendPlayerEventTelemetry(const UObject* WorldContextObject, const FString& action, const FString& action_category, const FString& action_value);
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FText SelectText(const FText& A, const FText& B, bool bPickA);
     
@@ -351,6 +361,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static void ReturnOtomoPalToHolder(const AController* TargetController);
+    
+    UFUNCTION(BlueprintCallable)
+    static void ResetCharacterRootCollisionResponse(APalCharacter* Character);
     
     UFUNCTION(BlueprintCallable)
     static void ResetBodyPartsCollisionProfileToDefault(APalCharacter* Character);
@@ -479,6 +492,9 @@ public:
     static bool IsUGCBlocked(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool IsTrialGame();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsTransactionalObject(const UObject* Object);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
@@ -541,6 +557,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsOpenListenServer(const UObject* WorldContextObject);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool IsNight(const UObject* WorldContextObject);
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsNearTwoPoint(FVector point1, FVector point2, float Distance, bool ignoreHeight);
     
@@ -563,10 +582,16 @@ public:
     static bool IsMeasureStatUnit(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool IsMeasureAllDataLayer(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsMac(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsLocalPlayerCampPal(const AActor* Actor);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool IsLocalControlCharacterOrOtomo(APalCharacter* Character);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsLocalControlActorOrPalmi(AActor* CheckActor);
@@ -719,6 +744,9 @@ public:
     static bool InFanShapAimTarget(const AActor* SelfActor, const AActor* TargetActor, float Degree);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool InFanShap_TargetLocation_PlayerCamera(const FVector TargetLocation, const APalPlayerCharacter* Player, float Degree);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool InFanShap_TargetLocation(const AActor* SelfActor, const FVector TargetLocation, float Degree);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -802,6 +830,9 @@ public:
     UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static EPalTribeID GetTribeIDFromCharacterID(const UObject* WorldContextObject, const FName& CharacterID);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool GetTrialGameTime(const UObject* WorldContextObject, int32& OutMinute);
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FQuat GetTransformQuat(const FTransform SourceTransform);
     
@@ -812,10 +843,19 @@ public:
     static APalPlayerCharacter* GetTrainerPlayer(const AActor* Monster);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static int32 GetTimeOffsetInSeconds(const UObject* WorldContextObject, FGameDateTime DateTime);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalTimeManager* GetTimeManager(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static FString GetTelemetryBaseURL(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalTechnologyData* GetTechnologyDataByPlayerUID(const UObject* WorldContextObject, FGuid PlayerUId);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FVector GetTargetActorAimSocketLocation(const AActor* TargetActor);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalSupplyManager* GetSupplyManager(const UObject* WorldContextObject);
@@ -882,6 +922,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalRaidBossManager* GetRaidBossManager(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UPalQuestManager* GetQuestManagerByPlayerUID(const UObject* WorldContextObject, FGuid PlayerUId);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FString GetPocketpairAuthBaseURL(const UObject* WorldContextObject);
@@ -1030,6 +1073,9 @@ public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void GetPalCharacters(const UObject* WorldContextObject, TArray<APalCharacter*>& OutCharacters);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static UObject* GetOwnerOrOuter(const UObject* Object);
+    
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool GetOverrideLoginPlayerUId(const UObject* WorldContextObject, FGuid& PlayerUId);
     
@@ -1094,7 +1140,7 @@ public:
     static APalCharacter* GetNearestEnemyByLocation_FrontPlayerCamera(FVector Location, APalCharacter* myCharacter, APalPlayerCharacter* Player, float InDegree, float InDistance, float InHeight);
     
     UFUNCTION(BlueprintCallable)
-    static APalCharacter* GetNearestEnemyByLocation(FVector Location, APalCharacter* myCharacter, float& OutMinRange);
+    static APalCharacter* GetNearestEnemyByLocation(FVector Location, APalCharacter* myCharacter, float& OutMinRange, FPalFindEnemyOption InOption);
     
     UFUNCTION(BlueprintCallable)
     static APalMapObject* GetNearestEnemyBuildObject(AActor* Character);
@@ -1116,6 +1162,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalMoneyData* GetMoneyDataByPlayerUID(const UObject* WorldContextObject, FGuid PlayerUId);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static int32 GetMeasuredLocationIndex(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalMasterDataTables* GetMasterDataTables(const UObject* WorldContextObject);
@@ -1140,6 +1189,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalPlayerRecordData* GetLocalRecordData(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UPalQuestManager* GetLocalQuestManager(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FGuid GetLocalPlayerUID(const UObject* WorldContextObject);
@@ -1171,11 +1223,23 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static TArray<FString> GetLoadedPakFiles();
     
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static void GetLegalPalList(const UObject* WorldContextObject, const bool IncludeNoDexIdPal, TArray<FName>& OutList);
+    
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static UPalItemIDManager* GetItemIDManager(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static UPalItemContainerManager* GetItemContainerManager(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool GetIsCharacterNeutral_ForPlayer(const UObject* WorldContextObject, APalPlayerCharacter* TargetPlayer, const FName CharacterID, const FPalInstanceID PalInstanceID);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool GetIsCharacterNeutral(const UObject* WorldContextObject, const FName CharacterID);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool GetIsCharacterCaptureable(const UObject* WorldContextObject, const FName CharacterID);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalPlayerInventoryData* GetInventoryDataByPlayerUID(const UObject* WorldContextObject, FGuid PlayerUId);
@@ -1190,10 +1254,10 @@ public:
     static bool GetInitializedPlayerSaveParemter(const UObject* WorldContextObject, const int32 Level, FPalIndividualCharacterSaveParameter& outParameter);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static bool GetInitializedCharacterSaveParemter_NPCOtomo(const UObject* WorldContextObject, const FName CharacterID, const FName UniqueNPCID, const int32 Level, const FGuid& OwnerPlayerUId, FPalIndividualCharacterSaveParameter& outParameter);
+    static bool GetInitializedCharacterSaveParemter_ParamSetup(const UObject* WorldContextObject, const FName CharacterID, const FName UniqueNPCID, const int32 Level, const int32 TalentLevel, const FGuid& OwnerPlayerUId, FPalIndividualCharacterSaveParameter& outParameter, bool DisableRandomPassiveSkill, TArray<EPalWazaID> WazaList, TArray<FName> PassiveSkillList, int32 Rank, TArray<FPalCharacterStatusRank> StatusRank, bool RarePalAble, int32 FriendshipRank);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static bool GetInitializedCharacterSaveParemter_DebugDefaultParamSetup(const UObject* WorldContextObject, const FName CharacterID, const FName UniqueNPCID, const int32 Level, const int32 TalentLevel, const FGuid& OwnerPlayerUId, FPalIndividualCharacterSaveParameter& outParameter, bool DisableRandomPassiveSkilll, TArray<EPalWazaID> WazaList, TArray<FName> PassiveSkillList, int32 Rank, TArray<FPalDebugCharacterStatusRank> StatusRank, bool RarePalAble);
+    static bool GetInitializedCharacterSaveParemter_NPCOtomo(const UObject* WorldContextObject, const FName CharacterID, const FName UniqueNPCID, const int32 Level, const FGuid& OwnerPlayerUId, FPalIndividualCharacterSaveParameter& outParameter);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool GetInitializedCharacterSaveParemter(const UObject* WorldContextObject, const FName CharacterID, const FName UniqueNPCID, const int32 Level, const FGuid& OwnerPlayerUId, FPalIndividualCharacterSaveParameter& outParameter, bool DisableRandomPassiveSkill, bool RarePalAble);
@@ -1298,6 +1362,9 @@ public:
     static EHumanBone GetEHumanBoneFromBoneName(FName BoneName);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static UPalDistributeTickManager* GetDistributeTickManager(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FString GetDisplayVersion(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
@@ -1387,6 +1454,12 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static void GetCalculatedCaptureRate(const UObject* WorldContextObject, float baseRate, TArray<float>& outCalculatedRateArray);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static float GetCachedRootRadius(const AActor* Actor);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static float GetCachedHalfHeight(const AActor* Actor);
+    
     UFUNCTION(BlueprintCallable)
     static UProjectileMovementComponent* GetBulletProjectileComponent(const TSubclassOf<APalBullet>& BulletClass);
     
@@ -1415,10 +1488,13 @@ public:
     static UPalAudioSettingSystem* GetAudioSettingSystem(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    static FVector GetAttackTargetLocation(const AActor* Attacker, const AActor* TargetActor);
+    static FVector GetAttackTargetLocation(const AActor* Attacker, const AActor* TargetActor, bool bUseAttackerOverride);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool GetAttachInformationByBodyLocation(AActor* Character, EPalBodyLocationType bodyLocationType, USceneComponent*& AttachComponent, FName& attachBoneName, FTransform& attachRelativeTransform);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static bool GetAssetUserDataOfClass(const UObject* WorldContextObject, UObject* TargetObject, TSubclassOf<UAssetUserData> InUserDataClass, UAssetUserData*& OutUserData);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPalAssetStreamableManager* GetAssetStreamableManager(const UObject* WorldContextObject);
@@ -1469,6 +1545,9 @@ public:
     static TArray<FPalKeyAction> GetActionsByKey(const UObject* WorldContextObject, FKey Key);
     
     UFUNCTION(BlueprintCallable)
+    static void GeneralTurnToCharacterSocket_WithMovementRotationSpeed(AActor* TurnActor, const APalCharacter* GoalDirectionActor, FName SocketName, float DeltaTime);
+    
+    UFUNCTION(BlueprintCallable)
     static void GeneralTurnToActor_WithMovementRotationSpeed(AActor* TurnActor, const AActor* GoalDirectionActor, float DeltaTime);
     
     UFUNCTION(BlueprintCallable)
@@ -1496,7 +1575,7 @@ public:
     static AActor* FindOwnerActor(const UObject* startObject);
     
     UFUNCTION(BlueprintCallable)
-    static AActor* FindHomingTarget_ForPlayer(APalPlayerCharacter* Player, float MinRange, float MaxRange, float InFrontDegree);
+    static AActor* FindHomingTarget_ForPlayer(APalPlayerCharacter* Player, float MinRange, float MaxRange, float InFrontDegree, FPalFindEnemyOption InOption);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static AActor* FindClosestActorToReticle(APalPlayerCharacter* Player, const TArray<AActor*>& Actors);
@@ -1515,6 +1594,12 @@ public:
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void DropCharactersCircularly_ServerInternal(const UObject* WorldContextObject, const TArray<UPalIndividualCharacterHandle*>& IndividualHandles, const FVector& Location, const FPalDropCharacterExtraParameter ExtraParameter);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void DropCharacterSaveParametersCircularly_ServerInternal(const UObject* WorldContextObject, const TArray<FPalDropCharacterSaveParameterInfo>& CharacterSaveParameterInfos, const FVector& Location, const FPalDropCharacterExtraParameter ExtraParameter);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void DropCharacterSaveParameter_ServerInternal(const UObject* WorldContextObject, const FPalInstanceID& IndividualId, const FPalIndividualCharacterSaveParameter& CharacterSaveParameter, const FVector& Location, const FPalDropCharacterExtraParameter ExtraParameter);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void DropCharacter_ServerInternal(const UObject* WorldContextObject, const FPalInstanceID& IndividualId, FVector DropLocation, const FGuid& RequestPlayerUId, const bool bPickableAnyone, bool CreateLocation);
@@ -1559,6 +1644,9 @@ public:
     static bool ClipboardCopy(const FString& String);
     
     UFUNCTION(BlueprintCallable)
+    static void ClearOverrideMaterials(USkeletalMeshComponent* TargetSkeletalMesh);
+    
+    UFUNCTION(BlueprintCallable)
     static void ClearCharacterRagdoll(APalCharacter* Character);
     
     UFUNCTION(BlueprintCallable)
@@ -1579,17 +1667,26 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool CanUseTargetMedicine(const UObject* WorldContextObject, const UPalIndividualCharacterParameter* IndividualParameter, const UPalStaticItemDataBase* Item);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool CanUseTargetGainFriendshipPoint(const UObject* WorldContextObject, UPalIndividualCharacterParameter* IndividualParameter, const UPalStaticItemDataBase* Item);
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool CanSpawnDashEffect(AActor* dashActor);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool CanNooseTrap(AActor* Actor);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool CanFlyCharacter(const AActor* Character);
+    
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContext"))
     static bool CanAdjustLocationToFloorFromCDO(UObject* WorldContext, TSubclassOf<AActor> InClass, FVector InLocation, float UpOffset, FVector& OutLocation, bool ShortRayLength);
     
     UFUNCTION(BlueprintCallable)
-    static bool CanAdjustActorToFloor(AActor* TargetActor, float UpOffset, FVector& OutLocation, bool ShortRayLength);
+    static bool CanAdjustActorToFloor(AActor* TargetActor, float UpOffset, FVector& OutLocation, bool ShortRayLength, bool PriorityWater);
+    
+    UFUNCTION(BlueprintCallable)
+    static bool CanActivateTrapForPvP(AActor* HitActor, APalBuildObject* BuildObject);
     
     UFUNCTION(BlueprintCallable)
     static bool CalculateLaunchVelocity(FVector StartPoint, FVector EndPoint, float Time, float Gravity, FVector& OutInitialVelocity);
@@ -1621,6 +1718,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FVector CalcBlowVelocity(EPalBlowVelocityOwner VelocityType, const AActor* Attacker, const USceneComponent* HitComponent, FVector HitLocation, const AActor* Defender, FVector NativeVelocity);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FVector CalcActorLocationByCachedLocation(const AActor* Actor);
+    
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool BoxOvelapLimitVolume(const UObject* WorldContextObject, EPalLimitVolumeFlag LimitVolumeFlag, const FVector BoxPos, FVector BoxExtent, const FQuat& Rot);
     
@@ -1640,7 +1740,7 @@ public:
     static void Alert(const UObject* WorldContextObject, const FText Message);
     
     UFUNCTION(BlueprintCallable)
-    static AActor* AdjustActorToFloor(AActor* TargetActor, float UpOffset, bool ShortRayLength);
+    static AActor* AdjustActorToFloor(AActor* TargetActor, float UpOffset, bool ShortRayLength, bool PriorityWater);
     
     UFUNCTION(BlueprintCallable)
     static void AddForceWithMassScale(APalCharacter* TargetCharacter, FVector Force, FName BoneName, bool IsImplus);

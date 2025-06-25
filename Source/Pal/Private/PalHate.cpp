@@ -6,7 +6,7 @@ UPalHate::UPalHate() {
 void UPalHate::SelfDeathEvent(FPalDeadInfo DeadInfo) {
 }
 
-void UPalHate::ForceHateUp_ForActiveAndAttackOtomoPal(const AActor* OtomoPal) {
+void UPalHate::ForceHateUp_ForActiveAndAttackOtomoPal(AActor* OtomoPal) {
 }
 
 AActor* UPalHate::FindMostHateTarget() {
@@ -16,7 +16,7 @@ AActor* UPalHate::FindMostHateTarget() {
 void UPalHate::DamageEvent(FPalDamageResult DamageResult) {
 }
 
-void UPalHate::ChangeHate(const AActor* Attacker, float PlusHateValue) {
+void UPalHate::ChangeHate(AActor* Attacker, float PlusHateValue) {
 }
 
 void UPalHate::AttackSuccessEvent(FPalDamageResult DamageResult) {

@@ -11,6 +11,7 @@
 #include "PalContainerId.h"
 #include "PalItemAndNum.h"
 #include "PalItemId.h"
+#include "PalPlayerDataEquipLanternData.h"
 #include "PalPlayerDataInventoryInfo.h"
 #include "PalPlayerInventoryData.generated.h"
 
@@ -28,6 +29,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateWeightInventoryDelegate, float, NowWeight);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateMaxWeightInventoryDelegate, float, MaxWeight);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdateLoadoutSlotDelegate, UPalItemSlot*, itemSlot, EPalPlayerInventoryType, UpdatedLoadoutType);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateLanternEquipSettingDelegate, const FPalPlayerDataEquipLanternData&, LanternEquipData);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateInventoryContainerDelegate, UPalItemContainer*, Container);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateEssentialContainerDelegate, UPalItemContainer*, Container);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdateEquipmentSlotDelegate, UPalItemSlot*, itemSlot, EPalPlayerEquipItemSlotType, slotType);
@@ -72,6 +74,9 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPickupItemDelegate OnGetItemFromConvertItemMapObject;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FUpdateLanternEquipSettingDelegate OnUpdateLanternEquipSettingDelegate;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_InventoryInfo, meta=(AllowPrivateAccess=true))
@@ -154,6 +159,12 @@ public:
     UFUNCTION(BlueprintCallable)
     void RequestSortInventory();
     
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestForceMarkAllDirty_ToServer(const bool ForceOn);
+    
+    UFUNCTION(BlueprintCallable)
+    void RequestForceMarkAllDirty(const bool IsOn);
+    
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestFillSlotToTargetContainerFromInventory_ToServer(const FPalContainerId& ToContainerId);
@@ -162,6 +173,9 @@ private:
     void RequestFillSlotToInventoryFromTargetContainer_ToServer(const FPalContainerId& FromContainerId);
     
 public:
+    UFUNCTION(BlueprintCallable)
+    void RequestChangeLanternSetting(const FPalPlayerDataEquipLanternData& NewLanternSettings);
+    
     UFUNCTION(BlueprintCallable)
     void RequestAddItem(const FName StaticItemId, const int32 Count, bool IsAssignPassive);
     
@@ -202,8 +216,13 @@ private:
     
 protected:
     UFUNCTION(BlueprintCallable)
-    void OnOnUpdateStatusPoint(FName StatusName, int32 prevPoint, int32 newPoint);
+    void OnOnUpdateStatusPoint(FName StatusName, int32 prevPoint, int32 NewPoint);
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnEquipSlotChanged(UPalItemSlot* Slot, EPalPlayerEquipItemSlotType slotType);
+    
+protected:
     UFUNCTION(BlueprintCallable)
     void OnEndPassiveSkill(EPalPassiveSkillEffectType EffectType);
     
@@ -239,6 +258,9 @@ public:
     float GetMaxItemWeight() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    FPalPlayerDataEquipLanternData GetLanternEquipData() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetItemInfoByItemTypeA(TArray<EPalItemTypeA> ItemTypeA, TArray<FPalItemAndNum>& OutItemInfos);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -257,7 +279,7 @@ public:
     bool CanCheckPalTalentsByInventoryItem();
     
     UFUNCTION(BlueprintCallable)
-    EPalItemOperationResult AddItem_ServerInternal(const FName StaticItemId, const int32 Count, bool IsAssignPassive);
+    EPalItemOperationResult AddItem_ServerInternal(const FName StaticItemId, const int32 Count, bool IsAssignPassive, const float LogDelay);
     
     UFUNCTION(BlueprintCallable)
     void AddFullInventoryLog_Client();

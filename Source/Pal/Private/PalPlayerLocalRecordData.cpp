@@ -7,3 +7,14 @@ UPalPlayerLocalRecordData::UPalPlayerLocalRecordData() {
     this->Local_DoctorLastSurgiDay = 0;
 }
 
+void UPalPlayerLocalRecordData::ResetQuickStackExceptList() {
+}
+
+void UPalPlayerLocalRecordData::RemoveQuickStackExceptId(const FName StaticItemId) {
+}
+
+bool UPalPlayerLocalRecordData::AddQuickStackExceptId(const FName StaticItemId) {
+    return false;
+}
+
+

@@ -13,6 +13,15 @@ public:
     FOnGetupTriggerDelegate OnGetupTriggerDelegate;
     
     UPalAction_SleepPlayerBed();
+
+protected:
+    UFUNCTION(BlueprintCallable)
+    void RequestPlayerAllowSkipNight();
+    
+    UFUNCTION(BlueprintCallable)
+    void RequestClearAllowSkipNightInOnlyServer();
+    
+public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnGetupPlayerBedFromModel();
     

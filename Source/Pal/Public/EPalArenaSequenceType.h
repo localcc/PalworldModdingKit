@@ -5,6 +5,7 @@
 UENUM(BlueprintType)
 enum class EPalArenaSequenceType : uint8 {
     None,
+    Enter,
     PartySelect,
     PreBattle,
     InBattle,

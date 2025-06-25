@@ -1,6 +1,8 @@
 #include "PalVisitorFormationMoveModule.h"
 
 UPalVisitorFormationMoveModule::UPalVisitorFormationMoveModule() {
+    this->AIController = NULL;
+    this->LeaderCharacter = NULL;
 }
 
 void UPalVisitorFormationMoveModule::TickModule(float DeltaTime) {

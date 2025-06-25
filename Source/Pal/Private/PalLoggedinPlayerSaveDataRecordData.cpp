@@ -14,5 +14,8 @@ FPalLoggedinPlayerSaveDataRecordData::FPalLoggedinPlayerSaveDataRecordData() {
     this->FixedDungeonClearCount = 0;
     this->OilrigClearCount = 0;
     this->AreaBonusExpTableIndex = 0;
+    this->CampConqueredCount = 0;
+    this->FoundTreasureCount = 0;
+    this->bFirstFishingComplete = false;
 }
 

@@ -51,6 +51,10 @@ bool UPalMapObjectPalBoothModel::IsLockedPrivateByLocalPlayer() const {
 void UPalMapObjectPalBoothModel::GetTradeInfos(TArray<FPalPalBoothTradeInfo>& OutTradeInfo) const {
 }
 
+FName UPalMapObjectPalBoothModel::GetSoldPalCharacterID(int32 TradeIndex) const {
+    return NAME_None;
+}
+
 UPalIndividualCharacterSlot* UPalMapObjectPalBoothModel::GetBoothPalByIndividualId(const FPalInstanceID IndividualId) {
     return NULL;
 }
@@ -60,6 +64,7 @@ void UPalMapObjectPalBoothModel::GetLifetimeReplicatedProps(TArray<FLifetimeProp
     
     DOREPLIFETIME(UPalMapObjectPalBoothModel, TradeInfos);
     DOREPLIFETIME(UPalMapObjectPalBoothModel, PrivateLockPlayerUId);
+    DOREPLIFETIME(UPalMapObjectPalBoothModel, SoldPalIds);
 }
 
 

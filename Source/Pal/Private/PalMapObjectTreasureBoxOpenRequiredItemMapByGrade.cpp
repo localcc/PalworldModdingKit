@@ -1,0 +1,5 @@
+#include "PalMapObjectTreasureBoxOpenRequiredItemMapByGrade.h"
+
+FPalMapObjectTreasureBoxOpenRequiredItemMapByGrade::FPalMapObjectTreasureBoxOpenRequiredItemMapByGrade() {
+}
+

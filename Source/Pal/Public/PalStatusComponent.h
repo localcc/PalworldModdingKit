@@ -13,8 +13,8 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalStatusComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnRemoveStatus, const UPalStatusComponent*, StatusComponent, EPalStatusID, StatusId);
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnAddStatus, const UPalStatusComponent*, StatusComponent, EPalStatusID, StatusId, UPalStatusBase*, Status);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnRemoveStatus, const UPalStatusComponent*, StatusComponent, EPalStatusID, statusID);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnAddStatus, const UPalStatusComponent*, StatusComponent, EPalStatusID, statusID, UPalStatusBase*, Status);
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<EPalStatusID, TSubclassOf<UPalStatusBase>> StatusMap;
@@ -42,19 +42,22 @@ public:
 
 private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void SomeStatus_ToAll(EPalStatusID StatusId, FStatusDynamicParameter Param);
+    void SomeStatus_ToAll(EPalStatusID statusID, FStatusDynamicParameter Param);
     
 public:
     UFUNCTION(BlueprintCallable)
     void SetDisableAddStatusIDs(TArray<EPalStatusID> StatusIDs);
     
+    UFUNCTION(BlueprintCallable)
+    void ResetDisableAddStatusIDs();
+    
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void RemoveStatus_ToServer(EPalStatusID StatusId, int32 issuerID);
+    void RemoveStatus_ToServer(EPalStatusID statusID, int32 issuerID);
     
 public:
     UFUNCTION(BlueprintCallable)
-    void RemoveStatus(EPalStatusID StatusId);
+    void RemoveStatus(EPalStatusID statusID);
     
     UFUNCTION(BlueprintCallable)
     void RemoveAll();
@@ -64,25 +67,25 @@ private:
     void OnRep_ExecutionStatusList();
     
     UFUNCTION(BlueprintCallable)
-    UPalStatusBase* GetExecutionStatusCache(EPalStatusID StatusId);
+    UPalStatusBase* GetExecutionStatusCache(EPalStatusID statusID);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    UPalStatusBase* GetExecutionStatus(EPalStatusID StatusId);
+    UPalStatusBase* GetExecutionStatus(EPalStatusID statusID);
     
     UFUNCTION(BlueprintCallable)
     void BeginPlay();
     
     UFUNCTION(BlueprintCallable)
-    void AddStatusParameter(EPalStatusID StatusId, FStatusDynamicParameter Param);
+    void AddStatusParameter(EPalStatusID statusID, FStatusDynamicParameter Param);
     
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void AddStatus_ToServer(EPalStatusID StatusId, FStatusDynamicParameter Param, int32 issuerID);
+    void AddStatus_ToServer(EPalStatusID statusID, FStatusDynamicParameter Param, int32 issuerID);
     
 public:
     UFUNCTION(BlueprintCallable)
-    void AddStatus(EPalStatusID StatusId);
+    void AddStatus(EPalStatusID statusID);
     
 };
 

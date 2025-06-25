@@ -10,7 +10,10 @@ struct FPalRecruitDataRow : public FTableRowBase {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 BaseCampLevel;
+    int32 BaseCampLevelMin;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 BaseCampLevelMax;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* PalRecruitMonsterInfo;

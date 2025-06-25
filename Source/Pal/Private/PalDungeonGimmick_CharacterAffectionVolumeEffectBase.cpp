@@ -1,0 +1,6 @@
+#include "PalDungeonGimmick_CharacterAffectionVolumeEffectBase.h"
+
+UPalDungeonGimmick_CharacterAffectionVolumeEffectBase::UPalDungeonGimmick_CharacterAffectionVolumeEffectBase() {
+}
+
+

@@ -60,6 +60,9 @@ void APalGameStateInGame::OnRep_CharacterManagerReplicator() {
 void APalGameStateInGame::OnRep_BaseCampReplicator() {
 }
 
+void APalGameStateInGame::OnOverTrialTime() {
+}
+
 FString APalGameStateInGame::GetWorldSaveDirectoryName() const {
     return TEXT("");
 }
@@ -70,6 +73,10 @@ FString APalGameStateInGame::GetWorldName() const {
 
 float APalGameStateInGame::GetServerFrameTime() const {
     return 0.0f;
+}
+
+int32 APalGameStateInGame::GetRemainTrialTimeSecond() {
+    return 0;
 }
 
 int32 APalGameStateInGame::GetMaxPlayerNum() const {

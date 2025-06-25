@@ -11,6 +11,7 @@ UPalCharacterParameterComponent::UPalCharacterParameterComponent(const FObjectIn
     this->ElementType1 = EPalElementType::None;
     this->ElementType2 = EPalElementType::None;
     this->IsOverrideTarget = false;
+    this->bIsOverrideDefenceTarget = false;
     this->Trainer = NULL;
     this->OtomoPal = NULL;
     this->IndividualHandle = NULL;
@@ -32,12 +33,14 @@ UPalCharacterParameterComponent::UPalCharacterParameterComponent(const FObjectIn
     this->DefenseUp = 0;
     this->IsSleepAction = false;
     this->IsDisableOtomoReturnEffect = false;
+    this->IsPendingMeatCutDeath = false;
     this->MaxHPRate_ForTowerBoss = 1.00f;
     this->MaxSPBuffRate = 1.00f;
     this->bIsPreCooping = false;
     this->bIsUseGroundRayCast = true;
     this->BaseCampWorkerOrderType = EPalMapBaseCampWorkerOrderType::Work;
     this->bBaseCampWorkerAttackableFriend = false;
+    this->bBeingSleptOnSide = false;
     this->WorkType = EPalWorkType::None;
     this->bAppliedBaseCampWorkerInitialized = false;
     this->WorkingState = EPalWorkWorkerWorkingState::Wait;
@@ -78,6 +81,9 @@ void UPalCharacterParameterComponent::SetOverrideTargetLocation_ToServer_Impleme
 }
 
 void UPalCharacterParameterComponent::SetOverrideTargetLocation(FVector TargetLocation) {
+}
+
+void UPalCharacterParameterComponent::SetOverrideDefenceTargetLocation(FVector TargetLocation) {
 }
 
 void UPalCharacterParameterComponent::SetMuteki(FName flagName, bool IsEnable) {
@@ -131,6 +137,9 @@ void UPalCharacterParameterComponent::ReviveFromDying() {
 void UPalCharacterParameterComponent::ResetSP() {
 }
 
+void UPalCharacterParameterComponent::ResetOverrideDefenceTarget() {
+}
+
 void UPalCharacterParameterComponent::ResetDyingHP() {
 }
 
@@ -165,6 +174,14 @@ void UPalCharacterParameterComponent::OnDamage(FPalDamageResult DamageResult) {
 }
 
 bool UPalCharacterParameterComponent::IsPlayersOtomo() const {
+    return false;
+}
+
+bool UPalCharacterParameterComponent::IsPartBroken() const {
+    return false;
+}
+
+bool UPalCharacterParameterComponent::IsOverrideDefenceTarget() const {
     return false;
 }
 
@@ -264,6 +281,10 @@ FVector UPalCharacterParameterComponent::GetOverrideTargetLocation_ConsiderRide(
     return FVector{};
 }
 
+FVector UPalCharacterParameterComponent::GetOverrideDefenceTargetLocation() const {
+    return FVector{};
+}
+
 UPalOtomoAttackStopJudgeByBallList* UPalCharacterParameterComponent::GetOtomoAttackStopJudge() {
     return NULL;
 }
@@ -349,6 +370,10 @@ FVector UPalCharacterParameterComponent::GetFloorLocation() const {
     return FVector{};
 }
 
+UPrimitiveComponent* UPalCharacterParameterComponent::GetFloorComponent() const {
+    return NULL;
+}
+
 int32 UPalCharacterParameterComponent::GetDefense() {
     return 0;
 }
@@ -369,16 +394,29 @@ FGuid UPalCharacterParameterComponent::GetBaseCampId() const {
     return FGuid{};
 }
 
+bool UPalCharacterParameterComponent::CanTargetFromAI() const {
+    return false;
+}
+
 void UPalCharacterParameterComponent::AddTrapMovingPanel(AActor* TrapActor) {
 }
 
 void UPalCharacterParameterComponent::AddTrapLegHold(AActor* TrapActor) {
 }
 
+void UPalCharacterParameterComponent::AddHPByRate_ToServer_Implementation(float Rate) {
+}
+
 void UPalCharacterParameterComponent::AddHPByRate(float Rate) {
 }
 
-void UPalCharacterParameterComponent::AddDyingHP(float AddHP) {
+void UPalCharacterParameterComponent::AddHP_ToServer_Implementation(FFixedPoint64 NewAddHP) {
+}
+
+void UPalCharacterParameterComponent::AddHP(FFixedPoint64 PlusHP) {
+}
+
+void UPalCharacterParameterComponent::AddDyingHP(float NewAddHP) {
 }
 
 void UPalCharacterParameterComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
@@ -393,6 +431,7 @@ void UPalCharacterParameterComponent::GetLifetimeReplicatedProps(TArray<FLifetim
     DOREPLIFETIME(UPalCharacterParameterComponent, IsCanSneakAttacked);
     DOREPLIFETIME(UPalCharacterParameterComponent, IsFriendBulletIgnore);
     DOREPLIFETIME(UPalCharacterParameterComponent, MaxHPRate_ForTowerBoss);
+    DOREPLIFETIME(UPalCharacterParameterComponent, bBeingSleptOnSide);
     DOREPLIFETIME(UPalCharacterParameterComponent, WorkAssignId);
     DOREPLIFETIME(UPalCharacterParameterComponent, WorkType);
     DOREPLIFETIME(UPalCharacterParameterComponent, WorkingState);

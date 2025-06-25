@@ -12,7 +12,7 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 RequireCampCount;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=NotifyUpdateQuest_Client, meta=(AllowPrivateAccess=true))
     int32 NowBaseCampCount;
     
 private:
@@ -21,6 +21,9 @@ private:
     
 public:
     UPalQuestBlock_CountBaseCamp();
+
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnTimer_CheckBaseCamp();

@@ -15,6 +15,9 @@ class IPalInflictDamageNotifyInterface : public IInterface {
 public:
 protected:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void OnPartBroken(const FPalDeadInfo& DeadInfo);
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnInflictDamage(const FPalDamageResult& DamageResult);
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)

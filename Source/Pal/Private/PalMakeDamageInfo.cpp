@@ -27,5 +27,6 @@ FPalMakeDamageInfo::FPalMakeDamageInfo() {
     this->CameraShake = EPalPlayerDamageCameraShakeCategory::None;
     this->ForceRagdollSize = EPalSizeType::None;
     this->OverrideNetworkOwner = NULL;
+    this->WeaponDamageRatePvP = 0.00f;
 }
 

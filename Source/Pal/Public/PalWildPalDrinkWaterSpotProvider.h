@@ -22,10 +22,10 @@ public:
     bool RequestReservation(AActor* LeaderPal, FVector WildPalSpawnerCenter, int32 MemberNum, FGuid& OutSpotID);
     
     UFUNCTION(BlueprintCallable)
-    UPalWildDrinkWaterSpot* FindSpot(FGuid SpotID);
+    UPalWildDrinkWaterSpot* FindSpot(FGuid SpotId);
     
     UFUNCTION(BlueprintCallable)
-    void CancelReservation(FGuid SpotID);
+    void CancelReservation(FGuid SpotId);
     
     UFUNCTION(BlueprintCallable)
     void AddDrinkWaterSpot(FVector ActorLocation, TArray<FVector> GoalLocations);

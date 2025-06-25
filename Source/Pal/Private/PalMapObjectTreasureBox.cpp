@@ -5,6 +5,8 @@ APalMapObjectTreasureBox::APalMapObjectTreasureBox(const FObjectInitializer& Obj
     this->LongHoldInteractDuration = 0.00f;
     this->InteractPlayerActionType = EPalActionType::None;
     this->IsLockRiding = false;
+    this->TreasureSpecialType = EPalMapObjectTreasureSpecialType::None;
+    this->OpeningPlayerActionType = EPalActionType::None;
 }
 
 

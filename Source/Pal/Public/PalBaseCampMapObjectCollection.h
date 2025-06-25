@@ -53,7 +53,7 @@ protected:
     void OnTriggeredBurnAnyMapObject(UPalMapObjectModelEffect_AccumulateTrigger* This, UPalMapObjectModel* OwnerModel);
     
     UFUNCTION(BlueprintCallable)
-    void OnRemovedEffectAnyMapObject(UPalMapObjectModel* OwnerModel, UPalMapObjectModelEffectBase* Effect, EPalStatusID StatusId);
+    void OnRemovedEffectAnyMapObject(UPalMapObjectModel* OwnerModel, UPalMapObjectModelEffectBase* Effect, EPalStatusID statusID);
     
 private:
     UFUNCTION(BlueprintCallable)

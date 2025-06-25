@@ -3,7 +3,7 @@
 
 UPalStatusBase::UPalStatusBase() {
     this->bIsEndStatus = false;
-    this->StatusId = EPalStatusID::None;
+    this->statusID = EPalStatusID::None;
     this->Duration = -1.00f;
     this->bIsNerverEnd = false;
 }
@@ -38,7 +38,7 @@ void UPalStatusBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLi
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(UPalStatusBase, DynamicParameter);
-    DOREPLIFETIME(UPalStatusBase, StatusId);
+    DOREPLIFETIME(UPalStatusBase, statusID);
 }
 
 

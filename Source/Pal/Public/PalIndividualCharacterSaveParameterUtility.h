@@ -85,6 +85,9 @@ public:
     static FString GetSaveParameterValue_NickName(const FPalIndividualCharacterSaveParameter& SaveParameter);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FFixedPoint64 GetSaveParameterValue_MaxSP(const FPalIndividualCharacterSaveParameter& SaveParameter);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FFixedPoint64 GetSaveParameterValue_MaxHP(const FPalIndividualCharacterSaveParameter& SaveParameter);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -116,6 +119,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static float GetSaveParameterValue_FullStomach(const FPalIndividualCharacterSaveParameter& SaveParameter);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static int32 GetSaveParameterValue_FriendshipPoint(const FPalIndividualCharacterSaveParameter& SaveParameter);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 GetSaveParameterValue_FavoriteIndexl(const FPalIndividualCharacterSaveParameter& SaveParameter);

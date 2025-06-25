@@ -6,6 +6,9 @@ UPalTimerPointLightComponent::UPalTimerPointLightComponent(const FObjectInitiali
     this->DefaultIntensity = 0.00f;
 }
 
+void UPalTimerPointLightComponent::SetIgnoreCurveFlag(FName Key, bool Enable) {
+}
+
 void UPalTimerPointLightComponent::SetEnableWhenDayTime(FName Key, bool Enable) {
 }
 

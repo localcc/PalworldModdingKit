@@ -17,7 +17,7 @@ public:
     APalDebug_SpawnInfoReporter(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    FString GetDebugInfoString(APalNPCSpawnerBase* spawner);
+    FString GetDebugInfoString(APalNPCSpawnerBase* Spawner);
     
 };
 

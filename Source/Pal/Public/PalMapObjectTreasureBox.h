@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "EPalActionType.h"
+#include "EPalMapObjectTreasureSpecialType.h"
 #include "PalMapObject.h"
 #include "PalMapObjectTreasureBox.generated.h"
 
@@ -28,6 +29,12 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool IsLockRiding;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalMapObjectTreasureSpecialType TreasureSpecialType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalActionType OpeningPlayerActionType;
     
 public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

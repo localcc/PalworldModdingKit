@@ -7,5 +7,7 @@ enum class EPalSaveError : uint8 {
     Success,
     NotFound,
     Unknown,
+    Broken,
+    OutOfMemory,
 };
 

@@ -1,0 +1,6 @@
+#include "PalDungeonGimmick_CharacterReturnBackAreaVolume_InactivateOtomo.h"
+
+UPalDungeonGimmick_CharacterReturnBackAreaVolume_InactivateOtomo::UPalDungeonGimmick_CharacterReturnBackAreaVolume_InactivateOtomo() {
+}
+
+

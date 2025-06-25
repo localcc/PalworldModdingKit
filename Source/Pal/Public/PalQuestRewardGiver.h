@@ -1,9 +1,8 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
 #include "UObject/Object.h"
 #include "PalQuestRewardGiver.generated.h"
-
-class APalPlayerState;
 
 UCLASS(Blueprintable)
 class PAL_API UPalQuestRewardGiver : public UObject {
@@ -12,7 +11,7 @@ public:
     UPalQuestRewardGiver();
 
     UFUNCTION(BlueprintCallable)
-    void TakeReward(APalPlayerState* PlayerState);
+    void TakeReward(const FGuid& PlayerUId);
     
 };
 

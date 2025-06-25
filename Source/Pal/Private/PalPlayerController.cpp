@@ -1,6 +1,7 @@
 #include "PalPlayerController.h"
 #include "Net/UnrealNetwork.h"
 #include "PalAIActionComponent.h"
+#include "PalArenaSpectateComponent.h"
 #include "PalCutsceneComponent.h"
 #include "PalSpectateComponent.h"
 #include "Templates/SubclassOf.h"
@@ -25,6 +26,7 @@ APalPlayerController::APalPlayerController(const FObjectInitializer& ObjectIniti
     this->PlayerInputOneFlameCommandList = NULL;
     this->IsBuldingActiveFlag_ForServer = false;
     this->SpectateComponent = CreateDefaultSubobject<UPalSpectateComponent>(TEXT("SpectateComponent"));
+    this->ArenaSpectateComponent = CreateDefaultSubobject<UPalArenaSpectateComponent>(TEXT("ArenaSpectateComponent"));
 }
 
 void APalPlayerController::UpdateCharacterNickName_ToServer_Implementation(const FPalInstanceID& InstanceId, const FString& NewNickName) {
@@ -148,6 +150,9 @@ void APalPlayerController::SelfKillPlayer_Implementation() {
 void APalPlayerController::RPCDummy_Implementation() {
 }
 
+void APalPlayerController::ReserveSummonWeapon_ToServer_Implementation(UPalDynamicWeaponItemDataBase* InDynamicItem) {
+}
+
 void APalPlayerController::RequestUseItemToCharacter_ToServer_Implementation(const FPalItemSlotIdAndNum& ItemData, const FPalInstanceID& TargetCharacterID) {
 }
 
@@ -163,13 +168,19 @@ void APalPlayerController::RequestSwapDimensionStorageData_ToServer_Implementati
 void APalPlayerController::RequestSwapBetweenDimensionStorageAndPalStorage_ToServer_Implementation(int32 DimensionStorageDataIndex, int32 PalStorageDataIndex) {
 }
 
+void APalPlayerController::RequestStartNPCTalkFlow_Implementation(UPalNPCTalkFlowComponent* TalkFlowComponent) {
+}
+
 void APalPlayerController::RequestSortDimensionStorage_ToServer_Implementation(const FPalCharacterContainerSortInfo& SortInfo) {
 }
 
 void APalPlayerController::RequestSendAllDimensionStorage_ToServer_Implementation() {
 }
 
-void APalPlayerController::RequestRestoreDimensionStorage_ToServer_Implementation(int32 OriginalLockerDataIndex, int32 TargetRestorePalStorageSlotIndex) {
+void APalPlayerController::RequestRestoreDimensionStorageFixedIndex_ToServer_Implementation(int32 OriginalLockerDataIndex, int32 TargetRestorePalStorageSlotIndex) {
+}
+
+void APalPlayerController::RequestRestoreDimensionStorage_ToServer_Implementation(int32 OriginalLockerDataIndex, int32 TargetRestorePalStorageRootPageIndex) {
 }
 
 void APalPlayerController::RequestOpenDimensionStorage_ToServer_Implementation(const FGuid& LockerMapObjectId) {
@@ -202,13 +213,16 @@ void APalPlayerController::RequestEnterToPlayerGuild_ToServer_Implementation(APa
 void APalPlayerController::RequestEnterRoom_ToServer_Implementation(const FPalStageInstanceId& StageInstanceId, const UPalStageEnterParameterRoom* EnterParameter) {
 }
 
+void APalPlayerController::RequestEndNPCTalkFlow_Implementation(UPalNPCTalkFlowComponent* TalkFlowComponent, const FGuid& Token, bool bIsCancel) {
+}
+
 void APalPlayerController::RequestDestroyOilrigCannon_Implementation(APalOilRigCannonBase* Cannon) {
 }
 
 void APalPlayerController::RequestDestroyAntiAirLauncher_Implementation(APalAntiAirMissileLauncher* Launcher) {
 }
 
-void APalPlayerController::RequestDecreaseWeaponDurability_ToServer_Implementation(FPalItemId ItemId) {
+void APalPlayerController::RequestDecreaseWeaponDurability_ToServer_Implementation(FPalItemId ItemId, float DecreaseValue) {
 }
 
 void APalPlayerController::RequestCloseDimensionStorage_ToServer_Implementation() {
@@ -244,6 +258,9 @@ void APalPlayerController::RemoveEquipWaza_ToServer_Implementation(const FPalIns
 void APalPlayerController::RemoveCameraRotateSpeedModifierRate(const FName& modifierName) {
 }
 
+void APalPlayerController::ReleaseSummonWeapon_ToServer_Implementation(UPalDynamicWeaponItemDataBase* InDynamicItem) {
+}
+
 void APalPlayerController::ReceiveSuccessRequestEnterGuild_ToClient_Implementation(const EPalGuildJoinRequestResult Result, const FPalInstanceID& EnterPlayerInstanceId) {
 }
 
@@ -275,7 +292,7 @@ void APalPlayerController::OnWeaponNotify(EWeaponNotifyType Type) {
 void APalPlayerController::OnUpdateWeightInventory(float Weight) {
 }
 
-void APalPlayerController::OnUpdateOtomoSlotWithInitializedParameter_ServerInternal(APalCharacter* PalCharacter) {
+void APalPlayerController::OnUpdateOtomoSlotWithCompletedInitializedParameter_ServerInternal(APalCharacter* PalCharacter) {
 }
 
 void APalPlayerController::OnUpdateOtomoSlotWithActor_ServerInternal(int32 SlotIndex, UPalIndividualCharacterHandle* LastHandle) {
@@ -369,6 +386,9 @@ void APalPlayerController::NotifyRideWallStop_ToClient_Implementation() {
 void APalPlayerController::NotifyOilrigGoalCrateOpen_ToClient_Implementation() {
 }
 
+void APalPlayerController::NotifyNPCTalkToken_Implementation(UPalNPCTalkFlowComponent* TalkFlowComponent, const FGuid& NewToken, const int32 TalkCount) {
+}
+
 void APalPlayerController::NotifyLiftupCampPal_ToClient_Implementation(APalCharacter* TargetCharacter) {
 }
 
@@ -412,9 +432,6 @@ bool APalPlayerController::IsBuldingActiveFlagForServer() const {
     return false;
 }
 
-void APalPlayerController::IncrementNPCTalkCount_Implementation(const FName& TalkID) {
-}
-
 void APalPlayerController::IncrementFavoriteIndexPal_ToServer_Implementation(const FPalInstanceID& InstanceId) {
 }
 
@@ -429,6 +446,10 @@ APalCharacter* APalPlayerController::GetRiderCharacter() const {
 
 FGuid APalPlayerController::GetPlayerUId() const {
     return FGuid{};
+}
+
+UPalSpectateComponent* APalPlayerController::GetPalSpectateComponent() {
+    return NULL;
 }
 
 APalPlayerState* APalPlayerController::GetPalPlayerState() const {
@@ -601,6 +622,9 @@ void APalPlayerController::ClientPlayForceFeedbackForPal(UForceFeedbackEffect* F
 }
 
 void APalPlayerController::ClientBeginSpectate_Implementation(bool bAdminMode) {
+}
+
+void APalPlayerController::ClearSummonWeapon_ToServer_Implementation(UPalDynamicWeaponItemDataBase* InDynamicItem) {
 }
 
 void APalPlayerController::ChangeSpectateMoveSpeed(int32 Direction) {

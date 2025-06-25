@@ -91,6 +91,10 @@ FString UPalIndividualCharacterSaveParameterUtility::GetSaveParameterValue_NickN
     return TEXT("");
 }
 
+FFixedPoint64 UPalIndividualCharacterSaveParameterUtility::GetSaveParameterValue_MaxSP(const FPalIndividualCharacterSaveParameter& SaveParameter) {
+    return FFixedPoint64{};
+}
+
 FFixedPoint64 UPalIndividualCharacterSaveParameterUtility::GetSaveParameterValue_MaxHP(const FPalIndividualCharacterSaveParameter& SaveParameter) {
     return FFixedPoint64{};
 }
@@ -133,6 +137,10 @@ EPalGenderType UPalIndividualCharacterSaveParameterUtility::GetSaveParameterValu
 
 float UPalIndividualCharacterSaveParameterUtility::GetSaveParameterValue_FullStomach(const FPalIndividualCharacterSaveParameter& SaveParameter) {
     return 0.0f;
+}
+
+int32 UPalIndividualCharacterSaveParameterUtility::GetSaveParameterValue_FriendshipPoint(const FPalIndividualCharacterSaveParameter& SaveParameter) {
+    return 0;
 }
 
 int32 UPalIndividualCharacterSaveParameterUtility::GetSaveParameterValue_FavoriteIndexl(const FPalIndividualCharacterSaveParameter& SaveParameter) {

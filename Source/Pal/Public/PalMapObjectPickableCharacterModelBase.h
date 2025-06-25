@@ -25,6 +25,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FDateTime CreatedAtRealTime;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    FGuid PickupablePlayerUid;
+    
 public:
     UPalMapObjectPickableCharacterModelBase();
 

@@ -5,6 +5,7 @@
 #include "UObject/NoExportTypes.h"
 #include "GameFramework/CheatManager.h"
 #include "EPalActionType.h"
+#include "EPalArenaRank.h"
 #include "EPalBaseCampWorkerEventType.h"
 #include "EPalBaseCampWorkerSickType.h"
 #include "EPalBossBattleDifficulty.h"
@@ -132,6 +133,9 @@ public:
     void ToggleShowReticleLocation();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void ToggleShowMsgID();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void ToggleShowDropItemHitEventLog();
     
 protected:
@@ -156,6 +160,18 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void ToggleForceSpawnRandomIncident();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void ToggleFishMove();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void ToggleFishingSuccess();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void ToggleFishingSearchAreaDraw();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void ToggleDebugFishingSpotRespawnTime();
     
     UFUNCTION(BlueprintCallable, Exec)
     void ToggleBuildInstallCheckLookToCamera();
@@ -197,6 +213,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void TeleportToDungeonEntranceByDataLayer(const FName DataLayerName);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void TeleportToCurrentStageRelativeLocation(float X, float Y, float Z);
     
     UFUNCTION(BlueprintCallable, Exec)
     void TeleportToCurrentDungeonTreasureBox();
@@ -257,6 +276,9 @@ public:
     UFUNCTION(BlueprintCallable, Exec)
     void StartBuildMode(const FName BuildObjectId);
     
+    UFUNCTION(BlueprintCallable, Exec)
+    void StartArenaSolo(EPalArenaRank ArenaRank);
+    
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SpectatorOnForBP();
@@ -272,6 +294,9 @@ protected:
 public:
     UFUNCTION(BlueprintCallable, Exec)
     void SpectatorOff();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SpawnUniqueNPC(const FName CharacterID);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SpawnPalEggBreedFarm(const FName MonsterId, const float Range);
@@ -400,6 +425,9 @@ public:
     void SetVoiceID(int32 VoiceID);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SetVisitorName(const FString& VisitorName);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetVisibleLevelObjectAll(const bool bVisible);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -467,6 +495,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetLoadingSceneVisible(bool IsVisible);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetInventorySize(int32 NewSize);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetInventoryItemDurability(const float Percent);
@@ -548,6 +579,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetBaseCampWorkerHp(const float Percentage);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetArenaRankPoint(int32 ArenaRankPoint);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetAlwaysGrantPassiveSkillMode(bool flag);
@@ -643,6 +677,9 @@ public:
     void PrintGameTime();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void PrintArenaSpectateInfoLog(bool ForceNetUpdate);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void PrintAllDataLayerIDHash();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -653,6 +690,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void PalmiTargetEnemny();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void OrderQuestForce(const FName QuestId);
     
     UFUNCTION(BlueprintCallable, Exec)
     void OrderBaseCampWorker(const EPalMapBaseCampWorkerOrderType OrderType);
@@ -765,7 +805,7 @@ public:
     UFUNCTION(BlueprintCallable)
     bool IsShowCharacterStatus() const;
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsNotDecreaseWeaponItem() const;
     
     UFUNCTION(BlueprintCallable)
@@ -900,6 +940,9 @@ public:
     void ForceSpawnRarePal();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void ForceResetPropertiesPlayerBelongTo();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void ForceReportCriminal();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -910,6 +953,12 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void ForceLowerSpecSetting();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void ForceItemContainerDirtyAll();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void ForceFoundNearestTreasureMapPoint(const int32 Rarity);
     
     UFUNCTION(BlueprintCallable, Exec)
     void ForceExitStageAllPlayer();
@@ -973,6 +1022,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void EnterGroup(const FString& GroupName, FPalInstanceID IndividualId);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void EnterDungeonByDataLayer(const FName DataLayerName);
     
     UFUNCTION(BlueprintCallable, Exec)
     void EnableStatUnit();
@@ -1137,6 +1189,9 @@ public:
     void ConnectServer(const FString& Address, const FString& Port, const FString& ServerPassword);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void CompleteQuestForce(const FName QuestId);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void CompleteLabResearches(const TArray<FName> ResearchIds);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -1150,6 +1205,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void CleatDebugInfoText();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void ClearVisitorName();
     
     UFUNCTION(BlueprintCallable, Exec)
     void ClearSupply();
@@ -1246,6 +1304,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void AddRecord_TowerBossDefeat(const EPalBossType BossType, const EPalBossBattleDifficulty Difficulty);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void AddRecord_NormalBossDefeatAll();
     
     UFUNCTION(BlueprintCallable, Exec)
     void AddPlayerExp(int32 addExp);

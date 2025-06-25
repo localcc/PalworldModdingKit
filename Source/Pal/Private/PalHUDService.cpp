@@ -51,6 +51,9 @@ bool UPalHUDService::IsAnyOverlayUIActive() {
     return false;
 }
 
+void UPalHUDService::InvokeTargetWidgetFunction(const FGuid& WidgetId, const FName FunctionName) {
+}
+
 void UPalHUDService::InvokeFunction_Int32(const FName FunctionName, int32 Value) {
 }
 
@@ -71,6 +74,10 @@ void UPalHUDService::HideCommonItemInfo() {
 
 bool UPalHUDService::HasFadeQueue(EPalFadeWidgetLayerType InLayerType) const {
     return false;
+}
+
+UPalUserWidgetStackableUI* UPalHUDService::GetWidget(const FGuid& WidgetId) {
+    return NULL;
 }
 
 UPalSoundPlayer* UPalHUDService::GetSoundPlayer() {

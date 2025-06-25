@@ -13,11 +13,13 @@ class UPalNetworkBossBattleComponent;
 class UPalNetworkCharacterComponent;
 class UPalNetworkCharacterContainerComponent;
 class UPalNetworkCharacterStatusOperationComponent;
+class UPalNetworkFishingComponent;
 class UPalNetworkIndividualComponent;
 class UPalNetworkInvaderComponent;
 class UPalNetworkItemComponent;
 class UPalNetworkMapObjectComponent;
 class UPalNetworkPlayerComponent;
+class UPalNetworkQuestComponent;
 class UPalNetworkRaidBossComponent;
 class UPalNetworkShopComponent;
 class UPalNetworkTimeComponent;
@@ -74,6 +76,12 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPalNetworkArenaComponent* Arena;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UPalNetworkFishingComponent* Fishing;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UPalNetworkQuestComponent* Quest;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UPalNetworkIndividualComponent* NetworkIndividualComponent;
     
@@ -122,6 +130,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalNetworkShopComponent* GetShop() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPalNetworkQuestComponent* GetQuest() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalNetworkPlayerComponent* GetPlayer() const;

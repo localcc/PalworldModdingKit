@@ -1,7 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
-#include "UObject/NoExportTypes.h"
 #include "Components/ActorComponent.h"
 #include "EPalLogType.h"
 #include "EPalOtomoPalOrderType.h"
@@ -16,6 +15,7 @@ class APalCharacter;
 class APawn;
 class UPalIndividualCharacterContainer;
 class UPalIndividualCharacterHandle;
+class UPalIndividualCharacterParameter;
 class UPalIndividualCharacterSlot;
 class UPalOtomoSpawnCollisionChecker;
 
@@ -39,6 +39,9 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FUpdateOtomoSlotWithInitializedParameterDelegate OnUpdateOtomoSlotWithInitializedParameterDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FUpdateOtomoSlotWithInitializedParameterDelegate OnUpdateOtomoSlotWithCompletedInitializedParameterDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOtomoSpawnedDelegate OnOtomoSpawnedDelegate;
@@ -149,6 +152,9 @@ private:
     
 protected:
     UFUNCTION(BlueprintCallable)
+    void OnUpdateFriendshipRank(UPalIndividualCharacterParameter* IndividualParameter, const int32 NewFriendshipRank, const int32 OldRank, bool bFirstRankup);
+    
+    UFUNCTION(BlueprintCallable)
     void OnSpawnOtomoCallback_ServerInternal(FPalInstanceID ID);
     
 private:
@@ -169,6 +175,9 @@ protected:
     void OnCreatedCharacterContainer();
     
 private:
+    UFUNCTION(BlueprintCallable)
+    void OnCompletedAllCharacterInitialized(APalCharacter* Character);
+    
     UFUNCTION(BlueprintCallable)
     void OnChangeOtomoActive(APalCharacter* Otomo, bool IsActive);
     
@@ -328,6 +337,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void AddLogOtomoPartnerSkill_Text_ToClient(AActor* Otomo, FName TextId);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void ActivatePalByHandle(const UPalIndividualCharacterHandle* OtomoHandle, const FVector& Location, const FRotator& Rotation, bool bKeepActigvateOtomoId);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void ActivateCurrentOtomoNearThePlayer_ToServer();

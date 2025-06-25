@@ -24,5 +24,8 @@ enum class EPalLocationType : uint8 {
     Oilrig,
     SupplyMarker,
     PointDungeonGoal,
+    QuestStatic,
+    QuestTrackingActor,
+    TreasureMapPoint,
 };
 

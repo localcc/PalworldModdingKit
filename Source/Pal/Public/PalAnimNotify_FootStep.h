@@ -11,7 +11,7 @@
 #include "PalAnimNotify_FootStep.generated.h"
 
 class AActor;
-class UObject;
+class UNiagaraSystem;
 class UPalFootStepEffectAssetBase;
 class UPalStaticCharacterParameterComponent;
 
@@ -29,7 +29,7 @@ private:
 public:
     UPalAnimNotify_FootStep();
     UFUNCTION(BlueprintCallable, BlueprintPure=false)
-    void SpawnFootStepEffect(UObject* WorldObject, EPalLandingType LandingType, TEnumAsByte<EPhysicalSurface> PhysicalSurface, const FVector& Location, const FRotator& Rotation, UPalStaticCharacterParameterComponent* StaticParam) const;
+    void SpawnFootStepEffect(AActor* Owner, EPalLandingType LandingType, TEnumAsByte<EPhysicalSurface> PhysicalSurface, const FVector& Location, const FRotator& Rotation, UPalStaticCharacterParameterComponent* StaticParam, const float Scale, UNiagaraSystem* OverrideEffect) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure=false)
     void SpawnFootStepDecal(AActor* Owner, TEnumAsByte<EPhysicalSurface> PhysicalSurface, EPalFootType FootType, FVector Location, FVector CurrentNormal, float LifeSpan, float FadeTime) const;

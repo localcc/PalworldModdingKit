@@ -78,7 +78,7 @@ private:
     void SetCurrentGliderSoftClass_ToServer(const TSoftClassPtr<APalGliderObject>& gliderSoftClass);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void SetCurrentGliderPalID_ToServer(const FName& PalID);
+    void SetCurrentGliderPalID_ToServer(const FName& PalId);
     
 public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)

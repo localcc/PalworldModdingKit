@@ -24,7 +24,7 @@ void UPalGliderComponent::StartGliding() {
 void UPalGliderComponent::SetCurrentGliderSoftClass_ToServer_Implementation(const TSoftClassPtr<APalGliderObject>& gliderSoftClass) {
 }
 
-void UPalGliderComponent::SetCurrentGliderPalID_ToServer_Implementation(const FName& PalID) {
+void UPalGliderComponent::SetCurrentGliderPalID_ToServer_Implementation(const FName& PalId) {
 }
 
 void UPalGliderComponent::RequestCheckAndUpdateCurrentGlider_ToAll_Implementation() {

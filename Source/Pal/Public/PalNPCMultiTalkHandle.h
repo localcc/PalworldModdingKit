@@ -13,7 +13,7 @@ class PAL_API UPalNPCMultiTalkHandle : public UObject {
 public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FName TalkID;
+    FName TalkId;
     
 public:
     UPalNPCMultiTalkHandle();

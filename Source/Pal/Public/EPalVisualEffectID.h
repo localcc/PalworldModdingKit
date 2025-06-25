@@ -24,6 +24,7 @@ enum class EPalVisualEffectID : uint8 {
     LeafCondition,
     DarkCondition,
     Swimming,
+    HoveringWater,
     CameraVignette,
     PalEffectFadeIn,
     PalEffectFadeOut,
@@ -41,6 +42,7 @@ enum class EPalVisualEffectID : uint8 {
     ChangeElement_Earth,
     ChangeElement_Dark,
     ChangeElement_Dragon,
+    PalEnhancement,
     DebugRefresh,
 };
 

@@ -26,7 +26,7 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable)
-    void RequestChangePassiveSkill(const UPalIndividualCharacterHandle* targetHandle, int32 skillIndex, FName ItemName);
+    void RequestChangePassiveSkill(const UPalIndividualCharacterHandle* targetHandle, int32 skillIndex, FName PassiveSkill);
     
 };
 

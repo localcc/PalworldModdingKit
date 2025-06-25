@@ -38,7 +38,12 @@ FPalIndividualCharacterSaveParameter::FPalIndividualCharacterSaveParameter() {
     this->VoiceID = 0;
     this->IsFavoritePal = false;
     this->FavoriteIndex = 0;
-    this->bIsChangedPassiveSkill = 0;
     this->bImportedCharacter = false;
+    this->FriendshipPoint = 0;
+    this->FriendshipOtomoSec = 0;
+    this->FriendshipActiveOtomoSec = 0;
+    this->FriendshipBasecampSec = 0;
+    this->bFavoriteChangedByFriendship = false;
+    this->ArenaRankPoint = 0;
 }
 

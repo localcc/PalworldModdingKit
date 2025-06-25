@@ -44,13 +44,13 @@ void UPalMapObjectManager::UpdatePointLightComponentForCulling() {
 void UPalMapObjectManager::UnResisterSkeletalMeshComponentForLOD(UObject* InComponent) {
 }
 
-void UPalMapObjectManager::UnResisterPointLightComponent(UObject* InComponent) {
+void UPalMapObjectManager::UnResisterPointLightComponent(UPointLightComponent* InComponent) {
 }
 
 void UPalMapObjectManager::ResisterSkeletalMeshComponentForLOD(UObject* InComponent) {
 }
 
-void UPalMapObjectManager::ResisterPointLightComponent(UObject* InComponent) {
+void UPalMapObjectManager::ResisterPointLightComponent(UPointLightComponent* InComponent) {
 }
 
 void UPalMapObjectManager::RequestDismantleObject_OnResponseDialog(const bool bResult, UPalDialogParameterBase* DialogParameter) {

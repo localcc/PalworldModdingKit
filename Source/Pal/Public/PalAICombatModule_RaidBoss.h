@@ -12,7 +12,7 @@ UCLASS(Blueprintable)
 class PAL_API UPalAICombatModule_RaidBoss : public UPalAICombatModule {
     GENERATED_BODY()
 public:
-private:
+protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     APalMapObject* TargetBaseCampActor;
     

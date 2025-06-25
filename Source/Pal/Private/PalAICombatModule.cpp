@@ -28,6 +28,10 @@ AActor* UPalAICombatModule::GetTargetActor() {
     return NULL;
 }
 
+TArray<AActor*> UPalAICombatModule::GetAllTargetActors() {
+    return TArray<AActor*>();
+}
+
 bool UPalAICombatModule::AIMoveToTargetActor(AActor* Target) {
     return false;
 }

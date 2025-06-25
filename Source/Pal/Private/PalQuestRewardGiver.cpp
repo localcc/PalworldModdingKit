@@ -3,7 +3,7 @@
 UPalQuestRewardGiver::UPalQuestRewardGiver() {
 }
 
-void UPalQuestRewardGiver::TakeReward(APalPlayerState* PlayerState) {
+void UPalQuestRewardGiver::TakeReward(const FGuid& PlayerUId) {
 }
 
 

@@ -9,13 +9,13 @@ class PAL_API UPalAchivementRewardDataAsset : public UDataAsset {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<FPalRecordCountRewardData> BossDefeatRewards;
+    TMap<FName, FPalRecordCountRewardData> BossDefeatRewardsMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<FPalRecordCountRewardData> PalCaptureRewards;
+    TMap<FName, FPalRecordCountRewardData> PalCaptureRewardsMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<FPalRecordCountRewardData> PaldexRewards;
+    TMap<FName, FPalRecordCountRewardData> PaldexRewardsMap;
     
     UPalAchivementRewardDataAsset();
 

@@ -1,7 +1,13 @@
 #include "PalStaticCharacterParameterComponent.h"
 
 UPalStaticCharacterParameterComponent::UPalStaticCharacterParameterComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->MeshCapsuleHalfHeight = 0.00f;
+    this->MeshCapsuleRadius = 0.00f;
     this->CallApproachWalkSpeedMultiplier = 1.00f;
+    this->SleepOnSideAnimMontage = NULL;
+    this->bFadeSleepOnSide = true;
+    this->bIsWazaAdjustPitchDisable = false;
+    this->OverrideCommonWazaID = EPalWazaID::None;
     this->CaptureSuccessRate = 1.00f;
     this->IsPal = false;
     this->SkillEffectScale = 1.00f;
@@ -26,6 +32,10 @@ UPalStaticCharacterParameterComponent::UPalStaticCharacterParameterComponent(con
     this->PettingCameraCenterDistance_Override = -1.00f;
     this->PettingCameraHeight_Override = -1.00f;
     this->PettingCameraArmLength_Override = -1.00f;
+    this->FishingCutsceneCameraTargetDistanceOffset = -1.00f;
+    this->FishingSize = EPalSizeType::None;
+    this->FishingPlayerMotionType = EPalFishingPlayerMotionType::None;
+    this->HasFishingRod = false;
     this->Size = EPalSizeType::S;
     this->Ragdoll_GravityRate = 3.00f;
     this->IsLookatIKAble = true;
@@ -37,6 +47,8 @@ UPalStaticCharacterParameterComponent::UPalStaticCharacterParameterComponent(con
     this->DefenseBuildObjectAssignDistance = 0.00f;
     this->DefenseBuildObjectAssignHeight = 0.00f;
     this->IsHideDefenseLauncherFooting = false;
+    this->InWaterFacialEyeType = EPalFacialEyeType::None;
+    this->InWaterFacialMouthType = EPalFacialMouthType::None;
     this->PalSoundSlotCache = NULL;
     this->PalFootStepEffectAssetCache = NULL;
     this->MissWazaAction = NULL;
@@ -44,6 +56,7 @@ UPalStaticCharacterParameterComponent::UPalStaticCharacterParameterComponent(con
     this->IsTowerBoss_Database = false;
     this->IsRaidBoss_Database = false;
     this->IsPredatorBoss_Database = false;
+    this->IsLegend_Database = false;
     this->SpawnedCharacterType = EPalSpawnedCharacterType::Common;
     this->IsRaidBoss_BP = false;
 }
@@ -71,6 +84,14 @@ bool UPalStaticCharacterParameterComponent::IsRaidBossPal() const {
 }
 
 bool UPalStaticCharacterParameterComponent::IsPredatorBossPal() {
+    return false;
+}
+
+bool UPalStaticCharacterParameterComponent::IsLegendPal() const {
+    return false;
+}
+
+bool UPalStaticCharacterParameterComponent::IsIgnoreEffectType(EPalAdditionalEffectType Effect) const {
     return false;
 }
 

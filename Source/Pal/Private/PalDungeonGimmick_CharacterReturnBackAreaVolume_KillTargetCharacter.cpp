@@ -1,0 +1,6 @@
+#include "PalDungeonGimmick_CharacterReturnBackAreaVolume_KillTargetCharacter.h"
+
+UPalDungeonGimmick_CharacterReturnBackAreaVolume_KillTargetCharacter::UPalDungeonGimmick_CharacterReturnBackAreaVolume_KillTargetCharacter() {
+}
+
+

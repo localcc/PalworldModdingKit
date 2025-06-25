@@ -24,6 +24,9 @@ void UPalPlayerRecordDataUtility::SetRecordData_BossDefeat_ForServer(const UObje
 void UPalPlayerRecordDataUtility::SetRecordData_Bool_ForServer(const UObject* WorldContextObject, FPalPlayerRecordDataRepInfoArray_BoolVal& RecordData, const FName Key, const bool bValue) {
 }
 
+void UPalPlayerRecordDataUtility::SetRecordData_ArenaSoloClearCount_ForServer(const UObject* WorldContextObject, FPalPlayerRecordDataRepInfoArray_IntVal& RecordData, const EPalArenaRank Rank, const int32 Value) {
+}
+
 bool UPalPlayerRecordDataUtility::GetRecordData_TribeIdFlag(const FPalPlayerRecordDataRepInfoArray_BoolVal& RecordData, const EPalTribeID Key) {
     return false;
 }
@@ -50,6 +53,10 @@ int32 UPalPlayerRecordDataUtility::GetRecordData_BoolCount(const FPalPlayerRecor
 
 bool UPalPlayerRecordDataUtility::GetRecordData_Bool(const FPalPlayerRecordDataRepInfoArray_BoolVal& RecordData, const FName Key) {
     return false;
+}
+
+int32 UPalPlayerRecordDataUtility::GetRecordData_ArenaSoloClearCount(const FPalPlayerRecordDataRepInfoArray_IntVal& RecordData, const EPalArenaRank Rank) {
+    return 0;
 }
 
 bool UPalPlayerRecordDataUtility::ContainsRecordData_TribeIdCount(const FPalPlayerRecordDataRepInfoArray_IntVal& RecordData, const EPalTribeID Key) {

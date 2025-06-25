@@ -8,8 +8,8 @@
 #include "InteractingDelegateDelegate.h"
 #include "PalInteractDelegates.generated.h"
 
-UCLASS(Blueprintable)
-class UPalInteractDelegates : public UObject {
+UCLASS(Blueprintable, Deprecated, NotPlaceable)
+class UDEPRECATED_PalInteractDelegates : public UObject {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -36,6 +36,7 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FInteractTriggeringDelegate OnTriggeringInteract;
     
-    UPalInteractDelegates();
+    UDEPRECATED_PalInteractDelegates();
+
 };
 

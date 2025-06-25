@@ -9,6 +9,7 @@
 #include "Templates/SubclassOf.h"
 #include "PalRaidBossDataRow.generated.h"
 
+class AActor;
 class APalRaidBossSummonGeneratorBase;
 
 USTRUCT(BlueprintType)
@@ -35,6 +36,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString AchievementId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<AActor> OverrideRaidBossBattleActorClass;
     
     PAL_API FPalRaidBossDataRow();
 };

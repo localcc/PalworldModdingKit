@@ -6,42 +6,61 @@
 #include "PalFishingRodInitParameter.h"
 #include "PalFishingRodModule.generated.h"
 
+class AActor;
 class APalCharacter;
+class APalFishShadow;
+class APalFishingSpotArea;
 class UPalActionBase;
 
 UCLASS(Blueprintable)
 class PAL_API UPalFishingRodModule : public UObject {
     GENERATED_BODY()
 public:
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPickFishDelegate);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnDecreaseDurabilityDelegate, float, DecreaseValue);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangeTargetSpotDelegate, APalFishingSpotArea*, TargetSpot);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangeRodStateDelegate, EPalFishingRodState, RodState);
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnChangeRodStateDelegate OnChangeRodStateDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnDecreaseDurabilityDelegate OnDecreaseDurabilityDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnChangeTargetSpotDelegate OnChangeTargetSpotDelegate;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     APalCharacter* ActionCharacter;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float CableShootSpeed;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float CableReturnSpeed;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float CableMaxLength;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float CharacterMoveSpeed;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FVector ReserveFishingLureLocation;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FVector FishingLureLocation;
+    FVector FishingFloatLocation;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalFishingRodState FishingRodState;
+    
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    APalFishingSpotArea* TargetSpot;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    APalFishShadow* PreTargetFishShadow;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    APalFishShadow* TargetFishShadow;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    AActor* ReticleTargetActor;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FVector ReticleTargetLocation;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FVector ReticleHitImpactNormal;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsHitReticleWaterPlane;
     
 public:
     UPalFishingRodModule();
@@ -50,10 +69,13 @@ public:
     void TickModule(float DeltaTime);
     
     UFUNCTION(BlueprintCallable)
-    void ShowLine();
+    void ShotCable();
     
     UFUNCTION(BlueprintCallable)
-    void ShotCable();
+    void SetFloatLocation(const FVector& InLocation);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnStartWaitPick();
     
     UFUNCTION(BlueprintCallable)
     void OnStartFishingAction();
@@ -64,6 +86,9 @@ public:
 private:
     UFUNCTION(BlueprintCallable)
     void OnStartAction(const UPalActionBase* action);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnPickStart();
     
 public:
     UFUNCTION(BlueprintCallable)
@@ -87,10 +112,21 @@ public:
     bool IsFishingAction() const;
     
     UFUNCTION(BlueprintCallable)
-    void Initialize(const FPalFishingRodInitParameter& Parameter);
+    void Initialize(const FPalFishingRodInitParameter& Parameter, APalCharacter* InActionCharacter);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool CanHitFishingTarget() const;
+    APalFishShadow* GetTargetFishShadow() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FVector GetFloatLocation() const;
+    
+private:
+    UFUNCTION(BlueprintCallable)
+    void DebugShowLine();
+    
+public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool CanHitFishingTarget();
     
     UFUNCTION(BlueprintCallable)
     void CancelFishing();

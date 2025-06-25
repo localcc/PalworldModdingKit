@@ -17,6 +17,7 @@ class UDataTable;
 class UNavigationQueryFilter;
 class UPalIndividualCharacterHandle;
 class UPalNPCMultiTalkHandle;
+class UPalNPCTalkFlowAssetBase;
 class UPalWildPalDrinkWaterSpotProvider;
 
 UCLASS(Blueprintable)
@@ -58,6 +59,9 @@ protected:
     UDataTable* NPCMultiTalkDataTable;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* NPCTalkFlowDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<EPalNPCTalkUIType, UDataTable*> TalkDataTableMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -94,17 +98,20 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     EPalNPCTalkUIType GetTalkUIType(APalCharacter* Character);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPalNPCTalkFlowAssetBase* GetNPCTalkFlowAsset(APalCharacter* Character) const;
+    
     UFUNCTION(BlueprintCallable)
     UDataTable* GetNPCTalkDTFromTalkUIType(EPalNPCTalkUIType TalkUIType);
     
     UFUNCTION(BlueprintCallable)
-    UDataTable* GetNPCOneTalkDTFromTalkId(FName TalkID);
+    UDataTable* GetNPCOneTalkDTFromTalkId(FName TalkId);
     
     UFUNCTION(BlueprintCallable)
     UDataTable* GetNPCOneTalkDTFromCharacter(APalCharacter* Character);
     
     UFUNCTION(BlueprintCallable)
-    TSubclassOf<UPalNPCMultiTalkHandle> GetNPCMultiTalkClassFromTalkId(FName TalkID);
+    TSubclassOf<UPalNPCMultiTalkHandle> GetNPCMultiTalkClassFromTalkId(FName TalkId);
     
     UFUNCTION(BlueprintCallable)
     TSubclassOf<UPalNPCMultiTalkHandle> GetNPCMultiTalkClass(APalCharacter* Character);

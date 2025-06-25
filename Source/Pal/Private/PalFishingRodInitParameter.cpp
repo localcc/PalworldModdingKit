@@ -1,9 +1,9 @@
 #include "PalFishingRodInitParameter.h"
 
 FPalFishingRodInitParameter::FPalFishingRodInitParameter() {
-    this->CableShootSpeed = 0.00f;
-    this->CableReturnSpeed = 0.00f;
-    this->CableMaxLength = 0.00f;
-    this->ActionCharacter = NULL;
+    this->FishingMaxDistance = 0.00f;
+    this->FloatMoveSpeed = 0.00f;
+    this->HitBarSizeRate = 0.00f;
+    this->MissFightAmountRate = 0.00f;
 }
 

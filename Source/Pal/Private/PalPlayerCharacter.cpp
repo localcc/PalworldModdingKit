@@ -31,6 +31,10 @@ APalPlayerCharacter::APalPlayerCharacter(const FObjectInitializer& ObjectInitial
     this->bSpectatorMode = false;
 }
 
+
+void APalPlayerCharacter::UpdateForceWarningLoupeList(APalCharacter* TargetCharacter, bool IsAdd, bool AlwaysDisplay) {
+}
+
 void APalPlayerCharacter::UpdateForceHPGaugeList(APalCharacter* TargetCharacter, bool IsAdd) {
 }
 
@@ -58,7 +62,7 @@ void APalPlayerCharacter::PlayIdleAnimation(UAnimMontage* Montage) {
 void APalPlayerCharacter::PlayEatAnimation() {
 }
 
-void APalPlayerCharacter::OnUpdateEssentialItemContainer(UPalItemContainer* Container) {
+void APalPlayerCharacter::OnUpdateLanternEquipSetting(const FPalPlayerDataEquipLanternData& NewLanternSetting) {
 }
 
 void APalPlayerCharacter::OnTriggerInteract(AActor* OtherActor, EPalInteractiveObjectIndicatorType IndicatorType) {
@@ -153,6 +157,9 @@ void APalPlayerCharacter::GetLastInsideRegionNameID(FName& OutNameID) const {
 }
 
 
+void APalPlayerCharacter::GetForceWarningLoupeList(TArray<APalCharacter*>& List) const {
+}
+
 void APalPlayerCharacter::GetForceHPGaugeList(TArray<APalCharacter*>& List) const {
 }
 
@@ -195,8 +202,10 @@ void APalPlayerCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
     DOREPLIFETIME(APalPlayerCharacter, PlayerCameraPitch);
     DOREPLIFETIME(APalPlayerCharacter, IsAdjustedLocationByLoad);
     DOREPLIFETIME(APalPlayerCharacter, bIsLogoutPlayer);
+    DOREPLIFETIME(APalPlayerCharacter, PlayerBattleSituation);
     DOREPLIFETIME(APalPlayerCharacter, bSpectatorMode);
     DOREPLIFETIME(APalPlayerCharacter, CharacterMakeInfo);
+    DOREPLIFETIME(APalPlayerCharacter, ReceivedHateIDs);
 }
 
 

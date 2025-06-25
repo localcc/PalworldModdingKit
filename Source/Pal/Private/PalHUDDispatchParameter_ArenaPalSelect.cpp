@@ -2,6 +2,7 @@
 
 UPalHUDDispatchParameter_ArenaPalSelect::UPalHUDDispatchParameter_ArenaPalSelect() {
     this->ArenaSequencer = NULL;
+    this->IsSoloMode = false;
 }
 
 

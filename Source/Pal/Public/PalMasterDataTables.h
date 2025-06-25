@@ -19,10 +19,16 @@ class UPalMasterDataTableAccess_CharacterUpgradeData;
 class UPalMasterDataTableAccess_DungeonEnemySpawnerData;
 class UPalMasterDataTableAccess_DungeonItemLotteryData;
 class UPalMasterDataTableAccess_DungeonLevelData;
+class UPalMasterDataTableAccess_DungeonRewardSpawnerLotteryData;
 class UPalMasterDataTableAccess_DungeonSpawnAreaData;
 class UPalMasterDataTableAccess_FarmCropData;
 class UPalMasterDataTableAccess_FarmSkillFruitsLotteryData;
 class UPalMasterDataTableAccess_FieldLotteryNameData;
+class UPalMasterDataTableAccess_FishPondLotteryData;
+class UPalMasterDataTableAccess_FishPondLotteryNameData;
+class UPalMasterDataTableAccess_FishShadowData;
+class UPalMasterDataTableAccess_FishingSpotLotteryData;
+class UPalMasterDataTableAccess_FishingSpotLotteryNameData;
 class UPalMasterDataTableAccess_ItemLotteryData;
 class UPalMasterDataTableAccess_ItemProductData;
 class UPalMasterDataTableAccess_ItemRecipe;
@@ -30,8 +36,11 @@ class UPalMasterDataTableAccess_ItemShop;
 class UPalMasterDataTableAccess_ItemShopLottery;
 class UPalMasterDataTableAccess_LabResearch;
 class UPalMasterDataTableAccess_LocalizeText;
+class UPalMasterDataTableAccess_MapObjectLotteryData;
 class UPalMasterDataTableAccess_MapObjectMasterData;
+class UPalMasterDataTableAccess_MapObjectSpawnerBlueprintData;
 class UPalMasterDataTableAccess_NPCEmoteLotteryData;
+class UPalMasterDataTableAccess_OperatingTablePassiveSkillData;
 class UPalMasterDataTableAccess_PalRandomizerData;
 class UPalMasterDataTableAccess_PalShop;
 class UPalMasterDataTableAccess_PlayerStatusRankData;
@@ -71,6 +80,12 @@ protected:
     UPalMasterDataTableAccess_MapObjectMasterData* Access_MapObjectDataTable;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* MapObjectLotteryDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalMasterDataTableAccess_MapObjectLotteryData* Access_MapObjectLotteryDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* BuildObjectDataTable;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -81,6 +96,12 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalMasterDataTableAccess_BuildObjectIconData* Access_BuildObjectIconDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* MapObjectSpawnerDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalMasterDataTableAccess_MapObjectSpawnerBlueprintData* Access_MapObjectSpawnerDataTable;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* ItemProductDataTable;
@@ -117,6 +138,12 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalMasterDataTableAccess_DungeonItemLotteryData* Access_DungeonItemLotteryDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* DungeonRewardSpawnerLotteryDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalMasterDataTableAccess_DungeonRewardSpawnerLotteryData* Access_DungeonRewardSpawnerLotteryDataTable;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* FieldLotteryNameDataTable;
@@ -246,6 +273,42 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalMasterDataTableAccess_FarmSkillFruitsLotteryData* Access_FarmSkillFruitsLotteryDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* FishShadowDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalMasterDataTableAccess_FishShadowData* Access_FishShadowDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* FishingSpotLotteryNameDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalMasterDataTableAccess_FishingSpotLotteryNameData* Access_FishingSpotLotteryNameDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* FishingSpotLotteryDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalMasterDataTableAccess_FishingSpotLotteryData* Access_FishingSpotLotteryDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* FishPondLotteryNameDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalMasterDataTableAccess_FishPondLotteryNameData* Access_FishPondLotteryNameDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* FishPondLotteryDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalMasterDataTableAccess_FishPondLotteryData* Access_FishPondLotteryDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* OperatingTablePassiveSkillDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalMasterDataTableAccess_OperatingTablePassiveSkillData* Access_OperatingTablePassiveSkillDataTable;
     
 public:
     UPalMasterDataTables();

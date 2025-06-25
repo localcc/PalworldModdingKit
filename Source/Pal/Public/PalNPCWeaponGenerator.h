@@ -27,6 +27,10 @@ private:
     
 public:
     UPalNPCWeaponGenerator();
+
+    UFUNCTION(BlueprintCallable)
+    void UnequipWeapon();
+    
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSpawnEvent(APalWeaponBase* WeaponActor);
@@ -34,6 +38,9 @@ protected:
 public:
     UFUNCTION(BlueprintCallable)
     void GenerateWeapn(EPalWeaponType WeaponType, bool IsDefaultEquip);
+    
+    UFUNCTION(BlueprintCallable)
+    void EquipWeapon();
     
 };
 

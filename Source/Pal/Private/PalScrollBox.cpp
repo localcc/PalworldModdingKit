@@ -3,7 +3,7 @@
 
 UPalScrollBox::UPalScrollBox() {
     this->bIsVariable = false;
-    this->Clipping = EWidgetClipping::ClipToBounds;
+    this->Clipping = this->GetClipping();
     this->Style = NULL;
     this->BarStyle = NULL;
     this->Orientation = Orient_Vertical;

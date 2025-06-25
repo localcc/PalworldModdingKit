@@ -29,6 +29,10 @@ bool UPalLookAtComponent::IsEnableLookAt() const {
     return false;
 }
 
+AActor* UPalLookAtComponent::GetLookAtTargetActor() const {
+    return NULL;
+}
+
 FVector UPalLookAtComponent::GetLookAtTarget() const {
     return FVector{};
 }

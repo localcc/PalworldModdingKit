@@ -32,5 +32,6 @@ enum class EPalLocalizeTextCategory : uint8 {
     MapRespawnPoint,
     CharacterTeamMission,
     LabResearch,
+    FishPondTargetType,
 };
 

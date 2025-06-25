@@ -2,7 +2,6 @@
 #include "Net/UnrealNetwork.h"
 
 UPalTemperatureComponent::UPalTemperatureComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->ShapeBodySetup = NULL;
     this->CurrentTemperature = 0;
     this->SelfKeyName = TEXT("TemperatureComponent");
 }

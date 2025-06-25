@@ -45,6 +45,7 @@ enum class EPalWorkType : uint8 {
     DedicatedWork09,
     DedicatedWork10,
     LabResearch,
+    FishPond,
     Attack,
     CollectItemToStorage,
     TransportItem,

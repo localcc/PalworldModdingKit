@@ -7,6 +7,7 @@ APalBuildObject::APalBuildObject(const FObjectInitializer& ObjectInitializer) : 
     this->InstallStrategyClass = NULL;
     this->InstallCapacitySlopeAngle = -1.00f;
     this->InstallCapacitySinkRateByHeight = -1.00f;
+    this->InstallAtReticleGroundZOffset = 0.00f;
     this->InstallNeighborRotationZOffset = 0.00f;
     this->DefaultMobility = EComponentMobility::Static;
     this->VisualCtrl = CreateDefaultSubobject<UPalBuildObjectVisualControlComponent>(TEXT("VisualController"));

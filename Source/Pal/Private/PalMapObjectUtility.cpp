@@ -31,4 +31,8 @@ bool UPalMapObjectUtility::IsContainsCollisionProfiles(const UPrimitiveComponent
 void UPalMapObjectUtility::GetItemVisualModelFX(TSubclassOf<AActor> actorClass, TArray<FPalItemVisualModelFXInfo>& OutFXInfos) {
 }
 
+FName UPalMapObjectUtility::ConvertBlueprintItemIdToBuildObjectId(const UObject* WorldContextObject, const FName& StaticItemId) {
+    return NAME_None;
+}
+
 

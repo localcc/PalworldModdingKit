@@ -7,7 +7,7 @@
 #include "BuildingSurfaceMaterialSet.h"
 #include "EPalMapObjectChangeMeshFXType.h"
 #include "EPalMapObjectDestroyFXType.h"
-#include "EPalMapObjectTreasureGradeType.h"
+#include "EPalMapObjectTreasureSpecialType.h"
 #include "PalDataTableRowName_ItemData.h"
 #include "PalGameWorldDataSaveInterface.h"
 #include "PalMapObjectDamageInfo.h"
@@ -15,6 +15,7 @@
 #include "PalMapObjectModelStaticData.h"
 #include "PalMapObjectSignificanceInfo.h"
 #include "PalMapObjectStaticData.h"
+#include "PalMapObjectTreasureBoxOpenRequiredItemMapByGrade.h"
 #include "PalMapObjectVisualEffectAssets.h"
 #include "PalWorldSubsystem.h"
 #include "Templates/SubclassOf.h"
@@ -43,6 +44,7 @@ class UPalMapObjectModel;
 class UPalMapObjectModelInitializeExtraParameterSpawnedBy;
 class UPalMapObjectSpawnRequestHandler;
 class UPalMapObjectWorldDisposer;
+class UPointLightComponent;
 
 UCLASS(Blueprintable, Config=Game)
 class UPalMapObjectManager : public UPalWorldSubsystem, public IPalGameWorldDataSaveInterface {
@@ -226,7 +228,13 @@ protected:
     FPalMapObjectVisualEffectAssets VisualEffectAssets;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<EPalMapObjectTreasureGradeType, FPalDataTableRowName_ItemData> TreasureBoxOpenRequiredItemMap;
+    TMap<EPalMapObjectTreasureSpecialType, FPalDataTableRowName_ItemData> TreasureBoxOpenRequiredItemMapForSpecialType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalMapObjectTreasureBoxOpenRequiredItemMapByGrade TreasureBoxOpenRequiredItemMapByGrade;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<EPalMapObjectTreasureSpecialType, FPalMapObjectTreasureBoxOpenRequiredItemMapByGrade> TreasureBoxOpenRequiredItemMapByGradeBySpecialType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<APalSnapModeFX> SnapModeFXClass;
@@ -251,7 +259,7 @@ private:
     int32 InDoorCheckMaxNumPerFrame_AnyThread;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<APalMapObjectSpawnerBase*> SpawnedSpawners;
+    TSet<APalMapObjectSpawnerBase*> SpawnedSpawners;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FGuid, FPalMapObjectInfoTickInBackground> MapObjectInfoMapTickInBackground;
@@ -269,8 +277,8 @@ public:
     UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<TWeakObjectPtr<UObject>> SkeletalLODComponentArrayWait;
     
-    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<TWeakObjectPtr<UObject>> PointLightComponents;
+    UPROPERTY(EditAnywhere, Export, Transient, meta=(AllowPrivateAccess=true))
+    TArray<TWeakObjectPtr<UPointLightComponent>> PointLightComponents;
     
     UPalMapObjectManager();
 
@@ -284,13 +292,13 @@ public:
     void UnResisterSkeletalMeshComponentForLOD(UObject* InComponent);
     
     UFUNCTION(BlueprintCallable)
-    void UnResisterPointLightComponent(UObject* InComponent);
+    void UnResisterPointLightComponent(UPointLightComponent* InComponent);
     
     UFUNCTION(BlueprintCallable)
     void ResisterSkeletalMeshComponentForLOD(UObject* InComponent);
     
     UFUNCTION(BlueprintCallable)
-    void ResisterPointLightComponent(UObject* InComponent);
+    void ResisterPointLightComponent(UPointLightComponent* InComponent);
     
     UFUNCTION(BlueprintCallable)
     void RequestDismantleObject_OnResponseDialog(const bool bResult, UPalDialogParameterBase* DialogParameter);

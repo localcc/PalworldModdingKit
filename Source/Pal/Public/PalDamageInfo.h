@@ -9,6 +9,7 @@
 #include "EPalElementType.h"
 #include "EPalPlayerDamageCameraShakeCategory.h"
 #include "EPalSizeType.h"
+#include "EPalStatusID.h"
 #include "EPalWazaCategory.h"
 #include "EPalWeaponType.h"
 #include "PalFoliageInstanceId.h"
@@ -16,6 +17,7 @@
 #include "PalDamageInfo.generated.h"
 
 class AActor;
+class UNiagaraSystem;
 
 USTRUCT(BlueprintType)
 struct FPalDamageInfo {
@@ -23,6 +25,9 @@ struct FPalDamageInfo {
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 NativeDamageValue;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 RedirectDamageValue;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalWazaCategory Category;
@@ -128,6 +133,24 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool IgnoreCheckGroupForStun;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IsPlayerVsPlayerDamage;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float WeaponDamageRatePvP;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UNiagaraSystem> OverrideHitEffect;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalStatusID statusID;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bRedirectDamage;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName AttackStaticItemID;
     
     PAL_API FPalDamageInfo();
 };

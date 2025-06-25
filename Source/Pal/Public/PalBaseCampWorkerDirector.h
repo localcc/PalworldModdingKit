@@ -18,6 +18,7 @@ class UPalBaseCampWorkerDirectorBattle;
 class UPalBaseCampWorkerTaskBase;
 class UPalIndividualCharacterContainer;
 class UPalIndividualCharacterHandle;
+class UPalIndividualCharacterParameter;
 class UPalIndividualCharacterSlot;
 class UPalIndividualCharacterSlotsObserver;
 class UPalWorkBase;
@@ -83,6 +84,9 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
+    void OnUpdateWorkerFriendshipRank(UPalIndividualCharacterParameter* IndividualParameter, const int32 NewRank, const int32 OldRank, bool bIsFirstRankup);
+    
+    UFUNCTION(BlueprintCallable)
     void OnUpdateOwnerBaseCampStatus_ServerInternal(UPalBaseCampModel* OwnerBaseCamp);
     
     UFUNCTION(BlueprintCallable)
@@ -97,12 +101,6 @@ protected:
     
 private:
     UFUNCTION(BlueprintCallable)
-    void OnRemovedNewCharacterInServer(const FPalInstanceID& IndividualId);
-    
-    UFUNCTION(BlueprintCallable)
-    void OnReflectSlotCompleteInServer();
-    
-    UFUNCTION(BlueprintCallable)
     void OnRaisedPhantomCharacterInServer(FPalInstanceID IndividualId, int32 PhantomId);
     
     UFUNCTION(BlueprintCallable)
@@ -113,9 +111,6 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void OnDeadWorkerInServer(const FPalDeadInfo Info);
-    
-    UFUNCTION(BlueprintCallable)
-    void OnAddedNewCharacterInServer(const FPalInstanceID& IndividualId);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)

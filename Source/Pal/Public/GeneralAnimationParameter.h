@@ -81,6 +81,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bForceSprintForNPC;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bUseUpperBodyOnlyWhileRidingFlag;
+    
     PAL_API FGeneralAnimationParameter();
 };
 

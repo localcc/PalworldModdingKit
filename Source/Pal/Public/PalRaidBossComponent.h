@@ -87,7 +87,7 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    FGuid GetCampID();
+    FGuid GetCampID() const;
     
     UFUNCTION(BlueprintCallable)
     APalPlayerCharacter* FindInRangePlayers(TArray<APalPlayerCharacter*>& Players, bool OnlyAlive);

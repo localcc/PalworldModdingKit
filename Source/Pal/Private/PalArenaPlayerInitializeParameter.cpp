@@ -2,6 +2,8 @@
 
 FPalArenaPlayerInitializeParameter::FPalArenaPlayerInitializeParameter() {
     this->PlayerIndex = EPalArenaPlayerIndex::None;
-    this->PlayerIndividualParameter = NULL;
+    this->ArenaRank = EPalArenaRank::Bronze;
+    this->bIsNpc = false;
+    this->bPartySelected = false;
 }
 
