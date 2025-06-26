@@ -60,11 +60,23 @@ void APalMapObject::OnDamaged(UPalMapObjectModel* TargetModel, const FPalDamageI
 void APalMapObject::OnCloseParameter(UPalHUDDispatchParameterBase* Parameter) {
 }
 
+bool APalMapObject::IsExistsWorkingAnyWorker() const {
+    return false;
+}
+
+bool APalMapObject::IsExistsAssignedAnyWorker() const {
+    return false;
+}
+
 UPalMapObjectModel* APalMapObject::GetModel() const {
     return NULL;
 }
 
 FGuid APalMapObject::GetGroupIdBelongTo() const {
+    return FGuid{};
+}
+
+FGuid APalMapObject::GetBaseCampIdBelongTo() const {
     return FGuid{};
 }
 

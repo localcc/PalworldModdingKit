@@ -8,6 +8,7 @@
 #include "PalCapturedCage.generated.h"
 
 class APalAIController;
+class APalCapturedCage;
 class APalCharacter;
 class APalPlayerCharacter;
 class UPalIndividualCharacterHandle;
@@ -16,6 +17,8 @@ UCLASS(Blueprintable)
 class PAL_API APalCapturedCage : public AActor, public IPalInteractiveObjectIndicatorInterface {
     GENERATED_BODY()
 public:
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FReturnSelfMulticastDelegate, APalCapturedCage*, Self);
+    
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName FieldKeyName;
@@ -44,6 +47,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool IsInSpawnedRange;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bDisabledLottery;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalIndividualCharacterHandle* SpawnedPalHandle;

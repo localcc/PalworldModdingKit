@@ -2,12 +2,12 @@
 
 UPalInteractiveObjectCapsuleComponent::UPalInteractiveObjectCapsuleComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->bCanEverAffectNavigation = false;
-    this->InteractDelegates = NULL;
     this->bIsEnableTriggerInteract = false;
     this->bIsImplementedTriggerInteract = false;
     this->bIsEnableInteractingTick = false;
     this->bIsEnableInteractingTickInClientOnly = false;
     this->bIsAdjustIndicatorLocationZForPlayer = false;
+    this->bNeedTraceToPlayer = false;
 }
 
 void UPalInteractiveObjectCapsuleComponent::SetIndicatorInterface(TScriptInterface<IPalInteractiveObjectIndicatorInterface> InIndicatorInterface) {
@@ -26,11 +26,7 @@ FVector UPalInteractiveObjectCapsuleComponent::GetIndicatorLocation(bool bNoShap
 void UPalInteractiveObjectCapsuleComponent::EnableTriggerInteract() {
 }
 
-UPalInteractDelegates* UPalInteractiveObjectCapsuleComponent::Delegates() const {
-    return NULL;
-}
-
-void UPalInteractiveObjectCapsuleComponent::CallOrRegisterOnCreateInteractDelegates(UPalInteractiveObjectCapsuleComponent::FOnCreateInteractsDelegates Delegate) {
+void UPalInteractiveObjectCapsuleComponent::CallOrRegisterOnCreateInteractDelegates(FOnCreateInteractDelegates Delegate) {
 }
 
 

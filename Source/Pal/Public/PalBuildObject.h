@@ -55,6 +55,9 @@ protected:
     FVector InstallLocationOffset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float InstallAtReticleGroundZOffset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float InstallNeighborRotationZOffset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -124,7 +127,7 @@ protected:
     FVector buildProgressHUDDisplayOffset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    FVector2D buildProgressHUDDisplayOffsetScreen;
+    FVector buildProgressHUDDisplayOffsetScreen;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float buildProgressHUDDisplayRange;

@@ -7,6 +7,8 @@ APalMapObjectSpawnerBase::APalMapObjectSpawnerBase(const FObjectInitializer& Obj
     this->ProbabilityRespawn = 100;
     this->LotteryCoolTimeMinutes = 60.00f;
     this->bAdjustMapObjectToFloor = false;
+    this->bDebugBreakPointTryRespawnFor = false;
+    this->bResetSpawnedObjectTransformAtActivated = false;
     this->LocateSphere = NULL;
     this->State = EPalMapObjectSpawnerState::Init;
 }

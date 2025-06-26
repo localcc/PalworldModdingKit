@@ -14,6 +14,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FName, FPalBuildObjectData> BuildObjectDataIdMap;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FName, FName> BlueprintItemIdToBuildObjectIdMap;
+    
 public:
     UPalBuildObjectDataMap();
     UFUNCTION(BlueprintCallable, BlueprintPure)

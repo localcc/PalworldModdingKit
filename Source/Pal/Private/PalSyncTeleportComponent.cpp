@@ -48,4 +48,10 @@ FVector UPalSyncTeleportComponent::GetTeleportLocation() const {
     return FVector{};
 }
 
+void UPalSyncTeleportComponent::ForceReset_ToClient_Implementation() {
+}
+
+void UPalSyncTeleportComponent::ForceReset_ServerInternal() {
+}
+
 

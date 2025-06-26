@@ -2,6 +2,7 @@
 
 UPalUILiftSlotModel::UPalUILiftSlotModel() {
     this->CharacterSlot = NULL;
+    this->Behaviour = NULL;
 }
 
 void UPalUILiftSlotModel::SelectItemSlot(const FPalItemSlotId SlotId, const EPalItemSlotPressType Type) {

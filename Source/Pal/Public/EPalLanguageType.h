@@ -15,5 +15,11 @@ enum class EPalLanguageType : uint8 {
     KO,
     PT_BR,
     RU,
+    TH,
+    VI,
+    ID,
+    TR,
+    PL,
+    ES_MX,
 };
 

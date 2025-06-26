@@ -7,6 +7,11 @@ UCLASS(Blueprintable)
 class PAL_API UPalWorkCollectResource : public UPalWorkBase {
     GENERATED_BODY()
 public:
+protected:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bWorkingForNonActor;
+    
+public:
     UPalWorkCollectResource();
 
 };

@@ -1,25 +1,19 @@
 #include "PalTalkWindowWidgetBase.h"
 
 UPalTalkWindowWidgetBase::UPalTalkWindowWidgetBase() {
-    this->talkSystem = NULL;
 }
 
 
 
-
-
-EPalNPCTalkSelectedChoiceResult UPalTalkWindowWidgetBase::NotifyChoiceIndex(int32 Index) {
-    return EPalNPCTalkSelectedChoiceResult::ExecutedBySystem;
+void UPalTalkWindowWidgetBase::OnEndTalk() {
 }
 
-bool UPalTalkWindowWidgetBase::HasArguments() const {
-    return false;
+UPalNPCTalkSystem* UPalTalkWindowWidgetBase::GetTalkSystem() const {
+    return NULL;
 }
 
-void UPalTalkWindowWidgetBase::CreateTextAppliedArgments(const FText& OrgText, FText& OutText) {
-}
-
-void UPalTalkWindowWidgetBase::AddArgument(const FString& Key, const FText& Text) {
+FText UPalTalkWindowWidgetBase::FormatByCustomTagArgument(const FText& OriginalText) {
+    return FText::GetEmpty();
 }
 
 

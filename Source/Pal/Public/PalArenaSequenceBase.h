@@ -1,6 +1,8 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
+#include "EPalArenaSequencerOwnerType.h"
+#include "GameDateTime.h"
 #include "PalArenaSequenceBase.generated.h"
 
 class UPalArenaInstanceModel;
@@ -15,10 +17,16 @@ public:
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bNoSync;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bNotWaitClient;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bBreakEndSequence;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameDateTime BeginTime_InServer;
     
 public:
     UPalArenaSequenceBase();
@@ -37,7 +45,7 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool IsOutsiderSequencer() const;
+    EPalArenaSequencerOwnerType GetOwnerType() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalArenaSequencer* GetOuterSequencer() const;

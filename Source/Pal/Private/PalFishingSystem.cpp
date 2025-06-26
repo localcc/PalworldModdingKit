@@ -1,16 +1,23 @@
 #include "PalFishingSystem.h"
 
 UPalFishingSystem::UPalFishingSystem() {
-    this->CatchBattle = NULL;
+    this->RarePalEffect = NULL;
+    this->RarePassiveEffect = NULL;
+    this->CatchBattleBlueprintClass = NULL;
+    this->BaitItemDataTable = NULL;
 }
 
 
 
-int32 UPalFishingSystem::GetCurrentFishDirection() const {
-    return 0;
+float UPalFishingSystem::GetFishShadowSizeScale(EPalFishShadowSizeType SizeType) const {
+    return 0.0f;
 }
 
-UPalFishingCatchBattle* UPalFishingSystem::GetCatchBattle() const {
+EPalFishingPlayerMotionType UPalFishingSystem::GetFishingPlayerMotionType(const EPalSizeType SizeType) {
+    return EPalFishingPlayerMotionType::None;
+}
+
+UPalFishingCatchBattle* UPalFishingSystem::GetCatchBattle(const FGuid& PlayerUId) const {
     return NULL;
 }
 

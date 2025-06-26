@@ -2,7 +2,6 @@
 
 UPalCharacterAroundInfoCollectorComponent::UPalCharacterAroundInfoCollectorComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->ComponentTags.AddDefaulted(1);
-    this->ShapeBodySetup = NULL;
 }
 
 void UPalCharacterAroundInfoCollectorComponent::OnSetMapObjectModel(APalMapObject* MapObject) {

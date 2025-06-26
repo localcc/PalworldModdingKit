@@ -2,12 +2,14 @@
 #include "PalArenaCharacterRefresher.h"
 
 UPalArenaSequencer::UPalArenaSequencer() {
-    this->BattleResult = EPalArenaBattleResult::None;
     this->IsBattlePlayerRemoved = false;
+    this->bPlayerInfoInitialized = false;
     this->ArenaInstanceModel = NULL;
     this->CurrentSequence = NULL;
     this->CharacterRefresher = CreateDefaultSubobject<UPalArenaCharacterRefresher>(TEXT("CharacterRefresher"));
-    this->bIsClientOnly = false;
+}
+
+void UPalArenaSequencer::StartSequencer(const FPalArenaSequencerInitializeParameter& InitParameter) {
 }
 
 void UPalArenaSequencer::SetupStatusCharacter(UPalIndividualCharacterParameter* IndividualParameter) {
@@ -19,6 +21,9 @@ void UPalArenaSequencer::SetupBattleTimer() {
 void UPalArenaSequencer::SetMutekiAllPlayer(bool bIsMuteki) {
 }
 
+void UPalArenaSequencer::SetEnablePlayerTemperatureComponent(EPalArenaPlayerIndex PlayerIndex, bool bEnable) {
+}
+
 void UPalArenaSequencer::SetDisableNotSelectedOtomo(EPalArenaPlayerIndex PlayerIndex, bool bDisable) {
 }
 
@@ -28,6 +33,12 @@ void UPalArenaSequencer::SetDisableGliderPal(EPalArenaPlayerIndex PlayerIndex, b
 void UPalArenaSequencer::RestoreStatusCharacter(UPalIndividualCharacterParameter* IndividualParameter) {
 }
 
+void UPalArenaSequencer::ResetHateAll() {
+}
+
+void UPalArenaSequencer::RequestExitSoloMode() {
+}
+
 FGuid UPalArenaSequencer::OpenPalSelectUI(FOnPalSelectedDelegate PalSelectedDelegate) {
     return FGuid{};
 }
@@ -35,8 +46,12 @@ FGuid UPalArenaSequencer::OpenPalSelectUI(FOnPalSelectedDelegate PalSelectedDele
 void UPalArenaSequencer::OnArenaSequenceEnd(UPalArenaSequenceBase* SequenceBase) {
 }
 
-bool UPalArenaSequencer::IsClientOnly() const {
+bool UPalArenaSequencer::IsSoloMode() const {
     return false;
+}
+
+float UPalArenaSequencer::GetStartDelaySeconds() const {
+    return 0.0f;
 }
 
 TArray<APalPlayerCharacter*> UPalArenaSequencer::GetSequencePlayers_ForServer() const {
@@ -45,6 +60,10 @@ TArray<APalPlayerCharacter*> UPalArenaSequencer::GetSequencePlayers_ForServer() 
 
 EPalArenaPlayerIndex UPalArenaSequencer::GetPlayerIndex(const APalPlayerCharacter* Player) const {
     return EPalArenaPlayerIndex::None;
+}
+
+EPalArenaSequencerOwnerType UPalArenaSequencer::GetOwnerType() const {
+    return EPalArenaSequencerOwnerType::None;
 }
 
 EPalArenaPlayerIndex UPalArenaSequencer::GetLocalPlayerIndex() const {

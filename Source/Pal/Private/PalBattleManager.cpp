@@ -2,6 +2,7 @@
 
 UPalBattleManager::UPalBattleManager() {
     this->DebugSpawnerClass = NULL;
+    this->DebugUniqueNPCSpawnerClass = NULL;
 }
 
 bool UPalBattleManager::TargetIsPlayerOrPlayersOtomoPal(AActor* TargetCharacter) {

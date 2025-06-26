@@ -63,10 +63,19 @@ void UPalPlayerInventoryData::RequestSortInventory_ServerInternal() {
 void UPalPlayerInventoryData::RequestSortInventory() {
 }
 
+void UPalPlayerInventoryData::RequestForceMarkAllDirty_ToServer_Implementation(const bool ForceOn) {
+}
+
+void UPalPlayerInventoryData::RequestForceMarkAllDirty(const bool IsOn) {
+}
+
 void UPalPlayerInventoryData::RequestFillSlotToTargetContainerFromInventory_ToServer_Implementation(const FPalContainerId& ToContainerId) {
 }
 
 void UPalPlayerInventoryData::RequestFillSlotToInventoryFromTargetContainer_ToServer_Implementation(const FPalContainerId& FromContainerId) {
+}
+
+void UPalPlayerInventoryData::RequestChangeLanternSetting(const FPalPlayerDataEquipLanternData& NewLanternSettings) {
 }
 
 void UPalPlayerInventoryData::RequestAddItem(const FName StaticItemId, const int32 Count, bool IsAssignPassive) {
@@ -105,7 +114,10 @@ void UPalPlayerInventoryData::OnRep_BuffMaxWeight() {
 void UPalPlayerInventoryData::OnRep_BuffCurrentWeight() {
 }
 
-void UPalPlayerInventoryData::OnOnUpdateStatusPoint(FName StatusName, int32 prevPoint, int32 newPoint) {
+void UPalPlayerInventoryData::OnOnUpdateStatusPoint(FName StatusName, int32 prevPoint, int32 NewPoint) {
+}
+
+void UPalPlayerInventoryData::OnEquipSlotChanged(UPalItemSlot* Slot, EPalPlayerEquipItemSlotType slotType) {
 }
 
 void UPalPlayerInventoryData::OnEndPassiveSkill(EPalPassiveSkillEffectType EffectType) {
@@ -151,6 +163,10 @@ float UPalPlayerInventoryData::GetMaxItemWeight() const {
     return 0.0f;
 }
 
+FPalPlayerDataEquipLanternData UPalPlayerInventoryData::GetLanternEquipData() const {
+    return FPalPlayerDataEquipLanternData{};
+}
+
 void UPalPlayerInventoryData::GetItemInfoByItemTypeA(TArray<EPalItemTypeA> ItemTypeA, TArray<FPalItemAndNum>& OutItemInfos) {
 }
 
@@ -174,7 +190,7 @@ bool UPalPlayerInventoryData::CanCheckPalTalentsByInventoryItem() {
     return false;
 }
 
-EPalItemOperationResult UPalPlayerInventoryData::AddItem_ServerInternal(const FName StaticItemId, const int32 Count, bool IsAssignPassive) {
+EPalItemOperationResult UPalPlayerInventoryData::AddItem_ServerInternal(const FName StaticItemId, const int32 Count, bool IsAssignPassive, const float LogDelay) {
     return EPalItemOperationResult::Success;
 }
 

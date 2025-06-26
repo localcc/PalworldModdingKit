@@ -2,10 +2,11 @@
 #include "Net/UnrealNetwork.h"
 
 UPalRecruiterComponent::UPalRecruiterComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->ContractFee = 1;
     this->bIsCreateRequested = false;
 }
 
-void UPalRecruiterComponent::SetupPal(int32 BaseCampLevel, const UDataTable* Table) {
+void UPalRecruiterComponent::SetupPal(int32 BaseCampLevel, const UDataTable* RecruitTable, const UDataTable* AppealTable) {
 }
 
 void UPalRecruiterComponent::RecruitPal(const FGuid& RequestPlayerUId) {
@@ -24,6 +25,9 @@ void UPalRecruiterComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(UPalRecruiterComponent, PalSaveParameter);
+    DOREPLIFETIME(UPalRecruiterComponent, CarreerTextId);
+    DOREPLIFETIME(UPalRecruiterComponent, AppealTextIds);
+    DOREPLIFETIME(UPalRecruiterComponent, ContractFee);
 }
 
 

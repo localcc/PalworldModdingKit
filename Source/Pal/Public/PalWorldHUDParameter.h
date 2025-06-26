@@ -34,7 +34,7 @@ protected:
     FVector DisplayOffset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    FVector2D DisplayOffsetScreenPos;
+    FVector DisplayOffsetScreenPos;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float DisplayRange;

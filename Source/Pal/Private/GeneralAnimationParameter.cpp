@@ -17,5 +17,6 @@ FGeneralAnimationParameter::FGeneralAnimationParameter() {
     this->MovementMode = MOVE_None;
     this->CustomMovementMode = EPalCharacterMovementCustomMode::None;
     this->bForceSprintForNPC = false;
+    this->bUseUpperBodyOnlyWhileRidingFlag = false;
 }
 

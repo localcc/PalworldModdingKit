@@ -8,6 +8,9 @@ APalOilrigTreasureBoxSpawner::APalOilrigTreasureBoxSpawner(const FObjectInitiali
     this->OnlyOneEmptyBox = NULL;
 }
 
+void APalOilrigTreasureBoxSpawner::OnWorldMapObjectSpawnable_ServerInternal() {
+}
+
 void APalOilrigTreasureBoxSpawner::OnOpenTreasureBox() {
 }
 

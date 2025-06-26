@@ -33,6 +33,9 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FReturnBaseCampIdDelegate OnRemoveBaseCampModelInServerDelegate;
     
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FReturnBaseCampIdDelegate OnPreRemoveBaseCampModelInServerDelegate;
+    
 protected:
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName WorkerEventClassDirectoryPath;

@@ -1,4 +1,5 @@
 #include "PalPartnerSkillParameterComponent.h"
+#include "Net/UnrealNetwork.h"
 #include "Templates/SubclassOf.h"
 
 UPalPartnerSkillParameterComponent::UPalPartnerSkillParameterComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
@@ -13,11 +14,15 @@ UPalPartnerSkillParameterComponent::UPalPartnerSkillParameterComponent(const FOb
     this->bIsOverheat = false;
     this->bIsExecuting = false;
     this->SkillModule = NULL;
+    this->ResidentSkillModule = NULL;
     this->FunnelCharacterClass = NULL;
     this->FunnelControllerClass = NULL;
     this->FunnelAttackWazaID = EPalWazaID::None;
+    this->ResidentModuleClass = NULL;
     this->PassiveSkill = NULL;
     this->IsRidingActiveSkillNotWeapon = false;
+    this->RidingActiveSkillNotWeaponCondition = EPalRidingActiveSkillNotWeaponCondition::None;
+    this->bIsToggleRidingActiveSkillNotWeapon = false;
 }
 
 void UPalPartnerSkillParameterComponent::Stop() {
@@ -27,6 +32,9 @@ void UPalPartnerSkillParameterComponent::Start() {
 }
 
 void UPalPartnerSkillParameterComponent::SetName(FName Name) {
+}
+
+void UPalPartnerSkillParameterComponent::SetDisableResidentSkill(FName flagName, bool isDisable) {
 }
 
 void UPalPartnerSkillParameterComponent::SetDisableGlider_ToAll_Implementation(FName flagName, bool isDisable) {
@@ -77,6 +85,9 @@ void UPalPartnerSkillParameterComponent::OnExec() {
 void UPalPartnerSkillParameterComponent::OnComplated() {
 }
 
+void UPalPartnerSkillParameterComponent::OnCachedPassiveSkillListDelegate(const FString& InOperation, const FName& InSkillName) {
+}
+
 void UPalPartnerSkillParameterComponent::OnActivatedAsWorker() {
 }
 
@@ -84,6 +95,13 @@ void UPalPartnerSkillParameterComponent::OnActivatedAsPartner() {
 }
 
 void UPalPartnerSkillParameterComponent::OnActivatedAsOtomoHolder() {
+}
+
+void UPalPartnerSkillParameterComponent::NotifyResidentSkill_ToAll_Implementation(const FName& NotifyName, const FPalResidentSkillNotifyParameter& NotifyParameter) {
+}
+
+bool UPalPartnerSkillParameterComponent::IsToggleRidingActiveSkillNotWeapon() const {
+    return false;
 }
 
 bool UPalPartnerSkillParameterComponent::IsToggleKey() const {
@@ -102,6 +120,10 @@ bool UPalPartnerSkillParameterComponent::IsPlayerTrigger() const {
     return false;
 }
 
+bool UPalPartnerSkillParameterComponent::IsPlayerReviveTrigger() const {
+    return false;
+}
+
 bool UPalPartnerSkillParameterComponent::IsOverheat() const {
     return false;
 }
@@ -111,6 +133,10 @@ bool UPalPartnerSkillParameterComponent::IsExistRidingActiveSkilNotWeapon() cons
 }
 
 bool UPalPartnerSkillParameterComponent::IsExistActiveSkill() const {
+    return false;
+}
+
+bool UPalPartnerSkillParameterComponent::IsDisableResidentSkill() const {
     return false;
 }
 
@@ -145,6 +171,10 @@ TArray<FPalDataTableRowName_ItemData> UPalPartnerSkillParameterComponent::GetRes
     return TArray<FPalDataTableRowName_ItemData>();
 }
 
+float UPalPartnerSkillParameterComponent::GetResidentSkillMainValueByRank() const {
+    return 0.0f;
+}
+
 FFixedPoint UPalPartnerSkillParameterComponent::GetMainDamage() const {
     return FFixedPoint{};
 }
@@ -171,6 +201,10 @@ FFixedPoint UPalPartnerSkillParameterComponent::GetCoolDownTimeMax() const {
 
 FFixedPoint UPalPartnerSkillParameterComponent::GetCoolDownTime() const {
     return FFixedPoint{};
+}
+
+TArray<FName> UPalPartnerSkillParameterComponent::GetCachedPassiveSkillList() const {
+    return TArray<FName>();
 }
 
 float UPalPartnerSkillParameterComponent::GetActiveSkillMainValueByRank() const {
@@ -221,6 +255,13 @@ void UPalPartnerSkillParameterComponent::CallOnCoolDownTimeChanged_ToAll_Impleme
 }
 
 void UPalPartnerSkillParameterComponent::CallOnCoolDownCompleted_ToAll_Implementation() {
+}
+
+void UPalPartnerSkillParameterComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
+    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+    
+    DOREPLIFETIME(UPalPartnerSkillParameterComponent, ResidentSkillModule);
+    DOREPLIFETIME(UPalPartnerSkillParameterComponent, CachedPassiveSkillList);
 }
 
 

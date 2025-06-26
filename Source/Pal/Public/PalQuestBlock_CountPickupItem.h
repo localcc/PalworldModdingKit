@@ -16,11 +16,14 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalDataTableRowName_ItemData DetectItemName;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=NotifyUpdateQuest_Client, meta=(AllowPrivateAccess=true))
     int32 NowPickupCount;
     
 public:
     UPalQuestBlock_CountPickupItem();
+
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnPickupItem(TArray<FPalItemAndNum>& ItemInfos);

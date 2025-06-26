@@ -19,6 +19,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->ForceFixLevelForWildPal = 0;
     this->ForceFixTalent = -1;
     this->DefaultCapturePalRandomNum = 0;
+    this->DebugInventorySize = 0;
     this->PlayStart_PalWorldTime = -1;
     this->DebugRate_PalWorldTime = 1.00f;
     this->bIgnoreOverWeightMove = false;
@@ -54,6 +55,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bIsShowForwardObjectName = false;
     this->bDisableStatus_Darkness = false;
     this->bIsEnableArachnophobiaMode = false;
+    this->bDisableSkyCreator = false;
     this->bIsIgnoreBuildRestrictionBaseCamp = false;
     this->ConfirmTransportItemBaseSpeedType = EPalMovementSpeedType::Run;
     this->ConfirmTransportItemSpeedMultipleRate = 1.00f;
@@ -86,6 +88,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->LightingControllerTimeIfFixed = 10.00f;
     this->bIsShowFloorLocation = false;
     this->bIsShowGroundTilt = false;
+    this->bIsShowOtomoWazaBulletMuzzleOverlapDebugSphere = false;
     this->bIsDisableShiftKey = false;
     this->IsSpawnAlwaysFromSpawner = false;
     this->IsDisableSpawner = false;
@@ -199,6 +202,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bForceWordFilter_ACE = false;
     this->ForceWordFilterAPIType_ACE = EPalACEWordFilterAPIType::Unknown;
     this->bUseDebugUI_GuildLab = false;
+    this->bShowMsgID = false;
     this->bIsFixedRandomSeed = false;
     this->actionRandomSeed = 1192;
     this->bAvailableBuildObjectInDevelop = false;
@@ -211,6 +215,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bUseEagleForGlider = false;
     this->bEquipDefaultGlider = true;
     this->ExtraHpRegenRateInSleepingBed = 1.00f;
+    this->bUseDebugOffsetConfirmSleepOnSide = false;
     this->bForceDisableLamp = false;
     this->bForceDisableTimerLight = false;
     this->bForceDisableTickOptimization = false;
@@ -252,7 +257,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->InvadeCollTime_Max_Minutes_Override = 30;
     this->InvadeCollTime_Min_Minutes_Override = 10;
     this->InvadeReturnTime_Minutes_Override = 4;
-    this->InvadeStartPoint_BaseCampRadius_Min_cm_Override = 20000;
+    this->InvadeStartPoint_BaseCampRadius_Min_cm_Override = 5000;
     this->InvadeStartPoint_BaseCampRadius_Max_cm_Override = 40000;
     this->VisitorNPCProbability_Override = 0.10f;
     this->VisitorNPCReturnTime_Minutes_Override = 20;
@@ -275,7 +280,12 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bDisableGrapplingCoolDown = false;
     this->bDrawGrapplingLine = false;
     this->bDrawGrapplingHitPoint = false;
+    this->bIsFishingSuccess = false;
+    this->bDebugFishingSpotRespawnTime = false;
     this->bDrawFishingLine = false;
+    this->bDrawFishSearchArea = false;
+    this->bDisableFishMove = false;
+    this->bShowFishingLog = false;
     this->bDrawAmbientSoundLinePlayLocation = false;
     this->bDrawAmbientSoundActivateTrigger = false;
     this->bDrawDefenseAttackableRange = false;
@@ -319,6 +329,10 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bForceMuteBlockForMyself = false;
     this->bForceDisplayTermsOfService = false;
     this->bDummyPlayerList = false;
+    this->FriendshipPointRate = 1.00f;
+    this->bNotDestroyPlayerOnDisconnect = false;
+    this->bAllReleaseArenaSoloRank = false;
+    this->bEnableArenaRule = false;
 }
 
 TArray<FString> UPalDebugSetting::GetDataLayerRuntimeSettingsNames() const {

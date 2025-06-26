@@ -7,11 +7,11 @@ bool UPalWildPalDrinkWaterSpotProvider::RequestReservation(AActor* LeaderPal, FV
     return false;
 }
 
-UPalWildDrinkWaterSpot* UPalWildPalDrinkWaterSpotProvider::FindSpot(FGuid SpotID) {
+UPalWildDrinkWaterSpot* UPalWildPalDrinkWaterSpotProvider::FindSpot(FGuid SpotId) {
     return NULL;
 }
 
-void UPalWildPalDrinkWaterSpotProvider::CancelReservation(FGuid SpotID) {
+void UPalWildPalDrinkWaterSpotProvider::CancelReservation(FGuid SpotId) {
 }
 
 void UPalWildPalDrinkWaterSpotProvider::AddDrinkWaterSpot(FVector ActorLocation, TArray<FVector> GoalLocations) {

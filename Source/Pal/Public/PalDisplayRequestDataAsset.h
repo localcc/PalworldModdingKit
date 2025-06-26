@@ -9,7 +9,7 @@ class PAL_API UPalDisplayRequestDataAsset : public UDataAsset {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<FPalDisplayRequestData> DisplayRequestData;
+    TMap<FName, FPalDisplayRequestData> DisplayRequestDataMap;
     
     UPalDisplayRequestDataAsset();
 

@@ -5,9 +5,20 @@
 #include "PalVisitorFormationMoveInitParameter.h"
 #include "PalVisitorFormationMoveModule.generated.h"
 
+class APalAIController;
+class APalCharacter;
+
 UCLASS(Blueprintable)
 class PAL_API UPalVisitorFormationMoveModule : public UObject {
     GENERATED_BODY()
+public:
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    APalAIController* AIController;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    APalCharacter* LeaderCharacter;
+    
 public:
     UPalVisitorFormationMoveModule();
 

@@ -10,6 +10,7 @@ UPalActiveSkill::UPalActiveSkill() {
     this->DatabaseCoolTime = 0.00f;
     this->NextCoolTime = 0.00f;
     this->bIsTransient = false;
+    this->BulletEmiiterOverlap = NULL;
 }
 
 void UPalActiveSkill::OnRep_UpdateCoolTime() {

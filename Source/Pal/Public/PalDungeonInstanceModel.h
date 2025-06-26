@@ -7,6 +7,8 @@
 #include "EPalDungeonInstanceBossState.h"
 #include "GameDateTime.h"
 #include "PalDeadInfo.h"
+#include "PalDungeonInstanceEnemySpawnerStatus.h"
+#include "PalDungeonInstanceLevelLoadedInfos.h"
 #include "PalMapObjectSaveData.h"
 #include "PalStageInstanceId.h"
 #include "PalDungeonInstanceModel.generated.h"
@@ -15,6 +17,7 @@ class APalCharacter;
 class APalNPCSpawnerBase;
 class UDataLayerAsset;
 class UPalDungeonInstanceModel;
+class UPalDungeonRewardSpawnerContent;
 class UPalIndividualCharacterHandle;
 
 UCLASS(Blueprintable)
@@ -63,6 +66,15 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TSoftClassPtr<APalNPCSpawnerBase> EnemySpawnerClass_Boss;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FGuid EnemyBossSpawnerGroupId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FGuid, FPalDungeonInstanceEnemySpawnerStatus> EnemySpawnerStatusMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FGuid, UPalDungeonRewardSpawnerContent*> RewardSpawnerContentMapBySpawnerPoint;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_DisappearTimeAt, meta=(AllowPrivateAccess=true))
     FGameDateTime DisappearTimeAt;
     
@@ -81,6 +93,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataLayerAsset* ReservedDataLayerAsset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FPalDungeonInstanceLevelLoadedInfos LevelLoadedInfos;
     
 public:
     UPalDungeonInstanceModel();

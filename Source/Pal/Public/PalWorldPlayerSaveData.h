@@ -6,6 +6,7 @@
 #include "PalContainerId.h"
 #include "PalInstanceID.h"
 #include "PalLoggedinPlayerSaveDataRecordData.h"
+#include "PalOrderedQuestSaveData.h"
 #include "PalPlayerDataCharacterMakeInfo.h"
 #include "PalPlayerDataInventoryInfo.h"
 #include "PalSkinInventoryInfo.h"
@@ -65,6 +66,12 @@ public:
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     uint64 PsnAccountId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FPalOrderedQuestSaveData> OrderedQuestArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FName> CompletedQuestArray;
     
     PAL_API FPalWorldPlayerSaveData();
 };

@@ -1,0 +1,6 @@
+#include "PalHUDDispatchParameter_ObtainCharactersPerformance.h"
+
+UPalHUDDispatchParameter_ObtainCharactersPerformance::UPalHUDDispatchParameter_ObtainCharactersPerformance() {
+}
+
+

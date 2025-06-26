@@ -27,10 +27,10 @@ public:
 
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
-    UFUNCTION(BlueprintCallable)
-    void SetDurability(float NewDurability);
-    
 protected:
+    UFUNCTION(BlueprintCallable)
+    void SetDurabilityInternal(float NewDurability);
+    
     UFUNCTION(BlueprintCallable)
     void OnRep_Durability();
     

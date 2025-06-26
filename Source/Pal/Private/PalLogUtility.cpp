@@ -64,6 +64,9 @@ void UPalLogUtility::AddItemGetLog(const UObject* WorldContextObject, const FPal
 void UPalLogUtility::AddGuildLabCompleteLog(const UObject* WorldContextObject, const FPalGuildLabCompleteLogDisplayData& DisplayData) {
 }
 
+void UPalLogUtility::AddFriendshipRankupLog(const UObject* WorldContextObject, UPalIndividualCharacterParameter* IndividualParameter, bool bFirstRankup) {
+}
+
 void UPalLogUtility::AddDropPalLog(const UObject* WorldContextObject, const FPalLogInfo_DropPal& LogInfo) {
 }
 

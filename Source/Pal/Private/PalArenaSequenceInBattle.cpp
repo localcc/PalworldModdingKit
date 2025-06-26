@@ -7,6 +7,9 @@ UPalArenaSequenceInBattle::UPalArenaSequenceInBattle() {
 void UPalArenaSequenceInBattle::SetupPalHate() {
 }
 
+void UPalArenaSequenceInBattle::SetDisableRide(bool bDisable) {
+}
+
 void UPalArenaSequenceInBattle::ResetPalHate() {
 }
 
@@ -24,8 +27,14 @@ int32 UPalArenaSequenceInBattle::GetAlivePalNum(EPalArenaPlayerIndex PlayerIndex
     return 0;
 }
 
+void UPalArenaSequenceInBattle::DisableCaptureForSoloNPC() {
+}
+
 bool UPalArenaSequenceInBattle::CheckBattleResult(bool bIsTimeup) {
     return false;
+}
+
+void UPalArenaSequenceInBattle::ActivateAI() {
 }
 
 

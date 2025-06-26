@@ -1,42 +1,64 @@
 #include "PalQuestData.h"
+#include "Net/UnrealNetwork.h"
 
 UPalQuestData::UPalQuestData() {
     this->NowQuestBlock = NULL;
 }
 
-void UPalQuestData::ProgressInternal() {
+void UPalQuestData::OnUpdatedQuestBlock_ServerInternal(UPalQuestBlock* UpdatedBlock) {
 }
 
-void UPalQuestData::OnUpdatedQuestBlock(UPalQuestBlock* UpdatedBlock) {
+void UPalQuestData::OnRequestReturnBlock_ServerInternal(UPalQuestBlock* UpdatedBlock) {
 }
 
-void UPalQuestData::OnCompletedQuestBlock(UPalQuestBlock* CompletedBlock) {
+void UPalQuestData::OnRep_CurrentBlock() {
 }
 
-void UPalQuestData::InitializeWithoutLoadQuestBlock(int32 BlockIndex, const FName& InQuestName) {
+void UPalQuestData::OnCompletedQuestBlock_ServerInternal(UPalQuestBlock* CompletedBlock) {
 }
 
-void UPalQuestData::Initialize(int32 BlockIndex, const FName& InQuestName) {
+void UPalQuestData::Initialize(const FGuid& OwnerPlayerUId, int32 BlockIndex, const FName& InQuestName) {
 }
 
-void UPalQuestData::GetQuestDataName(FName& outName) {
+void UPalQuestData::GetQuestNameText(FText& OutText) const {
 }
 
-void UPalQuestData::GetQuestBlock(UPalQuestBlock*& OutBlock) {
+TArray<FName> UPalQuestData::GetQuestNameMsgIdRowNames() const {
+    return TArray<FName>();
 }
 
-int32 UPalQuestData::GetNowQuestBlockIndex() const {
-    return 0;
+TArray<FName> UPalQuestData::GetQuestIdRowNames() const {
+    return TArray<FName>();
 }
 
-void UPalQuestData::GetCustomRewardGiverClass(TSoftClassPtr<UPalQuestRewardGiver>& OutClass) {
+FName UPalQuestData::GetQuestId() const {
+    return NAME_None;
+}
+
+void UPalQuestData::GetQuestDescriptionText(FText& OutText) const {
+}
+
+TArray<FName> UPalQuestData::GetQuestDescriptionMsgIdRowNames() const {
+    return TArray<FName>();
+}
+
+void UPalQuestData::GetQuestBlock(UPalQuestBlock*& OutBlock) const {
 }
 
 void UPalQuestData::GetCommonRewardData(FPalCommonQuestRewardData& OutData) {
 }
 
-bool UPalQuestData::CompleteNowBlock() {
-    return false;
+void UPalQuestData::FormatQuestTitleText_Implementation(const FText& InOriginalText, FText& OutText) const {
+}
+
+void UPalQuestData::FormatQuestDescriptionText_Implementation(const FText& InOriginalText, FText& OutText) const {
+}
+
+void UPalQuestData::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
+    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+    
+    DOREPLIFETIME(UPalQuestData, NowQuestBlock);
+    DOREPLIFETIME(UPalQuestData, QuestId);
 }
 
 

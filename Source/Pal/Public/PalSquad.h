@@ -6,6 +6,7 @@
 #include "PalSquad.generated.h"
 
 class AActor;
+class APalAISquadLeashActor;
 class UPalAIBlackboardBase;
 
 UCLASS(Blueprintable)
@@ -13,8 +14,16 @@ class PAL_API UPalSquad : public UObject {
     GENERATED_BODY()
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnSomeOneDeadDelegate, FPalDeadInfo, DeadInfo);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnRemovedSquadMemberDelegate, AActor*, RemovedMember);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCombatPropagationDelegate, AActor*, StartActor);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnAddedSquadMemberDelegate, AActor*, AddedMember);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FEscapePropagationDelegate, AActor*, StartActor, AActor*, TargetActor);
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnAddedSquadMemberDelegate OnAddedSquadMemberDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnRemovedSquadMemberDelegate OnRemovedSquadMemberDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnSomeOneDeadDelegate OnSomeOneDeadDelegate;
@@ -34,6 +43,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalAIBlackboardBase* LeaderBB;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    APalAISquadLeashActor* LeashActor;
     
 public:
     UPalSquad();

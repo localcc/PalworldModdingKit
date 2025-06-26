@@ -12,6 +12,7 @@ APalPlayerState::APalPlayerState(const FObjectInitializer& ObjectInitializer) : 
     this->TechnologyData = NULL;
     this->RecordData = NULL;
     this->PlayerSkinData = NULL;
+    this->TreasureMapPointData = NULL;
     this->bIsSelectedInitMapPoint = false;
     this->bDetectedInValidPlayer = false;
     this->LocalRecordData = NULL;
@@ -24,6 +25,7 @@ APalPlayerState::APalPlayerState(const FObjectInitializer& ObjectInitializer) : 
     this->TryCreateIndividualHandleTemporarily = NULL;
     this->bIsCompleteLoadInitWorldPartition_InServer = false;
     this->bIsCompleteSyncPlayerFromServer_InClient = false;
+    this->bAllowSkipNight = false;
     this->ChatCounter = 0;
     this->DisableGuildJoin = false;
 }
@@ -83,6 +85,12 @@ bool APalPlayerState::RequestDeletePlayerSelf() {
 void APalPlayerState::RequestBotLocation_Implementation() {
 }
 
+void APalPlayerState::RequestAllowSkipNight_ToServer_Implementation() {
+}
+
+void APalPlayerState::RequestAllowSkipNight() {
+}
+
 void APalPlayerState::RequestAccountInitData_ForClient_Implementation() {
 }
 
@@ -111,6 +119,9 @@ void APalPlayerState::OnRep_PlayerUId() {
 }
 
 void APalPlayerState::OnRep_GuildBelongTo(UPalGroupGuildBase* OldValue) {
+}
+
+void APalPlayerState::OnRep_AllowSkipNight() {
 }
 
 void APalPlayerState::OnRelicNumAdded(int32 AddNum) {
@@ -152,6 +163,9 @@ void APalPlayerState::OnCompleteSyncAll_InClient(APalPlayerState* PlayerState) {
 void APalPlayerState::OnCompleteLoadInitWorldPartition_InClient(APalPlayerState* PlayerState) {
 }
 
+void APalPlayerState::OnClosedDeletePlayerSelfNotifyDialog(bool bYes) {
+}
+
 void APalPlayerState::OnChangeOptionCommonSettings(const FPalOptionCommonSettings& PrevSettings, const FPalOptionCommonSettings& NewSettings) {
 }
 
@@ -162,6 +176,12 @@ void APalPlayerState::NotifyRunInitialize_ToClient() {
 }
 
 void APalPlayerState::NotifyPalBoxOpenInHardcore_ToServer_Implementation() {
+}
+
+void APalPlayerState::NotifyOperatingPassiveComplete_ToClient_Implementation(bool IsSuccess) {
+}
+
+void APalPlayerState::NotifyOperatingGenderComplete_ToClient_Implementation(bool IsSuccess) {
 }
 
 void APalPlayerState::NotifyMultiHatchComplete_ToClient_Implementation(const TArray<FPalInstanceID>& HatchedIDs) const {
@@ -212,7 +232,15 @@ bool APalPlayerState::IsCompleteLoadInitWorldPartition() {
     return false;
 }
 
+bool APalPlayerState::IsAllowSkipNight() const {
+    return false;
+}
+
 UPalWorldMapUIData* APalPlayerState::GetWorldMapData() const {
+    return NULL;
+}
+
+UPalPlayerTreasureMapPointData* APalPlayerState::GetTreasureMapPointData() const {
     return NULL;
 }
 
@@ -355,7 +383,7 @@ void APalPlayerState::CallOrRegisterOnCompleteLoadInitWorldPartition_InClient(AP
 void APalPlayerState::AddMealLog_Implementation(const TArray<FPalMealLogDisplayData>& DisplayDataArray) {
 }
 
-void APalPlayerState::AddItemGetLog_ToClient_Implementation(const FPalStaticItemIdAndNum& ItemAndNum) const {
+void APalPlayerState::AddItemGetLog_ToClient_Implementation(const FPalStaticItemIdAndNum& ItemAndNum, const float DelayTime) const {
 }
 
 void APalPlayerState::AddGuildLabCompleteLog_Implementation(const TArray<FPalGuildLabCompleteLogDisplayData>& DisplayDataArray) {
@@ -387,10 +415,13 @@ void APalPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     DOREPLIFETIME(APalPlayerState, TechnologyData);
     DOREPLIFETIME(APalPlayerState, RecordData);
     DOREPLIFETIME(APalPlayerState, PlayerSkinData);
+    DOREPLIFETIME(APalPlayerState, TreasureMapPointData);
     DOREPLIFETIME(APalPlayerState, bIsSelectedInitMapPoint);
     DOREPLIFETIME(APalPlayerState, BaseCampBuildingNum);
+    DOREPLIFETIME(APalPlayerState, QuestManager);
     DOREPLIFETIME(APalPlayerState, GuildBelongTo);
     DOREPLIFETIME(APalPlayerState, bIsCompleteLoadInitWorldPartition_InServer);
+    DOREPLIFETIME(APalPlayerState, bAllowSkipNight);
     DOREPLIFETIME(APalPlayerState, ChatCounter);
     DOREPLIFETIME(APalPlayerState, DisableGuildJoin);
 }

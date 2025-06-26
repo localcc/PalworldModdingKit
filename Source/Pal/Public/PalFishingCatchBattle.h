@@ -1,7 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
+#include "PalFishingCatchBattleInfo.h"
 #include "PalFishingCatchBattle.generated.h"
+
+class APalCharacter;
 
 UCLASS(Blueprintable)
 class PAL_API UPalFishingCatchBattle : public UObject {
@@ -9,10 +12,8 @@ class PAL_API UPalFishingCatchBattle : public UObject {
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnSuccessFightDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnSuccessCatchBattleDelegate);
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnStartQTEDelegate, int32, Min, int32, Max);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnMissCatchBattleDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnFailedFightDelegate);
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnEndQTEDelegate, bool, IsSuccess);
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnSuccessCatchBattleDelegate OnSuccessCatchBattleDelegate;
@@ -26,25 +27,38 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnFailedFightDelegate OnFailedFightDelegate;
     
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FOnStartQTEDelegate OnStartQTEDelegate;
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    APalCharacter* ActionCharacter;
     
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FOnEndQTEDelegate OnEndQTEDelegate;
-    
+public:
     UPalFishingCatchBattle();
 
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void Tick(float DeltaTime);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetFishPosX(float PosX);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnInitialized(const FPalFishingCatchBattleInfo& Info);
+    
+protected:
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool IsQTEActive() const;
+    bool IsStarted();
+    
+public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetCurrentFishPosX() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetCurrentQTECursorLocation() const;
+    float GetCurrentCatchAmount() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetCurrentFishDirection() const;
+    float GetCurrentBarPosX() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetCurrentCatchAmount() const;
+    float GetBarSize();
     
 };
 

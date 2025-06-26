@@ -74,6 +74,15 @@ public:
     FSoftObjectPath WorldMapAreaDataTableAssetPath;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSoftObjectPath FishShadowDataTableAssetPath;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSoftObjectPath FishingSpotLotteryNameDataTableAssetPath;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSoftObjectPath FishPondLotteryNameDataTableAssetPath;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSoftObjectPath GameProgressPresetTableAssetPath;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))

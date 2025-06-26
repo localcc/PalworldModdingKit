@@ -14,6 +14,7 @@ UCLASS(Abstract, Blueprintable)
 class UPalGroupGuildBase : public UPalGroupOrganization {
     GENERATED_BODY()
 public:
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdatedGuildNameSelfDelegate, const UPalGroupGuildBase*, Self, const FString&, NewGuildName);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdatedGuildNameDelegate, const FString&, NewGuildName);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FReturnSelfDelegate, UPalGroupGuildBase*, Self);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FNotifyPlayerUIdDelegate, const UPalGroupGuildBase*, Self, const FGuid&, PlayerUId);

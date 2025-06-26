@@ -1,7 +1,9 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
 #include "UObject/Object.h"
 #include "PalCommonQuestRewardData.h"
+#include "PalOrderedQuestSaveData.h"
 #include "PalQuestData.generated.h"
 
 class UPalQuestBlock;
@@ -13,20 +15,36 @@ class PAL_API UPalQuestData : public UObject {
     GENERATED_BODY()
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdatedQuestDelegate, UPalQuestData*, UpdatedQuest);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnReadyQuestData, UPalQuestData*, SelfQuest);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCompleteQuestDelegate, UPalQuestData*, CompletedQuest);
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FUpdatedQuestDelegate OnUpdatedQuestDelegate;
+    FUpdatedQuestDelegate OnUpdatedQuestInServerDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FCompleteQuestDelegate OnCompletedQuestDelegate;
+    FCompleteQuestDelegate OnCompletedQuestInServerDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnReadyQuestData OnReadyQuestData;
     
 private:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_CurrentBlock, meta=(AllowPrivateAccess=true))
     UPalQuestBlock* NowQuestBlock;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    FName QuestId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<TSoftClassPtr<UPalQuestBlock>> QuestBlockList;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName QuestTitleMsgId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName QuestDescriptionMsgId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FName> AutoOrderQuests;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalCommonQuestRewardData CommonRewardData;
@@ -34,43 +52,64 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftClassPtr<UPalQuestRewardGiver> CustomQuestRewardGiverClass;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FPalOrderedQuestSaveData CachedSaveData;
+    
 public:
     UPalQuestData();
 
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
 protected:
     UFUNCTION(BlueprintCallable)
-    void ProgressInternal();
+    void OnUpdatedQuestBlock_ServerInternal(UPalQuestBlock* UpdatedBlock);
     
     UFUNCTION(BlueprintCallable)
-    void OnUpdatedQuestBlock(UPalQuestBlock* UpdatedBlock);
+    void OnRequestReturnBlock_ServerInternal(UPalQuestBlock* UpdatedBlock);
     
     UFUNCTION(BlueprintCallable)
-    void OnCompletedQuestBlock(UPalQuestBlock* CompletedBlock);
+    void OnRep_CurrentBlock();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnCompletedQuestBlock_ServerInternal(UPalQuestBlock* CompletedBlock);
     
 public:
     UFUNCTION(BlueprintCallable)
-    void InitializeWithoutLoadQuestBlock(int32 BlockIndex, const FName& InQuestName);
-    
-    UFUNCTION(BlueprintCallable)
-    void Initialize(int32 BlockIndex, const FName& InQuestName);
-    
-    UFUNCTION(BlueprintCallable)
-    void GetQuestDataName(FName& outName);
+    void Initialize(const FGuid& OwnerPlayerUId, int32 BlockIndex, const FName& InQuestName);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    void GetQuestBlock(UPalQuestBlock*& OutBlock);
+    void GetQuestNameText(FText& OutText) const;
+    
+protected:
+    UFUNCTION(BlueprintCallable)
+    TArray<FName> GetQuestNameMsgIdRowNames() const;
     
     UFUNCTION(BlueprintCallable)
-    int32 GetNowQuestBlockIndex() const;
+    TArray<FName> GetQuestIdRowNames() const;
     
-    UFUNCTION(BlueprintCallable)
-    void GetCustomRewardGiverClass(TSoftClassPtr<UPalQuestRewardGiver>& OutClass);
+public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FName GetQuestId() const;
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    void GetQuestDescriptionText(FText& OutText) const;
+    
+protected:
     UFUNCTION(BlueprintCallable)
+    TArray<FName> GetQuestDescriptionMsgIdRowNames() const;
+    
+public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    void GetQuestBlock(UPalQuestBlock*& OutBlock) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetCommonRewardData(FPalCommonQuestRewardData& OutData);
     
-    UFUNCTION(BlueprintCallable)
-    bool CompleteNowBlock();
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void FormatQuestTitleText(const FText& InOriginalText, FText& OutText) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void FormatQuestDescriptionText(const FText& InOriginalText, FText& OutText) const;
     
 };
 

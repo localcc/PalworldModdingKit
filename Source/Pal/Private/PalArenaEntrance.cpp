@@ -5,15 +5,22 @@ APalArenaEntrance::APalArenaEntrance(const FObjectInitializer& ObjectInitializer
     this->bReplicates = true;
     const FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
     (*p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this)) = ROLE_SimulatedProxy;
+    this->SpectateRoomInfoObject = NULL;
 }
 
-void APalArenaEntrance::OpenArenaRule_Implementation() {
+void APalArenaEntrance::RequestEnterSpectate(int32 Index) {
+}
+
+void APalArenaEntrance::RequestEnterPvP() {
+}
+
+void APalArenaEntrance::OpenArenaGuide_Implementation() {
 }
 
 void APalArenaEntrance::OnTriggerInteract(AActor* Other, EPalInteractiveObjectIndicatorType IndicatorType) {
 }
 
-void APalArenaEntrance::NotifyEntrance_Multicast_Implementation(const FPalArenaEntranceInfo& NewEntranceInfo) {
+void APalArenaEntrance::OnRep_EntranceInfo() {
 }
 
 bool APalArenaEntrance::IsEntryPlayer(APalPlayerCharacter* PlayerCharacter) const {
@@ -24,14 +31,23 @@ FTransform APalArenaEntrance::GetWarpPoint_Implementation() const {
     return FTransform{};
 }
 
-FTransform APalArenaEntrance::GetDeadItemDropPoint_Implementation() const {
+TArray<FPalArenaSpectateRoomInfo> APalArenaEntrance::GetSpectateInfo() const {
+    return TArray<FPalArenaSpectateRoomInfo>();
+}
+
+FTransform APalArenaEntrance::GetItemDropPoint_Implementation() const {
     return FTransform{};
+}
+
+FPalArenaEntranceInfo APalArenaEntrance::GetEntranceInfo() const {
+    return FPalArenaEntranceInfo{};
 }
 
 void APalArenaEntrance::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(APalArenaEntrance, EntranceInfo);
+    DOREPLIFETIME(APalArenaEntrance, SpectateRoomInfoObject);
 }
 
 

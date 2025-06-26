@@ -2,6 +2,7 @@
 
 UPalSquad::UPalSquad() {
     this->LeaderBB = NULL;
+    this->LeashActor = NULL;
 }
 
 void UPalSquad::UpdateLeader(FPalInstanceID NextLeader) {

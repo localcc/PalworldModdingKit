@@ -38,5 +38,9 @@ enum class EPalStatusID : uint8 {
     RarePalEffect,
     MorphChange,
     PalEnhancement,
+    PalEnhancement2,
+    PalEnhancement3,
+    PartBreak,
+    FishingSpotElectrical,
 };
 

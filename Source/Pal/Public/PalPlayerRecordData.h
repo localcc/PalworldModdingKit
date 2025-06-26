@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/Object.h"
+#include "PalPlayerRecordDataFoundTreasureMapPoint.h"
 #include "PalPlayerRecordDataRepInfoArray_BoolVal.h"
 #include "PalPlayerRecordDataRepInfoArray_IntVal.h"
 #include "PalStageInstanceId.h"
@@ -14,6 +15,8 @@ UCLASS(Blueprintable)
 class PAL_API UPalPlayerRecordData : public UObject {
     GENERATED_BODY()
 public:
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateTreasureMapPointDelegate, const FGuid&, PointId);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdateTreasureMapPointDataDelegate, const FGuid&, PointId, const FPalPlayerRecordDataFoundTreasureMapPoint&, PointData);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnRelicNumUpdateDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnRelicNumAddedDelegate, int32, AddNum);
     
@@ -122,8 +125,40 @@ public:
     TArray<FGuid> CompletedEmoteNPCIDArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    FPalPlayerRecordDataRepInfoArray_IntVal ArenaSoloClearCount;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FPalPlayerRecordDataRepInfoArray_IntVal NPCTalkCountMap;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    FPalPlayerRecordDataRepInfoArray_BoolVal InvokeNPCNetworkEventMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    FPalPlayerRecordDataRepInfoArray_IntVal FishingCountMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    int32 FoundTreasureCount;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    int32 CampConqueredCount;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    FPalPlayerRecordDataRepInfoArray_BoolVal NpcItemTradeFlag;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    FPalPlayerRecordDataRepInfoArray_BoolVal PalDisplayNPCDataTableProgress;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    FPalPlayerRecordDataRepInfoArray_BoolVal NPCAchivementRewardFlag;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    bool bFirstFishingComplete;
+    
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FGuid, FPalPlayerRecordDataFoundTreasureMapPoint> FoundTreasureMapPointMap;
+    
+public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FString Debug_EnteringStageDataLayerName;
     
@@ -154,6 +189,15 @@ private:
     void OnCompleteBuild_ServerInternal(UPalMapObjectModel* MapObjectModel);
     
 public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetUnlockedPaldexCount() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetTotalPalCaptureCount() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetNormalBossDefeatCount() const;
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetFoundedAreaNum() const;
     

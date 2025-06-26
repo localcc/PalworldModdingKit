@@ -9,7 +9,7 @@ struct FPalWazaMasterTamagoDataRow : public FTableRowBase {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FName PalID;
+    FName PalId;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalWazaID WazaID;

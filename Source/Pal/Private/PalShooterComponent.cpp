@@ -147,6 +147,9 @@ void UPalShooterComponent::OnWeaponNotify(EWeaponNotifyType Type) {
 void UPalShooterComponent::OnStartOwnerAction(const UPalActionBase* action) {
 }
 
+void UPalShooterComponent::OnShootBullet() {
+}
+
 void UPalShooterComponent::OnOwnerAnimInitialized() {
 }
 
@@ -215,8 +218,8 @@ EPalShooterFlagContainerPriority UPalShooterComponent::GetRequestAimingPriority(
     return EPalShooterFlagContainerPriority::Weapon;
 }
 
-UWeaponAnimationInfoWrap* UPalShooterComponent::GetPrevWeaponAnimationInfo() const {
-    return NULL;
+FWeaponAnimationInfo UPalShooterComponent::GetPreviousWeaponAnimationInfo() const {
+    return FWeaponAnimationInfo{};
 }
 
 APalWeaponBase* UPalShooterComponent::GetHasWeapon() const {
@@ -227,8 +230,8 @@ FTransform UPalShooterComponent::GetCurrentWeaponTransformLeftHandIK() const {
     return FTransform{};
 }
 
-UWeaponAnimationInfoWrap* UPalShooterComponent::GetCurrentWeaponAnimationInfo() const {
-    return NULL;
+FWeaponAnimationInfo UPalShooterComponent::GetCurrentWeaponAnimationInfo() const {
+    return FWeaponAnimationInfo{};
 }
 
 FRidingAnimationInfo UPalShooterComponent::GetCurrentRidingAnimationInfo() const {

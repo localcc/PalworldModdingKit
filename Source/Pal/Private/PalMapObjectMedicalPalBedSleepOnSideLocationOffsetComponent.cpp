@@ -1,0 +1,6 @@
+#include "PalMapObjectMedicalPalBedSleepOnSideLocationOffsetComponent.h"
+
+UPalMapObjectMedicalPalBedSleepOnSideLocationOffsetComponent::UPalMapObjectMedicalPalBedSleepOnSideLocationOffsetComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
+

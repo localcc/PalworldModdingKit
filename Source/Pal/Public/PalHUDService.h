@@ -21,6 +21,7 @@ class UAkAudioEvent;
 class UPalHUDDispatchParameterBase;
 class UPalHUDDispatchParameter_FadeWidget;
 class UPalHUDDispatchParameter_UseItem;
+class UPalIndividualCharacterParameter;
 class UPalItemSlot;
 class UPalSoundPlayer;
 class UPalUILiftSlotModel;
@@ -35,6 +36,8 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnSuccessedCapturePal, const FPalUIPalCaptureInfo&, CaptureInfo);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPushedStackableUI, const FGuid&, pushedWidgetID);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnNotifyUpdateReticleVisibility, bool, bVisible);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnDisplayCharacterHPGauge, UPalIndividualCharacterParameter*, Parameter);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnDeleteCharacterHPGauge, UPalIndividualCharacterParameter*, Parameter);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnApplicationActivationStateChangedDelegate, bool, bIsFocused);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FInvalidatePlayerInputGuard);
     
@@ -52,6 +55,12 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnNotifyUpdateReticleVisibility OnNotifyUpdateReticleVisibility;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnDisplayCharacterHPGauge OnDisplayCharacterHPGauge;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnDeleteCharacterHPGauge OnDeleteCharacterHPGauge;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FUITransientData TransientData;
@@ -109,6 +118,9 @@ public:
     bool IsAnyOverlayUIActive();
     
     UFUNCTION(BlueprintCallable)
+    void InvokeTargetWidgetFunction(const FGuid& WidgetId, const FName FunctionName);
+    
+    UFUNCTION(BlueprintCallable)
     void InvokeFunction_Int32(const FName FunctionName, int32 Value);
     
     UFUNCTION(BlueprintCallable)
@@ -128,6 +140,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasFadeQueue(EPalFadeWidgetLayerType InLayerType) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPalUserWidgetStackableUI* GetWidget(const FGuid& WidgetId);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalSoundPlayer* GetSoundPlayer();

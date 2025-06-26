@@ -63,7 +63,31 @@ UPalDisplayRequestDataAsset* UPalMasterDataTablesUtility::GetPalDisplayNPCDataAs
     return NULL;
 }
 
+UPalMasterDataTableAccess_OperatingTablePassiveSkillData* UPalMasterDataTablesUtility::GetOperatingTablePassiveSkillDataTableAccess(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UDataTable* UPalMasterDataTablesUtility::GetOperatingTablePassiveSkillDataTable(const UObject* WorldContextObject) {
+    return NULL;
+}
+
 UPalNoteDataAsset* UPalMasterDataTablesUtility::GetNoteDataAsset(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UPalMasterDataTableAccess_MapObjectSpawnerBlueprintData* UPalMasterDataTablesUtility::GetMapObjectSpawnerDataTableAccess(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UDataTable* UPalMasterDataTablesUtility::GetMapObjectSpawnerDataTable(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UPalMasterDataTableAccess_MapObjectLotteryData* UPalMasterDataTablesUtility::GetMapObjectLotteryDataTableAccess(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UDataTable* UPalMasterDataTablesUtility::GetMapObjectLotteryDataTable(const UObject* WorldContextObject) {
     return NULL;
 }
 
@@ -127,6 +151,46 @@ UPalNoteDataAsset* UPalMasterDataTablesUtility::GetHelpGuideDataAsset(const UObj
     return NULL;
 }
 
+UPalMasterDataTableAccess_FishShadowData* UPalMasterDataTablesUtility::GetFishShadowDataTableAccess(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UDataTable* UPalMasterDataTablesUtility::GetFishShadowDataTable(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UPalMasterDataTableAccess_FishPondLotteryNameData* UPalMasterDataTablesUtility::GetFishPondLotteryNameDataTableAccess(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UDataTable* UPalMasterDataTablesUtility::GetFishPondLotteryNameDataTable(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UPalMasterDataTableAccess_FishPondLotteryData* UPalMasterDataTablesUtility::GetFishPondLotteryDataTableAccess(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UDataTable* UPalMasterDataTablesUtility::GetFishPondLotteryDataTable(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UPalMasterDataTableAccess_FishingSpotLotteryNameData* UPalMasterDataTablesUtility::GetFishingSpotLotteryNameDataTableAccess(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UDataTable* UPalMasterDataTablesUtility::GetFishingSpotLotteryNameDataTable(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UPalMasterDataTableAccess_FishingSpotLotteryData* UPalMasterDataTablesUtility::GetFishingSpotLotteryDataTableAccess(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UDataTable* UPalMasterDataTablesUtility::GetFishingSpotLotteryDataTable(const UObject* WorldContextObject) {
+    return NULL;
+}
+
 UPalMasterDataTableAccess_FieldLotteryNameData* UPalMasterDataTablesUtility::GetFieldLotteryNameDataTableAccess(const UObject* WorldContextObject) {
     return NULL;
 }
@@ -164,6 +228,14 @@ UPalMasterDataTableAccess_DungeonSpawnAreaData* UPalMasterDataTablesUtility::Get
 }
 
 UDataTable* UPalMasterDataTablesUtility::GetDungeonSpawnAreaDataTable(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UPalMasterDataTableAccess_DungeonRewardSpawnerLotteryData* UPalMasterDataTablesUtility::GetDungeonRewardSpawnerLotteryDataTableAccess(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+UDataTable* UPalMasterDataTablesUtility::GetDungeonRewardSpawnerLotteryDataTable(const UObject* WorldContextObject) {
     return NULL;
 }
 

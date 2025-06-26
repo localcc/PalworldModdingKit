@@ -7,5 +7,6 @@ enum class EPalCharacterCompleteDelegatePriority : uint8 {
     SetTrainer,
     Default,
     PostDefault,
+    CompletedAllCharacterInitialized,
 };
 

@@ -20,6 +20,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 DefaultVoiceID;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsScarecrow;
+    
 public:
     APalNPC(const FObjectInitializer& ObjectInitializer);
 

@@ -9,10 +9,14 @@ UPalMasterDataTables::UPalMasterDataTables() {
     this->Access_FarmCropDataTable = NULL;
     this->MapObjectDataTable = NULL;
     this->Access_MapObjectDataTable = NULL;
+    this->MapObjectLotteryDataTable = NULL;
+    this->Access_MapObjectLotteryDataTable = NULL;
     this->BuildObjectDataTable = NULL;
     this->Access_BuildObjectDataTable = NULL;
     this->BuildObjectIconDataTable = NULL;
     this->Access_BuildObjectIconDataTable = NULL;
+    this->MapObjectSpawnerDataTable = NULL;
+    this->Access_MapObjectSpawnerDataTable = NULL;
     this->ItemProductDataTable = NULL;
     this->Access_ItemProductDataTable = NULL;
     this->BaseCampLevelDataTable = NULL;
@@ -25,6 +29,8 @@ UPalMasterDataTables::UPalMasterDataTables() {
     this->Access_DungeonEnemySpawnerDataTable = NULL;
     this->DungeonItemLotteryDataTable = NULL;
     this->Access_DungeonItemLotteryDataTable = NULL;
+    this->DungeonRewardSpawnerLotteryDataTable = NULL;
+    this->Access_DungeonRewardSpawnerLotteryDataTable = NULL;
     this->FieldLotteryNameDataTable = NULL;
     this->Access_FieldLotteryNameDataTable = NULL;
     this->ItemLotteryDataTable = NULL;
@@ -65,6 +71,18 @@ UPalMasterDataTables::UPalMasterDataTables() {
     this->Access_BossSpawnerUIDataTable = NULL;
     this->FarmSkillFruitsLotteryDataTable = NULL;
     this->Access_FarmSkillFruitsLotteryDataTable = NULL;
+    this->FishShadowDataTable = NULL;
+    this->Access_FishShadowDataTable = NULL;
+    this->FishingSpotLotteryNameDataTable = NULL;
+    this->Access_FishingSpotLotteryNameDataTable = NULL;
+    this->FishingSpotLotteryDataTable = NULL;
+    this->Access_FishingSpotLotteryDataTable = NULL;
+    this->FishPondLotteryNameDataTable = NULL;
+    this->Access_FishPondLotteryNameDataTable = NULL;
+    this->FishPondLotteryDataTable = NULL;
+    this->Access_FishPondLotteryDataTable = NULL;
+    this->OperatingTablePassiveSkillDataTable = NULL;
+    this->Access_OperatingTablePassiveSkillDataTable = NULL;
 }
 
 

@@ -11,6 +11,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TEnumAsByte<ECollisionChannel> WaterProbeChannel;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 PushDownOffsetOnSweepUpHit;
+    
     UPalSpringArmComponent(const FObjectInitializer& ObjectInitializer);
 
 };

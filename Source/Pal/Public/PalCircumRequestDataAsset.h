@@ -9,7 +9,7 @@ class PAL_API UPalCircumRequestDataAsset : public UDataAsset {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<FPalCircumRequestData> ItemRequestData;
+    TMap<FName, FPalCircumRequestData> ItemRequestDataMap;
     
     UPalCircumRequestDataAsset();
 

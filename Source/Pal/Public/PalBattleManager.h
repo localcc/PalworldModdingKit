@@ -28,6 +28,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<APalNPCSpawnerBase> DebugSpawnerClass;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<APalNPCSpawnerBase> DebugUniqueNPCSpawnerClass;
+    
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FExclamationMarkDelegate OnFExclamationMarkDelegate;
     

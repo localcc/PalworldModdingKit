@@ -20,10 +20,14 @@ UCLASS(Blueprintable)
 class PAL_API UPalPartnerSkillPassiveSkill : public UObject {
     GENERATED_BODY()
 public:
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnCachedPassiveSkillListDelegate, const FString&, InOperation, const FName&, InSkillName);
     DECLARE_DYNAMIC_DELEGATE_RetVal_OneParam(bool, FIsRestricted, AActor*, Trainer);
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FIsRestricted IsRestrictedDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnCachedPassiveSkillListDelegate OnCachedPassiveSkillListDelegate;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool isReserving;

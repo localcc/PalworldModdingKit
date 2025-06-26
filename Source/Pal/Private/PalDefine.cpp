@@ -55,6 +55,14 @@ FName UPalDefine::TextId_UICommon_SystemErrorCantMoveNotOwned() {
     return NAME_None;
 }
 
+FName UPalDefine::TextId_UICommon_RewardFishPondTitle() {
+    return NAME_None;
+}
+
+FName UPalDefine::TextId_UICommon_RewardFishPondInfo() {
+    return NAME_None;
+}
+
 FName UPalDefine::TextId_UICommon_LOG_NeedItemToOpenTreasureBox() {
     return NAME_None;
 }
@@ -63,7 +71,31 @@ FName UPalDefine::TextId_UICommon_LOG_ConsumeItem() {
     return NAME_None;
 }
 
+FName UPalDefine::TextId_UICommon_InteractIndicator_Salvage_NotSwimPal() {
+    return NAME_None;
+}
+
+FName UPalDefine::TextId_UICommon_InteractIndicator_Salvage_NotAvailable_NotConsume() {
+    return NAME_None;
+}
+
+FName UPalDefine::TextId_UICommon_InteractIndicator_Salvage_NotAvailable() {
+    return NAME_None;
+}
+
 FName UPalDefine::TextId_UICommon_InteractIndicator_OtomoOpen() {
+    return NAME_None;
+}
+
+FName UPalDefine::TextId_UICommon_InteractIndicator_ObtainLongHold_Salvage_NotConsume() {
+    return NAME_None;
+}
+
+FName UPalDefine::TextId_UICommon_InteractIndicator_ObtainLongHold_Salvage() {
+    return NAME_None;
+}
+
+FName UPalDefine::TextId_UICommon_InteractIndicator_ObtainLongHold_ConsumeAndOpen() {
     return NAME_None;
 }
 
@@ -87,7 +119,15 @@ FName UPalDefine::TextId_UICommon_InteractIndicator_ConsumeAndOpen() {
     return NAME_None;
 }
 
+FName UPalDefine::TextId_UICommon_InteractIndicator_CannotSelectFishPondTarget_ExistsFishedCharacters() {
+    return NAME_None;
+}
+
 FName UPalDefine::TextId_UICommon_INFINITE() {
+    return NAME_None;
+}
+
+FName UPalDefine::TextId_UICommon_FailedFishPondObtainCharacter() {
     return NAME_None;
 }
 
@@ -140,10 +180,6 @@ TArray<FName> UPalDefine::StaticItemIDArray_UnlockPicking() {
 }
 
 FName UPalDefine::StaticItemID_UnlockTalentCheck() {
-    return NAME_None;
-}
-
-FName UPalDefine::StaticItemID_UnlockLantern() {
     return NAME_None;
 }
 

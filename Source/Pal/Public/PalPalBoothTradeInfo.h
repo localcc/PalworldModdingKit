@@ -10,7 +10,7 @@ struct FPalPalBoothTradeInfo {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FPalInstanceID PalID;
+    FPalInstanceID PalId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalItemAndNum Cost;

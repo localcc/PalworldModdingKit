@@ -7,6 +7,10 @@
 #include "Chaos/ChaosEngineInterface.h"
 #include "EPalAIActionType.h"
 #include "EPalActionType.h"
+#include "EPalAdditionalEffectType.h"
+#include "EPalFacialEyeType.h"
+#include "EPalFacialMouthType.h"
+#include "EPalFishingPlayerMotionType.h"
 #include "EPalGeneralAnimSequenceType.h"
 #include "EPalGeneralBlendSpaceType.h"
 #include "EPalGeneralMontageType.h"
@@ -16,11 +20,15 @@
 #include "EPalRagdollPresetType.h"
 #include "EPalSizeType.h"
 #include "EPalSpawnedCharacterType.h"
+#include "EPalWaterEffectType.h"
 #include "EPalWazaID.h"
 #include "FootStampInfo.h"
+#include "PalDataTableRowName_MapObjectData.h"
 #include "PalRandomRestInfo.h"
 #include "PalStaticCharacterInfo_ElectricAction.h"
+#include "PalStaticCharacterInfo_SleepOnSide.h"
 #include "PalStaticCharacterInfo_SpawnItem.h"
+#include "PalStaticCharacterInfo_WaterEffect.h"
 #include "ShooterSpringCameraParameter.h"
 #include "Templates/SubclassOf.h"
 #include "PalStaticCharacterParameterComponent.generated.h"
@@ -38,6 +46,15 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalStaticCharacterParameterComponent : public UActorComponent {
     GENERATED_BODY()
 public:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float MeshCapsuleHalfHeight;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float MeshCapsuleRadius;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FVector MeshRelativeLocation;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<EPalAIActionType, TSubclassOf<UPalAIActionBase>> AIActionMap;
     
@@ -68,6 +85,15 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalStaticCharacterInfo_ElectricAction ElectricActionInfo;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FPalDataTableRowName_MapObjectData, FPalStaticCharacterInfo_SleepOnSide> SleepOnSideInfoMapForMapObject;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UAnimMontage* SleepOnSideAnimMontage;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bFadeSleepOnSide;
+    
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<EPalWazaID, TSoftClassPtr<UPalActionBase>> WazaActionDeclarationMap;
     
@@ -76,6 +102,12 @@ public:
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<EPalWazaID, FFloatInterval> OverrideWazaRangeMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsWazaAdjustPitchDisable;
+    
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalWazaID OverrideCommonWazaID;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float CaptureSuccessRate;
@@ -174,6 +206,21 @@ public:
     float PettingCameraArmLength_Override;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FVector FishingCutsceneCameraTargetOffset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float FishingCutsceneCameraTargetDistanceOffset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalSizeType FishingSize;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalFishingPlayerMotionType FishingPlayerMotionType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool HasFishingRod;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalSizeType Size;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -221,6 +268,18 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool IsHideDefenseLauncherFooting;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<EPalWaterEffectType, FPalStaticCharacterInfo_WaterEffect> WaterEffectMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalFacialEyeType InWaterFacialEyeType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalFacialMouthType InWaterFacialMouthType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<EPalAdditionalEffectType> IgnoreEffectType;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalSoundSlot* PalSoundSlotCache;
@@ -244,6 +303,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool IsPredatorBoss_Database;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool IsLegend_Database;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     EPalSpawnedCharacterType SpawnedCharacterType;
@@ -275,6 +337,12 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPredatorBossPal();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsLegendPal() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsIgnoreEffectType(EPalAdditionalEffectType Effect) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsFlyPal();

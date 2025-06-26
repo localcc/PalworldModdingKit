@@ -1,77 +1,62 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
-#include "EPalNPCTalkCustomFunctionResult.h"
-#include "EPalNPCTalkProceedResult.h"
-#include "PalNPCTalkData.h"
+#include "FlagContainer.h"
 #include "PalNPCTalkSystemCustomFunctionInterface.h"
 #include "PalNPCTalkSystem.generated.h"
 
-class UDataTable;
-class UPalTalkWidgetParameter;
+class UPalNPCTalkDynamicParameter;
+class UPalNPCTalkSystem;
 class UPalTalkWindowWidgetBase;
 
 UCLASS(Blueprintable)
 class PAL_API UPalNPCTalkSystem : public UObject, public IPalNPCTalkSystemCustomFunctionInterface {
     GENERATED_BODY()
 public:
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FEndText, UPalNPCTalkSystem*, SelfTalkSystem);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FConfirmChoice, UPalNPCTalkSystem*, SelfTalkSystem, const FName&, ChoiceMsgID, const int32, ChoiceIndex);
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FEndText OnEndTextDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FConfirmChoice OnConfirmChoiceDelegate;
+    
 private:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UPalTalkWidgetParameter* talkWidgetParameter;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    UPalTalkWindowWidgetBase* talkWidget;
+    UPalTalkWindowWidgetBase* TalkWidget;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FPalNPCTalkData nowExecutedTalkData;
+    FFlagContainer TalkWidgetVisibleFlag;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 nowTalkDataIndex;
+    TMap<FName, FString> TextArgumentMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FName nowTalkDataSeqenceName;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<FName> defaultYesNoChoiceText;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FName CustomFuncName;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UDataTable* FuncParam;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    EPalNPCTalkCustomFunctionResult CustomFuncResult;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 CustomFuncChoseIndex;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 CustomFuncTalkDataIndex;
+    TMap<FName, UPalNPCTalkDynamicParameter*> DynamicParameters;
     
 public:
     UPalNPCTalkSystem();
 
     UFUNCTION(BlueprintCallable)
-    void SetCustomFunctionResult_Implementation(EPalNPCTalkCustomFunctionResult Result);
+    void SetVisibleTalkHUD(const FName& FlagKey, bool bIsVisible);
     
     UFUNCTION(BlueprintCallable)
-    void SetCustomFunctionChoseIndex_Implementation(int32 Index);
+    void SetDynamicParameters(const FName& ParameterName, UPalNPCTalkDynamicParameter* InParameter);
     
+protected:
+    UFUNCTION(BlueprintCallable)
+    void OnEndText(UPalTalkWindowWidgetBase* SelfTalkWidget);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnConfirmChoice(UPalTalkWindowWidgetBase* SelfTalkWidget, const FName& ChoiceMsgID, const int32 ChoiceIndex);
+    
+public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    EPalNPCTalkProceedResult Proceed();
+    UPalNPCTalkDynamicParameter* GetDynamicParameters(const FName& ParameterName);
     
     UFUNCTION(BlueprintCallable)
-    void Initialize(UPalTalkWidgetParameter* InParameter, UPalTalkWindowWidgetBase* inTalkWidget);
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool ChangeSeqence(FName targetSeqenceName);
-    
-    UFUNCTION(BlueprintCallable)
-    bool CallCustomFunc();
-    
-    UFUNCTION(BlueprintCallable)
-    void AddArgument_Implementation(const FString& Key, const FText& Text);
+    void AddCustomTextTagArgument(const FName& TagName, const FString& ArgumentString);
     
 
     // Fix for true pure virtual functions not being implemented

@@ -4,6 +4,7 @@
 #include "EPalDungeonInstanceBossState.h"
 #include "EPalDungeonType.h"
 #include "GameDateTime.h"
+#include "PalDungeonRewardSaveData.h"
 #include "PalMapObjectSaveData.h"
 #include "PalStageInstanceId.h"
 #include "PalDungeonSaveData.generated.h"
@@ -44,6 +45,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FPalMapObjectSaveData> MapObjectSaveData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FGuid, FPalDungeonRewardSaveData> RewardSaveDataMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameDateTime RespawnBossTimeAt;

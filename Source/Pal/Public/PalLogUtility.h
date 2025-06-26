@@ -17,6 +17,7 @@
 
 class UObject;
 class UPalIndividualCharacterHandle;
+class UPalIndividualCharacterParameter;
 
 UCLASS(Blueprintable)
 class PAL_API UPalLogUtility : public UBlueprintFunctionLibrary {
@@ -83,6 +84,9 @@ public:
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void AddGuildLabCompleteLog(const UObject* WorldContextObject, const FPalGuildLabCompleteLogDisplayData& DisplayData);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void AddFriendshipRankupLog(const UObject* WorldContextObject, UPalIndividualCharacterParameter* IndividualParameter, bool bFirstRankup);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void AddDropPalLog(const UObject* WorldContextObject, const FPalLogInfo_DropPal& LogInfo);

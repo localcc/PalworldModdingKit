@@ -13,18 +13,18 @@
 #include "PalItemSlotId.h"
 #include "PalNetArchive.h"
 #include "PalPlayerSettingsForServer.h"
+#include "PalStageExitParameter.h"
 #include "PalStageInstanceId.h"
 #include "PalUIBossDefeatRewardDisplayData.h"
-#include "Templates/SubclassOf.h"
 #include "PalNetworkPlayerComponent.generated.h"
 
 class APalLevelObjectObtainable;
+class APalTreasureMapInteractivePoint;
 class UObject;
 class UPalIndividualCharacterHandle;
 class UPalItemContainer;
 class UPalItemSlot;
 class UPalLoadoutSelectorComponent;
-class UPalQuestData;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalNetworkPlayerComponent : public UActorComponent {
@@ -56,6 +56,11 @@ public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestSetReplicationEntity_ToServer(const EPalPlayerReplicationEntityType EntityType, const bool bReplicate);
     
+private:
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestPickupTreasureMapPoint_ToServer(const FGuid& TargetLevelInstanceId);
+    
+public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestPalStorageReplicates_ToServer(const FPalInstanceID& IndividualId, const FName Key, const bool bReplicate);
     
@@ -72,7 +77,7 @@ public:
     void RequestMoveItemToInventoryFromContainer(UPalItemContainer* fromContainer, bool IsTryEquip);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void RequestExitStage_ToServer();
+    void RequestExitStage_ToServer(const FPalStageExitParameter Parameter);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestEnterStage_ToServer(const FPalStageInstanceId& StageInstanceId);
@@ -82,6 +87,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestChangeVoiceID_ToServer(int32 NewVoiceID);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestCancelSalvageAction_ToServer();
     
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
@@ -93,6 +101,9 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestAddRecord_NormalBossDefeatAll_ToServer();
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestAddItem_ToServer(const FName StaticItemId, const int32 Count, bool IsAssignPassive);
     
 public:
@@ -103,6 +114,9 @@ public:
     void RegisterRespawnPoint_ToServer(const FGuid& PlayerUId, const FVector& Location, const FQuat& Rotation);
     
 private:
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void ReceiveSuccessPickupTreasureMapPoint_ToClient(APalTreasureMapInteractivePoint* TargetInteractivePoint);
+    
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void ReceiveExitStageRequestResult_ToRequestClient(const EPalStageRequestResult Result);
     
@@ -122,9 +136,6 @@ public:
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void NotifyReleaseWanted_ToClient(UPalIndividualCharacterHandle* CriminalHandle);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
-    void NotifyQuestCompleted(TSubclassOf<UPalQuestData> CompletedQuestDataClass);
-    
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void NotifyEndCrime_ToClient(FGuid CrimeInstanceId);
     
@@ -136,6 +147,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void LoadoutSelectorEquipItem(UPalLoadoutSelectorComponent* LoadoutSelector, EPalPlayerInventoryType inventoryType, int32 Index);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Dev_TeleportToRelativeLocationInStageLevel_ToServer(const FVector RelativeLocation);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Dev_SetOverridePlayerUID_ToServer(const FGuid& PlayerUId);
@@ -163,6 +177,12 @@ public:
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Dev_RequestEnterPlayerGuildBaseCampBelongTo_ToServer(const FGuid& BaseCampId);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Dev_RequestEnterDungeonByDataLayer_ToServer(const FName DataLayerName);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Dev_ForceFoundNearestTreasureMapPoint_ToServer(const int32 Rarity);
     
 };
 

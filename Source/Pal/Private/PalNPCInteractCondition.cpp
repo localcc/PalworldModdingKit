@@ -3,7 +3,4 @@
 UPalNPCInteractCondition::UPalNPCInteractCondition() {
 }
 
-void UPalNPCInteractCondition::SetResult(bool bResult) {
-}
-
 

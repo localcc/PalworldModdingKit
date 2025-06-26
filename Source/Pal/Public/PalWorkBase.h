@@ -18,6 +18,7 @@
 class UPalCharacterParameterComponent;
 class UPalIndividualCharacterHandle;
 class UPalIndividualCharacterSlot;
+class UPalMapObjectConcreteModelBase;
 class UPalWorkAssign;
 class UPalWorkBase;
 class UPalWorkProgressTransformBase;
@@ -98,6 +99,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bCanStealAssign;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bAssignWorldSitLocationAtWorkFacing;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FGuid ID;
@@ -115,7 +119,7 @@ private:
     bool bGroupRaycastStartOffsetOrigin;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    bool bAssignWorldSitLocationAtWorkFacing;
+    UPalMapObjectConcreteModelBase* CachedOwnerMapObjectConcreteModel;
     
 public:
     UPalWorkBase();

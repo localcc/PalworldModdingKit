@@ -157,7 +157,19 @@ public:
     bool IsTriggerOnlyFireWeapon;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float PvPDamageRate;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool IsInfinityMagazine;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IsOverrideAnimRateScale;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float OverrideAnimRateScale;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<UMaterialInterface*, UMaterialInterface*> OverrideMaterialMap_ForUI;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -253,6 +265,9 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable)
+    void ReserveSummonWeapon();
+    
+    UFUNCTION(BlueprintCallable)
     void RequestConsumeItem_ForThrowWeapon(const FName& StaticItemId, int32 ConsumeNum);
     
     UFUNCTION(BlueprintCallable)
@@ -262,6 +277,11 @@ public:
     UFUNCTION(BlueprintCallable)
     bool ReloadBullets();
     
+protected:
+    UFUNCTION(BlueprintCallable)
+    void ReleaseSummonWeapon();
+    
+public:
     UFUNCTION(BlueprintCallable)
     void PlaySoundWithOption(const FPalDataTableRowName_SoundID& ID, const FPalSoundOptions& Arg);
     
@@ -271,6 +291,11 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnWeaponNotify(EWeaponNotifyType Type);
     
+protected:
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnSummonWeapon(int32 SummonCount);
+    
+public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnStopReload();
     
@@ -281,7 +306,7 @@ public:
     void OnRequestClosing();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnReloadStart();
+    void OnReloadStart(float InReloadSpeedPlayRate);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnReleaseTrigger();
@@ -321,6 +346,11 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
     bool IsUseLeftHandAttach() const;
     
+protected:
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure)
+    bool IsNeedCheckSummonWeapon() const;
+    
+public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsHiddenWeapon();
     
@@ -328,7 +358,7 @@ public:
     bool IsFullMagazine() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool IsExistBulletInPlayerInventory();
+    bool IsExistBulletInPlayerInventory() const;
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
     bool IsEnableAutoAim() const;
@@ -399,6 +429,14 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure)
     int32 GetNPCWeaponDamage() const;
     
+protected:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetNeedSpawnSummonWeaponCount();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetMaxSummonCount();
+    
+public:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     USceneComponent* GetMainMesh();
     
@@ -438,10 +476,24 @@ public:
     bool DecrementBullet();
     
     UFUNCTION(BlueprintCallable)
+    void DecreaseDurabilityWithValue(float Durability);
+    
+    UFUNCTION(BlueprintCallable)
     void DecreaseDurability();
     
     UFUNCTION(BlueprintCallable)
     void ClearWeaponSkill();
+    
+protected:
+    UFUNCTION(BlueprintCallable)
+    void ClearSummonWeapon();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool CanReserveSummonWeapon();
+    
+public:
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
+    bool CanDealDamageWeapon() const;
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     float CalcStability();
@@ -454,6 +506,10 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     float CalcAccuracy();
+    
+protected:
+    UFUNCTION(BlueprintCallable)
+    void ApplyOverrideMaterial_ForUI();
     
 
     // Fix for true pure virtual functions not being implemented

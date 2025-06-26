@@ -6,6 +6,7 @@ UPalBodyPartsCapsuleComponent::UPalBodyPartsCapsuleComponent(const FObjectInitia
     this->CanCharacterStepUpOn = ECB_No;
     this->bDynamicObstacle = true;
     this->BodyPartsType = EPalBodyPartsType::Normal;
+    this->BodyPartsFlags = 0;
 }
 
 void UPalBodyPartsCapsuleComponent::OnRep_BroadcastCollisionProfileName() {

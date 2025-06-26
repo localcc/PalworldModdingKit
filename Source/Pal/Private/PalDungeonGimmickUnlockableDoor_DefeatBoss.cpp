@@ -2,9 +2,6 @@
 #include "Net/UnrealNetwork.h"
 
 APalDungeonGimmickUnlockableDoor_DefeatBoss::APalDungeonGimmickUnlockableDoor_DefeatBoss(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->bReplicates = true;
-    const FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
-    (*p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this)) = ROLE_SimulatedProxy;
     this->BossState = EPalDungeonInstanceBossState::Spawned;
 }
 

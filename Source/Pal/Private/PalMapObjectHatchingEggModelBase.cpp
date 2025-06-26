@@ -38,6 +38,9 @@ void UPalMapObjectHatchingEggModelBase::OnAddNewWorker(UPalIndividualCharacterHa
 void UPalMapObjectHatchingEggModelBase::ObtainHatchedCharacter_ServerInternal(const int32 RequestPlayerId, const FPalNetArchive& Archive) {
 }
 
+void UPalMapObjectHatchingEggModelBase::NotifyHatchFailed_NoEmptySlot_ClientInternal() {
+}
+
 void UPalMapObjectHatchingEggModelBase::NotifyHatchComplete_ClientInternal() {
 }
 

@@ -38,7 +38,10 @@ public:
     bool LoadingScreenLiving;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TMap<FName, FName> TransientRecipeProductMap;
+    bool CanDisplayBlueprintCategoryInBuildRadialMenu;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool ShouldPopQuickStackDialog;
     
     PAL_API FUITransientData();
 };

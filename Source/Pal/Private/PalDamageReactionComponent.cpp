@@ -44,6 +44,9 @@ void UPalDamageReactionComponent::OnEndDamageMotion(UAnimMontage* Montage, bool 
 void UPalDamageReactionComponent::OnDyingDeadEndDelegate_ToALL_Implementation(bool bIsInstantDeath) {
 }
 
+void UPalDamageReactionComponent::MulticastDamageReact_Implementation(FPalDamageResult DamageResult, const FPalDeadInfo& ProcessedDeadInfo, const bool IsDead, const bool IsPartsBroke) {
+}
+
 bool UPalDamageReactionComponent::IsIgnoreElementStatus(EPalAdditionalEffectType Effect) {
     return false;
 }
@@ -62,15 +65,6 @@ void UPalDamageReactionComponent::CallOnDamageDelegateAlways_Implementation(FPal
 }
 
 void UPalDamageReactionComponent::CallDeadDelegate_ToALL_Implementation(FPalDeadInfo DeadInfo) {
-}
-
-void UPalDamageReactionComponent::ApplyDamageForMP_Implementation(FPalDamageResult DamageResult) {
-}
-
-void UPalDamageReactionComponent::ApplyDamageForHP_Implementation(FPalDamageResult DamageResult) {
-}
-
-void UPalDamageReactionComponent::ApplyDamageForDyingHP_Implementation(FPalDamageResult DamageResult) {
 }
 
 void UPalDamageReactionComponent::AddDeadImplus_Implementation(FPalDamageResult DamageResult) {

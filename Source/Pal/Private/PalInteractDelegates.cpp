@@ -1,5 +1,5 @@
 #include "PalInteractDelegates.h"
 
-UPalInteractDelegates::UPalInteractDelegates() {
+UDEPRECATED_PalInteractDelegates::UDEPRECATED_PalInteractDelegates() {
 }
 

@@ -33,6 +33,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_PrivateLockPlayerUId, meta=(AllowPrivateAccess=true))
     FGuid PrivateLockPlayerUId;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FName> SoldPalIds;
+    
 public:
     UPalMapObjectPalBoothModel();
 
@@ -84,6 +87,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetTradeInfos(TArray<FPalPalBoothTradeInfo>& OutTradeInfo) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FName GetSoldPalCharacterID(int32 TradeIndex) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalIndividualCharacterSlot* GetBoothPalByIndividualId(const FPalInstanceID IndividualId);

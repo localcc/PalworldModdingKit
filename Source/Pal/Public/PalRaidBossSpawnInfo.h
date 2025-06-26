@@ -4,14 +4,17 @@
 #include "EPalStatusID.h"
 #include "EPalWazaID.h"
 #include "PalDataTableRowName_PalMonsterData.h"
+#include "Templates/SubclassOf.h"
 #include "PalRaidBossSpawnInfo.generated.h"
+
+class APalAIController;
 
 USTRUCT(BlueprintType)
 struct FPalRaidBossSpawnInfo {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FPalDataTableRowName_PalMonsterData PalID;
+    FPalDataTableRowName_PalMonsterData PalId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 Level;
@@ -42,6 +45,9 @@ public:
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<EPalWazaID> ModeChange_RemoveWaza;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<APalAIController> AIControllerClass;
     
     PAL_API FPalRaidBossSpawnInfo();
 };

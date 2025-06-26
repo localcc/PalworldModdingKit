@@ -11,4 +11,5 @@ public:
     
     FPalDataTableRowName_MapObjectData();
 };
+FORCEINLINE uint32 GetTypeHash(const FPalDataTableRowName_MapObjectData) { return 0; }
 

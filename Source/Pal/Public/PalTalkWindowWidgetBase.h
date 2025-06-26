@@ -1,46 +1,46 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "EPalNPCTalkSelectedChoiceResult.h"
 #include "PalUserWidgetOverlayUI.h"
 #include "PalTalkWindowWidgetBase.generated.h"
 
 class UPalNPCTalkSystem;
+class UPalTalkWindowWidgetBase;
 
 UCLASS(Blueprintable, EditInlineNew)
 class PAL_API UPalTalkWindowWidgetBase : public UPalUserWidgetOverlayUI {
     GENERATED_BODY()
 public:
-protected:
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FEndText, UPalTalkWindowWidgetBase*, SelfWidget);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FConfirmChoice, UPalTalkWindowWidgetBase*, SelfWidget, const FName&, ChoiceMsgID, const int32, ChoiceIndex);
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FEndText OnEndTextDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FConfirmChoice OnConfirmChoiceDelegate;
+    
+private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UPalNPCTalkSystem* talkSystem;
+    TWeakObjectPtr<UPalNPCTalkSystem> WeakTalkSystem;
     
 public:
     UPalTalkWindowWidgetBase();
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void ShowChoice(const TArray<FName>& choiceTextIDList);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void SetTalkerName(const FName& Text);
+    void ShowChoice(const TArray<FName>& ChoiceMsgIDList);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void SetMainTextList(const TArray<FName>& textIDList);
+    void SetTextList(const TArray<FName>& InMsgIDList);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void RequestClose();
+    UFUNCTION(BlueprintCallable)
+    void OnEndTalk();
     
 protected:
-    UFUNCTION(BlueprintCallable)
-    EPalNPCTalkSelectedChoiceResult NotifyChoiceIndex(int32 Index);
-    
-public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool HasArguments() const;
+    UPalNPCTalkSystem* GetTalkSystem() const;
     
     UFUNCTION(BlueprintCallable)
-    void CreateTextAppliedArgments(const FText& OrgText, FText& OutText);
-    
-    UFUNCTION(BlueprintCallable)
-    void AddArgument(const FString& Key, const FText& Text);
+    FText FormatByCustomTagArgument(const FText& OriginalText);
     
 };
 

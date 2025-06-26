@@ -27,6 +27,7 @@ UPalShooterSpringArmComponent::UPalShooterSpringArmComponent(const FObjectInitia
     this->MoveComponent = NULL;
     this->ParameterComponent = NULL;
     this->DamageReactionComponent = NULL;
+    this->bIsSpectated = false;
 }
 
 void UPalShooterSpringArmComponent::UpdateCameraInterp(float DeltaTime) {

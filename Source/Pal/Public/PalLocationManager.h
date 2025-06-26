@@ -33,7 +33,13 @@ public:
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, UPalLocationBase*> LocationMap;
+    TMap<FGuid, UPalLocationBase*> LocationMapInServer;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FGuid, UPalLocationBase*> LocationMapInLocal;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FGuid, UPalLocationBase*> LocationMapCombined;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FGuid, FPalCustomMarkerSaveData> CustomMarkers;
@@ -41,7 +47,7 @@ protected:
 public:
     UPalLocationManager();
     UFUNCTION(BlueprintCallable)
-    void RemoveLocalCustomLocation(const FGuid& LocationId);
+    void RemoveLocalCustomMarker(const FGuid& MarkerId);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalLocationPoint* GetLocationPoint(const FGuid& ID) const;
@@ -56,10 +62,10 @@ public:
     TMap<FGuid, FPalCustomMarkerSaveData> GetCustomMarkers() const;
     
     UFUNCTION(BlueprintCallable)
-    void ChangeCustomMarkerType(const FGuid& LocationId, int32 Type);
+    void ChangeCustomMarkerType(const FGuid& MarkerrId, int32 Type);
     
     UFUNCTION(BlueprintCallable)
-    FGuid AddLocalCustomLocation(FVector IconLocation, int32 IconType);
+    FGuid AddLocalCustomMarker(FVector IconLocation, int32 IconType);
     
 };
 

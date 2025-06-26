@@ -1,6 +1,7 @@
 #include "PalAnimNotifyState_MovementControl.h"
 
 UPalAnimNotifyState_MovementControl::UPalAnimNotifyState_MovementControl() {
+    this->bIsFlagNameOverride = false;
     this->MovementSpeedRate = 1.00f;
     this->AirControlXYRate = 1.00f;
     this->YawRotatorRate = 1.00f;

@@ -87,6 +87,9 @@ void UPalCheatManager::ToggleSpawnRandomIncidentLotteryDataOnly() {
 void UPalCheatManager::ToggleShowReticleLocation() {
 }
 
+void UPalCheatManager::ToggleShowMsgID() {
+}
+
 void UPalCheatManager::ToggleShowDropItemHitEventLog() {
 }
 
@@ -107,6 +110,18 @@ void UPalCheatManager::ToggleHUD() {
 }
 
 void UPalCheatManager::ToggleForceSpawnRandomIncident() {
+}
+
+void UPalCheatManager::ToggleFishMove() {
+}
+
+void UPalCheatManager::ToggleFishingSuccess() {
+}
+
+void UPalCheatManager::ToggleFishingSearchAreaDraw() {
+}
+
+void UPalCheatManager::ToggleDebugFishingSpotRespawnTime() {
 }
 
 void UPalCheatManager::ToggleBuildInstallCheckLookToCamera() {
@@ -144,6 +159,9 @@ void UPalCheatManager::TeleportToDungeonEntranceByIndex(const int32 Index) {
 }
 
 void UPalCheatManager::TeleportToDungeonEntranceByDataLayer(const FName DataLayerName) {
+}
+
+void UPalCheatManager::TeleportToCurrentStageRelativeLocation(float X, float Y, float Z) {
 }
 
 void UPalCheatManager::TeleportToCurrentDungeonTreasureBox() {
@@ -201,12 +219,18 @@ void UPalCheatManager::StartDismantlingMode() {
 void UPalCheatManager::StartBuildMode(const FName BuildObjectId) {
 }
 
+void UPalCheatManager::StartArenaSolo(EPalArenaRank ArenaRank) {
+}
+
 
 void UPalCheatManager::SpectatorOn() {
 }
 
 
 void UPalCheatManager::SpectatorOff() {
+}
+
+void UPalCheatManager::SpawnUniqueNPC(const FName CharacterID) {
 }
 
 void UPalCheatManager::SpawnPalEggBreedFarm(const FName MonsterId, const float Range) {
@@ -335,6 +359,9 @@ void UPalCheatManager::ShowActionAndStatus() {
 void UPalCheatManager::SetVoiceID(int32 VoiceID) {
 }
 
+void UPalCheatManager::SetVisitorName(const FString& VisitorName) {
+}
+
 void UPalCheatManager::SetVisibleLevelObjectAll(const bool bVisible) {
 }
 
@@ -402,6 +429,9 @@ void UPalCheatManager::SetMapObjectStatusMapObjectId(const FName MapObjectId) {
 }
 
 void UPalCheatManager::SetLoadingSceneVisible(bool IsVisible) {
+}
+
+void UPalCheatManager::SetInventorySize(int32 NewSize) {
 }
 
 void UPalCheatManager::SetInventoryItemDurability(const float Percent) {
@@ -483,6 +513,9 @@ void UPalCheatManager::SetBaseCampWorkerHpSingle(const float Percentage) {
 }
 
 void UPalCheatManager::SetBaseCampWorkerHp(const float Percentage) {
+}
+
+void UPalCheatManager::SetArenaRankPoint(int32 ArenaRankPoint) {
 }
 
 void UPalCheatManager::SetAlwaysGrantPassiveSkillMode(bool flag) {
@@ -578,6 +611,9 @@ void UPalCheatManager::PrintInventoryDynamicItemLog() {
 void UPalCheatManager::PrintGameTime() {
 }
 
+void UPalCheatManager::PrintArenaSpectateInfoLog(bool ForceNetUpdate) {
+}
+
 void UPalCheatManager::PrintAllDataLayerIDHash() {
 }
 
@@ -588,6 +624,9 @@ void UPalCheatManager::ParallelForUpdateActiveTiles() {
 }
 
 void UPalCheatManager::PalmiTargetEnemny() {
+}
+
+void UPalCheatManager::OrderQuestForce(const FName QuestId) {
 }
 
 void UPalCheatManager::OrderBaseCampWorker(const EPalMapBaseCampWorkerOrderType OrderType) {
@@ -833,6 +872,9 @@ void UPalCheatManager::ForceUpdateBaseCampWorkerEvent() {
 void UPalCheatManager::ForceSpawnRarePal() {
 }
 
+void UPalCheatManager::ForceResetPropertiesPlayerBelongTo() {
+}
+
 void UPalCheatManager::ForceReportCriminal() {
 }
 
@@ -843,6 +885,12 @@ void UPalCheatManager::ForceReleaseWanted() {
 }
 
 void UPalCheatManager::ForceLowerSpecSetting() {
+}
+
+void UPalCheatManager::ForceItemContainerDirtyAll() {
+}
+
+void UPalCheatManager::ForceFoundNearestTreasureMapPoint(const int32 Rarity) {
 }
 
 void UPalCheatManager::ForceExitStageAllPlayer() {
@@ -906,6 +954,9 @@ void UPalCheatManager::EnterGuildLocalPlayer(const FString& GuildName) {
 }
 
 void UPalCheatManager::EnterGroup(const FString& GroupName, FPalInstanceID IndividualId) {
+}
+
+void UPalCheatManager::EnterDungeonByDataLayer(const FName DataLayerName) {
 }
 
 void UPalCheatManager::EnableStatUnit() {
@@ -1070,6 +1121,9 @@ void UPalCheatManager::ConsumePlatformInventoryItem(int32 ItemId, int32 Num) {
 void UPalCheatManager::ConnectServer(const FString& Address, const FString& Port, const FString& ServerPassword) {
 }
 
+void UPalCheatManager::CompleteQuestForce(const FName QuestId) {
+}
+
 void UPalCheatManager::CompleteLabResearches(const TArray<FName> ResearchIds) {
 }
 
@@ -1083,6 +1137,9 @@ void UPalCheatManager::CommandToServer(const FString& Command) {
 }
 
 void UPalCheatManager::CleatDebugInfoText() {
+}
+
+void UPalCheatManager::ClearVisitorName() {
 }
 
 void UPalCheatManager::ClearSupply() {
@@ -1179,6 +1236,9 @@ void UPalCheatManager::AddTechnologyPoints(int32 AddPoints) {
 }
 
 void UPalCheatManager::AddRecord_TowerBossDefeat(const EPalBossType BossType, const EPalBossBattleDifficulty Difficulty) {
+}
+
+void UPalCheatManager::AddRecord_NormalBossDefeatAll() {
 }
 
 void UPalCheatManager::AddPlayerExp(int32 addExp) {

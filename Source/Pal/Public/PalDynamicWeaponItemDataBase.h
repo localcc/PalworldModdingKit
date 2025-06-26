@@ -23,6 +23,9 @@ private:
     int32 RemainingBullets;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsEmptyBulletInventory;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     TArray<FName> PassiveSkillList;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_ForceUpdateBulletsCounter, meta=(AllowPrivateAccess=true))
@@ -42,9 +45,11 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetReloadStartRemainingBullets_Local(int32 bulletsNum);
     
+private:
     UFUNCTION(BlueprintCallable)
-    void SetDurability(float NewDurability);
+    void SetDurabilityInternal(float NewDurability);
     
+public:
     UFUNCTION(BlueprintCallable)
     void SetBulletsNum(int32 bulletsNum);
     
@@ -61,6 +66,9 @@ protected:
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsEmptyMagazine() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsEmptyBulletInventory() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetRemainingBulletsNum() const;

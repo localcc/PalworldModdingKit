@@ -13,6 +13,7 @@
 #include "PalDeadBodyManager.h"
 #include "PalDeathPenaltyManager.h"
 #include "PalDimensionLockerControlSubsystem.h"
+#include "PalDistributeTickManager.h"
 #include "PalEventNotifySystem.h"
 #include "PalExpDatabase.h"
 #include "PalGameSetting.h"
@@ -32,6 +33,7 @@
 #include "PalShopManager.h"
 #include "PalSkinManager.h"
 #include "PalSupplyManager.h"
+#include "PalTreasureMapWorldSubsystem.h"
 #include "PalTutorialManager.h"
 #include "PalVisualEffectDataBase.h"
 #include "PalWazaDatabase.h"
@@ -78,6 +80,8 @@ UPalGameInstance::UPalGameInstance() {
     this->DatabaseCharacterParameter = NULL;
     this->AssetStreamableManagerClass = UPalAssetStreamableManager::StaticClass();
     this->AssetStreamableManager = NULL;
+    this->DistributeTickManagerClass = UPalDistributeTickManager::StaticClass();
+    this->DistributeTickManager = NULL;
     this->PassiveSkillManagerClass = UPalPassiveSkillManager::StaticClass();
     this->PassiveSkillManager = NULL;
     this->DataTableRowIdMapperClass = UPalDataTableRowIdMapper::StaticClass();
@@ -112,10 +116,11 @@ UPalGameInstance::UPalGameInstance() {
     this->SkinManagerClass = UPalSkinManager::StaticClass();
     this->SkinManager = NULL;
     this->SupplyManagerClass = UPalSupplyManager::StaticClass();
+    this->TreasureMapWorldSubsystemClass = UPalTreasureMapWorldSubsystem::StaticClass();
     this->ShopManagerSubsystemClass = UPalShopManager::StaticClass();
     this->ObjectPoolClass = NULL;
     this->FishingSystemClass = NULL;
-    this->revisionNum = 67935;
+    this->revisionNum = 75365;
     this->bUseAsyncMovement = true;
     this->DimensionLockerControlSubsystemClass = UPalDimensionLockerControlSubsystem::StaticClass();
     this->DisplaySafeAreaDebugger = NULL;

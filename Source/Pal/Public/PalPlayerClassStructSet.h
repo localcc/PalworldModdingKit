@@ -24,13 +24,13 @@ public:
     TSubclassOf<UPalWorldMapUIData> WorldMapUIDataClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSubclassOf<UPalQuestManager> LocalQuestManagerClass;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalPlayerInventoryData> InventoryDataClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalPlayerSkinData> PlayerSkinDataClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UPalQuestManager> QuestManagerClass;
     
     PAL_API FPalPlayerClassStructSet();
 };

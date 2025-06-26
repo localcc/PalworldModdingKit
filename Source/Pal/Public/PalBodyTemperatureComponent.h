@@ -45,11 +45,17 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FPalTemperatureInfo TemperatureInfo_Pre_ForClient;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_Enabled, meta=(AllowPrivateAccess=true))
+    bool bEnabled;
+    
 public:
     UPalBodyTemperatureComponent(const FObjectInitializer& ObjectInitializer);
 
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
+    UFUNCTION(BlueprintCallable)
+    void SetEnable(bool bEnable);
+    
     UFUNCTION(BlueprintCallable)
     void RemoveHeatSource(FName UniqueName);
     
@@ -62,6 +68,9 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void OnRep_TemperatureInfo();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnRep_Enabled();
     
     UFUNCTION(BlueprintCallable)
     void OnInitializedPlayer(APalCharacter* Character);

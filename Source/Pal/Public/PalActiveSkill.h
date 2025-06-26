@@ -5,6 +5,7 @@
 #include "PalActiveSkill.generated.h"
 
 class AActor;
+class UPalWazaBulletEmiiterOverlapBase;
 
 UCLASS(Blueprintable)
 class UPalActiveSkill : public UObject {
@@ -46,6 +47,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsTransient;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalWazaBulletEmiiterOverlapBase* BulletEmiiterOverlap;
     
 public:
     UPalActiveSkill();

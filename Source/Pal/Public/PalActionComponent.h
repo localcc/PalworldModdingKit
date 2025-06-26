@@ -90,6 +90,12 @@ public:
     void OnCompleteCharacter(APalCharacter* InCharacter);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsReservedActionClass(TSubclassOf<UPalActionBase> actionClass) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsActiveActionType(EPalActionType ActionType, bool bIsCheckQueue) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasAction(EPalActionType Type);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

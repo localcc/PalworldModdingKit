@@ -1,9 +1,9 @@
 #include "PalCharacterOnCompleteInitializeParameterWrapper.h"
 
-UPalCharacterOnCompleteInitializeParameterWrapper::UPalCharacterOnCompleteInitializeParameterWrapper() {
+UDEPRECATED_PalCharacterOnCompleteInitializeParameterWrapper::UDEPRECATED_PalCharacterOnCompleteInitializeParameterWrapper() {
 }
 
-void UPalCharacterOnCompleteInitializeParameterWrapper::Broadcast(APalCharacter* Character) const {
+void UDEPRECATED_PalCharacterOnCompleteInitializeParameterWrapper::Broadcast(APalCharacter* Character) const {
 }
 
 

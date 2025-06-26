@@ -21,5 +21,6 @@ FPalWazaDatabaseRaw::FPalWazaDatabaseRaw() {
     this->EffectValueEx2 = 0.00f;
     this->bIsWeaponDamage = false;
     this->DisabledData = false;
+    this->BulletEmiiterOverlapClass = NULL;
 }
 

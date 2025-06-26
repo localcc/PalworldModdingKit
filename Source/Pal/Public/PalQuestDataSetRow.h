@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Engine/DataTable.h"
+#include "EPalQuestType.h"
 #include "PalQuestDataSetRow.generated.h"
 
 class UPalQuestData;
@@ -9,6 +10,9 @@ USTRUCT(BlueprintType)
 struct FPalQuestDataSetRow : public FTableRowBase {
     GENERATED_BODY()
 public:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalQuestType QuestType;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftClassPtr<UPalQuestData> QuestData;
     

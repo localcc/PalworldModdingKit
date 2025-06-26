@@ -8,8 +8,6 @@ class UPalNPCInteractCondition : public UObject {
     GENERATED_BODY()
 public:
     UPalNPCInteractCondition();
-    UFUNCTION(BlueprintCallable)
-    void SetResult(bool bResult);
     
 };
 

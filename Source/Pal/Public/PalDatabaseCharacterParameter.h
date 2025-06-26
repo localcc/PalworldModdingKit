@@ -101,6 +101,15 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* PalGainWorkSuitabilityRankItemDataTable;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* FriendshipRankTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* ArenaRankingNPCIconDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* ArenaUnusableItemDataTable;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<float> TalentMagnificationList;
@@ -119,6 +128,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     bool SetupSaveParameter(const FName CharacterID, const int32 Level, const FGuid& OwnerPlayerUId, FPalIndividualCharacterSaveParameter& outParameter);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsArenaUnusableItem(FName ItemId) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 HigherLevelOtomoFromTrainer(const UPalIndividualCharacterParameter* IndividualCharacterParameter) const;
@@ -190,10 +202,19 @@ public:
     bool GetNocturnal(FName RowName);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetMinFriendshipRank() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetMeleeAttackBySaveParameter(const FPalIndividualCharacterSaveParameter& SaveParameter);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetMeleeAttack(UPalIndividualCharacterParameter* IndividualParameter);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetMaxFriendshipRank() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    void GetLocalizedUniqueNPCName(const FName& UniqueNPCID, FText& OutText);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetLocalizedCharacterName(const FName& CharacterID, FText& OutText);
@@ -210,8 +231,11 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool GetIsPal(FName RowName);
     
-    UFUNCTION(BlueprintCallable)
-    bool GetIsBoss(FName RowName);
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool GetIsLegend(FName RowName) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool GetIsBoss(FName RowName) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetHPBySaveParameter(const FPalIndividualCharacterSaveParameter& SaveParameter) const;
@@ -226,6 +250,12 @@ public:
     EPalGenusCategoryType GetGenusCategory(FName RowName);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool GetFriendshipRequiredPointByRank(int32 FriendshipRank, int32& OutRequiredPoint) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetFriendshipRank(int32 FriendshipPoint) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetFoodAmount(FName RowName);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -235,7 +265,7 @@ public:
     float GetExpRatio(FName RowName);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    void GetElementType(FName RowName, EPalElementType& Element1, EPalElementType& Element2);
+    void GetElementType(FName RowName, EPalElementType& Element1, EPalElementType& Element2) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool GetDropItemData(const FName& CharacterID, const int32 Level, FPalDropItemDatabaseRow& OutData);
@@ -244,7 +274,7 @@ public:
     int32 GetDefenseBySaveParameter(const FPalIndividualCharacterSaveParameter& SaveParameter);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetDefense(const UPalIndividualCharacterParameter* IndividualParameter);
+    int32 GetDefense(const UPalIndividualCharacterParameter* IndividualParameter) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FPalWorkSuitabilityInfo> GetCraftSpeeds(UPalIndividualCharacterParameter* IndividualParameter);
@@ -253,7 +283,7 @@ public:
     int32 GetCraftSpeedBySaveParameter(const FPalIndividualCharacterSaveParameter& SaveParameter);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetCraftSpeed(UPalIndividualCharacterParameter* IndividualParameter);
+    int32 GetCraftSpeed(const UPalIndividualCharacterParameter* IndividualParameter) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FSoftObjectPath GetCharacterIconTexturePath(const FName CharacterID) const;
@@ -274,7 +304,7 @@ public:
     FName GetBPClassName(FName RowName);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    TSoftClassPtr<APalCharacter> GetBPClass(FName RowName);
+    TSoftClassPtr<APalCharacter> GetBPClass(FName RowName, bool ShowError);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TSoftObjectPtr<UTexture2D> GetBossNPCIconTexture(const FName& SpawnerID) const;
@@ -283,10 +313,16 @@ public:
     EPalBattleBGMType GetBattleBGM(FName RowName);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    TSoftObjectPtr<UTexture2D> GetArenaRankingNPCIcon(const FName& RankingNPCId) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool FindTalentUpItem(FName ItemName, FPalTalentUpItemDataRow& OutData) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool FindPalSizeParameter(EPalSizeType CharacterSize, FPalSizeParameterDataRow& RowData) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float CalcFriendshipProgress(int32 FriendshipPoint) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     int32 CalcCorrectedLevel(const int32 TrainerLevel, const int32 TargetCharacterLevel, const UObject* WorldContextObject) const;

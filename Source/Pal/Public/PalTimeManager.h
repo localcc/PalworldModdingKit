@@ -7,8 +7,8 @@
 #include "PalWorldSubsystem.h"
 #include "PalTimeManager.generated.h"
 
-class APalPlayerCharacter;
 class UObject;
+class UPalTimeManager;
 
 UCLASS(Blueprintable)
 class PAL_API UPalTimeManager : public UPalWorldSubsystem, public IPalGameWorldDataSaveInterface {
@@ -18,7 +18,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNightStartDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNightSkipDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNightEndDelegate);
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangeSleepingPlayerNumDelegate, int32, Num);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangeSleepingPlayerNumDelegate, UPalTimeManager*, Manager);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnChangeMinutesDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnChangeHoursDelegate);
     
@@ -48,9 +48,6 @@ protected:
     int32 SleepingPlayerNum;
     
 private:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<APalPlayerCharacter*> SleepingPlayers;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FTimerHandle NightSkipTimerHandle;
     
@@ -65,14 +62,11 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetGameTime_FixDay(const int32 NextHour);
     
-    UFUNCTION(BlueprintCallable)
-    void RemoveSleepPlayer(APalPlayerCharacter* Player);
-    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FString PalTimeSecondsToString(float InSeconds);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetSleepingPlayerCount() const;
+    int32 GetSleepingPlayerCount(const bool bForceLocalPlayerSleep) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetDebugTimeString() const;
@@ -106,9 +100,6 @@ public:
     
     UFUNCTION(BlueprintCallable)
     FPalTimerHandle AddTimerEventBySpan(const UPalTimeManager::FTimerEventDelegate& Delegate, const float Hours, const float Minutes, const float Seconds);
-    
-    UFUNCTION(BlueprintCallable)
-    void AddSleepPlayer(APalPlayerCharacter* Player);
     
 
     // Fix for true pure virtual functions not being implemented

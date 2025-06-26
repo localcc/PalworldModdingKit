@@ -5,10 +5,9 @@ UPalItemSlot::UPalItemSlot() {
     this->SlotIndex = -1;
     this->StackCount = 0;
     this->CorruptionProgressValue = 0.00f;
-    this->DynamicItemData = NULL;
 }
 
-bool UPalItemSlot::TryGetStaticItemData(UPalStaticItemDataBase*& OutStaticItemData) {
+bool UPalItemSlot::TryGetStaticItemData(UPalStaticItemDataBase*& OutStaticItemData) const {
     return false;
 }
 

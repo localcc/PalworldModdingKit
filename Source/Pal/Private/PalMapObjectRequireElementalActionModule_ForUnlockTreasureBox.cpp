@@ -3,6 +3,7 @@
 
 UPalMapObjectRequireElementalActionModule_ForUnlockTreasureBox::UPalMapObjectRequireElementalActionModule_ForUnlockTreasureBox() {
     this->bLocked = false;
+    this->SalvageGameUIClass = NULL;
 }
 
 void UPalMapObjectRequireElementalActionModule_ForUnlockTreasureBox::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {

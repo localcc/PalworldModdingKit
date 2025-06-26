@@ -10,10 +10,12 @@
 #include "EPalMovementSpeedType.h"
 #include "EPalWalkableFloorAnglePriority.h"
 #include "FlagContainer.h"
+#include "PalHoveringWaterParameter.h"
 #include "PalCharacterMovementComponent.generated.h"
 
 class APalCharacter;
 class UActorComponent;
+class UPalActionMovementModeBase;
 class UPalCharacterMovementComponent;
 class UPrimitiveComponent;
 
@@ -21,6 +23,7 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalCharacterMovementComponent : public UCharacterMovementComponent {
     GENERATED_BODY()
 public:
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnUpdateAboveWater, bool, IsAboveWater);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_FiveParams(FOnMovementModeChangedDelegate, UPalCharacterMovementComponent*, Component, TEnumAsByte<EMovementMode>, prevMode, TEnumAsByte<EMovementMode>, newMode, EPalCharacterMovementCustomMode, PrevCustomMode, EPalCharacterMovementCustomMode, NewCustomMode);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnLandedDelegate, UPalCharacterMovementComponent*, Component, const FHitResult&, Hit);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnJumpDisable);
@@ -66,6 +69,9 @@ public:
     FOnExitWater OnExitWaterDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnUpdateAboveWater OnUpdateAboveWaterDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnJumpDisable OnJumpDisableDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -74,6 +80,10 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnChangeGroundType OnChangeGroundTypeDelegate;
     
+    // This is part of UCharacterMovementComponent which would normally require engine edits.
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bDisableCheckHalfHeightForStepup;
+
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float DyingMaxSpeed;
     
@@ -102,6 +112,9 @@ public:
     float SlidingStartSpeed;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bUseCurrentSpeedIfOverSlidingStartSpeed;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float SlidingMaxSpeed;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -109,6 +122,18 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float SlidingSubRate;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bUseSlidingAddValue;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float SlidingAddValue;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bUseSlidingSubValue;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float SlidingSubValue;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float SlidingYawRate;
@@ -143,12 +168,21 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float SearchAgentRadiusFactor;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float SwimMaxAcceleration;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FName, float> MaxAccelerationMultiplierMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FName, float> WalkSpeedMultiplierMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FName, float> SwimSpeedMultiplierMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FName, float> SwimAccelerationMultiplierMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FName, float> YawRotatorMultiplierMap;
@@ -220,6 +254,9 @@ private:
     FFlagContainer BlowVelocityDisableFlag;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FFlagContainer LeanBackDisableFlag;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FFlagContainer TickOptimizationDisableFlag;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -244,6 +281,12 @@ private:
     float FlySprintSpeed_Default;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float SwimSpeed_Default;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float SwimDashSpeed_Default;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float TransportSpeed_Default;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -264,6 +307,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FVector ResolvePenetrationTotalAdjustment;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<EPalCharacterMovementCustomMode, UPalActionMovementModeBase*> ActionMovementModeMap;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_CustomMovementMode_ForReplicate, meta=(AllowPrivateAccess=true))
     EPalCharacterMovementCustomMode CustomMovementMode_ForReplicate;
     
@@ -276,6 +322,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float JumpableInWaterDepth;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalHoveringWaterParameter HoveringWaterEffectParameter;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -329,6 +378,12 @@ public:
     void SetupDatabaseSpeed(APalCharacter* InCharacter);
     
     UFUNCTION(BlueprintCallable)
+    void SetSwimSpeedMultiplier(FName flagName, float Speed);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetSwimAccelerationMultiplier(FName flagName, float Speed);
+    
+    UFUNCTION(BlueprintCallable)
     void SetStepDisableFlag(FName flagName, bool isDisable);
     
     UFUNCTION(BlueprintCallable)
@@ -344,6 +399,9 @@ public:
     void SetPysicsAccelerationFlag(FName flagName, bool IsEnable);
     
     UFUNCTION(BlueprintCallable)
+    void SetPendingSliding(bool bEnabled);
+    
+    UFUNCTION(BlueprintCallable)
     void SetNetworkSmoothingMode(ENetworkSmoothingMode newMode, bool bResetMeshLocation);
     
     UFUNCTION(BlueprintCallable)
@@ -354,6 +412,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetMaxAccelerationMultiplier(FName flagName, float Speed);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetLeanBackDisableFlag(FName flagName, bool isDisable);
     
     UFUNCTION(BlueprintCallable)
     void SetJumpDisableFlag(FName flagName, bool isDisable);
@@ -401,6 +462,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetAirControlXYMultiplier(FName flagName, float Rate);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void SetActionInterrupt_ToServer(EPalCharacterMovementCustomMode InCustomMode, bool InInterrupt);
     
     UFUNCTION(BlueprintCallable)
     void ResetNetworkSmoothingModeToDefault(bool bResetMeshLocation);
@@ -476,10 +540,16 @@ public:
     bool IsPysicsAcceleration() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsPendingSliding() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsNavWalkDisabled() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsMoveDisabled() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsLeanBackDisabled() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsJumpDisabled() const;
@@ -515,6 +585,9 @@ public:
     bool IsBlowVelocityDisabled() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsAboveWater() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetYawRotatorMultiplier() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -531,6 +604,12 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FVector GetVelocity() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetSwimSpeedMultiplier() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetSwimAccelerationMultiplier() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetSlideAlphaMultiplier() const;
@@ -573,6 +652,12 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetAirControlXYMultiplier() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    TMap<EPalCharacterMovementCustomMode, UPalActionMovementModeBase*> GetActionMovementModeMap() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPalActionMovementModeBase* GetActionMovementMode(EPalCharacterMovementCustomMode CustomMode) const;
     
     UFUNCTION(BlueprintCallable)
     void Debug_SetEnableBuoyancyTestMode(bool IsEnable);

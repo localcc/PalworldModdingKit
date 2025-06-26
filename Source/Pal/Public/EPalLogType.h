@@ -81,5 +81,8 @@ enum class EPalLogType : uint8 {
     FireBaseCamp,
     SupplyDropStart,
     CompleteGuildLabResearch,
+    FriendshipRankUp_First,
+    FriendshipRankUp,
+    PalDoping,
 };
 

@@ -2,6 +2,7 @@
 
 UPalDungeonWorldSubsystem::UPalDungeonWorldSubsystem() {
     this->TickInterval = 0.00f;
+    this->RewardCageClass = NULL;
     this->bInitializedWithSaveData = false;
 }
 

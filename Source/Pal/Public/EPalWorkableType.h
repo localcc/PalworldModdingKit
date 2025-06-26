@@ -22,5 +22,6 @@ enum class EPalWorkableType : uint8 {
     DeforestFoliage,
     LabResearch,
     Booth,
+    FishPond,
 };
 

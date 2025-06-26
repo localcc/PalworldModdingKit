@@ -5,6 +5,9 @@ UPalQuestBlock_DetectMeal::UPalQuestBlock_DetectMeal() {
     this->NowMealCount = 0;
 }
 
+void UPalQuestBlock_DetectMeal::TryInitialize() {
+}
+
 void UPalQuestBlock_DetectMeal::OnTriedMeal() {
 }
 

@@ -9,5 +9,7 @@ enum class EPalItemUseEffectType : uint8 {
     GrantTechnologyPoint,
     Homeward,
     PalPassiveSkillChange,
+    TreasureMap,
+    PlayerLamp,
 };
 

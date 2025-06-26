@@ -1,8 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
 #include "UObject/Object.h"
-#include "UObject/NoExportTypes.h"
-#include "UObject/NoExportTypes.h"
 #include "ActionDynamicParameter.h"
 #include "EPalPassiveSkillEffectType.h"
 #include "PalNetArchive.h"
@@ -10,7 +9,9 @@
 
 class AActor;
 class APalCharacter;
+class APalMapObject;
 class UPalIndividualCharacterParameter;
+class UPalMapObjectModel;
 
 UCLASS(Blueprintable)
 class UPalActionBase : public UObject {
@@ -105,13 +106,25 @@ public:
     bool IsEndAction();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    FVector GetTargetLocation() const;
+    UPalMapObjectModel* GetTargetMapObjectModel() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FGuid GetTargetMapObjectInstanceId() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    APalMapObject* GetTargetMapObject() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FVector GetTargetLocation(bool bUseAttackerOverride) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetSimpleName() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FRandomStream GetRandomStream() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    TArray<AActor*> GetOtherActionTargets() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetGeneralPurposeIndex() const;

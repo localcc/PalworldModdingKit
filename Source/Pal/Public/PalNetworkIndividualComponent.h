@@ -62,7 +62,7 @@ private:
     void OnDespawnIndividualActor_ServerInternal(FPalInstanceID ID, FGuid Guid);
     
     UFUNCTION(BlueprintCallable)
-    void OmCreateIndividualID_ServerInternal(FPalIndividualCharacterSaveParameter initParameter, FPalInstanceID ID, FGuid Guid);
+    void OmCreateIndividualID_ServerInternal(FPalIndividualCharacterSaveParameter InitParameter, FPalInstanceID ID, FGuid Guid);
     
 public:
     UFUNCTION(NetMulticast, Reliable)
@@ -91,10 +91,10 @@ private:
     void CreateIndividualID_SyncCheck(FPalInstanceID ID, FGuid Guid);
     
     UFUNCTION(BlueprintCallable)
-    void CreateIndividualID_ServerInternal(FPalIndividualCharacterSaveParameter initParameter, FGuid Guid, int32 RequestPlayerId);
+    void CreateIndividualID_ServerInternal(FPalIndividualCharacterSaveParameter InitParameter, FGuid Guid, int32 RequestPlayerId);
     
     UFUNCTION(BlueprintCallable)
-    void CreateFixedIndividualID_ServerInternal(FPalInstanceID ID, FPalIndividualCharacterSaveParameter initParameter, FGuid Guid, int32 RequestPlayerId);
+    void CreateFixedIndividualID_ServerInternal(FPalInstanceID ID, FPalIndividualCharacterSaveParameter InitParameter, FGuid Guid, int32 RequestPlayerId);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void BroadcastChangeOwnerCharacter_ToAll(FPalInstanceID ID, const FGuid& PlayerUId, FDateTime OwnedTime);

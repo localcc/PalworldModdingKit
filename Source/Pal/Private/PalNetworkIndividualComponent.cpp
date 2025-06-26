@@ -42,7 +42,7 @@ void UPalNetworkIndividualComponent::OnDespawnPhantomActor_ServerInternal(FPalIn
 void UPalNetworkIndividualComponent::OnDespawnIndividualActor_ServerInternal(FPalInstanceID ID, FGuid Guid) {
 }
 
-void UPalNetworkIndividualComponent::OmCreateIndividualID_ServerInternal(FPalIndividualCharacterSaveParameter initParameter, FPalInstanceID ID, FGuid Guid) {
+void UPalNetworkIndividualComponent::OmCreateIndividualID_ServerInternal(FPalIndividualCharacterSaveParameter InitParameter, FPalInstanceID ID, FGuid Guid) {
 }
 
 void UPalNetworkIndividualComponent::NotifyAddedMasteredWaza_ToAll_Implementation(const FPalInstanceID& ID, EPalWazaID WazaID) {
@@ -69,10 +69,10 @@ void UPalNetworkIndividualComponent::DespawnIndividualActor_ServerInternal(FPalI
 void UPalNetworkIndividualComponent::CreateIndividualID_SyncCheck(FPalInstanceID ID, FGuid Guid) {
 }
 
-void UPalNetworkIndividualComponent::CreateIndividualID_ServerInternal(FPalIndividualCharacterSaveParameter initParameter, FGuid Guid, int32 RequestPlayerId) {
+void UPalNetworkIndividualComponent::CreateIndividualID_ServerInternal(FPalIndividualCharacterSaveParameter InitParameter, FGuid Guid, int32 RequestPlayerId) {
 }
 
-void UPalNetworkIndividualComponent::CreateFixedIndividualID_ServerInternal(FPalInstanceID ID, FPalIndividualCharacterSaveParameter initParameter, FGuid Guid, int32 RequestPlayerId) {
+void UPalNetworkIndividualComponent::CreateFixedIndividualID_ServerInternal(FPalInstanceID ID, FPalIndividualCharacterSaveParameter InitParameter, FGuid Guid, int32 RequestPlayerId) {
 }
 
 void UPalNetworkIndividualComponent::BroadcastChangeOwnerCharacter_ToAll_Implementation(FPalInstanceID ID, const FGuid& PlayerUId, FDateTime OwnedTime) {

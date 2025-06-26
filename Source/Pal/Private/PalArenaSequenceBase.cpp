@@ -1,6 +1,7 @@
 #include "PalArenaSequenceBase.h"
 
 UPalArenaSequenceBase::UPalArenaSequenceBase() {
+    this->bNoSync = false;
     this->bNotWaitClient = false;
     this->bBreakEndSequence = false;
 }
@@ -17,8 +18,8 @@ void UPalArenaSequenceBase::OnBreakSequence_Implementation() {
 void UPalArenaSequenceBase::OnBeginSequence_Implementation() {
 }
 
-bool UPalArenaSequenceBase::IsOutsiderSequencer() const {
-    return false;
+EPalArenaSequencerOwnerType UPalArenaSequenceBase::GetOwnerType() const {
+    return EPalArenaSequencerOwnerType::None;
 }
 
 UPalArenaSequencer* UPalArenaSequenceBase::GetOuterSequencer() const {

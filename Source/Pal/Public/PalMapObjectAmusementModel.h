@@ -1,6 +1,5 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
 #include "PalMapObjectConcreteModelBase.h"
 #include "PalMapObjectWorkerAvailableFacilityInterface.h"
 #include "Templates/SubclassOf.h"
@@ -25,9 +24,6 @@ public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalIndividualCharacterHandle* HealingCharacterHandle;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FVector HealingLocationOffset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float AffectSanityRate;

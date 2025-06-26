@@ -10,6 +10,7 @@
 
 class AActor;
 class UMaterialInterface;
+class UObject;
 class UPrimitiveComponent;
 class USkeletalMesh;
 class UStaticMesh;
@@ -40,6 +41,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static void GetItemVisualModelFX(TSubclassOf<AActor> actorClass, TArray<FPalItemVisualModelFXInfo>& OutFXInfos);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static FName ConvertBlueprintItemIdToBuildObjectId(const UObject* WorldContextObject, const FName& StaticItemId);
     
 };
 

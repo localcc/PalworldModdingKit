@@ -6,6 +6,8 @@
 #include "EPalBaseCampModuleType.h"
 #include "EPalLogType.h"
 #include "EPalWorkSuitability.h"
+#include "PalCharacterSlotId.h"
+#include "PalContainerId.h"
 #include "PalInstanceID.h"
 #include "PalItemId.h"
 #include "PalItemSlotId.h"
@@ -34,16 +36,25 @@ private:
     void RequestUnassignWorkInBaseCamp_ToServer(const FGuid& BaseCampId, const FGuid& WorkId, const FPalInstanceID& IndividualId);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestSwapWorkerSlot_ToServer(const FGuid& BaseCampId, const FPalCharacterSlotId& SlotIdA, const FPalCharacterSlotId& SlotIdB, const FGuid& ByMapObjectInstanceId);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestReplicateBaseCampWork_ToServer(const FGuid& BaseCampId, const bool bReplicate);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestReplicateBaseCampItemStackInfo_ToServer(const FGuid& BaseCampId, const bool bReplicate);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestMoveWorkerToPalBox_ToServer(const FGuid& BaseCampId, const FPalCharacterSlotId& SlotId, const int32 CurrentPage, const FGuid& ByMapObjectInstanceId);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestMoveItemToInventory_ToServer(const FGuid& BaseCampId, const FPalItemId& ItemId, const int32 Num);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestMoveInventoryItemToBaseCamp_ToServer(const TArray<FPalItemSlotId>& InventoryItemSlotIds, const FGuid& BaseCampId);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestMoveCharacterToWorker_ToServer(const FGuid& BaseCampId, const FPalCharacterSlotId& SlotId, const FPalContainerId& ToContainerId, const FGuid& ByMapObjectInstanceId);
     
 public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
@@ -162,6 +173,9 @@ public:
     void BroadcastBaseCampWorkerLog_Server(EPalLogType DisplayLogType, const FPalInstanceID& WorkerCharacterInstanceId, const FName& EventDataID);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
+    void BroadcastBaseCampWorkerFriendshipRankupLog_Server(const FGuid& BaseCampId, const FPalInstanceID& IndividualId, const bool bIsFirstRankup);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void BroadcastBaseCampLog_Server(const FPalMonsterControllerBaseCampLogContent& LogContent);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
@@ -172,6 +186,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void AddBaseCampWorkerLog_Client(EPalLogType DisplayLogType, const FPalInstanceID& WorkerCharacterInstanceId, const FName& EventDataID);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void AddBaseCampWorkerFriendshipRankupLog_Client(const FPalInstanceID& IndividualId, const bool bIsFirstRankup);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void AddBaseCampWorkerDeathLog_Client(const FPalKillLogDisplayData& DeathLogDisplayData);

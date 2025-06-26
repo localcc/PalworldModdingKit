@@ -5,6 +5,11 @@
 #include "Engine/EngineTypes.h"
 #include "Engine/HitResult.h"
 #include "EPalInteractiveObjectIndicatorType.h"
+#include "InteractEventDelegate.h"
+#include "InteractSelfEventDelegate.h"
+#include "InteractingEventDelegate.h"
+#include "OnCreateInteractDelegatesDelegate.h"
+#include "OnCreateInteractDelegatesMultiCastDelegate.h"
 #include "PalInteractiveObjectActionBy.h"
 #include "PalInteractiveObjectActionInfoSet.h"
 #include "PalInteractiveObjectComponentInterface.h"
@@ -13,21 +18,15 @@
 class AActor;
 class IPalInteractiveObjectIndicatorInterface;
 class UPalInteractiveObjectIndicatorInterface;
+class UDEPRECATED_PalInteractDelegates;
 class UObject;
-class UPalInteractDelegates;
 class UPrimitiveComponent;
 
 UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalInteractiveObjectBoxComponent : public UBoxComponent, public IPalInteractiveObjectComponentInterface {
     GENERATED_BODY()
 public:
-    DECLARE_DYNAMIC_DELEGATE_OneParam(FOnCreateInteractsDelegates, UPalInteractDelegates*, InteractDelegates);
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCreateInteractDelegatesMultiCast, UPalInteractDelegates*, InteractDelegates);
-    
 protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UPalInteractDelegates* InteractDelegates;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsEnableTriggerInteract;
     
@@ -45,6 +44,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsAdjustIndicatorLocationZForPlayer;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bNeedTraceToPlayer;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -78,14 +80,23 @@ protected:
     void EnableTriggerInteract();
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    UPalInteractDelegates* Delegates() const;
-    
     UFUNCTION(BlueprintCallable)
-    void CallOrRegisterOnCreateInteractDelegates(UPalInteractiveObjectBoxComponent::FOnCreateInteractsDelegates Delegate);
+    void CallOrRegisterOnCreateInteractDelegates(FOnCreateInteractDelegates Delegate);
     
 
     // Fix for true pure virtual functions not being implemented
+    UFUNCTION(BlueprintCallable)
+    void UnbindOnInteracting(FInteractingEvent Event) override PURE_VIRTUAL(UnbindOnInteracting,);
+    
+    UFUNCTION(BlueprintCallable)
+    void UnbindOnInteractEnd(FInteractEvent Event) override PURE_VIRTUAL(UnbindOnInteractEnd,);
+    
+    UFUNCTION(BlueprintCallable)
+    void UnbindOnInteractBegin(FInteractEvent Event) override PURE_VIRTUAL(UnbindOnInteractBegin,);
+    
+    UFUNCTION(BlueprintCallable)
+    void UnbindOnEnableTriggerInteract(FInteractSelfEvent Event) override PURE_VIRTUAL(UnbindOnEnableTriggerInteract,);
+    
     UFUNCTION(BlueprintCallable)
     UObject* Self() const override PURE_VIRTUAL(Self, return NULL;);
     
@@ -94,6 +105,18 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void GetIndicatorInfo(FPalInteractiveObjectActionInfoSet& ActionInfo, const FPalInteractiveObjectActionBy& SituationInfo) const override PURE_VIRTUAL(GetIndicatorInfo,);
+    
+    UFUNCTION(BlueprintCallable)
+    void BindOnInteracting(FInteractingEvent Event) override PURE_VIRTUAL(BindOnInteracting,);
+    
+    UFUNCTION(BlueprintCallable)
+    void BindOnInteractEnd(FInteractEvent Event) override PURE_VIRTUAL(BindOnInteractEnd,);
+    
+    UFUNCTION(BlueprintCallable)
+    void BindOnInteractBegin(FInteractEvent Event) override PURE_VIRTUAL(BindOnInteractBegin,);
+    
+    UFUNCTION(BlueprintCallable)
+    void BindOnEnableTriggerInteract(FInteractSelfEvent Event) override PURE_VIRTUAL(BindOnEnableTriggerInteract,);
     
 };
 

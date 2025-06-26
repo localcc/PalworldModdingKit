@@ -75,10 +75,10 @@ public:
     void SpawnPhantomByHandle(UPalIndividualCharacterHandle* Handle, FNetworkActorSpawnParameters SpawnParameter, UPalCharacterManager::FIndividualPhantomIDCallback spawnCallback);
     
     UFUNCTION(BlueprintCallable)
-    UPalIndividualCharacterHandle* SpawnNewCharacterWithInitializeParameterCallback(FPalIndividualCharacterSaveParameter initParameter, FNetworkActorSpawnParameters SpawnParameter, EPalCharacterCompleteDelegatePriority InitializeParameterCallbackPriority, FPalOnCharacterCompleteInitializeParameter InitializeParameterCallback, UPalCharacterManager::FIndividualIDCallback spawnCallback);
+    UPalIndividualCharacterHandle* SpawnNewCharacterWithInitializeParameterCallback(FPalIndividualCharacterSaveParameter InitParameter, FNetworkActorSpawnParameters SpawnParameter, EPalCharacterCompleteDelegatePriority InitializeParameterCallbackPriority, FPalOnCharacterCompleteInitializeParameter InitializeParameterCallback, UPalCharacterManager::FIndividualIDCallback spawnCallback);
     
     UFUNCTION(BlueprintCallable)
-    UPalIndividualCharacterHandle* SpawnNewCharacter(FPalIndividualCharacterSaveParameter initParameter, FNetworkActorSpawnParameters SpawnParameter, UPalCharacterManager::FIndividualIDCallback spawnCallback);
+    UPalIndividualCharacterHandle* SpawnNewCharacter(FPalIndividualCharacterSaveParameter InitParameter, FNetworkActorSpawnParameters SpawnParameter, UPalCharacterManager::FIndividualIDCallback spawnCallback);
     
     UFUNCTION(BlueprintCallable)
     void SpawnCharacterByHandleWithInitializeParameterCallback(UPalIndividualCharacterHandle* Handle, FNetworkActorSpawnParameters SpawnParameter, EPalCharacterCompleteDelegatePriority InitializeParameterCallbackPriority, FPalOnCharacterCompleteInitializeParameter InitializeParameterCallback, UPalCharacterManager::FIndividualIDCallback spawnCallback);
@@ -116,10 +116,10 @@ public:
     void DespawnCharacterByHandle(UPalIndividualCharacterHandle* Handle, UPalCharacterManager::FIndividualIDCallback spawnCallback);
     
     UFUNCTION(BlueprintCallable)
-    UPalIndividualCharacterHandle* CreateIndividualByFixedID(FPalInstanceID ID, FPalIndividualCharacterSaveParameter initParameter, UPalCharacterManager::FIndividualIDCallback spawnCallback);
+    UPalIndividualCharacterHandle* CreateIndividualByFixedID(FPalInstanceID ID, FPalIndividualCharacterSaveParameter InitParameter, UPalCharacterManager::FIndividualIDCallback spawnCallback);
     
     UFUNCTION(BlueprintCallable)
-    UPalIndividualCharacterHandle* CreateIndividual(FPalIndividualCharacterSaveParameter initParameter, UPalCharacterManager::FIndividualIDCallback spawnCallback);
+    UPalIndividualCharacterHandle* CreateIndividual(FPalIndividualCharacterSaveParameter InitParameter, UPalCharacterManager::FIndividualIDCallback spawnCallback);
     
 
     // Fix for true pure virtual functions not being implemented

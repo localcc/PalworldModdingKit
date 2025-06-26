@@ -1,0 +1,6 @@
+#include "PalMasterDataTableAccess_MapObjectSpawnerBlueprintData.h"
+
+UPalMasterDataTableAccess_MapObjectSpawnerBlueprintData::UPalMasterDataTableAccess_MapObjectSpawnerBlueprintData() {
+}
+
+

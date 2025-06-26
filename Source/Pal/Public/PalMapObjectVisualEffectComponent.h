@@ -25,7 +25,7 @@ private:
     void UpdateVisualByEffect(UPalMapObjectModelEffectBase* Effect);
     
     UFUNCTION(BlueprintCallable)
-    void OnRemoveEffect(UPalMapObjectModel* Model, UPalMapObjectModelEffectBase* Effect, const EPalStatusID StatusId);
+    void OnRemoveEffect(UPalMapObjectModel* Model, UPalMapObjectModelEffectBase* Effect, const EPalStatusID statusID);
     
     UFUNCTION(BlueprintCallable)
     void OnGrantedEffect(UPalMapObjectModel* Model, UPalMapObjectModelEffectBase* Effect);

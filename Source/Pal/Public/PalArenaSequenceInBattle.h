@@ -22,6 +22,9 @@ protected:
     void SetupPalHate();
     
     UFUNCTION(BlueprintCallable)
+    void SetDisableRide(bool bDisable);
+    
+    UFUNCTION(BlueprintCallable)
     void ResetPalHate();
     
 public:
@@ -40,7 +43,13 @@ private:
     
 protected:
     UFUNCTION(BlueprintCallable)
+    void DisableCaptureForSoloNPC();
+    
+    UFUNCTION(BlueprintCallable)
     bool CheckBattleResult(bool bIsTimeup);
+    
+    UFUNCTION(BlueprintCallable)
+    void ActivateAI();
     
 };
 

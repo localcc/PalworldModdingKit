@@ -5,8 +5,14 @@ UPalNPCWeaponGenerator::UPalNPCWeaponGenerator() {
     this->IsDefaultEquipWeapon = false;
 }
 
+void UPalNPCWeaponGenerator::UnequipWeapon() {
+}
+
 
 void UPalNPCWeaponGenerator::GenerateWeapn(EPalWeaponType WeaponType, bool IsDefaultEquip) {
+}
+
+void UPalNPCWeaponGenerator::EquipWeapon() {
 }
 
 

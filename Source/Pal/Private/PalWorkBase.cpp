@@ -8,10 +8,11 @@ UPalWorkBase::UPalWorkBase() {
     this->bAssignableOtomo = true;
     this->bCanTriggerWorkerEvent = true;
     this->bCanStealAssign = true;
+    this->bAssignWorldSitLocationAtWorkFacing = false;
     this->CurrentState = EPalWorkProgressState::Init;
     this->Transform = NULL;
     this->bGroupRaycastStartOffsetOrigin = false;
-    this->bAssignWorldSitLocationAtWorkFacing = false;
+    this->CachedOwnerMapObjectConcreteModel = NULL;
 }
 
 void UPalWorkBase::OnRep_CurrentState() {

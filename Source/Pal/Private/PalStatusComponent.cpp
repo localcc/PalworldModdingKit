@@ -4,16 +4,19 @@
 UPalStatusComponent::UPalStatusComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
 
-void UPalStatusComponent::SomeStatus_ToAll_Implementation(EPalStatusID StatusId, FStatusDynamicParameter Param) {
+void UPalStatusComponent::SomeStatus_ToAll_Implementation(EPalStatusID statusID, FStatusDynamicParameter Param) {
 }
 
 void UPalStatusComponent::SetDisableAddStatusIDs(TArray<EPalStatusID> StatusIDs) {
 }
 
-void UPalStatusComponent::RemoveStatus_ToServer_Implementation(EPalStatusID StatusId, int32 issuerID) {
+void UPalStatusComponent::ResetDisableAddStatusIDs() {
 }
 
-void UPalStatusComponent::RemoveStatus(EPalStatusID StatusId) {
+void UPalStatusComponent::RemoveStatus_ToServer_Implementation(EPalStatusID statusID, int32 issuerID) {
+}
+
+void UPalStatusComponent::RemoveStatus(EPalStatusID statusID) {
 }
 
 void UPalStatusComponent::RemoveAll() {
@@ -22,24 +25,24 @@ void UPalStatusComponent::RemoveAll() {
 void UPalStatusComponent::OnRep_ExecutionStatusList() {
 }
 
-UPalStatusBase* UPalStatusComponent::GetExecutionStatusCache(EPalStatusID StatusId) {
+UPalStatusBase* UPalStatusComponent::GetExecutionStatusCache(EPalStatusID statusID) {
     return NULL;
 }
 
-UPalStatusBase* UPalStatusComponent::GetExecutionStatus(EPalStatusID StatusId) {
+UPalStatusBase* UPalStatusComponent::GetExecutionStatus(EPalStatusID statusID) {
     return NULL;
 }
 
 void UPalStatusComponent::BeginPlay() {
 }
 
-void UPalStatusComponent::AddStatusParameter(EPalStatusID StatusId, FStatusDynamicParameter Param) {
+void UPalStatusComponent::AddStatusParameter(EPalStatusID statusID, FStatusDynamicParameter Param) {
 }
 
-void UPalStatusComponent::AddStatus_ToServer_Implementation(EPalStatusID StatusId, FStatusDynamicParameter Param, int32 issuerID) {
+void UPalStatusComponent::AddStatus_ToServer_Implementation(EPalStatusID statusID, FStatusDynamicParameter Param, int32 issuerID) {
 }
 
-void UPalStatusComponent::AddStatus(EPalStatusID StatusId) {
+void UPalStatusComponent::AddStatus(EPalStatusID statusID) {
 }
 
 void UPalStatusComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {

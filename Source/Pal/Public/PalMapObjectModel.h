@@ -196,6 +196,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FPalMapObjectStatusValue GetHP() const;
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPalMapObjectConcreteModelBase* GetConcreteModel(const bool bIsForce) const;
+    
 
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintCallable)

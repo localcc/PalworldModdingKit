@@ -33,6 +33,9 @@ public:
     AActor* GetTargetActor();
     
     UFUNCTION(BlueprintCallable)
+    TArray<AActor*> GetAllTargetActors();
+    
+    UFUNCTION(BlueprintCallable)
     bool AIMoveToTargetActor(AActor* Target);
     
 };

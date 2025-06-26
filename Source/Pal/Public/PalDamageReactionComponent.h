@@ -27,6 +27,7 @@ class UPalDamageReactionComponent : public UActorComponent {
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnSlipDamageDelegate, int32, Damage);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnSleepDelegate, int32, LastDamage);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPartBrokenDelegate, FPalDeadInfo, AttackInfo);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnNooseTrapDelegate, AActor*, TrapActor, FVector, FixLocation);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMentalDamageDelegate, FPalDamageResult, DamageResult);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnEachDamageReactionDelegate, FPalEachDamageRactionInfo, EachReactionInfo);
@@ -47,6 +48,9 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnDyingDeadEnd OnDyingDeadEndDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnPartBrokenDelegate OnPartBrokenDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnMentalDamageDelegate OnMentalDamageDelegate;
@@ -138,6 +142,9 @@ private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void OnDyingDeadEndDelegate_ToALL(bool bIsInstantDeath);
     
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void MulticastDamageReact(FPalDamageResult DamageResult, const FPalDeadInfo& ProcessedDeadInfo, const bool IsDead, const bool IsPartsBroke);
+    
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsIgnoreElementStatus(EPalAdditionalEffectType Effect);
@@ -159,15 +166,6 @@ private:
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void CallDeadDelegate_ToALL(FPalDeadInfo DeadInfo);
-    
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void ApplyDamageForMP(FPalDamageResult DamageResult);
-    
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void ApplyDamageForHP(FPalDamageResult DamageResult);
-    
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void ApplyDamageForDyingHP(FPalDamageResult DamageResult);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void AddDeadImplus(FPalDamageResult DamageResult);

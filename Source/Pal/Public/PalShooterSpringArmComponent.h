@@ -165,6 +165,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FFloatContainer ArmLengthScaleContainer;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsSpectated;
+    
 public:
     UPalShooterSpringArmComponent(const FObjectInitializer& ObjectInitializer);
 

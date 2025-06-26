@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "EPalDungeonLevelVersion.h"
 #include "PalBaseCampSaveData.h"
 #include "PalBossSpawnerSaveData.h"
 #include "PalCellCoord.h"
@@ -11,6 +12,7 @@
 #include "PalDungeonSaveData.h"
 #include "PalDynamicItemSaveData.h"
 #include "PalEnemyCampSaveData.h"
+#include "PalFishingSpotSaveData.h"
 #include "PalFixedWeaponDestroySaveData.h"
 #include "PalFoliageGridSaveData.h"
 #include "PalGameTimeSaveData.h"
@@ -96,6 +98,9 @@ public:
     TArray<FPalDungeonSaveData> DungeonSaveData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalDungeonLevelVersion DungeonLevelVersion;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FGuid, FPalInvaderSaveData> InvaderSaveData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -115,6 +120,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSet<FPalInstanceID> InLockerCharacterInstanceIDArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FGuid, FPalFishingSpotSaveData> FishingSpotSaveData;
     
     PAL_API FPalWorldSaveData();
 };

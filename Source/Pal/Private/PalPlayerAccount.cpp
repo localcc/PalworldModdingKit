@@ -10,6 +10,7 @@ UPalPlayerAccount::UPalPlayerAccount() {
     this->TechnologyData = NULL;
     this->RecordData = NULL;
     this->PlayerSkinData = NULL;
+    this->QuestManager = NULL;
     this->bIsSelectedInitMapPoint = false;
     this->bShouldSaveOnNextTime = false;
     this->PsnAccountId = 0;

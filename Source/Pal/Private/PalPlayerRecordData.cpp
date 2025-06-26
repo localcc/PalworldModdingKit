@@ -13,6 +13,9 @@ UPalPlayerRecordData::UPalPlayerRecordData() {
     this->NormalDungeonClearCount = 0;
     this->FixedDungeonClearCount = 0;
     this->OilrigClearCount = 0;
+    this->FoundTreasureCount = 0;
+    this->CampConqueredCount = 0;
+    this->bFirstFishingComplete = false;
     this->PalCaptureCountBonusCount_Tier1_Old = 0;
     this->PalCaptureCountBonusCount_Tier2_Old = 0;
     this->PalCaptureCountBonusCount_Tier3_Old = 0;
@@ -22,6 +25,18 @@ void UPalPlayerRecordData::OnRep_RelicNum() {
 }
 
 void UPalPlayerRecordData::OnCompleteBuild_ServerInternal(UPalMapObjectModel* MapObjectModel) {
+}
+
+int32 UPalPlayerRecordData::GetUnlockedPaldexCount() const {
+    return 0;
+}
+
+int32 UPalPlayerRecordData::GetTotalPalCaptureCount() const {
+    return 0;
+}
+
+int32 UPalPlayerRecordData::GetNormalBossDefeatCount() const {
+    return 0;
 }
 
 int32 UPalPlayerRecordData::GetFoundedAreaNum() const {
@@ -64,7 +79,16 @@ void UPalPlayerRecordData::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
     DOREPLIFETIME(UPalPlayerRecordData, OilrigClearCount);
     DOREPLIFETIME(UPalPlayerRecordData, PalRankupCount);
     DOREPLIFETIME(UPalPlayerRecordData, CompletedEmoteNPCIDArray);
+    DOREPLIFETIME(UPalPlayerRecordData, ArenaSoloClearCount);
     DOREPLIFETIME(UPalPlayerRecordData, NPCTalkCountMap);
+    DOREPLIFETIME(UPalPlayerRecordData, InvokeNPCNetworkEventMap);
+    DOREPLIFETIME(UPalPlayerRecordData, FishingCountMap);
+    DOREPLIFETIME(UPalPlayerRecordData, FoundTreasureCount);
+    DOREPLIFETIME(UPalPlayerRecordData, CampConqueredCount);
+    DOREPLIFETIME(UPalPlayerRecordData, NpcItemTradeFlag);
+    DOREPLIFETIME(UPalPlayerRecordData, PalDisplayNPCDataTableProgress);
+    DOREPLIFETIME(UPalPlayerRecordData, NPCAchivementRewardFlag);
+    DOREPLIFETIME(UPalPlayerRecordData, bFirstFishingComplete);
     DOREPLIFETIME(UPalPlayerRecordData, Debug_EnteringStageDataLayerName);
     DOREPLIFETIME(UPalPlayerRecordData, Debug_LastEnteredStageDataLayerName);
 }

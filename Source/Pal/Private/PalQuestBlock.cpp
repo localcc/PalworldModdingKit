@@ -1,33 +1,44 @@
 #include "PalQuestBlock.h"
+#include "Net/UnrealNetwork.h"
 
 UPalQuestBlock::UPalQuestBlock() {
     this->IsAutoComplete = false;
-}
-
-void UPalQuestBlock::Setup() {
+    this->CanCompleteFlag = false;
 }
 
 void UPalQuestBlock::SetCanComplete(bool flag) {
 }
 
-
-void UPalQuestBlock::OnSetup() {
-}
-
-
-void UPalQuestBlock::OnComplete() {
+void UPalQuestBlock::ReturnBlock_ServerInternal() {
 }
 
 
 
-void UPalQuestBlock::Complete() {
+
+void UPalQuestBlock::OnRep_CanCompleteFlag() {
 }
 
-bool UPalQuestBlock::CanComplete() {
+
+void UPalQuestBlock::NotifyUpdateQuest_Client() {
+}
+
+
+FGuid UPalQuestBlock::GetOwnerPlayerUId() const {
+    return FGuid{};
+}
+
+
+bool UPalQuestBlock::CanComplete() const {
     return false;
 }
 
 void UPalQuestBlock::CallUpdateBlockDelegate_ForBP() {
+}
+
+void UPalQuestBlock::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
+    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+    
+    DOREPLIFETIME(UPalQuestBlock, CanCompleteFlag);
 }
 
 

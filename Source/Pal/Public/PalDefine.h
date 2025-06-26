@@ -50,13 +50,37 @@ public:
     static FName TextId_UICommon_SystemErrorCantMoveNotOwned();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FName TextId_UICommon_RewardFishPondTitle();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FName TextId_UICommon_RewardFishPondInfo();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName TextId_UICommon_LOG_NeedItemToOpenTreasureBox();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName TextId_UICommon_LOG_ConsumeItem();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FName TextId_UICommon_InteractIndicator_Salvage_NotSwimPal();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FName TextId_UICommon_InteractIndicator_Salvage_NotAvailable_NotConsume();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FName TextId_UICommon_InteractIndicator_Salvage_NotAvailable();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName TextId_UICommon_InteractIndicator_OtomoOpen();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FName TextId_UICommon_InteractIndicator_ObtainLongHold_Salvage_NotConsume();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FName TextId_UICommon_InteractIndicator_ObtainLongHold_Salvage();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FName TextId_UICommon_InteractIndicator_ObtainLongHold_ConsumeAndOpen();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName TextId_UICommon_InteractIndicator_ObtainLongHold();
@@ -74,7 +98,13 @@ public:
     static FName TextId_UICommon_InteractIndicator_ConsumeAndOpen();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FName TextId_UICommon_InteractIndicator_CannotSelectFishPondTarget_ExistsFishedCharacters();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName TextId_UICommon_INFINITE();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FName TextId_UICommon_FailedFishPondObtainCharacter();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName TextId_UICommon_DISMANTLING_FAILED_PALBOX();
@@ -114,9 +144,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName StaticItemID_UnlockTalentCheck();
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    static FName StaticItemID_UnlockLantern();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName StaticItemID_UnlockAutoMeal_Tier(int32 Num);

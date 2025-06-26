@@ -1,8 +1,8 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
 #include "UObject/Object.h"
 #include "EPalPassiveSkillEffectType.h"
+#include "EPalTribeID.h"
 #include "PalItemCreateParameter.h"
 #include "PalPassiveSkillConditionInfo.h"
 #include "PalPassiveSkillDatabaseRow.h"
@@ -11,6 +11,7 @@
 
 class UDataTable;
 class UPalDynamicItemDataBase;
+class UPalPassiveSkillExtraParameterBase;
 
 UCLASS(Blueprintable)
 class PAL_API UPalPassiveSkillManager : public UObject {
@@ -19,6 +20,12 @@ public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* PassiveSkillDataTable;
+    
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<EPalTribeID> YakushimaTribeIDs;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    TMap<EPalPassiveSkillEffectType, UPalPassiveSkillExtraParameterBase*> PassiveSkillExtraParameters;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FName, FPalPassiveSkillDatabaseRow> PalAssignableSkillMap;
@@ -37,6 +44,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FName, FPalPassiveSkillDatabaseRow> AccessoryAssignableSkillMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FName, FPalPassiveSkillDatabaseRow> RainbowPalAssignableSkillMap;
     
 public:
     UPalPassiveSkillManager();

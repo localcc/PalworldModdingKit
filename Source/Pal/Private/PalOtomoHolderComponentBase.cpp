@@ -72,6 +72,9 @@ void UPalOtomoHolderComponentBase::OnUpdateSlot(UPalIndividualCharacterSlot* Slo
 void UPalOtomoHolderComponentBase::OnUpdateIndividualActor(UPalIndividualCharacterHandle* LastHandle) {
 }
 
+void UPalOtomoHolderComponentBase::OnUpdateFriendshipRank(UPalIndividualCharacterParameter* IndividualParameter, const int32 NewFriendshipRank, const int32 OldRank, bool bFirstRankup) {
+}
+
 void UPalOtomoHolderComponentBase::OnSpawnOtomoCallback_ServerInternal(FPalInstanceID ID) {
 }
 
@@ -88,6 +91,9 @@ void UPalOtomoHolderComponentBase::OnInitializedCharacter(APalCharacter* Charact
 }
 
 void UPalOtomoHolderComponentBase::OnCreatedCharacterContainer_Implementation() {
+}
+
+void UPalOtomoHolderComponentBase::OnCompletedAllCharacterInitialized(APalCharacter* Character) {
 }
 
 void UPalOtomoHolderComponentBase::OnChangeOtomoActive(APalCharacter* Otomo, bool IsActive) {

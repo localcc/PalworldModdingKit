@@ -6,6 +6,7 @@
 #include "PalDamageInfo.h"
 #include "PalItemAndNum.h"
 #include "PalMapObjectConcreteModelBase.h"
+#include "PalMapObjectDropTreasureLotteryParameter.h"
 #include "PalMapObjectItemCollectableInterface.h"
 #include "PalMapObjectItemDropOnDamagModel.generated.h"
 
@@ -33,6 +34,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_DetectedByPlayer, meta=(AllowPrivateAccess=true))
     bool bDetectedByPlayer;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FPalMapObjectDropTreasureLotteryParameter> DropTreasureLotteryParameters;
     
 public:
     UPalMapObjectItemDropOnDamagModel();

@@ -36,6 +36,9 @@ public:
     void SetPagePalBoxList(int32 NewPage);
     
     UFUNCTION(BlueprintCallable)
+    void SetByMapObjectInstanceId(const FGuid& ByMapObjectInstanceId);
+    
+    UFUNCTION(BlueprintCallable)
     void SetBaseCampId(const FGuid& BaseCampId);
     
     UFUNCTION(BlueprintCallable)

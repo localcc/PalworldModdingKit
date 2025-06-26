@@ -2,6 +2,7 @@
 #include "Net/UnrealNetwork.h"
 
 UPalCharacterMovementComponent::UPalCharacterMovementComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bDisableCheckHalfHeightForStepup = true;
     this->bEnableServerDualMoveScopedMovementUpdates = true;
     this->bCanWalkOffLedgesWhenCrouching = true;
     this->DyingMaxSpeed = 100.00f;
@@ -13,9 +14,14 @@ UPalCharacterMovementComponent::UPalCharacterMovementComponent(const FObjectInit
     this->GliderAirControl = 1.00f;
     this->GliderGravityScale = 0.01f;
     this->SlidingStartSpeed = 1800.00f;
+    this->bUseCurrentSpeedIfOverSlidingStartSpeed = false;
     this->SlidingMaxSpeed = 1800.00f;
     this->SlidingAddRate = 2.00f;
     this->SlidingSubRate = 1.00f;
+    this->bUseSlidingAddValue = false;
+    this->SlidingAddValue = 0.00f;
+    this->bUseSlidingSubValue = false;
+    this->SlidingSubValue = 0.00f;
     this->SlidingYawRate = 0.01f;
     this->bIsEnableSkySliding = false;
     this->ClimbMaxSpeed = 100.00f;
@@ -26,6 +32,7 @@ UPalCharacterMovementComponent::UPalCharacterMovementComponent(const FObjectInit
     this->OverrideFlySpeed = -1.00f;
     this->OverrideFlySprintSpeed = -1.00f;
     this->SearchAgentRadiusFactor = 1.00f;
+    this->SwimMaxAcceleration = 2048.00f;
     this->bRequestCrouch = false;
     this->bRequestGliding = false;
     this->bRequestEndRolling = false;
@@ -36,6 +43,8 @@ UPalCharacterMovementComponent::UPalCharacterMovementComponent(const FObjectInit
     this->RideSprintSpeed_Default = 0.00f;
     this->FlySpeed_Default = 0.00f;
     this->FlySprintSpeed_Default = 0.00f;
+    this->SwimSpeed_Default = 0.00f;
+    this->SwimDashSpeed_Default = 0.00f;
     this->TransportSpeed_Default = 0.00f;
     this->TemporaryAccelerationTimeCount = 0.00f;
     this->IsFlyDashMode = false;
@@ -76,6 +85,12 @@ void UPalCharacterMovementComponent::SetupDatabaseSpeedByCharacterId(APalCharact
 void UPalCharacterMovementComponent::SetupDatabaseSpeed(APalCharacter* InCharacter) {
 }
 
+void UPalCharacterMovementComponent::SetSwimSpeedMultiplier(FName flagName, float Speed) {
+}
+
+void UPalCharacterMovementComponent::SetSwimAccelerationMultiplier(FName flagName, float Speed) {
+}
+
 void UPalCharacterMovementComponent::SetStepDisableFlag(FName flagName, bool isDisable) {
 }
 
@@ -91,6 +106,9 @@ void UPalCharacterMovementComponent::SetSlideAlphaMultiplier(FName flagName, flo
 void UPalCharacterMovementComponent::SetPysicsAccelerationFlag(FName flagName, bool IsEnable) {
 }
 
+void UPalCharacterMovementComponent::SetPendingSliding(bool bEnabled) {
+}
+
 void UPalCharacterMovementComponent::SetNetworkSmoothingMode(ENetworkSmoothingMode newMode, bool bResetMeshLocation) {
 }
 
@@ -101,6 +119,9 @@ void UPalCharacterMovementComponent::SetMoveDisableFlag(FName flagName, bool isD
 }
 
 void UPalCharacterMovementComponent::SetMaxAccelerationMultiplier(FName flagName, float Speed) {
+}
+
+void UPalCharacterMovementComponent::SetLeanBackDisableFlag(FName flagName, bool isDisable) {
 }
 
 void UPalCharacterMovementComponent::SetJumpDisableFlag(FName flagName, bool isDisable) {
@@ -146,6 +167,9 @@ void UPalCharacterMovementComponent::SetBlowVelocityDisableFlag(FName flagName, 
 }
 
 void UPalCharacterMovementComponent::SetAirControlXYMultiplier(FName flagName, float Rate) {
+}
+
+void UPalCharacterMovementComponent::SetActionInterrupt_ToServer_Implementation(EPalCharacterMovementCustomMode InCustomMode, bool InInterrupt) {
 }
 
 void UPalCharacterMovementComponent::ResetNetworkSmoothingModeToDefault(bool bResetMeshLocation) {
@@ -227,11 +251,19 @@ bool UPalCharacterMovementComponent::IsPysicsAcceleration() const {
     return false;
 }
 
+bool UPalCharacterMovementComponent::IsPendingSliding() const {
+    return false;
+}
+
 bool UPalCharacterMovementComponent::IsNavWalkDisabled() const {
     return false;
 }
 
 bool UPalCharacterMovementComponent::IsMoveDisabled() const {
+    return false;
+}
+
+bool UPalCharacterMovementComponent::IsLeanBackDisabled() const {
     return false;
 }
 
@@ -279,6 +311,10 @@ bool UPalCharacterMovementComponent::IsBlowVelocityDisabled() const {
     return false;
 }
 
+bool UPalCharacterMovementComponent::IsAboveWater() const {
+    return false;
+}
+
 float UPalCharacterMovementComponent::GetYawRotatorMultiplier() const {
     return 0.0f;
 }
@@ -301,6 +337,14 @@ float UPalCharacterMovementComponent::GetWalkableFloorAngleByPriority() const {
 
 FVector UPalCharacterMovementComponent::GetVelocity() const {
     return FVector{};
+}
+
+float UPalCharacterMovementComponent::GetSwimSpeedMultiplier() const {
+    return 0.0f;
+}
+
+float UPalCharacterMovementComponent::GetSwimAccelerationMultiplier() const {
+    return 0.0f;
 }
 
 float UPalCharacterMovementComponent::GetSlideAlphaMultiplier() const {
@@ -357,6 +401,14 @@ EPalCharacterMovementCustomMode UPalCharacterMovementComponent::GetCustomMovemen
 
 float UPalCharacterMovementComponent::GetAirControlXYMultiplier() const {
     return 0.0f;
+}
+
+TMap<EPalCharacterMovementCustomMode, UPalActionMovementModeBase*> UPalCharacterMovementComponent::GetActionMovementModeMap() const {
+    return TMap<EPalCharacterMovementCustomMode, UPalActionMovementModeBase*>();
+}
+
+UPalActionMovementModeBase* UPalCharacterMovementComponent::GetActionMovementMode(EPalCharacterMovementCustomMode CustomMode) const {
+    return NULL;
 }
 
 void UPalCharacterMovementComponent::Debug_SetEnableBuoyancyTestMode(bool IsEnable) {

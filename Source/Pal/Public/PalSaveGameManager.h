@@ -153,7 +153,19 @@ public:
     void StartLocalWorldDataAutoSave();
     
     UFUNCTION(BlueprintCallable)
+    bool OnFinishedWorldOptionAsyncSaveGamePreInternal(const FString& SlotName, const int32 UserIndex, bool bSuccess, const FString& WorldName, const FString& Timestamp);
+    
+    UFUNCTION(BlueprintCallable)
+    bool OnFinishedWorldAsyncSaveGamePreInternal(const FString& SlotName, const int32 UserIndex, bool bSuccess, const FString& WorldName, const FString& Timestamp);
+    
+    UFUNCTION(BlueprintCallable)
     void OnFinishedWorldAsyncSaveGameInternal(const FString& SlotName, const int32 UserIndex, bool bSuccess, const FString& WorldName, const FString& Timestamp);
+    
+    UFUNCTION(BlueprintCallable)
+    bool OnFinishedGlobalPalStorageAsyncSaveGamePreInternal(const FString& SlotName, const int32 UserIndex, bool bSuccess, const FString& SaveDataName, const FString& Timestamp);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsWorldAutoSaving() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsValidWorldSaveDirectoryName_LocalData(const FString& WorldSaveDirectoryName) const;
@@ -166,6 +178,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsValidLocalWorldData(const FString& WorldName) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsLocalWorldAutoSaving() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsLoadedWorldOptionData() const;
@@ -181,6 +196,9 @@ private:
     bool IsExistSocialId(FSocialId ID);
     
 public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    void IsAutoSaving(bool& OutValue) const;
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsAppliedPlayerData();
     
@@ -204,6 +222,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool ForceLoadPerformanceChecktWorld() const;
+    
+    UFUNCTION(BlueprintCallable)
+    void ClearAutoSaveEvents();
     
 };
 

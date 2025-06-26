@@ -16,11 +16,14 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalDataTableRowName_ItemData DetectItemName;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=NotifyUpdateQuest_Client, meta=(AllowPrivateAccess=true))
     int32 NowCraftNumCount;
     
 public:
     UPalQuestBlock_DetectCraft();
+
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
 private:
     UFUNCTION(BlueprintCallable)
     void OnCraftItem(TArray<FPalItemAndNum>& ItemInfos);

@@ -15,6 +15,8 @@ APalNPCSpawnerBase::APalNPCSpawnerBase(const FObjectInitializer& ObjectInitializ
     this->IgnoreBaseCampCheck = false;
     this->Squad = NULL;
     this->ImportanceType = EPalSpwnerImportanceType::Undefined;
+    this->SpawnerRuleClass = NULL;
+    this->SpawnerRuleObjectInServer = NULL;
 }
 
 void APalNPCSpawnerBase::Tick_Spawning(float DeltaTime) {
@@ -43,7 +45,13 @@ void APalNPCSpawnerBase::SetCheckRadius(float SpawnRadius, float DespawnRadius) 
 }
 
 
+void APalNPCSpawnerBase::RequestDespawn() {
+}
+
 void APalNPCSpawnerBase::RequestDeleteGroup() {
+}
+
+void APalNPCSpawnerBase::RequestCreateGroupOrganizationType(EPalOrganizationType OrganizationType) {
 }
 
 void APalNPCSpawnerBase::RequestCreateGroup(TArray<FName> CharacterIDList) {

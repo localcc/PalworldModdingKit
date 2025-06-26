@@ -43,6 +43,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bEnableCCDForRootOnlyInRagdoll;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bEnableCCDForRagdoll;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FVector DefaultLocation;
     
@@ -141,7 +144,7 @@ public:
     void SetEvaluationRate(float InRate, bool bResetCurrentInterval);
     
     UFUNCTION(BlueprintCallable)
-    void SetEnableRagdollCCD(bool IsActive);
+    void SetEnableRagdollCCD(bool IsActive, bool bRootOnly);
     
     UFUNCTION(BlueprintCallable)
     void SetDisableChangeMesh(bool Disable);

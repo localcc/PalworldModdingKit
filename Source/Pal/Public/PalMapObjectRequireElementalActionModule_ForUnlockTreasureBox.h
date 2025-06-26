@@ -1,7 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "PalMapObjectRequireElementalActionModule.h"
+#include "Templates/SubclassOf.h"
 #include "PalMapObjectRequireElementalActionModule_ForUnlockTreasureBox.generated.h"
+
+class UPalUserWidgetOverlayUI;
 
 UCLASS(Blueprintable)
 class PAL_API UPalMapObjectRequireElementalActionModule_ForUnlockTreasureBox : public UPalMapObjectRequireElementalActionModule {
@@ -15,6 +18,9 @@ public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     bool bLocked;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UPalUserWidgetOverlayUI> SalvageGameUIClass;
     
 public:
     UPalMapObjectRequireElementalActionModule_ForUnlockTreasureBox();

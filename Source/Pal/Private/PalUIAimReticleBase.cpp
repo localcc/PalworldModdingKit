@@ -1,15 +1,32 @@
 #include "PalUIAimReticleBase.h"
 
 UPalUIAimReticleBase::UPalUIAimReticleBase() {
+    this->bHideDefaultReticle = true;
 }
 
-void UPalUIAimReticleBase::TickDisplayOutline(const FHitResult& HitResult) {
+bool UPalUIAimReticleBase::ShouldHideDefaultReticle() const {
+    return false;
 }
 
-void UPalUIAimReticleBase::IsThrowableToHitResult(const FHitResult& HitResult, UPalCharacterParameterComponent* checkCharacterParam, FPalUIAimReticleMapObjectThrowableData& outThrowableData) {
+
+
+
+UPalStaticItemDataBase* UPalUIAimReticleBase::GetCurrentWeaponStaticItemData() const {
+    return NULL;
 }
 
-void UPalUIAimReticleBase::IsAssignableToHitResult(const FHitResult& HitResult, UPalCharacterParameterComponent* checkCharacterParam, FPalUIAimReticleMapObjectAssignableData& outAssignableData) {
+UPalDynamicWeaponItemDataBase* UPalUIAimReticleBase::GetCurrentWeaponDynamicItemData() const {
+    return NULL;
+}
+
+APalWeaponBase* UPalUIAimReticleBase::GetCurrentWeaponActor() const {
+    return NULL;
+}
+
+void UPalUIAimReticleBase::DeactivateReticle() {
+}
+
+void UPalUIAimReticleBase::ActivateReticle(const FPalItemId& WeaponItemId) {
 }
 
 

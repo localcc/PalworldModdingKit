@@ -3,7 +3,7 @@
 UPalLocationManager::UPalLocationManager() {
 }
 
-void UPalLocationManager::RemoveLocalCustomLocation(const FGuid& LocationId) {
+void UPalLocationManager::RemoveLocalCustomMarker(const FGuid& MarkerId) {
 }
 
 UPalLocationPoint* UPalLocationManager::GetLocationPoint(const FGuid& ID) const {
@@ -22,10 +22,10 @@ TMap<FGuid, FPalCustomMarkerSaveData> UPalLocationManager::GetCustomMarkers() co
     return TMap<FGuid, FPalCustomMarkerSaveData>();
 }
 
-void UPalLocationManager::ChangeCustomMarkerType(const FGuid& LocationId, int32 Type) {
+void UPalLocationManager::ChangeCustomMarkerType(const FGuid& MarkerrId, int32 Type) {
 }
 
-FGuid UPalLocationManager::AddLocalCustomLocation(FVector IconLocation, int32 IconType) {
+FGuid UPalLocationManager::AddLocalCustomMarker(FVector IconLocation, int32 IconType) {
     return FGuid{};
 }
 

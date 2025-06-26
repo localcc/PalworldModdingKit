@@ -1,0 +1,6 @@
+#include "PalMasterDataTableAccess_FishingSpotLotteryNameData.h"
+
+UPalMasterDataTableAccess_FishingSpotLotteryNameData::UPalMasterDataTableAccess_FishingSpotLotteryNameData() {
+}
+
+

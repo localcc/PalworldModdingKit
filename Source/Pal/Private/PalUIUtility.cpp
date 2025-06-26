@@ -104,7 +104,19 @@ bool UPalUIUtility::GetUIInputActionRowHandle(const UObject* WorldContextObject,
     return false;
 }
 
+bool UPalUIUtility::GetUIDIsplayShotAtaackParameterInfo(const UObject* WorldContextObject, UPalIndividualCharacterParameter* IndividualParameter, FPalUIDisplayCharacterBaseParameterInfo& OutParameterInfo) {
+    return false;
+}
+
 void UPalUIUtility::GetUIDisplayPalCondition(const UObject* WorldContextObject, TArray<EPalUIConditionType>& OutArray, UPalIndividualCharacterHandle* targetHandle) {
+}
+
+bool UPalUIUtility::GetUIDIsplayDefenseParameterInfo(const UObject* WorldContextObject, UPalIndividualCharacterParameter* IndividualParameter, FPalUIDisplayCharacterBaseParameterInfo& OutParameterInfo) {
+    return false;
+}
+
+bool UPalUIUtility::GetUIDIsplayCraftSpeedParameterInfo(const UObject* WorldContextObject, UPalIndividualCharacterParameter* IndividualParameter, FPalUIDisplayCharacterBaseParameterInfo& OutParameterInfo) {
+    return false;
 }
 
 void UPalUIUtility::GetTechnologyDescription(const UObject* WorldContextObject, const FName& technologyName, FText& OutDescription) {
@@ -113,7 +125,15 @@ void UPalUIUtility::GetTechnologyDescription(const UObject* WorldContextObject, 
 void UPalUIUtility::GetTeamMissionName(const UObject* WorldContextObject, const FName& MissionId, FText& OutMissionName) {
 }
 
+bool UPalUIUtility::GetSortedEssentialItemSlotArray_ForUIDisplay(const UObject* WorldContextObject, TArray<UPalItemSlot*>& OutArray) {
+    return false;
+}
+
 void UPalUIUtility::GetSkinName(const UObject* WorldContextObject, const FName& SkinName, FText& OutSKinName) {
+}
+
+bool UPalUIUtility::GetRecipeProductIdByStaticItemId(const UObject* WorldContextObject, const FName StaticItemId, FName& OutProductItemId) {
+    return false;
 }
 
 int32 UPalUIUtility::GetPlayerInframeRenderTargetResolution() {
@@ -218,6 +238,10 @@ float UPalUIUtility::ConvertReviveTimerToUIDisplayRemainReviveTime(const UObject
 }
 
 bool UPalUIUtility::CanDisplayTalentDetailUI(const UObject* WorldContextObject, UPalIndividualCharacterParameter* TargetCharacterParameter) {
+    return false;
+}
+
+bool UPalUIUtility::CanDisplayBlueprintCategoryInBuildRadialMenu(const UObject* WorldContextObject) {
     return false;
 }
 

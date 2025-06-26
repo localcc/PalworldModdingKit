@@ -1,7 +1,6 @@
 #include "PalLavaBoxComponent.h"
 
 UPalLavaBoxComponent::UPalLavaBoxComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->ShapeBodySetup = NULL;
 }
 
 void UPalLavaBoxComponent::EndOverlapEvent(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex) {

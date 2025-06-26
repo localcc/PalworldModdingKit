@@ -1,7 +1,7 @@
 #include "PalPlayerInput.h"
 
 UPalPlayerInput::UPalPlayerInput() {
-    this->DebugExecBindings.AddDefaulted(18);
+    this->DebugExecBindings.AddDefaulted(16);
 }
 
 bool UPalPlayerInput::UpdateActionMapping(const FName InActionName, const FPalKeyConfigKeys& NewKey, EPalKeyConfigCategory Category) {

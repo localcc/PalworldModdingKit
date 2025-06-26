@@ -9,7 +9,10 @@
 #include "EPalWazaID.h"
 #include "PalSpecialAttackRateInfo.h"
 #include "PalWazaCustomExecuteCondition.h"
+#include "Templates/SubclassOf.h"
 #include "PalWazaDatabaseRaw.generated.h"
+
+class UPalWazaBulletEmiiterOverlapBase;
 
 USTRUCT(BlueprintType)
 struct FPalWazaDatabaseRaw : public FTableRowBase {
@@ -80,6 +83,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool DisabledData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UPalWazaBulletEmiiterOverlapBase> BulletEmiiterOverlapClass;
     
     PAL_API FPalWazaDatabaseRaw();
 };

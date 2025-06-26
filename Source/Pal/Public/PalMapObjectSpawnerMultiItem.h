@@ -15,6 +15,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float RespawnTimeMinutesObtained;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bRespawnableMulti;
+    
 public:
     APalMapObjectSpawnerMultiItem(const FObjectInitializer& ObjectInitializer);
 

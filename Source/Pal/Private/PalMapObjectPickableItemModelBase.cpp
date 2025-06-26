@@ -22,6 +22,7 @@ void UPalMapObjectPickableItemModelBase::GetLifetimeReplicatedProps(TArray<FLife
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(UPalMapObjectPickableItemModelBase, bAutoPickedUp);
+    DOREPLIFETIME(UPalMapObjectPickableItemModelBase, PickupablePlayerUid);
 }
 
 

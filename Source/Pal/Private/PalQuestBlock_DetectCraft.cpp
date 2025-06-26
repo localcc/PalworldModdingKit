@@ -1,4 +1,5 @@
 #include "PalQuestBlock_DetectCraft.h"
+#include "Net/UnrealNetwork.h"
 
 UPalQuestBlock_DetectCraft::UPalQuestBlock_DetectCraft() {
     this->RequireCount = 0;
@@ -6,6 +7,12 @@ UPalQuestBlock_DetectCraft::UPalQuestBlock_DetectCraft() {
 }
 
 void UPalQuestBlock_DetectCraft::OnCraftItem(TArray<FPalItemAndNum>& ItemInfos) {
+}
+
+void UPalQuestBlock_DetectCraft::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
+    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+    
+    DOREPLIFETIME(UPalQuestBlock_DetectCraft, NowCraftNumCount);
 }
 
 

@@ -2,6 +2,7 @@
 
 APalMapObjectSpawnerMultiItem::APalMapObjectSpawnerMultiItem(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->RespawnTimeMinutesObtained = 300.00f;
+    this->bRespawnableMulti = true;
 }
 
 

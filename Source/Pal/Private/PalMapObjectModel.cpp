@@ -57,6 +57,10 @@ FPalMapObjectStatusValue UPalMapObjectModel::GetHP() const {
     return FPalMapObjectStatusValue{};
 }
 
+UPalMapObjectConcreteModelBase* UPalMapObjectModel::GetConcreteModel(const bool bIsForce) const {
+    return NULL;
+}
+
 void UPalMapObjectModel::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     

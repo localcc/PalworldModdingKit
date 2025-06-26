@@ -7,5 +7,6 @@ enum class EPalAchivementCategory : uint8 {
     BossDefeat,
     PalCapture,
     PalDex,
+    Invalid,
 };
 

@@ -2,6 +2,7 @@
 
 FPalDamageInfo::FPalDamageInfo() {
     this->NativeDamageValue = 0;
+    this->RedirectDamageValue = 0;
     this->Category = EPalWazaCategory::Melee;
     this->IsBlowAttack = false;
     this->IsLeanBack = false;
@@ -31,5 +32,9 @@ FPalDamageInfo::FPalDamageInfo() {
     this->bApplyNativeDamageValue = false;
     this->IgnorePlayerEquipItemDamage = false;
     this->IgnoreCheckGroupForStun = false;
+    this->IsPlayerVsPlayerDamage = false;
+    this->WeaponDamageRatePvP = 0.00f;
+    this->statusID = EPalStatusID::None;
+    this->bRedirectDamage = false;
 }
 

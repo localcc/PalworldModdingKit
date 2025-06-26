@@ -2,23 +2,21 @@
 #include "CoreMinimal.h"
 #include "PalFishingRodInitParameter.generated.h"
 
-class APalCharacter;
-
 USTRUCT(BlueprintType)
 struct FPalFishingRodInitParameter {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float CableShootSpeed;
+    float FishingMaxDistance;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float CableReturnSpeed;
+    float FloatMoveSpeed;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float CableMaxLength;
+    float HitBarSizeRate;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    APalCharacter* ActionCharacter;
+    float MissFightAmountRate;
     
     PAL_API FPalFishingRodInitParameter();
 };

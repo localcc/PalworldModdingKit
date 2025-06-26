@@ -1,9 +1,9 @@
 #include "WeaponAnimationInfoWrap.h"
 
-UWeaponAnimationInfoWrap::UWeaponAnimationInfoWrap() {
+UDEPRECATED_WeaponAnimationInfoWrap::UDEPRECATED_WeaponAnimationInfoWrap() {
 }
 
-void UWeaponAnimationInfoWrap::SetData(const FWeaponAnimationInfo& Input) {
+void UDEPRECATED_WeaponAnimationInfoWrap::SetData(const FWeaponAnimationInfo& Input) {
 }
 
 

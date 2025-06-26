@@ -17,12 +17,16 @@ class UPalSpectateComponent : public UActorComponent {
     GENERATED_BODY()
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSimpleDelegate);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FOnSpectateNextPlayerDelegate, const FString&, PlayerName, const FString&, NickName, const FString&, PlayerUId, const FString&, UserId);
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSimpleDelegate OnBeginSpectateDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSimpleDelegate OnEndSpectateDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnSpectateNextPlayerDelegate OnSpectateNextPlayerDelegate;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))

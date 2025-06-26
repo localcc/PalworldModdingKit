@@ -1,29 +1,52 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Engine/HitResult.h"
-#include "PalUIAimReticleMapObjectAssignableData.h"
-#include "PalUIAimReticleMapObjectThrowableData.h"
+#include "PalItemId.h"
 #include "PalUserWidget.h"
 #include "PalUIAimReticleBase.generated.h"
 
-class UPalCharacterParameterComponent;
+class APalWeaponBase;
+class UPalDynamicWeaponItemDataBase;
+class UPalStaticItemDataBase;
 
 UCLASS(Blueprintable, EditInlineNew)
 class PAL_API UPalUIAimReticleBase : public UPalUserWidget {
     GENERATED_BODY()
 public:
+protected:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bHideDefaultReticle;
+    
+public:
     UPalUIAimReticleBase();
 
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool ShouldHideDefaultReticle() const;
+    
 protected:
-    UFUNCTION(BlueprintCallable)
-    void TickDisplayOutline(const FHitResult& HitResult);
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnTick(const float DeltaTime);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnReticleDeactivated();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnReticleActivted(const FPalItemId& WeaponItemId);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPalStaticItemDataBase* GetCurrentWeaponStaticItemData() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPalDynamicWeaponItemDataBase* GetCurrentWeaponDynamicItemData() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    APalWeaponBase* GetCurrentWeaponActor() const;
     
 public:
     UFUNCTION(BlueprintCallable)
-    void IsThrowableToHitResult(const FHitResult& HitResult, UPalCharacterParameterComponent* checkCharacterParam, FPalUIAimReticleMapObjectThrowableData& outThrowableData);
+    void DeactivateReticle();
     
     UFUNCTION(BlueprintCallable)
-    void IsAssignableToHitResult(const FHitResult& HitResult, UPalCharacterParameterComponent* checkCharacterParam, FPalUIAimReticleMapObjectAssignableData& outAssignableData);
+    void ActivateReticle(const FPalItemId& WeaponItemId);
     
 };
 

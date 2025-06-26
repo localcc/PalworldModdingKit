@@ -22,12 +22,14 @@
 #include "EPalWorkSuitability.h"
 #include "EPalWorkType.h"
 #include "PalSlateNavigationSetting.h"
+#include "PalUIDisplayCharacterBaseParameterInfo.h"
 #include "PalUIUtility.generated.h"
 
 class APalCharacter;
 class UObject;
 class UPalIndividualCharacterHandle;
 class UPalIndividualCharacterParameter;
+class UPalItemSlot;
 class UPalTextBlockBase;
 class UPalUserWidget;
 class UWidget;
@@ -125,8 +127,17 @@ public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool GetUIInputActionRowHandle(const UObject* WorldContextObject, const FName& ActionName, FDataTableRowHandle& outHandle);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool GetUIDIsplayShotAtaackParameterInfo(const UObject* WorldContextObject, UPalIndividualCharacterParameter* IndividualParameter, FPalUIDisplayCharacterBaseParameterInfo& OutParameterInfo);
+    
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void GetUIDisplayPalCondition(const UObject* WorldContextObject, TArray<EPalUIConditionType>& OutArray, UPalIndividualCharacterHandle* targetHandle);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool GetUIDIsplayDefenseParameterInfo(const UObject* WorldContextObject, UPalIndividualCharacterParameter* IndividualParameter, FPalUIDisplayCharacterBaseParameterInfo& OutParameterInfo);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool GetUIDIsplayCraftSpeedParameterInfo(const UObject* WorldContextObject, UPalIndividualCharacterParameter* IndividualParameter, FPalUIDisplayCharacterBaseParameterInfo& OutParameterInfo);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static void GetTechnologyDescription(const UObject* WorldContextObject, const FName& technologyName, FText& OutDescription);
@@ -135,7 +146,13 @@ public:
     static void GetTeamMissionName(const UObject* WorldContextObject, const FName& MissionId, FText& OutMissionName);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool GetSortedEssentialItemSlotArray_ForUIDisplay(const UObject* WorldContextObject, TArray<UPalItemSlot*>& OutArray);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static void GetSkinName(const UObject* WorldContextObject, const FName& SkinName, FText& OutSKinName);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool GetRecipeProductIdByStaticItemId(const UObject* WorldContextObject, const FName StaticItemId, FName& OutProductItemId);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 GetPlayerInframeRenderTargetResolution();
@@ -232,6 +249,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool CanDisplayTalentDetailUI(const UObject* WorldContextObject, UPalIndividualCharacterParameter* TargetCharacterParameter);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool CanDisplayBlueprintCategoryInBuildRadialMenu(const UObject* WorldContextObject);
     
 };
 

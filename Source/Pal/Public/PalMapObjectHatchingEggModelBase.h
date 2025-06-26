@@ -26,6 +26,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateWorkableDelegate, bool, Workable);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FUpdatePalEggArrayDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateHatchedCharacterDelegate, UPalMapObjectHatchingEggModelBase*, Model);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnHatchFailedDelegate);
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FUpdatePalEggArrayDelegate OnUpdatePalEggArrayDelegate;
@@ -35,6 +36,9 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FUpdateWorkableDelegate OnUpdateWorkableDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnHatchFailedDelegate OnHatchFailedDelegate;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRepEggInfoArray, meta=(AllowPrivateAccess=true))
@@ -91,6 +95,9 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void ObtainHatchedCharacter_ServerInternal(const int32 RequestPlayerId, const FPalNetArchive& Archive);
+    
+    UFUNCTION(BlueprintCallable)
+    void NotifyHatchFailed_NoEmptySlot_ClientInternal();
     
     UFUNCTION(BlueprintCallable)
     void NotifyHatchComplete_ClientInternal();

@@ -15,6 +15,7 @@ enum class EPalStageRequestResult : uint8 {
     FailedNotValidStageWorldSubsystem,
     FailedGetStartPointTransform,
     FailedGetReturnToFieldPointTransform,
+    FailedNotValidExitParameter,
     Success,
 };
 

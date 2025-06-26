@@ -8,7 +8,7 @@ UCLASS(Blueprintable, EditInlineNew)
 class PAL_API UPalUIRadialMenuWidgetBase : public UPalUserWidget {
     GENERATED_BODY()
 public:
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FChangeSelectedIndexDelegate, int32, newIndex, int32, prevIndex);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FChangeSelectedIndexDelegate, int32, NewIndex, int32, prevIndex);
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FChangeSelectedIndexDelegate OnChangeSelectedIndex;

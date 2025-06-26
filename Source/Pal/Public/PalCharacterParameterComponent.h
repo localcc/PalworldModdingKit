@@ -31,6 +31,7 @@ class UPalItemContainer;
 class UPalOtomoAttackStopJudgeByBallList;
 class UPalWorkAssign;
 class UPalWorkBase;
+class UPrimitiveComponent;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalCharacterParameterComponent : public UActorComponent {
@@ -82,6 +83,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FVector OverrideTargetLocation;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsOverrideDefenceTarget;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FVector OverrideDefenceTargetLocation;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_Trainer, meta=(AllowPrivateAccess=true))
     APalCharacter* Trainer;
@@ -155,6 +162,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool IsDisableOtomoReturnEffect;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool IsPendingMeatCutDeath;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     float MaxHPRate_ForTowerBoss;
     
@@ -190,6 +200,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FGuid, FPalMapObjectAppearanceData> UnreachableMapObjectInfos;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    bool bBeingSleptOnSide;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FPalCharacterParameter_Work Work;
@@ -317,6 +330,9 @@ public:
     void SetOverrideTargetLocation(FVector TargetLocation);
     
     UFUNCTION(BlueprintCallable)
+    void SetOverrideDefenceTargetLocation(FVector TargetLocation);
+    
+    UFUNCTION(BlueprintCallable)
     void SetMuteki(FName flagName, bool IsEnable);
     
     UFUNCTION(BlueprintCallable)
@@ -370,6 +386,9 @@ public:
     void ResetSP();
     
     UFUNCTION(BlueprintCallable)
+    void ResetOverrideDefenceTarget();
+    
+    UFUNCTION(BlueprintCallable)
     void ResetDyingHP();
     
     UFUNCTION(BlueprintCallable)
@@ -411,6 +430,12 @@ private:
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPlayersOtomo() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsPartBroken() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsOverrideDefenceTarget() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsOtomo() const;
@@ -485,6 +510,9 @@ public:
     FVector GetOverrideTargetLocation_ConsiderRide();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    FVector GetOverrideDefenceTargetLocation() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalOtomoAttackStopJudgeByBallList* GetOtomoAttackStopJudge();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -550,6 +578,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FVector GetFloorLocation() const;
     
+    UFUNCTION(BlueprintCallable)
+    UPrimitiveComponent* GetFloorComponent() const;
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetDefense();
     
@@ -565,17 +596,33 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FGuid GetBaseCampId() const;
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool CanTargetFromAI() const;
+    
     UFUNCTION(BlueprintCallable)
     void AddTrapMovingPanel(AActor* TrapActor);
     
     UFUNCTION(BlueprintCallable)
     void AddTrapLegHold(AActor* TrapActor);
     
+private:
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void AddHPByRate_ToServer(float Rate);
+    
+public:
     UFUNCTION(BlueprintCallable)
     void AddHPByRate(float Rate);
     
+private:
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void AddHP_ToServer(FFixedPoint64 NewAddHP);
+    
+public:
     UFUNCTION(BlueprintCallable)
-    void AddDyingHP(float AddHP);
+    void AddHP(FFixedPoint64 PlusHP);
+    
+    UFUNCTION(BlueprintCallable)
+    void AddDyingHP(float NewAddHP);
     
 };
 

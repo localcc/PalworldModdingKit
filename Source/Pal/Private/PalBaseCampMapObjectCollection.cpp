@@ -7,7 +7,7 @@ UPalBaseCampMapObjectCollection::UPalBaseCampMapObjectCollection() {
 void UPalBaseCampMapObjectCollection::OnTriggeredBurnAnyMapObject(UPalMapObjectModelEffect_AccumulateTrigger* This, UPalMapObjectModel* OwnerModel) {
 }
 
-void UPalBaseCampMapObjectCollection::OnRemovedEffectAnyMapObject(UPalMapObjectModel* OwnerModel, UPalMapObjectModelEffectBase* Effect, EPalStatusID StatusId) {
+void UPalBaseCampMapObjectCollection::OnRemovedEffectAnyMapObject(UPalMapObjectModel* OwnerModel, UPalMapObjectModelEffectBase* Effect, EPalStatusID statusID) {
 }
 
 void UPalBaseCampMapObjectCollection::OnNotAvailableConcreteModel_ServerInternal(UPalMapObjectConcreteModelBase* Model) {

@@ -3,6 +3,9 @@
 #include "UObject/Object.h"
 #include "EPalPlayerInventoryType.h"
 #include "EPalTribeID.h"
+#include "PalArenaRule.h"
+#include "PalInstanceID.h"
+#include "PalOtomoLoadoutData.h"
 #include "PalPlayerLocalRecordData.generated.h"
 
 UCLASS(Blueprintable)
@@ -63,6 +66,28 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FName, bool> Local_NpcPalCaptureRewardCount;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FPalArenaRule Local_ArenaRule;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FName> Local_ItemQuickMoveExceptionIDList;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FPalOtomoLoadoutData> Local_OtomoLoadoutSaveData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FPalInstanceID, int32> Local_MaxFriendshipPalIds;
+    
     UPalPlayerLocalRecordData();
+
+    UFUNCTION(BlueprintCallable)
+    void ResetQuickStackExceptList();
+    
+    UFUNCTION(BlueprintCallable)
+    void RemoveQuickStackExceptId(const FName StaticItemId);
+    
+    UFUNCTION(BlueprintCallable)
+    bool AddQuickStackExceptId(const FName StaticItemId);
+    
 };
 

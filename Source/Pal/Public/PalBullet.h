@@ -14,6 +14,7 @@
 #include "PalBullet.generated.h"
 
 class APalCharacter;
+class UBoxComponent;
 class UPrimitiveComponent;
 class UProjectileMovementComponent;
 class USphereComponent;
@@ -45,6 +46,9 @@ private:
     int32 WeaponDamage;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float PvPWeaponDamageRate;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FTimerHandle Handle;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -64,6 +68,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float LifeTimer;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FName OwnerStaticItemId;
     
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -93,6 +100,12 @@ public:
     void SetSkillEffectList(const TArray<FPalPassiveSkillEffect>& inList);
     
     UFUNCTION(BlueprintCallable)
+    void SetPvPWeaponDamageRate(float Rate);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetOwnerStaticItemId(const FName& ItemId);
+    
+    UFUNCTION(BlueprintCallable)
     void SetDeleteTime(float DeleteSecound, float DecayStartRate);
     
     UFUNCTION(BlueprintCallable)
@@ -100,6 +113,12 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     bool SetBulletHoleDecal(const FHitResult& Hit, float LifeSpan, float FadeTime, float fadeScreenSize);
+    
+    UFUNCTION(BlueprintCallable)
+    void RegisterIgnoreActor(AActor* Actor);
+    
+    UFUNCTION(BlueprintCallable)
+    void RegisterCannotHitAreaBox(UBoxComponent* BoxComp);
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnHitToPalEnemy(UPrimitiveComponent* HitComp, APalCharacter* OtherCharacter, UPrimitiveComponent* OtherComp, const FHitResult& Hit);
@@ -132,10 +151,18 @@ public:
     float GetSneakAttackRate();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetPvPWeaponDamageRate() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetParameterWithPassiveSkillEffect(float originalValue, EPalPassiveSkillEffectType EffectType) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FName GetOwnerStaticItemId() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetDecayDamageRate();
     
+
+    // Fix for true pure virtual functions not being implemented
 };
 

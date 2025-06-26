@@ -34,7 +34,19 @@ void UPalLoadoutSelectorComponent::SetBallLoadoutIndex_Internal(int32 Index) {
 void UPalLoadoutSelectorComponent::SetBallLoadoutIndex(int32 Index) {
 }
 
+void UPalLoadoutSelectorComponent::ReserveSummonWeapon_ToServer_Implementation(UPalDynamicWeaponItemDataBase* InDynamicItem) {
+}
+
+void UPalLoadoutSelectorComponent::ReserveSummonWeapon(APalWeaponBase* InWeapon) {
+}
+
 void UPalLoadoutSelectorComponent::RequestChangeNowEquipBallItemID_ToServer_Implementation(FName NextBallID) {
+}
+
+void UPalLoadoutSelectorComponent::ReleaseSummonWeapon_ToServer_Implementation(UPalDynamicWeaponItemDataBase* InDynamicItem) {
+}
+
+void UPalLoadoutSelectorComponent::ReleaseSummonWeapon(APalWeaponBase* InWeapon) {
 }
 
 void UPalLoadoutSelectorComponent::OnUpdateWeaponLoadoutSlot(UPalItemSlot* itemSlot) {
@@ -70,6 +82,20 @@ TMap<FName, APalWeaponBase*> UPalLoadoutSelectorComponent::GetPalSphereActorMap(
 void UPalLoadoutSelectorComponent::GetNowEquipedBallItemID(FName& OutBallItemID) const {
 }
 
+int32 UPalLoadoutSelectorComponent::GetNeedSpawnSummonWeaponCount(APalWeaponBase* InWeapon) {
+    return 0;
+}
+
+int32 UPalLoadoutSelectorComponent::GetMaxSummonCount() const {
+    return 0;
+}
+
+void UPalLoadoutSelectorComponent::ClearSummonWeapon_ToServer_Implementation(UPalDynamicWeaponItemDataBase* InDynamicItem) {
+}
+
+void UPalLoadoutSelectorComponent::ClearSummonWeapon(APalWeaponBase* InWeapon) {
+}
+
 void UPalLoadoutSelectorComponent::CheckRespawnWeaponActor(TArray<FPalLoadoutSynchronalizedData> synchroData, TArray<APalWeaponBase*> WeaponActorList, EPalPlayerInventoryType inventoryType) {
 }
 
@@ -103,6 +129,10 @@ void UPalLoadoutSelectorComponent::ChangeNextBallLoadout_Internal() {
 void UPalLoadoutSelectorComponent::ChangeNextBallLoadout() {
 }
 
+bool UPalLoadoutSelectorComponent::CanReserveSummonWeapon() const {
+    return false;
+}
+
 void UPalLoadoutSelectorComponent::AttachSpawnOtomoPalThrowWeapon_ToServer_Implementation(int32 issuerID, bool IsAttach, bool ShouldEquipDummyWeapon) {
 }
 
@@ -115,6 +145,7 @@ void UPalLoadoutSelectorComponent::GetLifetimeReplicatedProps(TArray<FLifetimePr
     DOREPLIFETIME(UPalLoadoutSelectorComponent, NowEquipBallItemID);
     DOREPLIFETIME(UPalLoadoutSelectorComponent, replicatedPrimaryTargetInventoryType);
     DOREPLIFETIME(UPalLoadoutSelectorComponent, replicatedCurrentItemSlotIndex);
+    DOREPLIFETIME(UPalLoadoutSelectorComponent, replicatedSummonData);
 }
 
 

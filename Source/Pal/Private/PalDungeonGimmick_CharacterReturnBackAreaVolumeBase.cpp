@@ -1,0 +1,6 @@
+#include "PalDungeonGimmick_CharacterReturnBackAreaVolumeBase.h"
+
+UPalDungeonGimmick_CharacterReturnBackAreaVolumeBase::UPalDungeonGimmick_CharacterReturnBackAreaVolumeBase() {
+}
+
+

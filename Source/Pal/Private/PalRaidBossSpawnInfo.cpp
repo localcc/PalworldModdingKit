@@ -7,5 +7,6 @@ FPalRaidBossSpawnInfo::FPalRaidBossSpawnInfo() {
     this->ModeChange_AddStatusToAllWhenModeChgange = EPalStatusID::None;
     this->ModeChange_Element1 = EPalElementType::None;
     this->ModeChange_Element2 = EPalElementType::None;
+    this->AIControllerClass = NULL;
 }
 

@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "PalContainerId.h"
+#include "PalPlayerDataEquipLanternData.h"
 #include "PalPlayerDataInventoryInfo.generated.h"
 
 USTRUCT(BlueprintType)
@@ -24,6 +25,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalContainerId FoodEquipContainerId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalPlayerDataEquipLanternData LanternEquipData;
     
     PAL_API FPalPlayerDataInventoryInfo();
 };

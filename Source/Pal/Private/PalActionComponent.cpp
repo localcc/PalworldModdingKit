@@ -46,6 +46,14 @@ void UPalActionComponent::OnOwnerEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReas
 void UPalActionComponent::OnCompleteCharacter(APalCharacter* InCharacter) {
 }
 
+bool UPalActionComponent::IsReservedActionClass(TSubclassOf<UPalActionBase> actionClass) const {
+    return false;
+}
+
+bool UPalActionComponent::IsActiveActionType(EPalActionType ActionType, bool bIsCheckQueue) const {
+    return false;
+}
+
 bool UPalActionComponent::HasAction(EPalActionType Type) {
     return false;
 }
