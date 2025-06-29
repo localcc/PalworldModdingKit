@@ -19,6 +19,11 @@
       "Name": "KawaiiPhysics",
       "Type": "Runtime",
       "LoadingPhase": "PostConfigInit"
+    },
+    {
+      "Name": "KawaiiPhysicsEd",
+      "Type": "UncookedOnly",
+      "LoadingPhase": "PreDefault"
     }
   ],
   "Plugins": [
