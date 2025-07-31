@@ -143,7 +143,7 @@ protected:
     void RequestDeleteGroup();
     
     UFUNCTION(BlueprintCallable)
-    void RequestCreateGroupOrganizationType(EPalOrganizationType OrganizationType);
+    void RequestCreateGroupByOrganizationType(EPalOrganizationType OrganizationType);
     
     UFUNCTION(BlueprintCallable)
     void RequestCreateGroup(TArray<FName> CharacterIDList);

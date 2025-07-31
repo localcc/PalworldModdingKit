@@ -6,7 +6,6 @@
 #include "PalFishingRodInitParameter.h"
 #include "PalFishingRodModule.generated.h"
 
-class AActor;
 class APalCharacter;
 class APalFishShadow;
 class APalFishingSpotArea;
@@ -49,18 +48,6 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     APalFishShadow* TargetFishShadow;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    AActor* ReticleTargetActor;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    FVector ReticleTargetLocation;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    FVector ReticleHitImpactNormal;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    bool bIsHitReticleWaterPlane;
     
 public:
     UPalFishingRodModule();

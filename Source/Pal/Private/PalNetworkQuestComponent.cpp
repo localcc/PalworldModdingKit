@@ -9,6 +9,9 @@ void UPalNetworkQuestComponent::RequestProgressQuest_ToServer_Implementation(con
 void UPalNetworkQuestComponent::RequestOrderQuest_ToServer_Implementation(const FName& OrderQuestId) {
 }
 
+void UPalNetworkQuestComponent::RequestOrderInitialQuest_ToServer_Implementation() {
+}
+
 void UPalNetworkQuestComponent::RequestCompleteQuest_ToServer_Implementation(const FName& QuestId) {
 }
 

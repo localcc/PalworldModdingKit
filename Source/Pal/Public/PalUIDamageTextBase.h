@@ -12,7 +12,7 @@ UCLASS(Blueprintable, EditInlineNew)
 class PAL_API UPalUIDamageTextBase : public UPalUserWidget {
     GENERATED_BODY()
 public:
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FRequestCloseDelegate, UPalUIDamageTextBase*, selfWidget);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FRequestCloseDelegate, UPalUIDamageTextBase*, SelfWidget);
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FRequestCloseDelegate OnRequestCloseDelegate;

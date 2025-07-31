@@ -13,6 +13,7 @@ class UPalInteractiveObjectComponentInterface;
 class UMaterialInterface;
 class UPalCharacterLiftupObjectComponent;
 class UPalHUDDispatchParameterBase;
+class USkeletalMeshComponent;
 
 UCLASS(Blueprintable)
 class PAL_API APalMonsterCharacter : public APalNPC, public IPalInteractiveObjectIndicatorInterface, public IPalInflictDamageNotifyInterface {
@@ -49,6 +50,9 @@ private:
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsLiftupObject() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure)
+    USkeletalMeshComponent* GetRideNPCMesh() const;
     
 
     // Fix for true pure virtual functions not being implemented

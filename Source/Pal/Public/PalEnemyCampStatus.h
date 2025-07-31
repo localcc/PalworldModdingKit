@@ -38,6 +38,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FName, FPalEnemyCampTreasureBoxItemInfo> TreasureBoxInfoMapBySpawnerName;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 CampPresetIndex;
+    
     PAL_API FPalEnemyCampStatus();
 };
 

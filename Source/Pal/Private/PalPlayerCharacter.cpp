@@ -56,6 +56,9 @@ void APalPlayerCharacter::SetDisableCollisionBlockCharacter(bool bDisable) {
 void APalPlayerCharacter::SetCharacterMakeInfo_ToAll_Implementation(FPalPlayerDataCharacterMakeInfo NextInfo) {
 }
 
+void APalPlayerCharacter::SetCharacterMakeInfo(FPalPlayerDataCharacterMakeInfo& NextInfo, const bool& IgnoreEquip) {
+}
+
 void APalPlayerCharacter::PlayIdleAnimation(UAnimMontage* Montage) {
 }
 
@@ -120,7 +123,7 @@ void APalPlayerCharacter::OnChangeShooterState(bool IsAim, bool IsShoot) {
 void APalPlayerCharacter::OnChangeNearEnemy_ToAll_Implementation(bool IsExist) {
 }
 
-void APalPlayerCharacter::OnChangeMovementMode(UPalCharacterMovementComponent* Component, TEnumAsByte<EMovementMode> prevMode, TEnumAsByte<EMovementMode> newMode, EPalCharacterMovementCustomMode PrevCustomMode, EPalCharacterMovementCustomMode NewCustomMode) {
+void APalPlayerCharacter::OnChangeMovementMode(UPalCharacterMovementComponent* Component, TEnumAsByte<EMovementMode> PrevMode, TEnumAsByte<EMovementMode> NewMode, EPalCharacterMovementCustomMode PrevCustomMode, EPalCharacterMovementCustomMode NewCustomMode) {
 }
 
 void APalPlayerCharacter::OnChangeBattleBGM_Implementation(EPalBattleBGMType Rank) {
@@ -173,6 +176,9 @@ FRotator APalPlayerCharacter::GetCameraRotator() const {
 
 APalPlayerState* APalPlayerCharacter::GetCachedPlayerState() const {
     return NULL;
+}
+
+void APalPlayerCharacter::Editor_ChangeToMale() {
 }
 
 

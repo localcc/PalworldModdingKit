@@ -6,6 +6,7 @@ UPalRaidBossManager::UPalRaidBossManager() {
     this->BattleAreaRadius = 0.00f;
     this->NPCTargetCount_ForForcePlayerTarget = 3;
     this->RaidBossBattleActorClass = NULL;
+    this->GiftSuccessItemRangeScale = 2.00f;
 }
 
 bool UPalRaidBossManager::IsRaidBossOfferItem(FName ItemName) {

@@ -242,6 +242,9 @@ public:
     void SetCharacterMakeInfo_ToAll(FPalPlayerDataCharacterMakeInfo NextInfo);
     
     UFUNCTION(BlueprintCallable)
+    void SetCharacterMakeInfo(FPalPlayerDataCharacterMakeInfo& NextInfo, const bool& IgnoreEquip);
+    
+    UFUNCTION(BlueprintCallable)
     void PlayIdleAnimation(UAnimMontage* Montage);
     
     UFUNCTION(BlueprintCallable)
@@ -321,7 +324,7 @@ private:
     void OnChangeNearEnemy_ToAll(bool IsExist);
     
     UFUNCTION(BlueprintCallable)
-    void OnChangeMovementMode(UPalCharacterMovementComponent* Component, TEnumAsByte<EMovementMode> prevMode, TEnumAsByte<EMovementMode> newMode, EPalCharacterMovementCustomMode PrevCustomMode, EPalCharacterMovementCustomMode NewCustomMode);
+    void OnChangeMovementMode(UPalCharacterMovementComponent* Component, TEnumAsByte<EMovementMode> PrevMode, TEnumAsByte<EMovementMode> NewMode, EPalCharacterMovementCustomMode PrevCustomMode, EPalCharacterMovementCustomMode NewCustomMode);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void OnChangeBattleBGM(EPalBattleBGMType Rank);
@@ -368,6 +371,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     APalPlayerState* GetCachedPlayerState() const;
+    
+    UFUNCTION(BlueprintCallable)
+    void Editor_ChangeToMale();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void CreateLantern();

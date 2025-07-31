@@ -79,6 +79,14 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsValidPlayerInCamp(APalPlayerCharacter* Player);
     
+protected:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FGuid GetStartRequestPlayerUID() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    APalPlayerCharacter* GetStartRequestPlayerCharacter() const;
+    
+public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FName GetStartItemName();
     

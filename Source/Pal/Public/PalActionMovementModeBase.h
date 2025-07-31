@@ -43,13 +43,13 @@ public:
     UPalActionMovementModeBase();
 
     UFUNCTION(BlueprintCallable)
-    void SetMovementMode(TEnumAsByte<EMovementMode> newMode, uint8 NewMovementMode);
+    void SetMovementMode(TEnumAsByte<EMovementMode> NewMode, uint8 NewMovementMode);
     
     UFUNCTION(BlueprintCallable)
     void SetInterrupt(bool InInterrupt);
     
     UFUNCTION(BlueprintCallable)
-    void OnMovementModeChanged(UPalCharacterMovementComponent* Component, TEnumAsByte<EMovementMode> prevMode, TEnumAsByte<EMovementMode> newMode, EPalCharacterMovementCustomMode PrevCustomMode, EPalCharacterMovementCustomMode NewCustomMode);
+    void OnMovementModeChanged(UPalCharacterMovementComponent* Component, TEnumAsByte<EMovementMode> PrevMode, TEnumAsByte<EMovementMode> NewMode, EPalCharacterMovementCustomMode PrevCustomMode, EPalCharacterMovementCustomMode NewCustomMode);
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
     bool MovingOnGround() const;

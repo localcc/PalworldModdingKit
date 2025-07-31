@@ -333,6 +333,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bNotDestroyPlayerOnDisconnect = false;
     this->bAllReleaseArenaSoloRank = false;
     this->bEnableArenaRule = false;
+    this->bEnableABPLean = false;
 }
 
 TArray<FString> UPalDebugSetting::GetDataLayerRuntimeSettingsNames() const {

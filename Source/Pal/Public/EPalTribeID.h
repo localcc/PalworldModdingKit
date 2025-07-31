@@ -276,6 +276,11 @@ enum class EPalTribeID : uint16 {
     IceNarwhal_Fire,
     GhostAnglerfish_Fire,
     StuffedShark_Fire,
+    YakushimaBoss001_Green_2,
+    YakushimaBoss002_2,
+    YakushimaBoss002_Hand_Left_2,
+    YakushimaBoss002_Hand_Right_2,
+    YakushimaBoss002_Head_2,
     Human,
 };
 

@@ -1,0 +1,5 @@
+#include "PalPlayerRecordDataRepInfoArrayThreadSafe_IntVal.h"
+
+FPalPlayerRecordDataRepInfoArrayThreadSafe_IntVal::FPalPlayerRecordDataRepInfoArrayThreadSafe_IntVal() {
+}
+

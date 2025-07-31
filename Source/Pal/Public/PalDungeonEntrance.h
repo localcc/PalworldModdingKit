@@ -8,6 +8,7 @@
 #include "PalStageInstanceId.h"
 #include "PalDungeonEntrance.generated.h"
 
+class APalDungeonEntrance;
 class UPalDungeonInstanceModel;
 class UPalStageModelDungeon;
 
@@ -15,8 +16,13 @@ UCLASS(Blueprintable)
 class PAL_API APalDungeonEntrance : public AActor, public IPalInteractiveObjectIndicatorInterface {
     GENERATED_BODY()
 public:
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FReturnSelfMulticastDelegate, APalDungeonEntrance*, SelfEntrance);
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FReturnSelfMulticastDelegate OnRepStageModelDelegate;
+    
 private:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_StageModel, meta=(AllowPrivateAccess=true))
     UPalStageModelDungeon* StageModel;
     
 public:
@@ -34,6 +40,10 @@ protected:
 private:
     UFUNCTION(BlueprintCallable)
     void OnResponseDialogEnterDungeon(const bool bResponse);
+    
+protected:
+    UFUNCTION(BlueprintCallable)
+    void OnRep_StageModel();
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)

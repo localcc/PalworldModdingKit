@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
 #include "UObject/Object.h"
 #include "PalLocalQuestLocationData.h"
 #include "PalOrderedQuestSaveData.h"
@@ -9,6 +10,7 @@
 class UDataTable;
 class UPalCommonQuestRewardGiver;
 class UPalIndividualCharacterParameter;
+class UPalLocationBase;
 class UPalQuestData;
 
 UCLASS(Blueprintable)
@@ -38,6 +40,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FName, UPalQuestData*> OrderedQuestMap_ForServer;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FName, FPalOrderedQuestSaveData> PreloadQuestSaveDataMap_ForServer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_OrderedQuestArray, meta=(AllowPrivateAccess=true))
     FPalQuestReplicationData QuestReplicationData;
@@ -87,6 +92,9 @@ private:
     void OnRep_OrderedQuestArray();
     
 protected:
+    UFUNCTION(BlueprintCallable)
+    void OnRemovedLocation(const FGuid& LocationId, UPalLocationBase* Location);
+    
     UFUNCTION(BlueprintCallable)
     void OnReadyQuest_ServerInternal(UPalQuestData* QuestData);
     

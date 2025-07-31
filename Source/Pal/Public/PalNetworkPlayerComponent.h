@@ -18,6 +18,7 @@
 #include "PalUIBossDefeatRewardDisplayData.h"
 #include "PalNetworkPlayerComponent.generated.h"
 
+class APalCapturedCage;
 class APalLevelObjectObtainable;
 class APalTreasureMapInteractivePoint;
 class UObject;
@@ -66,6 +67,9 @@ public:
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void RequestPalStorageReplicates(const UObject* WorldContextObject, const FPalInstanceID& IndividualId, const FName Key, const bool bReplicate);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestOpenEnemyCampCage(APalCapturedCage* TargetCage);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestObtainLevelObject_ToServer(APalLevelObjectObtainable* TargetObject);

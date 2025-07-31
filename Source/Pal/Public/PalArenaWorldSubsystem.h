@@ -7,6 +7,7 @@
 #include "EPalPassiveSkillEffectType.h"
 #include "PalArenaRule.h"
 #include "PalArenaSoloClearItemInfo.h"
+#include "PalArenaWorldRankingRecord.h"
 #include "PalWorldSubsystem.h"
 #include "Templates/SubclassOf.h"
 #include "PalArenaWorldSubsystem.generated.h"
@@ -25,10 +26,14 @@ UCLASS(Blueprintable)
 class PAL_API UPalArenaWorldSubsystem : public UPalWorldSubsystem {
     GENERATED_BODY()
 public:
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPalOnLocalPlayerRankingInfoNotified, FPalArenaWorldRankingRecord, RankingInfo);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnUIRequestRepliedDelegate, EPalArenaMenuActionType, ActionType);
     
     UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnUIRequestRepliedDelegate OnUIRequestRepliedDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalOnLocalPlayerRankingInfoNotified OnLocalPlayerRankingInfoNotified;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -42,6 +47,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 InBattleTime;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<EPalPassiveSkillEffectType> DisablePassiveTypes;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<EPalPassiveSkillEffectType> DisablePassiveTypesToSubPals;

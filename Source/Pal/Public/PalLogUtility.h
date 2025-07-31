@@ -86,7 +86,7 @@ public:
     static void AddGuildLabCompleteLog(const UObject* WorldContextObject, const FPalGuildLabCompleteLogDisplayData& DisplayData);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static void AddFriendshipRankupLog(const UObject* WorldContextObject, UPalIndividualCharacterParameter* IndividualParameter, bool bFirstRankup);
+    static void AddFriendshipRankupLog(const UObject* WorldContextObject, UPalIndividualCharacterParameter* IndividualParameter, int32 NewRank, bool bFirstRankup);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void AddDropPalLog(const UObject* WorldContextObject, const FPalLogInfo_DropPal& LogInfo);

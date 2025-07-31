@@ -21,6 +21,9 @@ void UPalQuestManager::OnUpdatedQuest_ServerInternal(UPalQuestData* UpdatedQuest
 void UPalQuestManager::OnRep_OrderedQuestArray() {
 }
 
+void UPalQuestManager::OnRemovedLocation(const FGuid& LocationId, UPalLocationBase* Location) {
+}
+
 void UPalQuestManager::OnReadyQuest_ServerInternal(UPalQuestData* QuestData) {
 }
 

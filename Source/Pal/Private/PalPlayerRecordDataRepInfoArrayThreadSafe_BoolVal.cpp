@@ -1,0 +1,5 @@
+#include "PalPlayerRecordDataRepInfoArrayThreadSafe_BoolVal.h"
+
+FPalPlayerRecordDataRepInfoArrayThreadSafe_BoolVal::FPalPlayerRecordDataRepInfoArrayThreadSafe_BoolVal() {
+}
+

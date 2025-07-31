@@ -12,7 +12,6 @@ enum class EPalOrganizationType : uint8 {
     TeamBlackHunter,
     TeamFireCult,
     TeamWelfareGroup,
-    CityPal,
     MAX,
 };
 

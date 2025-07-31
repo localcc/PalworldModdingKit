@@ -38,13 +38,10 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 SpawnedPalLevel;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    bool bIsDoorOpened;
+    
 private:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    bool IsRequestedInteract;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    bool IsDisableInteractive;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool IsInSpawnedRange;
     
@@ -57,7 +54,12 @@ private:
 public:
     APalCapturedCage(const FObjectInitializer& ObjectInitializer);
 
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
 protected:
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void StartCaptureEffect_ServerBP(APalPlayerCharacter* Player);
+    
     UFUNCTION(BlueprintCallable)
     void SpawnPal(FName InPalID, int32 InPalLevel);
     
@@ -65,7 +67,7 @@ protected:
     void SetOverrideKeyName(FName Key);
     
     UFUNCTION(BlueprintCallable)
-    void SetDisableInteractive();
+    void SetDoorOpened(bool bIsOpend);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ResetCageByOutside_BP();
@@ -75,8 +77,11 @@ public:
     void ResetCage_ToAll();
     
 protected:
-    UFUNCTION(BlueprintCallable)
-    void RequestInteract(APalPlayerCharacter* Attacker);
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void OpenDoor_ToAll();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OpenDoor_BP(bool bIsAnimSkip);
     
 private:
     UFUNCTION(BlueprintCallable)
@@ -92,8 +97,11 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     EPalInteractiveObjectIndicatorType GetIndicatorType() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure)
     FName GetCampSpawnerName() const;
+    
+    UFUNCTION(BlueprintCallable)
+    void CapturePal_ServerInternal(APalPlayerCharacter* Player);
     
 
     // Fix for true pure virtual functions not being implemented

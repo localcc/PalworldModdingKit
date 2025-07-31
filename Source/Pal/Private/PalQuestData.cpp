@@ -17,7 +17,10 @@ void UPalQuestData::OnRep_CurrentBlock() {
 void UPalQuestData::OnCompletedQuestBlock_ServerInternal(UPalQuestBlock* CompletedBlock) {
 }
 
-void UPalQuestData::Initialize(const FGuid& OwnerPlayerUId, int32 BlockIndex, const FName& InQuestName) {
+void UPalQuestData::LoadQuestBlockForUI(const int32 Index) {
+}
+
+void UPalQuestData::InitializeForUI(const FGuid& InOwnerPlayerUId, const FName& InQuestName) {
 }
 
 void UPalQuestData::GetQuestNameText(FText& OutText) const {

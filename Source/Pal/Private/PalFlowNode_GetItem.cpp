@@ -9,4 +9,8 @@ UPalFlowNode_GetItem::UPalFlowNode_GetItem() {
 
 
 
+bool UPalFlowNode_GetItem::CanGetItemInServer_Implementation(APalCharacter* Talker) {
+    return false;
+}
+
 

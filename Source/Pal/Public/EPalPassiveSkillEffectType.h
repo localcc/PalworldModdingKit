@@ -124,7 +124,5 @@ enum class EPalPassiveSkillEffectType : uint8 {
     Fishing_SearchProbabilityRateInNight,
     FishingSalvage_ItemDrop,
     ReloadSpeedUp,
-    ReloadSpeedUp_WalkingWith,
-    WorkSpeedUp_InBaseCamp,
 };
 

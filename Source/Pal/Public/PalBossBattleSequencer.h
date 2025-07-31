@@ -145,6 +145,14 @@ public:
     UFUNCTION(BlueprintCallable)
     void LoadAndCreateBossBattleEvent(TSoftClassPtr<APalBossBattleEventBase> BossBattleEventClass);
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void KillPlayerTimeup_NextTick(APalPlayerCharacter* Player);
+    
+    UFUNCTION(BlueprintCallable)
+    void KillPlayerTimeup(APalPlayerCharacter* Player);
+    
+public:
     UFUNCTION(BlueprintCallable)
     void KillAllPlayer();
     

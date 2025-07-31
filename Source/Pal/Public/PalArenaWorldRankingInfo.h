@@ -14,11 +14,14 @@ class PAL_API APalArenaWorldRankingInfo : public AInfo {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_Records, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FPalArenaWorldRankingRecord> Records;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    TArray<FPalArenaWorldRankingRecord> TopRankRecords;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, int32> PlayerRankingMap;
+    TMap<FGuid, int32> PlayerRankingMap_InServer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* ArenaNPCDataTable;
@@ -41,15 +44,18 @@ private:
     UFUNCTION(BlueprintCallable)
     void UpdateArenaRankPoint(UPalIndividualCharacterParameter* IndividualParameter, int32 NewArenaRankPoint);
     
-    UFUNCTION(BlueprintCallable)
-    void OnRep_Records();
-    
 public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsPlayerInTopRanks(const FGuid& PlayerUId) const;
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FPalArenaWorldRankingRecord> GetWorldArenaRanking();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetPlayerRankNo(const FGuid& PlayerUId) const;
+    TArray<FPalArenaWorldRankingRecord> GetTopWorldArenaRanking();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FPalArenaWorldRankingRecord GetPlayerRankNo_ServerInternal(const FGuid& PlayerUId) const;
     
 };
 

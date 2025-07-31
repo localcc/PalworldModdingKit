@@ -18,7 +18,7 @@ public:
     FName startTalkSequence;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    AActor* talker;
+    AActor* Talker;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalIncidentBase* talkIncident;

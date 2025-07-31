@@ -21,7 +21,7 @@ public:
     FString Message;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    FGuid ReceiverPlayerUId;
+    TArray<FGuid> ReceiverPlayerUIds;
     
     PAL_API FPalChatMessage();
 };

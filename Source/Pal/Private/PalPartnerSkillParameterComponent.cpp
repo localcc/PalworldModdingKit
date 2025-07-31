@@ -225,6 +225,10 @@ bool UPalPartnerSkillParameterComponent::CanOpenTreasure(EPalMapObjectTreasureGr
     return false;
 }
 
+bool UPalPartnerSkillParameterComponent::CanExecCoopSkill() {
+    return false;
+}
+
 bool UPalPartnerSkillParameterComponent::CanExec() const {
     return false;
 }

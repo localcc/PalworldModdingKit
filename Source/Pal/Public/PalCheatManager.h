@@ -179,6 +179,9 @@ public:
     UFUNCTION(BlueprintCallable, Exec)
     void ToggleBaseCampWorkerSanityDetail();
     
+    UFUNCTION(BlueprintCallable, Exec)
+    void ToggleABPLean();
+    
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void TimeStopForBP();
@@ -1154,6 +1157,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void DebugAutoRun();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void DamageToPlayer(int32 DamageValue);
     
     UFUNCTION(BlueprintCallable, Exec)
     void DamageBaseCampWorkerToOne();

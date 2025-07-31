@@ -38,12 +38,20 @@ AActor* UPalVisualEffectBase::GetOwner() const {
     return NULL;
 }
 
+USkeletalMeshComponent* UPalVisualEffectBase::GetMonsterRideNPCMesh() const {
+    return NULL;
+}
+
 TArray<UMaterialInstanceDynamic*> UPalVisualEffectBase::GetMainMeshMaterials() const {
     return TArray<UMaterialInstanceDynamic*>();
 }
 
 USkeletalMeshComponent* UPalVisualEffectBase::GetMainMesh() const {
     return NULL;
+}
+
+TArray<UMaterialInstanceDynamic*> UPalVisualEffectBase::GetMainAndRideNPCMeshMaterials() const {
+    return TArray<UMaterialInstanceDynamic*>();
 }
 
 TArray<UMaterialInstanceDynamic*> UPalVisualEffectBase::GetMainAndHeadMeshMaterials() const {

@@ -51,7 +51,7 @@ void APalNPCSpawnerBase::RequestDespawn() {
 void APalNPCSpawnerBase::RequestDeleteGroup() {
 }
 
-void APalNPCSpawnerBase::RequestCreateGroupOrganizationType(EPalOrganizationType OrganizationType) {
+void APalNPCSpawnerBase::RequestCreateGroupByOrganizationType(EPalOrganizationType OrganizationType) {
 }
 
 void APalNPCSpawnerBase::RequestCreateGroup(TArray<FName> CharacterIDList) {
