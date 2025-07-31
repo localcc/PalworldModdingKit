@@ -24,7 +24,7 @@ void UPalArenaSequencer::SetMutekiAllPlayer(bool bIsMuteki) {
 void UPalArenaSequencer::SetEnablePlayerTemperatureComponent(EPalArenaPlayerIndex PlayerIndex, bool bEnable) {
 }
 
-void UPalArenaSequencer::SetDisableNotSelectedOtomo(EPalArenaPlayerIndex PlayerIndex, bool bDisable) {
+void UPalArenaSequencer::SetDisableSkill(EPalArenaPlayerIndex PlayerIndex, bool bDisable) {
 }
 
 void UPalArenaSequencer::SetDisableGliderPal(EPalArenaPlayerIndex PlayerIndex, bool bDisable) {

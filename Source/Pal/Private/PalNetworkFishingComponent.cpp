@@ -33,7 +33,7 @@ void UPalNetworkFishingComponent::RequestFishing_ToServer_Implementation(const F
 void UPalNetworkFishingComponent::RequestEscapeFishShadow_ToServer_Implementation(const FGuid& SpotId, const FGuid& FishShadowId) {
 }
 
-void UPalNetworkFishingComponent::ReceiveUseBaitResult_ToClient_Implementation(bool IsSuccess) {
+void UPalNetworkFishingComponent::ReceiveUseBaitResult_ToClient_Implementation(bool IsSuccess, const FName BaitItemId) {
 }
 
 void UPalNetworkFishingComponent::ReceiveFishingResult_ToClinet_Implementation(EPalFishingResultType resultType) {

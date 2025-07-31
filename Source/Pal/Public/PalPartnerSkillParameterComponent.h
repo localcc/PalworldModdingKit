@@ -369,6 +369,9 @@ public:
     bool CanOpenTreasure(EPalMapObjectTreasureGradeType TreasureGrade) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool CanExecCoopSkill();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool CanExec() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

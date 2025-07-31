@@ -129,7 +129,7 @@ public:
     FPalTechnologyDataTableRowBase GetTechlonogyBaseData(const FName& technologyName) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    TArray<FName> GetRecipeTechnologyRowNameArray() const;
+    TArray<FName> GetRecipeTechnologyRowNameArray(const bool DedicatedServerExcept) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FPalTechnologyRecipeUnlockDataTableRow GetRecipeTechlonogy(const FName& technologyName) const;

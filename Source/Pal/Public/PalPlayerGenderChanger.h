@@ -16,10 +16,10 @@ protected:
     FPlayerGenderParams FemaleCharacterParams;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    bool bIsEpmtyFamaleParams;
+    bool bIsEpmtyFemaleParams;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    bool bIsFamale;
+    bool bIsFemale;
     
 public:
     UPalPlayerGenderChanger();

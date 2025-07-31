@@ -166,7 +166,7 @@ void UPalUtility::SetBodyPartsCollisionEnable(APalCharacter* Character, bool bEn
 void UPalUtility::SetActorQuat(AActor* TargetActor, FQuat NewQuat) {
 }
 
-void UPalUtility::SendSystemToPlayerChat(const UObject* WorldContextObject, const FString& Message, const FGuid& ReceiverPlayerUId) {
+void UPalUtility::SendSystemToPlayerChat(const UObject* WorldContextObject, const FString& Message, const TArray<FGuid>& ReceiverPlayerUIds) {
 }
 
 void UPalUtility::SendSystemAnnounce(const UObject* WorldContextObject, const FString& Message) {

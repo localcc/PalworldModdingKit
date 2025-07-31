@@ -20,6 +20,9 @@ public:
     void RequestOrderQuest_ToServer(const FName& OrderQuestId);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestOrderInitialQuest_ToServer();
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestCompleteQuest_ToServer(const FName& QuestId);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)

@@ -23,6 +23,9 @@ EPalArenaRank UPalArenaUtility::GetReleasedSoloRank(const APalPlayerCharacter* P
     return EPalArenaRank::Bronze;
 }
 
+void UPalArenaUtility::GetLocalPlayerArenaRankingInfo(const UObject* WorldContextObject) {
+}
+
 EPalArenaRank UPalArenaUtility::GetArenaRank(const UObject* WorldContextObject, int32 ArenaRankPoint) {
     return EPalArenaRank::Bronze;
 }

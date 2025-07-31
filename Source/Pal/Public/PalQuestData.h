@@ -75,7 +75,10 @@ protected:
     
 public:
     UFUNCTION(BlueprintCallable)
-    void Initialize(const FGuid& OwnerPlayerUId, int32 BlockIndex, const FName& InQuestName);
+    void LoadQuestBlockForUI(const int32 Index);
+    
+    UFUNCTION(BlueprintCallable)
+    void InitializeForUI(const FGuid& InOwnerPlayerUId, const FName& InQuestName);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetQuestNameText(FText& OutText) const;

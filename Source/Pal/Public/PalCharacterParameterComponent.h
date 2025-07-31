@@ -51,6 +51,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     bool bIsEnableMuteki;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsDisableSummonWeapon;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FFixedPoint64 LeanBackPoint;
     
@@ -371,6 +374,9 @@ public:
     void SetElementTypeFromDatabase(APalCharacter* InCharacter);
     
     UFUNCTION(BlueprintCallable)
+    void SetDisableSummonWeapon(FName flagName, bool isDisable);
+    
+    UFUNCTION(BlueprintCallable)
     void SetDisableNaturalHealing_Component(FName Key, bool Disable);
     
     UFUNCTION(BlueprintCallable)
@@ -463,6 +469,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsDying() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsDisableSummonWeapon() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsDead() const;

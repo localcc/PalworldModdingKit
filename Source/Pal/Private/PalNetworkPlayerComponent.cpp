@@ -36,6 +36,9 @@ void UPalNetworkPlayerComponent::RequestPalStorageReplicates_ToServer_Implementa
 void UPalNetworkPlayerComponent::RequestPalStorageReplicates(const UObject* WorldContextObject, const FPalInstanceID& IndividualId, const FName Key, const bool bReplicate) {
 }
 
+void UPalNetworkPlayerComponent::RequestOpenEnemyCampCage_Implementation(APalCapturedCage* TargetCage) {
+}
+
 void UPalNetworkPlayerComponent::RequestObtainLevelObject_ToServer_Implementation(APalLevelObjectObtainable* TargetObject) {
 }
 

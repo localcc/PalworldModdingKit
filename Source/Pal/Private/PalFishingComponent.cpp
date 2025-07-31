@@ -41,9 +41,6 @@ void UPalFishingComponent::OnReceivedSearchResult(const EPalFishingResultType re
 void UPalFishingComponent::OnReceivedCreatedCharacter(const FPalGrantCharacterRequestData RequestData) {
 }
 
-void UPalFishingComponent::OnPressedFishingCancelButton() {
-}
-
 void UPalFishingComponent::OnPressedFishingButton() {
 }
 

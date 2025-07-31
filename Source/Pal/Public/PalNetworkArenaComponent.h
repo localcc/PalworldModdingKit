@@ -11,6 +11,7 @@
 #include "PalArenaPlayerParty.h"
 #include "PalArenaRule.h"
 #include "PalArenaSequencerInitializeParameter.h"
+#include "PalArenaWorldRankingRecord.h"
 #include "PalNetworkArenaComponent.generated.h"
 
 class UPalIndividualCharacterParameter;
@@ -40,6 +41,9 @@ public:
     void RequestStartArena_ToServer();
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestMyWorldArenaRank();
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestExitArenaSpectateToServer();
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
@@ -53,6 +57,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void RemovePlayerFromArena_ToClient(UPalIndividualCharacterParameter* RemovePlayeParameter, bool bIsComplete);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void ReceiveMyWorldArenaRank(FPalArenaWorldRankingRecord RankInfo);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void ReceiveExitArenaSpectate_ToClient(bool bIsSuccess);

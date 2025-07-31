@@ -20,10 +20,16 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPalPoseableMeshComponent* PoseableSkeletalMeshComponent;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UPalPoseableMeshComponent* PoseableSkeletalMeshRideNPCComponent;
+    
     APalCopyMeshVisualEffect(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable)
-    void Setup(USkeletalMeshComponent* MeshComponent);
+    void SetupMonsterRideNPCMesh(USkeletalMeshComponent* MeshComponent);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetupMainMesh(USkeletalMeshComponent* MeshComponent);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<UMaterialInstanceDynamic*> GetMainMeshMaterials() const;

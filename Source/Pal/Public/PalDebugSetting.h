@@ -1120,6 +1120,9 @@ public:
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName ArenaSoloNPCOverride;
     
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bEnableABPLean;
+    
     UPalDebugSetting();
 
 private:

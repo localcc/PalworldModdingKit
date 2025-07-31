@@ -120,7 +120,7 @@ UPalGameInstance::UPalGameInstance() {
     this->ShopManagerSubsystemClass = UPalShopManager::StaticClass();
     this->ObjectPoolClass = NULL;
     this->FishingSystemClass = NULL;
-    this->revisionNum = 75365;
+    this->revisionNum = 76919;
     this->bUseAsyncMovement = true;
     this->DimensionLockerControlSubsystemClass = UPalDimensionLockerControlSubsystem::StaticClass();
     this->DisplaySafeAreaDebugger = NULL;

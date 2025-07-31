@@ -82,7 +82,7 @@ FPalTechnologyDataTableRowBase UPalTechnologyData::GetTechlonogyBaseData(const F
     return FPalTechnologyDataTableRowBase{};
 }
 
-TArray<FName> UPalTechnologyData::GetRecipeTechnologyRowNameArray() const {
+TArray<FName> UPalTechnologyData::GetRecipeTechnologyRowNameArray(const bool DedicatedServerExcept) const {
     return TArray<FName>();
 }
 

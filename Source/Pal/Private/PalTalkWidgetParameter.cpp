@@ -2,7 +2,7 @@
 
 UPalTalkWidgetParameter::UPalTalkWidgetParameter() {
     this->TalkDataTable = NULL;
-    this->talker = NULL;
+    this->Talker = NULL;
     this->talkIncident = NULL;
     this->IsCancel = false;
 }

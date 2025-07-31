@@ -23,6 +23,14 @@ bool UPalRaidBossComponent::IsValidPlayerInCamp(APalPlayerCharacter* Player) {
     return false;
 }
 
+FGuid UPalRaidBossComponent::GetStartRequestPlayerUID() const {
+    return FGuid{};
+}
+
+APalPlayerCharacter* UPalRaidBossComponent::GetStartRequestPlayerCharacter() const {
+    return NULL;
+}
+
 FName UPalRaidBossComponent::GetStartItemName() {
     return NAME_None;
 }

@@ -278,6 +278,9 @@ public:
     void SetOverrideWeaponType(EPalWeaponType Type);
     
     UFUNCTION(BlueprintCallable)
+    void SetOverrideRotationFlags(bool bUseControllerRotationYaw, bool bOrientRotationToMovement);
+    
+    UFUNCTION(BlueprintCallable)
     void SetHiddenAttachWeapon(FName flagName, bool isHidden);
     
     UFUNCTION(BlueprintCallable)
@@ -321,6 +324,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void ResetOverrideWeaponType();
+    
+    UFUNCTION(BlueprintCallable)
+    void ResetOverrideRotationFlags();
     
 private:
     UFUNCTION(BlueprintCallable)

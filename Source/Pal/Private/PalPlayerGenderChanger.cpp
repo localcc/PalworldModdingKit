@@ -1,7 +1,7 @@
 #include "PalPlayerGenderChanger.h"
 
 UPalPlayerGenderChanger::UPalPlayerGenderChanger() {
-    this->bIsEpmtyFamaleParams = true;
-    this->bIsFamale = true;
+    this->bIsEpmtyFemaleParams = true;
+    this->bIsFemale = true;
 }
 

@@ -72,7 +72,7 @@ void UPalGliderComponent::OnDeadGliderPal(FPalDeadInfo DeadInfo) {
 void UPalGliderComponent::OnCompleteOwnerInitialize() {
 }
 
-void UPalGliderComponent::OnChangeMovementMode(UPalCharacterMovementComponent* Component, TEnumAsByte<EMovementMode> prevMode, TEnumAsByte<EMovementMode> newMode, EPalCharacterMovementCustomMode PrevCustomMode, EPalCharacterMovementCustomMode NewCustomMode) {
+void UPalGliderComponent::OnChangeMovementMode(UPalCharacterMovementComponent* Component, TEnumAsByte<EMovementMode> PrevMode, TEnumAsByte<EMovementMode> NewMode, EPalCharacterMovementCustomMode PrevCustomMode, EPalCharacterMovementCustomMode NewCustomMode) {
 }
 
 

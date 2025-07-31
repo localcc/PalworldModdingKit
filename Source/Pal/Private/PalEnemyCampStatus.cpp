@@ -7,5 +7,6 @@ FPalEnemyCampStatus::FPalEnemyCampStatus() {
     this->bRewardReceived = false;
     this->RewardPalLevel = 0;
     this->ElapsedTime = 0.00f;
+    this->CampPresetIndex = 0;
 }
 

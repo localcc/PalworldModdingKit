@@ -78,6 +78,9 @@ void UPalShooterComponent::SetRequestAiming(EPalShooterFlagContainerPriority Pri
 void UPalShooterComponent::SetOverrideWeaponType(EPalWeaponType Type) {
 }
 
+void UPalShooterComponent::SetOverrideRotationFlags(bool bUseControllerRotationYaw, bool bOrientRotationToMovement) {
+}
+
 void UPalShooterComponent::SetHiddenAttachWeapon(FName flagName, bool isHidden) {
 }
 
@@ -121,6 +124,9 @@ void UPalShooterComponent::ResetRequestAiming() {
 }
 
 void UPalShooterComponent::ResetOverrideWeaponType() {
+}
+
+void UPalShooterComponent::ResetOverrideRotationFlags() {
 }
 
 void UPalShooterComponent::ReloadWeaponInternal() {

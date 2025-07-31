@@ -44,7 +44,7 @@ public:
     void RequestEscapeFishShadow_ToServer(const FGuid& SpotId, const FGuid& FishShadowId);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
-    void ReceiveUseBaitResult_ToClient(bool IsSuccess);
+    void ReceiveUseBaitResult_ToClient(bool IsSuccess, const FName BaitItemId);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void ReceiveFishingResult_ToClinet(EPalFishingResultType resultType);

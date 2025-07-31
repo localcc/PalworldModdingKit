@@ -24,7 +24,7 @@ class UPalCharacterMovementComponent : public UCharacterMovementComponent {
     GENERATED_BODY()
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnUpdateAboveWater, bool, IsAboveWater);
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_FiveParams(FOnMovementModeChangedDelegate, UPalCharacterMovementComponent*, Component, TEnumAsByte<EMovementMode>, prevMode, TEnumAsByte<EMovementMode>, newMode, EPalCharacterMovementCustomMode, PrevCustomMode, EPalCharacterMovementCustomMode, NewCustomMode);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_FiveParams(FOnMovementModeChangedDelegate, UPalCharacterMovementComponent*, Component, TEnumAsByte<EMovementMode>, PrevMode, TEnumAsByte<EMovementMode>, NewMode, EPalCharacterMovementCustomMode, PrevCustomMode, EPalCharacterMovementCustomMode, NewCustomMode);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnLandedDelegate, UPalCharacterMovementComponent*, Component, const FHitResult&, Hit);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnJumpDisable);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnJumpDelegate, UPalCharacterMovementComponent*, Component);
@@ -402,7 +402,7 @@ public:
     void SetPendingSliding(bool bEnabled);
     
     UFUNCTION(BlueprintCallable)
-    void SetNetworkSmoothingMode(ENetworkSmoothingMode newMode, bool bResetMeshLocation);
+    void SetNetworkSmoothingMode(ENetworkSmoothingMode NewMode, bool bResetMeshLocation);
     
     UFUNCTION(BlueprintCallable)
     void SetNavWalkDisableFlag(FName flagName, bool isDisable);

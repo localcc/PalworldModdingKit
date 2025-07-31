@@ -172,9 +172,6 @@ private:
     void OnReceivedCreatedCharacter(const FPalGrantCharacterRequestData RequestData);
     
     UFUNCTION(BlueprintCallable)
-    void OnPressedFishingCancelButton();
-    
-    UFUNCTION(BlueprintCallable)
     void OnPressedFishingButton();
     
     UFUNCTION(BlueprintCallable)

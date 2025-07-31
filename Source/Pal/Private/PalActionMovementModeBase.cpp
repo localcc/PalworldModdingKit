@@ -11,13 +11,13 @@ UPalActionMovementModeBase::UPalActionMovementModeBase() {
     this->MaxSpeed = 0.00f;
 }
 
-void UPalActionMovementModeBase::SetMovementMode(TEnumAsByte<EMovementMode> newMode, uint8 NewMovementMode) {
+void UPalActionMovementModeBase::SetMovementMode(TEnumAsByte<EMovementMode> NewMode, uint8 NewMovementMode) {
 }
 
 void UPalActionMovementModeBase::SetInterrupt(bool InInterrupt) {
 }
 
-void UPalActionMovementModeBase::OnMovementModeChanged(UPalCharacterMovementComponent* Component, TEnumAsByte<EMovementMode> prevMode, TEnumAsByte<EMovementMode> newMode, EPalCharacterMovementCustomMode PrevCustomMode, EPalCharacterMovementCustomMode NewCustomMode) {
+void UPalActionMovementModeBase::OnMovementModeChanged(UPalCharacterMovementComponent* Component, TEnumAsByte<EMovementMode> PrevMode, TEnumAsByte<EMovementMode> NewMode, EPalCharacterMovementCustomMode PrevCustomMode, EPalCharacterMovementCustomMode NewCustomMode) {
 }
 
 bool UPalActionMovementModeBase::MovingOnGround_Implementation() const {

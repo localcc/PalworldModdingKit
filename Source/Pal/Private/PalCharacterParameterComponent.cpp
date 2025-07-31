@@ -5,6 +5,7 @@ UPalCharacterParameterComponent::UPalCharacterParameterComponent(const FObjectIn
     this->bIsCooping = false;
     this->bIsEnableSendReticleTarget = false;
     this->bIsEnableMuteki = false;
+    this->bIsDisableSummonWeapon = false;
     this->IsSPOverheat = false;
     this->bIsHyperArmor = false;
     this->bIsDebugMuteki = false;
@@ -122,6 +123,9 @@ void UPalCharacterParameterComponent::SetEnableSendReticleTarget(FName flagName,
 void UPalCharacterParameterComponent::SetElementTypeFromDatabase(APalCharacter* InCharacter) {
 }
 
+void UPalCharacterParameterComponent::SetDisableSummonWeapon(FName flagName, bool isDisable) {
+}
+
 void UPalCharacterParameterComponent::SetDisableNaturalHealing_Component(FName Key, bool Disable) {
 }
 
@@ -218,6 +222,10 @@ bool UPalCharacterParameterComponent::IsDyingHPMax() const {
 }
 
 bool UPalCharacterParameterComponent::IsDying() const {
+    return false;
+}
+
+bool UPalCharacterParameterComponent::IsDisableSummonWeapon() const {
     return false;
 }
 
@@ -425,6 +433,7 @@ void UPalCharacterParameterComponent::GetLifetimeReplicatedProps(TArray<FLifetim
     DOREPLIFETIME(UPalCharacterParameterComponent, bIsCooping);
     DOREPLIFETIME(UPalCharacterParameterComponent, bIsEnableSendReticleTarget);
     DOREPLIFETIME(UPalCharacterParameterComponent, bIsEnableMuteki);
+    DOREPLIFETIME(UPalCharacterParameterComponent, bIsDisableSummonWeapon);
     DOREPLIFETIME(UPalCharacterParameterComponent, OverrideTargetLocation);
     DOREPLIFETIME(UPalCharacterParameterComponent, Trainer);
     DOREPLIFETIME(UPalCharacterParameterComponent, IndividualParameter);

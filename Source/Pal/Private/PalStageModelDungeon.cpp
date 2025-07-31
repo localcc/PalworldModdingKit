@@ -5,6 +5,9 @@ UPalStageModelDungeon::UPalStageModelDungeon() {
     this->InstanceModel = NULL;
 }
 
+void UPalStageModelDungeon::OnRep_InstanceModel() {
+}
+
 UPalDungeonInstanceModel* UPalStageModelDungeon::GetInstanceModel() const {
     return NULL;
 }

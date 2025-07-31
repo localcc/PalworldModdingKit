@@ -6,8 +6,6 @@ UPalFishingRodModule::UPalFishingRodModule() {
     this->TargetSpot = NULL;
     this->PreTargetFishShadow = NULL;
     this->TargetFishShadow = NULL;
-    this->ReticleTargetActor = NULL;
-    this->bIsHitReticleWaterPlane = false;
 }
 
 void UPalFishingRodModule::TickModule(float DeltaTime) {

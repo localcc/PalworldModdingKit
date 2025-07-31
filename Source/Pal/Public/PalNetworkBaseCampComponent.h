@@ -173,7 +173,7 @@ public:
     void BroadcastBaseCampWorkerLog_Server(EPalLogType DisplayLogType, const FPalInstanceID& WorkerCharacterInstanceId, const FName& EventDataID);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void BroadcastBaseCampWorkerFriendshipRankupLog_Server(const FGuid& BaseCampId, const FPalInstanceID& IndividualId, const bool bIsFirstRankup);
+    void BroadcastBaseCampWorkerFriendshipRankupLog_Server(const FGuid& BaseCampId, const FPalInstanceID& IndividualId, int32 NewRank, const bool bIsFirstRankup);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void BroadcastBaseCampLog_Server(const FPalMonsterControllerBaseCampLogContent& LogContent);
@@ -188,7 +188,7 @@ public:
     void AddBaseCampWorkerLog_Client(EPalLogType DisplayLogType, const FPalInstanceID& WorkerCharacterInstanceId, const FName& EventDataID);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
-    void AddBaseCampWorkerFriendshipRankupLog_Client(const FPalInstanceID& IndividualId, const bool bIsFirstRankup);
+    void AddBaseCampWorkerFriendshipRankupLog_Client(const FPalInstanceID& IndividualId, int32 NewRank, const bool bIsFirstRankup);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void AddBaseCampWorkerDeathLog_Client(const FPalKillLogDisplayData& DeathLogDisplayData);

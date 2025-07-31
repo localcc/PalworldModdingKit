@@ -18,6 +18,9 @@ void APalDungeonEntrance::OnTriggerInteract(AActor* Other, EPalInteractiveObject
 void APalDungeonEntrance::OnResponseDialogEnterDungeon(const bool bResponse) {
 }
 
+void APalDungeonEntrance::OnRep_StageModel() {
+}
+
 FTransform APalDungeonEntrance::GetWarpPoint_Implementation() const {
     return FTransform{};
 }

@@ -17,7 +17,6 @@
 
 class APalCutsceneActor;
 class APalFishingSpotArea;
-class UAnimMontage;
 class UDataTable;
 class UNiagaraSystem;
 class UPalFishingCatchBattle;
@@ -57,9 +56,6 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<EPalSizeType, TSoftClassPtr<APalCutsceneActor>> FishingSuccessCutsceneMap;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<EPalFishingPlayerMotionType, UAnimMontage*> FishingSuccessPlayerMotionMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalDataTableRowName_PassiveSkillData KingPassiveSkillId;

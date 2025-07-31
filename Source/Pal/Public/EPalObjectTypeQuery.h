@@ -12,5 +12,6 @@ enum class EPalObjectTypeQuery : uint8 {
     LiftedupPawn,
     AroundInfoCollect,
     AttackHitOnly,
+    DropItemPhysicsBody,
 };
 

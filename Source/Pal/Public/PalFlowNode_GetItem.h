@@ -6,6 +6,7 @@
 #include "PalNetworkNPCTalkRequestData.h"
 #include "PalFlowNode_GetItem.generated.h"
 
+class APalCharacter;
 class UDataTable;
 class UObject;
 
@@ -29,6 +30,9 @@ protected:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void LotteryItemAndNum(const UDataTable* PresentLotteryDataTable, FName& OutItemName, int32& OutNum);
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    bool CanGetItemInServer(APalCharacter* Talker);
     
 };
 

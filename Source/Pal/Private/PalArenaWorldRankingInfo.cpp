@@ -21,21 +21,26 @@ void APalArenaWorldRankingInfo::UpdatePlayerGuild(const FGuid& PlayerUId, UPalGr
 void APalArenaWorldRankingInfo::UpdateArenaRankPoint(UPalIndividualCharacterParameter* IndividualParameter, int32 NewArenaRankPoint) {
 }
 
-void APalArenaWorldRankingInfo::OnRep_Records() {
+bool APalArenaWorldRankingInfo::IsPlayerInTopRanks(const FGuid& PlayerUId) const {
+    return false;
 }
 
 TArray<FPalArenaWorldRankingRecord> APalArenaWorldRankingInfo::GetWorldArenaRanking() {
     return TArray<FPalArenaWorldRankingRecord>();
 }
 
-int32 APalArenaWorldRankingInfo::GetPlayerRankNo(const FGuid& PlayerUId) const {
-    return 0;
+TArray<FPalArenaWorldRankingRecord> APalArenaWorldRankingInfo::GetTopWorldArenaRanking() {
+    return TArray<FPalArenaWorldRankingRecord>();
+}
+
+FPalArenaWorldRankingRecord APalArenaWorldRankingInfo::GetPlayerRankNo_ServerInternal(const FGuid& PlayerUId) const {
+    return FPalArenaWorldRankingRecord{};
 }
 
 void APalArenaWorldRankingInfo::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
-    DOREPLIFETIME(APalArenaWorldRankingInfo, Records);
+    DOREPLIFETIME(APalArenaWorldRankingInfo, TopRankRecords);
 }
 
 

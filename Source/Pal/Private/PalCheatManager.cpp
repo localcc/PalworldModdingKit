@@ -130,6 +130,9 @@ void UPalCheatManager::ToggleBuildInstallCheckLookToCamera() {
 void UPalCheatManager::ToggleBaseCampWorkerSanityDetail() {
 }
 
+void UPalCheatManager::ToggleABPLean() {
+}
+
 
 void UPalCheatManager::TeleportToSafePoint() {
 }
@@ -1086,6 +1089,9 @@ void UPalCheatManager::DebugAutoSave() {
 }
 
 void UPalCheatManager::DebugAutoRun() {
+}
+
+void UPalCheatManager::DamageToPlayer(int32 DamageValue) {
 }
 
 void UPalCheatManager::DamageBaseCampWorkerToOne() {

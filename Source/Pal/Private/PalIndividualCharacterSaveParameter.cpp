@@ -45,5 +45,6 @@ FPalIndividualCharacterSaveParameter::FPalIndividualCharacterSaveParameter() {
     this->FriendshipBasecampSec = 0;
     this->bFavoriteChangedByFriendship = false;
     this->ArenaRankPoint = 0;
+    this->bDisableSaleInPalLost = false;
 }
 

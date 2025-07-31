@@ -21,6 +21,9 @@ void UPalNetworkArenaComponent::RequestStartArenaSolo_ToServer_Implementation(EP
 void UPalNetworkArenaComponent::RequestStartArena_ToServer_Implementation() {
 }
 
+void UPalNetworkArenaComponent::RequestMyWorldArenaRank_Implementation() {
+}
+
 void UPalNetworkArenaComponent::RequestExitArenaSpectateToServer_Implementation() {
 }
 
@@ -34,6 +37,9 @@ void UPalNetworkArenaComponent::RequestArenaRule_PreEnter_ToServer_Implementatio
 }
 
 void UPalNetworkArenaComponent::RemovePlayerFromArena_ToClient_Implementation(UPalIndividualCharacterParameter* RemovePlayeParameter, bool bIsComplete) {
+}
+
+void UPalNetworkArenaComponent::ReceiveMyWorldArenaRank_Implementation(FPalArenaWorldRankingRecord RankInfo) {
 }
 
 void UPalNetworkArenaComponent::ReceiveExitArenaSpectate_ToClient_Implementation(bool bIsSuccess) {

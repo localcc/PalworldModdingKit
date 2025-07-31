@@ -104,7 +104,7 @@ public:
     void SetEnablePlayerTemperatureComponent(EPalArenaPlayerIndex PlayerIndex, bool bEnable);
     
     UFUNCTION(BlueprintCallable)
-    void SetDisableNotSelectedOtomo(EPalArenaPlayerIndex PlayerIndex, bool bDisable);
+    void SetDisableSkill(EPalArenaPlayerIndex PlayerIndex, bool bDisable);
     
     UFUNCTION(BlueprintCallable)
     void SetDisableGliderPal(EPalArenaPlayerIndex PlayerIndex, bool bDisable);

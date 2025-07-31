@@ -3,6 +3,7 @@
 #include "UObject/NoExportTypes.h"
 #include "ActorArray.h"
 #include "EPalPlayerBattleFinishType.h"
+#include "PalDyingEndInfo.h"
 #include "PalWorldSubsystem.h"
 #include "Templates/SubclassOf.h"
 #include "PalBattleManager.generated.h"
@@ -10,6 +11,7 @@
 class AActor;
 class APalCharacter;
 class APalNPCSpawnerBase;
+class APalPlayerCharacter;
 
 UCLASS(Blueprintable)
 class PAL_API UPalBattleManager : public UPalWorldSubsystem {
@@ -77,6 +79,11 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetAllPlayerAndOtomo_ForEnemySelf(TArray<AActor*> TargetPlayers, TArray<AActor*>& OutCharacters);
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void EventOnPlayerDeadCompletely(APalPlayerCharacter* Player, const FPalDyingEndInfo& DyingEndInfo);
+    
+public:
     UFUNCTION(BlueprintCallable)
     void EnemyNearPlayerListUpdate(AActor* Enemy, float Distance);
     

@@ -21,6 +21,9 @@ private:
     void OnDead(FPalDeadInfo DeadInfo);
     
     UFUNCTION(BlueprintCallable)
+    void OnChangeSwim(bool IsInSwimming);
+    
+    UFUNCTION(BlueprintCallable)
     void CallOnLanded(const FHitResult& Hit);
     
 

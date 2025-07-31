@@ -6,10 +6,14 @@ APalCopyMeshVisualEffect::APalCopyMeshVisualEffect(const FObjectInitializer& Obj
     this->RootComponent = CreateDefaultSubobject<UCapsuleComponent>(TEXT("RootCapsule"));
     this->RootCapsule = (UCapsuleComponent*)RootComponent;
     this->PoseableSkeletalMeshComponent = CreateDefaultSubobject<UPalPoseableMeshComponent>(TEXT("PoseableMeshComponent"));
+    this->PoseableSkeletalMeshRideNPCComponent = NULL;
     this->PoseableSkeletalMeshComponent->SetupAttachment(RootComponent);
 }
 
-void APalCopyMeshVisualEffect::Setup(USkeletalMeshComponent* MeshComponent) {
+void APalCopyMeshVisualEffect::SetupMonsterRideNPCMesh(USkeletalMeshComponent* MeshComponent) {
+}
+
+void APalCopyMeshVisualEffect::SetupMainMesh(USkeletalMeshComponent* MeshComponent) {
 }
 
 TArray<UMaterialInstanceDynamic*> APalCopyMeshVisualEffect::GetMainMeshMaterials() const {

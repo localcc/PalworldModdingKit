@@ -272,6 +272,14 @@ enum class EPalWazaID : uint16 {
     Unique_BluePlatypus_Toboggan_Fire,
     Human_Rolling,
     Weapon_Use,
+    Unique_YakushimaBoss001_Green_2_PhantasmalBolt,
+    Unique_YakushimaBoss001_Green_2_PhantasmalEye,
+    Unique_YakushimaBoss001_Green_2_PhantasmalSphere,
+    Unique_YakushimaBoss001_Green_2_PhantasmalDeathray,
+    Unique_YakushimaBoss002_2_PhantasmalBolt,
+    Unique_YakushimaBoss002_2_PhantasmalEye,
+    Unique_YakushimaBoss002_2_PhantasmalSphere,
+    Unique_YakushimaBoss002_2_PhantasmalDeathray,
     MAX,
 };
 

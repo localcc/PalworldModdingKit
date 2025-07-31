@@ -109,7 +109,7 @@ void UPalCharacterMovementComponent::SetPysicsAccelerationFlag(FName flagName, b
 void UPalCharacterMovementComponent::SetPendingSliding(bool bEnabled) {
 }
 
-void UPalCharacterMovementComponent::SetNetworkSmoothingMode(ENetworkSmoothingMode newMode, bool bResetMeshLocation) {
+void UPalCharacterMovementComponent::SetNetworkSmoothingMode(ENetworkSmoothingMode NewMode, bool bResetMeshLocation) {
 }
 
 void UPalCharacterMovementComponent::SetNavWalkDisableFlag(FName flagName, bool isDisable) {
