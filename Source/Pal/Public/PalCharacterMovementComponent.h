@@ -14,7 +14,6 @@
 #include "PalCharacterMovementComponent.generated.h"
 
 class APalCharacter;
-class UActorComponent;
 class UPalActionMovementModeBase;
 class UPalCharacterMovementComponent;
 class UPrimitiveComponent;
@@ -227,13 +226,13 @@ private:
     FFlagContainer SplintDisableFlag;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FFlagContainer WalkOffLedgesDisableFlag;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bRequestCrouch;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bRequestGliding;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    bool bRequestEndRolling;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bRequestSprint;
@@ -324,7 +323,19 @@ public:
     float JumpableInWaterDepth;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float JumpableInWaterDepthRateThreshold;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalHoveringWaterParameter HoveringWaterEffectParameter;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsHoverWaterPal;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float HoverWaterDistance;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float SwimJumpVelocityZThreshold;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -341,6 +352,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     bool bIsDashSwim;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsAboveWater;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     TArray<UPrimitiveComponent*> TempIgnore_ForPenetration;
@@ -367,6 +381,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetWalkSpeedByType(FName flagName, EPalMovementSpeedType MoveSpeedType);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetWalkOffLedgesDisableFlag(FName flagName, bool Disable);
     
     UFUNCTION(BlueprintCallable)
     void SetWalkableFloorAngleOverrides(EPalWalkableFloorAnglePriority Priority, float Angle);
@@ -476,9 +493,6 @@ public:
     void RequestTemporaryAcceleration();
     
     UFUNCTION(BlueprintCallable)
-    void RequestEndRolling(bool bEndRolling);
-    
-    UFUNCTION(BlueprintCallable)
     void RemoveWalkableFloorAngleOverrides(EPalWalkableFloorAnglePriority Priority);
     
 private:
@@ -493,9 +507,6 @@ public:
     void OnEnterWater();
     
 private:
-    UFUNCTION(BlueprintCallable)
-    void OnDeactivated(UActorComponent* Component);
-    
     UFUNCTION(BlueprintCallable)
     void OnChangeCrouch(UPalCharacterMovementComponent* Component, bool IsInCrouch);
     
@@ -532,9 +543,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsRequestGliding() const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool IsRequestEndRolling() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPysicsAcceleration() const;

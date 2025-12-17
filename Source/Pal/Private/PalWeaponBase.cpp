@@ -2,6 +2,7 @@
 
 APalWeaponBase::APalWeaponBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->BulletDeleteTime = 0.50f;
+    this->BulletDeleteTimePVP = 0.50f;
     this->BulletDecayStartRate = 1.00f;
     this->RecoilCurve = NULL;
     this->RecoilYawRange = 0.10f;
@@ -12,16 +13,22 @@ APalWeaponBase::APalWeaponBase(const FObjectInitializer& ObjectInitializer) : Su
     this->WeaponCoopType = EWeaponCoopType::None;
     this->WeaponType = EPalWeaponType::None;
     this->IsRequiredBullet = true;
+    this->IsRequiredBulletForAltFire = false;
     this->ShootBlurMaterial = NULL;
     this->ShootBlurAlphaCurve = NULL;
     this->weaponBulletDamageReactionType = EPalDamageAnimationReactionType::Big;
     this->IsEmptyOtomoPal = false;
     this->CoolDownTime = 0.00f;
     this->IsTriggerOnlyFireWeapon = false;
+    this->IsTriggerOnlyAltFireWeapon = false;
     this->PvPDamageRate = 1.00f;
+    this->PvPBuildingDamageRate = 1.00f;
+    this->PvPPlayerToGuildPalDamageRate = 1.00f;
     this->IsInfinityMagazine = false;
     this->IsOverrideAnimRateScale = false;
     this->OverrideAnimRateScale = 1.00f;
+    this->IsOverrideTargetRayCastMaxDegree = false;
+    this->OverrideTargetRayCastMaxDegree = 30.00f;
     this->ShootBlurMaterialDynamic = NULL;
     this->ownWeaponStaticData = NULL;
     this->ownWeaponDynamicData = NULL;
@@ -124,6 +131,11 @@ bool APalWeaponBase::IsUseLeftHandAttach_Implementation() const {
     return false;
 }
 
+
+bool APalWeaponBase::IsLocallyControlledWeapon() const {
+    return false;
+}
+
 bool APalWeaponBase::IsHiddenWeapon() {
     return false;
 }
@@ -136,7 +148,15 @@ bool APalWeaponBase::IsExistBulletInPlayerInventory() const {
     return false;
 }
 
+bool APalWeaponBase::IsExistAltFireBulletInPlayerInventory() const {
+    return false;
+}
+
 bool APalWeaponBase::IsEnableAutoAim_Implementation() const {
+    return false;
+}
+
+bool APalWeaponBase::IsEnableAltFire_Implementation() const {
     return false;
 }
 
@@ -197,7 +217,19 @@ int32 APalWeaponBase::GetRemainBulletCount_Implementation() const {
     return 0;
 }
 
+FRandomStream APalWeaponBase::GetRandomStream() const {
+    return FRandomStream{};
+}
+
 float APalWeaponBase::GetRandomFloat(float Min, float Max) {
+    return 0.0f;
+}
+
+float APalWeaponBase::GetPvPPlayerToGuildPalDamageRate_Implementation() const {
+    return 0.0f;
+}
+
+float APalWeaponBase::GetPvPBuildingDamageRate_Implementation() const {
     return 0.0f;
 }
 
@@ -205,7 +237,7 @@ float APalWeaponBase::GetParameterWithPassiveSkillEffect(float originalValue, EP
     return 0.0f;
 }
 
-APalCharacter* APalWeaponBase::GetOwnerCharacter_Implementation() {
+APalCharacter* APalWeaponBase::GetOwnerCharacter_Implementation() const {
     return NULL;
 }
 
@@ -251,8 +283,16 @@ FVector APalWeaponBase::GetBulletShootRootLocation_Implementation() {
     return FVector{};
 }
 
+float APalWeaponBase::GetBulletDeleteTime() const {
+    return 0.0f;
+}
+
 float APalWeaponBase::GetBlurModifierValue() {
     return 0.0f;
+}
+
+FName APalWeaponBase::GetAltFireActionName() const {
+    return NAME_None;
 }
 
 int32 APalWeaponBase::DecrementCurrentSelectPalSphere(int32 RequestConsumeNum, FName& UsedItemID) {
@@ -273,6 +313,10 @@ void APalWeaponBase::ClearWeaponSkill() {
 }
 
 void APalWeaponBase::ClearSummonWeapon() {
+}
+
+bool APalWeaponBase::CanUseAltFire_Implementation() const {
+    return false;
 }
 
 bool APalWeaponBase::CanReserveSummonWeapon() {

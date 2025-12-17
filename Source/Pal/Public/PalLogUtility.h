@@ -12,6 +12,7 @@
 #include "PalLogInfo_DropPal.h"
 #include "PalLogInfo_Skill.h"
 #include "PalMealLogDisplayData.h"
+#include "PalStartRaidAnyBaseCampLogDisplayData.h"
 #include "PalStaticItemIdAndNum.h"
 #include "PalLogUtility.generated.h"
 
@@ -71,8 +72,10 @@ public:
     static void AddWorkerCompleteBuildLog(const UObject* WorldContextObject, const UPalIndividualCharacterHandle* workerHandle, const FName& buildedMapObjectName);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static void AddSkillLog(const UObject* WorldContextObject, EPalLogType logType, const FPalLogInfo_Skill& Info);
+    static void AddStartRaidAnyBaseCampLog(const UObject* WorldContextObject, const FPalStartRaidAnyBaseCampLogDisplayData& DisplayData);
     
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void AddSkillLog(const UObject* WorldContextObject, EPalLogType logType, const FPalLogInfo_Skill& Info);
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void AddMealLog(const UObject* WorldContextObject, const FPalMealLogDisplayData& DisplayData);
     

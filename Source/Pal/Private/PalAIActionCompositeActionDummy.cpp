@@ -12,4 +12,8 @@ void UPalAIActionCompositeActionDummy::OnPauseAction(UPalAIActionBase* action, c
 void UPalAIActionCompositeActionDummy::OnFinishAction(UPalAIActionBase* action) {
 }
 
+FString UPalAIActionCompositeActionDummy::GetActionClassName() const {
+    return TEXT("");
+}
+
 

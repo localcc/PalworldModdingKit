@@ -21,11 +21,13 @@ APalPlayerState::APalPlayerState(const FObjectInitializer& ObjectInitializer) : 
     this->GuildBelongTo = NULL;
     this->SyncTeleportComp = CreateDefaultSubobject<UPalSyncTeleportComponent>(TEXT("SyncTeleportComp"));
     this->UserAchievementChecker = NULL;
+    this->PvPItemCount = 0;
     this->bIsNewCharacter = false;
     this->TryCreateIndividualHandleTemporarily = NULL;
     this->bIsCompleteLoadInitWorldPartition_InServer = false;
     this->bIsCompleteSyncPlayerFromServer_InClient = false;
     this->bAllowSkipNight = false;
+    this->RegisteringMultiPlayerContentType = EPalPlayerMatchingType::None;
     this->ChatCounter = 0;
     this->DisableGuildJoin = false;
 }
@@ -46,6 +48,9 @@ void APalPlayerState::ShowOilRigCrateOpenUI() {
 }
 
 void APalPlayerState::ShowBossDefeatRewardUI(const FPalUIBossDefeatRewardDisplayData& BossDefeatDisplayData) {
+}
+
+void APalPlayerState::SetDiscordPlayerUniqueID_Implementation(const FString& InDiscordPlayerUniqueID) {
 }
 
 void APalPlayerState::SendRandomizerReplicateData_Implementation(FPalRandomizerReplicateData InRandomizerReplicateData) {
@@ -115,6 +120,9 @@ void APalPlayerState::OverridePsnAccountId_Implementation(const uint64& InPsnAcc
 void APalPlayerState::OnUpdatePlayerInfoInGuildBelongTo(const UPalGroupGuildBase* Guild, const FGuid& InPlayerUId, const FPalGuildPlayerInfo& InPlayerInfo) {
 }
 
+void APalPlayerState::OnTimer_CountPvPItem() {
+}
+
 void APalPlayerState::OnRep_PlayerUId() {
 }
 
@@ -128,6 +136,12 @@ void APalPlayerState::OnRelicNumAdded(int32 AddNum) {
 }
 
 void APalPlayerState::OnNotifiedReturnToFieldFromStage_ToClient_Implementation() {
+}
+
+void APalPlayerState::OnNotifiedMovedToFieldFromStage_ToClient_Implementation(const FPalStageInstanceId& StageInstanceId) {
+}
+
+void APalPlayerState::OnNotifiedMovedIntoStage_ToClient_Implementation(const FPalStageInstanceId& StageInstanceId) {
 }
 
 void APalPlayerState::OnNotifiedEnteredStage_ToClient_Implementation() {
@@ -160,6 +174,9 @@ void APalPlayerState::OnCompleteSyncPlayer_InClient(APalPlayerState* PlayerState
 void APalPlayerState::OnCompleteSyncAll_InClient(APalPlayerState* PlayerState) {
 }
 
+void APalPlayerState::OnCompleteLoadWorldPartitionAndAdjustCharacter_InServer() {
+}
+
 void APalPlayerState::OnCompleteLoadInitWorldPartition_InClient(APalPlayerState* PlayerState) {
 }
 
@@ -182,6 +199,9 @@ void APalPlayerState::NotifyOperatingPassiveComplete_ToClient_Implementation(boo
 }
 
 void APalPlayerState::NotifyOperatingGenderComplete_ToClient_Implementation(bool IsSuccess) {
+}
+
+void APalPlayerState::NotifyOnCompleteLoadInitWorldPartition_ToServer_Implementation() {
 }
 
 void APalPlayerState::NotifyMultiHatchComplete_ToClient_Implementation(const TArray<FPalInstanceID>& HatchedIDs) const {
@@ -221,6 +241,10 @@ bool APalPlayerState::IsInStateByStageType(EPalStageType StageType) const {
 }
 
 bool APalPlayerState::IsInStage() const {
+    return false;
+}
+
+bool APalPlayerState::IsInPlayerMatching() const {
     return false;
 }
 
@@ -286,6 +310,14 @@ UPalPlayerLocalRecordData* APalPlayerState::GetLocalRecordData() const {
 
 UPalPlayerInventoryData* APalPlayerState::GetInventoryData() const {
     return NULL;
+}
+
+FPalStageInstanceId APalPlayerState::GetEnteringStageInstanceId() const {
+    return FPalStageInstanceId{};
+}
+
+EPalOptionWorldDeathPenalty APalPlayerState::GetDeathPenaltyModeForGameOverUI() const {
+    return EPalOptionWorldDeathPenalty::None;
 }
 
 TArray<FPalLogInfo_DropPal> APalPlayerState::GetAndClearLastDropPalInfo() {
@@ -420,8 +452,11 @@ void APalPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     DOREPLIFETIME(APalPlayerState, BaseCampBuildingNum);
     DOREPLIFETIME(APalPlayerState, QuestManager);
     DOREPLIFETIME(APalPlayerState, GuildBelongTo);
+    DOREPLIFETIME(APalPlayerState, PvPItemCount);
+    DOREPLIFETIME(APalPlayerState, DiscordPlayerUniqueID);
     DOREPLIFETIME(APalPlayerState, bIsCompleteLoadInitWorldPartition_InServer);
     DOREPLIFETIME(APalPlayerState, bAllowSkipNight);
+    DOREPLIFETIME(APalPlayerState, RegisteringMultiPlayerContentType);
     DOREPLIFETIME(APalPlayerState, ChatCounter);
     DOREPLIFETIME(APalPlayerState, DisableGuildJoin);
 }

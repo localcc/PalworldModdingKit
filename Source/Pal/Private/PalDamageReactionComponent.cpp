@@ -61,6 +61,9 @@ void UPalDamageReactionComponent::ForceDamageDelegateForCaptureBall(AActor* Atta
 void UPalDamageReactionComponent::DeathDamage_ForSelfDestruct(FVector Velocity, EPalWazaID WazaID) {
 }
 
+void UPalDamageReactionComponent::CallOnSlipDamageDelegate_ToAll_Implementation(FPalDamageResult DamageResult) {
+}
+
 void UPalDamageReactionComponent::CallOnDamageDelegateAlways_Implementation(FPalDamageResult DamageResult) {
 }
 

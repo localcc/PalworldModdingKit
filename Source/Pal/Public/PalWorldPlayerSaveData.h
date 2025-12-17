@@ -56,6 +56,9 @@ public:
     FPalContainerId PalStorageContainerId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FPalInstanceID> PalStorageOverflownIndividualIds;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalLoggedinPlayerSaveDataRecordData RecordData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

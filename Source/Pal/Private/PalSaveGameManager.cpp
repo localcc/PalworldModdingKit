@@ -11,6 +11,7 @@ UPalSaveGameManager::UPalSaveGameManager() {
     this->LoadedLocalWorldSaveData = NULL;
     this->bIsLoadedWorldOptionSaveData = false;
     this->LoadedWorldOptionSaveData = NULL;
+    this->bLastSavedUsingMod = false;
     this->IsAppliedPlayerSaveData = false;
     this->bIsForceDisableAutoSave = false;
     this->bIsUseBackupSaveData = true;

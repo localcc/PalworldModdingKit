@@ -20,9 +20,6 @@ public:
     UFUNCTION(BlueprintCallable)
     void RestartGame();
     
-    UFUNCTION(BlueprintCallable)
-    void RespawnPlayer(int32 PlayerIndex);
-    
 private:
     UFUNCTION(BlueprintCallable)
     void OnUpdateSession(const FString& ResponseBody, bool bResponseOK, int32 ResponseCode);

@@ -19,6 +19,9 @@ public:
     float DamageRate;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float CollectionObjectDamageRate;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool IsBlow;
     
 private:

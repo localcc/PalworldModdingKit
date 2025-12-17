@@ -20,6 +20,7 @@ class UPalArenaCharacterRefresher;
 class UPalArenaInstanceModel;
 class UPalArenaSequenceBase;
 class UPalArenaSequencer;
+class UPalHUDDispatchParameterBase;
 class UPalIndividualCharacterHandle;
 class UPalIndividualCharacterParameter;
 
@@ -30,6 +31,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnSequenceChangedDelegate, UPalArenaSequencer*, Self, EPalArenaSequenceType, PrevType, EPalArenaSequenceType, AfterType);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPlayerInfoInitializedDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnPartyUpdatedDelegate, EPalArenaPlayerIndex, PlayerIndex, FPalArenaPlayerParty, NewParty);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPalSelectUICloseDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnDeleteDelegate, UPalArenaSequencer*, Self);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCharacterDeadDelegate, APalCharacter*, DeadCharacter);
     
@@ -47,6 +49,9 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnPlayerInfoInitializedDelegate OnPlayerInfoInitialized;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnPalSelectUICloseDelegate OnPalSelectUICloseDelegate;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -120,6 +125,10 @@ public:
     
     UFUNCTION(BlueprintCallable)
     FGuid OpenPalSelectUI(FOnPalSelectedDelegate PalSelectedDelegate);
+    
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnPalSelectUIClose(UPalHUDDispatchParameterBase* Param);
     
 protected:
     UFUNCTION(BlueprintCallable)

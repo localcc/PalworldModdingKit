@@ -85,6 +85,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FTimerHandle FullInventoryLogGuardTimerHandle;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FTimerHandle UpdatePassiveSkillRecheckTimerHandle;
+    
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float NowItemWeight;
@@ -120,6 +123,11 @@ public:
 
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
+protected:
+    UFUNCTION(BlueprintCallable)
+    void UpdatePassiveSkill();
+    
+public:
     UFUNCTION(BlueprintCallable)
     bool TryRemoveEquipment(UPalItemSlot* EquipSlot);
     

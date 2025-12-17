@@ -9,10 +9,7 @@
 #include "PalPartnerSkillPassiveSkill.generated.h"
 
 class AActor;
-class ACharacter;
 class APalCharacter;
-class APalPlayerCharacter;
-class APalPlayerController;
 class UPalCharacterParameterComponent;
 class UPalIndividualCharacterHandle;
 
@@ -20,14 +17,10 @@ UCLASS(Blueprintable)
 class PAL_API UPalPartnerSkillPassiveSkill : public UObject {
     GENERATED_BODY()
 public:
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnCachedPassiveSkillListDelegate, const FString&, InOperation, const FName&, InSkillName);
     DECLARE_DYNAMIC_DELEGATE_RetVal_OneParam(bool, FIsRestricted, AActor*, Trainer);
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FIsRestricted IsRestrictedDelegate;
-    
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FOnCachedPassiveSkillListDelegate OnCachedPassiveSkillListDelegate;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool isReserving;
@@ -57,6 +50,9 @@ public:
 private:
     UFUNCTION(BlueprintCallable)
     void OnWorkerAssignChanged(UPalCharacterParameterComponent* Parameter);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnUpdateOtomoSlotWithActor(int32 SlotIndex, UPalIndividualCharacterHandle* LastHandle);
     
     UFUNCTION(BlueprintCallable)
     void OnUpdateOtomoHolder(APalCharacter* Character);
@@ -107,6 +103,9 @@ public:
     UFUNCTION(BlueprintCallable)
     void OnChangeDayTime();
     
+    UFUNCTION(BlueprintCallable)
+    void OnChangeBattleMode(bool bIsBattleMode);
+    
 private:
     UFUNCTION(BlueprintCallable)
     void OnAddNewWorker(UPalIndividualCharacterHandle* AddCharacterHandle);
@@ -136,15 +135,6 @@ private:
     UFUNCTION(BlueprintCallable)
     void InactivateWorkingSkill();
     
-    UFUNCTION(BlueprintCallable)
-    APalPlayerController* GetTrainerController() const;
-    
-    UFUNCTION(BlueprintCallable)
-    APalPlayerCharacter* GetTrainerActor() const;
-    
-    UFUNCTION(BlueprintCallable)
-    ACharacter* GetTrainer() const;
-    
 public:
     UFUNCTION(BlueprintCallable)
     TArray<FName> GetPassiveSkillList() const;
@@ -155,6 +145,9 @@ private:
     
     UFUNCTION(BlueprintCallable)
     int32 GetOtomoRank() const;
+    
+    UFUNCTION(BlueprintCallable)
+    void AllResetPassiveSkill();
     
 };
 

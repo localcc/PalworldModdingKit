@@ -81,6 +81,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FInvaderTargetChangedDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FGotStatusPointListChangedDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FEndMedicalBedDelegate);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FDeadParameterDelegate, UPalIndividualCharacterParameter*, IndividualParameter);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FDeadBodyDelegate, UPalIndividualCharacterHandle*, IndividualHandle);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FConditionChangedDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FChangeMasteredWazaDelegate, UPalIndividualCharacterParameter*, IndividualParameter, EPalWazaID, WazaID);
@@ -103,6 +104,9 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FUpdateHPDelegate OnUpdateHPDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FDeadParameterDelegate OnDeadParameterDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FRevivedParameterDelegate OnRevivedParameterDelegate;
@@ -239,6 +243,12 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     bool bCanTargetFromAI;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsInRaidArea;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bNeedResetShieldHP;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_SaveParameter, meta=(AllowPrivateAccess=true))
     FPalIndividualCharacterSaveParameter SaveParameter;
     
@@ -292,6 +302,15 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     EPalExpCalcType LastExpUpdateType;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    int32 RespawnPenaltyCount;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    FDateTime LastRespawnTime;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    bool bDeathAppliedOnLogin;
+    
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FString Debug_CurrentAIActionName;
@@ -334,6 +353,9 @@ public:
     void SetShieldHP(FFixedPoint64 NextSheildHP);
     
     UFUNCTION(BlueprintCallable)
+    void SetSecurityPoliceTargetPlayerId(const FGuid& PlayerId);
+    
+    UFUNCTION(BlueprintCallable)
     void SetPhysicalHealth(EPalStatusPhysicalHealthType PhysicalHealth);
     
     UFUNCTION(BlueprintCallable)
@@ -350,6 +372,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetInvaderData(EPalInvaderType InvaderType, const FGuid InBaseCampId);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetInRaidArea(bool InRaidArea);
     
     UFUNCTION(BlueprintCallable)
     void SetInArena(bool InArena);
@@ -431,6 +456,9 @@ public:
     bool IsSkinApplied() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsRespawnReady() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsRedirectDamage() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -453,6 +481,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsLevelMax() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsInRaidArea() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInArena() const;
@@ -557,6 +588,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetSanityRate() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetRespawnTime() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FPalFoodRegeneInfo GetRegeneItemName() const;

@@ -14,7 +14,7 @@ class IPalOwnerCharacterAcquirableInterface : public IInterface {
     GENERATED_BODY()
 public:
     UFUNCTION(BlueprintCallable)
-    virtual APalCharacter* GetOwnerCharacter() PURE_VIRTUAL(GetOwnerCharacter, return NULL;);
+    virtual APalCharacter* GetOwnerCharacter() const PURE_VIRTUAL(GetOwnerCharacter, return NULL;);
     
 };
 

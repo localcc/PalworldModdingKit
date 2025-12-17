@@ -8,7 +8,9 @@
 #include "Engine/EngineTypes.h"
 #include "EPalChatCategory.h"
 #include "EPalMapObjectOperationResult.h"
+#include "EPalOptionWorldDeathPenalty.h"
 #include "EPalPlayerJoinResult.h"
+#include "EPalPlayerMatchingType.h"
 #include "EPalStageType.h"
 #include "PalBaseCampWorkerMovementLogDisplayData.h"
 #include "PalBuildResultParameter.h"
@@ -28,6 +30,7 @@
 #include "PalPlayerReplicationEntity.h"
 #include "PalPlayerSettingsForServer.h"
 #include "PalRandomizerReplicateData.h"
+#include "PalStageInstanceId.h"
 #include "PalStaticItemIdAndNum.h"
 #include "PalUIBossDefeatRewardDisplayData.h"
 #include "PalUIPalCaptureInfo.h"
@@ -58,6 +61,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FStartCrimeDelegate, FGuid, CrimeInstanceId);
     DECLARE_DYNAMIC_DELEGATE_OneParam(FReturnSelfSingleDelegate, APalPlayerState*, PlayerState);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FReturnSelfDelegate, APalPlayerState*, PlayerState);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FReturnSelfAndStageInstanceIdDelegate, APalPlayerState*, PlayerState, const FPalStageInstanceId&, StageInstanceId);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FReportCrimeIdsDelegate, UPalIndividualCharacterHandle*, CriminalHandle, const TArray<FName>&, CrimeIds);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FReleaseWantedDelegate, UPalIndividualCharacterHandle*, CriminalHandle);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnOperatingResultNotifiedDelegate, const bool, IsSuccess);
@@ -71,6 +75,11 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCapturePalInServerDelegate, UPalIndividualCharacterHandle*, CaptureCharacterHandle);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCapturePalDelegate, const FPalUIPalCaptureInfo&, CaptureInfo);
     
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FTimerHandle TimerHandle_CountPvpItem;
+    
+public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnLoadingProgressUpdate OnLoadingProgressUpdateDelegate;
     
@@ -100,6 +109,12 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnCompleteLoadInitWorldPartitionDelegate OnCompleteLoadInitWorldPartitionDelegate_InClient;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FReturnSelfAndStageInstanceIdDelegate OnNotifiedMovedIntoStageInClientDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FReturnSelfAndStageInstanceIdDelegate OnNotifiedMovedToFieldFromStageInClientDelegate;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_PlayerUId, meta=(AllowPrivateAccess=true))
@@ -177,6 +192,14 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalUserAchievementChecker* UserAchievementChecker;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    int32 PvPItemCount;
+    
+public:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    FString DiscordPlayerUniqueID;
+    
+protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsNewCharacter;
     
@@ -219,6 +242,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_AllowSkipNight, meta=(AllowPrivateAccess=true))
     bool bAllowSkipNight;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    EPalPlayerMatchingType RegisteringMultiPlayerContentType;
+    
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     int32 ChatCounter;
@@ -247,6 +273,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void ShowBossDefeatRewardUI(const FPalUIBossDefeatRewardDisplayData& BossDefeatDisplayData);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void SetDiscordPlayerUniqueID(const FString& InDiscordPlayerUniqueID);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void SendRandomizerReplicateData(FPalRandomizerReplicateData InRandomizerReplicateData);
@@ -324,6 +353,9 @@ private:
     void OnUpdatePlayerInfoInGuildBelongTo(const UPalGroupGuildBase* Guild, const FGuid& InPlayerUId, const FPalGuildPlayerInfo& InPlayerInfo);
     
     UFUNCTION(BlueprintCallable)
+    void OnTimer_CountPvPItem();
+    
+    UFUNCTION(BlueprintCallable)
     void OnRep_PlayerUId();
     
     UFUNCTION(BlueprintCallable)
@@ -338,6 +370,12 @@ public:
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void OnNotifiedReturnToFieldFromStage_ToClient();
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void OnNotifiedMovedToFieldFromStage_ToClient(const FPalStageInstanceId& StageInstanceId);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void OnNotifiedMovedIntoStage_ToClient(const FPalStageInstanceId& StageInstanceId);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void OnNotifiedEnteredStage_ToClient();
@@ -372,6 +410,11 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnCompleteSyncAll_InClient(APalPlayerState* PlayerState);
     
+public:
+    UFUNCTION(BlueprintCallable)
+    void OnCompleteLoadWorldPartitionAndAdjustCharacter_InServer();
+    
+private:
     UFUNCTION(BlueprintCallable)
     void OnCompleteLoadInitWorldPartition_InClient(APalPlayerState* PlayerState);
     
@@ -399,6 +442,11 @@ public:
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void NotifyOperatingGenderComplete_ToClient(bool IsSuccess);
     
+private:
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void NotifyOnCompleteLoadInitWorldPartition_ToServer();
+    
+public:
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void NotifyMultiHatchComplete_ToClient(const TArray<FPalInstanceID>& HatchedIDs) const;
     
@@ -438,6 +486,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInStage() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsInPlayerMatching() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsCompleteLoadWorldPartition_InServer(FGuid InGuid) const;
@@ -486,6 +537,12 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalPlayerInventoryData* GetInventoryData() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FPalStageInstanceId GetEnteringStageInstanceId() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    EPalOptionWorldDeathPenalty GetDeathPenaltyModeForGameOverUI() const;
     
     UFUNCTION(BlueprintCallable)
     TArray<FPalLogInfo_DropPal> GetAndClearLastDropPalInfo();

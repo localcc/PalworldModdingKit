@@ -12,5 +12,8 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsExistRespawnLocation();
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool CanSelectRespawnLocation() const;
+    
 };
 

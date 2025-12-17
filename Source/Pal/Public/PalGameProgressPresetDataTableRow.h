@@ -42,6 +42,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FPalDebugItemCreateInfo> Items;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FString> ExecuteCommands;
+    
     PAL_API FPalGameProgressPresetDataTableRow();
 };
 

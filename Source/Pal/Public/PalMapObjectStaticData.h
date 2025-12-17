@@ -33,6 +33,12 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName MapObjectId_SkillFruit_VisibleContent;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName MapObjectId_BaseCampPoint_RaidBossArea;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName MapObjectId_Alter_RaidBossArea;
+    
     PAL_API FPalMapObjectStaticData();
 };
 

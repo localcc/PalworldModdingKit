@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Engine/DataTable.h"
+#include "EPalPlayerBodyShape.h"
 #include "PalPlayerEquipmentMeshDataRow.generated.h"
 
 class UAnimInstance;
@@ -24,6 +25,15 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bUseCustomDepthPass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsFullBodyEquipment;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName OverrideBodyType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalPlayerBodyShape BodyShape;
     
     PAL_API FPalPlayerEquipmentMeshDataRow();
 };

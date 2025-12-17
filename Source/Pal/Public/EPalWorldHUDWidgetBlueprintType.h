@@ -27,5 +27,7 @@ enum class EPalWorldHUDWidgetBlueprintType : uint8 {
     Expedition,
     SkillFruitFarm,
     FishPond,
+    RaidBossAltar,
+    MedicalPalBed,
 };
 

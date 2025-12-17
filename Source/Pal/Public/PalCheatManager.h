@@ -10,6 +10,7 @@
 #include "EPalBaseCampWorkerSickType.h"
 #include "EPalBossBattleDifficulty.h"
 #include "EPalBossType.h"
+#include "EPalDipType.h"
 #include "EPalEnergyType.h"
 #include "EPalLimitVolumeFlag.h"
 #include "EPalMapBaseCampWorkerOrderType.h"
@@ -277,6 +278,9 @@ public:
     void StartDismantlingMode();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void StartDiscord(const FString& LobbySecret);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void StartBuildMode(const FName BuildObjectId);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -311,6 +315,9 @@ public:
     void SpawnMonster(const FName CharacterID, int32 Level);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SpawnFishShadowToReticleSpot(const FName FishShadowId);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SleepAllEnemy();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -332,10 +339,16 @@ public:
     void ShowSnapMode();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void ShowSaveFileNum();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void ShowPlayers();
     
     UFUNCTION(BlueprintCallable, Exec)
     void ShowPlayerMoveSpeed();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void ShowPassiveSkillStatus();
     
     UFUNCTION(BlueprintCallable, Exec)
     void ShowPalEggStatus();
@@ -446,6 +459,9 @@ public:
     void SetSanityToBaseCampPal(const float Sanity);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SetReflexMode(int32 Mode);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetPlayerSP(int32 NewSP);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -473,6 +489,12 @@ public:
     void SetPaldexComplete(bool IsComplete);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SetPalCaptureNumRecordAll(const int32 CaptureNum);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetPalCaptureNumRecord(const FName& CharacterID, const int32 CaptureNum);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetOtomoPalWorkSpeedRank(int32 Rank);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -489,6 +511,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetMultiplayRestriction(bool bRestriction);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetMemoryWarningThresholdMB(int32 MemoryWarningThresholdMB);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetMapObjectStatusRange(const float Range);
@@ -542,7 +567,16 @@ public:
     void SetDummyPlayerList(bool bEnable);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SetDLSSFGMode(int32 Mode);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetDiscordMuteSelf(int32 Mute);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetDisableInteractReticleTarget(bool bIsEnable);
+    
+    UFUNCTION(Exec)
+    void SetDip(EPalDipType Type, int32 InValue);
     
     UFUNCTION(BlueprintCallable)
     void SetDebugRespawnPointForPlayer(APalPlayerCharacter* Character, FVector Location);
@@ -650,6 +684,9 @@ public:
     void RemovePlayerSkin(EPalSkinType Part, FName InTarget);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void RefreshQuestData();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void RandomizePassive_PlayerWeapon();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -660,6 +697,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void PrintRandomizerInfo();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void PrintRaidBossAreaPhase();
     
     UFUNCTION(BlueprintCallable, Exec)
     void PrintPlatformInventory();
@@ -689,10 +729,16 @@ public:
     void Ping(const FString& Address);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void PetPal();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void ParallelForUpdateActiveTiles();
     
     UFUNCTION(BlueprintCallable, Exec)
     void PalmiTargetEnemny();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void PaintBuildObjectColor(const bool bOn);
     
     UFUNCTION(BlueprintCallable, Exec)
     void OrderQuestForce(const FName QuestId);
@@ -835,6 +881,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsDisableEnemyEyeSight() const;
     
+    UFUNCTION(BlueprintCallable, Exec)
+    bool IsDipEnabled(EPalDipType Type, int32 Threshold);
+    
     UFUNCTION(BlueprintCallable)
     bool IsCaptureSuccessAlways() const;
     
@@ -910,6 +959,9 @@ public:
     void GetRelic(int32 Count);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void GetReflexSupport();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void GetPlanerPal();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -929,6 +981,12 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void GetItem(FName StaticItemId, int32 Count);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void GetDLSSFGSupport();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    int32 GetDip(EPalDipType Type);
     
     UFUNCTION(BlueprintCallable, Exec)
     void GenerateCombiMonster();
@@ -962,6 +1020,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void ForceFoundNearestTreasureMapPoint(const int32 Rarity);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void ForceExpireAllRaidBossPhases();
     
     UFUNCTION(BlueprintCallable, Exec)
     void ForceExitStageAllPlayer();
@@ -1042,6 +1103,9 @@ public:
     void EnableStatPalNavigation();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void EnableSkyCreator(const bool bEnable);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void EnableCommandToServer();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -1051,7 +1115,22 @@ public:
     void EasyGamePreset();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void DumpSaveData();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void DumpOptionWorldSettings();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void DumpMapObjectOctreeStats();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void DumpFishShadowOctreeStats();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void DumpDip();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void DumpBuilds();
     
     UFUNCTION(BlueprintCallable, Exec)
     void DumpAkComponent();
@@ -1100,6 +1179,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void DisableEnemyEyeSight();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void DipDebug();
     
     UFUNCTION(BlueprintCallable, Exec)
     void DestroyAllAntiAirMissileLaunchers();
@@ -1210,6 +1292,12 @@ public:
     void CommandToServer(const FString& Command);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void CloudTryStartDumpFileList() const;
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void CloudTryStartDownloadWorlds() const;
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void CleatDebugInfoText();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -1238,6 +1326,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void ChangeHUDScale(float Scale);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void ChangeDebugBuildObjectColor(const FColor& Color);
     
     UFUNCTION(BlueprintCallable, Exec)
     void ChangeCrossplayPlatforms(const FString& Command, const FString& PlatformName);

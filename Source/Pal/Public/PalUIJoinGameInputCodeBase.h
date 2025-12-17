@@ -13,6 +13,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString CahcedInputInviteCode;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName EnableUIInputFlagName;
+    
 public:
     UPalUIJoinGameInputCodeBase();
 protected:

@@ -43,6 +43,9 @@ bool UPalBattleManager::GetConflictEnemies(AActor* Player, TArray<AActor*>& OutE
 void UPalBattleManager::GetAllPlayerAndOtomo_ForEnemySelf(TArray<AActor*> TargetPlayers, TArray<AActor*>& OutCharacters) {
 }
 
+void UPalBattleManager::EventOnRevivePlayer(APalPlayerCharacter* Player) {
+}
+
 void UPalBattleManager::EventOnPlayerDeadCompletely(APalPlayerCharacter* Player, const FPalDyingEndInfo& DyingEndInfo) {
 }
 

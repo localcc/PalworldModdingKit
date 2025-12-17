@@ -23,6 +23,9 @@ public:
     void ShowFocusCursor(UWidget* TargetWidget);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void ShowElementMatchUI(UWidget* RelativeWidget, const FVector2D& AnchorPosition);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ShowCommonWarning(const FPalUICommonWarningDisplayData& WarningDisplayData);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
@@ -32,6 +35,9 @@ public:
     void ShowCommonItemInfo(const FPalUICommonItemInfoDisplayData& DisplayData);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void SetVisibilityRootLayout(ESlateVisibility NewVisibility);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetupLiftIcon();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
@@ -39,6 +45,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void HideFocusCursor();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void HideElementMatchUI();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void HideCommonWarning(const FGuid PreserveID);

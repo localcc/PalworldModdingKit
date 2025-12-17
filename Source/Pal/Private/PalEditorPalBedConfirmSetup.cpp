@@ -16,13 +16,16 @@ APalEditorPalBedConfirmSetup::APalEditorPalBedConfirmSetup(const FObjectInitiali
     this->VirtualBaseCamp = NULL;
 }
 
-void APalEditorPalBedConfirmSetup::SetupForSpawnedMapObject(const FGuid& InstanceId, const FName CharacterID) {
+void APalEditorPalBedConfirmSetup::SetupForSpawnedMapObject(APalMapObject* SpawnedMapObject, const FName CharacterID) {
 }
 
 void APalEditorPalBedConfirmSetup::OnWorldMapObjectSpawnable() {
 }
 
 void APalEditorPalBedConfirmSetup::OnSpawnedCharacterInServer(FPalInstanceID IndividualId) {
+}
+
+void APalEditorPalBedConfirmSetup::OnCreateMapObjectModel(const FGuid& InstanceId, const FName CharacterID) {
 }
 
 void APalEditorPalBedConfirmSetup::OnCreatedIndividual(FPalInstanceID IndividualId) {

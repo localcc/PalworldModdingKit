@@ -4,7 +4,7 @@
 #include "PalOptionGraphicsSettings.h"
 #include "PalStaticMeshImposterChunk.generated.h"
 
-class UHierarchicalInstancedStaticMeshComponent;
+class UPalStaticMeshImposterHISMComponent;
 
 UCLASS(Blueprintable)
 class PAL_API APalStaticMeshImposterChunk : public AActor {
@@ -12,7 +12,7 @@ class PAL_API APalStaticMeshImposterChunk : public AActor {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    TArray<UHierarchicalInstancedStaticMeshComponent*> HISMComponents;
+    TArray<UPalStaticMeshImposterHISMComponent*> HISMComponents;
     
 public:
     APalStaticMeshImposterChunk(const FObjectInitializer& ObjectInitializer);

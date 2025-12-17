@@ -4,6 +4,8 @@
 
 UENUM(BlueprintType)
 enum class EPalStageRequestResult : uint8 {
+    None,
+    Success,
     FailedNotValidStage,
     FailedNotValidPlayerUId,
     FailedNotValidPlayerState,
@@ -16,6 +18,9 @@ enum class EPalStageRequestResult : uint8 {
     FailedGetStartPointTransform,
     FailedGetReturnToFieldPointTransform,
     FailedNotValidExitParameter,
-    Success,
+    FailedNotAllowed,
+    FailedConcurrentStageLimitation,
+    FailedCannotExitStageOnRespawn,
+    FailedPlayerNotInStage,
 };
 

@@ -219,6 +219,9 @@ void UPalCheatManager::StartLabResearchNotConsumeMaterials(const FName ResearchI
 void UPalCheatManager::StartDismantlingMode() {
 }
 
+void UPalCheatManager::StartDiscord(const FString& LobbySecret) {
+}
+
 void UPalCheatManager::StartBuildMode(const FName BuildObjectId) {
 }
 
@@ -245,6 +248,9 @@ void UPalCheatManager::SpawnMonsterForPlayer(const FName& CharacterID, int32 Num
 void UPalCheatManager::SpawnMonster(const FName CharacterID, int32 Level) {
 }
 
+void UPalCheatManager::SpawnFishShadowToReticleSpot(const FName FishShadowId) {
+}
+
 void UPalCheatManager::SleepAllEnemy() {
 }
 
@@ -266,10 +272,16 @@ void UPalCheatManager::ShowSpawnerInfo() {
 void UPalCheatManager::ShowSnapMode() {
 }
 
+void UPalCheatManager::ShowSaveFileNum() {
+}
+
 void UPalCheatManager::ShowPlayers() {
 }
 
 void UPalCheatManager::ShowPlayerMoveSpeed() {
+}
+
+void UPalCheatManager::ShowPassiveSkillStatus() {
 }
 
 void UPalCheatManager::ShowPalEggStatus() {
@@ -380,6 +392,9 @@ void UPalCheatManager::SetShouldReplicateBaseCampItemStackInfo(const bool bRepli
 void UPalCheatManager::SetSanityToBaseCampPal(const float Sanity) {
 }
 
+void UPalCheatManager::SetReflexMode(int32 Mode) {
+}
+
 void UPalCheatManager::SetPlayerSP(int32 NewSP) {
 }
 
@@ -407,6 +422,12 @@ void UPalCheatManager::SetPalEggStatusRange(const float Range) {
 void UPalCheatManager::SetPaldexComplete(bool IsComplete) {
 }
 
+void UPalCheatManager::SetPalCaptureNumRecordAll(const int32 CaptureNum) {
+}
+
+void UPalCheatManager::SetPalCaptureNumRecord(const FName& CharacterID, const int32 CaptureNum) {
+}
+
 void UPalCheatManager::SetOtomoPalWorkSpeedRank(int32 Rank) {
 }
 
@@ -423,6 +444,9 @@ void UPalCheatManager::SetOtomoPalAttackRank(int32 Rank) {
 }
 
 void UPalCheatManager::SetMultiplayRestriction(bool bRestriction) {
+}
+
+void UPalCheatManager::SetMemoryWarningThresholdMB(int32 MemoryWarningThresholdMB) {
 }
 
 void UPalCheatManager::SetMapObjectStatusRange(const float Range) {
@@ -476,7 +500,16 @@ void UPalCheatManager::SetEnableInteractLock(bool bEnable) {
 void UPalCheatManager::SetDummyPlayerList(bool bEnable) {
 }
 
+void UPalCheatManager::SetDLSSFGMode(int32 Mode) {
+}
+
+void UPalCheatManager::SetDiscordMuteSelf(int32 Mute) {
+}
+
 void UPalCheatManager::SetDisableInteractReticleTarget(bool bIsEnable) {
+}
+
+void UPalCheatManager::SetDip(EPalDipType Type, int32 InValue) {
 }
 
 void UPalCheatManager::SetDebugRespawnPointForPlayer(APalPlayerCharacter* Character, FVector Location) {
@@ -584,6 +617,9 @@ void UPalCheatManager::RepairEquipment() {
 void UPalCheatManager::RemovePlayerSkin(EPalSkinType Part, FName InTarget) {
 }
 
+void UPalCheatManager::RefreshQuestData() {
+}
+
 void UPalCheatManager::RandomizePassive_PlayerWeapon() {
 }
 
@@ -594,6 +630,9 @@ void UPalCheatManager::PrintRealTime() {
 }
 
 void UPalCheatManager::PrintRandomizerInfo() {
+}
+
+void UPalCheatManager::PrintRaidBossAreaPhase() {
 }
 
 void UPalCheatManager::PrintPlatformInventory() {
@@ -623,10 +662,16 @@ void UPalCheatManager::PrintAllDataLayerIDHash() {
 void UPalCheatManager::Ping(const FString& Address) {
 }
 
+void UPalCheatManager::PetPal() {
+}
+
 void UPalCheatManager::ParallelForUpdateActiveTiles() {
 }
 
 void UPalCheatManager::PalmiTargetEnemny() {
+}
+
+void UPalCheatManager::PaintBuildObjectColor(const bool bOn) {
 }
 
 void UPalCheatManager::OrderQuestForce(const FName QuestId) {
@@ -769,6 +814,10 @@ bool UPalCheatManager::IsDisableEnemyEyeSight() const {
     return false;
 }
 
+bool UPalCheatManager::IsDipEnabled(EPalDipType Type, int32 Threshold) {
+    return false;
+}
+
 bool UPalCheatManager::IsCaptureSuccessAlways() const {
     return false;
 }
@@ -842,6 +891,9 @@ void UPalCheatManager::GivePlatformInventoryItem(int32 ItemId, int32 Num) {
 void UPalCheatManager::GetRelic(int32 Count) {
 }
 
+void UPalCheatManager::GetReflexSupport() {
+}
+
 void UPalCheatManager::GetPlanerPal() {
 }
 
@@ -861,6 +913,13 @@ void UPalCheatManager::GetItemToLoadout(FName StaticItemId, int32 Count) {
 }
 
 void UPalCheatManager::GetItem(FName StaticItemId, int32 Count) {
+}
+
+void UPalCheatManager::GetDLSSFGSupport() {
+}
+
+int32 UPalCheatManager::GetDip(EPalDipType Type) {
+    return 0;
 }
 
 void UPalCheatManager::GenerateCombiMonster() {
@@ -894,6 +953,9 @@ void UPalCheatManager::ForceItemContainerDirtyAll() {
 }
 
 void UPalCheatManager::ForceFoundNearestTreasureMapPoint(const int32 Rarity) {
+}
+
+void UPalCheatManager::ForceExpireAllRaidBossPhases() {
 }
 
 void UPalCheatManager::ForceExitStageAllPlayer() {
@@ -974,6 +1036,9 @@ void UPalCheatManager::EnableStatPalnet() {
 void UPalCheatManager::EnableStatPalNavigation() {
 }
 
+void UPalCheatManager::EnableSkyCreator(const bool bEnable) {
+}
+
 void UPalCheatManager::EnableCommandToServer() {
 }
 
@@ -983,7 +1048,22 @@ void UPalCheatManager::EnableCollectServerPalCount() {
 void UPalCheatManager::EasyGamePreset() {
 }
 
+void UPalCheatManager::DumpSaveData() {
+}
+
+void UPalCheatManager::DumpOptionWorldSettings() {
+}
+
 void UPalCheatManager::DumpMapObjectOctreeStats() {
+}
+
+void UPalCheatManager::DumpFishShadowOctreeStats() {
+}
+
+void UPalCheatManager::DumpDip() {
+}
+
+void UPalCheatManager::DumpBuilds() {
 }
 
 void UPalCheatManager::DumpAkComponent() {
@@ -1032,6 +1112,9 @@ void UPalCheatManager::DisableScreenMessage() {
 }
 
 void UPalCheatManager::DisableEnemyEyeSight() {
+}
+
+void UPalCheatManager::DipDebug() {
 }
 
 void UPalCheatManager::DestroyAllAntiAirMissileLaunchers() {
@@ -1142,6 +1225,12 @@ void UPalCheatManager::CompleteLabResearch(const FName ResearchId) {
 void UPalCheatManager::CommandToServer(const FString& Command) {
 }
 
+void UPalCheatManager::CloudTryStartDumpFileList() const {
+}
+
+void UPalCheatManager::CloudTryStartDownloadWorlds() const {
+}
+
 void UPalCheatManager::CleatDebugInfoText() {
 }
 
@@ -1170,6 +1259,9 @@ void UPalCheatManager::ChangeMaxDrawDistanceStaticMeshImposter(const float Dista
 }
 
 void UPalCheatManager::ChangeHUDScale(float Scale) {
+}
+
+void UPalCheatManager::ChangeDebugBuildObjectColor(const FColor& Color) {
 }
 
 void UPalCheatManager::ChangeCrossplayPlatforms(const FString& Command, const FString& PlatformName) {

@@ -8,5 +8,6 @@ FPalOptionUISettings::FPalOptionUISettings() {
     this->ChatUICloseDelayTime = 0.00f;
     this->MinFontSize = 0;
     this->bHideUIWhenNotInBattle = false;
+    this->bCompletedGlobapPalboxTutotial = false;
 }
 

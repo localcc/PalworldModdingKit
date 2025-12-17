@@ -79,6 +79,10 @@ FName UPalDefine::TextId_UICommon_InteractIndicator_Salvage_NotAvailable_NotCons
     return NAME_None;
 }
 
+FName UPalDefine::TextId_UICommon_InteractIndicator_Salvage_NotAvailable_Broken() {
+    return NAME_None;
+}
+
 FName UPalDefine::TextId_UICommon_InteractIndicator_Salvage_NotAvailable() {
     return NAME_None;
 }
@@ -140,6 +144,14 @@ FName UPalDefine::TextId_UICommon_DISMANTLING_CONFIRM_PALBOX() {
 }
 
 FName UPalDefine::TextId_UICommon_ConfirmLockCheckPrivate() {
+    return NAME_None;
+}
+
+FName UPalDefine::TextId_UICommon_CONFIRM_RAIDBOSSAREA_SURRENDER() {
+    return NAME_None;
+}
+
+FName UPalDefine::TextId_UICommon_CONFIRM_RAIDBOSSAREA_EXIT() {
     return NAME_None;
 }
 
@@ -299,6 +311,10 @@ FName UPalDefine::MP_CharacterMakeBaseColorBrightnessName() {
     return NAME_None;
 }
 
+FName UPalDefine::MP_CharacterEmissionCorrectionByTimeName() {
+    return NAME_None;
+}
+
 FName UPalDefine::MP_ArmNormalMinIntensityName() {
     return NAME_None;
 }
@@ -319,6 +335,10 @@ FName UPalDefine::FlagName_CameraOffsetInLiftup() {
     return NAME_None;
 }
 
+FName UPalDefine::EnableCommonUIInputFlagName_JoinSession() {
+    return NAME_None;
+}
+
 FName UPalDefine::DecreaseSanityRate_WorkHard() {
     return NAME_None;
 }
@@ -328,6 +348,10 @@ FName UPalDefine::DecreaseFullStomachRate_WorkHard() {
 }
 
 FName UPalDefine::DecreaseFullStomachRate_Work() {
+    return NAME_None;
+}
+
+FName UPalDefine::BuildObjectID_DefaultSelectedBuildObjectId() {
     return NAME_None;
 }
 

@@ -3,4 +3,8 @@
 UPalFishingDefine::UPalFishingDefine() {
 }
 
+bool UPalFishingDefine::GetCutsceneInfo(AActor* InCharacter, FPalFishingCutsceneInfo& OutCutsceneInfo) {
+    return false;
+}
+
 

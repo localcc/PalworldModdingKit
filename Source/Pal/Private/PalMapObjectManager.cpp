@@ -14,6 +14,8 @@ UPalMapObjectManager::UPalMapObjectManager() {
     this->WorldDisposerForServer = NULL;
     this->BuildStartEffect = NULL;
     this->BuildCompleteEffect = NULL;
+    this->PaintEffect = NULL;
+    this->PaintRemoveEffect = NULL;
     this->BuildCompleteSE = NULL;
     this->RepairEffect = NULL;
     this->DamageEffect = NULL;
@@ -28,10 +30,13 @@ UPalMapObjectManager::UPalMapObjectManager() {
     this->DropItemSpawnLocationFromActorBounds = 15.00f;
     this->DropItemSpawnDirectionZ = 6.00f;
     this->HitEffectSlotClass = NULL;
+    this->BuildObjectSimulatingVisualMeshComponentClass = NULL;
     this->SnapModeFXClass = NULL;
     this->Registrator = NULL;
     this->InDoorCheckProcessIndex_AnyThread = 0;
     this->InDoorCheckMaxNumPerFrame_AnyThread = 1000;
+    this->MapObjectSignificanceUpdateDivideNum = 15;
+    this->MaxDelayedSpawnCallbacksPerFrame = 1024;
     this->SnapModeFX = NULL;
 }
 
@@ -60,6 +65,10 @@ void UPalMapObjectManager::RecalcPointLightOverlap() {
 }
 
 void UPalMapObjectManager::PlayMapObjectDestroyFX(const FVector& Location, const FBoxSphereBounds& Bounds, const EPalMapObjectDestroyFXType Type) {
+}
+
+FPalWorkPositionVisualizerSettings UPalMapObjectManager::GetWorkPositionVisualizerSettings() const {
+    return FPalWorkPositionVisualizerSettings{};
 }
 
 UPalMapObjectFoliage* UPalMapObjectManager::GetFoliage() const {

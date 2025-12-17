@@ -36,7 +36,9 @@ APalCharacter::APalCharacter(const FObjectInitializer& ObjectInitializer) : Supe
     this->AroundInfoCollectorComponent = CreateDefaultSubobject<UPalCharacterAroundInfoCollectorComponent>(TEXT("AroundInfoCollectorComponent"));
     this->RagdollInteractiveSphere = CreateDefaultSubobject<USphereComponent>(TEXT("RagdollInteractiveSphere"));
     this->bIsNeutralGroup = false;
+    this->EmissionCorrectionTimeCurve = NULL;
     this->bIsBattleMode = false;
+    this->bIgnoreChangeBattleModeFlag = false;
     this->bIsTalkMode = false;
     this->FlyMeshHeightCtrlComponent = NULL;
     this->bIsPalActiveActor = true;
@@ -44,6 +46,7 @@ APalCharacter::APalCharacter(const FObjectInitializer& ObjectInitializer) : Supe
     this->bIsLocalInitialized = false;
     this->bIsDisable_ChangeTickInterval_ByImportance = false;
     this->bIsPart = false;
+    this->bUseCustomAutoAimTarget = false;
     this->ImportanceType = EPalCharacterImportanceType::Near;
     this->CurrentAirDashCount = 0;
     this->bUseBodyPartsCollisionProfileNameBaseCamp = false;
@@ -56,6 +59,9 @@ APalCharacter::APalCharacter(const FObjectInitializer& ObjectInitializer) : Supe
 }
 
 void APalCharacter::UpdateGroundRayCast(bool bImmediateApply) {
+}
+
+void APalCharacter::UpdateCharacterEmissionOnMinutesChange() {
 }
 
 void APalCharacter::UnbindOnCompleteInitializeParameterDelegate(EPalCharacterCompleteDelegatePriority Priority, const FPalOnCharacterCompleteInitializeParameter& Event) {
@@ -118,9 +124,6 @@ void APalCharacter::OnRep_IsPalActiveActor(bool PrevIsActiveActor) {
 void APalCharacter::OnRep_IsOtomoCollision(bool PrevbIsOtomoCollision) {
 }
 
-void APalCharacter::OnRep_CapsuleRootSettings() {
-}
-
 void APalCharacter::OnRep_bUseBodyPartsCollisionProfileNameBaseCamp() {
 }
 
@@ -139,7 +142,14 @@ void APalCharacter::OnDamageReaction(FPalDamageRactionInfo ReactionInfo) {
 void APalCharacter::OnChangeWetnessStatus(bool IsSwim) {
 }
 
+void APalCharacter::NotifyStillInWorldTriggered_ToClient_Implementation() {
+}
+
 void APalCharacter::LocalInitialized() {
+}
+
+bool APalCharacter::IsUseCustomAutoAimTarget() const {
+    return false;
 }
 
 bool APalCharacter::IsPreCooping() const {
@@ -155,6 +165,14 @@ bool APalCharacter::IsInitialized() const {
 }
 
 bool APalCharacter::IsCooping() const {
+    return false;
+}
+
+bool APalCharacter::IsAllActiveSkillCooldownFinished() const {
+    return false;
+}
+
+bool APalCharacter::IsActiveSkillCooldownFinished(const EPalWazaID WazaID) const {
     return false;
 }
 
@@ -233,7 +251,6 @@ void APalCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
     DOREPLIFETIME(APalCharacter, bIsPalActiveActor);
     DOREPLIFETIME(APalCharacter, bIsOtomoCollision);
     DOREPLIFETIME(APalCharacter, RootCollisionProfileName);
-    DOREPLIFETIME(APalCharacter, CapsuleRootSettings);
     DOREPLIFETIME(APalCharacter, bUseBodyPartsCollisionProfileNameBaseCamp);
 }
 

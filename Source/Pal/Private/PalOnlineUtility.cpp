@@ -7,7 +7,7 @@ bool UPalOnlineUtility::UnMutePlayer(const UObject* WorldContextObject, const FS
     return false;
 }
 
-bool UPalOnlineUtility::UnBlockPlayer(const UObject* WorldContextObject, const FString& UserId) {
+bool UPalOnlineUtility::UnBlockPlayer(const UObject* WorldContextObject, const FString& UserId, bool& bOutNotFound) {
     return false;
 }
 
@@ -89,6 +89,10 @@ TArray<FPalOptionOnlineIds> UPalOnlineUtility::GetMutePlayerList(const UObject* 
     return TArray<FPalOptionOnlineIds>();
 }
 
+FString UPalOnlineUtility::GetEOSVersion(const UObject* WorldContextObject) {
+    return TEXT("");
+}
+
 TArray<FPalOptionOnlineIds> UPalOnlineUtility::GetBlockPlayerList(const UObject* WorldContextObject) {
     return TArray<FPalOptionOnlineIds>();
 }
@@ -97,7 +101,10 @@ bool UPalOnlineUtility::CheckUserResolvePrivilege(const UObject* WorldContextObj
     return false;
 }
 
-bool UPalOnlineUtility::BlockPlayer(const UObject* WorldContextObject, const FString& UserId, bool& bOutKicked) {
+void UPalOnlineUtility::CheckPlayerNameByUId_UGC(const UObject* WorldContextObject, const FGuid& PlayerUId, FString& outName) {
+}
+
+bool UPalOnlineUtility::BlockPlayer(const UObject* WorldContextObject, const FString& UserId, bool& bOutKicked, const FString& InCachePlayerName, bool& bOutNotFound) {
     return false;
 }
 

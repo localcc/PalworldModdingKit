@@ -19,6 +19,10 @@ bool UPalItemUtility::IsRepairableItem(UObject* WorldContextObject, const FPalIt
     return false;
 }
 
+bool UPalItemUtility::IsEnhanceStatItem(const UObject* WorldObjectContext, const FName& StaticItemId) {
+    return false;
+}
+
 bool UPalItemUtility::IsEmptyAllSlots(const TArray<UPalItemSlot*> Slots) {
     return false;
 }
@@ -44,6 +48,13 @@ void UPalItemUtility::CollectLocalPlayerControllableItemInfos_ByTypeB(const UObj
 }
 
 void UPalItemUtility::CollectLocalPlayerControllableItemInfos(const UObject* WorldContextObject, TArray<FName> StaticItemIds, TArray<FPalStaticItemIdAndNum>& OutItemInfos, const EPalItemInfoCollectType CollectType) {
+}
+
+void UPalItemUtility::CollectLocalPlayerControllableAllItemInfos(const UObject* WorldContextObject, TArray<FPalStaticItemIdAndNum>& OutItemInfos, const EPalItemInfoCollectType CollectType) {
+}
+
+bool UPalItemUtility::CanUseEnhanceStatItemInCurrentWorld(const UObject* WorldObjectContext, const FName& StaticItemId) {
+    return false;
 }
 
 bool UPalItemUtility::CanItemLevelUp(const UPalStaticItemDataBase* ItemData, UPalIndividualCharacterParameter* TargetParameter) {

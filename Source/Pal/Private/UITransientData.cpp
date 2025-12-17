@@ -9,5 +9,7 @@ FUITransientData::FUITransientData() {
     this->LoadingScreenLiving = false;
     this->CanDisplayBlueprintCategoryInBuildRadialMenu = false;
     this->ShouldPopQuickStackDialog = false;
+    this->LastSelectedBuildObjectListCategory = EPalBuildObjectTypeA::Product;
+    this->bDiscardRestoreBuildObjectList = false;
 }
 

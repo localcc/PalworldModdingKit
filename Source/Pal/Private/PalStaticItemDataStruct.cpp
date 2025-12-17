@@ -8,9 +8,10 @@ FPalStaticItemDataStruct::FPalStaticItemDataStruct() {
     this->MaxStackCount = 0;
     this->Weight = 0.00f;
     this->Price = 0;
-    this->SortID = 0;
+    this->SortId = 0;
     this->bInTreasureBox = false;
     this->bNotConsumed = false;
+    this->bNotAvailableInPVP = false;
     this->bEnableHandcraft = false;
     this->bLegalInGame = false;
     this->TechnologyTreeLock = 0;

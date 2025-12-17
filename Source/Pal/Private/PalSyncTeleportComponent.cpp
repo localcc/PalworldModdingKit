@@ -3,6 +3,7 @@
 UPalSyncTeleportComponent::UPalSyncTeleportComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->DefaultStartSE = NULL;
     this->FadeParameter = NULL;
+    this->SyncTeleportState = EPalSyncTeleportState::None;
     this->AutoSaveDisabler = NULL;
 }
 

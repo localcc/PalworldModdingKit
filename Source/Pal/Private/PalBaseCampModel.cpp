@@ -11,6 +11,8 @@ UPalBaseCampModel::UPalBaseCampModel() {
     this->BuildingNum = 0;
     this->Level_InGuildProperty = 1;
     this->ProgressTimeSinceLastTick = 0.00f;
+    this->bTemporary = false;
+    this->bIgnoreInvader = false;
 }
 
 void UPalBaseCampModel::UpdateLevel_ServerInternal(const int32 RequestPlayerId, const int32 NewLevel) {
@@ -95,6 +97,9 @@ bool UPalBaseCampModel::FindWorkAssignableObject(const UPalIndividualCharacterHa
 
 bool UPalBaseCampModel::FindNearestAssignableObject(const UPalIndividualCharacterHandle* AssignIndividualHandle, const FTransform& Origin, const float Range, const bool bFixedAssign, TScriptInterface<IPalBaseCampAssignableObjectInterface>& FoundObject) {
     return false;
+}
+
+void UPalBaseCampModel::DebugUpdateLevel_ServerInternal(const int32 RequestPlayerId, const int32 NewLevel) {
 }
 
 void UPalBaseCampModel::CallOrRegisterOnReadyModule(const EPalBaseCampModuleType ModuleType, FPalBaseCampModuleDelegate Delegate) {

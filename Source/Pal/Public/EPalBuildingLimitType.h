@@ -5,6 +5,7 @@
 UENUM(BlueprintType)
 enum class EPalBuildingLimitType : uint8 {
     Invalid,
+    UltraLow,
     VeryLow,
     Low,
     Medium,

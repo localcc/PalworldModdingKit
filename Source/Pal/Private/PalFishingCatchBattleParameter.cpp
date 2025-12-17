@@ -5,8 +5,6 @@ FPalFishingCatchBattleParameter::FPalFishingCatchBattleParameter() {
     this->DefaultProgressAmount = 0.00f;
     this->SuccessFightCatchAmount = 0.00f;
     this->MissFightCatchAmount = 0.00f;
-    this->FishingSP = 0.00f;
-    this->MissFightSP = 0.00f;
     this->CheckFishPickInterval = 0.00f;
     this->FishingInputAcceptTime = 0.00f;
     this->SinkWaitMinTime = 0.00f;

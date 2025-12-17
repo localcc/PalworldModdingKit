@@ -55,13 +55,16 @@ public:
     bool MovingOnGround() const;
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void K2_OnMovementModeChanged(UPalCharacterMovementComponent* Component, EMovementMode PrevMode, EMovementMode NewMode, EPalCharacterMovementCustomMode PrevCustomMode, EPalCharacterMovementCustomMode NewCustomMode);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void K2_Async_UpdateVelocity(float InDeltaTime);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void K2_Async_PhysCustom(float InDeltaTime, int32 Iterations);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure)
-    FVector K2_Async_GetVelocity(FVector BaseVelocity) const;
+    FVector K2_Async_GetVelocity(FVector BaseVelocity, bool& bUseOriginalCalcVelocity) const;
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     FVector K2_Async_GetFinishVelocity(FVector BaseVelocity);
@@ -87,7 +90,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     bool IsApplyFinishVelocityOnEndAction() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     EPalActionMovementBaseType GetMovementType() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

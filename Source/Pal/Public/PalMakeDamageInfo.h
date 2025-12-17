@@ -90,6 +90,15 @@ public:
     TArray<FPalSpecialAttackRateInfo> SpecialAttackRateInfos;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float PvPBuildingDamageRate;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float PvPPlayerToGuildPalDamageRate;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float CollectionObjectDamageRate;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalDamageAnimationReactionType DamageReactionAnimationType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

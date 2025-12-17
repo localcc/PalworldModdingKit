@@ -13,6 +13,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float AffectSanityRate;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float ReviveSpeedMultiplier;
+    
     UPalMapObjectMedicalPalBedParameterComponent(const FObjectInitializer& ObjectInitializer);
 
 };

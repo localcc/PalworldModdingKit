@@ -66,6 +66,9 @@ void UPalGliderComponent::OnRep_CurrentGliderPalID() {
 
 
 
+void UPalGliderComponent::OnDeadIndividual(UPalIndividualCharacterParameter* InParameter) {
+}
+
 void UPalGliderComponent::OnDeadGliderPal(FPalDeadInfo DeadInfo) {
 }
 

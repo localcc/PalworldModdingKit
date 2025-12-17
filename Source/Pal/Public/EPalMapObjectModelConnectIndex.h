@@ -14,6 +14,11 @@ enum class EPalMapObjectModelConnectIndex : uint8 {
     FrontRight,
     BackLeft,
     BackRight,
+    DiagonalDown = 100,
+    DiagonalUp,
+    DiagonalLeft,
+    DiagonalRight,
+    DiagonalBack,
     AnyPlace = 254,
     None,
 };

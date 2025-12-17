@@ -28,6 +28,9 @@ void UPalSupplySpawnerData::PieceSpawned(FGuid ItemGuid, EPalMapObjectOperationR
 void UPalSupplySpawnerData::OnFinishedSpawningMapObjectModel(FGuid InstanceId, const EPalMapObjectOperationResult Result) {
 }
 
+void UPalSupplySpawnerData::OnFinishedSpawningMapObjectActor(APalMapObject* MapObject) {
+}
+
 void UPalSupplySpawnerData::OnDestroyedMapObject(AActor* DestroyActor) {
 }
 

@@ -2,7 +2,6 @@
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
 #include "EPalPassiveSkillEffectType.h"
-#include "EPalTribeID.h"
 #include "PalItemCreateParameter.h"
 #include "PalPassiveSkillConditionInfo.h"
 #include "PalPassiveSkillDatabaseRow.h"
@@ -21,8 +20,8 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* PassiveSkillDataTable;
     
-    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<EPalTribeID> YakushimaTribeIDs;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* PassiveSkillConditionDataTable;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     TMap<EPalPassiveSkillEffectType, UPalPassiveSkillExtraParameterBase*> PassiveSkillExtraParameters;
@@ -60,7 +59,7 @@ public:
     TArray<EPalPassiveSkillEffectType> GetSkillEffectTypes(FName SkillName);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    static float GetSkillEffectTotalValue(EPalPassiveSkillEffectType EffectType, const TArray<FPalPassiveSkillEffect>& skillEffectList);
+    float GetSkillEffectTotalValue(EPalPassiveSkillEffectType EffectType, const TArray<FPalPassiveSkillEffect>& skillEffectList);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool GetSkillData(const FName& SkillName, FPalPassiveSkillDatabaseRow& outSkillData);
@@ -72,7 +71,7 @@ public:
     TArray<FPalPassiveSkillEffect> GetPassiveSkillEffect(FPalPassiveSkillConditionInfo& ConditionInfo);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    static float GetParameterWithSkillEffect(float originalValue, EPalPassiveSkillEffectType EffectType, const TArray<FPalPassiveSkillEffect>& skillEffectList);
+    float GetParameterWithSkillEffect(float originalValue, EPalPassiveSkillEffectType EffectType, const TArray<FPalPassiveSkillEffect>& skillEffectList);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetPalAssignablePassiveIDs(TArray<FName>& List);

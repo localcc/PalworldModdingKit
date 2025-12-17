@@ -16,6 +16,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateCurrentPageNum, int32, NewPageNum);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSortedLocker);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnTimeout);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnRestoreData, int32, RestoredPalstorageDataIndex);
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FUpdateCurrentPageNum OnUpdateCurrentPageNum;
@@ -28,6 +29,9 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnTimeout OnTimeoutDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnRestoreData OnRestoreData;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

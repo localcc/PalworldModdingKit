@@ -3,6 +3,9 @@
 UPalUIDismantlingModel::UPalUIDismantlingModel() {
 }
 
+void UPalUIDismantlingModel::StartPaintingMode() {
+}
+
 void UPalUIDismantlingModel::Setup() {
 }
 

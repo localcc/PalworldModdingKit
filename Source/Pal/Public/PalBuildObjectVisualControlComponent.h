@@ -3,6 +3,7 @@
 #include "Components/ActorComponent.h"
 #include "PalBuildObjectMaterialArray.h"
 #include "PalBuildObjectMaterialInstanceDynamicArray.h"
+#include "PalBuildObjectPaintData.h"
 #include "PalBuildObjectVisualControlComponent.generated.h"
 
 class UChildActorComponent;
@@ -12,6 +13,8 @@ class UMaterialInstanceDynamic;
 class UMaterialInterface;
 class UMeshComponent;
 class UNiagaraComponent;
+class UPalMapObjectModelPaint;
+class UPalMapObjectWorkPositionVisualizerComponent;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class PAL_API UPalBuildObjectVisualControlComponent : public UActorComponent {
@@ -30,12 +33,21 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UNiagaraComponent* DamageNiagaraComp;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    TArray<UPalMapObjectWorkPositionVisualizerComponent*> WorkPositionVisualizers;
+    
 public:
     UPalBuildObjectVisualControlComponent(const FObjectInitializer& ObjectInitializer);
 
 private:
     UFUNCTION(BlueprintCallable)
+    void OnSetPaintDataInServer(UPalMapObjectModelPaint* Paint);
+    
+    UFUNCTION(BlueprintCallable)
     void OnReplicatedChildActor(UChildActorComponent* ChildActorComponent);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnPaintDataChanged(const FPalBuildObjectPaintData& NewPaintData);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -43,6 +55,10 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UMaterialInstanceDynamic* GetMaterialInstanceDynamic(UMeshComponent* MeshComponent, const int32 MaterialIndex);
+    
+private:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void BroadcastPaintData_ToAll(const FPalBuildObjectPaintData& InPaintData);
     
 };
 

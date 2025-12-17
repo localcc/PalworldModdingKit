@@ -63,6 +63,9 @@ void APalGameStateInGame::OnRep_BaseCampReplicator() {
 void APalGameStateInGame::OnOverTrialTime() {
 }
 
+void APalGameStateInGame::OnCompleteSyncAllFromServer_InClient(APalPlayerState* PlayerState) {
+}
+
 FString APalGameStateInGame::GetWorldSaveDirectoryName() const {
     return TEXT("");
 }
@@ -123,6 +126,7 @@ void APalGameStateInGame::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
     DOREPLIFETIME(APalGameStateInGame, BaseCampCount);
     DOREPLIFETIME(APalGameStateInGame, NavMeshInvokerCount);
     DOREPLIFETIME(APalGameStateInGame, SupplySpawnerDataList);
+    DOREPLIFETIME(APalGameStateInGame, DiscordLobbySecret);
 }
 
 

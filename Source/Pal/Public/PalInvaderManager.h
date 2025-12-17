@@ -91,6 +91,15 @@ protected:
     UFUNCTION(BlueprintCallable)
     void RemoveInvaderIncident(UPalIncidentBase* Incident);
     
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void BroadcastInvaderStart(const FPalIncidentBroadcastParameter& Parameter);
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void BroadcastInvaderEnd(const FPalIncidentBroadcastParameter& Parameter);
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void BroadcastInvaderArrived(const FPalIncidentBroadcastParameter& Parameter);
+    
 
     // Fix for true pure virtual functions not being implemented
 };

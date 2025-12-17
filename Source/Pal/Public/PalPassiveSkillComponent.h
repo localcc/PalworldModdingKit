@@ -6,10 +6,12 @@
 #include "EPalStatusID.h"
 #include "FlagContainer.h"
 #include "PalDamageInfo.h"
+#include "PalPassiveRegeneArrayWrapper.h"
 #include "PalPassiveSkillEffectInfos.h"
 #include "PalSpecialAttackRateInfo.h"
 #include "PalPassiveSkillComponent.generated.h"
 
+class AActor;
 class APalCharacter;
 class UObject;
 
@@ -40,6 +42,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FFlagContainer PassiveDisableFlag;
+    
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<TWeakObjectPtr<UObject>, FPalPassiveRegeneArrayWrapper> RegenePassiveMap;
     
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -99,7 +104,7 @@ public:
     EPalCurveBall GetCurveBallTypePassiveEffectByPlayerEquip();
     
     UFUNCTION(BlueprintCallable)
-    void AddSpecialAttackRateInfo(TArray<FPalSpecialAttackRateInfo>& SpecialAttackRateInfos);
+    void AddSpecialAttackRateInfo(TArray<FPalSpecialAttackRateInfo>& SpecialAttackRateInfos, const AActor* Defender);
     
 };
 

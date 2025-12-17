@@ -27,6 +27,9 @@ void UPalNetworkPlayerComponent::RequestSortInventory_ToServer_Implementation() 
 void UPalNetworkPlayerComponent::RequestSetReplicationEntity_ToServer_Implementation(const EPalPlayerReplicationEntityType EntityType, const bool bReplicate) {
 }
 
+void UPalNetworkPlayerComponent::RequestSendMessageToCurrentStage_ToServer_Implementation(const FPalStageRequestMessage& Message) {
+}
+
 void UPalNetworkPlayerComponent::RequestPickupTreasureMapPoint_ToServer_Implementation(const FGuid& TargetLevelInstanceId) {
 }
 
@@ -60,6 +63,9 @@ void UPalNetworkPlayerComponent::RequestDropOtomoPal_ToServer_Implementation(con
 void UPalNetworkPlayerComponent::RequestChangeVoiceID_ToServer_Implementation(int32 NewVoiceID) {
 }
 
+void UPalNetworkPlayerComponent::RequestChangePlayerLanternSetting_Implementation(const FPalPlayerDataEquipLanternData& NewLanternSettings) {
+}
+
 void UPalNetworkPlayerComponent::RequestCancelSalvageAction_ToServer_Implementation() {
 }
 
@@ -84,6 +90,9 @@ void UPalNetworkPlayerComponent::RegisterRespawnPoint_ToServer_Implementation(co
 void UPalNetworkPlayerComponent::ReceiveSuccessPickupTreasureMapPoint_ToClient_Implementation(APalTreasureMapInteractivePoint* TargetInteractivePoint) {
 }
 
+void UPalNetworkPlayerComponent::ReceiveRequestSendMessageToCurrentStageResult_ToRequestClient_Implementation(const EPalStageRequestResult Result) {
+}
+
 void UPalNetworkPlayerComponent::ReceiveExitStageRequestResult_ToRequestClient_Implementation(const EPalStageRequestResult Result) {
 }
 
@@ -102,10 +111,16 @@ void UPalNetworkPlayerComponent::NotifyReportCriminal_ToClient_Implementation(UP
 void UPalNetworkPlayerComponent::NotifyReleaseWanted_ToClient_Implementation(UPalIndividualCharacterHandle* CriminalHandle) {
 }
 
+void UPalNetworkPlayerComponent::NotifyRaidBossEnd_ToClient_Implementation(const FGuid CampID, const EPalRaidBossBattleFinishType FinishType) {
+}
+
 void UPalNetworkPlayerComponent::NotifyEndCrime_ToClient_Implementation(FGuid CrimeInstanceId) {
 }
 
 void UPalNetworkPlayerComponent::NotifyClientInitializedEssential_ToServer_Implementation() {
+}
+
+void UPalNetworkPlayerComponent::NotifyBaseCampRaidStarted_ToClient_Implementation(const FGuid& BaseCampId) {
 }
 
 void UPalNetworkPlayerComponent::LoadoutSelectorRemoveEquipItem_Implementation(UPalLoadoutSelectorComponent* LoadoutSelector) {

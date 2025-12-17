@@ -12,6 +12,7 @@
 #include "PalSkeletalMeshComponent.generated.h"
 
 class UPalSkeletalMeshComponent;
+class USkeletalMesh;
 
 UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalSkeletalMeshComponent : public USkeletalMeshComponent {
@@ -103,6 +104,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float CharcterMakeMorphMax;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<USkeletalMesh> LoadingMeshSoftPtr;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FName ItemName;

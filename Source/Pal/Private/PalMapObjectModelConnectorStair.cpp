@@ -9,6 +9,8 @@ void UPalMapObjectModelConnectorStair::GetLifetimeReplicatedProps(TArray<FLifeti
     
     DOREPLIFETIME(UPalMapObjectModelConnectorStair, UpConnectInfo);
     DOREPLIFETIME(UPalMapObjectModelConnectorStair, DownConnectInfo);
+    DOREPLIFETIME(UPalMapObjectModelConnectorStair, DiagonalLeftConnectInfo);
+    DOREPLIFETIME(UPalMapObjectModelConnectorStair, DiagonalRightConnectInfo);
 }
 
 

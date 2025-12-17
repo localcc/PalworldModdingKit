@@ -4,6 +4,7 @@ FActionDynamicParameter::FActionDynamicParameter() {
     this->ActionTarget = NULL;
     this->GeneralPurposeIndex = 0;
     this->bIsAdjustTransform = false;
+    this->bIsInRaidArea = false;
     this->NetRandSeed = 0;
     this->IsReflectedForClient = false;
 }

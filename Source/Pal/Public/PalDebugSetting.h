@@ -5,6 +5,7 @@
 #include "EPalACEWordFilterAPIType.h"
 #include "EPalAudioBus.h"
 #include "EPalBiomeType.h"
+#include "EPalDipType.h"
 #include "EPalLanguageType.h"
 #include "EPalMapObjectOperationResult.h"
 #include "EPalMovementSpeedType.h"
@@ -245,6 +246,12 @@ public:
     bool bForceConstructConnector;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bPaintBuildObjectColor;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FColor PaintBuildObjectColor;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsDisableEnemyEyeSight;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -444,6 +451,15 @@ public:
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool PartnerSkill_IgnoreRestrictedByItems;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bPartnerSkill_RocketLauncherPVMode;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bOtomoFixedStatus_Attack;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 OtomoFixedStatus_Attack;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bNotConsumeMaterialsInCraft;
@@ -1119,6 +1135,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName ArenaSoloNPCOverride;
+    
+    UPROPERTY(Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<EPalDipType, int32> DipMap;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bEnableABPLean;

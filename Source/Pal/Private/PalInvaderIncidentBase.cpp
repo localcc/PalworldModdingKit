@@ -9,6 +9,7 @@ UPalInvaderIncidentBase::UPalInvaderIncidentBase() {
     this->bCanExecute = false;
     this->Squad = NULL;
     this->bIsArrived = false;
+    this->bIsOrganizationGroup = false;
 }
 
 void UPalInvaderIncidentBase::StartInvader() {
@@ -64,6 +65,9 @@ int32 UPalInvaderIncidentBase::GetAliveInvaderNum() const {
 
 
 void UPalInvaderIncidentBase::AddGroupCharacter(UPalIndividualCharacterHandle* AddIndividualHandle, EPalCharacterLocationType LocationType) {
+}
+
+void UPalInvaderIncidentBase::AddCharacterLocation(const FPalInstanceID& IndividualId, EPalCharacterLocationType LocationType) {
 }
 
 

@@ -6,12 +6,14 @@ UENUM(BlueprintType)
 enum class EPalMapObjectOperationResult : uint8 {
     None,
     Canceled,
+    FailedInUnderRaidPVP,
     FailedInLimitVolume,
     FailedInDungeon,
     FailedOverflowBaseCampNumInGuild,
     FailedOverflowBaseCampNumInWorld,
     FailedTooNearOtherBaseCampArea,
     FailedOtherGuildBaseCampArea,
+    FailedOtherGuildBaseCampAreaPaint,
     FailedExceedMaxZ,
     FailedUnderOceanPlane,
     FailedCannotInstallNotInDoor,
@@ -50,7 +52,12 @@ enum class EPalMapObjectOperationResult : uint8 {
     FailedChestCannotGrounded,
     FailedNotCanDismantleState,
     FailedNotExistRequestPlayer,
+    FailedNotCanPaintState,
     FailedBuildingLimit,
+    FailedCannotInstallInRaidBossArea,
+    FailedExceedMaxBuildCountInRaidBossArea,
+    FailedCannotInstallOutOfBaseCampInRaidBossArea,
+    FailedPlayerCannotSpawn,
     Success,
 };
 

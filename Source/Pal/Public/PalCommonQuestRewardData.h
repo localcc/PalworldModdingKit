@@ -16,6 +16,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FPalDataTableRowName_ItemData, int32> Items;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FName> SkinNames;
+    
     PAL_API FPalCommonQuestRewardData();
 };
 

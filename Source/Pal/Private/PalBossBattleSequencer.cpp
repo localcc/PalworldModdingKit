@@ -72,7 +72,7 @@ void UPalBossBattleSequencer::NoticeClientCombatResult() {
 void UPalBossBattleSequencer::LoadAndCreateBossBattleEvent(TSoftClassPtr<APalBossBattleEventBase> BossBattleEventClass) {
 }
 
-void UPalBossBattleSequencer::KillPlayerTimeup_NextTick(APalPlayerCharacter* Player) {
+void UPalBossBattleSequencer::KillPlayerTimeup_AfterRevivePartnerSkill(APalPlayerCharacter* Player) {
 }
 
 void UPalBossBattleSequencer::KillPlayerTimeup(APalPlayerCharacter* Player) {

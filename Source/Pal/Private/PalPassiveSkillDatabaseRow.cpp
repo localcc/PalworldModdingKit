@@ -20,12 +20,15 @@ FPalPassiveSkillDatabaseRow::FPalPassiveSkillDatabaseRow() {
     this->InvokeInOtomo = false;
     this->InvokeAlways = false;
     this->InvokeInBaseCamp = false;
+    this->AddInvokeTriggerType_1 = EPalPassiveAddTriggerType::None;
+    this->AddInvokeTriggerType_2 = EPalPassiveAddTriggerType::None;
     this->AddPal = false;
     this->AddRarePal = false;
     this->AddShotWeapon = false;
     this->AddMeleeWeapon = false;
     this->AddArmor = false;
     this->AddAccessory = false;
+    this->IsStackablePartnerSkillBySameTribe = false;
     this->Category = EPalPassiveCategory::SortDisplayable;
 }
 

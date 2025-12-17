@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "EPalWeaponAnimationEndDelegateType.h"
 #include "EWeaponAnimationPoseType.h"
 #include "WeaponNotifyAnimationInfo.generated.h"
 
@@ -14,6 +15,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool isAutoStop;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalWeaponAnimationEndDelegateType EndDelegateType;
     
     PAL_API FWeaponNotifyAnimationInfo();
 };

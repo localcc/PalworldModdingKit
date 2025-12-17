@@ -5,6 +5,7 @@
 #include "Components/ActorComponent.h"
 #include "EPalMapObjectConcreteModelModuleType.h"
 #include "EPalMapObjectOperationResult.h"
+#include "PalBuildObjectPaintData.h"
 #include "PalCellCoord.h"
 #include "PalDamageInfo.h"
 #include "PalFoliageInstanceId.h"
@@ -34,6 +35,9 @@ public:
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestRepair_ToServer(const FGuid& InstanceId);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestPaint_ToServer(const FGuid& InstanceId, const FPalBuildObjectPaintData& PaintData);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestDismantleObject_ToServer(const FGuid& InstanceId);

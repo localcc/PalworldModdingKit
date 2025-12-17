@@ -36,6 +36,8 @@ enum class EPalAudioState : uint8 {
     Battle_RaidBoss_KingBahamut,
     Battle_RaidBoss_DarkMechaDragon,
     Battle_RaidBoss_Moonlord,
+    Battle_RaidBoss_LegendDeer,
+    Battle_RaidBoss_LegendDeer2,
     Explore,
     Battle,
     Alive,

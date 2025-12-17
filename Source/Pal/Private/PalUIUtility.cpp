@@ -21,6 +21,10 @@ void UPalUIUtility::ResetSlateNavigation(const UObject* WorldContextObject) {
 void UPalUIUtility::ResetEnableCommonUIInput(const UObject* WorldContextObject) {
 }
 
+bool UPalUIUtility::IsValidHexString(const FString& HexString) {
+    return false;
+}
+
 bool UPalUIUtility::IsToggleInteract(const UObject* WorldContextObject) {
     return false;
 }
@@ -109,6 +113,12 @@ bool UPalUIUtility::GetUIDIsplayShotAtaackParameterInfo(const UObject* WorldCont
 }
 
 void UPalUIUtility::GetUIDisplayPalCondition(const UObject* WorldContextObject, TArray<EPalUIConditionType>& OutArray, UPalIndividualCharacterHandle* targetHandle) {
+}
+
+void UPalUIUtility::GetUIDisplayNewUnlockedBuildObjectFlagMap(const UObject* WorldContextObject, TMap<EPalBuildObjectTypeA, bool>& OutMap) {
+}
+
+void UPalUIUtility::GetUIDisplayFavoriteBuildObjectList(const UObject* WorldContextObject, TMap<EPalBuildObjectTypeForUIDisplay, FPalBuildObjectDataSetTypeUIDisplay>& OutMap) {
 }
 
 bool UPalUIUtility::GetUIDIsplayDefenseParameterInfo(const UObject* WorldContextObject, UPalIndividualCharacterParameter* IndividualParameter, FPalUIDisplayCharacterBaseParameterInfo& OutParameterInfo) {
@@ -208,7 +218,13 @@ void UPalUIUtility::GetInventoryCategoryName(const UObject* WorldContextObject, 
 void UPalUIUtility::GetFormatedFirstActivatedInfoText(const UObject* WorldContextObject, APalCharacter* Character, FText& outFormatedText) {
 }
 
+void UPalUIUtility::GetFilteredUIDisplayBuildObjectList(const UObject* WorldContextObject, const TMap<EPalBuildObjectTypeForUIDisplay, FPalBuildObjectDataSetTypeUIDisplay>& InMap, TMap<EPalBuildObjectTypeForUIDisplay, FPalBuildObjectDataSetTypeUIDisplay>& OutMap) {
+}
+
 void UPalUIUtility::GetDisplayNickName(const UObject* WorldContextObject, const FName CharacterID, const FName UniqueNPCID, FString& OutNickName) {
+}
+
+void UPalUIUtility::GetBuildObjectUIDIsplayCategoryTextId(const UObject* WorldContextObject, const EPalBuildObjectTypeForUIDisplay DisplayType, FText& OutText) {
 }
 
 void UPalUIUtility::GetBuildObjectDesc(const UObject* WorldContextObject, const FName& buildObjectName, FText& outDesc) {
@@ -235,6 +251,18 @@ UPalUserWidget* UPalUIUtility::FindOwningActivatableWidget(const UObject* WorldC
 
 float UPalUIUtility::ConvertReviveTimerToUIDisplayRemainReviveTime(const UObject* WorldContextObject, float ReviveTimer) {
     return 0.0f;
+}
+
+FColor UPalUIUtility::ConvertHexToColor(const FString& HexString) {
+    return FColor{};
+}
+
+FString UPalUIUtility::ConvertFullWidthHexToHalfWidth(const FString& Input) {
+    return TEXT("");
+}
+
+FString UPalUIUtility::ConvertColorToHex(const FColor& Color) {
+    return TEXT("");
 }
 
 bool UPalUIUtility::CanDisplayTalentDetailUI(const UObject* WorldContextObject, UPalIndividualCharacterParameter* TargetCharacterParameter) {

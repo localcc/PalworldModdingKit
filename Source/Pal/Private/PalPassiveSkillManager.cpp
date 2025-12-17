@@ -2,6 +2,7 @@
 
 UPalPassiveSkillManager::UPalPassiveSkillManager() {
     this->PassiveSkillDataTable = NULL;
+    this->PassiveSkillConditionDataTable = NULL;
 }
 
 void UPalPassiveSkillManager::OnCreatedDynamicItemDataInServer(UPalDynamicItemDataBase* CreatedItemData, const FPalItemCreateParameter& CreateParameter) {

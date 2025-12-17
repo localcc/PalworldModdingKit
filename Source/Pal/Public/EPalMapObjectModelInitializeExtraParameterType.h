@@ -22,6 +22,9 @@ enum class EPalMapObjectModelInitializeExtraParameterType : uint8 {
     ByPlayerUId,
     DropCharacter,
     Replace,
+    Paint,
+    BaseCampPoint,
+    RaidBossArea,
     InstanceId,
 };
 

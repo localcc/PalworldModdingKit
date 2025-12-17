@@ -4,6 +4,7 @@
 UPalRaidBossComponent::UPalRaidBossComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->RemainBattleTimer = 600.00f;
     this->CurrentState = EPalRaidBossBattleStateType::Standy;
+    this->InRaidArea = false;
 }
 
 
@@ -20,6 +21,10 @@ void UPalRaidBossComponent::OnCapturePal(APalCharacter* SelfCharacter, APalChara
 }
 
 bool UPalRaidBossComponent::IsValidPlayerInCamp(APalPlayerCharacter* Player) {
+    return false;
+}
+
+bool UPalRaidBossComponent::IsBattleInRaidArea() const {
     return false;
 }
 
@@ -47,6 +52,10 @@ APalPlayerCharacter* UPalRaidBossComponent::FindInRangePlayers(TArray<APalPlayer
     return NULL;
 }
 
+bool UPalRaidBossComponent::CanPlayBattleFinishUI() const {
+    return false;
+}
+
 void UPalRaidBossComponent::CallOnEnd_ToAll_Implementation(EPalRaidBossBattleFinishType FinishType) {
 }
 
@@ -57,10 +66,12 @@ void UPalRaidBossComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(UPalRaidBossComponent, RaidBossPalList);
+    DOREPLIFETIME(UPalRaidBossComponent, RaidBossPalPartList);
     DOREPLIFETIME(UPalRaidBossComponent, BaseCanpID);
     DOREPLIFETIME(UPalRaidBossComponent, BaseCampLocation);
     DOREPLIFETIME(UPalRaidBossComponent, RemainBattleTimer);
     DOREPLIFETIME(UPalRaidBossComponent, StartItemName);
+    DOREPLIFETIME(UPalRaidBossComponent, InRaidArea);
 }
 
 

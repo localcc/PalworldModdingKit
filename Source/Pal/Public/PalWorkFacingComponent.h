@@ -7,6 +7,11 @@ UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnable
 class UPalWorkFacingComponent : public UArrowComponent {
     GENERATED_BODY()
 public:
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bWorkAtOrigin;
+    
+public:
     UPalWorkFacingComponent(const FObjectInitializer& ObjectInitializer);
 
 };

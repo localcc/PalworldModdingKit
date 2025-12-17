@@ -66,6 +66,18 @@ bool UPalTechnologyData::IsExistNewUnlockedTechnology() {
     return false;
 }
 
+bool UPalTechnologyData::IsDeniedTechnology(const FName& TechnologyId) const {
+    return false;
+}
+
+bool UPalTechnologyData::IsDeniedRecipe(const FName& RecipeID) const {
+    return false;
+}
+
+bool UPalTechnologyData::IsDeniedBuildObject(const FName& BuildObjectId) const {
+    return false;
+}
+
 int32 UPalTechnologyData::GetTechnologyPoints() const {
     return 0;
 }

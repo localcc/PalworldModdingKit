@@ -17,6 +17,7 @@ class APalCharacter;
 class APalPlayerCharacter;
 class APalWeaponBase;
 class UCurveFloat;
+class UPalCameraModifier;
 class UPalCharacterMovementComponent;
 class UPalCharacterParameterComponent;
 class UPalDamageReactionComponent;
@@ -167,6 +168,15 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsSpectated;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalCameraModifier* CameraModifier;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float OriginalTargetArmLength;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FVector OriginalTargetOffset;
     
 public:
     UPalShooterSpringArmComponent(const FObjectInitializer& ObjectInitializer);

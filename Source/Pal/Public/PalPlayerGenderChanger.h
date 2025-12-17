@@ -1,6 +1,8 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
+#include "EPalPlayerBodyShape.h"
+#include "OverridePlayerGenderParams.h"
 #include "PlayerGenderParams.h"
 #include "PalPlayerGenderChanger.generated.h"
 
@@ -15,8 +17,8 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FPlayerGenderParams FemaleCharacterParams;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    bool bIsEpmtyFemaleParams;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<EPalPlayerBodyShape, FOverridePlayerGenderParams> OverrideMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsFemale;

@@ -6,8 +6,8 @@
 #include "Engine/EngineTypes.h"
 #include "EPalCharacterCompleteDelegatePriority.h"
 #include "EPalCharacterImportanceType.h"
+#include "EPalWazaID.h"
 #include "FlagContainer.h"
-#include "PalCharacterCapsuleRootSettings.h"
 #include "PalDamageRactionInfo.h"
 #include "PalDeadInfo.h"
 #include "PalOnCharacterCompleteInitializeParameterDelegate.h"
@@ -16,6 +16,7 @@
 class AActor;
 class APalCharacter;
 class UAnimMontage;
+class UCurveVector;
 class UNiagaraSystem;
 class UPalActionComponent;
 class UPalAnimNotifyParameterComponent;
@@ -45,6 +46,7 @@ class APalCharacter : public ACharacter {
     GENERATED_BODY()
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FRollingDelegate);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnStillInWorldTriggered_Client);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnStillInWorldTriggered);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnCompleteSyncPlayerFromServer_InClient);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCompleteInitializeParameter, APalCharacter*, InCharacter);
@@ -121,6 +123,9 @@ public:
     FOnStillInWorldTriggered OnStillInWorldTriggered;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnStillInWorldTriggered_Client OnStillInWorldTriggered_Client;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnChangeBattleMode OnChangeBattleModeDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -139,8 +144,17 @@ public:
     bool bIsNeutralGroup;
     
 protected:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UCurveVector* EmissionCorrectionTimeCurve;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FVector EmissionCorrectionValueInDungeon;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsBattleMode;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIgnoreChangeBattleModeFlag;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsTalkMode;
@@ -163,6 +177,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsPart;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bUseCustomAutoAimTarget;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FVector SpawnLocation_ForServer;
@@ -191,9 +208,6 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 CurrentAirDashCount;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_CapsuleRootSettings, meta=(AllowPrivateAccess=true))
-    FPalCharacterCapsuleRootSettings CapsuleRootSettings;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_bUseBodyPartsCollisionProfileNameBaseCamp, meta=(AllowPrivateAccess=true))
     bool bUseBodyPartsCollisionProfileNameBaseCamp;
     
@@ -205,6 +219,11 @@ public:
     UFUNCTION(BlueprintCallable)
     void UpdateGroundRayCast(bool bImmediateApply);
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void UpdateCharacterEmissionOnMinutesChange();
+    
+public:
     UFUNCTION(BlueprintCallable)
     void UnbindOnCompleteInitializeParameterDelegate(EPalCharacterCompleteDelegatePriority Priority, const FPalOnCharacterCompleteInitializeParameter& Event);
     
@@ -266,11 +285,6 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnRep_IsOtomoCollision(bool PrevbIsOtomoCollision);
     
-protected:
-    UFUNCTION(BlueprintCallable)
-    void OnRep_CapsuleRootSettings();
-    
-private:
     UFUNCTION(BlueprintCallable)
     void OnRep_bUseBodyPartsCollisionProfileNameBaseCamp();
     
@@ -291,9 +305,16 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnChangeWetnessStatus(bool IsSwim);
     
+protected:
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void NotifyStillInWorldTriggered_ToClient();
+    
 public:
     UFUNCTION(BlueprintCallable)
     void LocalInitialized();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsUseCustomAutoAimTarget() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPreCooping() const;
@@ -306,6 +327,12 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsCooping() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsAllActiveSkillCooldownFinished() const;
+    
+    UFUNCTION(BlueprintPure)
+    bool IsActiveSkillCooldownFinished(const EPalWazaID WazaID) const;
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

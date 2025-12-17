@@ -77,6 +77,9 @@ public:
 
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
+    UFUNCTION(BlueprintCallable)
+    bool TryRevivePlayerByPartnerSkill();
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalIndividualCharacterHandle* TryGetSpawnedOtomoHandle() const;
     

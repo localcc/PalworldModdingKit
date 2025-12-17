@@ -49,6 +49,12 @@ private:
     float PvPWeaponDamageRate;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float PvPBuildingDamageRate;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float PvPPlayerToGuildPalDamageRate;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FTimerHandle Handle;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -71,6 +77,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FName OwnerStaticItemId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FRandomStream RandomStream;
     
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -100,7 +109,16 @@ public:
     void SetSkillEffectList(const TArray<FPalPassiveSkillEffect>& inList);
     
     UFUNCTION(BlueprintCallable)
+    void SetRandomStream(FRandomStream Stream);
+    
+    UFUNCTION(BlueprintCallable)
     void SetPvPWeaponDamageRate(float Rate);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetPvPPlayerToGuildPalDamageRate(float Rate);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetPvPBuildingDamageRate(float Rate);
     
     UFUNCTION(BlueprintCallable)
     void SetOwnerStaticItemId(const FName& ItemId);
@@ -115,10 +133,16 @@ public:
     bool SetBulletHoleDecal(const FHitResult& Hit, float LifeSpan, float FadeTime, float fadeScreenSize);
     
     UFUNCTION(BlueprintCallable)
+    void ResetLifeTimer();
+    
+    UFUNCTION(BlueprintCallable)
     void RegisterIgnoreActor(AActor* Actor);
     
     UFUNCTION(BlueprintCallable)
     void RegisterCannotHitAreaBox(UBoxComponent* BoxComp);
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void OnHitWater(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, const FHitResult& Hit);
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnHitToPalEnemy(UPrimitiveComponent* HitComp, APalCharacter* OtherCharacter, UPrimitiveComponent* OtherComp, const FHitResult& Hit);
@@ -151,7 +175,16 @@ public:
     float GetSneakAttackRate();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    FRandomStream GetRandomStream() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetPvPWeaponDamageRate() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetPvPPlayerToGuildPalDamageRate() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetPvPBuildingDamageRate() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetParameterWithPassiveSkillEffect(float originalValue, EPalPassiveSkillEffectType EffectType) const;

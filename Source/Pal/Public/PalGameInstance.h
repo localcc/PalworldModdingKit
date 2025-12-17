@@ -23,6 +23,7 @@ class UPalCharacterContainerManager;
 class UPalCharacterImportanceManager;
 class UPalCharacterManager;
 class UPalCharacterParameterStorageSubsystem;
+class UPalCloudSaveManager;
 class UPalCoopSkillSearchSystem;
 class UPalDamagePopUpManager;
 class UPalDataTableRowIdMapper;
@@ -75,6 +76,7 @@ class PAL_API UPalGameInstance : public UGameInstance {
     GENERATED_BODY()
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnPawnLocalPlayerControllerChanged, APawn*, Pawn, AController*, Controller);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMemoryWarning, bool, bIsOver);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnCompletedCharacterMake);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FFxiedCharacterName, const FString&, Name);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FFxiedCharacterMakeData, const FPalPlayerDataCharacterMakeInfo&, MakeInfo);
@@ -87,6 +89,9 @@ protected:
     FOnPawnLocalPlayerControllerChanged OnPawnLocalPlayerControllerChangedDelegates;
     
 public:
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnMemoryWarning OnMemoryWarning;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bNetworkError;
     
@@ -116,6 +121,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalOnlineManager* OnlineManager;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalCloudSaveManager* CloudSaveManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalGdkManager* GdkManager;
@@ -342,6 +350,9 @@ public:
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bUseAsyncMovement;
     
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 MemoryWarningThresholdMB;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UPalDimensionLockerControlSubsystem> DimensionLockerControlSubsystemClass;
     
@@ -404,6 +415,9 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OverrideLoadMap(const TSoftObjectPtr<UWorld>& World);
     
+    UFUNCTION(BlueprintCallable)
+    void OnRestartWithoutModsDialogConfirmed(bool bResult);
+    
 private:
     UFUNCTION(BlueprintCallable)
     void OnInitializeCompleteSystem();
@@ -450,6 +464,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalGdkManager* GetGdkManager() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPalCloudSaveManager* GetCloudSaveManager() const;
     
     UFUNCTION(BlueprintCallable)
     void CompleteInitCharacterMakeData();

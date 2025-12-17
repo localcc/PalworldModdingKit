@@ -4,6 +4,7 @@ UPalRaidBossManager::UPalRaidBossManager() {
     this->RaidBossDataTable = NULL;
     this->TimeLimit = 600.00f;
     this->BattleAreaRadius = 0.00f;
+    this->BattleSequencePlayRangeScale = 1.50f;
     this->NPCTargetCount_ForForcePlayerTarget = 3;
     this->RaidBossBattleActorClass = NULL;
     this->GiftSuccessItemRangeScale = 2.00f;
@@ -15,6 +16,10 @@ bool UPalRaidBossManager::IsRaidBossOfferItem(FName ItemName) {
 
 int32 UPalRaidBossManager::GetNPCTargetCount_ForForcePlayerTarget() const {
     return 0;
+}
+
+UPalRaidBossComponent* UPalRaidBossManager::FindRaidComponent_ByRaidBoss(APalCharacter* RaidBoss) {
+    return NULL;
 }
 
 UPalRaidBossComponent* UPalRaidBossManager::FindRaidComponent_ByBuildObject(APalMapObject* BuildObject) {

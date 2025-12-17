@@ -15,6 +15,7 @@ enum class EPalLogType : uint8 {
     StartInvaderMarch,
     EndInvaderMarch_Win,
     EndInvaderMarch_Timeout,
+    StartPVPRaid,
     DropPal,
     OtomoLowHealth_Phase1,
     OtomoLowHealth_Phase2,

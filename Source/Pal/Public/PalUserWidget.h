@@ -73,6 +73,9 @@ protected:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    FGuid GetId() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UUserWidget* FindParentWidget(TSubclassOf<UUserWidget> Class);
     
 };

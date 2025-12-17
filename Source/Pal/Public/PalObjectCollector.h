@@ -3,6 +3,7 @@
 #include "UObject/NoExportTypes.h"
 #include "PalCharacterList.h"
 #include "PalCharacterSpatialGrid.h"
+#include "PalObjectCollectorMapObjectSpawnerId.h"
 #include "PalWorldSubsystem.h"
 #include "PalObjectCollector.generated.h"
 
@@ -33,7 +34,7 @@ private:
     FPalCharacterSpatialGrid PalCharacterGrid_Player;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, APalMapObjectSpawnerBase*> MapObjectSpawnerMap;
+    TMap<FPalObjectCollectorMapObjectSpawnerId, APalMapObjectSpawnerBase*> MapObjectSpawnerMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<APalCharacter*, FPalCharacterList> NearestCharacter_FromPlayer;
@@ -55,6 +56,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsUpdateBaseCamp;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bShouldRecalculateNearSpawn_RegisteredSpawnerInsideBaseCamp;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     float NearStartDistanceForSpawnerBase;

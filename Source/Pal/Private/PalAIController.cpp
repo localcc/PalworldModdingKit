@@ -89,6 +89,10 @@ bool APalAIController::IsExistPathForLocation_ForBP(const FVector Location, cons
     return false;
 }
 
+bool APalAIController::IsActiveSkillCooldownFinished(const EPalWazaID WazaID) const {
+    return false;
+}
+
 bool APalAIController::IsActiveAI() const {
     return false;
 }

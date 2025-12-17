@@ -13,6 +13,9 @@ UPalPlayerInventoryData::UPalPlayerInventoryData() {
     this->EquipmentBreakAudioEvent = NULL;
 }
 
+void UPalPlayerInventoryData::UpdatePassiveSkill() {
+}
+
 bool UPalPlayerInventoryData::TryRemoveEquipment(UPalItemSlot* EquipSlot) {
     return false;
 }

@@ -21,6 +21,9 @@ public:
     UFUNCTION(BlueprintCallable)
     void ToggleChangeModeReplace();
     
+    UFUNCTION(BlueprintCallable)
+    void StartDismantleMode();
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool ShouldDisplayWarningForBuildObject() const;
     
@@ -40,6 +43,9 @@ protected:
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSnapMode() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsReadyInstallChecker() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsOutsideBaseCamp() const;

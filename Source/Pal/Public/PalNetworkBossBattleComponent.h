@@ -31,6 +31,9 @@ public:
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void RemovePlayerFromRoom_ToClient(EPalBossType BossType, APalPlayerCharacter* DeadPlayer);
     
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void NotifyFailedStartArenaByOverConcurrentStageLimitationToClient();
+    
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void NoticeSequenceEnd_ToServer(EPalBossType BossType);
     

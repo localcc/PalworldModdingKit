@@ -67,6 +67,12 @@ protected:
     TSubclassOf<APalArenaWorldRankingInfo> ArenaWorldRankingInfoClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float InitialHateHigh;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float InitialHateLow;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     APalArenaWorldRankingInfo* ArenaWorldRankingInfo;
     
 private:

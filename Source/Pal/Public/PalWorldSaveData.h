@@ -27,6 +27,7 @@
 #include "PalMapObjectSpawnerSaveData.h"
 #include "PalNPCAppearFlagSaveData.h"
 #include "PalOilrigSaveData.h"
+#include "PalRaidBossAreaInstanceSaveData.h"
 #include "PalRandomizerSaveData.h"
 #include "PalStageInstanceId.h"
 #include "PalSupplySaveData.h"
@@ -99,6 +100,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalDungeonLevelVersion DungeonLevelVersion;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FGuid, FPalRaidBossAreaInstanceSaveData> RaidBossAreaInstanceSaveDataMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FGuid, FPalInvaderSaveData> InvaderSaveData;

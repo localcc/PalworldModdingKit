@@ -14,5 +14,6 @@ enum class EPalBaseCampModuleType : uint8 {
     ObjectMaintenance,
     PassiveEffect,
     ItemStackInfo,
+    RaidDetect,
 };
 

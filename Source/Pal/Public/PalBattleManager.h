@@ -81,6 +81,9 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
+    void EventOnRevivePlayer(APalPlayerCharacter* Player);
+    
+    UFUNCTION(BlueprintCallable)
     void EventOnPlayerDeadCompletely(APalPlayerCharacter* Player, const FPalDyingEndInfo& DyingEndInfo);
     
 public:

@@ -26,6 +26,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     TArray<FPalInstanceID> RaidBossPalList;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FPalInstanceID> RaidBossPalPartList;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<UPalIndividualCharacterHandle*> DeadRaidBossPalList;
     
@@ -49,6 +52,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FGuid StartRequestPlayerUID;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    bool InRaidArea;
     
 public:
     UPalRaidBossComponent(const FObjectInitializer& ObjectInitializer);
@@ -79,6 +85,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsValidPlayerInCamp(APalPlayerCharacter* Player);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsBattleInRaidArea() const;
+    
 protected:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FGuid GetStartRequestPlayerUID() const;
@@ -99,6 +108,9 @@ protected:
     
     UFUNCTION(BlueprintCallable)
     APalPlayerCharacter* FindInRangePlayers(TArray<APalPlayerCharacter*>& Players, bool OnlyAlive);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool CanPlayBattleFinishUI() const;
     
 private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)

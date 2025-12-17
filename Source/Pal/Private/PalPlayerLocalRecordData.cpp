@@ -5,6 +5,7 @@ UPalPlayerLocalRecordData::UPalPlayerLocalRecordData() {
     this->Local_PlayTime = 0;
     this->Local_DoctorSurgiCount = 0;
     this->Local_DoctorLastSurgiDay = 0;
+    this->Local_MapObjectPaintPaletteSelectedIndex = 0;
 }
 
 void UPalPlayerLocalRecordData::ResetQuickStackExceptList() {

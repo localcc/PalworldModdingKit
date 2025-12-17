@@ -11,6 +11,9 @@ UPalPartnerSkillPassiveSkill::UPalPartnerSkillPassiveSkill() {
 void UPalPartnerSkillPassiveSkill::OnWorkerAssignChanged(UPalCharacterParameterComponent* Parameter) {
 }
 
+void UPalPartnerSkillPassiveSkill::OnUpdateOtomoSlotWithActor(int32 SlotIndex, UPalIndividualCharacterHandle* LastHandle) {
+}
+
 void UPalPartnerSkillPassiveSkill::OnUpdateOtomoHolder(APalCharacter* Character) {
 }
 
@@ -53,6 +56,9 @@ void UPalPartnerSkillPassiveSkill::OnChangeDisablePassiveSkill(bool isDisable, b
 void UPalPartnerSkillPassiveSkill::OnChangeDayTime() {
 }
 
+void UPalPartnerSkillPassiveSkill::OnChangeBattleMode(bool bIsBattleMode) {
+}
+
 void UPalPartnerSkillPassiveSkill::OnAddNewWorker(UPalIndividualCharacterHandle* AddCharacterHandle) {
 }
 
@@ -78,18 +84,6 @@ void UPalPartnerSkillPassiveSkill::Initialize(const TArray<FPalPassivePartnerSki
 void UPalPartnerSkillPassiveSkill::InactivateWorkingSkill() {
 }
 
-APalPlayerController* UPalPartnerSkillPassiveSkill::GetTrainerController() const {
-    return NULL;
-}
-
-APalPlayerCharacter* UPalPartnerSkillPassiveSkill::GetTrainerActor() const {
-    return NULL;
-}
-
-ACharacter* UPalPartnerSkillPassiveSkill::GetTrainer() const {
-    return NULL;
-}
-
 TArray<FName> UPalPartnerSkillPassiveSkill::GetPassiveSkillList() const {
     return TArray<FName>();
 }
@@ -100,6 +94,9 @@ APalCharacter* UPalPartnerSkillPassiveSkill::GetOwner() const {
 
 int32 UPalPartnerSkillPassiveSkill::GetOtomoRank() const {
     return 0;
+}
+
+void UPalPartnerSkillPassiveSkill::AllResetPassiveSkill() {
 }
 
 

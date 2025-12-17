@@ -8,7 +8,9 @@
 #include "EPalMapObjectChangeMeshFXType.h"
 #include "EPalMapObjectDestroyFXType.h"
 #include "EPalMapObjectTreasureSpecialType.h"
+#include "PalBuildObjectSpawningStateInfo.h"
 #include "PalDataTableRowName_ItemData.h"
+#include "PalDataTableRowName_MapObjectData.h"
 #include "PalGameWorldDataSaveInterface.h"
 #include "PalMapObjectDamageInfo.h"
 #include "PalMapObjectInfoTickInBackground.h"
@@ -17,6 +19,7 @@
 #include "PalMapObjectStaticData.h"
 #include "PalMapObjectTreasureBoxOpenRequiredItemMapByGrade.h"
 #include "PalMapObjectVisualEffectAssets.h"
+#include "PalWorkPositionVisualizerSettings.h"
 #include "PalWorldSubsystem.h"
 #include "Templates/SubclassOf.h"
 #include "PalMapObjectManager.generated.h"
@@ -34,6 +37,7 @@ class UAkAudioEvent;
 class UDataTable;
 class UNiagaraSystem;
 class UObject;
+class UPalBuildObjectSimulatingVisualMeshComponent;
 class UPalBuildOperator;
 class UPalDialogParameterBase;
 class UPalFoliagePresetDataSet;
@@ -87,6 +91,9 @@ protected:
     FBuildingSurfaceMaterialSet BuildingSurfaceMaterialSet;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalWorkPositionVisualizerSettings WorkPositionVisualizerSettings;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UPalFoliagePresetDataSet* FoliagePresetDataSet;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -115,6 +122,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalMapObjectStaticData StaticData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FPalDataTableRowName_MapObjectData> CannotPlayerSpawnMapObjectIds;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName BuildObjectId_PalStorage;
@@ -148,6 +158,15 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName BuildFXUserParamName_BoxSurfaceArea;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UNiagaraSystem* PaintEffect;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName PaintFXUserParamName_Color;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UNiagaraSystem* PaintRemoveEffect;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UAkAudioEvent* BuildCompleteSE;
@@ -228,6 +247,9 @@ protected:
     FPalMapObjectVisualEffectAssets VisualEffectAssets;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UPalBuildObjectSimulatingVisualMeshComponent> BuildObjectSimulatingVisualMeshComponentClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<EPalMapObjectTreasureSpecialType, FPalDataTableRowName_ItemData> TreasureBoxOpenRequiredItemMapForSpecialType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -241,7 +263,10 @@ protected:
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, UPalMapObjectModel*> MapObjectModelHandlingMap;
+    TMap<FGuid, UPalMapObjectModel*> MapObjectModelSpawningHandlingMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FGuid, FPalBuildObjectSpawningStateInfo> BuildObjectSpawningStateInfos;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<APalMapObject*> LevelMapObjectsToRegister;
@@ -258,8 +283,14 @@ private:
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 InDoorCheckMaxNumPerFrame_AnyThread;
     
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 MapObjectSignificanceUpdateDivideNum;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TSet<APalMapObjectSpawnerBase*> SpawnedSpawners;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 MaxDelayedSpawnCallbacksPerFrame;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FGuid, FPalMapObjectInfoTickInBackground> MapObjectInfoMapTickInBackground;
@@ -308,6 +339,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void PlayMapObjectDestroyFX(const FVector& Location, const FBoxSphereBounds& Bounds, const EPalMapObjectDestroyFXType Type);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FPalWorkPositionVisualizerSettings GetWorkPositionVisualizerSettings() const;
     
     UFUNCTION(BlueprintCallable)
     UPalMapObjectFoliage* GetFoliage() const;

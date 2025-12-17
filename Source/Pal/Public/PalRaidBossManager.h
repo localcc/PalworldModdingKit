@@ -9,6 +9,7 @@
 #include "PalRaidBossManager.generated.h"
 
 class AActor;
+class APalCharacter;
 class APalMapObject;
 class UDataTable;
 class UPalRaidBossComponent;
@@ -37,6 +38,9 @@ protected:
     float BattleAreaRadius;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float BattleSequencePlayRangeScale;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 NPCTargetCount_ForForcePlayerTarget;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -63,6 +67,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetNPCTargetCount_ForForcePlayerTarget() const;
+    
+    UFUNCTION(BlueprintCallable)
+    UPalRaidBossComponent* FindRaidComponent_ByRaidBoss(APalCharacter* RaidBoss);
     
     UFUNCTION(BlueprintCallable)
     UPalRaidBossComponent* FindRaidComponent_ByBuildObject(APalMapObject* BuildObject);

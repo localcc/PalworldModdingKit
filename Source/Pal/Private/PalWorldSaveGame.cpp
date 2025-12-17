@@ -3,5 +3,6 @@
 UPalWorldSaveGame::UPalWorldSaveGame() {
     this->Version = 0;
     this->Revision = 0;
+    this->bSavedUsingMod = false;
 }
 

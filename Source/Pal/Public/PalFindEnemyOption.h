@@ -1,6 +1,9 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "Engine/EngineTypes.h"
 #include "PalFindEnemyOption.generated.h"
+
+class AActor;
 
 USTRUCT(BlueprintType)
 struct PAL_API FPalFindEnemyOption {
@@ -20,6 +23,15 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bFilterByHateList;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bLineTrace;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TEnumAsByte<ETraceTypeQuery> TraceType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<AActor*> IgnoreActors;
     
     FPalFindEnemyOption();
 };

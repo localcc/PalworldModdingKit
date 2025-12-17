@@ -8,7 +8,6 @@
 
 class UPalQuestBlock;
 class UPalQuestData;
-class UPalQuestRewardGiver;
 
 UCLASS(Blueprintable)
 class PAL_API UPalQuestData : public UObject {
@@ -31,7 +30,7 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_CurrentBlock, meta=(AllowPrivateAccess=true))
     UPalQuestBlock* NowQuestBlock;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_QuestId, meta=(AllowPrivateAccess=true))
     FName QuestId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -49,9 +48,6 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalCommonQuestRewardData CommonRewardData;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftClassPtr<UPalQuestRewardGiver> CustomQuestRewardGiverClass;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FPalOrderedQuestSaveData CachedSaveData;
     
@@ -66,6 +62,9 @@ protected:
     
     UFUNCTION(BlueprintCallable)
     void OnRequestReturnBlock_ServerInternal(UPalQuestBlock* UpdatedBlock);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnRep_QuestId();
     
     UFUNCTION(BlueprintCallable)
     void OnRep_CurrentBlock();

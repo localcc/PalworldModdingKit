@@ -15,6 +15,7 @@ class UPalAIActionBase;
 class UPalIndividualCharacterHandle;
 class UPalMapObjectMedicalPalBedModel;
 class UPalMapObjectMedicalPalBedSleepOnSideLocationOffsetComponent;
+class UPalUIMapObjectMedicalPalBedModel;
 
 UCLASS(Blueprintable)
 class PAL_API UPalMapObjectMedicalPalBedModel : public UPalMapObjectConcreteModelBase, public IPalMapObjectPlayerBedModuleOwnerInterface, public IPalMapObjectWorkerAvailableFacilityInterface {
@@ -38,9 +39,25 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float AffectSanityRate;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float ResurrectSpeedMultiplier;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_ResurrectCompleteRealProgressDateTime, meta=(AllowPrivateAccess=true))
+    FDateTime ResurrectCompleteRealProgressDateTime;
+    
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPalUIMapObjectMedicalPalBedModel* StatusHUDUIModel;
+    
 public:
     UPalMapObjectMedicalPalBedModel();
 
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
+protected:
+    UFUNCTION(BlueprintCallable)
+    void OnRep_ResurrectCompleteRealProgressDateTime();
+    
 private:
     UFUNCTION(BlueprintCallable)
     void OnNightSkip();
@@ -58,7 +75,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void ClearSleepingCharacterHandle();
     
-protected:
+private:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static void CalcCharacterLocationAndRotationOffset(const FName CharacterID, const APalCharacter* Character, const FName MapObjectId, const UPalMapObjectMedicalPalBedSleepOnSideLocationOffsetComponent* LocationOffsetComponent, FVector& OutLocationOffset, FQuat& OutRotationOffset);
     

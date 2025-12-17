@@ -130,6 +130,9 @@ public:
     int32 GetGeneralPurposeIndex() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    FActionDynamicParameter GetDynamicParameter() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FPalNetArchive GetBlackboard() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

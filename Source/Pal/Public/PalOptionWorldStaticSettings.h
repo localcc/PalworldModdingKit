@@ -123,6 +123,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalOptionValueFloat EquipmentDurabilityDamageRate;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalOptionValueFloat ItemCorruptionMultiplier;
+    
     PAL_API FPalOptionWorldStaticSettings();
 };
 

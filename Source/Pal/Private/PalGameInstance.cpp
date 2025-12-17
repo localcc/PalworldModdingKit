@@ -47,6 +47,7 @@ UPalGameInstance::UPalGameInstance() {
     this->GameSettingClass = UPalGameSetting::StaticClass();
     this->GameSetting = NULL;
     this->OnlineManager = NULL;
+    this->CloudSaveManager = NULL;
     this->GdkManager = NULL;
     this->PsnManager = NULL;
     this->MasterDataTablesClass = UPalMasterDataTables::StaticClass();
@@ -120,8 +121,9 @@ UPalGameInstance::UPalGameInstance() {
     this->ShopManagerSubsystemClass = UPalShopManager::StaticClass();
     this->ObjectPoolClass = NULL;
     this->FishingSystemClass = NULL;
-    this->revisionNum = 76919;
+    this->revisionNum = 84578;
     this->bUseAsyncMovement = true;
+    this->MemoryWarningThresholdMB = 0;
     this->DimensionLockerControlSubsystemClass = UPalDimensionLockerControlSubsystem::StaticClass();
     this->DisplaySafeAreaDebugger = NULL;
     this->TitleBGMPlayerClass = UPalPersistentSoundPlayer::StaticClass();
@@ -148,6 +150,9 @@ bool UPalGameInstance::SelectWorld(const FString& WorldName) {
     return false;
 }
 
+
+void UPalGameInstance::OnRestartWithoutModsDialogConfirmed(bool bResult) {
+}
 
 void UPalGameInstance::OnInitializeCompleteSystem() {
 }
@@ -197,6 +202,10 @@ UPalOnlineManager* UPalGameInstance::GetOnlineManager() const {
 }
 
 UPalGdkManager* UPalGameInstance::GetGdkManager() const {
+    return NULL;
+}
+
+UPalCloudSaveManager* UPalGameInstance::GetCloudSaveManager() const {
     return NULL;
 }
 

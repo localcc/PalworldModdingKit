@@ -37,6 +37,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     EPalMapObjectSpawnerState State;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FName OverrideSpawnerLevelDataLayerAppendName;
+    
 public:
     APalMapObjectSpawnerBase(const FObjectInitializer& ObjectInitializer);
 

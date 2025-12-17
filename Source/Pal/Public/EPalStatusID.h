@@ -42,5 +42,6 @@ enum class EPalStatusID : uint8 {
     PalEnhancement3,
     PartBreak,
     FishingSpotElectrical,
+    HPLock,
 };
 

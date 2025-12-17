@@ -52,6 +52,10 @@ bool UPalActiveSkillSlot::IsFarMinRange(int32 SlotId, AActor* TargetActor) const
     return false;
 }
 
+bool UPalActiveSkillSlot::IsCoolTimeFinish_ByWazaID(const EPalWazaID WazaID) const {
+    return false;
+}
+
 bool UPalActiveSkillSlot::IsCoolTimeFinish(int32 SlotId) const {
     return false;
 }
@@ -71,6 +75,18 @@ TMap<int32, UPalActiveSkill*> UPalActiveSkillSlot::GetSkillMap() const {
     return TMap<int32, UPalActiveSkill*>();
 }
 
+float UPalActiveSkillSlot::GetMinRange(int32 SlotId) const {
+    return 0.0f;
+}
+
+float UPalActiveSkillSlot::GetMiddleRange(int32 SlotId) const {
+    return 0.0f;
+}
+
+float UPalActiveSkillSlot::GetMaxRange(int32 SlotId) const {
+    return 0.0f;
+}
+
 TArray<int32> UPalActiveSkillSlot::GetEnableSlotIDs() const {
     return TArray<int32>();
 }
@@ -83,11 +99,15 @@ float UPalActiveSkillSlot::GetCoolTime(int32 SlotId) const {
     return 0.0f;
 }
 
+float UPalActiveSkillSlot::GetBackstepRange(int32 SlotId, AActor* TargetActor) const {
+    return 0.0f;
+}
+
 int32 UPalActiveSkillSlot::FindSlotIndexByWazaID(EPalWazaID WazaID) {
     return 0;
 }
 
-int32 UPalActiveSkillSlot::FindSlotIDForWildPal() {
+int32 UPalActiveSkillSlot::FindSlotIDForWildPal(AActor* TargetActor) {
     return 0;
 }
 
@@ -99,7 +119,7 @@ int32 UPalActiveSkillSlot::FindFarthestSlotID_IgnoreSlotID(int32 IgnoreID) {
     return 0;
 }
 
-int32 UPalActiveSkillSlot::ChoiceEnableSlotIDByRandom() const {
+int32 UPalActiveSkillSlot::ChoiceEnableSlotIDByRandom(AActor* TargetActor) const {
     return 0;
 }
 

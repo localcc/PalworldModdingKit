@@ -18,6 +18,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FPalDataTableRowName_ItemData> ItemIds;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FPalDataTableRowName_ItemData> ExcludedItemIds;
+    
     PAL_API FPalPassivePartnerSkillItemParameter();
 };
 

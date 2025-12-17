@@ -70,6 +70,9 @@ private:
     UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     uint64 PsnAccountId;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FDateTime GuildLastExitTime;
+    
 public:
     UPalPlayerAccount();
 

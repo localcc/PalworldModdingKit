@@ -10,5 +10,6 @@ FPalDamageResult::FPalDamageResult() {
     this->CameraShake = EPalPlayerDamageCameraShakeCategory::None;
     this->IgnorePlayerEquipItemDamage = false;
     this->AttackElementType = EPalElementType::None;
+    this->ActualDamage = 0;
 }
 

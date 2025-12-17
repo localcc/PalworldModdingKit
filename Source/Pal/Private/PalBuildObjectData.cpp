@@ -2,8 +2,9 @@
 
 FPalBuildObjectData::FPalBuildObjectData() {
     this->TypeA = EPalBuildObjectTypeA::Product;
-    this->RedialIndex = 0;
+    this->SortId = 0;
     this->TypeB = EPalBuildObjectTypeB::Prod_Craft;
+    this->TypeUIDisplay = EPalBuildObjectTypeForUIDisplay::Invalid;
     this->Rank = 0;
     this->BuildCapacity = 0;
     this->RequiredBuildWorkAmount = 0.00f;
@@ -22,5 +23,8 @@ FPalBuildObjectData::FPalBuildObjectData() {
     this->InstallMaxNumInBaseCamp = 0;
     this->bInstallableNoObstacleFromCamera = false;
     this->BuildExpRate = 0.00f;
+    this->bIsProhibitedInRaidBossArea = false;
+    this->MaxBuildCountInRaidBossArea = 0;
+    this->bIsPaintable = false;
 }
 

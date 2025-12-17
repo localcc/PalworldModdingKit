@@ -75,6 +75,15 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsDebugMuteki;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsDebugScarecrow;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 DebugScarecrow_Level;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 DebugScarecrow_Defense;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     EPalElementType ElementType1;
     
@@ -176,6 +185,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsPreCooping;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bRespawnedWaitTeleport;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -405,7 +417,7 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
-    void OnSlipDamage(int32 Damage);
+    void OnSlipDamage(const FPalDamageResult& DamageResult);
     
 protected:
     UFUNCTION(BlueprintCallable)
@@ -431,7 +443,7 @@ private:
     void OnInitialize_AfterSetIndividualParameter(APalCharacter* Character);
     
     UFUNCTION(BlueprintCallable)
-    void OnDamage(FPalDamageResult DamageResult);
+    void OnDamage(const FPalDamageResult DamageResult);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)

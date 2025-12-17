@@ -4,6 +4,7 @@
 #include "UObject/NoExportTypes.h"
 #include "Components/ActorComponent.h"
 #include "Engine/EngineTypes.h"
+#include "EPalSyncTeleportState.h"
 #include "PalSyncTeleportRequestParameter.h"
 #include "PalSyncTeleportComponent.generated.h"
 
@@ -30,6 +31,9 @@ protected:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UPalHUDDispatchParameter_FadeWidget* FadeParameter;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalSyncTeleportState SyncTeleportState;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FTimerHandle TeleportMutekiTimerHandle;

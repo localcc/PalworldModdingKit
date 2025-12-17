@@ -21,11 +21,22 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FGuid BaseCampId;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    bool bForRaidBossArea;
+    
 public:
     UPalMapObjectBaseCampPoint();
 
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnReceiveConfirmSurrenderRaidBossAreaResult(const bool bResult);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnReceiveConfirmExitRaidBossAreaResult(const bool bResult);
+    
+public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSameGuildInLocalPlayer() const;
     

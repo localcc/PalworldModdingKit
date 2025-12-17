@@ -80,6 +80,9 @@ public:
     void NotifySequenceEnd_ToServer(const FGuid& ArenaInstanceId);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
+    void NotifyFailedStartArenaByOverConcurrentStageLimitationToClient();
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void NotifyEndArenaSpectate_ToClient();
     
     UFUNCTION(BlueprintCallable, Client, Reliable)

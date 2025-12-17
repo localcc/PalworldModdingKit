@@ -7,9 +7,13 @@ UPalIndividualCharacterParameter::UPalIndividualCharacterParameter() {
     this->ParentParameter = NULL;
     this->bRedirectDamage = false;
     this->bCanTargetFromAI = true;
+    this->bIsInRaidArea = false;
+    this->bNeedResetShieldHP = false;
     this->IsWaitResponseWordFiltering = false;
     this->EquipItemContainer = NULL;
     this->LastExpUpdateType = EPalExpCalcType::None;
+    this->RespawnPenaltyCount = 0;
+    this->bDeathAppliedOnLogin = false;
 }
 
 bool UPalIndividualCharacterParameter::TryFindEatItem(const FPalContainerId& ContainerId, int32& SlotIndex) {
@@ -46,6 +50,9 @@ void UPalIndividualCharacterParameter::SetShieldMaxHP(FFixedPoint64 NextSheildMa
 void UPalIndividualCharacterParameter::SetShieldHP(FFixedPoint64 NextSheildHP) {
 }
 
+void UPalIndividualCharacterParameter::SetSecurityPoliceTargetPlayerId(const FGuid& PlayerId) {
+}
+
 void UPalIndividualCharacterParameter::SetPhysicalHealth(EPalStatusPhysicalHealthType PhysicalHealth) {
 }
 
@@ -62,6 +69,9 @@ void UPalIndividualCharacterParameter::SetLastJumpedLocation(FVector Location) {
 }
 
 void UPalIndividualCharacterParameter::SetInvaderData(EPalInvaderType InvaderType, const FGuid InBaseCampId) {
+}
+
+void UPalIndividualCharacterParameter::SetInRaidArea(bool InRaidArea) {
 }
 
 void UPalIndividualCharacterParameter::SetInArena(bool InArena) {
@@ -143,6 +153,10 @@ bool UPalIndividualCharacterParameter::IsSkinApplied() const {
     return false;
 }
 
+bool UPalIndividualCharacterParameter::IsRespawnReady() const {
+    return false;
+}
+
 bool UPalIndividualCharacterParameter::IsRedirectDamage() const {
     return false;
 }
@@ -172,6 +186,10 @@ bool UPalIndividualCharacterParameter::IsNocturnal() const {
 }
 
 bool UPalIndividualCharacterParameter::IsLevelMax() const {
+    return false;
+}
+
+bool UPalIndividualCharacterParameter::IsInRaidArea() const {
     return false;
 }
 
@@ -307,6 +325,10 @@ float UPalIndividualCharacterParameter::GetSanityValue() const {
 }
 
 float UPalIndividualCharacterParameter::GetSanityRate() const {
+    return 0.0f;
+}
+
+float UPalIndividualCharacterParameter::GetRespawnTime() const {
     return 0.0f;
 }
 
@@ -628,10 +650,14 @@ void UPalIndividualCharacterParameter::GetLifetimeReplicatedProps(TArray<FLifeti
     DOREPLIFETIME(UPalIndividualCharacterParameter, ParentParameter);
     DOREPLIFETIME(UPalIndividualCharacterParameter, bRedirectDamage);
     DOREPLIFETIME(UPalIndividualCharacterParameter, bCanTargetFromAI);
+    DOREPLIFETIME(UPalIndividualCharacterParameter, bIsInRaidArea);
     DOREPLIFETIME(UPalIndividualCharacterParameter, SaveParameter);
     DOREPLIFETIME(UPalIndividualCharacterParameter, EquipItemContainer);
     DOREPLIFETIME(UPalIndividualCharacterParameter, BaseCampId);
     DOREPLIFETIME(UPalIndividualCharacterParameter, LastExpUpdateType);
+    DOREPLIFETIME(UPalIndividualCharacterParameter, RespawnPenaltyCount);
+    DOREPLIFETIME(UPalIndividualCharacterParameter, LastRespawnTime);
+    DOREPLIFETIME(UPalIndividualCharacterParameter, bDeathAppliedOnLogin);
     DOREPLIFETIME(UPalIndividualCharacterParameter, Debug_CurrentAIActionName);
 }
 

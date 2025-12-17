@@ -10,6 +10,9 @@ UPalPlayerRecordData::UPalPlayerRecordData() {
 void UPalPlayerRecordData::OnRep_RelicNum() {
 }
 
+void UPalPlayerRecordData::OnRep_EnteringStageInstanceId() {
+}
+
 void UPalPlayerRecordData::OnCompleteBuild_ServerInternal(UPalMapObjectModel* MapObjectModel) {
 }
 

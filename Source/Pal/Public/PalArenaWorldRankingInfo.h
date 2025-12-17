@@ -3,11 +3,13 @@
 #include "UObject/NoExportTypes.h"
 #include "GameFramework/Info.h"
 #include "PalArenaWorldRankingRecord.h"
+#include "PalFastArenaWorldRankingRepInfoArray.h"
 #include "PalArenaWorldRankingInfo.generated.h"
 
 class UDataTable;
 class UPalGroupGuildBase;
 class UPalIndividualCharacterParameter;
+class UWordFilterReceiveObject;
 
 UCLASS(Blueprintable)
 class PAL_API APalArenaWorldRankingInfo : public AInfo {
@@ -17,14 +19,14 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FPalArenaWorldRankingRecord> Records;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
-    TArray<FPalArenaWorldRankingRecord> TopRankRecords;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, int32> PlayerRankingMap_InServer;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_FastTopRankRecords, meta=(AllowPrivateAccess=true))
+    FPalFastArenaWorldRankingRepInfoArray FastTopRankRecords;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* ArenaNPCDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSet<UWordFilterReceiveObject*> ReceiveObjectSet;
     
 public:
     APalArenaWorldRankingInfo(const FObjectInitializer& ObjectInitializer);
@@ -44,18 +46,21 @@ private:
     UFUNCTION(BlueprintCallable)
     void UpdateArenaRankPoint(UPalIndividualCharacterParameter* IndividualParameter, int32 NewArenaRankPoint);
     
-public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool IsPlayerInTopRanks(const FGuid& PlayerUId) const;
+    UFUNCTION(BlueprintCallable)
+    void OnRep_FastTopRankRecords();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    TArray<FPalArenaWorldRankingRecord> GetWorldArenaRanking();
+public:
+    UFUNCTION(BlueprintCallable)
+    void OnReceivedPlayerNameWordFilteringResult(UWordFilterReceiveObject* ReceiveObject, const FString& ResponseBody, bool bResponseOK, int32 ResponseCode);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnReceivedGuildNameWordFilteringResult(UWordFilterReceiveObject* ReceiveObject, const FString& ResponseBody, bool bResponseOK, int32 ResponseCode);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FPalArenaWorldRankingRecord> GetTopWorldArenaRanking();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    FPalArenaWorldRankingRecord GetPlayerRankNo_ServerInternal(const FGuid& PlayerUId) const;
+    FPalArenaWorldRankingRecord GetRecordByPlayerUid_ServerInternal(const FGuid& PlayerUId) const;
     
 };
 

@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "EPalDeadType.h"
 #include "PalInstanceID.h"
 #include "PalDyingEndInfo.generated.h"
 
@@ -10,9 +11,12 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalInstanceID LastAttackerInstanceID;
     
-
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsInstantDeath;
+
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalDeadType DeadType;
+    
     PAL_API FPalDyingEndInfo();
 };
 

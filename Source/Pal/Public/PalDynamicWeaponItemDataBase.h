@@ -65,6 +65,9 @@ protected:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsSetReloadStartRemainingBullets_Local() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsEmptyMagazine() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

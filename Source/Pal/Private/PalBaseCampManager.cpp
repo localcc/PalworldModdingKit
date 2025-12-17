@@ -3,10 +3,12 @@
 UPalBaseCampManager::UPalBaseCampManager() {
     this->WorkerEventClassDirectoryPath = TEXT("/Game/Pal/Blueprint/BaseCamp/WorkerEvents");
     this->BaseCampAIControllerClass = NULL;
+    this->BaseCampInvasionDetectorClass = NULL;
     this->WorkerCapacityNumDefault = 0;
     this->DisplayCapacityNum = 30;
     this->WorkerEventMasterDataTable = NULL;
     this->WorkerSickMasterDataTable = NULL;
+    this->BaseCampMissionDataTable = NULL;
     this->WorkerEventTriggerTickMaxCount = 2147483647;
     this->UpdateIntervalSquaredDistanceFromPlayer = 1.00f;
     this->RestoreIgnoredWorkDistanceFromPlayer = 0.00f;

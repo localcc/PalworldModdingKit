@@ -140,5 +140,8 @@ public:
     UFUNCTION(BlueprintCallable)
     void ForceCompleteQuest_ServerInternal(const FName& QuestName);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool CanReorderableQuest(const FName& QuestId) const;
+    
 };
 

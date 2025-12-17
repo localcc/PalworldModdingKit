@@ -15,10 +15,16 @@ void UPalNetworkQuestComponent::RequestOrderInitialQuest_ToServer_Implementation
 void UPalNetworkQuestComponent::RequestCompleteQuest_ToServer_Implementation(const FName& QuestId) {
 }
 
+void UPalNetworkQuestComponent::RefreshQuest_ForDebug_Implementation() {
+}
+
 void UPalNetworkQuestComponent::NotifyOrderedQuest_ToClient_Implementation(const FName& QuestId) {
 }
 
 void UPalNetworkQuestComponent::NotifyOpenSurvivalGuide_ToServer_Implementation() {
+}
+
+void UPalNetworkQuestComponent::NotifyGetSkinRewardUI_ToClient_Implementation(const FName& SkinName) {
 }
 
 void UPalNetworkQuestComponent::NotifyCompleteQuest_ToClient_Implementation(const FName& QuestId) {

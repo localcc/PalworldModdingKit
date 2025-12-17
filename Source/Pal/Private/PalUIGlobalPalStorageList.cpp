@@ -33,4 +33,8 @@ bool UPalUIGlobalPalStorageList::GetDummyPageSlots(const int32 PageNum, TArray<U
     return false;
 }
 
+int32 UPalUIGlobalPalStorageList::DataIndexToPageNum(const int32 GPSDataIndex) const {
+    return 0;
+}
+
 

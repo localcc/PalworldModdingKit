@@ -47,7 +47,7 @@ EPalCurveBall UPalPassiveSkillComponent::GetCurveBallTypePassiveEffectByPlayerEq
     return EPalCurveBall::None;
 }
 
-void UPalPassiveSkillComponent::AddSpecialAttackRateInfo(TArray<FPalSpecialAttackRateInfo>& SpecialAttackRateInfos) {
+void UPalPassiveSkillComponent::AddSpecialAttackRateInfo(TArray<FPalSpecialAttackRateInfo>& SpecialAttackRateInfos, const AActor* Defender) {
 }
 
 void UPalPassiveSkillComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {

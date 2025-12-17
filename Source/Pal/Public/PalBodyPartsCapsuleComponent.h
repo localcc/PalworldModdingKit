@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "Components/CapsuleComponent.h"
 #include "EPalBodyPartsType.h"
+#include "PalBodyPartsInterface.h"
 #include "PalBodyPartsCapsuleComponent.generated.h"
 
 UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))

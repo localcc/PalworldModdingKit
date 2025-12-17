@@ -183,12 +183,6 @@ void APalPlayerCharacter::Editor_ChangeToMale() {
 
 
 
-void APalPlayerCharacter::ChangeToMale() {
-}
-
-void APalPlayerCharacter::ChangeToFemale() {
-}
-
 void APalPlayerCharacter::CallReviveDelegate_Implementation() {
 }
 

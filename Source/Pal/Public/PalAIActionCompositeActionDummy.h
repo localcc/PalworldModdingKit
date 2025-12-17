@@ -21,5 +21,9 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnFinishAction(UPalAIActionBase* action);
     
+public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FString GetActionClassName() const;
+    
 };
 

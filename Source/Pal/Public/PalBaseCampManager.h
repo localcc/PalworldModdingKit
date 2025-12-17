@@ -14,6 +14,7 @@
 #include "PalBaseCampManager.generated.h"
 
 class AController;
+class APalBaseCampInvasionDetector;
 class UDataTable;
 class UPalAIActionBaseCampDefenseBase;
 class UPalBaseCampModel;
@@ -44,6 +45,9 @@ protected:
     TSubclassOf<AController> BaseCampAIControllerClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<APalBaseCampInvasionDetector> BaseCampInvasionDetectorClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 WorkerCapacityNumDefault;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -64,6 +68,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* WorkerSickMasterDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* BaseCampMissionDataTable;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 WorkerEventTriggerTickMaxCount;

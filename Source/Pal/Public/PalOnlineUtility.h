@@ -20,7 +20,7 @@ public:
     static bool UnMutePlayer(const UObject* WorldContextObject, const FString& UserId);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static bool UnBlockPlayer(const UObject* WorldContextObject, const FString& UserId);
+    static bool UnBlockPlayer(const UObject* WorldContextObject, const FString& UserId, bool& bOutNotFound);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool ShowWebURL(const UObject* WorldContextObject, const FString& InURL);
@@ -82,6 +82,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static TArray<FPalOptionOnlineIds> GetMutePlayerList(const UObject* WorldContextObject);
     
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static FString GetEOSVersion(const UObject* WorldContextObject);
+    
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static TArray<FPalOptionOnlineIds> GetBlockPlayerList(const UObject* WorldContextObject);
     
@@ -89,7 +92,10 @@ public:
     static bool CheckUserResolvePrivilege(const UObject* WorldContextObject, const EPalUserPrivilege Privilege, bool UIOpen);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static bool BlockPlayer(const UObject* WorldContextObject, const FString& UserId, bool& bOutKicked);
+    static void CheckPlayerNameByUId_UGC(const UObject* WorldContextObject, const FGuid& PlayerUId, FString& outName);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static bool BlockPlayer(const UObject* WorldContextObject, const FString& UserId, bool& bOutKicked, const FString& InCachePlayerName, bool& bOutNotFound);
     
 };
 

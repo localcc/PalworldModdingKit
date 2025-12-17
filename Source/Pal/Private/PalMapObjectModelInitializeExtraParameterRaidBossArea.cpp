@@ -1,0 +1,6 @@
+#include "PalMapObjectModelInitializeExtraParameterRaidBossArea.h"
+
+UPalMapObjectModelInitializeExtraParameterRaidBossArea::UPalMapObjectModelInitializeExtraParameterRaidBossArea() {
+}
+
+

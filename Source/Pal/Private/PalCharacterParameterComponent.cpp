@@ -9,6 +9,9 @@ UPalCharacterParameterComponent::UPalCharacterParameterComponent(const FObjectIn
     this->IsSPOverheat = false;
     this->bIsHyperArmor = false;
     this->bIsDebugMuteki = false;
+    this->bIsDebugScarecrow = false;
+    this->DebugScarecrow_Level = 1;
+    this->DebugScarecrow_Defense = 1;
     this->ElementType1 = EPalElementType::None;
     this->ElementType2 = EPalElementType::None;
     this->IsOverrideTarget = false;
@@ -38,6 +41,7 @@ UPalCharacterParameterComponent::UPalCharacterParameterComponent(const FObjectIn
     this->MaxHPRate_ForTowerBoss = 1.00f;
     this->MaxSPBuffRate = 1.00f;
     this->bIsPreCooping = false;
+    this->bRespawnedWaitTeleport = false;
     this->bIsUseGroundRayCast = true;
     this->BaseCampWorkerOrderType = EPalMapBaseCampWorkerOrderType::Work;
     this->bBaseCampWorkerAttackableFriend = false;
@@ -153,7 +157,7 @@ void UPalCharacterParameterComponent::RemoveTrapMovingPanel(AActor* TrapActor) {
 void UPalCharacterParameterComponent::RemoveTrapLegHold(AActor* TrapActor) {
 }
 
-void UPalCharacterParameterComponent::OnSlipDamage(int32 Damage) {
+void UPalCharacterParameterComponent::OnSlipDamage(const FPalDamageResult& DamageResult) {
 }
 
 void UPalCharacterParameterComponent::OnRep_Trainer() {
@@ -174,7 +178,7 @@ void UPalCharacterParameterComponent::OnInitializedCharacter(APalCharacter* Owne
 void UPalCharacterParameterComponent::OnInitialize_AfterSetIndividualParameter(APalCharacter* Character) {
 }
 
-void UPalCharacterParameterComponent::OnDamage(FPalDamageResult DamageResult) {
+void UPalCharacterParameterComponent::OnDamage(const FPalDamageResult DamageResult) {
 }
 
 bool UPalCharacterParameterComponent::IsPlayersOtomo() const {

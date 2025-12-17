@@ -6,6 +6,8 @@ FPalMapObjectMasterData::FPalMapObjectMasterData() {
     this->bCollectionObject = false;
     this->Hp = 0;
     this->Defense = 0;
+    this->Hp_PVP = 0;
+    this->Defense_PVP = 0;
     this->bBelongToBaseCamp = false;
     this->DistributeExpAroundPlayer = 0;
     this->DeteriorationDamage = 0.00f;

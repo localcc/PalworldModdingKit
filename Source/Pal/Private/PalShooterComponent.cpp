@@ -8,7 +8,9 @@ UPalShooterComponent::UPalShooterComponent(const FObjectInitializer& ObjectIniti
     this->IsUseBlurUpdate = false;
     this->bIgnoreUIDelayForNextWeapon = false;
     this->bIsShooting = false;
+    this->bIsAltShooting = false;
     this->bIsRequestPullTrigger = false;
+    this->bIsRequestPullAltTrigger = false;
     this->bIsReloading = false;
     this->HasWeapon = NULL;
     this->CacheNextWeapon = NULL;
@@ -19,15 +21,20 @@ UPalShooterComponent::UPalShooterComponent(const FObjectInitializer& ObjectIniti
     this->OverrideWeaponType = EPalWeaponType::MAX;
     this->bUnstoppable = false;
     this->bIsHoldTrigger = false;
+    this->bIsHoldAltTrigger = false;
     this->bBufferedInput = false;
     this->bIsShootingHold = false;
     this->bIsAttachRequest = false;
     this->bChangeIsShootingPulling = false;
     this->bChangeIsShootingRelaseRequest = false;
+    this->bChangeIsAltShootingPulling = false;
+    this->bChangeIsAltShootingRelaseRequest = false;
     this->NPCWeapon = NULL;
     this->CurrentBulletBlurRate = 0.00f;
     this->RapidFireBlur = 0.00f;
     this->CurrentWeaponUseLeftHandIK = false;
+    this->WeaponCombo = NULL;
+    this->CacheAnimMontage = NULL;
 }
 
 void UPalShooterComponent::StopWeaponChangeAnimation() {
@@ -45,7 +52,7 @@ void UPalShooterComponent::StopReload_ToALL_Implementation(int32 ID) {
 void UPalShooterComponent::StopReload() {
 }
 
-void UPalShooterComponent::StopPullTriggerAnime_forBP() {
+void UPalShooterComponent::StopPullTriggerAnime_forBP(bool bForceStop) {
 }
 
 void UPalShooterComponent::StartAim() {
@@ -73,6 +80,9 @@ void UPalShooterComponent::SetShootingHold(bool IsHold) {
 }
 
 void UPalShooterComponent::SetRequestAiming(EPalShooterFlagContainerPriority Priority, bool IsRequest) {
+}
+
+void UPalShooterComponent::SetReloadStartRemainingBullets_ToServer_Implementation(int32 bulletNum) {
 }
 
 void UPalShooterComponent::SetOverrideWeaponType(EPalWeaponType Type) {
@@ -132,6 +142,9 @@ void UPalShooterComponent::ResetOverrideRotationFlags() {
 void UPalShooterComponent::ReloadWeaponInternal() {
 }
 
+void UPalShooterComponent::ReloadWeaponImmediate_ToServer_Implementation(int32 consumeBulletNum, UPalDynamicWeaponItemDataBase* DynamicData) {
+}
+
 void UPalShooterComponent::ReloadWeapon_ToServer_Implementation(int32 ID) {
 }
 
@@ -144,7 +157,13 @@ void UPalShooterComponent::ReloadWeapon() {
 void UPalShooterComponent::ReleaseTrigger() {
 }
 
+void UPalShooterComponent::ReleaseAltTrigger() {
+}
+
 void UPalShooterComponent::PullTrigger() {
+}
+
+void UPalShooterComponent::PullAltTrigger() {
 }
 
 void UPalShooterComponent::OnWeaponNotify(EWeaponNotifyType Type) {
@@ -204,6 +223,10 @@ bool UPalShooterComponent::IsHiddenAttachWeapon() {
     return false;
 }
 
+bool UPalShooterComponent::IsAltShooting() const {
+    return false;
+}
+
 bool UPalShooterComponent::IsAiming_Layered(EPalShooterFlagContainerPriority Priority) const {
     return false;
 }
@@ -252,6 +275,14 @@ float UPalShooterComponent::GetChangeWeaponAnimationWeight() const {
     return 0.0f;
 }
 
+FRotator UPalShooterComponent::GetCameraRotation() const {
+    return FRotator{};
+}
+
+FVector UPalShooterComponent::GetCameraLocation() const {
+    return FVector{};
+}
+
 UPalShooterAnimeAssetBase* UPalShooterComponent::GetBowAnimAsset() {
     return NULL;
 }
@@ -263,16 +294,25 @@ EPalShooterFlagContainerPriority UPalShooterComponent::GetAimingPriority() const
 void UPalShooterComponent::EndAim(bool bAllEndAim) {
 }
 
-void UPalShooterComponent::ChangeWeapon(APalWeaponBase* Weapon) {
+void UPalShooterComponent::ChangeWeapon(APalWeaponBase* Weapon, bool bSkipLocalControlCheck) {
 }
 
-void UPalShooterComponent::ChangeIsShooting_ToServer_Implementation(int32 ID, bool NewIsShooting) {
+void UPalShooterComponent::ChangeIsShooting_ToServer_Implementation(int32 ID, bool NewIsShooting, bool bCanShootOnRelease) {
 }
 
-void UPalShooterComponent::ChangeIsShooting_ToALL_Implementation(int32 ID, bool NewIsShooting) {
+void UPalShooterComponent::ChangeIsShooting_ToALL_Implementation(int32 ID, bool NewIsShooting, bool bCanShootOnRelease) {
 }
 
-void UPalShooterComponent::ChangeIsShooting(bool NewIsShooting) {
+void UPalShooterComponent::ChangeIsShooting(bool NewIsShooting, bool bCanShootOnRelease) {
+}
+
+void UPalShooterComponent::ChangeIsAltShooting_ToServer_Implementation(int32 ID, bool NewIsShooting, bool bCanShootOnRelease) {
+}
+
+void UPalShooterComponent::ChangeIsAltShooting_ToALL_Implementation(int32 ID, bool NewIsShooting, bool bCanShootOnRelease) {
+}
+
+void UPalShooterComponent::ChangeIsAltShooting(bool NewIsShooting, bool bCanShootOnRelease) {
 }
 
 void UPalShooterComponent::ChangeIsAiming_ToServer_Implementation(int32 ID, EPalShooterFlagContainerPriority Priority, bool NewIsAiming) {
@@ -282,6 +322,12 @@ void UPalShooterComponent::ChangeIsAiming_ToALL_Implementation(int32 ID, EPalSho
 }
 
 void UPalShooterComponent::ChangeIsAiming(EPalShooterFlagContainerPriority Priority, bool NewIsAiming) {
+}
+
+void UPalShooterComponent::ChangeCombo_ToServer_Implementation(const FName& SectionName, UAnimMontage* nextMontage) {
+}
+
+void UPalShooterComponent::ChangeCombo_ToAll_Implementation(const FName& SectionName, UAnimMontage* nextMontage) {
 }
 
 bool UPalShooterComponent::CanWeaponChangeAnime() {
@@ -324,6 +370,10 @@ bool UPalShooterComponent::CanAutoAim() const {
     return false;
 }
 
+bool UPalShooterComponent::CanAltFire() const {
+    return false;
+}
+
 bool UPalShooterComponent::CanAim() const {
     return false;
 }
@@ -337,7 +387,7 @@ void UPalShooterComponent::AttachWeapon_ForPartnerSkillPalWeapon_ToAll_Implement
 void UPalShooterComponent::AttachWeapon_ForNPC_ToAll_Implementation(bool IsNotNull) {
 }
 
-void UPalShooterComponent::AttachWeapon(APalWeaponBase* Weapon) {
+void UPalShooterComponent::AttachWeapon(APalWeaponBase* Weapon, bool bSkipLocalControlCheck) {
 }
 
 void UPalShooterComponent::AddRapidFireBlur() {
@@ -347,7 +397,10 @@ void UPalShooterComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(UPalShooterComponent, targetDirection);
+    DOREPLIFETIME(UPalShooterComponent, CameraRotation);
+    DOREPLIFETIME(UPalShooterComponent, CameraLocation);
     DOREPLIFETIME(UPalShooterComponent, RandomStream);
+    DOREPLIFETIME(UPalShooterComponent, TimedRandomStream);
 }
 
 

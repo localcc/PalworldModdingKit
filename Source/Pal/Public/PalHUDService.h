@@ -34,10 +34,14 @@ class PAL_API UPalHUDService : public UObject {
     GENERATED_BODY()
 public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnSuccessedCapturePal, const FPalUIPalCaptureInfo&, CaptureInfo);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnStartAnyFadeOut, EPalFadeWidgetLayerType, FadeWidgetLayerType);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnRequestOpenChat);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPushedStackableUI, const FGuid&, pushedWidgetID);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnNotifyUpdateReticleVisibility, bool, bVisible);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnEndAllFadeIn);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnDisplayCharacterHPGauge, UPalIndividualCharacterParameter*, Parameter);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnDeleteCharacterHPGauge, UPalIndividualCharacterParameter*, Parameter);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnCompleteChat);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnApplicationActivationStateChangedDelegate, bool, bIsFocused);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FInvalidatePlayerInputGuard);
     
@@ -62,6 +66,18 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnDeleteCharacterHPGauge OnDeleteCharacterHPGauge;
     
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnStartAnyFadeOut OnStartAnyFadeOut;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnEndAllFadeIn OnEndAllFadeIn;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnRequestOpenChat OnRequestOpenChat;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnCompleteChat OnCompleteChat;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FUITransientData TransientData;
     
@@ -83,6 +99,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     bool ShowUseItemUI(UPalItemSlot* TargetSlot, UPalHUDDispatchParameter_UseItem* Parameter);
+    
+    UFUNCTION(BlueprintCallable)
+    void ShowElementMatchUI(UWidget* RelativeWidget, const FVector2D& AnchorPosition);
     
     UFUNCTION(BlueprintCallable)
     void ShowCommonWarning(const FPalUICommonWarningDisplayData& WarningDisplayData);
@@ -115,6 +134,9 @@ public:
     void PlayAkSound(UAkAudioEvent* AkEvent);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsTopLayerUI(const FGuid& WidgetId);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsAnyOverlayUIActive();
     
     UFUNCTION(BlueprintCallable)
@@ -128,6 +150,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void InvokeFunction(const FName FunctionName);
+    
+    UFUNCTION(BlueprintCallable)
+    void HideElementMatchUI();
     
     UFUNCTION(BlueprintCallable)
     void HideCommonWarning(const FGuid PreserveID);

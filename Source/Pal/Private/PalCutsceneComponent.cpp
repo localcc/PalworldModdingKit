@@ -19,6 +19,9 @@ APalCutsceneActor* UPalCutsceneComponent::SpawnCutsceneActor(TSubclassOf<APalCut
     return NULL;
 }
 
+void UPalCutsceneComponent::SetCanSkip(bool bInCanSkip) {
+}
+
 void UPalCutsceneComponent::PlayCutsceneToServer_Implementation() {
 }
 
@@ -33,6 +36,10 @@ void UPalCutsceneComponent::OnEndFadeIn() {
 
 bool UPalCutsceneComponent::IsPlayingCutscene() const {
     return false;
+}
+
+float UPalCutsceneComponent::GetRemainingSeconds() const {
+    return 0.0f;
 }
 
 

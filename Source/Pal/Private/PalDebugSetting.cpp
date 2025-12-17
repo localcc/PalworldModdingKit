@@ -64,6 +64,7 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bNoDropInDisposeBuild = false;
     this->BuildRequiredWorkAmount = 0.00f;
     this->bForceConstructConnector = false;
+    this->bPaintBuildObjectColor = false;
     this->bIsDisableEnemyEyeSight = false;
     this->bIsEnableNPCDrawRaycastDebug = false;
     this->bIsHideScreenMessage = false;
@@ -130,6 +131,9 @@ UPalDebugSetting::UPalDebugSetting() {
     this->bPartnerSkill_NoDecrease = false;
     this->PartnerSkill_CooldownSpeedRate = 1.00f;
     this->PartnerSkill_IgnoreRestrictedByItems = false;
+    this->bPartnerSkill_RocketLauncherPVMode = false;
+    this->bOtomoFixedStatus_Attack = false;
+    this->OtomoFixedStatus_Attack = 100;
     this->bNotConsumeMaterialsInCraft = false;
     this->bResearchNotRequireMaterials = false;
     this->bSelectableRecipeWhenNothingMaterials = false;
