@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
 #include "Components/SplineComponent.h"
 #include "FloatCounter.h"
 #include "PalItemFlowInSplineInfo.h"

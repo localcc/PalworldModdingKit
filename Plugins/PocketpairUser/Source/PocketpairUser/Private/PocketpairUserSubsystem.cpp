@@ -10,6 +10,10 @@ void UPocketpairUserSubsystem::UnlockAchievement(const FString& ID, float Percen
 void UPocketpairUserSubsystem::OnSessionInviteReceived(const FString& InviteCode) {
 }
 
+bool UPocketpairUserSubsystem::IsEOSConnectTrouble() const {
+    return false;
+}
+
 FString UPocketpairUserSubsystem::GetTelemetryUserId() const {
     return TEXT("");
 }
@@ -44,6 +48,10 @@ FString UPocketpairUserSubsystem::GetInviteCode() const {
 
 FName UPocketpairUserSubsystem::GetDefaultOnlineSubsystemName() const {
     return NAME_None;
+}
+
+bool UPocketpairUserSubsystem::CheckEOSLoginStatus() {
+    return false;
 }
 
 void UPocketpairUserSubsystem::AddPingResultCache(const FString& Address, int32 Ping) {

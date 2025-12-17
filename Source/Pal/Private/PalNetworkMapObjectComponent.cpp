@@ -6,6 +6,9 @@ UPalNetworkMapObjectComponent::UPalNetworkMapObjectComponent(const FObjectInitia
 void UPalNetworkMapObjectComponent::RequestRepair_ToServer_Implementation(const FGuid& InstanceId) {
 }
 
+void UPalNetworkMapObjectComponent::RequestPaint_ToServer_Implementation(const FGuid& InstanceId, const FPalBuildObjectPaintData& PaintData) {
+}
+
 void UPalNetworkMapObjectComponent::RequestDismantleObject_ToServer_Implementation(const FGuid& InstanceId) {
 }
 

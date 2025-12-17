@@ -74,6 +74,12 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     EPalBaseCampWorkerDirectorState State;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bEnableWorkerPlayerTracking;
+    
+    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FPalInstanceID, FGuid> WorkerSpawnedByPlayerMap;
+    
 public:
     UPalBaseCampWorkerDirector();
 

@@ -7,6 +7,7 @@ APalCapturedCage::APalCapturedCage(const FObjectInitializer& ObjectInitializer) 
     this->DespawnRange = 20000.00f;
     this->SpawnedPalLevel = 0;
     this->bIsDoorOpened = false;
+    this->bIsEnemyCamp = true;
     this->IsInSpawnedRange = false;
     this->bDisabledLottery = false;
     this->SpawnedPalHandle = NULL;

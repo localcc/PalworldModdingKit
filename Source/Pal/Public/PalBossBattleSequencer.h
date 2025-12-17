@@ -147,7 +147,7 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
-    void KillPlayerTimeup_NextTick(APalPlayerCharacter* Player);
+    void KillPlayerTimeup_AfterRevivePartnerSkill(APalPlayerCharacter* Player);
     
     UFUNCTION(BlueprintCallable)
     void KillPlayerTimeup(APalPlayerCharacter* Player);

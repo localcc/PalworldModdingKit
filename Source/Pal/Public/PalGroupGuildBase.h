@@ -6,6 +6,7 @@
 #include "PalGroupGuildBase.generated.h"
 
 class APalGuildInfo;
+class UPalBaseCampModuleRaidDetect;
 class UPalGroupGuildBase;
 class UPalGuildPalStorage;
 class UPalPlayerAccount;
@@ -26,6 +27,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     TArray<FGuid> MapObjectInstanceIds_BaseCampPoint;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FGuid> MapObjectInstanceIds_BaseCampPoint_Temporary;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_BaseCampLevel, meta=(AllowPrivateAccess=true))
     int32 BaseCampLevel;
@@ -65,6 +69,10 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void OnDeletePlayerAccount_ServerInternal(UPalPlayerAccount* DeleteAccount);
+    
+protected:
+    UFUNCTION(BlueprintCallable)
+    void OnBaseCampRaidStarted_ServerInternal(UPalBaseCampModuleRaidDetect* RaidDetectModule);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)

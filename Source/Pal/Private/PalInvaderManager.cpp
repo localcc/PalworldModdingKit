@@ -32,4 +32,13 @@ bool UPalInvaderManager::RequestIncidentInvaderEnemy(const FGuid& Guid, UPalInva
 void UPalInvaderManager::RemoveInvaderIncident(UPalIncidentBase* Incident) {
 }
 
+void UPalInvaderManager::BroadcastInvaderStart_Implementation(const FPalIncidentBroadcastParameter& Parameter) {
+}
+
+void UPalInvaderManager::BroadcastInvaderEnd_Implementation(const FPalIncidentBroadcastParameter& Parameter) {
+}
+
+void UPalInvaderManager::BroadcastInvaderArrived_Implementation(const FPalIncidentBroadcastParameter& Parameter) {
+}
+
 

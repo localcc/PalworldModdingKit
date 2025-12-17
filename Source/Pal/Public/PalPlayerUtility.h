@@ -6,6 +6,8 @@
 #include "PalNetArchive.h"
 #include "PalPlayerUtility.generated.h"
 
+class UObject;
+
 UCLASS(Blueprintable)
 class PAL_API UPalPlayerUtility : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
@@ -23,6 +25,12 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static void ReadPlayerFeedItemTo(const FPalNetArchive& Blackboard, FPalItemSlotId& itemSlotId, int32& itemNum);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool IsInRaidBossArea_ForLocalPlayer(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool CanDropOtomoPal_ForLocalPlayer(const UObject* WorldContextObject);
     
 };
 

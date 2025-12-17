@@ -10,6 +10,7 @@
 #include "PalMonsterControllerBaseCampInterface.generated.h"
 
 class UPalAIActionBase;
+class UPalAIActionBaseCampResurrect;
 class UPalAIActionBaseCampSleep;
 
 UINTERFACE(Blueprintable, MinimalAPI)
@@ -40,6 +41,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     UPalAIActionBaseCampSleep* SetBaseCampActionSleep();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UPalAIActionBaseCampResurrect* SetBaseCampActionResurrect();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetBaseCampActionLift();

@@ -14,5 +14,6 @@ enum class EPalDeadType : uint8 {
     Drown,
     TowerBossBattle,
     Ground,
+    Sucide,
 };
 

@@ -3,25 +3,18 @@
 #include "Camera/CameraComponent.h"
 #include "EPalWeaponType.h"
 #include "PalCameraDOFSetting.h"
+#include "Templates/SubclassOf.h"
 #include "PalCharacterCameraComponent.generated.h"
 
 class APalWeaponBase;
 class UMaterialInstanceDynamic;
 class UMaterialInterface;
+class UPalCameraModifier;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalCharacterCameraComponent : public UCameraComponent {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float WalkFOV;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float SprintFOV;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float SprintFOVInterpSpeed;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float PostProcessInterpTime;
     
@@ -110,15 +103,28 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UMaterialInstanceDynamic* DynamicAimBlurMaterialDynamic;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<UPalCameraModifier*> CameraModifierList;
+    
 public:
     UPalCharacterCameraComponent(const FObjectInitializer& ObjectInitializer);
 
+    UFUNCTION(BlueprintCallable)
+    void StopCameraModifier(TSubclassOf<UPalCameraModifier> ModifierClass);
+    
+    UFUNCTION(BlueprintCallable)
+    void StartCameraModifier(TSubclassOf<UPalCameraModifier> ModifierClass, bool bOverride);
+    
 private:
     UFUNCTION(BlueprintCallable)
     void OnStartAim();
     
     UFUNCTION(BlueprintCallable)
     void OnEndAim();
+    
+public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool HasCameraModifier() const;
     
 };
 

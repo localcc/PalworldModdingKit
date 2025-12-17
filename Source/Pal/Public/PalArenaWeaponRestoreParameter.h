@@ -11,7 +11,7 @@ public:
     FPalItemId ItemId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 BulletNum;
+    int32 bulletNum;
     
     PAL_API FPalArenaWeaponRestoreParameter();
 };

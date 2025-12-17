@@ -49,7 +49,10 @@ void UPalLogUtility::AddWorkerCompleteItemConvertLog(const UObject* WorldContext
 void UPalLogUtility::AddWorkerCompleteBuildLog(const UObject* WorldContextObject, const UPalIndividualCharacterHandle* workerHandle, const FName& buildedMapObjectName) {
 }
 
-void UPalLogUtility::AddSkillLog(const UObject* WorldContextObject, EPalLogType logType, const FPalLogInfo_Skill& Info) {
+void UPalLogUtility::AddStartRaidAnyBaseCampLog(const UObject* WorldContextObject, const FPalStartRaidAnyBaseCampLogDisplayData& DisplayData) {
+}
+
+void UPalLogUtility::AddSkillLog(const UObject* WorldContextObject, EPalLogType LogType, const FPalLogInfo_Skill& Info) {
 }
 
 void UPalLogUtility::AddMealLog(const UObject* WorldContextObject, const FPalMealLogDisplayData& DisplayData) {

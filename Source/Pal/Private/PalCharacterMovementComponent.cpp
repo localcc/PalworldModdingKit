@@ -35,7 +35,6 @@ UPalCharacterMovementComponent::UPalCharacterMovementComponent(const FObjectInit
     this->SwimMaxAcceleration = 2048.00f;
     this->bRequestCrouch = false;
     this->bRequestGliding = false;
-    this->bRequestEndRolling = false;
     this->bRequestSprint = false;
     this->SlowWalkSpeed_Default = 0.00f;
     this->WalkSpeed_Default = 0.00f;
@@ -55,11 +54,16 @@ UPalCharacterMovementComponent::UPalCharacterMovementComponent(const FObjectInit
     this->InWaterRate = 0.65f;
     this->DashSwimMaxSpeed = 500.00f;
     this->JumpableInWaterDepth = 30.00f;
+    this->JumpableInWaterDepthRateThreshold = 0.10f;
+    this->bIsHoverWaterPal = false;
+    this->HoverWaterDistance = 0.00f;
+    this->SwimJumpVelocityZThreshold = 2.00f;
     this->EnteredWaterFlag = EEnterWaterFlag::None;
     this->WaterPlaneZ = 340282346638528859811704183484516925440.00f;
     this->WaterPlaneZPrev = 340282346638528859811704183484516925440.00f;
     this->WaitTimeToSwimInFalling = 0.00f;
     this->bIsDashSwim = false;
+    this->bIsAboveWater = false;
     this->CacheTickInterval = 0.00f;
     this->ReserveTickInterval = 0.00f;
 }
@@ -74,6 +78,9 @@ void UPalCharacterMovementComponent::SetWalkSpeedMultiplier(FName flagName, floa
 }
 
 void UPalCharacterMovementComponent::SetWalkSpeedByType(FName flagName, EPalMovementSpeedType MoveSpeedType) {
+}
+
+void UPalCharacterMovementComponent::SetWalkOffLedgesDisableFlag(FName flagName, bool Disable) {
 }
 
 void UPalCharacterMovementComponent::SetWalkableFloorAngleOverrides(EPalWalkableFloorAnglePriority Priority, float Angle) {
@@ -181,9 +188,6 @@ void UPalCharacterMovementComponent::ResetLastLandingLocationCache() {
 void UPalCharacterMovementComponent::RequestTemporaryAcceleration() {
 }
 
-void UPalCharacterMovementComponent::RequestEndRolling(bool bEndRolling) {
-}
-
 void UPalCharacterMovementComponent::RemoveWalkableFloorAngleOverrides(EPalWalkableFloorAnglePriority Priority) {
 }
 
@@ -194,9 +198,6 @@ void UPalCharacterMovementComponent::OnExitWater() {
 }
 
 void UPalCharacterMovementComponent::OnEnterWater() {
-}
-
-void UPalCharacterMovementComponent::OnDeactivated(UActorComponent* Component) {
 }
 
 void UPalCharacterMovementComponent::OnChangeCrouch(UPalCharacterMovementComponent* Component, bool IsInCrouch) {
@@ -240,10 +241,6 @@ bool UPalCharacterMovementComponent::IsRequestSliding() const {
 }
 
 bool UPalCharacterMovementComponent::IsRequestGliding() const {
-    return false;
-}
-
-bool UPalCharacterMovementComponent::IsRequestEndRolling() const {
     return false;
 }
 

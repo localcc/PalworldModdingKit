@@ -36,6 +36,10 @@ void UPalDynamicWeaponItemDataBase::OnRep_ForceUpdateBulletsCounter() {
 void UPalDynamicWeaponItemDataBase::OnRep_Durability() {
 }
 
+bool UPalDynamicWeaponItemDataBase::IsSetReloadStartRemainingBullets_Local() const {
+    return false;
+}
+
 bool UPalDynamicWeaponItemDataBase::IsEmptyMagazine() const {
     return false;
 }

@@ -6,6 +6,9 @@ UPalUIBuildingModel::UPalUIBuildingModel() {
 void UPalUIBuildingModel::ToggleChangeModeReplace() {
 }
 
+void UPalUIBuildingModel::StartDismantleMode() {
+}
+
 bool UPalUIBuildingModel::ShouldDisplayWarningForBuildObject() const {
     return false;
 }
@@ -22,6 +25,10 @@ void UPalUIBuildingModel::RotateTarget(const bool bRight) {
 
 
 bool UPalUIBuildingModel::IsSnapMode() const {
+    return false;
+}
+
+bool UPalUIBuildingModel::IsReadyInstallChecker() const {
     return false;
 }
 

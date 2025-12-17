@@ -25,6 +25,7 @@ class UPalBuildObjectOverlapChecker;
 class UPalBuildObjectVisualControlComponent;
 class UPalBuildProcess;
 class UPalMapObjectModel;
+class UPalMapObjectModelPaint;
 class UPalWorkProgress;
 class UPrimitiveComponent;
 class UShapeComponent;
@@ -53,9 +54,6 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FVector InstallLocationOffset;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float InstallAtReticleGroundZOffset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float InstallNeighborRotationZOffset;
@@ -147,6 +145,15 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bReplaceOverlapCheck;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bReceivedBroadcastPaintChanged;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bExistsArrowInSimulatingTransform;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FTransform ArrowInSimulatingRelativeTransform;
+    
 public:
     APalBuildObject(const FObjectInitializer& ObjectInitializer);
 
@@ -173,6 +180,9 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void OnStartTriggerInteractBuilding(AActor* OtherActor, EPalInteractiveObjectIndicatorType IndicatorType);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnSetPaintInMapObjectModel(UPalMapObjectModel* Model, UPalMapObjectModelPaint* Paint);
     
     UFUNCTION(BlueprintCallable)
     void OnRep_CurrentState();

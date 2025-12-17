@@ -3,6 +3,7 @@
 #include "Engine/DataTable.h"
 #include "EPalBuildObjectTypeA.h"
 #include "EPalBuildObjectTypeB.h"
+#include "EPalBuildObjectTypeForUIDisplay.h"
 #include "EPalEnergyType.h"
 #include "PalBuildObjectData.generated.h"
 
@@ -17,10 +18,13 @@ public:
     EPalBuildObjectTypeA TypeA;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 RedialIndex;
+    int32 SortId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalBuildObjectTypeB TypeB;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalBuildObjectTypeForUIDisplay TypeUIDisplay;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 Rank;
@@ -93,6 +97,15 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float BuildExpRate;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsProhibitedInRaidBossArea;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 MaxBuildCountInRaidBossArea;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsPaintable;
     
     PAL_API FPalBuildObjectData();
 };

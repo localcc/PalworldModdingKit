@@ -23,6 +23,7 @@ FPalIndividualCharacterSaveParameter::FPalIndividualCharacterSaveParameter() {
     this->IsPlayer = false;
     this->Support = 0;
     this->CraftSpeed = 0;
+    this->bApplyShieldDamage = false;
     this->HungerType = EPalStatusHungerType::Default;
     this->SanityValue = 0.00f;
     this->BaseCampWorkerEventType = EPalBaseCampWorkerEventType::None;

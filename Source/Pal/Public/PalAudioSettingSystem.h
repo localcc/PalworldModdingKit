@@ -5,6 +5,7 @@
 #include "EPalAudioFadeType.h"
 #include "FloatContainer.h"
 #include "PalAudioFadeParameter.h"
+#include "PalOptionAudioSettings.h"
 #include "PalAudioSettingSystem.generated.h"
 
 UCLASS(Blueprintable)
@@ -20,6 +21,10 @@ protected:
     
 public:
     UPalAudioSettingSystem();
+
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, meta=(WorldContext="WorldContextObject"))
+    void UpdateAudioSwitch(const UObject* WorldContextObject, const FPalOptionAudioSettings& NewAudioSettings);
+    
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void Tick_BP(float DeltaTime);
     

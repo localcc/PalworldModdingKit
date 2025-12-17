@@ -70,6 +70,9 @@ public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static FTimerHandle SetTimeCallbackBySkillEffectSpawnParameter(const UObject* WorldContextObject, const FSkillEffectSpawnParameter& Parameter, UObject* callObject, FSkillEffectTimeDelegate timeDelegate);
     
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void SetStartEffectFadeOut(bool bFadeOut);
+    
     UFUNCTION(BlueprintCallable)
     void SetActorTransformByOwner(const AActor* SkillOwner, const FVector& MyOffset);
     

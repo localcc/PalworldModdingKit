@@ -16,7 +16,7 @@ UCLASS(Blueprintable, EditInlineNew)
 class UPalAttackFilter : public UPalHitFilter {
     GENERATED_BODY()
 public:
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FOnAttackDelegate, AActor*, Defencer, FPalDamageInfo&, DamageInfo, int32, HitCount, UPrimitiveComponent*, AttackerComponent);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FOnAttackDelegate, AActor*, Defencer, const FPalDamageInfo&, DamageInfo, int, HitCount, UPrimitiveComponent*, AttackerComponent);
 
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnAttackDelegate OnAttackDelegate;

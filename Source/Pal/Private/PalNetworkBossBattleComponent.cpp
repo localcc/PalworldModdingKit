@@ -18,6 +18,9 @@ void UPalNetworkBossBattleComponent::RequestBossBattleEntry_ToServer_Implementat
 void UPalNetworkBossBattleComponent::RemovePlayerFromRoom_ToClient_Implementation(EPalBossType BossType, APalPlayerCharacter* DeadPlayer) {
 }
 
+void UPalNetworkBossBattleComponent::NotifyFailedStartArenaByOverConcurrentStageLimitationToClient_Implementation() {
+}
+
 void UPalNetworkBossBattleComponent::NoticeSequenceEnd_ToServer_Implementation(EPalBossType BossType) {
 }
 

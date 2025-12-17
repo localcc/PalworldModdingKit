@@ -1,11 +1,13 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
-#include "UDLSSMode.h"
 #include "SceneUtils.h"
 #include "GameFramework/GameUserSettings.h"
+#include "EPalDLSSGMode.h"
 #include "EPalOptionGraphicsLevel.h"
 #include "EPalOptionMapObjectDrawDistanceType.h"
+#include "EPalOptionUpscalingLevel.h"
+#include "EPalReflexMode.h"
 #include "PalOptionGraphicsSettings.generated.h"
 
 USTRUCT(BlueprintType)
@@ -82,7 +84,16 @@ public:
     int32 TextureQuality;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UDLSSMode DLSSMode;
+    EPalOptionUpscalingLevel DLSSMode;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalDLSSGMode DLSSFrameGenerationMode;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 DLSSGeneratedFrames;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalReflexMode ReflexMode;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MaxFPS;

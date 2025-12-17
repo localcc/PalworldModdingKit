@@ -8,6 +8,8 @@ UPalArenaWorldSubsystem::UPalArenaWorldSubsystem() {
     this->SoloRewadTable = NULL;
     this->SoloNPCSpawnerClass = NULL;
     this->ArenaWorldRankingInfoClass = NULL;
+    this->InitialHateHigh = 10000.00f;
+    this->InitialHateLow = 5000.00f;
     this->ArenaWorldRankingInfo = NULL;
     this->ArenaEntrance = NULL;
 }

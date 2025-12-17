@@ -43,6 +43,9 @@ FGuid UPalArenaSequencer::OpenPalSelectUI(FOnPalSelectedDelegate PalSelectedDele
     return FGuid{};
 }
 
+void UPalArenaSequencer::OnPalSelectUIClose(UPalHUDDispatchParameterBase* Param) {
+}
+
 void UPalArenaSequencer::OnArenaSequenceEnd(UPalArenaSequenceBase* SequenceBase) {
 }
 

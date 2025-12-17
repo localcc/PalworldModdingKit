@@ -8,6 +8,13 @@ class UPalUIInGameGeneralDispatchEventReciever : public UPalUserWidget {
     GENERATED_BODY()
 public:
     UPalUIInGameGeneralDispatchEventReciever();
+
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void ReturnToBuildObjectList();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OpenPaintingUI();
+    
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OpenDismantlingUIFromRadialMenu(const int32 LastSelectedIndex);
     
@@ -19,6 +26,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OpenBuildingUI(const FName BuildObjectId);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void ClosePaintingUI();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void CloseDismantlingUI();

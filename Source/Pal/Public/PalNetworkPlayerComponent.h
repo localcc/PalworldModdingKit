@@ -7,14 +7,17 @@
 #include "EPalBossType.h"
 #include "EPalPlayerInventoryType.h"
 #include "EPalPlayerReplicationEntityType.h"
+#include "EPalRaidBossBattleFinishType.h"
 #include "EPalStageRequestResult.h"
 #include "PalBuildRequestDebugParameter.h"
 #include "PalInstanceID.h"
 #include "PalItemSlotId.h"
 #include "PalNetArchive.h"
+#include "PalPlayerDataEquipLanternData.h"
 #include "PalPlayerSettingsForServer.h"
 #include "PalStageExitParameter.h"
 #include "PalStageInstanceId.h"
+#include "PalStageRequestMessage.h"
 #include "PalUIBossDefeatRewardDisplayData.h"
 #include "PalNetworkPlayerComponent.generated.h"
 
@@ -57,6 +60,9 @@ public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestSetReplicationEntity_ToServer(const EPalPlayerReplicationEntityType EntityType, const bool bReplicate);
     
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestSendMessageToCurrentStage_ToServer(const FPalStageRequestMessage& Message);
+    
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestPickupTreasureMapPoint_ToServer(const FGuid& TargetLevelInstanceId);
@@ -93,6 +99,9 @@ public:
     void RequestChangeVoiceID_ToServer(int32 NewVoiceID);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RequestChangePlayerLanternSetting(const FPalPlayerDataEquipLanternData& NewLanternSettings);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestCancelSalvageAction_ToServer();
     
 private:
@@ -122,6 +131,9 @@ private:
     void ReceiveSuccessPickupTreasureMapPoint_ToClient(APalTreasureMapInteractivePoint* TargetInteractivePoint);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
+    void ReceiveRequestSendMessageToCurrentStageResult_ToRequestClient(const EPalStageRequestResult Result);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ReceiveExitStageRequestResult_ToRequestClient(const EPalStageRequestResult Result);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
@@ -141,10 +153,16 @@ public:
     void NotifyReleaseWanted_ToClient(UPalIndividualCharacterHandle* CriminalHandle);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
+    void NotifyRaidBossEnd_ToClient(const FGuid CampID, const EPalRaidBossBattleFinishType FinishType);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void NotifyEndCrime_ToClient(FGuid CrimeInstanceId);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void NotifyClientInitializedEssential_ToServer();
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void NotifyBaseCampRaidStarted_ToClient(const FGuid& BaseCampId);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void LoadoutSelectorRemoveEquipItem(UPalLoadoutSelectorComponent* LoadoutSelector);

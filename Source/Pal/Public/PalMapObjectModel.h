@@ -25,6 +25,7 @@ class UPalBuildProcess;
 class UPalMapObjectConcreteModelBase;
 class UPalMapObjectModelConnectorBase;
 class UPalMapObjectModelEffect;
+class UPalMapObjectModelPaint;
 class UPalWorkAssign;
 class UPalWorkBase;
 
@@ -105,6 +106,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_Effect, meta=(AllowPrivateAccess=true))
     UPalMapObjectModelEffect* Effect;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_Paint, meta=(AllowPrivateAccess=true))
+    UPalMapObjectModelPaint* Paint;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FGuid RepairWorkId;
     
@@ -131,6 +135,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float SignificanceValue;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsCollectionObject;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float DeteriorationDamage;
@@ -176,6 +183,9 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void OnStartTriggerInteract(AActor* Other, EPalInteractiveObjectIndicatorType IndicatorType);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnRep_Paint();
     
     UFUNCTION(BlueprintCallable)
     void OnRep_Effect();

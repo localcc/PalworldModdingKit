@@ -57,5 +57,8 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool GetDummyPageSlots(const int32 PageNum, TArray<UPalIndividualCharacterSlot*>& OutSlots) const;
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 DataIndexToPageNum(const int32 GPSDataIndex) const;
+    
 };
 

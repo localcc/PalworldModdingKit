@@ -7,7 +7,6 @@ APalBuildObject::APalBuildObject(const FObjectInitializer& ObjectInitializer) : 
     this->InstallStrategyClass = NULL;
     this->InstallCapacitySlopeAngle = -1.00f;
     this->InstallCapacitySinkRateByHeight = -1.00f;
-    this->InstallAtReticleGroundZOffset = 0.00f;
     this->InstallNeighborRotationZOffset = 0.00f;
     this->DefaultMobility = EComponentMobility::Static;
     this->VisualCtrl = CreateDefaultSubobject<UPalBuildObjectVisualControlComponent>(TEXT("VisualController"));
@@ -24,6 +23,8 @@ APalBuildObject::APalBuildObject(const FObjectInitializer& ObjectInitializer) : 
     this->BuildProgressVisualRate = 0.00f;
     this->bDismantleTargetInLocal = false;
     this->bReplaceOverlapCheck = false;
+    this->bReceivedBroadcastPaintChanged = false;
+    this->bExistsArrowInSimulatingTransform = false;
 }
 
 void APalBuildObject::PlayBuildCompleteFX_ToALL_Implementation() {
@@ -45,6 +46,9 @@ void APalBuildObject::OnTickBuildCompleteAnimation() {
 }
 
 void APalBuildObject::OnStartTriggerInteractBuilding(AActor* OtherActor, EPalInteractiveObjectIndicatorType IndicatorType) {
+}
+
+void APalBuildObject::OnSetPaintInMapObjectModel(UPalMapObjectModel* Model, UPalMapObjectModelPaint* Paint) {
 }
 
 void APalBuildObject::OnRep_CurrentState() {

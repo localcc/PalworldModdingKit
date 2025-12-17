@@ -10,6 +10,7 @@
 #include "EPalBaseCampWorkerSickType.h"
 #include "EPalBuildObjectTypeA.h"
 #include "EPalBuildObjectTypeB.h"
+#include "EPalBuildObjectTypeForUIDisplay.h"
 #include "EPalElementType.h"
 #include "EPalGenusCategoryType.h"
 #include "EPalItemTypeA.h"
@@ -21,6 +22,7 @@
 #include "EPalWazaID.h"
 #include "EPalWorkSuitability.h"
 #include "EPalWorkType.h"
+#include "PalBuildObjectDataSetTypeUIDisplay.h"
 #include "PalSlateNavigationSetting.h"
 #include "PalUIDisplayCharacterBaseParameterInfo.h"
 #include "PalUIUtility.generated.h"
@@ -57,6 +59,9 @@ public:
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void ResetEnableCommonUIInput(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool IsValidHexString(const FString& HexString);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsToggleInteract(const UObject* WorldContextObject);
@@ -132,6 +137,12 @@ public:
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void GetUIDisplayPalCondition(const UObject* WorldContextObject, TArray<EPalUIConditionType>& OutArray, UPalIndividualCharacterHandle* targetHandle);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static void GetUIDisplayNewUnlockedBuildObjectFlagMap(const UObject* WorldContextObject, TMap<EPalBuildObjectTypeA, bool>& OutMap);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static void GetUIDisplayFavoriteBuildObjectList(const UObject* WorldContextObject, TMap<EPalBuildObjectTypeForUIDisplay, FPalBuildObjectDataSetTypeUIDisplay>& OutMap);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool GetUIDIsplayDefenseParameterInfo(const UObject* WorldContextObject, UPalIndividualCharacterParameter* IndividualParameter, FPalUIDisplayCharacterBaseParameterInfo& OutParameterInfo);
@@ -221,7 +232,13 @@ public:
     static void GetFormatedFirstActivatedInfoText(const UObject* WorldContextObject, APalCharacter* Character, FText& outFormatedText);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static void GetFilteredUIDisplayBuildObjectList(const UObject* WorldContextObject, const TMap<EPalBuildObjectTypeForUIDisplay, FPalBuildObjectDataSetTypeUIDisplay>& InMap, TMap<EPalBuildObjectTypeForUIDisplay, FPalBuildObjectDataSetTypeUIDisplay>& OutMap);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static void GetDisplayNickName(const UObject* WorldContextObject, const FName CharacterID, const FName UniqueNPCID, FString& OutNickName);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static void GetBuildObjectUIDIsplayCategoryTextId(const UObject* WorldContextObject, const EPalBuildObjectTypeForUIDisplay DisplayType, FText& OutText);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static void GetBuildObjectDesc(const UObject* WorldContextObject, const FName& buildObjectName, FText& outDesc);
@@ -246,6 +263,15 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static float ConvertReviveTimerToUIDisplayRemainReviveTime(const UObject* WorldContextObject, float ReviveTimer);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FColor ConvertHexToColor(const FString& HexString);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FString ConvertFullWidthHexToHalfWidth(const FString& Input);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FString ConvertColorToHex(const FColor& Color);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool CanDisplayTalentDetailUI(const UObject* WorldContextObject, UPalIndividualCharacterParameter* TargetCharacterParameter);

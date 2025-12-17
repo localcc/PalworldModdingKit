@@ -28,9 +28,11 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnStartedWorldAutoSave);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnStartedPlayerAutoSave);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnStartedLocalWorldAutoSave);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnRestoredWorldFromBackup, const FString&, WorldName);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnEndedWorldAutoSave, bool, IsSuccess);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnEndedPlayerAutoSave, bool, IsSuccess);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnEndedLocalWorldAutoSave, bool, IsSuccess);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnDeletedWorld, const FString&, WorldName);
     
     UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnStartedWorldAutoSave OnStartedWorldAutoSave;
@@ -49,6 +51,12 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnEndedPlayerAutoSave OnEndedPlayerAutoSave;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnRestoredWorldFromBackup OnRestoredWorldFromBackup;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnDeletedWorld OnDeletedWorld;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -82,6 +90,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPalWorldOptionSaveGame* LoadedWorldOptionSaveData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bLastSavedUsingMod;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FTimerHandle AutoSaveWorldDataTimerHandle;

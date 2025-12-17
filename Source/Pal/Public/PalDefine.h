@@ -68,6 +68,9 @@ public:
     static FName TextId_UICommon_InteractIndicator_Salvage_NotAvailable_NotConsume();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FName TextId_UICommon_InteractIndicator_Salvage_NotAvailable_Broken();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName TextId_UICommon_InteractIndicator_Salvage_NotAvailable();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -114,6 +117,12 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName TextId_UICommon_ConfirmLockCheckPrivate();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FName TextId_UICommon_CONFIRM_RAIDBOSSAREA_SURRENDER();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FName TextId_UICommon_CONFIRM_RAIDBOSSAREA_EXIT();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName TextId_UICommon_CONFIRM_DUNGEON_EXIT();
@@ -233,6 +242,9 @@ public:
     static FName MP_CharacterMakeBaseColorBrightnessName();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FName MP_CharacterEmissionCorrectionByTimeName();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName MP_ArmNormalMinIntensityName();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -248,6 +260,9 @@ public:
     static FName FlagName_CameraOffsetInLiftup();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FName EnableCommonUIInputFlagName_JoinSession();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName DecreaseSanityRate_WorkHard();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -255,6 +270,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName DecreaseFullStomachRate_Work();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FName BuildObjectID_DefaultSelectedBuildObjectId();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName BS_TorsoArmMinName();

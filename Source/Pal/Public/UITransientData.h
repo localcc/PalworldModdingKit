@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "EPalBuildObjectTypeA.h"
 #include "UITransientData.generated.h"
 
 USTRUCT(BlueprintType)
@@ -42,6 +43,15 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool ShouldPopQuickStackDialog;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    EPalBuildObjectTypeA LastSelectedBuildObjectListCategory;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FName LastSelectedBuildObjectId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bDiscardRestoreBuildObjectList;
     
     PAL_API FUITransientData();
 };

@@ -26,6 +26,7 @@
 #include "PalDataTableRowName_MapObjectData.h"
 #include "PalRandomRestInfo.h"
 #include "PalStaticCharacterInfo_ElectricAction.h"
+#include "PalStaticCharacterInfo_Lean.h"
 #include "PalStaticCharacterInfo_SleepOnSide.h"
 #include "PalStaticCharacterInfo_SpawnItem.h"
 #include "PalStaticCharacterInfo_WaterEffect.h"
@@ -102,6 +103,9 @@ public:
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<EPalWazaID, FFloatInterval> OverrideWazaRangeMap;
+    
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FName, EPalWazaID> NameToWazaIDConvertMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsWazaAdjustPitchDisable;
@@ -212,6 +216,15 @@ public:
     float FishingCutsceneCameraTargetDistanceOffset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FRotator FishingCaughtJumpRotatorOffset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FVector FishingCaughtJumpLocationOffset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float FishingCaughtJumpHeightOffset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPalSizeType FishingSize;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -279,6 +292,15 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<EPalAdditionalEffectType> IgnoreEffectType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalStaticCharacterInfo_Lean LeanParameter_Walk;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalStaticCharacterInfo_Lean LeanParameter_Fly;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalStaticCharacterInfo_Lean LeanParameter_Swim;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -358,6 +380,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IgnoreBlowAway();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool GetWazaClassByNameConvert(FName InKeyName, TSubclassOf<UPalActionBase>& OutActionClass) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     EPalSpawnedCharacterType GetSpawnedCharacterType() const;

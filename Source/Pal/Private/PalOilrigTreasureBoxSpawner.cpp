@@ -17,6 +17,9 @@ void APalOilrigTreasureBoxSpawner::OnOpenTreasureBox() {
 void APalOilrigTreasureBoxSpawner::OnFinishedSpawningMapObjectModel(FGuid InstanceId, const EPalMapObjectOperationResult Result) {
 }
 
+void APalOilrigTreasureBoxSpawner::OnFinishedSpawningMapObjectActor(APalMapObject* MapObject) {
+}
+
 bool APalOilrigTreasureBoxSpawner::IsSpawnedGoalBox() {
     return false;
 }

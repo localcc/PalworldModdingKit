@@ -90,6 +90,10 @@ int32 UPalActionBase::GetGeneralPurposeIndex() const {
     return 0;
 }
 
+FActionDynamicParameter UPalActionBase::GetDynamicParameter() const {
+    return FActionDynamicParameter{};
+}
+
 FPalNetArchive UPalActionBase::GetBlackboard() const {
     return FPalNetArchive{};
 }

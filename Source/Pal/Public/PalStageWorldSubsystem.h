@@ -8,11 +8,13 @@
 
 class UDataLayerAsset;
 class UPalStageModelBase;
+class APalPlayerState;
 
 UCLASS(Blueprintable)
 class PAL_API UPalStageWorldSubsystem : public UPalWorldSubsystem {
     GENERATED_BODY()
 public:
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FReturnPlayerStateMulticastDelegate, APalPlayerState*, PlayerState);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSimpleMulticastDelegate);
 
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -20,6 +22,9 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSimpleMulticastDelegate OnReturnToFieldFromStageInClient;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FReturnPlayerStateMulticastDelegate OnSetupLocalPlayerDelegate;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))

@@ -99,7 +99,7 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void GetIndicatorInfo(FPalInteractiveObjectActionInfoSet& ActionInfo, const FPalInteractiveObjectActionBy& SituationInfo) const override PURE_VIRTUAL(GetIndicatorInfo,);
-    
+
     UFUNCTION(BlueprintCallable)
     void BindOnInteracting(FInteractingEvent Event) override PURE_VIRTUAL(BindOnInteracting,);
     

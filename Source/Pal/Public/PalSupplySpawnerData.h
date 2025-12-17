@@ -13,6 +13,7 @@
 #include "PalSupplySpawnerData.generated.h"
 
 class AActor;
+class APalMapObject;
 class APalNPCSpawnerBase;
 class APalRandomIncidentSpawnerBase;
 class APalSupplyDropActor;
@@ -100,6 +101,9 @@ protected:
     
     UFUNCTION(BlueprintCallable)
     void OnFinishedSpawningMapObjectModel(FGuid InstanceId, const EPalMapObjectOperationResult Result);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnFinishedSpawningMapObjectActor(APalMapObject* MapObject);
     
     UFUNCTION(BlueprintCallable)
     void OnDestroyedMapObject(AActor* DestroyActor);

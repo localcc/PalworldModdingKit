@@ -6,7 +6,10 @@ UENUM(BlueprintType)
 enum class EWeaponAnimationType : uint8 {
     None,
     PullTrigger,
+    PullTrigger_Aiming,
     Aiming,
     Shoot,
+    PullAltTrigger,
+    PullAltReleaseTrigger,
 };
 

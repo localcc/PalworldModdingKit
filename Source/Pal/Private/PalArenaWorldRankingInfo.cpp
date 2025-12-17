@@ -21,26 +21,27 @@ void APalArenaWorldRankingInfo::UpdatePlayerGuild(const FGuid& PlayerUId, UPalGr
 void APalArenaWorldRankingInfo::UpdateArenaRankPoint(UPalIndividualCharacterParameter* IndividualParameter, int32 NewArenaRankPoint) {
 }
 
-bool APalArenaWorldRankingInfo::IsPlayerInTopRanks(const FGuid& PlayerUId) const {
-    return false;
+void APalArenaWorldRankingInfo::OnRep_FastTopRankRecords() {
 }
 
-TArray<FPalArenaWorldRankingRecord> APalArenaWorldRankingInfo::GetWorldArenaRanking() {
-    return TArray<FPalArenaWorldRankingRecord>();
+void APalArenaWorldRankingInfo::OnReceivedPlayerNameWordFilteringResult(UWordFilterReceiveObject* ReceiveObject, const FString& ResponseBody, bool bResponseOK, int32 ResponseCode) {
+}
+
+void APalArenaWorldRankingInfo::OnReceivedGuildNameWordFilteringResult(UWordFilterReceiveObject* ReceiveObject, const FString& ResponseBody, bool bResponseOK, int32 ResponseCode) {
 }
 
 TArray<FPalArenaWorldRankingRecord> APalArenaWorldRankingInfo::GetTopWorldArenaRanking() {
     return TArray<FPalArenaWorldRankingRecord>();
 }
 
-FPalArenaWorldRankingRecord APalArenaWorldRankingInfo::GetPlayerRankNo_ServerInternal(const FGuid& PlayerUId) const {
+FPalArenaWorldRankingRecord APalArenaWorldRankingInfo::GetRecordByPlayerUid_ServerInternal(const FGuid& PlayerUId) const {
     return FPalArenaWorldRankingRecord{};
 }
 
 void APalArenaWorldRankingInfo::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
-    DOREPLIFETIME(APalArenaWorldRankingInfo, TopRankRecords);
+    DOREPLIFETIME(APalArenaWorldRankingInfo, FastTopRankRecords);
 }
 
 

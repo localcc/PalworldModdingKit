@@ -25,7 +25,7 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalDamageReactionComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnSlipDamageDelegate, int32, Damage);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnSlipDamageDelegate, const FPalDamageResult&, DamageResult);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnSleepDelegate, int32, LastDamage);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPartBrokenDelegate, FPalDeadInfo, AttackInfo);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnNooseTrapDelegate, AActor*, TrapActor, FVector, FixLocation);
@@ -98,6 +98,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FTimerHandle BossEnemyLeanBackCoolTimeHandle;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FPalDeadInfo LastDeadInfo;
+    
 public:
     UPalDamageReactionComponent(const FObjectInitializer& ObjectInitializer);
 
@@ -161,6 +164,9 @@ public:
     void DeathDamage_ForSelfDestruct(FVector Velocity, EPalWazaID WazaID);
     
 private:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void CallOnSlipDamageDelegate_ToAll(FPalDamageResult DamageResult);
+    
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void CallOnDamageDelegateAlways(FPalDamageResult DamageResult);
     

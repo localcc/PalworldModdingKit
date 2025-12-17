@@ -41,9 +41,6 @@ UPalItemSlot* UPalItemContainer::Get(const int32 Index) const {
     return NULL;
 }
 
-void UPalItemContainer::ForceMarkSlotDirty_ServerInternal() {
-}
-
 void UPalItemContainer::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     

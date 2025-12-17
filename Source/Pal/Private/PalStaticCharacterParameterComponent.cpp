@@ -1,4 +1,5 @@
 #include "PalStaticCharacterParameterComponent.h"
+#include "Templates/SubclassOf.h"
 
 UPalStaticCharacterParameterComponent::UPalStaticCharacterParameterComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->MeshCapsuleHalfHeight = 0.00f;
@@ -33,6 +34,7 @@ UPalStaticCharacterParameterComponent::UPalStaticCharacterParameterComponent(con
     this->PettingCameraHeight_Override = -1.00f;
     this->PettingCameraArmLength_Override = -1.00f;
     this->FishingCutsceneCameraTargetDistanceOffset = -1.00f;
+    this->FishingCaughtJumpHeightOffset = -1.00f;
     this->FishingSize = EPalSizeType::None;
     this->FishingPlayerMotionType = EPalFishingPlayerMotionType::None;
     this->HasFishingRod = false;
@@ -112,6 +114,10 @@ bool UPalStaticCharacterParameterComponent::IgnoreLeanBack() {
 }
 
 bool UPalStaticCharacterParameterComponent::IgnoreBlowAway() {
+    return false;
+}
+
+bool UPalStaticCharacterParameterComponent::GetWazaClassByNameConvert(FName InKeyName, TSubclassOf<UPalActionBase>& OutActionClass) const {
     return false;
 }
 

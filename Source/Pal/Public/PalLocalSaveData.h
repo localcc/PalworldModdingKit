@@ -6,6 +6,7 @@
 #include "PalCompletedQuestSaveData.h"
 #include "PalCustomMarkerSaveData.h"
 #include "PalInstanceID.h"
+#include "PalMapObjectObjectPaintPalette.h"
 #include "PalOrderedQuestSaveData.h"
 #include "PalOtomoLoadoutData.h"
 #include "PalTutorialTriggerSaveData.h"
@@ -104,6 +105,18 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bUnlockedBlueprintCategoryInBuildMenu;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalMapObjectObjectPaintPalette Local_MapObjectPaintPalette;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 Local_MapObjectPaintPaletteSelectedIndex;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FName> Local_FavoriteBuildObjectList;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FName> Local_UnlockedOnUIBuildObjectBlueprintList;
     
     PAL_API FPalLocalSaveData();
 };

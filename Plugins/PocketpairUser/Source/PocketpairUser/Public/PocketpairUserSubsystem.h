@@ -25,6 +25,9 @@ public:
     void OnSessionInviteReceived(const FString& InviteCode);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsEOSConnectTrouble() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetTelemetryUserId() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -50,6 +53,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FName GetDefaultOnlineSubsystemName() const;
+    
+    UFUNCTION(BlueprintCallable)
+    bool CheckEOSLoginStatus();
     
     UFUNCTION(BlueprintCallable)
     void AddPingResultCache(const FString& Address, int32 Ping);

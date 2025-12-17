@@ -7,6 +7,7 @@
 #include "PalPlayerDataPalStorage.generated.h"
 
 class UPalIndividualCharacterContainer;
+class UPalIndividualCharacterHandle;
 class UPalIndividualCharacterSlot;
 class UPalIndividualCharacterSlotsObserver;
 class UPalPlayerDataPalDimensionStorage;
@@ -43,6 +44,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     UPalPlayerDataPalDimensionStorage* PalDimensionStorage;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<UPalIndividualCharacterHandle*> OverflownIndividualHandles_OnLoadingWorld;
+    
 public:
     UPalPlayerDataPalStorage();
 
@@ -68,6 +72,12 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetPageNum() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetPageIndexExistEmptySlot(const int32 StartPageIndex) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetPageIndexByDataIndex(const int32 DataIndex) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalPlayerDataPalDimensionStorage* GetDimensionStorage() const;

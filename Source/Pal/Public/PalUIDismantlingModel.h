@@ -16,6 +16,10 @@ protected:
     
 public:
     UPalUIDismantlingModel();
+
+    UFUNCTION(BlueprintCallable)
+    void StartPaintingMode();
+    
     UFUNCTION(BlueprintCallable)
     void Setup();
     

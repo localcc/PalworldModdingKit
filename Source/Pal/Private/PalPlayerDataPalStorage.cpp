@@ -32,6 +32,14 @@ int32 UPalPlayerDataPalStorage::GetPageNum() const {
     return 0;
 }
 
+int32 UPalPlayerDataPalStorage::GetPageIndexExistEmptySlot(const int32 StartPageIndex) const {
+    return 0;
+}
+
+int32 UPalPlayerDataPalStorage::GetPageIndexByDataIndex(const int32 DataIndex) const {
+    return 0;
+}
+
 UPalPlayerDataPalDimensionStorage* UPalPlayerDataPalStorage::GetDimensionStorage() const {
     return NULL;
 }

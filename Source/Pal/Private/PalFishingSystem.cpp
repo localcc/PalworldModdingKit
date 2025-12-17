@@ -5,6 +5,9 @@ UPalFishingSystem::UPalFishingSystem() {
     this->RarePassiveEffect = NULL;
     this->CatchBattleBlueprintClass = NULL;
     this->BaitItemDataTable = NULL;
+    this->EnableTickRadius = 4000.00f;
+    this->DisableTickAddRadius = 400.00f;
+    this->QueryInterval = 0.10f;
 }
 
 

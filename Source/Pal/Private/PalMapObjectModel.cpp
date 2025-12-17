@@ -7,9 +7,11 @@ UPalMapObjectModel::UPalMapObjectModel() {
     this->DamagableType = EPalMapObjectDamagableType::AllRecieve;
     this->Connector = NULL;
     this->Effect = NULL;
+    this->Paint = NULL;
     this->bInDoor = false;
     this->InteractRestrictType = EPalMapObjectInteractRestrictType::Anyone;
     this->SignificanceValue = 0.00f;
+    this->bIsCollectionObject = false;
     this->DeteriorationDamage = 0.00f;
     this->DeteriorationTotalDamage = 0.00f;
     this->bIgnoredSave = false;
@@ -32,6 +34,9 @@ void UPalMapObjectModel::OnTriggeringInteract(AActor* Other, EPalInteractiveObje
 }
 
 void UPalMapObjectModel::OnStartTriggerInteract(AActor* Other, EPalInteractiveObjectIndicatorType IndicatorType) {
+}
+
+void UPalMapObjectModel::OnRep_Paint() {
 }
 
 void UPalMapObjectModel::OnRep_Effect() {
@@ -77,8 +82,10 @@ void UPalMapObjectModel::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& O
     DOREPLIFETIME(UPalMapObjectModel, InitialTransformCache);
     DOREPLIFETIME(UPalMapObjectModel, Connector);
     DOREPLIFETIME(UPalMapObjectModel, Effect);
+    DOREPLIFETIME(UPalMapObjectModel, Paint);
     DOREPLIFETIME(UPalMapObjectModel, BuildPlayerUId);
     DOREPLIFETIME(UPalMapObjectModel, InteractRestrictType);
+    DOREPLIFETIME(UPalMapObjectModel, bIsCollectionObject);
 }
 
 

@@ -9,6 +9,10 @@ UPalOptionSubsystem::UPalOptionSubsystem() {
     this->PalPlayerCharacterClass = NULL;
 }
 
+bool UPalOptionSubsystem::VerifyWorldSettingThresholds(const FPalOptionWorldSettings& CheckWorldSettings) const {
+    return false;
+}
+
 void UPalOptionSubsystem::SetupForSteamDeck() {
 }
 
@@ -39,7 +43,10 @@ void UPalOptionSubsystem::SetCommonSettings(const FPalOptionCommonSettings& InCo
 void UPalOptionSubsystem::SetAudioSettings(const FPalOptionAudioSettings& InAudioSettings) {
 }
 
-void UPalOptionSubsystem::SaveLocalSettings() {
+void UPalOptionSubsystem::RequestSaveLocalSettings() {
+}
+
+void UPalOptionSubsystem::RequestSaveLocalSaveData() {
 }
 
 void UPalOptionSubsystem::RefreshBanList() {
@@ -50,6 +57,10 @@ void UPalOptionSubsystem::OnCompletedGetBanlist(const FString& ResponseBody, boo
 
 bool UPalOptionSubsystem::IsCrossPlayAllowConnectPlatform() const {
     return false;
+}
+
+FPalOptionWorldSettinThresholds UPalOptionSubsystem::GetWorldSettingThresholds() const {
+    return FPalOptionWorldSettinThresholds{};
 }
 
 FPalOptionUISettings UPalOptionSubsystem::GetUISettings() const {

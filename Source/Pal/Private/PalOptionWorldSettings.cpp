@@ -55,6 +55,7 @@ FPalOptionWorldSettings::FPalOptionWorldSettings() {
     this->bCanPickupOtherGuildDeathPenaltyDrop = false;
     this->bEnableNonLoginPenalty = false;
     this->bEnableFastTravel = false;
+    this->bEnableFastTravelOnlyBaseCamp = false;
     this->bIsStartLocationSelectByMap = false;
     this->bExistPlayerAfterLogout = false;
     this->bEnableDefenseOtherGuildPlayer = false;
@@ -63,6 +64,7 @@ FPalOptionWorldSettings::FPalOptionWorldSettings() {
     this->ItemWeightRate = 0.00f;
     this->CoopPlayerMaxNum = 0;
     this->ServerPlayerMaxNum = 0;
+    this->bAllowClientMod = false;
     this->PublicPort = 0;
     this->RCONEnabled = false;
     this->RCONPort = 0;
@@ -73,6 +75,7 @@ FPalOptionWorldSettings::FPalOptionWorldSettings() {
     this->ChatPostLimitPerMinute = 0;
     this->bIsUseBackupSaveData = false;
     this->LogFormatType = EPalLogFormatType::Text;
+    this->bIsShowJoinLeftMessage = false;
     this->SupplyDropSpan = 0;
     this->EnablePredatorBossPal = false;
     this->MaxBuildingLimitNum = 0;
@@ -81,6 +84,20 @@ FPalOptionWorldSettings::FPalOptionWorldSettings() {
     this->bAllowGlobalPalboxImport = false;
     this->EquipmentDurabilityDamageRate = 0.00f;
     this->ItemContainerForceMarkDirtyInterval = 0.00f;
+    this->ItemCorruptionMultiplier = 0.00f;
+    this->GuildRejoinCooldownMinutes = 0;
+    this->BlockRespawnTime = 0.00f;
+    this->RespawnPenaltyDurationThreshold = 0.00f;
+    this->RespawnPenaltyTimeScale = 0.00f;
+    this->bDisplayPvPItemNumOnWorldMap_BaseCamp = false;
+    this->bDisplayPvPItemNumOnWorldMap_Player = false;
+    this->AdditionalDropItemNumWhenPlayerKillingInPvPMode = 0;
+    this->bAdditionalDropItemWhenPlayerKillingInPvPMode = false;
+    this->bAllowEnhanceStat_Health = false;
+    this->bAllowEnhanceStat_Attack = false;
+    this->bAllowEnhanceStat_Stamina = false;
+    this->bAllowEnhanceStat_Weight = false;
+    this->bAllowEnhanceStat_WorkSpeed = false;
     this->bIsForceEnableRandomizerPalLevelRandom_ForUI = false;
 }
 

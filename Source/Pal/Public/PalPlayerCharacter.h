@@ -88,6 +88,9 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnPlayerReviveDelegate OnPlayerReviveDelegate;
     
+    UPROPERTY(BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnPlayerReviveDelegate OnEndPlayerReviveActionByPartnerSkillDelegate;
+    
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnPlayerRespawnDelegate OnPlayerRespawnDelegate;
     
@@ -380,12 +383,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ClearLantern();
-    
-    UFUNCTION(BlueprintCallable)
-    void ChangeToMale();
-    
-    UFUNCTION(BlueprintCallable)
-    void ChangeToFemale();
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void CallReviveDelegate();

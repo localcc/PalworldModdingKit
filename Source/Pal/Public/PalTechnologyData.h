@@ -58,6 +58,12 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FName> DefaultLockBuildObjectNameArray;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FName> DenyBuildObjectList;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FName> DenyRecipeList;
+    
 public:
     UPalTechnologyData();
 
@@ -115,6 +121,15 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsExistNewUnlockedTechnology();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsDeniedTechnology(const FName& TechnologyId) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsDeniedRecipe(const FName& RecipeID) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsDeniedBuildObject(const FName& BuildObjectId) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetTechnologyPoints() const;

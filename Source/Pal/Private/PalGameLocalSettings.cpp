@@ -6,8 +6,12 @@ UPalGameLocalSettings::UPalGameLocalSettings() {
     this->bRunedBenchMark = true;
     this->bHasAppliedUserSetting = true;
     this->AntiAliasingType = AAM_TSR;
-    this->DLSSMode = UDLSSMode::Performance;
+    this->DLSSMode = EPalOptionUpscalingLevel::Performance;
+    this->DLSSFrameGenerationMode = EPalDLSSGMode::Auto;
+    this->DLSSGeneratedFrames = 1;
+    this->ReflexMode = EPalReflexMode::On;
     this->GraphicsCommonQuality = 2;
+    this->GraphicsLightQuality = 0;
     this->bAppliedSteamDeckSettings = false;
 }
 

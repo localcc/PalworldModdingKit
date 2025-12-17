@@ -75,6 +75,10 @@ TArray<FName> UPalQuestManager::GetAllCompletedQuestId() const {
 void UPalQuestManager::ForceCompleteQuest_ServerInternal(const FName& QuestName) {
 }
 
+bool UPalQuestManager::CanReorderableQuest(const FName& QuestId) const {
+    return false;
+}
+
 void UPalQuestManager::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     

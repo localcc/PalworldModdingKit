@@ -15,6 +15,9 @@ private:
     
 protected:
     UFUNCTION(BlueprintCallable)
+    void OnPerformStart();
+    
+    UFUNCTION(BlueprintCallable)
     void OnPerformComplete();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

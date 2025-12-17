@@ -9,6 +9,7 @@ UPalBaseCampWorkerDirector::UPalBaseCampWorkerDirector() {
     this->BattleDirector = NULL;
     this->WorkerEventTickCount = 0;
     this->State = EPalBaseCampWorkerDirectorState::Init;
+    this->bEnableWorkerPlayerTracking = false;
 }
 
 void UPalBaseCampWorkerDirector::OrderCommand(const EPalMapBaseCampWorkerOrderType OrderType) {

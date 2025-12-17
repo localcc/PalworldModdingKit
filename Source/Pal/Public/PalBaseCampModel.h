@@ -101,6 +101,12 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float ProgressTimeSinceLastTick;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bTemporary;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIgnoreInvader;
+    
 public:
     UPalBaseCampModel();
 
@@ -179,6 +185,11 @@ public:
     UFUNCTION(BlueprintCallable)
     bool FindNearestAssignableObject(const UPalIndividualCharacterHandle* AssignIndividualHandle, const FTransform& Origin, const float Range, const bool bFixedAssign, TScriptInterface<IPalBaseCampAssignableObjectInterface>& FoundObject);
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void DebugUpdateLevel_ServerInternal(const int32 RequestPlayerId, const int32 NewLevel);
+    
+public:
     UFUNCTION(BlueprintCallable)
     void CallOrRegisterOnReadyModule(const EPalBaseCampModuleType ModuleType, FPalBaseCampModuleDelegate Delegate);
     

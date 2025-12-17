@@ -116,6 +116,9 @@ public:
     bool bIsExecSkillContinuation;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsOneShotRideAction;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsRunning;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -152,9 +155,6 @@ protected:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UPalPartnerSkillPassiveSkill* PassiveSkill;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
-    TArray<FName> CachedPassiveSkillList;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName ActiveSkill_MainValue_Overview_EditorOnly;
@@ -256,9 +256,6 @@ public:
     void OnComplated();
     
     UFUNCTION(BlueprintCallable)
-    void OnCachedPassiveSkillListDelegate(const FString& InOperation, const FName& InSkillName);
-    
-    UFUNCTION(BlueprintCallable)
     void OnActivatedAsWorker();
     
     UFUNCTION(BlueprintCallable)
@@ -349,9 +346,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FFixedPoint GetCoolDownTime() const;
-    
-    UFUNCTION(BlueprintCallable)
-    TArray<FName> GetCachedPassiveSkillList() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetActiveSkillMainValueByRank() const;

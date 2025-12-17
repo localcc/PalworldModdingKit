@@ -46,7 +46,7 @@ void UPalSpectateComponent::ForceEndSpectate(bool bUpdateEnvironment) {
 void UPalSpectateComponent::EventOnPlayerTeleport() {
 }
 
-void UPalSpectateComponent::EventOnPlayerSlipDamaged(int32 Damage) {
+void UPalSpectateComponent::EventOnPlayerSlipDamaged(const FPalDamageResult& DamageResult) {
 }
 
 void UPalSpectateComponent::EventOnPlayerExitStage() {

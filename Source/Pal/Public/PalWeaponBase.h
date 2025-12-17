@@ -94,6 +94,9 @@ public:
     float BulletDeleteTime;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float BulletDeleteTimePVP;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float BulletDecayStartRate;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -122,6 +125,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool IsRequiredBullet;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IsRequiredBulletForAltFire;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName BulletItemName;
@@ -157,7 +163,16 @@ public:
     bool IsTriggerOnlyFireWeapon;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IsTriggerOnlyAltFireWeapon;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float PvPDamageRate;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float PvPBuildingDamageRate;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float PvPPlayerToGuildPalDamageRate;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool IsInfinityMagazine;
@@ -169,7 +184,16 @@ public:
     float OverrideAnimRateScale;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IsOverrideTargetRayCastMaxDegree;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float OverrideTargetRayCastMaxDegree;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<UMaterialInterface*, UMaterialInterface*> OverrideMaterialMap_ForUI;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName AltFireActionName;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -309,13 +333,19 @@ public:
     void OnReloadStart(float InReloadSpeedPlayRate);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnReleaseTrigger();
+    void OnReleaseTrigger(bool bCanShootOnRelease);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnReleaseAltTrigger(bool bCanShootOnRelease);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPullTrigger();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPullCancel();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnPullAltTrigger();
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnEndAim();
@@ -352,6 +382,9 @@ protected:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsLocallyControlledWeapon() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsHiddenWeapon();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -360,8 +393,14 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsExistBulletInPlayerInventory() const;
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsExistAltFireBulletInPlayerInventory() const;
+    
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
     bool IsEnableAutoAim() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
+    bool IsEnableAltFire() const;
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
     bool IsEmptyMagazine() const;
@@ -417,14 +456,23 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    FRandomStream GetRandomStream() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetRandomFloat(float Min, float Max);
     
 public:
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
+    float GetPvPPlayerToGuildPalDamageRate() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
+    float GetPvPBuildingDamageRate() const;
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetParameterWithPassiveSkillEffect(float originalValue, EPalPassiveSkillEffectType EffectType) const;
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
-    APalCharacter* GetOwnerCharacter();
+    APalCharacter* GetOwnerCharacter() const;
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure)
     int32 GetNPCWeaponDamage() const;
@@ -465,7 +513,13 @@ public:
     FVector GetBulletShootRootLocation();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetBulletDeleteTime() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetBlurModifierValue();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FName GetAltFireActionName() const;
     
 protected:
     UFUNCTION(BlueprintCallable)
@@ -488,6 +542,11 @@ protected:
     UFUNCTION(BlueprintCallable)
     void ClearSummonWeapon();
     
+public:
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
+    bool CanUseAltFire() const;
+    
+protected:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool CanReserveSummonWeapon();
     

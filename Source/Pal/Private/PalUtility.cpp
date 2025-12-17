@@ -67,7 +67,14 @@ bool UPalUtility::SpawnActorBroadcast(const UObject* WorldContextObject, UClass*
     return false;
 }
 
+TMap<int32, FName> UPalUtility::SortIntNameMap(const TMap<int32, FName>& InMap, const bool IsAscend) {
+    return TMap<int32, FName>();
+}
+
 void UPalUtility::SortActorListByLabel(TArray<AActor*>& ActorList) {
+}
+
+void UPalUtility::SortActorListByDistance(TArray<AActor*>& ActorList, const FVector& BaseLocation) {
 }
 
 FVector UPalUtility::Slerp(FVector Start, FVector End, float T) {
@@ -157,6 +164,9 @@ void UPalUtility::SetBodyPartsGenerateOverlapEvents(APalCharacter* Character, bo
 void UPalUtility::SetBodyPartsCollisionProfileNotChangeEnabled(APalCharacter* Character, const FName ProfileName) {
 }
 
+void UPalUtility::SetBodyPartsCollisionProfile_WithFlag(APalCharacter* Character, const FName ProfileName, const FName flagName, const EPalBodyPartsFlagOverrideState OverwriteState) {
+}
+
 void UPalUtility::SetBodyPartsCollisionProfile(APalCharacter* Character, const FName ProfileName) {
 }
 
@@ -166,7 +176,13 @@ void UPalUtility::SetBodyPartsCollisionEnable(APalCharacter* Character, bool bEn
 void UPalUtility::SetActorQuat(AActor* TargetActor, FQuat NewQuat) {
 }
 
+void UPalUtility::SendSystemToPlayerChat_Localize(const UObject* WorldContextObject, const FName& MessageId, const TMap<FString, FString>& MessageArgs, const TArray<FGuid>& ReceiverPlayerUIds) {
+}
+
 void UPalUtility::SendSystemToPlayerChat(const UObject* WorldContextObject, const FString& Message, const TArray<FGuid>& ReceiverPlayerUIds) {
+}
+
+void UPalUtility::SendSystemAnnounce_Localize(const UObject* WorldContextObject, const FName& MessageId, const TMap<FString, FString>& MessageArgs) {
 }
 
 void UPalUtility::SendSystemAnnounce(const UObject* WorldContextObject, const FString& Message) {
@@ -257,6 +273,10 @@ bool UPalUtility::PalAIMoveToTargetLocation(APalAIController* Controller, FVecto
 
 bool UPalUtility::PalAIMoveToTargetActor(APalAIController* Controller, AActor* Target) {
     return false;
+}
+
+FGuid UPalUtility::OpenColorEditorMenu(const UObject* WorldContextObject, UPalHUDDispatchParameter_ColorEditor* Parameter) {
+    return FGuid{};
 }
 
 bool UPalUtility::NotContainsAny(const TArray<UObject*> SourceArray, const TArray<UObject*> FindElms) {
@@ -405,6 +425,10 @@ bool UPalUtility::IsPlayersOtomo(const AActor* Actor) {
     return false;
 }
 
+bool UPalUtility::IsPlayerOrOtomo(const AActor* Actor) {
+    return false;
+}
+
 bool UPalUtility::IsPlayerControlActor(AActor* CheckActor) {
     return false;
 }
@@ -505,6 +529,10 @@ bool UPalUtility::IsIgnoreNetworkVersionCheck(const UObject* WorldContextObject)
     return false;
 }
 
+bool UPalUtility::IsHandheldPC(const UObject* WorldContextObject) {
+    return false;
+}
+
 bool UPalUtility::IsHairAttachAccessory(const UObject* WorldContextObject, const FName& EquipmentArmorName) {
     return false;
 }
@@ -514,6 +542,10 @@ bool UPalUtility::IsGDK(const UObject* WorldContextObject) {
 }
 
 bool UPalUtility::IsGameConsole(const UObject* WorldContextObject) {
+    return false;
+}
+
+bool UPalUtility::IsFullBodyEquipment(const UObject* WorldContextObject, const FName& EquipmentBodyName) {
     return false;
 }
 
@@ -545,6 +577,10 @@ bool UPalUtility::IsEnableRandomizeSpawner(const UObject* WorldContextObject) {
     return false;
 }
 
+bool UPalUtility::IsEnableCloudSave(const UObject* WorldContextObject) {
+    return false;
+}
+
 bool UPalUtility::IsEnableBotLocationFlag(const UObject* WorldContextObject) {
     return false;
 }
@@ -569,6 +605,14 @@ bool UPalUtility::IsDyingPlayer(const APalPlayerCharacter* PlayerCharacter) {
     return false;
 }
 
+bool UPalUtility::IsDLSSReflexAvailable() {
+    return false;
+}
+
+bool UPalUtility::IsDLSSFGAvailable() {
+    return false;
+}
+
 bool UPalUtility::IsDevelopmentBuild() {
     return false;
 }
@@ -590,6 +634,10 @@ bool UPalUtility::IsDeadInHardcore(AActor* Actor) {
 }
 
 bool UPalUtility::IsDead(const AActor* Actor) {
+    return false;
+}
+
+bool UPalUtility::IsCurrentGPUDriverRecommended() {
     return false;
 }
 
@@ -896,7 +944,10 @@ float UPalUtility::GetRangeToGround(AActor* Actor) {
     return 0.0f;
 }
 
-void UPalUtility::GetRandomPointList(int32 pointNum, int32 maxLoopCount, float minXPos, float maxXPos, float minYPos, float maxYPos, float SizeX, float SizeY, FRandomStream RandomStream, TArray<FVector2D>& outPointArray) {
+void UPalUtility::GetRandomPointList_Circular(int32 pointNum, int32 maxLoopCount, FVector2D Center, float Radius, float PointRadius, FRandomStream RandomStream, const TArray<FVector2D>& InPointArray, TArray<FVector2D>& outPointArray) {
+}
+
+void UPalUtility::GetRandomPointList(int32 pointNum, int32 maxLoopCount, float minXPos, float maxXPos, float minYPos, float maxYPos, float SizeX, float SizeY, FRandomStream RandomStream, const TArray<FVector2D>& InPointArray, TArray<FVector2D>& outPointArray) {
 }
 
 bool UPalUtility::GetRandomLoginPlayerUId(const UObject* WorldContextObject, FGuid& PlayerUId) {
@@ -953,6 +1004,10 @@ UPalPlayerSkinData* UPalUtility::GetPlayerSkinDataFromPlayerUId(const UObject* W
 
 UPalPlayerSkinData* UPalUtility::GetPlayerSkinDataFromCharacter(APalPlayerCharacter* InCharacter) {
     return NULL;
+}
+
+float UPalUtility::GetPlayerRespawnTime(const UObject* WorldContextObject, FGuid InPlayerUId) {
+    return 0.0f;
 }
 
 UPalPlayerManager* UPalUtility::GetPlayerManager(const UObject* WorldContextObject) {
@@ -1024,6 +1079,10 @@ ACharacter* UPalUtility::GetPlayerCharacterByPlayerId(const UObject* WorldContex
 
 APalPlayerCharacter* UPalUtility::GetPlayerCharacter(const UObject* WorldContextObject) {
     return NULL;
+}
+
+EPalPlayerBodyShape UPalUtility::GetPlayerBodyShape(const UObject* WorldContextObject, const FName& EquipmentBodyName) {
+    return EPalPlayerBodyShape::Normal;
 }
 
 EPalSupportedPlatformType UPalUtility::GetPlatformType(const UObject* WorldContextObject) {
@@ -1115,6 +1174,10 @@ bool UPalUtility::GetOverrideLoginPlayerUId(const UObject* WorldContextObject, F
     return false;
 }
 
+FName UPalUtility::GetOverrideBodyType(const UObject* WorldContextObject, const FName& EquipmentBodyName) {
+    return NAME_None;
+}
+
 TArray<int32> UPalUtility::GetOverlapFoliageIndexByComponent(UPrimitiveComponent* AttackComponent, UPrimitiveComponent* FolageComponent) {
     return TArray<int32>();
 }
@@ -1168,6 +1231,10 @@ int32 UPalUtility::GetNumPlayers(const UObject* WorldContextObject) {
 }
 
 UPalNPCManager* UPalUtility::GetNPCManager(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+TSoftClassPtr<UPalShooterAnimeAssetBase> UPalUtility::GetNoWeaponIdleAnimationByCharacterMakeInfo(UObject* WorldContextObject, const FPalPlayerDataCharacterMakeInfo& CharacterMakeInfo) {
     return NULL;
 }
 
@@ -1487,6 +1554,9 @@ EHumanBone UPalUtility::GetEHumanBoneFromBoneName(FName BoneName) {
     return EHumanBone::Pelvis;
 }
 
+void UPalUtility::GetDLSSFGSpec(int32& OutGeneratedFramesMin, int32& OutGeneratedFramesMax) {
+}
+
 UPalDistributeTickManager* UPalUtility::GetDistributeTickManager(const UObject* WorldContextObject) {
     return NULL;
 }
@@ -1527,6 +1597,10 @@ FName UPalUtility::GetDebugBotBaseCampMode(const UObject* WorldContextObject) {
     return NAME_None;
 }
 
+int32 UPalUtility::GetDebugBotBaseCampBuildDelay(const UObject* WorldContextObject) {
+    return 0;
+}
+
 UPalDeathPenaltyManager* UPalUtility::GetDeathPenaltyManager(const UObject* WorldContextObject) {
     return NULL;
 }
@@ -1556,6 +1630,10 @@ UPalCoopSkillSearchSystem* UPalUtility::GetCoopSkillSearchSystem(const UObject* 
 }
 
 AController* UPalUtility::GetController(const UObject* WorldContextObject, AActor* Actor) {
+    return NULL;
+}
+
+UPalCloudSaveManager* UPalUtility::GetCloudSaveManager(const UObject* WorldContextObject) {
     return NULL;
 }
 
@@ -1683,6 +1761,10 @@ float UPalUtility::GetArenaDamgeRate(const AActor* Attacker, const AActor* Defen
 
 FString UPalUtility::GetAPIBaseURL(const UObject* WorldContextObject) {
     return TEXT("");
+}
+
+UAnimationAsset* UPalUtility::GetAnimationAssetFromSkeletalMesh(USkeletalMeshComponent* InComponent) {
+    return NULL;
 }
 
 TArray<UPalIndividualCharacterHandle*> UPalUtility::GetAllSameGuildPlayerIndividualHandles(const UObject* WorldContextObject, const FGuid& PlayerUId, bool IsIgnoreDead) {

@@ -9,6 +9,7 @@
 
 class APalBotBuilderLocationBase;
 class APalNetworkTransmitter;
+class APalPlayerState;
 class UPalBaseCampReplicator;
 class UPalCharacterManagerReplicator;
 class UPalClientOnlyPlayerInfoReplicator;
@@ -133,6 +134,9 @@ private:
     float WorldOceanPlaneZ;
     
 public:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    FString DiscordLobbySecret;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FPalChatMessage> ChatMessages;
     
@@ -189,6 +193,11 @@ public:
     UFUNCTION(BlueprintCallable)
     void OnOverTrialTime();
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnCompleteSyncAllFromServer_InClient(APalPlayerState* PlayerState);
+    
+public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetWorldSaveDirectoryName() const;
     

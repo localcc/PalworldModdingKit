@@ -43,6 +43,7 @@ enum class EPalVisualEffectID : uint8 {
     ChangeElement_Dark,
     ChangeElement_Dragon,
     PalEnhancement,
+    TempEffect,
     DebugRefresh,
 };
 

@@ -23,6 +23,7 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UPalFishingComponent : public UActorComponent {
     GENERATED_BODY()
 public:
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnSuccessFightDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnSuccessCatchBattleDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnStartShowCutsceneDelegate, const FPalFishingCutsceneInfo&, CutsceneInfo);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnStartFishingDelegate);
@@ -32,6 +33,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnLoadedCutsceneInfoDelegate, const FPalFishingCutsceneInfo&, CutsceneInfo);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnFirstFishingDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnFinishedShowCutsceneDelegate);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnFailedFightDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnFailedCatchBattleDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnEndFishingDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnEndAimDelegate);
@@ -83,6 +85,12 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnFirstFishingDelegate OnFirstFishingDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnSuccessFightDelegate OnSuccessFightDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnFailedFightDelegate OnFailedFightDelegate;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))

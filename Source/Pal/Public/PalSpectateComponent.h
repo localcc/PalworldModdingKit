@@ -84,7 +84,7 @@ private:
     void EventOnPlayerTeleport();
     
     UFUNCTION(BlueprintCallable)
-    void EventOnPlayerSlipDamaged(int32 Damage);
+    void EventOnPlayerSlipDamaged(const FPalDamageResult& DamageResult);
     
     UFUNCTION(BlueprintCallable)
     void EventOnPlayerExitStage();

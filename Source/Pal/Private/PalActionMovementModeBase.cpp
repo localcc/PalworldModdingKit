@@ -29,8 +29,6 @@ bool UPalActionMovementModeBase::MovingOnGround_Implementation() const {
 
 
 
-
-
 bool UPalActionMovementModeBase::IsInterrupt() const {
     return false;
 }
@@ -51,7 +49,7 @@ bool UPalActionMovementModeBase::IsApplyFinishVelocityOnEndAction_Implementation
     return false;
 }
 
-EPalActionMovementBaseType UPalActionMovementModeBase::GetMovementType() const {
+EPalActionMovementBaseType UPalActionMovementModeBase::GetMovementType_Implementation() const {
     return EPalActionMovementBaseType::Walking;
 }
 

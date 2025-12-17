@@ -47,6 +47,9 @@ public:
     UFUNCTION(BlueprintCallable)
     APalCutsceneActor* SpawnCutsceneActor(TSubclassOf<APalCutsceneActor> CutsceneActorClass, FVector Location, FRotator Rotation, AActor* Owner);
     
+    UFUNCTION(BlueprintCallable)
+    void SetCanSkip(bool bInCanSkip);
+    
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void PlayCutsceneToServer();
     
@@ -63,6 +66,9 @@ private:
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPlayingCutscene() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetRemainingSeconds() const;
     
 };
 

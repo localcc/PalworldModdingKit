@@ -44,6 +44,10 @@ UPalHUDDispatchParameterBase* UPalUserWidget::GetParam() const {
     return NULL;
 }
 
+FGuid UPalUserWidget::GetId() const {
+    return FGuid{};
+}
+
 UUserWidget* UPalUserWidget::FindParentWidget(TSubclassOf<UUserWidget> Class) {
     return NULL;
 }

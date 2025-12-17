@@ -5,6 +5,7 @@
 #include "PalMapObjectBuildProcessSaveData.h"
 #include "PalMapObjectConnectorSaveData.h"
 #include "PalMapObjectEffectSaveData.h"
+#include "PalMapObjectPaintSaveData.h"
 #include "PalMapObjectModelSaveData.generated.h"
 
 USTRUCT(BlueprintType)
@@ -19,6 +20,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<EPalStatusID, FPalMapObjectEffectSaveData> EffectMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalMapObjectPaintSaveData Paint;
     
     PAL_API FPalMapObjectModelSaveData();
 };

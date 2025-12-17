@@ -5,6 +5,7 @@
 #include "EPalTribeID.h"
 #include "PalArenaRule.h"
 #include "PalInstanceID.h"
+#include "PalMapObjectObjectPaintPalette.h"
 #include "PalOtomoLoadoutData.h"
 #include "PalPlayerLocalRecordData.generated.h"
 
@@ -77,6 +78,18 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FPalInstanceID, int32> Local_MaxFriendshipPalIds;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FPalMapObjectObjectPaintPalette Local_MapObjectPaintPalette;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    int32 Local_MapObjectPaintPaletteSelectedIndex;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FName> Local_FavoriteBuildObjectList;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FName> Local_UnlockedOnUIBuildObjectBlueprintList;
     
     UPalPlayerLocalRecordData();
 

@@ -35,6 +35,9 @@ public:
     static bool IsRepairableItem(UObject* WorldContextObject, const FPalItemId& TargetItemId);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool IsEnhanceStatItem(const UObject* WorldObjectContext, const FName& StaticItemId);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsEmptyAllSlots(const TArray<UPalItemSlot*> Slots);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -57,6 +60,12 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static void CollectLocalPlayerControllableItemInfos(const UObject* WorldContextObject, TArray<FName> StaticItemIds, TArray<FPalStaticItemIdAndNum>& OutItemInfos, const EPalItemInfoCollectType CollectType);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static void CollectLocalPlayerControllableAllItemInfos(const UObject* WorldContextObject, TArray<FPalStaticItemIdAndNum>& OutItemInfos, const EPalItemInfoCollectType CollectType);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool CanUseEnhanceStatItemInCurrentWorld(const UObject* WorldObjectContext, const FName& StaticItemId);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool CanItemLevelUp(const UPalStaticItemDataBase* ItemData, UPalIndividualCharacterParameter* TargetParameter);

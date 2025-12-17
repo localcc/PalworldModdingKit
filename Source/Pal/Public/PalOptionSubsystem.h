@@ -13,6 +13,7 @@
 #include "PalOptionOnlineUserSettings.h"
 #include "PalOptionPadSettings.h"
 #include "PalOptionUISettings.h"
+#include "PalOptionWorldSettinThresholds.h"
 #include "PalOptionWorldSettings.h"
 #include "PalOptionWorldStaticSettings.h"
 #include "PalWorldSubsystem.h"
@@ -21,6 +22,7 @@
 
 class APalPlayerCharacter;
 class UDataTable;
+class UPointLightComponent;
 
 UCLASS(Blueprintable)
 class PAL_API UPalOptionSubsystem : public UPalWorldSubsystem {
@@ -118,11 +120,20 @@ private:
     UDataTable* OptionGraphicsPresetTable;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPalOptionWorldSettinThresholds WorldSettingThreshold;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<APalPlayerCharacter> PalPlayerCharacterClass;
+    
+    UPROPERTY(EditAnywhere, Export, meta=(AllowPrivateAccess=true))
+    TArray<TWeakObjectPtr<UPointLightComponent>> PointLights;
     
 public:
     UPalOptionSubsystem();
 
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool VerifyWorldSettingThresholds(const FPalOptionWorldSettings& CheckWorldSettings) const;
+    
     UFUNCTION(BlueprintCallable)
     void SetupForSteamDeck();
     
@@ -154,7 +165,10 @@ public:
     void SetAudioSettings(const FPalOptionAudioSettings& InAudioSettings);
     
     UFUNCTION(BlueprintCallable)
-    void SaveLocalSettings();
+    void RequestSaveLocalSettings();
+    
+    UFUNCTION(BlueprintCallable)
+    void RequestSaveLocalSaveData();
     
 private:
     UFUNCTION(BlueprintCallable)
@@ -166,6 +180,9 @@ private:
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsCrossPlayAllowConnectPlatform() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FPalOptionWorldSettinThresholds GetWorldSettingThresholds() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FPalOptionUISettings GetUISettings() const;

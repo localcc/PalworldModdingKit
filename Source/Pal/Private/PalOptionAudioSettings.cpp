@@ -8,5 +8,12 @@ FPalOptionAudioSettings::FPalOptionAudioSettings() {
     this->HumanVoice = 0.00f;
     this->Ambient = 0.00f;
     this->UI = 0.00f;
+    this->bEnableRarePalEffectSound = false;
+    this->bEnablePalEffectSound = false;
+    this->bEnableCraneGameSound = false;
+    this->bVoiceChatMuteMyself = false;
+    this->bVoiceChatMuteOthers = false;
+    this->VoiceChatInputVolume = 0.00f;
+    this->VoiceChatOutputVolume = 0.00f;
 }
 

@@ -8,10 +8,7 @@
 #include "PalPassiveSkillBase.generated.h"
 
 class AActor;
-class ACharacter;
 class APalCharacter;
-class APalPlayerCharacter;
-class APalPlayerController;
 class UPalCharacterParameterComponent;
 class UPalIndividualCharacterHandle;
 class UPalItemContainer;
@@ -55,6 +52,9 @@ protected:
     void OnWorkerAssignChanged(UPalCharacterParameterComponent* Parameter);
     
     UFUNCTION(BlueprintCallable)
+    void OnUpdateOtomoSlotWithActor(int32 SlotIndex, UPalIndividualCharacterHandle* LastHandle);
+    
+    UFUNCTION(BlueprintCallable)
     void OnUpdateOtomoHolder(APalCharacter* Character);
     
     UFUNCTION(BlueprintCallable)
@@ -95,6 +95,12 @@ protected:
     void OnChangeDisablePassiveSkill(bool isDisable, bool IsAllReset);
     
     UFUNCTION(BlueprintCallable)
+    void OnChangeDayTime();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnChangeBattleMode(bool bIsBattleMode);
+    
+    UFUNCTION(BlueprintCallable)
     void OnAddNewWorker(UPalIndividualCharacterHandle* AddCharacterHandle);
     
 public:
@@ -122,15 +128,6 @@ protected:
     UFUNCTION(BlueprintCallable)
     void InactivateWorkingSkill();
     
-    UFUNCTION(BlueprintCallable)
-    APalPlayerController* GetTrainerController() const;
-    
-    UFUNCTION(BlueprintCallable)
-    APalPlayerCharacter* GetTrainerActor() const;
-    
-    UFUNCTION(BlueprintCallable)
-    ACharacter* GetTrainer() const;
-    
 public:
     UFUNCTION(BlueprintCallable)
     TArray<FName> GetPassiveSkillList() const;
@@ -141,6 +138,9 @@ protected:
     
     UFUNCTION(BlueprintCallable)
     int32 GetOtomoRank() const;
+    
+    UFUNCTION(BlueprintCallable)
+    void AllResetPassiveSkill();
     
 };
 

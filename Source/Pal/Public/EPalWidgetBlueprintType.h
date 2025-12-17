@@ -38,5 +38,7 @@ enum class EPalWidgetBlueprintType : uint8 {
     ArenaRule,
     ArenaRanking,
     ArenaSpectator,
+    RaidBossSummonSelectItem,
+    ColorEdit,
 };
 

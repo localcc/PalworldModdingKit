@@ -1,6 +1,7 @@
 #include "PalUIJoinGameInputCodeBase.h"
 
 UPalUIJoinGameInputCodeBase::UPalUIJoinGameInputCodeBase() {
+    this->EnableUIInputFlagName = TEXT("WaitingFindSessions_InviteCode");
 }
 
 void UPalUIJoinGameInputCodeBase::VerifyPassword(const FString& InputPassword) {

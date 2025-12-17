@@ -132,6 +132,9 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
+    void OnDeadIndividual(UPalIndividualCharacterParameter* InParameter);
+    
+    UFUNCTION(BlueprintCallable)
     void OnDeadGliderPal(FPalDeadInfo DeadInfo);
     
     UFUNCTION(BlueprintCallable)

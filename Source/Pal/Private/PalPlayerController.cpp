@@ -22,11 +22,13 @@ APalPlayerController::APalPlayerController(const FObjectInitializer& ObjectIniti
     this->CameraShakeForceFeedbackEffect = NULL;
     this->DamageCamShakeRegulatorClass = NULL;
     this->DamageCamShakeRegulator = NULL;
+    this->RollingCameraModifierClass = NULL;
     this->AutoAimTarget = NULL;
     this->PlayerInputOneFlameCommandList = NULL;
     this->IsBuldingActiveFlag_ForServer = false;
     this->SpectateComponent = CreateDefaultSubobject<UPalSpectateComponent>(TEXT("SpectateComponent"));
     this->ArenaSpectateComponent = CreateDefaultSubobject<UPalArenaSpectateComponent>(TEXT("ArenaSpectateComponent"));
+    this->DiscordClient = NULL;
 }
 
 void APalPlayerController::UpdateCharacterNickName_ToServer_Implementation(const FPalInstanceID& InstanceId, const FString& NewNickName) {
@@ -39,7 +41,7 @@ bool APalPlayerController::TrySwitchOtomo() {
 void APalPlayerController::ThrowPalByOutSide(AActor* PreOtomoPal, UPalIndividualCharacterHandle* PreHandle) {
 }
 
-void APalPlayerController::TeleportToSafePoint_ToServer_Implementation() {
+void APalPlayerController::TeleportToSafePoint_ToServer_Implementation(bool bWasOutOfWorld) {
 }
 
 bool APalPlayerController::StopDash() {
@@ -58,6 +60,9 @@ void APalPlayerController::SpectateNextPlayer(int32 Direction) {
 void APalPlayerController::SpectateFreely() {
 }
 
+void APalPlayerController::SkillDamageReactionComponent_ProcessDamage_ToServer_Implementation(UPalSkillDamageReactionComponent* SkillDamage, const FPalDamageInfo& Info) {
+}
+
 void APalPlayerController::ShooterComponent_StopReload_ToServer_Implementation(UPalShooterComponent* Shooter, int32 ID) {
 }
 
@@ -70,7 +75,10 @@ void APalPlayerController::ShooterComponent_ReloadWeapon_ToServer_Implementation
 void APalPlayerController::ShooterComponent_PullCancel_ToServer_Implementation(UPalShooterComponent* Shooter) {
 }
 
-void APalPlayerController::ShooterComponent_ChangeIsShooting_ToServer_Implementation(UPalShooterComponent* Shooter, int32 ID, bool IsShooting) {
+void APalPlayerController::ShooterComponent_ChangeIsShooting_ToServer_Implementation(UPalShooterComponent* Shooter, int32 ID, bool IsShooting, bool bCanShootOnRelease) {
+}
+
+void APalPlayerController::ShooterComponent_ChangeIsAltShooting_ToServer_Implementation(UPalShooterComponent* Shooter, int32 ID, bool IsShooting, bool bCanShootOnRelease) {
 }
 
 void APalPlayerController::ShooterComponent_ChangeIsAiming_ToServer_Implementation(UPalShooterComponent* Shooter, int32 ID, EPalShooterFlagContainerPriority Priority, bool IsAiming) {
@@ -383,6 +391,9 @@ void APalPlayerController::NotifyTimeoutDimensionLocker_Implementation() {
 void APalPlayerController::NotifyRideWallStop_ToClient_Implementation() {
 }
 
+void APalPlayerController::NotifyRestoreDimensionStorageDataToPalstorage_Implementation(int32 RestoredPalstorageDataIndex) {
+}
+
 void APalPlayerController::NotifyOilrigGoalCrateOpen_ToClient_Implementation() {
 }
 
@@ -534,7 +545,16 @@ void APalPlayerController::Debug_SetPalWorldTimeScale_Implementation(float Rate)
 void APalPlayerController::Debug_SetPalWorldTime_Implementation(int32 Hour) {
 }
 
+void APalPlayerController::Debug_SetPalCaptureNumRecordAll_Implementation(const int32 CaptureNum) {
+}
+
+void APalPlayerController::Debug_SetPalCaptureNumRecord_Implementation(const EPalTribeID TribeId, const int32 CaptureNum) {
+}
+
 void APalPlayerController::Debug_SetFPSForServer_Implementation(float fps) {
+}
+
+void APalPlayerController::Debug_SetArenaRankPoint_Implementation(int32 RankPoint) {
 }
 
 void APalPlayerController::Debug_RerollCharacterMake_Implementation() {
@@ -638,6 +658,9 @@ bool APalPlayerController::CanCooping() const {
 }
 
 void APalPlayerController::CallOnCoopReleaseDelegate_ToServer_Implementation() {
+}
+
+void APalPlayerController::CallOnCoopReleaseDelegate_ToAll_Implementation() {
 }
 
 void APalPlayerController::BeginSpectate(bool bAdminMode) {

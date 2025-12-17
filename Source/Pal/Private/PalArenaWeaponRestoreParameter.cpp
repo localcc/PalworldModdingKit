@@ -1,6 +1,6 @@
 #include "PalArenaWeaponRestoreParameter.h"
 
 FPalArenaWeaponRestoreParameter::FPalArenaWeaponRestoreParameter() {
-    this->BulletNum = 0;
+    this->bulletNum = 0;
 }
 

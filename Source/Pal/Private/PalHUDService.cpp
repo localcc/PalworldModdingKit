@@ -15,6 +15,9 @@ bool UPalHUDService::ShowUseItemUI(UPalItemSlot* TargetSlot, UPalHUDDispatchPara
     return false;
 }
 
+void UPalHUDService::ShowElementMatchUI(UWidget* RelativeWidget, const FVector2D& AnchorPosition) {
+}
+
 void UPalHUDService::ShowCommonWarning(const FPalUICommonWarningDisplayData& WarningDisplayData) {
 }
 
@@ -47,6 +50,10 @@ FGuid UPalHUDService::Push(TSubclassOf<UPalUserWidgetStackableUI> WidgetClass, U
 void UPalHUDService::PlayAkSound(UAkAudioEvent* AkEvent) {
 }
 
+bool UPalHUDService::IsTopLayerUI(const FGuid& WidgetId) {
+    return false;
+}
+
 bool UPalHUDService::IsAnyOverlayUIActive() {
     return false;
 }
@@ -61,6 +68,9 @@ void UPalHUDService::InvokeFunction_FName(const FName FunctionName, FName Value)
 }
 
 void UPalHUDService::InvokeFunction(const FName FunctionName) {
+}
+
+void UPalHUDService::HideElementMatchUI() {
 }
 
 void UPalHUDService::HideCommonWarning(const FGuid PreserveID) {

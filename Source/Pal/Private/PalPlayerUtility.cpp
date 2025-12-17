@@ -15,4 +15,12 @@ void UPalPlayerUtility::ReadPlayerGrappling(const FPalNetArchive& Blackboard, FV
 void UPalPlayerUtility::ReadPlayerFeedItemTo(const FPalNetArchive& Blackboard, FPalItemSlotId& itemSlotId, int32& itemNum) {
 }
 
+bool UPalPlayerUtility::IsInRaidBossArea_ForLocalPlayer(const UObject* WorldContextObject) {
+    return false;
+}
+
+bool UPalPlayerUtility::CanDropOtomoPal_ForLocalPlayer(const UObject* WorldContextObject) {
+    return false;
+}
+
 

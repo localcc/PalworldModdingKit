@@ -11,6 +11,10 @@ UPalOtomoHolderComponentBase::UPalOtomoHolderComponentBase(const FObjectInitiali
     this->bReleaseContainerOnDestory = false;
 }
 
+bool UPalOtomoHolderComponentBase::TryRevivePlayerByPartnerSkill() {
+    return false;
+}
+
 UPalIndividualCharacterHandle* UPalOtomoHolderComponentBase::TryGetSpawnedOtomoHandle() const {
     return NULL;
 }

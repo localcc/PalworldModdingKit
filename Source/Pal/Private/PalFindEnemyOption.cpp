@@ -6,5 +6,7 @@ FPalFindEnemyOption::FPalFindEnemyOption() {
     this->bTargetNeutral = false;
     this->bTargetPlayer = false;
     this->bFilterByHateList = false;
+    this->bLineTrace = false;
+    this->TraceType = TraceTypeQuery1;
 }
 

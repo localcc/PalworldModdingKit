@@ -80,13 +80,16 @@ public:
 
 protected:
     UFUNCTION(BlueprintCallable)
-    void SetupForSpawnedMapObject(const FGuid& InstanceId, const FName CharacterID);
+    void SetupForSpawnedMapObject(APalMapObject* SpawnedMapObject, const FName CharacterID);
     
     UFUNCTION(BlueprintCallable)
     void OnWorldMapObjectSpawnable();
     
     UFUNCTION(BlueprintCallable)
     void OnSpawnedCharacterInServer(FPalInstanceID IndividualId);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnCreateMapObjectModel(const FGuid& InstanceId, const FName CharacterID);
     
     UFUNCTION(BlueprintCallable)
     void OnCreatedIndividual(FPalInstanceID IndividualId);

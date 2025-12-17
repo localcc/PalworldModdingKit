@@ -67,6 +67,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsArrived;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsOrganizationGroup;
+    
 public:
     UPalInvaderIncidentBase();
 private:
@@ -139,6 +142,10 @@ protected:
     
     UFUNCTION(BlueprintCallable)
     void AddGroupCharacter(UPalIndividualCharacterHandle* AddIndividualHandle, EPalCharacterLocationType LocationType);
+    
+private:
+    UFUNCTION(BlueprintCallable)
+    void AddCharacterLocation(const FPalInstanceID& IndividualId, EPalCharacterLocationType LocationType);
     
 };
 

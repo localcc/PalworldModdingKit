@@ -35,6 +35,12 @@ public:
     FGuid PlayerUId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, NotReplicated, meta=(AllowPrivateAccess=true))
+    FString OldPlayerName;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, NotReplicated, meta=(AllowPrivateAccess=true))
+    FString OldGuildName;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, NotReplicated, meta=(AllowPrivateAccess=true))
     TWeakObjectPtr<UPalIndividualCharacterParameter> PlayerIndividualParameter_InServer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, NotReplicated, meta=(AllowPrivateAccess=true))

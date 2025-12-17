@@ -11,6 +11,9 @@ void UPalQuestData::OnUpdatedQuestBlock_ServerInternal(UPalQuestBlock* UpdatedBl
 void UPalQuestData::OnRequestReturnBlock_ServerInternal(UPalQuestBlock* UpdatedBlock) {
 }
 
+void UPalQuestData::OnRep_QuestId() {
+}
+
 void UPalQuestData::OnRep_CurrentBlock() {
 }
 

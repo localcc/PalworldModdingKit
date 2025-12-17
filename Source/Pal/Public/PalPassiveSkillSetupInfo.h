@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "EPalTribeID.h"
 #include "PalPassivePartnerSkillItemParameter.h"
 #include "PalPassiveRegeneParameter.h"
 #include "PalPassiveSkillSetupInfo.generated.h"
@@ -19,6 +20,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalPassiveRegeneParameter RegeneParam;
+    
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalTribeID TribeId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IsPartnerSkill;
     
     PAL_API FPalPassiveSkillSetupInfo();
 };

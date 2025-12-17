@@ -25,11 +25,17 @@ public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void RequestCompleteQuest_ToServer(const FName& QuestId);
     
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void RefreshQuest_ForDebug();
+    
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void NotifyOrderedQuest_ToClient(const FName& QuestId);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void NotifyOpenSurvivalGuide_ToServer();
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void NotifyGetSkinRewardUI_ToClient(const FName& SkinName);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void NotifyCompleteQuest_ToClient(const FName& QuestId);

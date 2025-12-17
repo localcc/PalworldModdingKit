@@ -20,5 +20,7 @@ enum class EPalBattleBGMType : uint8 {
     RaidBoss_KingBahamut,
     RaidBoss_DarkMechaDragon,
     RaidBoss_MoonLord,
+    RaidBoss_LegendDeer,
+    RaidBoss_LegendDeer2,
 };
 

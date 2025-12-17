@@ -5,7 +5,7 @@ FPalOptionGraphicsSettings::FPalOptionGraphicsSettings() {
     this->WindowMode = EWindowMode::Fullscreen;
     this->bEnableVSync = false;
     this->bEnableMotionBlur = false;
-    this->AntiAliasingType = EAntiAliasingMethod::AAM_None;
+    this->AntiAliasingType = AAM_None;
     this->bEnableCameraShake = false;
     this->bEnableCameraRecoil = false;
     this->FOV = 0.00f;
@@ -23,7 +23,10 @@ FPalOptionGraphicsSettings::FPalOptionGraphicsSettings() {
     this->Brightness = 0.00f;
     this->bEnableAutoContrast = false;
     this->TextureQuality = 0;
-    this->DLSSMode = UDLSSMode::Off;
+    this->DLSSMode = EPalOptionUpscalingLevel::Off;
+    this->DLSSFrameGenerationMode = EPalDLSSGMode::Off;
+    this->DLSSGeneratedFrames = 0;
+    this->ReflexMode = EPalReflexMode::Off;
     this->MaxFPS = 0.00f;
     this->ScreenPercentage = 0;
     this->bArachnophobiaMode = false;

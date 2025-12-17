@@ -49,6 +49,9 @@ int32 UPalUIPalBoxBase::GetBoxMaxPageNum() {
 void UPalUIPalBoxBase::ChangePrevPagePalBoxList() {
 }
 
+void UPalUIPalBoxBase::ChangePageByDataIndex(int32 DataIndex) {
+}
+
 void UPalUIPalBoxBase::ChangeNextPagePalBoxList() {
 }
 

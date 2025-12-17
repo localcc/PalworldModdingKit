@@ -15,6 +15,12 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FPalMapObjectModelConnectInfo DownConnectInfo;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    FPalMapObjectModelConnectInfo DiagonalLeftConnectInfo;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    FPalMapObjectModelConnectInfo DiagonalRightConnectInfo;
+    
 public:
     UPalMapObjectModelConnectorStair();
 

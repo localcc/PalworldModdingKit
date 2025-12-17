@@ -73,6 +73,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPalStatusBase* GetExecutionStatus(EPalStatusID statusID);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    TArray<EPalStatusID> GetDisableAddStatusIDs() const;
+    
     UFUNCTION(BlueprintCallable)
     void BeginPlay();
     
@@ -82,6 +85,9 @@ public:
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void AddStatus_ToServer(EPalStatusID statusID, FStatusDynamicParameter Param, int32 issuerID);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void AddStatus_ToClient(EPalStatusID statusID, FStatusDynamicParameter Param);
     
 public:
     UFUNCTION(BlueprintCallable)

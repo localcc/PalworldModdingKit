@@ -9,6 +9,7 @@
 #include "PalBuildObjectCharacterTeamMissionPerformanceWaitData.h"
 #include "PalBuildObjectCharacterTeamMission.generated.h"
 
+class UPalCharacterVisualSkeletalMeshComponent;
 class USplineComponent;
 
 UCLASS(Blueprintable)
@@ -37,6 +38,10 @@ protected:
 public:
     APalBuildObjectCharacterTeamMission(const FObjectInitializer& ObjectInitializer);
 
+protected:
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnCreateAndInitTransformNewVisualEvent(UPalCharacterVisualSkeletalMeshComponent* NewVisualComponent);
+    
 private:
     UFUNCTION(BlueprintCallable)
     void OnChangedState_ServerInternal(const EPalMapObjectCharacterTeamMissionState LastMissionState, const EPalMapObjectCharacterTeamMissionState CurrentMissionState);

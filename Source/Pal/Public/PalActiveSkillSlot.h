@@ -73,6 +73,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsFarMinRange(int32 SlotId, AActor* TargetActor) const;
     
+    UFUNCTION(BlueprintPure)
+    bool IsCoolTimeFinish_ByWazaID(const EPalWazaID WazaID) const;
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsCoolTimeFinish(int32 SlotId) const;
     
@@ -89,6 +92,15 @@ public:
     TMap<int32, UPalActiveSkill*> GetSkillMap() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetMinRange(int32 SlotId) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetMiddleRange(int32 SlotId) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetMaxRange(int32 SlotId) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<int32> GetEnableSlotIDs() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -97,11 +109,14 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetCoolTime(int32 SlotId) const;
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetBackstepRange(int32 SlotId, AActor* TargetActor) const;
+    
     UFUNCTION(BlueprintPure)
     int32 FindSlotIndexByWazaID(EPalWazaID WazaID);
     
     UFUNCTION(BlueprintCallable)
-    int32 FindSlotIDForWildPal();
+    int32 FindSlotIDForWildPal(AActor* TargetActor);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 FindMostEffectiveSlotID(AActor* TargetActor) const;
@@ -110,7 +125,7 @@ public:
     int32 FindFarthestSlotID_IgnoreSlotID(int32 IgnoreID);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 ChoiceEnableSlotIDByRandom() const;
+    int32 ChoiceEnableSlotIDByRandom(AActor* TargetActor) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool CanUse(int32 SlotId, AActor* TargetActor) const;

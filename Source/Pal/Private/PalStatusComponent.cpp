@@ -33,6 +33,10 @@ UPalStatusBase* UPalStatusComponent::GetExecutionStatus(EPalStatusID statusID) {
     return NULL;
 }
 
+TArray<EPalStatusID> UPalStatusComponent::GetDisableAddStatusIDs() const {
+    return TArray<EPalStatusID>();
+}
+
 void UPalStatusComponent::BeginPlay() {
 }
 
@@ -40,6 +44,9 @@ void UPalStatusComponent::AddStatusParameter(EPalStatusID statusID, FStatusDynam
 }
 
 void UPalStatusComponent::AddStatus_ToServer_Implementation(EPalStatusID statusID, FStatusDynamicParameter Param, int32 issuerID) {
+}
+
+void UPalStatusComponent::AddStatus_ToClient_Implementation(EPalStatusID statusID, FStatusDynamicParameter Param) {
 }
 
 void UPalStatusComponent::AddStatus(EPalStatusID statusID) {

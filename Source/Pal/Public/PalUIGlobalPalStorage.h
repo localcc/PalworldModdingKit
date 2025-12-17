@@ -60,6 +60,9 @@ protected:
     void ImportGPSData(int32 ImportGPSDataIndex, int32 TargetSlotIndex, const FPalGlobalPalStorageImportOption& ImportOption);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void HandleExportSuccess(int32 ExportDataIndex);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void HandleExportFailed(EPalGlobalStorageExportResult Result, UPalIndividualCharacterSlot* TargetSlot, int32 ExportDataIndex, const FPalGlobalPalStorageExportOption& ExportOption);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

@@ -70,6 +70,9 @@ public:
     void ChangePrevPagePalBoxList();
     
     UFUNCTION(BlueprintCallable)
+    void ChangePageByDataIndex(int32 DataIndex);
+    
+    UFUNCTION(BlueprintCallable)
     void ChangeNextPagePalBoxList();
     
     UFUNCTION(BlueprintCallable)

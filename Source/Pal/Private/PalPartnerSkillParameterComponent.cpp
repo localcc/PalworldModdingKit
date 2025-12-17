@@ -10,6 +10,7 @@ UPalPartnerSkillParameterComponent::UPalPartnerSkillParameterComponent(const FOb
     this->bIsToggleKey = false;
     this->bIdlelCostDecreaseEveryFrame = false;
     this->bIsExecSkillContinuation = false;
+    this->bIsOneShotRideAction = false;
     this->bIsRunning = false;
     this->bIsOverheat = false;
     this->bIsExecuting = false;
@@ -83,9 +84,6 @@ void UPalPartnerSkillParameterComponent::OnExec() {
 }
 
 void UPalPartnerSkillParameterComponent::OnComplated() {
-}
-
-void UPalPartnerSkillParameterComponent::OnCachedPassiveSkillListDelegate(const FString& InOperation, const FName& InSkillName) {
 }
 
 void UPalPartnerSkillParameterComponent::OnActivatedAsWorker() {
@@ -203,10 +201,6 @@ FFixedPoint UPalPartnerSkillParameterComponent::GetCoolDownTime() const {
     return FFixedPoint{};
 }
 
-TArray<FName> UPalPartnerSkillParameterComponent::GetCachedPassiveSkillList() const {
-    return TArray<FName>();
-}
-
 float UPalPartnerSkillParameterComponent::GetActiveSkillMainValueByRank() const {
     return 0.0f;
 }
@@ -265,7 +259,6 @@ void UPalPartnerSkillParameterComponent::GetLifetimeReplicatedProps(TArray<FLife
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(UPalPartnerSkillParameterComponent, ResidentSkillModule);
-    DOREPLIFETIME(UPalPartnerSkillParameterComponent, CachedPassiveSkillList);
 }
 
 

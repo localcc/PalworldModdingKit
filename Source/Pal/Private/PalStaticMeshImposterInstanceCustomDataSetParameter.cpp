@@ -1,0 +1,5 @@
+#include "PalStaticMeshImposterInstanceCustomDataSetParameter.h"
+
+FPalStaticMeshImposterInstanceCustomDataSetParameter::FPalStaticMeshImposterInstanceCustomDataSetParameter() {
+}
+

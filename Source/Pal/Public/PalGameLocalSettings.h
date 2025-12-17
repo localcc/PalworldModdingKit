@@ -1,9 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
-#include "UDLSSMode.h"
 #include "SceneUtils.h"
+#include "EPalDLSSGMode.h"
 #include "EPalOptionGraphicsLevel.h"
+#include "EPalOptionUpscalingLevel.h"
+#include "EPalReflexMode.h"
 #include "PalOptionAudioSettings.h"
 #include "PalGameLocalSettings.generated.h"
 
@@ -33,10 +35,22 @@ public:
     TEnumAsByte<EAntiAliasingMethod> AntiAliasingType;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UDLSSMode DLSSMode;
+    EPalOptionUpscalingLevel DLSSMode;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalDLSSGMode DLSSFrameGenerationMode;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 DLSSGeneratedFrames;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalReflexMode ReflexMode;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 GraphicsCommonQuality;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 GraphicsLightQuality;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bAppliedSteamDeckSettings;

@@ -5,6 +5,7 @@
 #include "UObject/NoExportTypes.h"
 #include "Engine/EngineTypes.h"
 #include "EPalCharacterImportanceType.h"
+#include "EPalWazaID.h"
 #include "PalDeadInfo.h"
 #include "PalPathFollowingBlockDetectionParams.h"
 #include "Templates/SubclassOf.h"
@@ -174,6 +175,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsExistPathForLocation_ForBP(const FVector Location, const float AcceptanceRadius) const;
+    
+    UFUNCTION(BlueprintPure)
+    bool IsActiveSkillCooldownFinished(const EPalWazaID WazaID) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsActiveAI() const;

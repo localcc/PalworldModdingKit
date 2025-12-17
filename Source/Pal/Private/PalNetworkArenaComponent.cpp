@@ -60,6 +60,9 @@ void UPalNetworkArenaComponent::NotifyStartArena_ToClient_Implementation(const F
 void UPalNetworkArenaComponent::NotifySequenceEnd_ToServer_Implementation(const FGuid& ArenaInstanceId) {
 }
 
+void UPalNetworkArenaComponent::NotifyFailedStartArenaByOverConcurrentStageLimitationToClient_Implementation() {
+}
+
 void UPalNetworkArenaComponent::NotifyEndArenaSpectate_ToClient_Implementation() {
 }
 

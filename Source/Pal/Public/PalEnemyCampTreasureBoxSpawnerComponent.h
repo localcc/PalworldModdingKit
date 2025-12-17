@@ -8,12 +8,18 @@
 #include "PalMapObjectSpawnerTreasureBoxLotteryParameter.h"
 #include "PalEnemyCampTreasureBoxSpawnerComponent.generated.h"
 
+class UPalEnemyCampTreasureBoxSpawnerComponent;
 class UPalMapObjectModel;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class PAL_API UPalEnemyCampTreasureBoxSpawnerComponent : public UChildActorComponent {
     GENERATED_BODY()
 public:
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnOpenTreasureBoxDelegate, UPalEnemyCampTreasureBoxSpawnerComponent*, SelfComponent);
+    
+    UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnOpenTreasureBoxDelegate OnOpenTreasureBoxDelegate;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPalDataTableRowName_MapObjectData SpawnMapObjectId;

@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "EPalPassiveSkillEffectType.h"
+#include "EPalTribeID.h"
 #include "PalPassivePartnerSkillItemParameter.h"
 #include "PalPassiveSkillEffect.generated.h"
 
@@ -23,6 +24,15 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGuid PassiveId;
+    
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPalTribeID TribeId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IsPartnerSkill;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IsStackablePartnerSkillBySameTribe;
     
     PAL_API FPalPassiveSkillEffect();
 };

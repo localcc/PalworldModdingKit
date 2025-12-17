@@ -20,6 +20,9 @@ void UPalGroupGuildBase::OnReceivedWordFilteringResult(const FString& ResponseBo
 void UPalGroupGuildBase::OnDeletePlayerAccount_ServerInternal(UPalPlayerAccount* DeleteAccount) {
 }
 
+void UPalGroupGuildBase::OnBaseCampRaidStarted_ServerInternal(UPalBaseCampModuleRaidDetect* RaidDetectModule) {
+}
+
 bool UPalGroupGuildBase::IsWorkerCapacityLimited(int32 InLevel) const {
     return false;
 }
@@ -51,6 +54,7 @@ void UPalGroupGuildBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& O
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(UPalGroupGuildBase, MapObjectInstanceIds_BaseCampPoint);
+    DOREPLIFETIME(UPalGroupGuildBase, MapObjectInstanceIds_BaseCampPoint_Temporary);
     DOREPLIFETIME(UPalGroupGuildBase, BaseCampLevel);
     DOREPLIFETIME(UPalGroupGuildBase, GuildName);
     DOREPLIFETIME(UPalGroupGuildBase, LastGuildNameModifierPlayerUid);

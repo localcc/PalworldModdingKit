@@ -10,5 +10,6 @@ enum class EPalGroupType : uint8 {
     IndependentGuild,
     Guild,
     ResidentEnemy,
+    RaidBoss,
 };
 

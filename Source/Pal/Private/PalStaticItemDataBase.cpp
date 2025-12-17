@@ -8,9 +8,10 @@ UPalStaticItemDataBase::UPalStaticItemDataBase() {
     this->Rarity = 0;
     this->Price = 0;
     this->MaxStackCount = 0;
-    this->SortID = 0;
+    this->SortId = 0;
     this->DynamicItemDataClass = NULL;
     this->bNotConsumed = false;
+    this->bNotAvailableInPVP = false;
     this->DropItemType = EPalDropItemType::None;
     this->Weight = 0.00f;
     this->Durability = 0.00f;
