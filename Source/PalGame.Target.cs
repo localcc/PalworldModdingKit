@@ -9,6 +9,7 @@ public class PalGameTarget : TargetRules {
 
         ExtraModuleNames.AddRange(new string[] {
 			"Pal",
+			"PalModLoader",
 		});
 	}
 }
