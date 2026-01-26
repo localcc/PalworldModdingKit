@@ -306,6 +306,10 @@ bool UPalUtility::LotteryFloat(const float ProbabilityPercentage) {
 void UPalUtility::LoadIconToImage(const UObject* WorldContextObject, TSoftObjectPtr<UTexture2D> TexturePath, UImage* TargetImage, UPalUtility::FLoadIconToImageDelegate Callback) {
 }
 
+float UPalUtility::LineTraceToTargetDistance_ForReticleBlockOwner(AActor* SelfActor, AActor* Target) {
+    return 0.0f;
+}
+
 bool UPalUtility::LineTraceToTarget_ForAIAttack(AActor* SelfActor, AActor* Target, float Radius) {
     return false;
 }

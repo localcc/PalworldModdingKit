@@ -43,6 +43,18 @@ FGameplayTag UPalDefine::UILayerTag_Game() {
     return FGameplayTag{};
 }
 
+FName UPalDefine::UICancelActionName_Tab() {
+    return NAME_None;
+}
+
+FName UPalDefine::UICancelActionName_Esc() {
+    return NAME_None;
+}
+
+FName UPalDefine::UICancelActionName_Common() {
+    return NAME_None;
+}
+
 FName UPalDefine::TribeIDName_Human() {
     return NAME_None;
 }

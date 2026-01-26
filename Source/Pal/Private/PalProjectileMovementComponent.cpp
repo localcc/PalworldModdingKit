@@ -5,6 +5,10 @@ UPalProjectileMovementComponent::UPalProjectileMovementComponent(const FObjectIn
     this->HomingAngleLimit = 90.00f;
     this->bIgnoreHomingAngleLimitUntilEnteringAngleReached = false;
     this->bEnteringAngleReached = false;
+    this->HomingLocationSet = false;
+}
+
+void UPalProjectileMovementComponent::SetHomingLocation(const FVector TargetLocation) {
 }
 
 

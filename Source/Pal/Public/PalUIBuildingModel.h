@@ -93,7 +93,7 @@ public:
     bool CanChangeReplaceModeForBuildObject() const;
     
     UFUNCTION(BlueprintCallable)
-    void BuildObject(const bool bContinuously);
+    bool BuildObject(const bool bContinuously);
     
 };
 

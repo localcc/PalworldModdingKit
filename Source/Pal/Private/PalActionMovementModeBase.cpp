@@ -9,6 +9,7 @@ UPalActionMovementModeBase::UPalActionMovementModeBase() {
     this->BrakingDeceleration = 0.00f;
     this->Acceleration = 0.00f;
     this->MaxSpeed = 0.00f;
+    this->CurrentActionTimer = 0.00f;
 }
 
 void UPalActionMovementModeBase::SetMovementMode(TEnumAsByte<EMovementMode> NewMode, uint8 NewMovementMode) {
@@ -20,14 +21,16 @@ void UPalActionMovementModeBase::SetInterrupt(bool InInterrupt) {
 void UPalActionMovementModeBase::OnMovementModeChanged(UPalCharacterMovementComponent* Component, TEnumAsByte<EMovementMode> PrevMode, TEnumAsByte<EMovementMode> NewMode, EPalCharacterMovementCustomMode PrevCustomMode, EPalCharacterMovementCustomMode NewCustomMode) {
 }
 
-bool UPalActionMovementModeBase::MovingOnGround_Implementation() const {
+
+
+
+
+
+
+
+bool UPalActionMovementModeBase::IsMovingOnGround_Implementation() const {
     return false;
 }
-
-
-
-
-
 
 bool UPalActionMovementModeBase::IsInterrupt() const {
     return false;
@@ -62,6 +65,10 @@ UPalCharacterMovementComponent* UPalActionMovementModeBase::GetMovementComponent
 }
 
 float UPalActionMovementModeBase::GetMaxSpeed() const {
+    return 0.0f;
+}
+
+float UPalActionMovementModeBase::GetCurrentActionTimer() const {
     return 0.0f;
 }
 

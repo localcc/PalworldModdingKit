@@ -40,6 +40,10 @@ bool UPalActiveSkillSlot::IsTransient(int32 SlotId) const {
     return false;
 }
 
+bool UPalActiveSkillSlot::IsNearMaxRange_PawnTrace(int32 SlotId, AActor* TargetActor) const {
+    return false;
+}
+
 bool UPalActiveSkillSlot::IsNearMaxRange_AndRayCheck(int32 SlotId, AActor* TargetActor) const {
     return false;
 }

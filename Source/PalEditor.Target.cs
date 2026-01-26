@@ -9,6 +9,7 @@ public class PalEditorTarget : TargetRules {
 
         ExtraModuleNames.AddRange(new string[] {
 			"Pal",
+			"PalModLoader",
 		});
 	}
 }

@@ -11,7 +11,7 @@ enum class EPalStatusID : uint8 {
     DrownCheck,
     Poison,
     UNKOTimer,
-    Stan,
+    Stun,
     Coma,
     Sleep,
     Overwork,
