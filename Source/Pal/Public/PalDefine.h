@@ -40,6 +40,15 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FGameplayTag UILayerTag_Game();
     
+    UFUNCTION(BlueprintCallable)
+    static FName UICancelActionName_Tab();
+    
+    UFUNCTION(BlueprintCallable)
+    static FName UICancelActionName_Esc();
+    
+    UFUNCTION(BlueprintCallable)
+    static FName UICancelActionName_Common();
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName TribeIDName_Human();
     

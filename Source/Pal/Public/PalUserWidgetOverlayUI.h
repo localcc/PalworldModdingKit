@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "Engine/EngineBaseTypes.h"
 #include "Blueprint/UserWidget.h"
+#include "EPalOverlayUICancelActionType.h"
 #include "PalUIActionBindData.h"
 #include "PalUserWidgetStackableUI.h"
 #include "PalUserWidgetOverlayUI.generated.h"
@@ -28,6 +29,9 @@ public:
     UPalUserWidgetOverlayUI();
     UFUNCTION(BlueprintCallable)
     void ResetCancelAction();
+    
+    UFUNCTION(BlueprintCallable)
+    void OverrideCancelActionByType(EPalOverlayUICancelActionType CancelActionType, bool IsDisplayActionBar, TEnumAsByte<EInputEvent> InputType, FOnInputAction Callback);
     
     UFUNCTION(BlueprintCallable)
     void OverrideCancelAction(bool IsDisplayActionBar, TEnumAsByte<EInputEvent> InputType, FOnInputAction Callback);

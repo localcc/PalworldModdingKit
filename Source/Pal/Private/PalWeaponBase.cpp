@@ -111,6 +111,10 @@ void APalWeaponBase::OnStartAim_Implementation() {
 
 
 
+void APalWeaponBase::OnPullCancel_Implementation() {
+}
+
+
 void APalWeaponBase::OnEndAim_Implementation() {
 }
 

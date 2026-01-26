@@ -471,6 +471,9 @@ public:
     static void LoadIconToImage(const UObject* WorldContextObject, TSoftObjectPtr<UTexture2D> TexturePath, UImage* TargetImage, UPalUtility::FLoadIconToImageDelegate Callback);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    static float LineTraceToTargetDistance_ForReticleBlockOwner(AActor* SelfActor, AActor* Target);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool LineTraceToTarget_ForAIAttack(AActor* SelfActor, AActor* Target, float Radius);
     
     UFUNCTION(BlueprintCallable)

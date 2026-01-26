@@ -341,7 +341,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPullTrigger();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnPullCancel();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

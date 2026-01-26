@@ -690,6 +690,9 @@ public:
     void RandomizePassive_PlayerWeapon();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void RaidBossArea_SurrenderLocalPlayer();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void PrintWorkLog();
     
     UFUNCTION(BlueprintCallable, Exec)

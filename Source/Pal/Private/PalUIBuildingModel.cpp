@@ -87,7 +87,8 @@ bool UPalUIBuildingModel::CanChangeReplaceModeForBuildObject() const {
     return false;
 }
 
-void UPalUIBuildingModel::BuildObject(const bool bContinuously) {
+bool UPalUIBuildingModel::BuildObject(const bool bContinuously) {
+    return false;
 }
 
 

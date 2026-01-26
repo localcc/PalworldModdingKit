@@ -623,6 +623,9 @@ void UPalCheatManager::RefreshQuestData() {
 void UPalCheatManager::RandomizePassive_PlayerWeapon() {
 }
 
+void UPalCheatManager::RaidBossArea_SurrenderLocalPlayer() {
+}
+
 void UPalCheatManager::PrintWorkLog() {
 }
 

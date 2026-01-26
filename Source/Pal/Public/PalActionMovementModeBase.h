@@ -39,6 +39,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MaxSpeed;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float CurrentActionTimer;
+    
 public:
     UPalActionMovementModeBase();
 
@@ -50,9 +53,6 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void OnMovementModeChanged(UPalCharacterMovementComponent* Component, TEnumAsByte<EMovementMode> PrevMode, TEnumAsByte<EMovementMode> NewMode, EPalCharacterMovementCustomMode PrevCustomMode, EPalCharacterMovementCustomMode NewCustomMode);
-    
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
-    bool MovingOnGround() const;
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void K2_OnMovementModeChanged(UPalCharacterMovementComponent* Component, EMovementMode PrevMode, EMovementMode NewMode, EPalCharacterMovementCustomMode PrevCustomMode, EPalCharacterMovementCustomMode NewCustomMode);
@@ -74,6 +74,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void K2_Async_BeginMovementMode();
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
+    bool IsMovingOnGround() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInterrupt() const;
@@ -101,6 +104,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetMaxSpeed() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetCurrentActionTimer() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetBrakingDeceleration() const;

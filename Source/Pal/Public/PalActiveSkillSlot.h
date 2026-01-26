@@ -65,6 +65,9 @@ public:
     bool IsTransient(int32 SlotId) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsNearMaxRange_PawnTrace(int32 SlotId, AActor* TargetActor) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsNearMaxRange_AndRayCheck(int32 SlotId, AActor* TargetActor) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

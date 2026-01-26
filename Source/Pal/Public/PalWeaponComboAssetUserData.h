@@ -11,6 +11,9 @@ public:
     TMap<FName, int32> StaminaConsumeMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bAllowOveruseStamina;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bCanUseInOverheat;
     
     UPalWeaponComboAssetUserData();

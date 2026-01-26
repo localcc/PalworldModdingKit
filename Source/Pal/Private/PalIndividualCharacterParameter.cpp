@@ -659,6 +659,7 @@ void UPalIndividualCharacterParameter::GetLifetimeReplicatedProps(TArray<FLifeti
     DOREPLIFETIME(UPalIndividualCharacterParameter, LastRespawnTime);
     DOREPLIFETIME(UPalIndividualCharacterParameter, bDeathAppliedOnLogin);
     DOREPLIFETIME(UPalIndividualCharacterParameter, Debug_CurrentAIActionName);
+    DOREPLIFETIME(UPalIndividualCharacterParameter, Debug_CurrentActionName);
 }
 
 
