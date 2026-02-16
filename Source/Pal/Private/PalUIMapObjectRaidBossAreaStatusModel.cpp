@@ -16,6 +16,10 @@ bool UPalUIMapObjectRaidBossAreaStatusModel::IsRaidAreaActive() const {
     return false;
 }
 
+bool UPalUIMapObjectRaidBossAreaStatusModel::IsExistBoundInstanceModel() const {
+    return false;
+}
+
 bool UPalUIMapObjectRaidBossAreaStatusModel::HasValidPhaseTime() const {
     return false;
 }

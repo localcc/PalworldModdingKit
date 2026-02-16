@@ -142,7 +142,7 @@ void UPalShooterComponent::ResetOverrideRotationFlags() {
 void UPalShooterComponent::ReloadWeaponInternal() {
 }
 
-void UPalShooterComponent::ReloadWeaponImmediate_ToServer_Implementation(int32 consumeBulletNum, UPalDynamicWeaponItemDataBase* DynamicData) {
+void UPalShooterComponent::ReloadWeaponImmediate_ToServer_Implementation(int32 consumeBulletNum, UPalDynamicWeaponItemDataBase* dynamicData) {
 }
 
 void UPalShooterComponent::ReloadWeapon_ToServer_Implementation(int32 ID) {

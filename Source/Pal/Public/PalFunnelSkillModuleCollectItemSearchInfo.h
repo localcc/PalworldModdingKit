@@ -16,6 +16,18 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ElapsedTime;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bPendingPathRequest;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float NextRequestTime;
+    
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint32 RequestNonce;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FVector LastQueryTargetLocation;
+    
     PAL_API FPalFunnelSkillModuleCollectItemSearchInfo();
 };
 

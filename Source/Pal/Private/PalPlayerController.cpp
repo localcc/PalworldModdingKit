@@ -69,6 +69,12 @@ void APalPlayerController::ShooterComponent_StopReload_ToServer_Implementation(U
 void APalPlayerController::ShooterComponent_SetTargetDirection_ToServer_Implementation(UPalShooterComponent* Shooter, FVector targetDirection) {
 }
 
+void APalPlayerController::ShooterComponent_SetReloadStartRemainingBullets_ToServer_Implementation(UPalShooterComponent* Shooter, int32 bulletNum) {
+}
+
+void APalPlayerController::ShooterComponent_ReloadWeaponImmediate_ToServer_Implementation(UPalShooterComponent* Shooter, int32 consumeBulletNum, UPalDynamicWeaponItemDataBase* dynamicData) {
+}
+
 void APalPlayerController::ShooterComponent_ReloadWeapon_ToServer_Implementation(UPalShooterComponent* Shooter, int32 ID) {
 }
 
@@ -404,6 +410,9 @@ void APalPlayerController::NotifyLiftupCampPal_ToClient_Implementation(APalChara
 }
 
 void APalPlayerController::NotifyImportGlobalPalStorageDataResult_ToClient_Implementation(EPalGlobalStorageImportResult ImportResult, const FPalGlobalPalStorageImportResultAdditionalData& AdditionalData) {
+}
+
+void APalPlayerController::NotifyFailedStartRaidByOverConcurrentStageLimitation_ToClient_Implementation() {
 }
 
 void APalPlayerController::NotifyConfirmRequestGuild_ToServer_Implementation(const FGuid& FlowUniqueId, const bool bResponse) {

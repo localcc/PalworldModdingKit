@@ -319,11 +319,9 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetRequestAiming(EPalShooterFlagContainerPriority Priority, bool IsRequest);
     
-private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void SetReloadStartRemainingBullets_ToServer(int32 bulletNum);
     
-public:
     UFUNCTION(BlueprintCallable)
     void SetOverrideWeaponType(EPalWeaponType Type);
     
@@ -384,7 +382,7 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void ReloadWeaponImmediate_ToServer(int32 consumeBulletNum, UPalDynamicWeaponItemDataBase* DynamicData);
+    void ReloadWeaponImmediate_ToServer(int32 consumeBulletNum, UPalDynamicWeaponItemDataBase* dynamicData);
     
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)

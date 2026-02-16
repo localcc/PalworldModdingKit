@@ -2,6 +2,6 @@
 
 FPalItemData::FPalItemData() {
     this->StaticData = NULL;
-    this->DynamicData = NULL;
+    this->dynamicData = NULL;
 }
 

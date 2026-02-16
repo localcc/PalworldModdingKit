@@ -813,6 +813,9 @@ public:
     void ManyUNKO();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void LogStages();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void LoginNative();
     
     UFUNCTION(BlueprintCallable, Exec)

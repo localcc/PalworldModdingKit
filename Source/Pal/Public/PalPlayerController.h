@@ -303,6 +303,12 @@ public:
     void ShooterComponent_SetTargetDirection_ToServer(UPalShooterComponent* Shooter, FVector targetDirection);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
+    void ShooterComponent_SetReloadStartRemainingBullets_ToServer(UPalShooterComponent* Shooter, int32 bulletNum);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void ShooterComponent_ReloadWeaponImmediate_ToServer(UPalShooterComponent* Shooter, int32 consumeBulletNum, UPalDynamicWeaponItemDataBase* dynamicData);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void ShooterComponent_ReloadWeapon_ToServer(UPalShooterComponent* Shooter, int32 ID);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
@@ -720,6 +726,9 @@ private:
 public:
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void NotifyImportGlobalPalStorageDataResult_ToClient(EPalGlobalStorageImportResult ImportResult, const FPalGlobalPalStorageImportResultAdditionalData& AdditionalData);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void NotifyFailedStartRaidByOverConcurrentStageLimitation_ToClient();
     
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
