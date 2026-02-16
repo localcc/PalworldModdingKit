@@ -6,6 +6,7 @@ UENUM(BlueprintType)
 enum class EPalRaidBossBattleStartRequestResult : uint8 {
     FailedNotValidBaseCampId,
     FailedAlreadyStarted,
+    Failed_OverConcurrentStageLimitation,
     Success,
 };
 

@@ -1,7 +1,7 @@
 #include "PalLoadoutSummonData.h"
 
 FPalLoadoutSummonData::FPalLoadoutSummonData() {
-    this->DynamicData = NULL;
+    this->dynamicData = NULL;
     this->SummonNum = 0;
 }
 

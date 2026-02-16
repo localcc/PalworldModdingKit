@@ -13,7 +13,7 @@ public:
     UPalStaticItemDataBase* StaticData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UPalDynamicItemDataBase* DynamicData;
+    UPalDynamicItemDataBase* dynamicData;
     
     PAL_API FPalItemData();
 };

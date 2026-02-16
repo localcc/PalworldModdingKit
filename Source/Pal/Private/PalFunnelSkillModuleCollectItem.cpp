@@ -1,7 +1,13 @@
 #include "PalFunnelSkillModuleCollectItem.h"
 
 UPalFunnelSkillModuleCollectItem::UPalFunnelSkillModuleCollectItem() {
+    this->bUseParallelSearch = false;
+    this->SearchInterval = 0.10f;
     this->bShouldSetSkillAction = false;
+    this->SearchIntervalElapsed = 0.00f;
+    this->bObservePendingPathRequest = false;
+    this->ObserveNextRequestTime = 0.00f;
+    this->ObserveRequestNonce = 0;
 }
 
 void UPalFunnelSkillModuleCollectItem::SearchCollectableItem(float DeltaTime) {

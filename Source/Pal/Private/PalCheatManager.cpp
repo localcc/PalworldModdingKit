@@ -734,6 +734,9 @@ void UPalCheatManager::MutekiALL() {
 void UPalCheatManager::ManyUNKO() {
 }
 
+void UPalCheatManager::LogStages() {
+}
+
 void UPalCheatManager::LoginNative() {
 }
 

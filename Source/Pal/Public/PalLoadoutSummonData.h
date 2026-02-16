@@ -9,7 +9,7 @@ struct FPalLoadoutSummonData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UPalDynamicItemDataBase* DynamicData;
+    UPalDynamicItemDataBase* dynamicData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 SummonNum;

@@ -37,6 +37,9 @@ public:
     bool IsRaidAreaActive() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsExistBoundInstanceModel() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasValidPhaseTime() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
